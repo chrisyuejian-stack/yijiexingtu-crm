@@ -1,0 +1,35 @@
+{
+  "node": "24.22.3",
+  "merged_base": "5162f8a",
+  "checks": {
+    "platform": {
+      "tests": 50,
+      "pass": 50,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "targeted": {
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "browser_components_passed": 11,
+    "built_workflow_passed": true,
+    "pdf": {
+      "pages": 4,
+      "format": "A4",
+      "qr_images": 1,
+      "visually_checked_pages": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "console_html_asset_hashes_checked": 3
+  },
+  "note": "This follow-up reran targeted frontend tests and platform tests; full 611-test baseline was independently confirmed by the user before these two UI edge fixes."
+}

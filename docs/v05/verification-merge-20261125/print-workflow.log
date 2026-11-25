@@ -1,0 +1,3 @@
+PASS Real export preview → Chromium A4 PDF: QR img=1, loaded 198px fixture, /workspace/yijiexingtu-crm/work/merge-check-20261125/print/plan-print.pdf
+PASS Built v2 workflow: platform sample → explicit manual conversion → create 201 → save 200 → reference menu retained → Escape keeps editor → hash cleanup (390px).
+No live cloud services or production data. SQLite/R2/auth are disposable local fixtures.

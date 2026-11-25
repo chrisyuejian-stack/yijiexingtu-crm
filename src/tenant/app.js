@@ -1294,7 +1294,7 @@ function shell() {
   }
   vHead.refresh = () => refreshCounts();
   globalThis.addEventListener?.("hashchange", () => {
-    yxDisposeEditors();
+    if (typeof yxDisposeEditors === "function") yxDisposeEditors();
     const hash = globalThis.location?.hash?.slice(1) || "today";
     if (/^[A-Za-z0-9-]+$/.test(hash)) void render(hash);
   });

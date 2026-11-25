@@ -216,7 +216,9 @@ function yxp2Kit(locked, mark) {
   const ops = (arr, i, rerender, extra = [], beforeDelete = () => true) => {
     const r = el("div", null, { class: "yxp2-ops" });
     if (locked) return r;
-    const go = (fn) => () => (fn(), mark(), rerender());
+    const go = (fn) => () => {
+      if (fn() !== false) { mark(); rerender(); }
+    };
     r.append(
       ...extra,
       button("↑", go(() => i > 0 && ([arr[i - 1], arr[i]] = [arr[i], arr[i - 1]]))),

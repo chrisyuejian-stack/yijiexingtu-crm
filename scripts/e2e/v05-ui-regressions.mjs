@@ -94,21 +94,21 @@ try {
   });
   await check('手填教学周数可填写说明；删除阶段清理引用且有课程时拒绝', async () => {
     await page.evaluate(() => {
-      window.st = { doc: structuredClone(model), types: [] };
+      window.st = { doc: structuredClone(model), types: [], marks: 0, draws: 0 };
       st.doc.modules.path.stages = [{ key: 'stage_a', name: '阶段甲', start_month: null, end_month: null, teaching_weeks: null, weeks_note: '', goals: [], nodes: [] }];
       st.doc.modules.courses.groups = [{ id: 'g', stage_key: 'stage_a' }];
       st.doc.modules.courses.stage_settings = [{ stage_key: 'stage_a', pending: true }];
       st.doc.modules.fees.due_dates = { stage_a: '2027-01-01' };
       st.doc.modules.fees.stage_extras = [{ stage_key: 'stage_a' }];
       st.doc.modules.fees.custom = [{ stage_key: 'stage_a' }];
-      const draw = () => { document.body.replaceChildren(); yxp2Mod.path(document.body, st, yxp2Kit(false, () => {}), false, () => {}, draw); }; draw();
+      const draw = () => { st.draws++; document.body.replaceChildren(); yxp2Mod.path(document.body, st, yxp2Kit(false, () => st.marks++), false, () => st.marks++, draw); }; draw();
     });
     await page.getByLabel('教学周数（可空）', { exact: true }).fill('20');
     await page.getByLabel('教学周数说明（手填周数时必填）').fill('排除假期');
     assert.equal(await page.evaluate(() => st.doc.modules.path.stages[0].weeks_note), '排除假期');
-    await page.evaluate(() => st.doc.modules.courses.lines.push({ stage_key: 'stage_a' }));
+    await page.evaluate(() => { st.doc.modules.courses.lines.push({ stage_key: 'stage_a' }); st.marks = 0; st.draws = 0; });
     await page.getByRole('button', { name: '删除', exact: true }).click();
-    assert.equal(await page.evaluate(() => st.doc.modules.path.stages.length), 1);
+    assert.deepEqual(await page.evaluate(() => [st.doc.modules.path.stages.length, st.marks, st.draws]), [1, 0, 0]);
     await page.evaluate(() => st.doc.modules.courses.lines = []);
     await page.getByRole('button', { name: '删除', exact: true }).click();
     assert.deepEqual(await page.evaluate(() => [st.doc.modules.path.stages.length, st.doc.modules.courses.groups.length, st.doc.modules.courses.stage_settings.length, Object.keys(st.doc.modules.fees.due_dates).length, st.doc.modules.fees.stage_extras[0].stage_key, st.doc.modules.fees.custom[0].stage_key]), [0, 0, 0, 0, null, null]);

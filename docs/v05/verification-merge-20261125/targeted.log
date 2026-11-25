@@ -1,0 +1,12 @@
+✔ YXF 根地址：/ 转到 /login；/login 与 /app 给前端外壳（基础路径 /），未知路径仍 404 (1121.310298ms)
+✔ YXF 根会话的 me 带机构代号，供前端取品牌；机构路径的 me 同样带 (431.342663ms)
+✔ YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，并已进入机构端打包 (25.698422ms)
+✔ YXF 旧壳无 yx.js 时 hash 导航仍可渲染；有清理函数时先清理再渲染 (4.259591ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1757.623949

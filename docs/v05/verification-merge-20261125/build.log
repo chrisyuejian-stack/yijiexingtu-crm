@@ -1,0 +1,13 @@
+
+> yijiexingtu-crm@0.5.0 build
+> node scripts/build.mjs
+
+Pages 包已生成：dist/
+定时备份 Worker 已生成：backup-dist/backup-worker.js
+生产JS已压缩与变量名混淆，无source map；构建工具离线可复现。
+静态文件已加版本号。
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

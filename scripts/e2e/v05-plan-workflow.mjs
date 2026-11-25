@@ -2,11 +2,13 @@
 // npm run build && TEST_BUNDLE=1 node scripts/e2e/v05-plan-workflow.mjs
 import { chromium, expect } from '@playwright/test';
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 process.env.TEST_BUNDLE = '1';
 const { school, call, ok } = await import('../../tests/fixtures-plans.mjs');
 const { ops } = await import('../../tests/fixtures-platform.mjs');
+const { writeDoc } = await import('../../tests/fixtures-v2.mjs');
 await school(async s => {
   const old = ok(await ops(s.f, 'subject-packs')).items.find(x => x.key === 'music_interest').versions.find(x => x.pack_version === '0.1');
   const sample = JSON.parse(await readFile('docs/v05/examples/platform-sample.json', 'utf8'));
@@ -16,6 +18,15 @@ await school(async s => {
   ok(await ops(s.f, 'subject-packs/' + pack.key + '/versions/' + pack.pack_version + '/publish', 'POST', { version: pack.version }));
   ok(await call(s, 'settings/subjects', 'POST', { key: 'music_interest' }));
   const template = ok(await call(s, 'plan-templates?origin=platform')).items[0];
+  if (process.env.V05_PRINT_DIR) {
+    const form = new FormData();
+    form.set('file', new Blob([await readFile('tests/assets/promo-qr-a.png')], {type:'image/png'}), 'consultation-qr.png');
+    form.set('tags', '[]');
+    const uploaded = await s.f.request('https://school.test/' + s.t.slug + '/api/gallery', {method:'POST',headers:{Origin:'https://school.test',Cookie:'channel_session=' + s.token},body:form});
+    assert.equal(uploaded.status, 201);
+    const image = await uploaded.json(), brand = ok(await call(s, 'settings/brand'));
+    ok(await call(s, 'settings/brand', 'PATCH', {version:brand.version,qr_image_id:image.id}));
+  }
   const server = createServer(async (req, res) => {
     try {
       const chunks = []; for await (const chunk of req) chunks.push(chunk);
@@ -62,6 +73,35 @@ await school(async s => {
     await editor.getByRole('button', { name: '更多', exact: true }).click();
     await expect(page.getByRole('button', { name: '标为优秀方案（供 AI 参考）', exact: true })).toBeVisible();
     await page.keyboard.press('Escape'); await expect(editor).toBeVisible();
+    if (process.env.V05_PRINT_DIR) {
+      // The portable sample intentionally contains an unpriced manual workshop.
+      // Confirm prices through the regular API before the separate print smoke test.
+      const current = ok(await call(s, 'plans/' + p.id)), priced = writeDoc(current);
+      for (const line of priced.modules.courses.lines) if (line.pricing_source === 'manual') {
+        line.manual_unit_price = 200;
+        line.price_tbd = false;
+      }
+      ok(await call(s, 'plans/' + p.id, 'PUT', {version:current.version,doc:priced}));
+      const checks = ok(await call(s, 'plans/' + p.id + '/check'));
+      assert.deepEqual(checks.blocking, []);
+      await page.reload();
+      await page.getByRole('button').filter({hasText:'浏览器真实方案回归'}).click();
+      await expect(editor.getByRole('button',{name:'导出 PDF',exact:true})).toBeVisible();
+      await editor.getByRole('button', {name:'导出 PDF',exact:true}).click();
+      const ack = page.getByRole('dialog').filter({has:page.getByText('确认非价目表课程的价格',{exact:true})});
+      await ack.getByRole('button', {name:'确认',exact:true}).click();
+      const preview = page.locator('.yxp-print-root');
+      await expect(preview).toBeVisible();
+      await expect(preview.getByAltText('咨询二维码')).toHaveCount(1);
+      await expect(preview.getByAltText('咨询二维码')).toHaveJSProperty('naturalWidth', 198);
+      const out = resolve(process.env.V05_PRINT_DIR);
+      await mkdir(out,{recursive:true});
+      await page.getByRole('button',{name:'打印 / 存为 PDF',exact:true}).click();
+      await page.pdf({path:out+'/plan-print.pdf',format:'A4',printBackground:true,preferCSSPageSize:true});
+      await page.screenshot({path:out+'/print-preview-390.png',fullPage:true});
+      console.log('PASS Real export preview → Chromium A4 PDF: QR img=1, loaded 198px fixture, '+out+'/plan-print.pdf');
+      await page.getByRole('button',{name:'‹ 关闭预览',exact:true}).click();
+    }
     await page.evaluate(() => { location.hash = 'today'; });
     await expect(editor).toHaveCount(0);
     assert.deepEqual(errors, []);

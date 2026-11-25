@@ -1,5 +1,6 @@
 // 阶段 2 前端接入（Claude）：根地址页面路由、me 的机构代号、前端源码安全约束。
 import test from 'node:test';
+import {runInNewContext} from 'node:vm';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { fixture } from './support.mjs';
@@ -72,4 +73,22 @@ test('YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，�
   assert.ok(assets.css.includes('.yx-login'));
   const consoleSource = await readFile('src/console/app.js', 'utf8');
   assert.ok(consoleSource.includes('async function yxOpsPanel('));
+});
+
+
+test('YXF 旧壳无 yx.js 时 hash 导航仍可渲染；有清理函数时先清理再渲染', async () => {
+  const source = await readFile('src/tenant/app.js', 'utf8');
+  const start = source.indexOf('globalThis.addEventListener?.("hashchange", () => {');
+  assert.ok(start >= 0);
+  const end = source.indexOf('\n  });', start);
+  assert.ok(end > start);
+  const code = source.slice(start, end + '\n  });'.length);
+  for (const withCleanup of [false, true]) {
+    const calls = []; let handler;
+    const context = { globalThis: { location: { hash: '#yx-plans' }, addEventListener(name, fn) { assert.equal(name, 'hashchange'); handler = fn; } }, render(hash) { calls.push(hash); } };
+    if (withCleanup) context.yxDisposeEditors = () => calls.push('cleanup');
+    runInNewContext(code, context);
+    assert.doesNotThrow(() => handler());
+    assert.deepEqual(calls, withCleanup ? ['cleanup', 'yx-plans'] : ['yx-plans']);
+  }
 });

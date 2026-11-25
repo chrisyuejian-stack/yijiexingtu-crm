@@ -1,0 +1,16 @@
+{
+  "dist/_routes.json": "1301eaf7b0e8272b5bb4575abcfbd2cffde53af2c6ea4d77a5ec78919a5a2daa",
+  "dist/_worker.js": "1eeb7e15ea57abafc4d8623c6dc51473f12508c2459fce65ab0f338263aecd16",
+  "dist/assets/tenant.css": "4ac1d78972d00f902fb7fa074c64ac6b76b2a22266ec2c5840c4c3597a11b546",
+  "dist/assets/tenant.js": "64e57b6b3cf1c29b3e61c61f5e0cab7e81929587e5232966480d4adc78c2eed3",
+  "dist/console-assets/console.css": "f9505264b8faf1298ba2ce22473e09177b46fdf5b91183119ffcb75da6aa6457",
+  "dist/console-assets/console.js": "69ed64d22fdd6c5d712fd2fe0e1194df37b71dce77e2711d0985f51043dc58ac",
+  "dist/console-assets/pinyin-pro.LICENSE": "824f6069c5a59b0c1650d0fb9f8d091866c6019eb761c8e658dfc03f001eabd2",
+  "dist/console-assets/pinyin-pro.js": "373ffe7d919483f881d3072a370f764c76ec6d6480e50cb87d6fd524e9386bac",
+  "dist/console.html": "3d09cd3c12ceeead226dc60c1afeb1c2dcad7d0a17a510d4e5bf4d5ab8431b68",
+  "dist/index.html": "142a46786df3e317318d7bc6860e120c53db34184097258a4b63ccaba1fb2be4",
+  "dist/share/index.html": "8a54a6a193fb35878a4ca3210fc79dcdaf57dc963c7a27cd2911917619e24f7c",
+  "dist/tenant.html": "942f9711d079f5d3468e90e6c75799f55ceecc7d13aecac46f9c7ffe9e7309f0",
+  "backup-dist/backup-worker.js": "28561583aef8450921fdca957664934cdbfe587342c7fe21fd9e68445d83aa9b",
+  "backup-dist/build-report.json": "cd8ae44fed4c4698b9cbeaa0dc3117659fb0b8553032e1ef5a7798c67efcd934"
+}
