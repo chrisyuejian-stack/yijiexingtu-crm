@@ -1,0 +1,1830 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ops/subject-packs",
+    "body": null,
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "key": "art_exam",
+          "name": "美术艺考",
+          "current_published_version": "0.1",
+          "versions": [
+            {
+              "key": "art_exam",
+              "name": "美术艺考",
+              "pack_version": "0.1",
+              "version": 1,
+              "status": "published",
+              "content": {
+                "courses": [
+                  {
+                    "group": "统考科目",
+                    "name": "素描（石膏 / 头像 / 静物）",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天 / 全天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_417e18194164"
+                  },
+                  {
+                    "group": "统考科目",
+                    "name": "色彩（静物 / 风景）",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天 / 全天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_19e7e2a9944c"
+                  },
+                  {
+                    "group": "统考科目",
+                    "name": "速写（人物）",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天 / 全天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_c6ebe9801450"
+                  },
+                  {
+                    "group": "校考科目",
+                    "name": "设计基础",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_06f5ace27bd5"
+                  },
+                  {
+                    "group": "校考科目",
+                    "name": "创作",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_685ad5410207"
+                  },
+                  {
+                    "group": "校考科目",
+                    "name": "校考专项",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_1c9ea10e0cf7"
+                  },
+                  {
+                    "group": "应试",
+                    "name": "模拟考",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_7ca0401862d1"
+                  },
+                  {
+                    "group": "应试",
+                    "name": "限时训练",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_13aa3a5337ad"
+                  },
+                  {
+                    "group": "应试",
+                    "name": "评画讲评",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "半天",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_78be6461bb48"
+                  },
+                  {
+                    "group": "基础期",
+                    "name": "周末基础班",
+                    "form": "group",
+                    "minutes": 240,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_6709ddaa840b"
+                  },
+                  {
+                    "group": "集训",
+                    "name": "暑期集训",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期 / 按月",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_44e924afbe23"
+                  },
+                  {
+                    "group": "集训",
+                    "name": "统考冲刺集训",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期 / 按月",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_f631ae25bbf1"
+                  },
+                  {
+                    "group": "集训",
+                    "name": "校考集训",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期 / 按月",
+                    "pricing": null,
+                    "active": true,
+                    "optional": false,
+                    "key": "c_678bacb2e341"
+                  },
+                  {
+                    "group": "可选费用",
+                    "name": "住宿",
+                    "form": "package",
+                    "minutes": null,
+                    "duration_text": "自选",
+                    "pricing": null,
+                    "active": true,
+                    "optional": true,
+                    "key": "c_76a1fe496566"
+                  },
+                  {
+                    "group": "可选费用",
+                    "name": "画材",
+                    "form": "package",
+                    "minutes": null,
+                    "duration_text": "自选",
+                    "pricing": null,
+                    "active": true,
+                    "optional": true,
+                    "key": "c_2a077b4cdebf"
+                  }
+                ],
+                "stages": [
+                  {
+                    "name": "周末基础",
+                    "default_months": {
+                      "min": 1,
+                      "max": 12
+                    },
+                    "anchor": "start",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_238d02cf2cee"
+                  },
+                  {
+                    "name": "暑期集训",
+                    "default_months": {
+                      "min": 2,
+                      "max": 2
+                    },
+                    "anchor": "on_node",
+                    "anchor_node": "summer_camp",
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_44e924afbe23"
+                  },
+                  {
+                    "name": "统考冲刺",
+                    "default_months": {
+                      "min": 3,
+                      "max": 4
+                    },
+                    "anchor": "before_node",
+                    "anchor_node": "unified_exam",
+                    "offset_months": -3,
+                    "active": true,
+                    "key": "s_9e2ee2d053b1"
+                  },
+                  {
+                    "name": "校考集训",
+                    "default_months": {
+                      "min": 1,
+                      "max": 3
+                    },
+                    "anchor": "on_node",
+                    "anchor_node": "school_exam",
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_678bacb2e341"
+                  }
+                ],
+                "rules": {
+                  "exam_sprint_before_grade": false,
+                  "insert_holiday_camp": true,
+                  "art_exam_end_after_school_exam": true,
+                  "art_transition_stage": false,
+                  "mock_exam_schedule": true
+                },
+                "calendar": [
+                  {
+                    "key": "summer_camp",
+                    "name": "暑期集训",
+                    "months": [
+                      7,
+                      8
+                    ]
+                  },
+                  {
+                    "key": "unified_exam",
+                    "name": "统考",
+                    "months": [
+                      12
+                    ],
+                    "note": "按省份改"
+                  },
+                  {
+                    "key": "school_exam",
+                    "name": "校考",
+                    "months": [
+                      1,
+                      2,
+                      3
+                    ],
+                    "next_year": true
+                  }
+                ],
+                "course_rules": [],
+                "classes": [
+                  {
+                    "name": "美术艺考",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "素描造型",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "素描结构",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "素描明暗",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "素描画面",
+                        "order": 4,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d5",
+                        "name": "色彩色调",
+                        "order": 5,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d6",
+                        "name": "色彩冷暖",
+                        "order": 6,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d7",
+                        "name": "色彩塑造",
+                        "order": 7,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d8",
+                        "name": "速写动态",
+                        "order": 8,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d9",
+                        "name": "速写比例",
+                        "order": 9,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d10",
+                        "name": "速写线条",
+                        "order": 10,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d11",
+                        "name": "应试速度",
+                        "order": 11,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": true,
+                      "require_artwork": true,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_88dafc69dade"
+                  }
+                ],
+                "content_types": [
+                  {
+                    "name": "集训招生",
+                    "required": [
+                      "时间",
+                      "课程安排",
+                      "师资",
+                      "报名方式"
+                    ],
+                    "optional": [
+                      "画室环境",
+                      "住宿与管理",
+                      "往届成果"
+                    ]
+                  },
+                  {
+                    "name": "统考 / 校考提醒",
+                    "required": [
+                      "关键日期",
+                      "考试科目与时长",
+                      "现在该做什么"
+                    ],
+                    "optional": [
+                      "政策解读（须机构提供文件）"
+                    ]
+                  },
+                  {
+                    "name": "模拟考 / 讲评",
+                    "required": [
+                      "概况",
+                      "高分卷展示"
+                    ],
+                    "optional": [
+                      "老师讲评要点"
+                    ]
+                  },
+                  {
+                    "name": "合格与录取喜报",
+                    "required": [
+                      "祝贺",
+                      "成绩概况"
+                    ],
+                    "optional": [
+                      "学员故事（须家长同意）"
+                    ]
+                  },
+                  {
+                    "name": "画室作品展示",
+                    "required": [
+                      "作品",
+                      "创作要点"
+                    ],
+                    "optional": [
+                      "教学理念"
+                    ]
+                  }
+                ],
+                "constraints": {
+                  "prohibited_terms": [
+                    "包过",
+                    "保录",
+                    "100% 合格",
+                    "第一",
+                    "最好"
+                  ],
+                  "policy_source": "只使用机构提供的官方文件",
+                  "student_privacy": "默认姓氏或昵称；全名与照片需家长同意",
+                  "report_basis": "只按老师要点与评分写，不推算分数、不和其他学员比较"
+                },
+                "tone": "专业、务实"
+              },
+              "published_at": 0
+            }
+          ]
+        },
+        {
+          "key": "art_interest",
+          "name": "美术兴趣",
+          "current_published_version": "0.1",
+          "versions": [
+            {
+              "key": "art_interest",
+              "name": "美术兴趣",
+              "pack_version": "0.1",
+              "version": 1,
+              "status": "published",
+              "content": {
+                "courses": [
+                  {
+                    "group": "启蒙",
+                    "name": "少儿创意美术",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_f92270b9bc51"
+                  },
+                  {
+                    "group": "基础",
+                    "name": "素描基础",
+                    "form": "group",
+                    "minutes": 120,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_22ca6b6c332b"
+                  },
+                  {
+                    "group": "基础",
+                    "name": "色彩（水彩 / 水粉）",
+                    "form": "group",
+                    "minutes": 120,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_b68e10bc54ae"
+                  },
+                  {
+                    "group": "基础",
+                    "name": "速写",
+                    "form": "group",
+                    "minutes": 120,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_1b5a2742602d"
+                  },
+                  {
+                    "group": "特色",
+                    "name": "国画",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_6a976b403701"
+                  },
+                  {
+                    "group": "特色",
+                    "name": "书法（硬笔 / 软笔）",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_78b005d1ade1"
+                  },
+                  {
+                    "group": "特色",
+                    "name": "漫画插画",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_be5022badfe1"
+                  },
+                  {
+                    "group": "特色",
+                    "name": "手工陶艺",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_3e4348782154"
+                  },
+                  {
+                    "group": "专项",
+                    "name": "考级班",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_ded37623d4b7"
+                  },
+                  {
+                    "group": "专项",
+                    "name": "比赛创作指导",
+                    "form": "group",
+                    "minutes": 90,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_e70050db2491"
+                  },
+                  {
+                    "group": "活动",
+                    "name": "户外写生",
+                    "form": "group",
+                    "minutes": null,
+                    "duration_text": "按次",
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_d7863e7abe06"
+                  },
+                  {
+                    "group": "活动",
+                    "name": "寒暑假特训营",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期",
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_e2930ffdc801"
+                  }
+                ],
+                "stages": [
+                  {
+                    "name": "体验与适应",
+                    "default_months": {
+                      "min": 1,
+                      "max": 1
+                    },
+                    "anchor": "start",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_3891a48f77e1"
+                  },
+                  {
+                    "name": "常规学习",
+                    "default_months": {
+                      "min": 3,
+                      "max": 5
+                    },
+                    "anchor": "normal",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_82215cbeaded"
+                  },
+                  {
+                    "name": "过渡阶段",
+                    "default_months": {
+                      "min": 1,
+                      "max": 2
+                    },
+                    "anchor": "normal",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_b4a4961d2101"
+                  },
+                  {
+                    "name": "假期特训",
+                    "default_months": {
+                      "min": 1,
+                      "max": 2
+                    },
+                    "anchor": "on_node",
+                    "anchor_node": "summer_camp",
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_c8118bb02bb8"
+                  }
+                ],
+                "rules": {
+                  "exam_sprint_before_grade": false,
+                  "insert_holiday_camp": true,
+                  "art_exam_end_after_school_exam": false,
+                  "art_transition_stage": true,
+                  "mock_exam_schedule": false
+                },
+                "calendar": [
+                  {
+                    "key": "grade_exam",
+                    "name": "考级季",
+                    "months": [
+                      1,
+                      7,
+                      8
+                    ]
+                  },
+                  {
+                    "key": "showcase",
+                    "name": "学员画展",
+                    "months": [
+                      6,
+                      12
+                    ]
+                  },
+                  {
+                    "key": "winter_camp",
+                    "name": "寒假集训",
+                    "months": [
+                      1,
+                      2
+                    ]
+                  },
+                  {
+                    "key": "summer_camp",
+                    "name": "暑假集训",
+                    "months": [
+                      7,
+                      8
+                    ]
+                  }
+                ],
+                "course_rules": [],
+                "classes": [
+                  {
+                    "name": "创意美术",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "观察力",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "想象与创意",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "色彩感受",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "画面构图",
+                        "order": 4,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d5",
+                        "name": "动手能力",
+                        "order": 5,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d6",
+                        "name": "专注与完成度",
+                        "order": 6,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": false,
+                      "require_artwork": true,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_80f00bb6035a"
+                  },
+                  {
+                    "name": "素描色彩",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "造型比例",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "结构",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "明暗关系",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "色彩关系",
+                        "order": 4,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d5",
+                        "name": "画面组织",
+                        "order": 5,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d6",
+                        "name": "完成度",
+                        "order": 6,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": false,
+                      "require_artwork": true,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_cf14d368fd4b"
+                  }
+                ],
+                "content_types": [
+                  {
+                    "name": "学期招生",
+                    "required": [
+                      "班型与年龄",
+                      "学什么",
+                      "上课时间",
+                      "报名方式"
+                    ],
+                    "optional": [
+                      "学员作品",
+                      "老师介绍"
+                    ]
+                  },
+                  {
+                    "name": "寒暑假特训",
+                    "required": [
+                      "主题",
+                      "日程",
+                      "报名方式"
+                    ],
+                    "optional": [
+                      "往期作品",
+                      "材料说明"
+                    ]
+                  },
+                  {
+                    "name": "画展预告 / 回顾",
+                    "required": [
+                      "时间地点或现场亮点"
+                    ],
+                    "optional": [
+                      "作品解读",
+                      "家长感言"
+                    ]
+                  },
+                  {
+                    "name": "优秀作品分享",
+                    "required": [
+                      "作品",
+                      "创作思路"
+                    ],
+                    "optional": [
+                      "老师点评（须家长同意）"
+                    ]
+                  },
+                  {
+                    "name": "考级提醒 / 喜报",
+                    "required": [
+                      "考级时间与准备或结果"
+                    ],
+                    "optional": [
+                      "各级别要求"
+                    ]
+                  },
+                  {
+                    "name": "写生 / 节日手工活动",
+                    "required": [
+                      "活动内容",
+                      "时间地点",
+                      "报名"
+                    ],
+                    "optional": [
+                      "需要带的材料"
+                    ]
+                  }
+                ],
+                "constraints": {
+                  "prohibited_terms": [
+                    "包过",
+                    "保录",
+                    "100% 合格",
+                    "第一",
+                    "最好"
+                  ],
+                  "policy_source": "只使用机构提供的官方文件",
+                  "student_privacy": "默认姓氏或昵称；全名与照片需家长同意",
+                  "report_basis": "只按老师要点与评分写，不推算分数、不和其他学员比较"
+                },
+                "tone": "亲切、鼓励"
+              },
+              "published_at": 0
+            }
+          ]
+        },
+        {
+          "key": "music_exam",
+          "name": "音乐艺考",
+          "current_published_version": "0.1",
+          "versions": [
+            {
+              "key": "music_exam",
+              "name": "音乐艺考",
+              "pack_version": "0.1",
+              "version": 1,
+              "status": "published",
+              "content": {
+                "courses": [
+                  {
+                    "group": "主项",
+                    "name": "声乐主项",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_6318e96714cd"
+                  },
+                  {
+                    "group": "主项",
+                    "name": "钢琴主项",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_d2a457eaf47f"
+                  },
+                  {
+                    "group": "主项",
+                    "name": "器乐主项",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_6430edb73b7d"
+                  },
+                  {
+                    "group": "副项",
+                    "name": "钢琴副项",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_b143a296eeb1"
+                  },
+                  {
+                    "group": "副项",
+                    "name": "声乐副项",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_2bdc757ba371"
+                  },
+                  {
+                    "group": "基本乐科",
+                    "name": "乐理",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_d297dabd8ffe"
+                  },
+                  {
+                    "group": "基本乐科",
+                    "name": "视唱",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_d4ae0026a7bb"
+                  },
+                  {
+                    "group": "基本乐科",
+                    "name": "练耳",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_2a31dc688a67"
+                  },
+                  {
+                    "group": "应试",
+                    "name": "统考模拟考",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_322e7ef1673d"
+                  },
+                  {
+                    "group": "应试",
+                    "name": "校考曲目指导",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_0127025b4e65"
+                  },
+                  {
+                    "group": "应试",
+                    "name": "试镜与舞台仪态",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_df705497c5bb"
+                  },
+                  {
+                    "group": "集训",
+                    "name": "暑期集训",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期",
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_44e924afbe23"
+                  },
+                  {
+                    "group": "集训",
+                    "name": "统考冲刺集训",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期",
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_f631ae25bbf1"
+                  }
+                ],
+                "stages": [
+                  {
+                    "name": "专业测评与基础",
+                    "default_months": {
+                      "min": 2,
+                      "max": 3
+                    },
+                    "anchor": "start",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_698c8049a42a"
+                  },
+                  {
+                    "name": "常规提升",
+                    "default_months": {
+                      "min": 3,
+                      "max": 4
+                    },
+                    "anchor": "normal",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_1f9e97c328d9"
+                  },
+                  {
+                    "name": "暑期集训",
+                    "default_months": {
+                      "min": 2,
+                      "max": 2
+                    },
+                    "anchor": "on_node",
+                    "anchor_node": "summer_camp",
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_44e924afbe23"
+                  },
+                  {
+                    "name": "统考冲刺",
+                    "default_months": {
+                      "min": 3,
+                      "max": 4
+                    },
+                    "anchor": "before_node",
+                    "anchor_node": "unified_exam",
+                    "offset_months": -3,
+                    "active": true,
+                    "key": "s_9e2ee2d053b1"
+                  },
+                  {
+                    "name": "校考准备",
+                    "default_months": {
+                      "min": 1,
+                      "max": 3
+                    },
+                    "anchor": "on_node",
+                    "anchor_node": "school_exam",
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_48c1168737d0"
+                  }
+                ],
+                "rules": {
+                  "exam_sprint_before_grade": false,
+                  "insert_holiday_camp": true,
+                  "art_exam_end_after_school_exam": true,
+                  "art_transition_stage": false,
+                  "mock_exam_schedule": true
+                },
+                "calendar": [
+                  {
+                    "key": "summer_camp",
+                    "name": "暑期集训",
+                    "months": [
+                      7,
+                      8
+                    ]
+                  },
+                  {
+                    "key": "unified_exam",
+                    "name": "统考",
+                    "months": [
+                      12
+                    ],
+                    "note": "按省份改"
+                  },
+                  {
+                    "key": "school_exam",
+                    "name": "校考",
+                    "months": [
+                      1,
+                      2,
+                      3
+                    ],
+                    "next_year": true
+                  }
+                ],
+                "course_rules": [],
+                "classes": [
+                  {
+                    "name": "音乐艺考",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "主项技术",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "曲目完成度",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "视唱",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "练耳",
+                        "order": 4,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d5",
+                        "name": "乐理",
+                        "order": 5,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d6",
+                        "name": "应试状态与舞台表现",
+                        "order": 6,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": true,
+                      "require_artwork": false,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_1beda2b81e4a"
+                  }
+                ],
+                "content_types": [
+                  {
+                    "name": "集训营招生",
+                    "required": [
+                      "集训时间",
+                      "课程安排",
+                      "师资",
+                      "报名方式"
+                    ],
+                    "optional": [
+                      "往届成果",
+                      "住宿与管理",
+                      "常见问题"
+                    ]
+                  },
+                  {
+                    "name": "统考 / 校考提醒",
+                    "required": [
+                      "关键日期",
+                      "考试科目",
+                      "现在该做什么"
+                    ],
+                    "optional": [
+                      "政策变化解读（须机构提供文件）"
+                    ]
+                  },
+                  {
+                    "name": "模拟考公告 / 总结",
+                    "required": [
+                      "时间地点",
+                      "考试内容或整体情况"
+                    ],
+                    "optional": [
+                      "评委建议",
+                      "下一阶段重点"
+                    ]
+                  },
+                  {
+                    "name": "合格与录取喜报",
+                    "required": [
+                      "祝贺",
+                      "成绩概况"
+                    ],
+                    "optional": [
+                      "学员故事（须家长同意）"
+                    ]
+                  },
+                  {
+                    "name": "专业方向解读",
+                    "required": [
+                      "专业是什么",
+                      "考什么",
+                      "适合谁"
+                    ],
+                    "optional": [
+                      "就业与升学去向"
+                    ]
+                  }
+                ],
+                "constraints": {
+                  "prohibited_terms": [
+                    "包过",
+                    "保录",
+                    "100% 合格",
+                    "第一",
+                    "最好"
+                  ],
+                  "policy_source": "只使用机构提供的官方文件",
+                  "student_privacy": "默认姓氏或昵称；全名与照片需家长同意",
+                  "report_basis": "只按老师要点与评分写，不推算分数、不和其他学员比较"
+                },
+                "tone": "专业、务实"
+              },
+              "published_at": 0
+            }
+          ]
+        },
+        {
+          "key": "music_interest",
+          "name": "音乐兴趣",
+          "current_published_version": "0.1",
+          "versions": [
+            {
+              "key": "music_interest",
+              "name": "音乐兴趣",
+              "pack_version": "0.1",
+              "version": 1,
+              "status": "published",
+              "content": {
+                "courses": [
+                  {
+                    "group": "启蒙",
+                    "name": "少儿音乐启蒙",
+                    "form": "group",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_06bbbf16b81a"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "钢琴一对一30分钟",
+                    "form": "one_to_one",
+                    "minutes": 30,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_c19578fbebec"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "钢琴一对一45分钟",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_3d0873a8d3fa"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "钢琴一对一60分钟",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_1129953acd07"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "声乐一对一30分钟",
+                    "form": "one_to_one",
+                    "minutes": 30,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_0ed3c7410516"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "声乐一对一45分钟",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_8a48ef58ab66"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "声乐一对一60分钟",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_d05ab6f93e55"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "小提琴一对一30分钟",
+                    "form": "one_to_one",
+                    "minutes": 30,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_18f8d62575cd"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "小提琴一对一45分钟",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_94a84e25407c"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "小提琴一对一60分钟",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_610edb28fae2"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "古筝一对一30分钟",
+                    "form": "one_to_one",
+                    "minutes": 30,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_c869b053f489"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "古筝一对一45分钟",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_c5a84ce2a5b0"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "古筝一对一60分钟",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_302e57ed60b9"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "吉他一对一30分钟",
+                    "form": "one_to_one",
+                    "minutes": 30,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_b861bfa947d9"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "吉他一对一45分钟",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_bd38b3bfb3e2"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "吉他一对一60分钟",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_996e0edd64ec"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "架子鼓一对一30分钟",
+                    "form": "one_to_one",
+                    "minutes": 30,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_4a63b4b1f09d"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "架子鼓一对一45分钟",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_f269b4371c36"
+                  },
+                  {
+                    "group": "主修",
+                    "name": "架子鼓一对一60分钟",
+                    "form": "one_to_one",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_971f1a9b1a96"
+                  },
+                  {
+                    "group": "基础乐科",
+                    "name": "乐理与视唱练耳",
+                    "form": "group",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_b986a87508da"
+                  },
+                  {
+                    "group": "合奏",
+                    "name": "合唱团",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_e07f9c4d5435"
+                  },
+                  {
+                    "group": "合奏",
+                    "name": "少儿乐队",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_304cb0d9b2da"
+                  },
+                  {
+                    "group": "合奏",
+                    "name": "室内乐重奏",
+                    "form": "group",
+                    "minutes": 60,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_4d91fbab2449"
+                  },
+                  {
+                    "group": "专项",
+                    "name": "考级冲刺",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_82eeddb6b21a"
+                  },
+                  {
+                    "group": "专项",
+                    "name": "比赛曲目指导",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_3e2122b4b81c"
+                  },
+                  {
+                    "group": "专项",
+                    "name": "演出排练",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_274af5608686"
+                  },
+                  {
+                    "group": "假期",
+                    "name": "寒暑假集训营",
+                    "form": "camp",
+                    "minutes": null,
+                    "duration_text": "按期",
+                    "pricing": null,
+                    "active": true,
+                    "key": "c_e5bbf735e00b"
+                  }
+                ],
+                "stages": [
+                  {
+                    "name": "体验与适应",
+                    "default_months": {
+                      "min": 1,
+                      "max": 2
+                    },
+                    "anchor": "start",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_3891a48f77e1"
+                  },
+                  {
+                    "name": "常规学习",
+                    "default_months": {
+                      "min": 3,
+                      "max": 5
+                    },
+                    "anchor": "normal",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_82215cbeaded"
+                  },
+                  {
+                    "name": "考级冲刺",
+                    "default_months": {
+                      "min": 2,
+                      "max": 2
+                    },
+                    "anchor": "before_node",
+                    "anchor_node": "grade_exam",
+                    "offset_months": -2,
+                    "active": true,
+                    "key": "s_82eeddb6b21a"
+                  },
+                  {
+                    "name": "假期集训",
+                    "default_months": {
+                      "min": 1,
+                      "max": 2
+                    },
+                    "anchor": "on_node",
+                    "anchor_node": "summer_camp",
+                    "offset_months": 0,
+                    "active": true,
+                    "key": "s_c98b9b3f6e13"
+                  }
+                ],
+                "rules": {
+                  "exam_sprint_before_grade": true,
+                  "insert_holiday_camp": true,
+                  "art_exam_end_after_school_exam": false,
+                  "art_transition_stage": false,
+                  "mock_exam_schedule": false
+                },
+                "calendar": [
+                  {
+                    "key": "grade_exam",
+                    "name": "考级季",
+                    "months": [
+                      1,
+                      7,
+                      8
+                    ]
+                  },
+                  {
+                    "key": "showcase",
+                    "name": "汇报演出",
+                    "months": [
+                      6,
+                      12
+                    ]
+                  },
+                  {
+                    "key": "winter_camp",
+                    "name": "寒假集训",
+                    "months": [
+                      1,
+                      2
+                    ]
+                  },
+                  {
+                    "key": "summer_camp",
+                    "name": "暑假集训",
+                    "months": [
+                      7,
+                      8
+                    ]
+                  }
+                ],
+                "course_rules": [],
+                "classes": [
+                  {
+                    "name": "器乐通用",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "读谱识谱",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "节奏感",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "演奏技术",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "音乐表现力",
+                        "order": 4,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d5",
+                        "name": "练习习惯",
+                        "order": 5,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d6",
+                        "name": "课堂专注与自信",
+                        "order": 6,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": false,
+                      "require_artwork": false,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_099d25e70644"
+                  },
+                  {
+                    "name": "声乐",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "读谱识谱",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "节奏感",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "音准",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "气息",
+                        "order": 4,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d5",
+                        "name": "咬字",
+                        "order": 5,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d6",
+                        "name": "音乐表现力",
+                        "order": 6,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d7",
+                        "name": "练习习惯",
+                        "order": 7,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d8",
+                        "name": "课堂专注与自信",
+                        "order": 8,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": false,
+                      "require_artwork": false,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_8b8555e50142"
+                  },
+                  {
+                    "name": "音乐启蒙",
+                    "dimensions": [
+                      {
+                        "key": "d1",
+                        "name": "节奏",
+                        "order": 1,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d2",
+                        "name": "听辨",
+                        "order": 2,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d3",
+                        "name": "模仿",
+                        "order": 3,
+                        "feedback_tags": []
+                      },
+                      {
+                        "key": "d4",
+                        "name": "参与度",
+                        "order": 4,
+                        "feedback_tags": []
+                      }
+                    ],
+                    "options": {
+                      "compare_previous": true,
+                      "mock_exam": false,
+                      "require_artwork": false,
+                      "renewal_suggestion": false
+                    },
+                    "key": "r_353af1bf73a1"
+                  }
+                ],
+                "content_types": [
+                  {
+                    "name": "课程介绍 / 招生简章",
+                    "required": [
+                      "适合谁",
+                      "学什么",
+                      "上课形式与时间",
+                      "报名方式"
+                    ],
+                    "optional": [
+                      "师资",
+                      "学员作品",
+                      "常见问题"
+                    ]
+                  },
+                  {
+                    "name": "体验课邀约",
+                    "required": [
+                      "体验内容",
+                      "时间地点",
+                      "预约方式"
+                    ],
+                    "optional": [
+                      "老师介绍",
+                      "家长常问"
+                    ]
+                  },
+                  {
+                    "name": "考级报名提醒",
+                    "required": [
+                      "考级时间",
+                      "报名截止",
+                      "需要准备什么"
+                    ],
+                    "optional": [
+                      "各级别要求",
+                      "冲刺课安排"
+                    ]
+                  },
+                  {
+                    "name": "演出预告 / 回顾",
+                    "required": [
+                      "活动概况",
+                      "时间地点或现场亮点"
+                    ],
+                    "optional": [
+                      "节目单",
+                      "学员和家长感言",
+                      "下一场预告"
+                    ]
+                  },
+                  {
+                    "name": "考级 / 比赛喜报",
+                    "required": [
+                      "成绩概况",
+                      "祝贺"
+                    ],
+                    "optional": [
+                      "学员故事",
+                      "老师寄语"
+                    ]
+                  },
+                  {
+                    "name": "寒暑假班招生",
+                    "required": [
+                      "班型",
+                      "时间",
+                      "报名方式"
+                    ],
+                    "optional": [
+                      "往期回顾",
+                      "优惠说明"
+                    ]
+                  }
+                ],
+                "constraints": {
+                  "prohibited_terms": [
+                    "包过",
+                    "保录",
+                    "100% 合格",
+                    "第一",
+                    "最好"
+                  ],
+                  "policy_source": "只使用机构提供的官方文件",
+                  "student_privacy": "默认姓氏或昵称；全名与照片需家长同意",
+                  "report_basis": "只按老师要点与评分写，不推算分数、不和其他学员比较"
+                },
+                "tone": "亲切、鼓励"
+              },
+              "published_at": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

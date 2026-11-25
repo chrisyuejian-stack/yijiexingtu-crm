@@ -1,0 +1,18 @@
+{
+  "name": "19-share-revoke",
+  "request": {
+    "method": "DELETE",
+    "path": "/schedule-yx4/api/plans/pln_df109d2e5771e3be0d0f9d79/share-links/shr_62d29c9608ac766a98661d0d",
+    "body": {
+      "version": 1
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "queries": 4
+  }
+}

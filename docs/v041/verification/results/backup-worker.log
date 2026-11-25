@@ -1,0 +1,12 @@
+{
+  "result": "pass",
+  "actual_worker": "backup-dist/backup-worker.js",
+  "encrypted_manifest": true,
+  "new_columns_preserved": [
+    "gallery_images.bytes",
+    "tenants.gallery_storage_limit"
+  ],
+  "private_media_object_unchanged": true,
+  "fetch_status": 404,
+  "remote_calls": 0
+}

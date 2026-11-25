@@ -1,0 +1,30 @@
+[
+  {
+    "label": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 9.617,
+    "log": "work/stage5/frontend-20261115/build.log"
+  },
+  {
+    "label": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 237.442,
+    "log": "work/stage5/frontend-20261115/source.log"
+  },
+  {
+    "label": "bundle",
+    "command": "env TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 232.334,
+    "log": "work/stage5/frontend-20261115/bundle.log"
+  },
+  {
+    "label": "integrity",
+    "command": "python docs/stage5/verification/verify-integrity.py",
+    "exit_code": 0,
+    "seconds": 0.296,
+    "log": "work/stage5/frontend-20261115/integrity.log"
+  }
+]

@@ -1,0 +1,25 @@
+--- 阶段4验收版/tests/stage7.test.mjs
++++ 本次分享外壳配合/tests/stage7.test.mjs
+@@ -322,7 +322,7 @@
+       )
+     ).flat();
+   const files = await walk("dist");
+-  assert.equal(files.length, 11);
++  assert.equal(files.length, 12);
+   assert.ok(!files.some((p) => /\.map$|\/src\/|\/tests\//.test(p)));
+   for (const file of [
+     "dist/_worker.js",
+--- 阶段4验收版/tests/plans-stage4.test.mjs
++++ 本次分享外壳配合/tests/plans-stage4.test.mjs
+@@ -833,7 +833,10 @@
+         version: listed.items[0].version
+     }));
+     ok(await call(s, "/api/share/" + token, "GET", undefined, null), 404);
+-    ok(await call(s, "/s/" + token, "GET", undefined, null), 404);
++    const shell = await call(s, "/s/" + token, "GET", undefined, null);
++    ok(shell);
++    assert.match(shell.headers.get("content-type"), /text\/html/);
++    assert.equal(shell.headers.get("x-robots-tag"), "noindex");
+ }));
+ 
+ test("YX4 分享错误、过期、作废、删除、机构到期或停用使用相同中性404且至少200ms", () => school(async s => {

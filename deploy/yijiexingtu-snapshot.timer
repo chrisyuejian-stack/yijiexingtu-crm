@@ -1,0 +1,8 @@
+[Unit]
+Description=Yijiexingtu daily 04:00 Asia/Shanghai file snapshot
+[Timer]
+OnCalendar=*-*-* 20:00:00 UTC
+Persistent=false
+Unit=yijiexingtu-snapshot.service
+[Install]
+WantedBy=timers.target

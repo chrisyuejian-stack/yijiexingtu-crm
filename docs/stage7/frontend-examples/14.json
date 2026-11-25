@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/ops/style-packs/demo_platform_style/disable",
+    "body": {},
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "ok": true
+    }
+  }
+}

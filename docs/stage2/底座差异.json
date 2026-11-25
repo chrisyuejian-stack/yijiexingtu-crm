@@ -1,0 +1,183 @@
+{
+  "baseline": "艺界星途_项目底座源码_20261113.zip",
+  "new_files": [
+    "docs/reference/design-v2-update-extracted/01.html",
+    "docs/reference/design-v2-update-extracted/01.txt",
+    "docs/reference/design-v2-update-extracted/02.html",
+    "docs/reference/design-v2-update-extracted/02.txt",
+    "docs/reference/design-v2-update-extracted/03.html",
+    "docs/reference/design-v2-update-extracted/03.txt",
+    "docs/reference/design-v2-update-extracted/04.html",
+    "docs/reference/design-v2-update-extracted/04.txt",
+    "docs/reference/design-v2-update-extracted/05.html",
+    "docs/reference/design-v2-update-extracted/05.txt",
+    "docs/reference/design-v2-update-extracted/06.html",
+    "docs/reference/design-v2-update-extracted/06.txt",
+    "docs/reference/design-v2-update-extracted/07.html",
+    "docs/reference/design-v2-update-extracted/07.txt",
+    "docs/reference/design-v2-update-extracted/08.html",
+    "docs/reference/design-v2-update-extracted/08.txt",
+    "docs/reference/design-v2-update-extracted/09.html",
+    "docs/reference/design-v2-update-extracted/09.txt",
+    "docs/reference/design-v2-update-extracted/10.html",
+    "docs/reference/design-v2-update-extracted/10.txt",
+    "docs/reference/design-v2-update-extracted/11.html",
+    "docs/reference/design-v2-update-extracted/11.txt",
+    "docs/reference/design-v2-update-extracted/12.html",
+    "docs/reference/design-v2-update-extracted/12.txt",
+    "docs/reference/design-v2-update-extracted/13.html",
+    "docs/reference/design-v2-update-extracted/13.txt",
+    "docs/reference/design-v2-update-extracted/14.html",
+    "docs/reference/design-v2-update-extracted/14.txt",
+    "docs/reference/design-v2-update-extracted/15.html",
+    "docs/reference/design-v2-update-extracted/15.txt",
+    "docs/reference/design-v2-update-extracted/16.html",
+    "docs/reference/design-v2-update-extracted/16.txt",
+    "docs/reference/design-v2-update-extracted/17.html",
+    "docs/reference/design-v2-update-extracted/17.txt",
+    "docs/reference/design-v2-update-extracted/boards.json",
+    "docs/reference/接口_v0.2到v0.3.diff",
+    "docs/reference/接口约定_v0.3.1_原件.md",
+    "docs/reference/接口约定_v0.3.2_原件.md",
+    "docs/reference/接口约定_v0.3.3_原件.md",
+    "docs/reference/接口约定_v0.3_原件.md",
+    "docs/reference/设计稿_v2_20261113更新_原件.html",
+    "docs/reference/设计稿_v3_原件.html",
+    "docs/stage2/HTTP实录_完整.json",
+    "docs/stage2/verification/stage2-backup-bundle-final.log",
+    "docs/stage2/verification/stage2-build-final.log",
+    "docs/stage2/verification/stage2-bundle-final.log",
+    "docs/stage2/verification/stage2-integrity-final.json",
+    "docs/stage2/verification/stage2-new-final.log",
+    "docs/stage2/verification/stage2-source-final.log",
+    "docs/stage2/verification/verify-backup-bundle.mjs",
+    "docs/stage2/verification/verify-integrity.py",
+    "docs/stage2/verification/构建压缩报告.json",
+    "docs/stage2/中文交付说明.md",
+    "docs/stage2/前端对接说明.md",
+    "docs/stage2/前端接口示例.json",
+    "docs/stage2/变更清单.md",
+    "docs/stage2/底座差异.json",
+    "docs/stage2/构建文件清单.json",
+    "docs/stage2/测试结果.json",
+    "docs/stage2/测试结果.md",
+    "docs/stage2/源码文件清单.json",
+    "docs/接口v0.3核对记录.md",
+    "docs/更新设计稿画板索引.md",
+    "docs/阶段2_回归断言阻塞说明.md",
+    "docs/阶段2_开工阻塞说明.md",
+    "migrations/0019_identity_and_institutions.sql",
+    "scripts/rebuild-platform-phone-index.mjs",
+    "src/server/identity.js",
+    "tests/identity-stage2.test.mjs"
+  ],
+  "modified_files": [
+    {
+      "path": "README.md",
+      "before_sha256": "b8ef5eed6edc564423b00e385f2bf20dc696deb08bf4803f549faafcf2381383",
+      "after_sha256": "0979938d433682caffdf18e6e24c375801d5568d54fb31872456cd120d49474e"
+    },
+    {
+      "path": "deployment/resources.template.json",
+      "before_sha256": "0fe42a6ecf9907fb14d4a6f974c64fa85ce1aa26d8a41ecf21e6fa148f69de20",
+      "after_sha256": "fe93979b39944a590fc767e464dbb0155dce625a63fe15de4bc5a3bee280adba"
+    },
+    {
+      "path": "deployment/独立环境准备说明.md",
+      "before_sha256": "1128c43d29df1e71034782d19a8e49fd7631bbcb22ae5c4404d55b864d75391f",
+      "after_sha256": "9bebebedd7380170f7d00a6215c45907b424ce9d0086e7a05b14bf40168b7cd6"
+    },
+    {
+      "path": "docs/项目决策与范围.md",
+      "before_sha256": "ebb0081f467d469a132096e36a769ba195c614295d7fe7bc38043a5c1f1a0bb5",
+      "after_sha256": "aa1b971c60fc29dde9af1191e7a9ec52402bf7e74ea14eed861f865a98b66037"
+    },
+    {
+      "path": "scripts/isolation.mjs",
+      "before_sha256": "b0341fdda6659f2451746e3c870366cc75202f34df7f213cdf6ced528f8cfdd3",
+      "after_sha256": "b3bd228156bd7ab4a1661473a973286bd356b31221fb4cd92e6e2ac25b80b939"
+    },
+    {
+      "path": "src/server/accounts.js",
+      "before_sha256": "188fe72968ee6dbfbda04202e6bb81a93edfaf2957fd1dd789850cf452bf4d66",
+      "after_sha256": "6332fd7d428cb290880a169958ddb57716552ddbc0e88b5475958a9ea31b3923"
+    },
+    {
+      "path": "src/server/auth.js",
+      "before_sha256": "a73db592b1076de884a949d50fbceadf1559497e4b0e6380858f87993133a794",
+      "after_sha256": "d871d008e8dd5a8b6ca8567ff538537c42e44ec394ec1edc13ad8bbe7beaf4bb"
+    },
+    {
+      "path": "src/server/backup-model.js",
+      "before_sha256": "e1e8672ee7f4ebcd57a83e9293e9c718ae919047e1184c7cc6755ec473e17d56",
+      "after_sha256": "2305a3e5de6386431ec33828fc4253e3e5bf10b845db0826a93a4eb64660a273"
+    },
+    {
+      "path": "src/server/crypto.js",
+      "before_sha256": "d62441017f36707b2700ec53cb363939765108e533b85213934651208c02f79e",
+      "after_sha256": "d8cd914fd3b8f0d1f84839548f5643b199067ab1dcb4091b34fe116df7adcd6d"
+    },
+    {
+      "path": "src/server/permissions.js",
+      "before_sha256": "19477edaac55d0cda2cb1529b355634dddd6a648d4fca2173e40693e08279d65",
+      "after_sha256": "37c7cd8e4168bcf8179e336e6c44f7086d72ac1d4ae82305d1b39e89b0c1aa6c"
+    },
+    {
+      "path": "src/server/presentation.js",
+      "before_sha256": "b504c19c1242d0d66558cfd3034b2f0c9a9c53c0001e97ef59a9ed0e71571f5b",
+      "after_sha256": "098efea154a8aff24c02d77814be23135bba6fc34ac540aae7f5abc5c9bd178e"
+    },
+    {
+      "path": "src/server/purge-schema.js",
+      "before_sha256": "3f6e12d13ed7994f1596efa36bf9be0a0e06c81c72525416481c1a1eeeb7e385",
+      "after_sha256": "112a2fc369b53dfea22d57b843ff2bd3bfa1ea241d70d6b9293651a47be57f50"
+    },
+    {
+      "path": "src/server/repo.js",
+      "before_sha256": "4e9288c44cd43336d5e0353ccaf2049a705df72aad1da8c18631d7f94fe2b098",
+      "after_sha256": "d16fda2ac5e8d914f3e156b87512c2ba91bce067011cc7fc711ec5284d6ec38a"
+    },
+    {
+      "path": "src/server/scheduling.js",
+      "before_sha256": "1875a4e6804e4459bf7e5e910f4170ce8c3b6f59d20d53e00eba1db3205e366b",
+      "after_sha256": "6e22fee51a6c4810cf1e92200d85750ebcebf42bbb3f26ef440cea6ca0db6581"
+    },
+    {
+      "path": "src/server/tenant.js",
+      "before_sha256": "cd3b8c9e78789c11e8d7c281e7530c80e76ea7f635e9f059a88705bdcceffa96",
+      "after_sha256": "c87b9dc7c665724175e5e1cf5a7f2352c85a1b95eeb7af126ae11f7cb72c0d5b"
+    },
+    {
+      "path": "src/server/tools.js",
+      "before_sha256": "4906deaa66a83dd513dc9c1dc52ec1585f9916f457c7aef05c700a071f9520f3",
+      "after_sha256": "443bc7230dc427dfce4e8c75c2955c76ecdc7f60bba9988e8218815e7b981d1f"
+    },
+    {
+      "path": "src/server/worker.js",
+      "before_sha256": "dc4fc55366fc10df5694581a11f188c07966a1c39768d728c3c211a38b47cd4e",
+      "after_sha256": "1078e154ad05a885f8b1f464f6bcd91bbae078aedb1cb5ee49350dc4a5ec36d3"
+    },
+    {
+      "path": "tests/delete-capabilities.test.mjs",
+      "before_sha256": "24bea985aa36228f557caedf26513ef5e346b8663bbe494e418654b07b74538d",
+      "after_sha256": "3d06faff88dc8507bef9bc4a456c140baef531bdf3ef5c3519148897f12569d4"
+    },
+    {
+      "path": "tests/page-performance.test.mjs",
+      "before_sha256": "a3f5982a93e082b3120f924ff4da8b948ca01300e90c6c079689fe212cccab43",
+      "after_sha256": "8afd3e466bcd7aa2e56dd3a8cd90c6a98adc3d69a5d98e0a6cec3c3cd92da2bc"
+    },
+    {
+      "path": "tests/security.test.mjs",
+      "before_sha256": "3ef8a9a5a5f60a17e3e938edf5cc29b28b6155efc8845329d7a7d532333d8bd2",
+      "after_sha256": "9d2f62ac789d0f990136ed26f053c0d17adb04accab73369de2570803d292c43"
+    },
+    {
+      "path": "tests/support.mjs",
+      "before_sha256": "57b513661a5a90009a4729cca86243be7866e1d707919baf332e31dece249604",
+      "after_sha256": "90ca38c98b355118225ca8af697749cc36d970248d0a2f6aa474435e454da079"
+    }
+  ],
+  "removed_files": [],
+  "preexisting_excel_clock_fix_unchanged": true
+}

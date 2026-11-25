@@ -1,0 +1,1 @@
+CREATE TABLE campaign_reads(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,campaign_id TEXT NOT NULL REFERENCES campaigns(id),user_id TEXT NOT NULL,at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,campaign_id,user_id),FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id));

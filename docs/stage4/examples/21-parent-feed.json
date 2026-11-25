@@ -1,0 +1,28 @@
+{
+  "name": "21-parent-feed",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/parent/children/rec_b97671e17ce60eb538b98dd3/feed",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "type": "plan",
+          "id": "pln_e756de996031e079454e9e9f",
+          "title": "钢琴学习方案",
+          "status": "sent",
+          "student_id": "rec_b97671e17ce60eb538b98dd3",
+          "revision_id": "rev_00538909e62a2ca311671161",
+          "at": "2026-11-14T00:08:08.453+08:00"
+        }
+      ],
+      "total": 1,
+      "next_offset": null
+    },
+    "queries": 4
+  }
+}

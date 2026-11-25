@@ -1,0 +1,1 @@
+CREATE TRIGGER precision_lesson_participants_update BEFORE UPDATE OF deducted ON lesson_participants WHEN NEW.deducted IS NOT OLD.deducted AND ABS(NEW.deducted*100-ROUND(NEW.deducted*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END;

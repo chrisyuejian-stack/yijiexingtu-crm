@@ -1,0 +1,112 @@
+{
+  "patch": "艺界星途_前端补丁_招生内容与AI_20261115.zip",
+  "zip_bytes": 179064,
+  "zip_sha256": "d4be66a9ec213b9a216af257e68b18f662cb79750097820f2869517ce0caa98e",
+  "files": [
+    {
+      "path": "scripts/frontend-bundle.mjs",
+      "archive_name": "scripts/frontend-bundle.mjs",
+      "bytes": 2716,
+      "before_sha256": "d73379ad3b705bb45d38fd792d1002f81a42755e134e86d69805135aa1fd4193",
+      "after_sha256": "0a2586a8a582a03b4bac1d34d3da36bd54b10e57fc274a97afe6cc5cb0d7961b"
+    },
+    {
+      "path": "scripts/yx-preview.mjs",
+      "archive_name": "scripts/yx-preview.mjs",
+      "bytes": 11856,
+      "before_sha256": "81452b7763f8e2887236c19fcb4137a79d569a15cf5980f4306d79580a48e46a",
+      "after_sha256": "8dfeeaf91f5e32400a9a1a25015612a847d610a05bb6877d756bb28b8243fa21"
+    },
+    {
+      "path": "src/console/app.js",
+      "archive_name": "src/console/app.js",
+      "bytes": 132395,
+      "before_sha256": "9828f364b849e1700ca2652a62fe5d551d9a05ac6232978d06545c7776ab2630",
+      "after_sha256": "8b695ff5e08fea386b636d5a25c60d349d14aa026ada9a8286e3c8fd2f023072"
+    },
+    {
+      "path": "src/share/index.html",
+      "archive_name": "src/share/index.html",
+      "bytes": 620,
+      "before_sha256": "32f719e341262f4cb06fda770598797291cb071df7ecac11c981e2fa764723b2",
+      "after_sha256": "8a54a6a193fb35878a4ca3210fc79dcdaf57dc963c7a27cd2911917619e24f7c"
+    },
+    {
+      "path": "src/tenant/app.js",
+      "archive_name": "src/tenant/app.js",
+      "bytes": 264293,
+      "before_sha256": "735c5d132bc52af85609ef989b10ef155713b1310409c2d65e8fa0c4308df078",
+      "after_sha256": "af81a123bd91267588b8c4be4e37d2eb47e9a93ecaca0cd9633e32bcc45d4273"
+    },
+    {
+      "path": "src/tenant/v2a.js",
+      "archive_name": "src/tenant/v2a.js",
+      "bytes": 28928,
+      "before_sha256": "7f46bc1473e136e4125d21e284c362c8fd5b866231113ee7f02785d0b786aaf5",
+      "after_sha256": "b6c41b21b60a1754f03ce0c04faf4cc9861b1f1dea8e32e2206ad7f3b390c84d"
+    },
+    {
+      "path": "src/tenant/yx-ai.js",
+      "archive_name": "src/tenant/yx-ai.js",
+      "bytes": 15534,
+      "before_sha256": null,
+      "after_sha256": "3fefbb5e3b2276948d284c5367be62e437d1888d8e885dc58c0c463ffedaf1e4"
+    },
+    {
+      "path": "src/tenant/yx-content.js",
+      "archive_name": "src/tenant/yx-content.js",
+      "bytes": 32356,
+      "before_sha256": null,
+      "after_sha256": "8b16b144091dd488b16a6f168e7236a1b236a89deced940d408784269352679e"
+    },
+    {
+      "path": "src/tenant/yx-home.js",
+      "archive_name": "src/tenant/yx-home.js",
+      "bytes": 7582,
+      "before_sha256": null,
+      "after_sha256": "0c79aba6ebd96e1ceaf656cdd4aadd605eadea9c71cb381930c8f5b1294f106d"
+    },
+    {
+      "path": "src/tenant/yx-plans.js",
+      "archive_name": "src/tenant/yx-plans.js",
+      "bytes": 44957,
+      "before_sha256": "f56c172d8eaf1e338d05470a0825807e89d5a74fa8d82c70144e609d04896c90",
+      "after_sha256": "f44abeafb5aac32cdfe16156dbcbe55c356682521b796b91eb0ff5e4e63a24e5"
+    },
+    {
+      "path": "src/tenant/yx.css",
+      "archive_name": "src/tenant/yx.css",
+      "bytes": 36316,
+      "before_sha256": "00c97cb7fdb42ac73f69046c3dec1629f9691ddb7f15fb3b2c560866150dd55b",
+      "after_sha256": "95d233223fc7624abbcf5e443ba0fc953c67893f1573844048f5ee454a5113f1"
+    },
+    {
+      "path": "tests/share-shell-stage5.test.mjs",
+      "archive_name": "tests/share-shell-stage5.test.mjs",
+      "bytes": 5169,
+      "before_sha256": "88b10009cd78579b95ea4a86fcd76c4d303d573932aac52916ebd068ba4819de",
+      "after_sha256": "41e21f4925739f8b0df618d7abed01a68ce94c3f941c1387bd0531eacaa92f08"
+    },
+    {
+      "path": "tests/yx-frontend-stage2.test.mjs",
+      "archive_name": "tests/yx-frontend-stage2.test.mjs",
+      "bytes": 4008,
+      "before_sha256": "0abdfa35bc10cc27335e62877f2e603bfbb6e430e1bb8d77932587d1d91afdfc",
+      "after_sha256": "d8dbb75d8a308ccef211ecfe7834f578b4cd7b3188c0146214d1de8a7b12ff52"
+    },
+    {
+      "path": "docs/stage5-frontend/前端补丁说明_工作台_方案三栏_分享页.md",
+      "archive_name": "docs/stage5-frontend/σëìτ½»ΦíÑΣ╕üΦ»┤µÿÄ_σ╖ÑΣ╜£σÅ░_µû╣µíêΣ╕ëµáÅ_σêåΣ║½Θí╡.md",
+      "bytes": 2502,
+      "before_sha256": null,
+      "after_sha256": "625b57338969c06b6b001ca108ea93cf85025c34ba6bf3198d125099f0a2943d"
+    },
+    {
+      "path": "docs/stage5-frontend/前端补丁说明_招生内容与AI.md",
+      "archive_name": "docs/stage5-frontend/σëìτ½»ΦíÑΣ╕üΦ»┤µÿÄ_µï¢τöƒσåàσ«╣Σ╕ÄAI.md",
+      "bytes": 3737,
+      "before_sha256": null,
+      "after_sha256": "3c8afe7402b72c6d0f22f03507b1d43ed2229019a5e554e9d056e050ac42df9c"
+    }
+  ]
+}

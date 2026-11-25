@@ -1,0 +1,156 @@
+{
+  "name": "03-detail",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/plans/pln_f9b7ed1599d21a063512e7c7",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "student_id": "rec_f8a697203f1d0264789b70f9",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "钢琴学习方案",
+      "style": {
+        "pack_id": "stp_folio",
+        "pack_version": "1.0.0",
+        "cover_image_id": null,
+        "text_mode": "auto",
+        "focal_point": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "show_unit_price": false,
+        "show_latin_eyebrow": true,
+        "show_consultant": true
+      },
+      "meta": {
+        "start_month": "2026-11",
+        "target": {
+          "node_key": null,
+          "month": null,
+          "text": ""
+        },
+        "consultant_id": "usr_b49c448bd8d21f9486d62c35",
+        "budget_cap": null
+      },
+      "modules": {
+        "cover": {
+          "visible": true,
+          "eyebrow": "",
+          "subtitle": ""
+        },
+        "assessment": {
+          "visible": true,
+          "text": "",
+          "source_note": "",
+          "strengths": [],
+          "gaps": [],
+          "goals": []
+        },
+        "path": {
+          "visible": true,
+          "stages": []
+        },
+        "courses": {
+          "visible": true,
+          "lines": []
+        },
+        "fees": {
+          "visible": true,
+          "installments": "per_stage",
+          "custom": [],
+          "due_dates": {},
+          "note": ""
+        },
+        "teachers": {
+          "visible": true,
+          "teacher_ids": []
+        },
+        "about": {
+          "visible": false,
+          "image_ids": []
+        }
+      },
+      "applied_suggestion_ids": [],
+      "computed": {
+        "stages": [],
+        "total": {
+          "units": 0,
+          "bundles": [],
+          "amount": 0
+        },
+        "budget": {
+          "cap": null,
+          "remaining": null,
+          "over": false
+        },
+        "installments": [],
+        "optional_fees": [],
+        "cover_numbers": [
+          {
+            "label": "规划周期",
+            "value": "0",
+            "unit": "个月",
+            "sub": ""
+          }
+        ]
+      },
+      "id": "pln_f9b7ed1599d21a063512e7c7",
+      "version": 1,
+      "status": "draft",
+      "current_revision_id": "rev_12a752e39914f1fc395b92a9",
+      "sent_revision_id": null,
+      "signed_revision_id": null,
+      "updated_at": "2026-11-14T00:07:55.495+08:00",
+      "updated_by": "usr_b49c448bd8d21f9486d62c35",
+      "manifest": {
+        "id": "stp_folio",
+        "name": "书册",
+        "version": "1.0.0",
+        "doc_types": [
+          "plan"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "tokens": {
+          "color": {
+            "primary": "#A3271F",
+            "ink": "#2B1A16",
+            "paper": "#FFF8F0",
+            "accent": "#F4C08A",
+            "muted": "#7A5A50",
+            "use_tenant_primary": true
+          },
+          "font": {
+            "display": "noto-serif-sc",
+            "body": "noto-sans-sc",
+            "latin": "cormorant-italic"
+          }
+        },
+        "components": {
+          "plan.cover": "folio",
+          "plan.section_header": "numeral",
+          "plan.stage_block": "band",
+          "plan.total_card": "solid",
+          "report.header": "band",
+          "feedback_card.header": "plain"
+        },
+        "decor": {
+          "cover_frame": "none"
+        },
+        "cover_text_modes": [
+          "auto",
+          "dark",
+          "light",
+          "panel"
+        ],
+        "thumbnail": null
+      }
+    },
+    "queries": 3
+  }
+}

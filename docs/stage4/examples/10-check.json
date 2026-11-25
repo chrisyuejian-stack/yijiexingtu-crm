@@ -1,0 +1,44 @@
+{
+  "name": "10-check",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/plans/pln_a04d973f64c07eb99b867937/check",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "blocking": [],
+      "warnings": [
+        {
+          "code": "course_inactive",
+          "text": "课程已停用，保留原快照：钢琴一对一",
+          "module": "courses",
+          "action": "review"
+        },
+        {
+          "code": "profile_placeholder",
+          "text": "机构档案或老师介绍仍需补充",
+          "module": "about",
+          "action": "edit_profile"
+        }
+      ],
+      "passed": [
+        {
+          "code": "within_budget",
+          "text": "课程总费用未超过预算上限",
+          "module": "fees",
+          "action": "none"
+        },
+        {
+          "code": "compliance_terms",
+          "text": "未发现词库中的禁用词",
+          "module": "assessment",
+          "action": "none"
+        }
+      ]
+    },
+    "queries": 6
+  }
+}

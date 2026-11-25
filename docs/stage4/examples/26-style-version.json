@@ -1,0 +1,62 @@
+{
+  "name": "26-style-version",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/styles/stp_folio/versions/1.0.0",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "stp_folio",
+      "name": "书册",
+      "version": "1.0.0",
+      "manifest": {
+        "id": "stp_folio",
+        "name": "书册",
+        "version": "1.0.0",
+        "doc_types": [
+          "plan"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "tokens": {
+          "color": {
+            "primary": "#A3271F",
+            "ink": "#2B1A16",
+            "paper": "#FFF8F0",
+            "accent": "#F4C08A",
+            "muted": "#7A5A50",
+            "use_tenant_primary": true
+          },
+          "font": {
+            "display": "noto-serif-sc",
+            "body": "noto-sans-sc",
+            "latin": "cormorant-italic"
+          }
+        },
+        "components": {
+          "plan.cover": "folio",
+          "plan.section_header": "numeral",
+          "plan.stage_block": "band",
+          "plan.total_card": "solid",
+          "report.header": "band",
+          "feedback_card.header": "plain"
+        },
+        "decor": {
+          "cover_frame": "none"
+        },
+        "cover_text_modes": [
+          "auto",
+          "dark",
+          "light",
+          "panel"
+        ],
+        "thumbnail": null
+      }
+    },
+    "queries": 3
+  }
+}

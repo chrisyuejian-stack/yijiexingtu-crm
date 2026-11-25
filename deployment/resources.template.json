@@ -1,0 +1,55 @@
+{
+  "status": "stage7_local_validated_not_deployed",
+  "project": "yijiexingtu-crm",
+  "pages": "yijiexingtu-crm-prod",
+  "backup_worker": "yijiexingtu-backup-prod",
+  "bindings": {
+    "CHANNEL_DB": {
+      "type": "d1",
+      "resource_name": "yijiexingtu-crm-prod",
+      "database_id": null
+    },
+    "CHANNEL_MEDIA": {
+      "type": "r2",
+      "resource_name": "yijiexingtu-media-prod",
+      "public_access": false
+    },
+    "CHANNEL_BACKUPS": {
+      "type": "r2",
+      "resource_name": "yijiexingtu-backups-prod",
+      "public_access": false
+    }
+  },
+  "variables": {
+    "TENANT_HOST": "edu.yijiexingtu.com",
+    "CONSOLE_HOST": "ops.yijiexingtu.com",
+    "ACCESS_MODE": "on",
+    "TURNSTILE_MODE": "on",
+    "REFERRALS_MODE": "off"
+  },
+  "required_external_values": [
+    "ACCESS_ISSUER",
+    "ACCESS_AUD",
+    "ACCESS_EMAILS",
+    "TURNSTILE_SITE_KEY"
+  ],
+  "secret_names": [
+    "FIELD_KEY",
+    "BACKUP_KEY",
+    "HMAC_KEY",
+    "PW_PEPPER",
+    "PLATFORM_SETUP_KEY",
+    "TURNSTILE_SECRET",
+    "PLATFORM_PHONE_HMAC_KEY",
+    "DEEPSEEK_API_KEY"
+  ],
+  "isolation": {
+    "production_and_preview_must_use_separate_resources": true,
+    "reuse_legacy_database": false,
+    "reuse_legacy_r2": false,
+    "reuse_legacy_secrets": false
+  },
+  "secret_configuration_note": "DEEPSEEK_API_KEY用于Pages服务器；模型与额度在平台页面配置。既有加密/索引/密码/备份密钥在升级时保持原值。",
+  "database_target_migration": "0024_platform_management.sql",
+  "no_new_stage7_environment_values": true
+}

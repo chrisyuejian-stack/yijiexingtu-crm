@@ -1,0 +1,31 @@
+{
+  "migration_count": 20,
+  "foreign_key_check": [],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "baseline_checks": {
+    "fusion_migrations_0001_0019": {
+      "count": 19,
+      "changed": []
+    },
+    "fusion_frontend": {
+      "count": 31,
+      "changed": []
+    },
+    "access_mode_test": {
+      "count": 1,
+      "changed": []
+    }
+  },
+  "built_js_syntax_checked": [
+    "backup-dist/backup-worker.js",
+    "dist/_worker.js",
+    "dist/assets/tenant.js",
+    "dist/console-assets/console.js",
+    "dist/console-assets/pinyin-pro.js"
+  ],
+  "source_maps": 0
+}

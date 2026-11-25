@@ -1,0 +1,1 @@
+DROP TRIGGER IF EXISTS course_limits_schedule_templates_insert;

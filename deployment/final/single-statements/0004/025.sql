@@ -1,0 +1,1 @@
+CREATE TRIGGER package_stage_update_reference BEFORE UPDATE OF stage_id,student_id ON packages WHEN NEW.stage_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM student_stages WHERE tenant_id=NEW.tenant_id AND id=NEW.stage_id AND student_id=NEW.student_id AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_stage_reference') END; END;

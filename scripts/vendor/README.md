@@ -1,0 +1,2 @@
+Terser 5.44.1，来自 npm 官方注册表固定版本tarball，仅构建时加载。离线bundle以浏览器UMD方式运行；sourceMap关闭，不使用source-map依赖。不进入Pages静态目录。
+Tarball SHA256: 6b6b03f934b52a642aa7577fd9557ccf74716b1e93c059560c33d223bdbdf2e0

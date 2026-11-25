@@ -1,0 +1,21 @@
+{
+  "from": 26,
+  "to": 27,
+  "new_tables": 0,
+  "columns": [
+    "gallery_images.bytes",
+    "tenants.gallery_storage_limit"
+  ],
+  "steps": [
+    {
+      "file": "single-statements/01.sql",
+      "sha256": "584b15ddec756db6a626ff35f0702e73be3bd0d1eb5bfd24f139c6589b73d928"
+    },
+    {
+      "file": "single-statements/02.sql",
+      "sha256": "8896831779c099a7cacdec7311c0bf02b42fcec499c00c6bc46476372466925b"
+    }
+  ],
+  "raw_sha256": "4c1cbd91302b5bc50433c9b49471d6e8eec2255f1e8c54d56cb1fce48e7c4778",
+  "real_backfill_executed": false
+}

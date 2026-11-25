@@ -1,0 +1,3966 @@
+{
+  "contract": "v0.3.7",
+  "local_only": true,
+  "source_mode": "source HTTP handlers; separate full bundle gates and example replay also run",
+  "note": "由本地测试通过真实HTTP处理器采集，机构/老师/学生/图片/模型均为模拟。未使用真实会话或线上数据。各独立场景的ID不能混用；authenticated仅标示带有效测试会话，Cookie已省略。请求响应内容未手工编造。",
+  "sources": [
+    {
+      "file": "extra-http-source.json",
+      "sha256": "fa1186ac8bf1d59c585961dc4e9d7aa81d2a8170afbd53689dec4680513595f5"
+    },
+    {
+      "file": "feedback-http-source.json",
+      "sha256": "dc66b2d52d85f87bb0cb9a613ab5681a0ce64dd0a0ef06be04189c1fc0116c65"
+    },
+    {
+      "file": "growth-http-source.json",
+      "sha256": "d0d3d8fde0577a323389134857fc0ce1e08ee4b0bdd79a4f07fecec338d76c50"
+    },
+    {
+      "file": "ai-http-source.json",
+      "sha256": "3856a8bf3305be0f2bfb4c1366f73bf8dc8a5bb9c6a2609bbfd28957756565f6"
+    }
+  ],
+  "covered_endpoints": [
+    "GET /api/ai/usage",
+    "GET /api/feedback/today",
+    "GET /api/lessons/{id}/review",
+    "GET /api/parent/children/{id}/feed",
+    "GET /api/parent/media/{id}",
+    "GET /api/parent/reports/{id}",
+    "GET /api/report-batches",
+    "GET /api/reports/{id}",
+    "GET /api/settings",
+    "GET /api/students/{id}/repertoire",
+    "GET /api/styles",
+    "GET /api/styles/{id}/versions/{version}",
+    "GET /api/submissions",
+    "POST /api/ai/feedback/compose",
+    "POST /api/ai/report/batch-draft",
+    "POST /api/ai/report/draft",
+    "POST /api/feedback/{id}/{student_id}/copied",
+    "POST /api/lessons/{id}/review",
+    "POST /api/report-batches",
+    "POST /api/report-batches/{id}/publish",
+    "POST /api/reports/{id}/publish",
+    "POST /api/reports/{id}/ready",
+    "POST /api/reports/{id}/refresh-crm",
+    "POST /api/reports/{id}/return",
+    "POST /api/reports/{id}/unpublish",
+    "POST /api/students/{id}/repertoire",
+    "POST /api/submissions/{id}/confirm",
+    "POST /api/submissions/{id}/return",
+    "PUT /api/lessons/{id}/comments",
+    "PUT /api/reports/{id}",
+    "PUT /api/settings",
+    "PUT /api/students/{id}/repertoire"
+  ],
+  "examples": [
+    {
+      "endpoint": "GET /api/settings",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/settings",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "feedback_auto_confirm": false,
+          "teacher_can_publish_reports": false,
+          "teacher_self_checkin": true,
+          "max_debt_units": 3
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "GET /api/styles",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/styles?doc_type=report",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "stp_growth_folio",
+              "name": "成长书册",
+              "version": "1.0.0",
+              "thumbnail": null,
+              "manifest": {
+                "id": "stp_growth_folio",
+                "name": "成长书册",
+                "version": "1.0.0",
+                "doc_types": [
+                  "report",
+                  "feedback_card"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              }
+            }
+          ]
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/styles/{id}/versions/{version}",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/styles/stp_growth_folio/versions/1.0.0",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "stp_growth_folio",
+          "name": "成长书册",
+          "version": "1.0.0",
+          "manifest": {
+            "id": "stp_growth_folio",
+            "name": "成长书册",
+            "version": "1.0.0",
+            "doc_types": [
+              "report",
+              "feedback_card"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": null
+          }
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/feedback/today",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/feedback/today",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+              "start_at": "2026-11-10T10:00+08:00",
+              "duration": 45,
+              "teacher_id": "rec_86363ba6ea13bacd240889b9",
+              "assistant_id": null,
+              "lesson_status": "planned",
+              "course_name": "班课",
+              "submission_id": null,
+              "submission_status": null,
+              "kind": null,
+              "version": null,
+              "locked": 0,
+              "status": "not_submitted",
+              "can_submit": true,
+              "can_submit_comments": false
+            }
+          ]
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/students/{id}/repertoire",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/students/rec_c59e905fbae63cbec2fb8d99/repertoire",
+        "body": {
+          "name": "小步舞曲",
+          "status": "learning",
+          "start_date": "2026-11-01"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "rep_f8706c17bc52030c649905e1",
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "name": "小步舞曲",
+          "status": "learning",
+          "start_date": "2026-11-01",
+          "completed_date": null,
+          "image_ids": [],
+          "version": 1
+        },
+        "queries": 9
+      }
+    },
+    {
+      "endpoint": "PUT /api/students/{id}/repertoire",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/students/rec_c59e905fbae63cbec2fb8d99/repertoire",
+        "body": {
+          "id": "rep_f8706c17bc52030c649905e1",
+          "version": 1,
+          "status": "done",
+          "completed_date": "2026-11-09"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "rep_f8706c17bc52030c649905e1",
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "name": "小步舞曲",
+          "status": "done",
+          "start_date": "2026-11-01",
+          "completed_date": "2026-11-09",
+          "image_ids": [],
+          "version": 2
+        },
+        "queries": 9
+      }
+    },
+    {
+      "endpoint": "GET /api/students/{id}/repertoire",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/students/rec_c59e905fbae63cbec2fb8d99/repertoire",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "rep_f8706c17bc52030c649905e1",
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "name": "小步舞曲",
+              "status": "done",
+              "start_date": "2026-11-01",
+              "completed_date": "2026-11-09",
+              "image_ids": [],
+              "version": 2
+            }
+          ]
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/feedback/compose",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/ai/feedback/compose",
+        "body": {
+          "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "tags": [
+            "节奏稳定"
+          ],
+          "repertoire_ids": [
+            "rep_f8706c17bc52030c649905e1"
+          ],
+          "note": "节奏练习，句尾注意，练习两遍"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_f1e16214e0c5863eb0930dab",
+              "kind": "feedback.message",
+              "target": {
+                "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+                "student_id": "rec_c59e905fbae63cbec2fb8d99"
+              },
+              "payload": {
+                "message": {
+                  "learned": "节奏练习",
+                  "good": "节奏稳定",
+                  "attention": "句尾注意",
+                  "homework": "练习两遍"
+                }
+              },
+              "basis": [
+                {
+                  "type": "feedback",
+                  "ref": "draft_feedback:les_bf1ab2a4d797673f3c63e460:rec_c59e905fbae63cbec2fb8d99",
+                  "date": "2026-11-10",
+                  "quote": "节奏练习"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "draft_feedback:les_bf1ab2a4d797673f3c63e460:rec_c59e905fbae63cbec2fb8d99",
+                  "date": "2026-11-10",
+                  "quote": "节奏稳定"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "draft_feedback:les_bf1ab2a4d797673f3c63e460:rec_c59e905fbae63cbec2fb8d99",
+                  "date": "2026-11-10",
+                  "quote": "句尾注意"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "draft_feedback:les_bf1ab2a4d797673f3c63e460:rec_c59e905fbae63cbec2fb8d99",
+                  "date": "2026-11-10",
+                  "quote": "练习两遍"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        },
+        "queries": 13
+      }
+    },
+    {
+      "endpoint": "GET /api/lessons/{id}/review",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/lessons/les_bf1ab2a4d797673f3c63e460/review",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "lesson": {
+            "id": "les_bf1ab2a4d797673f3c63e460",
+            "version": 1,
+            "start_at": "2026-11-10T10:00+08:00",
+            "duration": 45,
+            "units": 1,
+            "status": "planned",
+            "course_name": "班课",
+            "course_type_id": "rec_dddda302092ef7cb30b00f16",
+            "teacher_name": "教师",
+            "location_name": "教室"
+          },
+          "participants": [
+            {
+              "id": "part_25623493b741649c425d7a80",
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "name": "学员0",
+              "attendance": "planned",
+              "version": 1
+            },
+            {
+              "id": "part_98729753498e749998aaa2a4",
+              "student_id": "rec_6ce93e3d3dce2b54f532c775",
+              "name": "学员1",
+              "attendance": "planned",
+              "version": 1
+            }
+          ],
+          "published": [],
+          "submission": null,
+          "people": [],
+          "comment_fingerprint": "6vkTjky0VOz5xhdFG7x0grq2RzYCWi8Jr/hDBMQ7guM=",
+          "can_submit_attendance": true,
+          "can_submit_comments": false,
+          "can_review": false,
+          "can_correct_comments": false,
+          "window": {
+            "opens_at": 1794276000000,
+            "closes_at": 1794451500000,
+            "open": true,
+            "overdue": false
+          }
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_bf1ab2a4d797673f3c63e460/review",
+        "body": {
+          "operation_id": "op_c90755a8-051f-4f04-8147-3ab5304ada98",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "6vkTjky0VOz5xhdFG7x0grq2RzYCWi8Jr/hDBMQ7guM=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_25623493b741649c425d7a80",
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_98729753498e749998aaa2a4",
+              "student_id": "rec_6ce93e3d3dce2b54f532c775",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_6ce93e3d3dce2b54f532c775",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "committed": true,
+          "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+          "id": "submission_c6bc63f8c2cf7d465fe7ad4d"
+        },
+        "queries": 10
+      }
+    },
+    {
+      "endpoint": "GET /api/submissions",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/submissions?status=pending&from=2026-11-01&to=2026-11-30",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+              "start_at": "2026-11-10T10:00+08:00",
+              "duration": 45,
+              "lesson_status": "planned",
+              "course_name": "班课",
+              "teacher_name": "教师",
+              "submission_id": "submission_c6bc63f8c2cf7d465fe7ad4d",
+              "status": "pending",
+              "kind": "attendance",
+              "version": 1,
+              "submitted_at": 1794276000000,
+              "reason": ""
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/submissions/{id}/confirm",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/submissions/submission_c6bc63f8c2cf7d465fe7ad4d/confirm",
+        "body": {
+          "operation_id": "op_3d2d2b59-19f1-4be0-bfea-c2d0ca1bac50",
+          "version": 1
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "committed": true,
+          "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+          "blocked": []
+        },
+        "queries": 14
+      }
+    },
+    {
+      "endpoint": "POST /api/feedback/{id}/{student_id}/copied",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/feedback/submission_c6bc63f8c2cf7d465fe7ad4d/rec_c59e905fbae63cbec2fb8d99/copied",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "POST /api/submissions/{id}/return",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/submissions/submission_99ae8218af82b2dab78b42bb/return",
+        "body": {
+          "operation_id": "op_8bfd4c2e-53be-4e6e-a9bf-0425405637bc",
+          "version": 1,
+          "reason": "请补充"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "committed": true,
+          "lesson_id": "les_bf1ab2a4d797673f3c63e460"
+        },
+        "queries": 9
+      }
+    },
+    {
+      "endpoint": "PUT /api/lessons/{id}/comments",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/lessons/les_bf1ab2a4d797673f3c63e460/comments",
+        "body": {
+          "operation_id": "op_5576aec2-2895-4b05-832e-99b1d7e2a3b3",
+          "comment_fingerprint": "Do7Ocs3hFdzr2X4ueWQ4aE/jcZr//u1ryk1kFhyMWE8=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_25623493b741649c425d7a80",
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_98729753498e749998aaa2a4",
+              "student_id": "rec_6ce93e3d3dce2b54f532c775",
+              "comment": "节奏稳定"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "committed": true,
+          "lesson_id": "les_bf1ab2a4d797673f3c63e460"
+        },
+        "queries": 8
+      }
+    },
+    {
+      "endpoint": "POST /api/report-batches",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/report-batches",
+        "body": {
+          "name": "秋季报告",
+          "from": "2026-11-01",
+          "to": "2026-11-30",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "student_ids": [
+            "rec_c59e905fbae63cbec2fb8d99",
+            "rec_6ce93e3d3dce2b54f532c775"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "batch": {
+            "id": "gb_71bcf05ca39dd41fd1317874",
+            "name": "秋季报告",
+            "from": "2026-11-01",
+            "to": "2026-11-30",
+            "teacher_id": "rec_86363ba6ea13bacd240889b9",
+            "version": 1
+          },
+          "reports": [
+            {
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "teacher_id": "rec_86363ba6ea13bacd240889b9",
+              "period": {
+                "from": "2026-11-01",
+                "to": "2026-11-30"
+              },
+              "style": {
+                "pack_id": "stp_growth_folio",
+                "pack_version": "1.0.0"
+              },
+              "dimensions_snapshot": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6
+                }
+              ],
+              "stats": {
+                "lessons": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "attendance": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "repertoire_done": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                }
+              },
+              "scores": [],
+              "mock_exams": [],
+              "texts": {
+                "progress": "",
+                "focus": "",
+                "next_goals": [],
+                "home_practice": [],
+                "teacher_note": ""
+              },
+              "artwork_image_ids": [],
+              "renewal": {
+                "visible": false,
+                "text": ""
+              },
+              "applied_suggestion_ids": [],
+              "warnings": [],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "id": "gr_36f23c1b3a36523210f46798",
+              "version": 1,
+              "batch_id": "gb_71bcf05ca39dd41fd1317874",
+              "status": "draft",
+              "progress": "not_started",
+              "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+            },
+            {
+              "student_id": "rec_6ce93e3d3dce2b54f532c775",
+              "teacher_id": "rec_86363ba6ea13bacd240889b9",
+              "period": {
+                "from": "2026-11-01",
+                "to": "2026-11-30"
+              },
+              "style": {
+                "pack_id": "stp_growth_folio",
+                "pack_version": "1.0.0"
+              },
+              "dimensions_snapshot": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6
+                }
+              ],
+              "stats": {
+                "lessons": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "attendance": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "repertoire_done": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                }
+              },
+              "scores": [],
+              "mock_exams": [],
+              "texts": {
+                "progress": "",
+                "focus": "",
+                "next_goals": [],
+                "home_practice": [],
+                "teacher_note": ""
+              },
+              "artwork_image_ids": [],
+              "renewal": {
+                "visible": false,
+                "text": ""
+              },
+              "applied_suggestion_ids": [],
+              "warnings": [],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "id": "gr_89bfbb66bcdbf5b0ce200351",
+              "version": 1,
+              "batch_id": "gb_71bcf05ca39dd41fd1317874",
+              "status": "draft",
+              "progress": "not_started",
+              "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+            }
+          ]
+        },
+        "queries": 7
+      }
+    },
+    {
+      "endpoint": "GET /api/report-batches",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/report-batches?teacher_id=rec_86363ba6ea13bacd240889b9&term=秋季",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "gb_71bcf05ca39dd41fd1317874",
+              "name": "秋季报告",
+              "from": "2026-11-01",
+              "to": "2026-11-30",
+              "teacher_id": "rec_86363ba6ea13bacd240889b9",
+              "version": 1,
+              "reports": [
+                {
+                  "id": "gr_36f23c1b3a36523210f46798",
+                  "batch_id": "gb_71bcf05ca39dd41fd1317874",
+                  "student_id": "rec_c59e905fbae63cbec2fb8d99",
+                  "teacher_id": "rec_86363ba6ea13bacd240889b9",
+                  "report_class_id": "rcl_20c9a27465cf3e55a818e4ae",
+                  "status": "draft",
+                  "progress": "not_started",
+                  "version": 1
+                },
+                {
+                  "id": "gr_89bfbb66bcdbf5b0ce200351",
+                  "batch_id": "gb_71bcf05ca39dd41fd1317874",
+                  "student_id": "rec_6ce93e3d3dce2b54f532c775",
+                  "teacher_id": "rec_86363ba6ea13bacd240889b9",
+                  "report_class_id": "rcl_20c9a27465cf3e55a818e4ae",
+                  "status": "draft",
+                  "progress": "not_started",
+                  "version": 1
+                }
+              ]
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "GET /api/reports/{id}",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [],
+          "mock_exams": [],
+          "texts": {
+            "progress": "",
+            "focus": "",
+            "next_goals": [],
+            "home_practice": [],
+            "teacher_note": ""
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 1,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "draft",
+          "progress": "not_started",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/report/draft",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/ai/report/draft",
+        "body": {
+          "report_id": "gr_36f23c1b3a36523210f46798",
+          "fields": [
+            "progress",
+            "focus",
+            "home_practice",
+            "teacher_note"
+          ],
+          "tier": "fast"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_245082e7fe15c04da3caf4bb",
+              "kind": "report.text",
+              "target": {
+                "report_id": "gr_36f23c1b3a36523210f46798",
+                "student_id": "rec_c59e905fbae63cbec2fb8d99"
+              },
+              "payload": {
+                "texts": {
+                  "progress": "节奏稳定",
+                  "focus": "句尾注意",
+                  "home_practice": [
+                    "练习两遍"
+                  ],
+                  "teacher_note": "节奏稳定"
+                }
+              },
+              "basis": [
+                {
+                  "type": "feedback",
+                  "ref": "fb_4622f51a86586522928624f5",
+                  "date": "2026-11-10",
+                  "quote": "节奏稳定"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "fb_4622f51a86586522928624f5",
+                  "date": "2026-11-10",
+                  "quote": "句尾注意"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "fb_4622f51a86586522928624f5",
+                  "date": "2026-11-10",
+                  "quote": "练习两遍"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        },
+        "queries": 12
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/report/batch-draft",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/ai/report/batch-draft",
+        "body": {
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "student_ids": [
+            "rec_c59e905fbae63cbec2fb8d99",
+            "rec_6ce93e3d3dce2b54f532c775"
+          ],
+          "tier": "fast"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_b3d82588edb48bb449db12ff",
+              "kind": "report.text",
+              "target": {
+                "report_id": "gr_36f23c1b3a36523210f46798",
+                "student_id": "rec_c59e905fbae63cbec2fb8d99"
+              },
+              "payload": {
+                "texts": {
+                  "progress": "节奏稳定",
+                  "focus": "句尾注意",
+                  "home_practice": [
+                    "练习两遍"
+                  ],
+                  "teacher_note": "节奏稳定"
+                }
+              },
+              "basis": [
+                {
+                  "type": "feedback",
+                  "ref": "fb_4622f51a86586522928624f5",
+                  "date": "2026-11-10",
+                  "quote": "节奏稳定"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "fb_4622f51a86586522928624f5",
+                  "date": "2026-11-10",
+                  "quote": "句尾注意"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "fb_4622f51a86586522928624f5",
+                  "date": "2026-11-10",
+                  "quote": "练习两遍"
+                }
+              ],
+              "warnings": []
+            },
+            {
+              "id": "sg_2d3588a56c10df91c49974f1",
+              "kind": "report.text",
+              "target": {
+                "report_id": "gr_89bfbb66bcdbf5b0ce200351",
+                "student_id": "rec_6ce93e3d3dce2b54f532c775"
+              },
+              "payload": {
+                "texts": {
+                  "progress": "节奏稳定",
+                  "focus": "句尾注意",
+                  "home_practice": [
+                    "练习两遍"
+                  ],
+                  "teacher_note": "节奏稳定"
+                }
+              },
+              "basis": [
+                {
+                  "type": "feedback",
+                  "ref": "fb_ce0dee583d664c66e4c68217",
+                  "date": "2026-11-10",
+                  "quote": "节奏稳定"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "fb_ce0dee583d664c66e4c68217",
+                  "date": "2026-11-10",
+                  "quote": "句尾注意"
+                },
+                {
+                  "type": "feedback",
+                  "ref": "fb_ce0dee583d664c66e4c68217",
+                  "date": "2026-11-10",
+                  "quote": "练习两遍"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "processed": [
+            {
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "report_id": "gr_36f23c1b3a36523210f46798",
+              "suggestion_ids": [
+                "sg_b3d82588edb48bb449db12ff"
+              ]
+            },
+            {
+              "student_id": "rec_6ce93e3d3dce2b54f532c775",
+              "report_id": "gr_89bfbb66bcdbf5b0ce200351",
+              "suggestion_ids": [
+                "sg_2d3588a56c10df91c49974f1"
+              ]
+            }
+          ],
+          "skipped": [],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 4,
+            "limit": 80
+          }
+        },
+        "queries": 13
+      }
+    },
+    {
+      "endpoint": "PUT /api/reports/{id}",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798",
+        "body": {
+          "version": 1,
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": 999
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": 999
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": 999
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": 999
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": 999
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": 999
+            }
+          ],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "teacher_note": "继续保持",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ]
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": null
+            }
+          ],
+          "mock_exams": [],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ],
+            "teacher_note": "继续保持"
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 2,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "draft",
+          "progress": "draft",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 6
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/refresh-crm",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798/refresh-crm",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": null
+            }
+          ],
+          "mock_exams": [],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ],
+            "teacher_note": "继续保持"
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 3,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "draft",
+          "progress": "draft",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/ready",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798/ready",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": null
+            }
+          ],
+          "mock_exams": [],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ],
+            "teacher_note": "继续保持"
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 4,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "ready",
+          "progress": "ready",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/return",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798/return",
+        "body": {
+          "reason": "请补充目标"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": null
+            }
+          ],
+          "mock_exams": [],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ],
+            "teacher_note": "继续保持"
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "reason": "请补充目标",
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 5,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "draft",
+          "progress": "draft",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/publish",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798/publish",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": null
+            }
+          ],
+          "mock_exams": [],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ],
+            "teacher_note": "继续保持"
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "reason": "请补充目标",
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 7,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "published",
+          "progress": "published",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "GET /api/parent/reports/{id}",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/parent/reports/gr_36f23c1b3a36523210f46798",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "render_data": {
+            "student_id": "rec_c59e905fbae63cbec2fb8d99",
+            "teacher_id": "rec_86363ba6ea13bacd240889b9",
+            "period": {
+              "from": "2026-11-01",
+              "to": "2026-11-30"
+            },
+            "style": {
+              "pack_id": "stp_growth_folio",
+              "pack_version": "1.0.0"
+            },
+            "dimensions_snapshot": [
+              {
+                "key": "d1",
+                "name": "读谱识谱",
+                "order": 1
+              },
+              {
+                "key": "d2",
+                "name": "节奏感",
+                "order": 2
+              },
+              {
+                "key": "d3",
+                "name": "演奏技术",
+                "order": 3
+              },
+              {
+                "key": "d4",
+                "name": "音乐表现力",
+                "order": 4
+              },
+              {
+                "key": "d5",
+                "name": "练习习惯",
+                "order": 5
+              },
+              {
+                "key": "d6",
+                "name": "课堂专注与自信",
+                "order": 6
+              }
+            ],
+            "stats": {
+              "lessons": {
+                "value": 1,
+                "crm_value": 1,
+                "source": "crm",
+                "overridden": false
+              },
+              "attendance": {
+                "value": 1,
+                "crm_value": 1,
+                "source": "crm",
+                "overridden": false
+              },
+              "repertoire_done": {
+                "value": 1,
+                "crm_value": 1,
+                "source": "crm",
+                "overridden": false
+              }
+            },
+            "scores": [
+              {
+                "key": "d1",
+                "value": 3,
+                "previous": null
+              },
+              {
+                "key": "d2",
+                "value": 3,
+                "previous": null
+              },
+              {
+                "key": "d3",
+                "value": 3,
+                "previous": null
+              },
+              {
+                "key": "d4",
+                "value": 3,
+                "previous": null
+              },
+              {
+                "key": "d5",
+                "value": 3,
+                "previous": null
+              },
+              {
+                "key": "d6",
+                "value": 3,
+                "previous": null
+              }
+            ],
+            "mock_exams": [],
+            "texts": {
+              "progress": "节奏更稳定",
+              "focus": "注意句尾",
+              "next_goals": [
+                "练习下一首"
+              ],
+              "home_practice": [
+                "每天练习"
+              ],
+              "teacher_note": "继续保持"
+            },
+            "artwork_image_ids": [],
+            "renewal": {
+              "visible": false,
+              "text": ""
+            },
+            "warnings": [],
+            "id": "gr_36f23c1b3a36523210f46798",
+            "version": 7,
+            "status": "published",
+            "progress": "published",
+            "student": {
+              "id": "rec_c59e905fbae63cbec2fb8d99",
+              "nickname": "学员0"
+            },
+            "brand": {
+              "name": "验收 growth",
+              "primary_color": "#2B4C7E"
+            },
+            "options": {
+              "compare_previous": true,
+              "mock_exam": false,
+              "require_artwork": false,
+              "renewal_suggestion": false
+            }
+          },
+          "manifest": {
+            "id": "stp_growth_folio",
+            "name": "成长书册",
+            "version": "1.0.0",
+            "doc_types": [
+              "report",
+              "feedback_card"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": null
+          },
+          "revision_id": "grv_c11251736ba807056cb35dfb"
+        },
+        "queries": 6
+      }
+    },
+    {
+      "endpoint": "GET /api/parent/children/{id}/feed",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/parent/children/rec_c59e905fbae63cbec2fb8d99/feed",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "type": "feedback",
+              "id": "fb_4622f51a86586522928624f5",
+              "status": "confirmed",
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "revision_id": "fb_4622f51a86586522928624f5",
+              "title": "课后反馈",
+              "at": "2026-11-10T10:00:00.000+08:00",
+              "lesson_id": "les_bf1ab2a4d797673f3c63e460",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "public_comment": "全班节奏练习",
+              "image_ids": [],
+              "image_urls": []
+            },
+            {
+              "type": "report",
+              "id": "gr_36f23c1b3a36523210f46798",
+              "status": "published",
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "revision_id": "grv_c11251736ba807056cb35dfb",
+              "title": "秋季报告",
+              "at": "2026-11-10T10:00:00.000+08:00",
+              "lesson_id": null
+            }
+          ],
+          "total": 2,
+          "next_offset": null
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/unpublish",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_36f23c1b3a36523210f46798/unpublish",
+        "body": {
+          "reason": "补充信息后重发"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_c59e905fbae63cbec2fb8d99",
+          "teacher_id": "rec_86363ba6ea13bacd240889b9",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 1,
+              "crm_value": 1,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [
+            {
+              "key": "d1",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d2",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d3",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d4",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d5",
+              "value": 3,
+              "previous": null
+            },
+            {
+              "key": "d6",
+              "value": 3,
+              "previous": null
+            }
+          ],
+          "mock_exams": [],
+          "texts": {
+            "progress": "节奏更稳定",
+            "focus": "注意句尾",
+            "next_goals": [
+              "练习下一首"
+            ],
+            "home_practice": [
+              "每天练习"
+            ],
+            "teacher_note": "继续保持"
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "reason": "补充信息后重发",
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_36f23c1b3a36523210f46798",
+          "version": 8,
+          "batch_id": "gb_71bcf05ca39dd41fd1317874",
+          "status": "ready",
+          "progress": "ready",
+          "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/report-batches/{id}/publish",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/report-batches/gb_71bcf05ca39dd41fd1317874/publish",
+        "body": {
+          "report_ids": [
+            "gr_36f23c1b3a36523210f46798",
+            "gr_89bfbb66bcdbf5b0ce200351"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "published": [
+            {
+              "student_id": "rec_c59e905fbae63cbec2fb8d99",
+              "teacher_id": "rec_86363ba6ea13bacd240889b9",
+              "period": {
+                "from": "2026-11-01",
+                "to": "2026-11-30"
+              },
+              "style": {
+                "pack_id": "stp_growth_folio",
+                "pack_version": "1.0.0"
+              },
+              "dimensions_snapshot": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6
+                }
+              ],
+              "stats": {
+                "lessons": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "attendance": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "repertoire_done": {
+                  "value": 1,
+                  "crm_value": 1,
+                  "source": "crm",
+                  "overridden": false
+                }
+              },
+              "scores": [
+                {
+                  "key": "d1",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d2",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d3",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d4",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d5",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d6",
+                  "value": 3,
+                  "previous": null
+                }
+              ],
+              "mock_exams": [],
+              "texts": {
+                "progress": "节奏更稳定",
+                "focus": "注意句尾",
+                "next_goals": [
+                  "练习下一首"
+                ],
+                "home_practice": [
+                  "每天练习"
+                ],
+                "teacher_note": "继续保持"
+              },
+              "artwork_image_ids": [],
+              "renewal": {
+                "visible": false,
+                "text": ""
+              },
+              "applied_suggestion_ids": [],
+              "warnings": [],
+              "reason": "补充信息后重发",
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "id": "gr_36f23c1b3a36523210f46798",
+              "version": 9,
+              "batch_id": "gb_71bcf05ca39dd41fd1317874",
+              "status": "published",
+              "progress": "published",
+              "report_class_id": "rcl_20c9a27465cf3e55a818e4ae"
+            }
+          ],
+          "skipped": [
+            {
+              "id": "gr_89bfbb66bcdbf5b0ce200351",
+              "reason": "not_ready"
+            }
+          ]
+        },
+        "queries": 6
+      }
+    },
+    {
+      "endpoint": "PUT /api/settings",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/settings",
+        "body": {
+          "key": "feedback_auto_confirm",
+          "value": true
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "GET /api/ai/usage",
+      "scenario": "成功响应",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/ai/usage?date=2026-11-10",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-10",
+          "fast": {
+            "used": 4,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "growth_reports",
+              "fast": 4,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_3aa7d1a468136dab7c0e093b",
+              "name": "手机教师",
+              "fast": 4,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "GET /api/parent/media/{id}",
+      "scenario": "成功响应",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/parent/media/img_report",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "binary": true,
+          "mime": "image/png",
+          "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jw1kAAAAASUVORK5CYII="
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/styles",
+      "scenario": "另一配置/文档类型",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/styles?doc_type=feedback_card",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "stp_growth_folio",
+              "name": "成长书册",
+              "version": "1.0.0",
+              "thumbnail": null,
+              "manifest": {
+                "id": "stp_growth_folio",
+                "name": "成长书册",
+                "version": "1.0.0",
+                "doc_types": [
+                  "report",
+                  "feedback_card"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              }
+            }
+          ]
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "PUT /api/settings",
+      "scenario": "另一配置/文档类型",
+      "source": "extra-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/settings",
+        "body": {
+          "key": "teacher_can_publish_reports",
+          "value": true
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "POST /api/feedback/{id}/{student_id}/copied",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/feedback/submission_f4f4aca1aa3cbca7bb8ca1f1/rec_c0c6f246f72287d94575ec84/copied",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "invalid_state",
+          "message": "仅可复制当前已确认版本"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_a5819f58766aa5656f51ba26/review",
+        "body": {
+          "operation_id": "op_eeabd359-e9e2-43ea-8bdc-e8f1fc136f3b",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "FwoqqOtIuf11cNslcm0fMO5qhAc31BfF3/zyec102Ks=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_0a672e5464c2c45c0f3d94cb",
+              "student_id": "rec_d888e4c47848f7230b4524c6",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_37944bcb36222efce932adbb",
+              "student_id": "rec_56cf717134c484fc8411eb7b",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_d888e4c47848f7230b4524c6",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_56cf717134c484fc8411eb7b",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ],
+          "public_comment": "冲突"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "公共点评别名不一致",
+          "code": "validation_failed",
+          "details": {
+            "fields": [
+              {
+                "field": "public_comment",
+                "message": "公共点评别名不一致"
+              }
+            ]
+          }
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_aa8d38438552554ef8fe56fc/review",
+        "body": {
+          "operation_id": "op_5c5281bc-bc0f-41e2-bba6-9e7715c5eaad",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "fov4HOaeq7cuFPJNBoZzDagsCP6V0aqg+NNOA029O7w=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_57c95d96631fc01a0e0b1631",
+              "student_id": "rec_f29c0398f84629c242e34c3b",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_87be8456cbf164879af66aba",
+              "student_id": "rec_4ea5825db67fbc9d4db32367",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_f29c0398f84629c242e34c3b",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_4ea5825db67fbc9d4db32367",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ],
+          "attendance": [
+            {
+              "student_id": "rec_f29c0398f84629c242e34c3b",
+              "status": "student_no_show"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "出勤别名不一致",
+          "code": "validation_failed",
+          "details": {
+            "fields": [
+              {
+                "field": "attendance",
+                "message": "出勤别名不一致"
+              }
+            ]
+          }
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_aa8d38438552554ef8fe56fc/review",
+        "body": {
+          "operation_id": "op_d1e646d8-b984-4817-a5f0-0bdc97e82c79",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "fov4HOaeq7cuFPJNBoZzDagsCP6V0aqg+NNOA029O7w=",
+          "attendance": [
+            {
+              "student_id": "rec_f29c0398f84629c242e34c3b",
+              "status": "attended"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 400,
+        "body": {
+          "error": "bad_request",
+          "message": "须逐人填写本课全部学员"
+        },
+        "queries": 8
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_aa8d38438552554ef8fe56fc/review",
+        "body": {
+          "operation_id": "op_c7bd1a2d-e090-488c-a02c-31f8bc56f55a",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "fov4HOaeq7cuFPJNBoZzDagsCP6V0aqg+NNOA029O7w=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_57c95d96631fc01a0e0b1631",
+              "student_id": "rec_f29c0398f84629c242e34c3b",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_87be8456cbf164879af66aba",
+              "student_id": "rec_4ea5825db67fbc9d4db32367",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_f29c0398f84629c242e34c3b",
+              "repertoire_ids": [
+                "foreign"
+              ],
+              "message": {
+                "good": "好"
+              }
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 8
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_f4ba505441945352fe7436a8/review",
+        "body": {
+          "operation_id": "op_b9305086-bf95-4567-b06c-99098d2ede88",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": null,
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_c8250b1eb0e369a43ec87d9f",
+              "student_id": "rec_c49478187cf3dd8c6bf74f50",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_cc3ab64431bd2b99bf5ab710",
+              "student_id": "rec_26ad1b7541d9f78363a9e5c1",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_c49478187cf3dd8c6bf74f50",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_26ad1b7541d9f78363a9e5c1",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 8
+      }
+    },
+    {
+      "endpoint": "PUT /api/settings",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/settings",
+        "body": {
+          "key": "feedback_auto_confirm",
+          "value": true
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "没有此操作权限",
+          "code": "PERMISSION_DENIED"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_f4ba505441945352fe7436a8/review",
+        "body": {
+          "operation_id": "op_a7e493b9-bc3d-4c88-ab39-80c3de8dcd07",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "BCnxhBsG7jBPlIPZrSMAR71teEzidA+TCLRhdDII+Ho=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_c8250b1eb0e369a43ec87d9f",
+              "student_id": "rec_c49478187cf3dd8c6bf74f50",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_cc3ab64431bd2b99bf5ab710",
+              "student_id": "rec_26ad1b7541d9f78363a9e5c1",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_c49478187cf3dd8c6bf74f50",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_26ad1b7541d9f78363a9e5c1",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 500,
+        "body": {
+          "error": "internal_error",
+          "message": "暂时无法完成操作，请稍后重试"
+        },
+        "queries": 10
+      }
+    },
+    {
+      "endpoint": "POST /api/lessons/{id}/review",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_68cad39aa761cbbe838e4274/review",
+        "body": {
+          "operation_id": "op_d31f3585-76f0-4c11-a3df-8c0e4d4c50a6",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "A2HhRnACGRGVOZa3206xlFAvnlir6k1u00OpCrMPHs8=",
+          "public_text": "不同",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_9fb6c3c91d0f15f8ea5b0ec6",
+              "student_id": "rec_f12d4112b05b24fdd97975af",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_e7735872a8d7c4fa1deb9145",
+              "student_id": "rec_590cf57a4076068b24d96690",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_f12d4112b05b24fdd97975af",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_590cf57a4076068b24d96690",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "bad_request",
+          "message": "操作编号已使用"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/feedback/today",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "feedback-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/feedback/today",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "POST /api/report-batches",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/report-batches",
+        "body": {
+          "name": "未配置",
+          "from": "2026-11-01",
+          "to": "2026-11-30",
+          "student_ids": [
+            "rec_5e2d9b29f7cfe244ab4aa05d",
+            "rec_c00c02e68b2dfffed28223ca"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "请先为学员补齐报告班型",
+          "details": {
+            "fields": [
+              {
+                "field": "report_class_id",
+                "message": "请先为学员补齐报告班型"
+              }
+            ]
+          }
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "PUT /api/reports/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/reports/gr_d189184d0f1d3e41d5dfcc66",
+        "body": {
+          "version": 1,
+          "texts": {
+            "focus": "冲突"
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "报告已被修改，请刷新",
+          "details": {
+            "latest": {
+              "student_id": "rec_5e2d9b29f7cfe244ab4aa05d",
+              "teacher_id": "rec_9706c1e5fb85455e7771f8c4",
+              "period": {
+                "from": "2026-11-01",
+                "to": "2026-11-30"
+              },
+              "style": {
+                "pack_id": "stp_growth_folio",
+                "pack_version": "1.0.0"
+              },
+              "dimensions_snapshot": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6
+                }
+              ],
+              "stats": {
+                "lessons": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "attendance": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "repertoire_done": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                }
+              },
+              "scores": [
+                {
+                  "key": "d1",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d2",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d3",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d4",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d5",
+                  "value": 3,
+                  "previous": null
+                },
+                {
+                  "key": "d6",
+                  "value": 3,
+                  "previous": null
+                }
+              ],
+              "mock_exams": [],
+              "texts": {
+                "progress": "节奏更稳定",
+                "focus": "注意句尾",
+                "next_goals": [
+                  "练习下一首"
+                ],
+                "home_practice": [
+                  "每天练习"
+                ],
+                "teacher_note": "继续保持"
+              },
+              "artwork_image_ids": [],
+              "renewal": {
+                "visible": false,
+                "text": ""
+              },
+              "applied_suggestion_ids": [],
+              "warnings": [],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "id": "gr_d189184d0f1d3e41d5dfcc66",
+              "version": 2,
+              "batch_id": "gb_69fce14947f2c888e717cebc",
+              "status": "draft",
+              "progress": "draft",
+              "report_class_id": "rcl_3e24044a7dae043d9b8d9e3b"
+            }
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/return",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_643dee6327522200ef5a6f89/return",
+        "body": {
+          "reason": ""
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "请使用符合长度限制的纯文字，不要包含HTML标签",
+          "details": {
+            "fields": [
+              {
+                "field": "reason",
+                "message": "请使用符合长度限制的纯文字，不要包含HTML标签"
+              }
+            ]
+          }
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/parent/reports/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/parent/reports/gr_612a09ccd496fe4a66177604",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/publish",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_196bf8987e4f83ffece3e3af/publish",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/publish",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/reports/gr_196bf8987e4f83ffece3e3af/publish",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "check_failed",
+          "message": "报告尚未完成",
+          "details": {
+            "items": [
+              "维度未评分：读谱识谱",
+              "维度未评分：节奏感",
+              "维度未评分：演奏技术",
+              "维度未评分：音乐表现力",
+              "维度未评分：练习习惯",
+              "维度未评分：课堂专注与自信",
+              "文字未填：progress",
+              "文字未填：focus",
+              "文字未填：teacher_note",
+              "文字未填：next_goals",
+              "文字未填：home_practice"
+            ]
+          }
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/reports/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/reports/gr_196bf8987e4f83ffece3e3af",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "GET /api/reports/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/reports/gr_196bf8987e4f83ffece3e3af",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "PUT /api/reports/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth/api/reports/gr_94962ca7b81ebfb6fddd8e9f",
+        "body": {
+          "version": 1,
+          "scores": [
+            {
+              "key": "d1",
+              "value": 0
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "评分须为1–5整数",
+          "details": {
+            "fields": [
+              {
+                "field": "scores",
+                "message": "评分须为1–5整数"
+              }
+            ]
+          }
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "PUT /api/reports/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-growth-other/api/reports/gr_46fd2e44c5fd58d33f15919a",
+        "body": {
+          "version": 1
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "POST /api/reports/{id}/ready",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth-other/api/reports/gr_46fd2e44c5fd58d33f15919a/ready",
+        "body": {
+          "version": 1
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "POST /api/report-batches/{id}/publish",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth-other/api/report-batches/gb_3a9916fbf603c5d7b525a81f/publish",
+        "body": {
+          "report_ids": [
+            "gr_46fd2e44c5fd58d33f15919a"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "GET /api/students/{id}/repertoire",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth-other/api/students/rec_ba89b971d7a0afe465a31725/repertoire",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "GET /api/parent/media/{id}",
+      "scenario": "错误响应（独立测试场景）",
+      "source": "growth-http-source.json",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/parent/media/img_report",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/report/batch-draft",
+      "scenario": "批量部分处理：quota_exceeded",
+      "source": "ai-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/ai/report/batch-draft",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ec3427c7-7155-4bbc-93fc-23fd5f41854e"
+        },
+        "body": {
+          "batch_id": "gb_81c4e3a1464b4ef556b69e07",
+          "student_ids": [
+            "rec_9c5758856bf1d428d1b75a0d",
+            "rec_26f24bce8f3de6fe22cc2317"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_e1def023f4473ceb1c1da254",
+              "kind": "report.text",
+              "target": {
+                "report_id": "gr_ae2087b9df114d818b7e45a5",
+                "student_id": "rec_9c5758856bf1d428d1b75a0d"
+              },
+              "payload": {
+                "texts": {
+                  "progress": "节奏稳定",
+                  "focus": "句尾注意",
+                  "home_practice": [
+                    "练习两遍"
+                  ],
+                  "teacher_note": "节奏稳定"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "节奏稳定"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "句尾注意"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "练习两遍"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "节奏稳定"
+                }
+              ],
+              "warnings": [
+                "资料里找不到依据的文字需要人工核对"
+              ]
+            }
+          ],
+          "processed": [
+            {
+              "student_id": "rec_9c5758856bf1d428d1b75a0d",
+              "report_id": "gr_ae2087b9df114d818b7e45a5",
+              "suggestion_ids": [
+                "sg_e1def023f4473ceb1c1da254"
+              ]
+            }
+          ],
+          "skipped": [
+            {
+              "student_id": "rec_26f24bce8f3de6fe22cc2317",
+              "report_id": "gr_6405fc83417d53ce69fd908b",
+              "reason": "quota_exceeded"
+            }
+          ],
+          "warnings": [
+            "资料里找不到依据的文字需要人工核对"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 1
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/report/batch-draft",
+      "scenario": "批量部分处理：already_started",
+      "source": "ai-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/ai/report/batch-draft",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "20fd0c65-ef5f-4019-b0bd-ab3b3f8a884b"
+        },
+        "body": {
+          "batch_id": "gb_aec16600c068644624cf6278",
+          "student_ids": [
+            "rec_326e24a0a4303cb160a7df30",
+            "rec_26e095f03f99c01bdee8c43c"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "processed": [],
+          "skipped": [
+            {
+              "student_id": "rec_326e24a0a4303cb160a7df30",
+              "report_id": "gr_c46c07d67560b4fac1aa722e",
+              "reason": "already_started"
+            },
+            {
+              "student_id": "rec_26e095f03f99c01bdee8c43c",
+              "report_id": "gr_a9fc5eed6fa0165ee606734d",
+              "reason": "already_started"
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 0,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/report/batch-draft",
+      "scenario": "批量部分处理：model_error",
+      "source": "ai-http-source.json",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/ai/report/batch-draft",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "00112ca7-8c6e-4925-bff4-a988e5def6cb"
+        },
+        "body": {
+          "batch_id": "gb_2c33ee261b1b1807d44a77ce",
+          "student_ids": [
+            "rec_6bd9fa2722edf3584ba6ee9d",
+            "rec_e020a7d0f52365bbe535ad50"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_230ed1c02ecf7d197aa23493",
+              "kind": "report.text",
+              "target": {
+                "report_id": "gr_bb0f6e84bbf601376aef2222",
+                "student_id": "rec_e020a7d0f52365bbe535ad50"
+              },
+              "payload": {
+                "texts": {
+                  "progress": "节奏稳定",
+                  "focus": "句尾注意",
+                  "home_practice": [
+                    "练习两遍"
+                  ],
+                  "teacher_note": "节奏稳定"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "节奏稳定"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "句尾注意"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "练习两遍"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "节奏稳定"
+                }
+              ],
+              "warnings": [
+                "资料里找不到依据的文字需要人工核对"
+              ]
+            }
+          ],
+          "processed": [
+            {
+              "student_id": "rec_e020a7d0f52365bbe535ad50",
+              "report_id": "gr_bb0f6e84bbf601376aef2222",
+              "suggestion_ids": [
+                "sg_230ed1c02ecf7d197aa23493"
+              ]
+            }
+          ],
+          "skipped": [
+            {
+              "student_id": "rec_6bd9fa2722edf3584ba6ee9d",
+              "report_id": "gr_fb8780bf2b4bcab29f920b7b",
+              "reason": "model_error"
+            }
+          ],
+          "warnings": [
+            "资料里找不到依据的文字需要人工核对"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    }
+  ]
+}

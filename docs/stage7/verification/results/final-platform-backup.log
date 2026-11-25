@@ -1,0 +1,18 @@
+{
+  "result": "pass",
+  "worker": "backup-dist/backup-worker.js",
+  "encrypted_manifest": true,
+  "platform_and_tenant_rows": {
+    "subject_packs": 4,
+    "subject_pack_versions": 4,
+    "setting_template_refs": 34,
+    "style_version_meta": 6,
+    "style_version_tenants": 1,
+    "style_assets": 1,
+    "style_defaults": 4
+  },
+  "style_asset_hash_and_r2_key_preserved": true,
+  "original_private_media_object_retained": true,
+  "scope_tenant_preserved": true,
+  "remote_calls": 0
+}

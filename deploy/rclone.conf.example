@@ -1,0 +1,17 @@
+[r2]
+type = s3
+provider = Cloudflare
+access_key_id = REPLACE_READ_ONLY_R2_ACCESS_KEY_ID
+secret_access_key = REPLACE_READ_ONLY_R2_SECRET_ACCESS_KEY
+endpoint = https://REPLACE_ACCOUNT_ID.r2.cloudflarestorage.com
+acl = private
+
+[cos]
+type = s3
+provider = TencentCOS
+env_auth = false
+endpoint = cos.ap-shanghai.myqcloud.com
+region = ap-shanghai
+acl = private
+# COS credentials are injected into child environment by rclone-role.mjs.
+# Do NOT save COS keys here in role mode. Use this same wrapper for every command.

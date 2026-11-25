@@ -1,0 +1,14 @@
+[
+  {
+    "name": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 6.484
+  },
+  {
+    "name": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 213.093
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "18-share-list",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/plans/pln_df109d2e5771e3be0d0f9d79/share-links",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "shr_62d29c9608ac766a98661d0d",
+          "revision_id": "rev_7bce53cabf2b58bdebbd1417",
+          "expires_at": "2026-12-14T00:08:11.871+08:00",
+          "revoked_at": null,
+          "visits": 1,
+          "created_at": "2026-11-14T00:08:11.871+08:00",
+          "created_by": "usr_582c3b1499d252c1ca17bc33",
+          "version": 1
+        }
+      ],
+      "total": 1,
+      "next_offset": null
+    },
+    "queries": 4
+  }
+}

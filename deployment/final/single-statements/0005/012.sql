@@ -1,0 +1,1 @@
+ALTER TABLE audit_log ADD COLUMN money_version INTEGER NOT NULL DEFAULT 0;

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 9.718,
+    "log": "frontend-build.log"
+  },
+  {
+    "name": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 270.977,
+    "log": "frontend-source.log"
+  },
+  {
+    "name": "bundle",
+    "command": "TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 268.553,
+    "log": "frontend-bundle.log"
+  }
+]

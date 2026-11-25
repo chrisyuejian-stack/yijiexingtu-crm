@@ -1,0 +1,1 @@
+CREATE TABLE partner_sessions(id TEXT PRIMARY KEY,course_id TEXT NOT NULL REFERENCES partner_courses(id),start_at TEXT NOT NULL,duration INTEGER NOT NULL CHECK(duration IN(30,45,60)),meeting_no TEXT NOT NULL DEFAULT '',meeting_url TEXT NOT NULL DEFAULT '',cancelled INTEGER NOT NULL DEFAULT 0,version INTEGER NOT NULL DEFAULT 1);

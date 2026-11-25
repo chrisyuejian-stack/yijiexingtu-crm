@@ -1,0 +1,786 @@
+{
+  "accepted_stage3": {
+    "modified": [
+      {
+        "path": "README.md",
+        "before_sha256": "4b0a8ca4f8bc381f6acac5185c4f49b172e6423b981bceb3b5fb6ed7678d3996",
+        "after_sha256": "e3dd67e3fd877ab9cb4bd550311c5569db2302fcfcaaf3c37892d1a4c0fe04fb"
+      },
+      {
+        "path": "docs/项目决策与范围.md",
+        "before_sha256": "56f4a9ac828518f64edd7c0a847f6284808d9b55e9d6d6964e0b3dec26400d74",
+        "after_sha256": "21e26803e6e46397eee8531f160c1618b5d770e83b0d879caac1f86060214762"
+      },
+      {
+        "path": "scripts/frontend-bundle.mjs",
+        "before_sha256": "e177400f8fe6f71700a2604005520de0b1df0d34f7f513ee52a41c63ca1c684b",
+        "after_sha256": "2ab534177887e7723298295ddc25877235bbb4303040b94fcdbb0b713c098b3a"
+      },
+      {
+        "path": "scripts/yx-preview.mjs",
+        "before_sha256": "1759ce31bd9ccba45a5dbfb66002f15f81958c1f5715ac0dc6060c42434148fb",
+        "after_sha256": "99c21a7f635c928e1a74eb38dab5c6dd1a40b7d4f5e601d6b29d56ac020b832e"
+      },
+      {
+        "path": "src/server/backup-model.js",
+        "before_sha256": "a0371a3e680e04c0c81275acfadd044806aa2b7e1e09471262e83ae4db04cf83",
+        "after_sha256": "ac835a16493e847278ae4a076e1e1869d08191f11050118ffffc3e98635e28b6"
+      },
+      {
+        "path": "src/server/purge-schema.js",
+        "before_sha256": "8bd0a8347f8fb6a71a1f8ae76056d2acd3e0521be1ee4331d49c2fa699e832ef",
+        "after_sha256": "1278d011e3b41842793c3e234987467e28eaa16da0f626bf2557eef9c46173ad"
+      },
+      {
+        "path": "src/server/repo.js",
+        "before_sha256": "34b3f9d99950e576851f55f53addd92980d5d770701e769c31e8cb8070ae174f",
+        "after_sha256": "07ba706c1597bac22059ce82556648155bcf50cd0d6ed2c341602ea714362d35"
+      },
+      {
+        "path": "src/server/tool-settings.js",
+        "before_sha256": "adecd27ae6a4996fda228826435c22546e962afc6f5e1d507be2d46313cd917f",
+        "after_sha256": "7586f38a8ea50c4e30947c46cffcfd601aef6bf75f86b95606c659bc8eee3716"
+      },
+      {
+        "path": "src/server/worker.js",
+        "before_sha256": "efa561ef8a49e8f3364c82832f58d445acb634889c6871d3359069e1dbe1a798",
+        "after_sha256": "7dab97b8607cf62eb5c3b2f5bfb2d234f4f987bc213c2316c1062fc34add318e"
+      },
+      {
+        "path": "src/tenant/v2a.js",
+        "before_sha256": "46837260aa0a566b3336081329a9cb1b50c29f6ea86d7634b721fb97edabcaea",
+        "after_sha256": "7f46bc1473e136e4125d21e284c362c8fd5b866231113ee7f02785d0b786aaf5"
+      },
+      {
+        "path": "src/tenant/yx.css",
+        "before_sha256": "fbd2d16102cd14b416bb96f3f950eef70c774517bfe0354ecf6cf4efd5a3110e",
+        "after_sha256": "60949aa73468c4bde2a3af460139d89599787da76925abb2a28b584ebf7cf679"
+      },
+      {
+        "path": "tests/settings-stage3.test.mjs",
+        "before_sha256": "979c1728b731aba81fe26603079aa52b487a307743dea67f8bea8f83f925b783",
+        "after_sha256": "45893457307ef98bd6f4a23d218b5467feec72aeb340479d30df401701511ea1"
+      },
+      {
+        "path": "tests/support.mjs",
+        "before_sha256": "920cc4a5fbdffa09036397f07edf1002468f5538b1b319a6c048199837490edb",
+        "after_sha256": "426ab666e111ef42d3dfafdb294ebfe82bcb7232c59cd1cffa92f2481a817d4b"
+      },
+      {
+        "path": "tests/yx-frontend-stage2.test.mjs",
+        "before_sha256": "56533641a2869243012a2513c736d511837aa1890ba2126f608a85e782c8fe65",
+        "after_sha256": "36d27f90d18c57c818b687656c63c85d79af910abed50176292d1ccccb43a99f"
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "path": "docs/reference/stage4-start-baseline-sha256.json",
+        "sha256": "0d50f8f9e83924b35591bb8b6f43915d9498f6f380fe13364b690f8966efae18",
+        "bytes": 51267
+      },
+      {
+        "path": "docs/reference/接口约定_v0.3.5_原件.md",
+        "sha256": "2401107e0257ba0a4b24fddc9d15fd6c138548a0900f9e9420b18edcbe69c7c6",
+        "bytes": 92466
+      },
+      {
+        "path": "docs/stage3-frontend/阶段3前端交付说明.md",
+        "sha256": "fb44a5d2f893ffe8ad35cc62a123311a0b530ebb0f1d2fd7eae3efbe405d0c6d",
+        "bytes": 3148
+      },
+      {
+        "path": "docs/stage4/HTTP测试实录_完整.json",
+        "sha256": "deac0eda963eabb960262e4c46931b3eb0a2cad01e9c13b82f0c77effa16f194",
+        "bytes": 1520201
+      },
+      {
+        "path": "docs/stage4/examples/01-list.json",
+        "sha256": "b9f252266d148634bc9c0dee26290e6c936b02e558ca3ade94a23b9f8396298e",
+        "bytes": 718
+      },
+      {
+        "path": "docs/stage4/examples/02-create.json",
+        "sha256": "628824c460f8963fa64489599d13d3401f94fa65365e645abb6fdd46c30b093d",
+        "bytes": 2856
+      },
+      {
+        "path": "docs/stage4/examples/03-detail.json",
+        "sha256": "fc38e348e0d13cc926361bf4f48fffab43c8936f8842000316119ddb2f739642",
+        "bytes": 3739
+      },
+      {
+        "path": "docs/stage4/examples/04-save.json",
+        "sha256": "57cb80f92d56a0869a2e5f0f72756e22880b824ba81bee7cca4dc32cfabb9b04",
+        "bytes": 8003
+      },
+      {
+        "path": "docs/stage4/examples/05-delete.json",
+        "sha256": "8a50fafd5d9eed0bff23895cef49fbbb7792aebc98b2f0d9365d37738542d1c1",
+        "bytes": 299
+      },
+      {
+        "path": "docs/stage4/examples/06-duplicate.json",
+        "sha256": "dad8b6ed1702ddbdcf3125bb29e34bcd7220b54b9572acc144b6f272491ba5a1",
+        "bytes": 5208
+      },
+      {
+        "path": "docs/stage4/examples/07-revisions.json",
+        "sha256": "5de1efbd6914af010fef02bd17411565cd8481f571065ec804e217d3e89ef1e8",
+        "bytes": 861
+      },
+      {
+        "path": "docs/stage4/examples/08-restore.json",
+        "sha256": "c280b50aaabe917ee729a011e0ad63b81f4fdc319e4a6c33f4995962da2177ff",
+        "bytes": 2742
+      },
+      {
+        "path": "docs/stage4/examples/09-skeleton.json",
+        "sha256": "045a7cc42e8bfb772779c473a7121c8bab61ad22955359114168b3d328c5a0a2",
+        "bytes": 2544
+      },
+      {
+        "path": "docs/stage4/examples/10-check.json",
+        "sha256": "0c56848649b584d0e43abc69278cf49f9e1076ae1a7ea40706d623183eaaebb7",
+        "bytes": 1056
+      },
+      {
+        "path": "docs/stage4/examples/11-reprice-preview.json",
+        "sha256": "97a5bc3255513ddf40e09c7f81cc14ec73b293fdcfa74a870b692a9632600c0c",
+        "bytes": 616
+      },
+      {
+        "path": "docs/stage4/examples/12-reprice-confirm.json",
+        "sha256": "460f3ba98cfa524416ff12a446ad56018204ec1c00d9fbfea49ad7bed8e367ce",
+        "bytes": 5056
+      },
+      {
+        "path": "docs/stage4/examples/13-send.json",
+        "sha256": "8ed39947d9c298a6dd4292abb7101dfd75b142b25e1aeec59e0d0cc857fbdeb5",
+        "bytes": 5396
+      },
+      {
+        "path": "docs/stage4/examples/14-sign.json",
+        "sha256": "64fa04b37b57e69a68a3b416109cb53c6baefaeb12705d403cbe735c8c7dc3ca",
+        "bytes": 5163
+      },
+      {
+        "path": "docs/stage4/examples/15-archive.json",
+        "sha256": "1c1b95bacb6769ef33b284cceb6048712f0fb21c06c801412aee955e7d230a51",
+        "bytes": 4990
+      },
+      {
+        "path": "docs/stage4/examples/16-export.json",
+        "sha256": "13900f9688f0c72a2ea292a464d380e85d60f07449aea5fcfad52f20b6279c52",
+        "bytes": 6450
+      },
+      {
+        "path": "docs/stage4/examples/17-share-create.json",
+        "sha256": "d425a575a6d8fc5d2eed21ea330bf84741bed2e1939914a23ee38e1851512f28",
+        "bytes": 452
+      },
+      {
+        "path": "docs/stage4/examples/18-share-list.json",
+        "sha256": "b43d4d085a5199da1d7866a741d97d0fb09e1b8cdbe6381ea0a755c9b90bfd93",
+        "bytes": 714
+      },
+      {
+        "path": "docs/stage4/examples/19-share-revoke.json",
+        "sha256": "75067a2fae1f253fd5fb1834cba9f4c312d105727339d5e58baf20e51b73d21a",
+        "bytes": 346
+      },
+      {
+        "path": "docs/stage4/examples/20-parent-plan.json",
+        "sha256": "b2f9fef25d4ddeaf52e2811d47b35aa65b28f8a2d3a896e6f7b4d9aecca5ed7c",
+        "bytes": 6031
+      },
+      {
+        "path": "docs/stage4/examples/21-parent-feed.json",
+        "sha256": "0c3e352a81b6b3e9928d4565baf0d3ecd0b621733e255cf575b6809960e1e779",
+        "bytes": 671
+      },
+      {
+        "path": "docs/stage4/examples/22-parent-media.json",
+        "sha256": "67b0ff0eaaed9dd360458d153bcecf4bb62a8874814b1de90dde113e56f050f0",
+        "bytes": 411
+      },
+      {
+        "path": "docs/stage4/examples/23-public-share.json",
+        "sha256": "dbef8f63c5dd0e4d4d158d2dfa3982fa9f9d3755ff2d2c5c5620a928760b6633",
+        "bytes": 6028
+      },
+      {
+        "path": "docs/stage4/examples/24-public-media.json",
+        "sha256": "3c807424ea7b58a504845af29f88aba6836df82c63a20ae0ada4d0d172dbcd5c",
+        "bytes": 442
+      },
+      {
+        "path": "docs/stage4/examples/25-styles.json",
+        "sha256": "fb4ea59047fc07a881c00e8e3a6c50563a75605270e385004a7892b3ccad24f1",
+        "bytes": 3059
+      },
+      {
+        "path": "docs/stage4/examples/26-style-version.json",
+        "sha256": "e2fd78313f5130d5272b99a2160a5b36eddb80e9435b4a615213892252ddb6e4",
+        "bytes": 1423
+      },
+      {
+        "path": "docs/stage4/examples/27-terms.json",
+        "sha256": "a18e9873e4dee5a817413267f6e356b8654c4f060dee807cb5aa339cd84b2f18",
+        "bytes": 357
+      },
+      {
+        "path": "docs/stage4/verification/final-backup.log",
+        "sha256": "0f8ccd0558f6c205e460d55d7a9e641a44bfece692ebf6378b43d5f9a33a8cb8",
+        "bytes": 209
+      },
+      {
+        "path": "docs/stage4/verification/final-build.log",
+        "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+        "bytes": 261
+      },
+      {
+        "path": "docs/stage4/verification/final-bundle.log",
+        "sha256": "1b3eb0d46abe2262c48821ba1a6f8b1970f91943c0a014f145703e403500477b",
+        "bytes": 66101
+      },
+      {
+        "path": "docs/stage4/verification/final-integrity.log",
+        "sha256": "0e919c5e2185b11016ac5b8bb86d448c97214b56c27d615122c3b1bc73a32835",
+        "bytes": 413
+      },
+      {
+        "path": "docs/stage4/verification/final-migrations.log",
+        "sha256": "5b66cd4df28db941fc5f1c168da49199f44646782c8123593e5cd9b6b9e77c4d",
+        "bytes": 360
+      },
+      {
+        "path": "docs/stage4/verification/final-new-bundle.log",
+        "sha256": "1448c1cde837627e8e228193502af0423ac095c4402e25d889f7b39725efaa99",
+        "bytes": 4691
+      },
+      {
+        "path": "docs/stage4/verification/final-new-source.log",
+        "sha256": "f9561f8b93635b2c2d6814594d6c7acec7a72d4de19ee52bb81d52064170d4fa",
+        "bytes": 4684
+      },
+      {
+        "path": "docs/stage4/verification/final-source.log",
+        "sha256": "63c15e8f5d5a99b0a02a2d6714c11f818c2eab9ae9021b13430875a7ba8ca069",
+        "bytes": 66104
+      },
+      {
+        "path": "docs/stage4/verification/frontend-patch-build.log",
+        "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+        "bytes": 261
+      },
+      {
+        "path": "docs/stage4/verification/frontend-patch-bundle.log",
+        "sha256": "4e5f926eb8c04fbb232d7e770c41f9f214b884431aefda60fa3099c95ada5921",
+        "bytes": 61545
+      },
+      {
+        "path": "docs/stage4/verification/frontend-patch-source.log",
+        "sha256": "4e2ca7f89c7157389bf538b4fe1a1aa2de1ac700b97620350d5351d7d887abdb",
+        "bytes": 61562
+      },
+      {
+        "path": "docs/stage4/verification/verify-backup-bundle.mjs",
+        "sha256": "749b345047a9f001d1dd2dd31957dd0a690871f725ac7e53cfd44816f172e84a",
+        "bytes": 2130
+      },
+      {
+        "path": "docs/stage4/verification/verify-integrity.py",
+        "sha256": "f9a3cfb8ff3c68f9303a7eab65b84fe7407db509d9084e5e54e5541809b9c162",
+        "bytes": 1322
+      },
+      {
+        "path": "docs/stage4/verification/当前版本部署结构核验.sql",
+        "sha256": "6517f355181afb125a115fd332ea48d51ed070483264858a93e9f1fcac241e50",
+        "bytes": 21356
+      },
+      {
+        "path": "docs/stage4/verification/迁移预检报告.json",
+        "sha256": "f02cd1fdcf0a907295e5054b5bc5bed56110f169c4ee3415d6d2fe4c12d84fe5",
+        "bytes": 123959
+      },
+      {
+        "path": "docs/stage4/中文交付说明.md",
+        "sha256": "86f93cd8ce877d057e4ab9a80b920a9763c4cf1700e3014ebe54b787ead448f1",
+        "bytes": 2702
+      },
+      {
+        "path": "docs/stage4/分工与待办.md",
+        "sha256": "0db29321168a0af87fb41d3f348aa2852b7930ba7f87422d20d5a123151215f9",
+        "bytes": 2529
+      },
+      {
+        "path": "docs/stage4/前端对接说明.md",
+        "sha256": "fdd47de49a4b573127d97058ffeb7efdbedb2c1d325c00f4b633322589cde830",
+        "bytes": 9300
+      },
+      {
+        "path": "docs/stage4/前端接口示例.json",
+        "sha256": "8efd366761f424a54aebe0bf359157a3f98992e3051e4ca4aa17ae1242417120",
+        "bytes": 166866
+      },
+      {
+        "path": "docs/stage4/前端补丁集成与复测.json",
+        "sha256": "a9e4d1c9f9963d5b4429ea21fae9f4c0adfe697c727224b72834e6e0fbf034d5",
+        "bytes": 3142
+      },
+      {
+        "path": "docs/stage4/前端补丁集成与复测.md",
+        "sha256": "ba0421dc42bc20829dff6985f5176b5449f5b1f022653a4558ab2f97deacbeb7",
+        "bytes": 1074
+      },
+      {
+        "path": "docs/stage4/变更清单.md",
+        "sha256": "4d497636a9abeb7829b9997c0444b2932756c4ec352a47588363558ff4a6b90b",
+        "bytes": 5105
+      },
+      {
+        "path": "docs/stage4/旧测试授权修订.diff",
+        "sha256": "604a3372d7c7c84eac7a1803bcc3c996a74e9cce3373df62ec821a3167681948",
+        "bytes": 2022
+      },
+      {
+        "path": "docs/stage4/测试结果.json",
+        "sha256": "938ba2783ee51ce94ada4390cd32ca517188571515328976ae395932de7f848f",
+        "bytes": 2919
+      },
+      {
+        "path": "docs/stage4/测试结果.md",
+        "sha256": "8d96eca12973e38ae2d562229b98c6189c0a16c3e40931e061f13f25560bad34",
+        "bytes": 5200
+      },
+      {
+        "path": "docs/阶段4_接口核对阻塞说明.md",
+        "sha256": "96bd957ecdf5ac68016ffa781afaa329bdcf3c439c39aea6d330444cd20a7649",
+        "bytes": 4552
+      },
+      {
+        "path": "migrations/0021_course_plans.sql",
+        "sha256": "537a09d5c6b28465b6d629b4b3a8b33c8c485be9cd7d14b05a51da32303fe1e7",
+        "bytes": 7756
+      },
+      {
+        "path": "src/server/plan-document.js",
+        "sha256": "1db853c3a0f52659bef4b175684fba57f00dda752378da301c9b8ec259db749d",
+        "bytes": 17876
+      },
+      {
+        "path": "src/server/plan-math.js",
+        "sha256": "dd8dd7ee5de122950b89d0d62bbc7fcff8e06bd872121d469779b01ee80701d3",
+        "bytes": 7013
+      },
+      {
+        "path": "src/server/plan-skeleton.js",
+        "sha256": "780f75caf05f8561779847b28cbad6440883635d8e5be751303038363e45b51d",
+        "bytes": 5763
+      },
+      {
+        "path": "src/server/plan-view.js",
+        "sha256": "eb2a78c147245b8e02eae03886d0f6bbcc2ee8071bbedcf8b21813e0ec81a221",
+        "bytes": 8930
+      },
+      {
+        "path": "src/server/plans.js",
+        "sha256": "d4ca0aaae8bb4fccedd89f19dd760245db92ce4d84467c27d8e012be36b91cf2",
+        "bytes": 38203
+      },
+      {
+        "path": "src/tenant/yx-settings.js",
+        "sha256": "fade87e284ba8b7349cc7125e90aeacb8022bfda6e6f465a694c12ebda8c6d77",
+        "bytes": 41549
+      },
+      {
+        "path": "tests/fixtures-plans.mjs",
+        "sha256": "6f7f617b0da9586f7d421210a4559c6b261283056c651041bfa0284cbbcf65b3",
+        "bytes": 10004
+      },
+      {
+        "path": "tests/plans-stage4-integrity.test.mjs",
+        "sha256": "d0e7fee2600a6c29e6df07b243bd6bd820c9ac9f3d51b7f44c559fbdfb150c55",
+        "bytes": 2961
+      },
+      {
+        "path": "tests/plans-stage4.test.mjs",
+        "sha256": "c8dc400d56588b7d9b561316f4b8d2fddb5dea6c66700e77737773b97208529f",
+        "bytes": 54844
+      }
+    ]
+  },
+  "after_authorized_frontend_patch": {
+    "modified": [
+      {
+        "path": "README.md",
+        "before_sha256": "4b0a8ca4f8bc381f6acac5185c4f49b172e6423b981bceb3b5fb6ed7678d3996",
+        "after_sha256": "e3dd67e3fd877ab9cb4bd550311c5569db2302fcfcaaf3c37892d1a4c0fe04fb"
+      },
+      {
+        "path": "docs/项目决策与范围.md",
+        "before_sha256": "56f4a9ac828518f64edd7c0a847f6284808d9b55e9d6d6964e0b3dec26400d74",
+        "after_sha256": "21e26803e6e46397eee8531f160c1618b5d770e83b0d879caac1f86060214762"
+      },
+      {
+        "path": "src/server/backup-model.js",
+        "before_sha256": "a0371a3e680e04c0c81275acfadd044806aa2b7e1e09471262e83ae4db04cf83",
+        "after_sha256": "ac835a16493e847278ae4a076e1e1869d08191f11050118ffffc3e98635e28b6"
+      },
+      {
+        "path": "src/server/purge-schema.js",
+        "before_sha256": "8bd0a8347f8fb6a71a1f8ae76056d2acd3e0521be1ee4331d49c2fa699e832ef",
+        "after_sha256": "1278d011e3b41842793c3e234987467e28eaa16da0f626bf2557eef9c46173ad"
+      },
+      {
+        "path": "src/server/repo.js",
+        "before_sha256": "34b3f9d99950e576851f55f53addd92980d5d770701e769c31e8cb8070ae174f",
+        "after_sha256": "07ba706c1597bac22059ce82556648155bcf50cd0d6ed2c341602ea714362d35"
+      },
+      {
+        "path": "src/server/tool-settings.js",
+        "before_sha256": "adecd27ae6a4996fda228826435c22546e962afc6f5e1d507be2d46313cd917f",
+        "after_sha256": "7586f38a8ea50c4e30947c46cffcfd601aef6bf75f86b95606c659bc8eee3716"
+      },
+      {
+        "path": "src/server/worker.js",
+        "before_sha256": "efa561ef8a49e8f3364c82832f58d445acb634889c6871d3359069e1dbe1a798",
+        "after_sha256": "7dab97b8607cf62eb5c3b2f5bfb2d234f4f987bc213c2316c1062fc34add318e"
+      },
+      {
+        "path": "tests/support.mjs",
+        "before_sha256": "920cc4a5fbdffa09036397f07edf1002468f5538b1b319a6c048199837490edb",
+        "after_sha256": "426ab666e111ef42d3dfafdb294ebfe82bcb7232c59cd1cffa92f2481a817d4b"
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "path": "docs/reference/stage4-start-baseline-sha256.json",
+        "sha256": "0d50f8f9e83924b35591bb8b6f43915d9498f6f380fe13364b690f8966efae18",
+        "bytes": 51267
+      },
+      {
+        "path": "docs/reference/接口约定_v0.3.5_原件.md",
+        "sha256": "2401107e0257ba0a4b24fddc9d15fd6c138548a0900f9e9420b18edcbe69c7c6",
+        "bytes": 92466
+      },
+      {
+        "path": "docs/stage4/HTTP测试实录_完整.json",
+        "sha256": "deac0eda963eabb960262e4c46931b3eb0a2cad01e9c13b82f0c77effa16f194",
+        "bytes": 1520201
+      },
+      {
+        "path": "docs/stage4/examples/01-list.json",
+        "sha256": "b9f252266d148634bc9c0dee26290e6c936b02e558ca3ade94a23b9f8396298e",
+        "bytes": 718
+      },
+      {
+        "path": "docs/stage4/examples/02-create.json",
+        "sha256": "628824c460f8963fa64489599d13d3401f94fa65365e645abb6fdd46c30b093d",
+        "bytes": 2856
+      },
+      {
+        "path": "docs/stage4/examples/03-detail.json",
+        "sha256": "fc38e348e0d13cc926361bf4f48fffab43c8936f8842000316119ddb2f739642",
+        "bytes": 3739
+      },
+      {
+        "path": "docs/stage4/examples/04-save.json",
+        "sha256": "57cb80f92d56a0869a2e5f0f72756e22880b824ba81bee7cca4dc32cfabb9b04",
+        "bytes": 8003
+      },
+      {
+        "path": "docs/stage4/examples/05-delete.json",
+        "sha256": "8a50fafd5d9eed0bff23895cef49fbbb7792aebc98b2f0d9365d37738542d1c1",
+        "bytes": 299
+      },
+      {
+        "path": "docs/stage4/examples/06-duplicate.json",
+        "sha256": "dad8b6ed1702ddbdcf3125bb29e34bcd7220b54b9572acc144b6f272491ba5a1",
+        "bytes": 5208
+      },
+      {
+        "path": "docs/stage4/examples/07-revisions.json",
+        "sha256": "5de1efbd6914af010fef02bd17411565cd8481f571065ec804e217d3e89ef1e8",
+        "bytes": 861
+      },
+      {
+        "path": "docs/stage4/examples/08-restore.json",
+        "sha256": "c280b50aaabe917ee729a011e0ad63b81f4fdc319e4a6c33f4995962da2177ff",
+        "bytes": 2742
+      },
+      {
+        "path": "docs/stage4/examples/09-skeleton.json",
+        "sha256": "045a7cc42e8bfb772779c473a7121c8bab61ad22955359114168b3d328c5a0a2",
+        "bytes": 2544
+      },
+      {
+        "path": "docs/stage4/examples/10-check.json",
+        "sha256": "0c56848649b584d0e43abc69278cf49f9e1076ae1a7ea40706d623183eaaebb7",
+        "bytes": 1056
+      },
+      {
+        "path": "docs/stage4/examples/11-reprice-preview.json",
+        "sha256": "97a5bc3255513ddf40e09c7f81cc14ec73b293fdcfa74a870b692a9632600c0c",
+        "bytes": 616
+      },
+      {
+        "path": "docs/stage4/examples/12-reprice-confirm.json",
+        "sha256": "460f3ba98cfa524416ff12a446ad56018204ec1c00d9fbfea49ad7bed8e367ce",
+        "bytes": 5056
+      },
+      {
+        "path": "docs/stage4/examples/13-send.json",
+        "sha256": "8ed39947d9c298a6dd4292abb7101dfd75b142b25e1aeec59e0d0cc857fbdeb5",
+        "bytes": 5396
+      },
+      {
+        "path": "docs/stage4/examples/14-sign.json",
+        "sha256": "64fa04b37b57e69a68a3b416109cb53c6baefaeb12705d403cbe735c8c7dc3ca",
+        "bytes": 5163
+      },
+      {
+        "path": "docs/stage4/examples/15-archive.json",
+        "sha256": "1c1b95bacb6769ef33b284cceb6048712f0fb21c06c801412aee955e7d230a51",
+        "bytes": 4990
+      },
+      {
+        "path": "docs/stage4/examples/16-export.json",
+        "sha256": "13900f9688f0c72a2ea292a464d380e85d60f07449aea5fcfad52f20b6279c52",
+        "bytes": 6450
+      },
+      {
+        "path": "docs/stage4/examples/17-share-create.json",
+        "sha256": "d425a575a6d8fc5d2eed21ea330bf84741bed2e1939914a23ee38e1851512f28",
+        "bytes": 452
+      },
+      {
+        "path": "docs/stage4/examples/18-share-list.json",
+        "sha256": "b43d4d085a5199da1d7866a741d97d0fb09e1b8cdbe6381ea0a755c9b90bfd93",
+        "bytes": 714
+      },
+      {
+        "path": "docs/stage4/examples/19-share-revoke.json",
+        "sha256": "75067a2fae1f253fd5fb1834cba9f4c312d105727339d5e58baf20e51b73d21a",
+        "bytes": 346
+      },
+      {
+        "path": "docs/stage4/examples/20-parent-plan.json",
+        "sha256": "b2f9fef25d4ddeaf52e2811d47b35aa65b28f8a2d3a896e6f7b4d9aecca5ed7c",
+        "bytes": 6031
+      },
+      {
+        "path": "docs/stage4/examples/21-parent-feed.json",
+        "sha256": "0c3e352a81b6b3e9928d4565baf0d3ecd0b621733e255cf575b6809960e1e779",
+        "bytes": 671
+      },
+      {
+        "path": "docs/stage4/examples/22-parent-media.json",
+        "sha256": "67b0ff0eaaed9dd360458d153bcecf4bb62a8874814b1de90dde113e56f050f0",
+        "bytes": 411
+      },
+      {
+        "path": "docs/stage4/examples/23-public-share.json",
+        "sha256": "dbef8f63c5dd0e4d4d158d2dfa3982fa9f9d3755ff2d2c5c5620a928760b6633",
+        "bytes": 6028
+      },
+      {
+        "path": "docs/stage4/examples/24-public-media.json",
+        "sha256": "3c807424ea7b58a504845af29f88aba6836df82c63a20ae0ada4d0d172dbcd5c",
+        "bytes": 442
+      },
+      {
+        "path": "docs/stage4/examples/25-styles.json",
+        "sha256": "fb4ea59047fc07a881c00e8e3a6c50563a75605270e385004a7892b3ccad24f1",
+        "bytes": 3059
+      },
+      {
+        "path": "docs/stage4/examples/26-style-version.json",
+        "sha256": "e2fd78313f5130d5272b99a2160a5b36eddb80e9435b4a615213892252ddb6e4",
+        "bytes": 1423
+      },
+      {
+        "path": "docs/stage4/examples/27-terms.json",
+        "sha256": "a18e9873e4dee5a817413267f6e356b8654c4f060dee807cb5aa339cd84b2f18",
+        "bytes": 357
+      },
+      {
+        "path": "docs/stage4/verification/final-backup.log",
+        "sha256": "0f8ccd0558f6c205e460d55d7a9e641a44bfece692ebf6378b43d5f9a33a8cb8",
+        "bytes": 209
+      },
+      {
+        "path": "docs/stage4/verification/final-build.log",
+        "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+        "bytes": 261
+      },
+      {
+        "path": "docs/stage4/verification/final-bundle.log",
+        "sha256": "1b3eb0d46abe2262c48821ba1a6f8b1970f91943c0a014f145703e403500477b",
+        "bytes": 66101
+      },
+      {
+        "path": "docs/stage4/verification/final-integrity.log",
+        "sha256": "0e919c5e2185b11016ac5b8bb86d448c97214b56c27d615122c3b1bc73a32835",
+        "bytes": 413
+      },
+      {
+        "path": "docs/stage4/verification/final-migrations.log",
+        "sha256": "5b66cd4df28db941fc5f1c168da49199f44646782c8123593e5cd9b6b9e77c4d",
+        "bytes": 360
+      },
+      {
+        "path": "docs/stage4/verification/final-new-bundle.log",
+        "sha256": "1448c1cde837627e8e228193502af0423ac095c4402e25d889f7b39725efaa99",
+        "bytes": 4691
+      },
+      {
+        "path": "docs/stage4/verification/final-new-source.log",
+        "sha256": "f9561f8b93635b2c2d6814594d6c7acec7a72d4de19ee52bb81d52064170d4fa",
+        "bytes": 4684
+      },
+      {
+        "path": "docs/stage4/verification/final-source.log",
+        "sha256": "63c15e8f5d5a99b0a02a2d6714c11f818c2eab9ae9021b13430875a7ba8ca069",
+        "bytes": 66104
+      },
+      {
+        "path": "docs/stage4/verification/frontend-patch-build.log",
+        "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+        "bytes": 261
+      },
+      {
+        "path": "docs/stage4/verification/frontend-patch-bundle.log",
+        "sha256": "4e5f926eb8c04fbb232d7e770c41f9f214b884431aefda60fa3099c95ada5921",
+        "bytes": 61545
+      },
+      {
+        "path": "docs/stage4/verification/frontend-patch-source.log",
+        "sha256": "4e2ca7f89c7157389bf538b4fe1a1aa2de1ac700b97620350d5351d7d887abdb",
+        "bytes": 61562
+      },
+      {
+        "path": "docs/stage4/verification/verify-backup-bundle.mjs",
+        "sha256": "749b345047a9f001d1dd2dd31957dd0a690871f725ac7e53cfd44816f172e84a",
+        "bytes": 2130
+      },
+      {
+        "path": "docs/stage4/verification/verify-integrity.py",
+        "sha256": "f9a3cfb8ff3c68f9303a7eab65b84fe7407db509d9084e5e54e5541809b9c162",
+        "bytes": 1322
+      },
+      {
+        "path": "docs/stage4/verification/当前版本部署结构核验.sql",
+        "sha256": "6517f355181afb125a115fd332ea48d51ed070483264858a93e9f1fcac241e50",
+        "bytes": 21356
+      },
+      {
+        "path": "docs/stage4/verification/迁移预检报告.json",
+        "sha256": "f02cd1fdcf0a907295e5054b5bc5bed56110f169c4ee3415d6d2fe4c12d84fe5",
+        "bytes": 123959
+      },
+      {
+        "path": "docs/stage4/中文交付说明.md",
+        "sha256": "86f93cd8ce877d057e4ab9a80b920a9763c4cf1700e3014ebe54b787ead448f1",
+        "bytes": 2702
+      },
+      {
+        "path": "docs/stage4/分工与待办.md",
+        "sha256": "0db29321168a0af87fb41d3f348aa2852b7930ba7f87422d20d5a123151215f9",
+        "bytes": 2529
+      },
+      {
+        "path": "docs/stage4/前端对接说明.md",
+        "sha256": "fdd47de49a4b573127d97058ffeb7efdbedb2c1d325c00f4b633322589cde830",
+        "bytes": 9300
+      },
+      {
+        "path": "docs/stage4/前端接口示例.json",
+        "sha256": "8efd366761f424a54aebe0bf359157a3f98992e3051e4ca4aa17ae1242417120",
+        "bytes": 166866
+      },
+      {
+        "path": "docs/stage4/前端补丁集成与复测.json",
+        "sha256": "a9e4d1c9f9963d5b4429ea21fae9f4c0adfe697c727224b72834e6e0fbf034d5",
+        "bytes": 3142
+      },
+      {
+        "path": "docs/stage4/前端补丁集成与复测.md",
+        "sha256": "ba0421dc42bc20829dff6985f5176b5449f5b1f022653a4558ab2f97deacbeb7",
+        "bytes": 1074
+      },
+      {
+        "path": "docs/stage4/变更清单.md",
+        "sha256": "4d497636a9abeb7829b9997c0444b2932756c4ec352a47588363558ff4a6b90b",
+        "bytes": 5105
+      },
+      {
+        "path": "docs/stage4/旧测试授权修订.diff",
+        "sha256": "604a3372d7c7c84eac7a1803bcc3c996a74e9cce3373df62ec821a3167681948",
+        "bytes": 2022
+      },
+      {
+        "path": "docs/stage4/测试结果.json",
+        "sha256": "938ba2783ee51ce94ada4390cd32ca517188571515328976ae395932de7f848f",
+        "bytes": 2919
+      },
+      {
+        "path": "docs/stage4/测试结果.md",
+        "sha256": "8d96eca12973e38ae2d562229b98c6189c0a16c3e40931e061f13f25560bad34",
+        "bytes": 5200
+      },
+      {
+        "path": "docs/阶段4_接口核对阻塞说明.md",
+        "sha256": "96bd957ecdf5ac68016ffa781afaa329bdcf3c439c39aea6d330444cd20a7649",
+        "bytes": 4552
+      },
+      {
+        "path": "migrations/0021_course_plans.sql",
+        "sha256": "537a09d5c6b28465b6d629b4b3a8b33c8c485be9cd7d14b05a51da32303fe1e7",
+        "bytes": 7756
+      },
+      {
+        "path": "src/server/plan-document.js",
+        "sha256": "1db853c3a0f52659bef4b175684fba57f00dda752378da301c9b8ec259db749d",
+        "bytes": 17876
+      },
+      {
+        "path": "src/server/plan-math.js",
+        "sha256": "dd8dd7ee5de122950b89d0d62bbc7fcff8e06bd872121d469779b01ee80701d3",
+        "bytes": 7013
+      },
+      {
+        "path": "src/server/plan-skeleton.js",
+        "sha256": "780f75caf05f8561779847b28cbad6440883635d8e5be751303038363e45b51d",
+        "bytes": 5763
+      },
+      {
+        "path": "src/server/plan-view.js",
+        "sha256": "eb2a78c147245b8e02eae03886d0f6bbcc2ee8071bbedcf8b21813e0ec81a221",
+        "bytes": 8930
+      },
+      {
+        "path": "src/server/plans.js",
+        "sha256": "d4ca0aaae8bb4fccedd89f19dd760245db92ce4d84467c27d8e012be36b91cf2",
+        "bytes": 38203
+      },
+      {
+        "path": "tests/fixtures-plans.mjs",
+        "sha256": "6f7f617b0da9586f7d421210a4559c6b261283056c651041bfa0284cbbcf65b3",
+        "bytes": 10004
+      },
+      {
+        "path": "tests/plans-stage4-integrity.test.mjs",
+        "sha256": "d0e7fee2600a6c29e6df07b243bd6bd820c9ac9f3d51b7f44c559fbdfb150c55",
+        "bytes": 2961
+      },
+      {
+        "path": "tests/plans-stage4.test.mjs",
+        "sha256": "c8dc400d56588b7d9b561316f4b8d2fddb5dea6c66700e77737773b97208529f",
+        "bytes": 54844
+      }
+    ]
+  }
+}

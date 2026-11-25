@@ -1,0 +1,171 @@
+
+> yijiexingtu-crm@0.5.0 package:tencent
+> npm run build && node deploy/package-tencent.mjs --version 0.5.0-tencent.20261118.check1 --output deploy/packages/package-check.zip
+
+
+> yijiexingtu-crm@0.5.0 build
+> node scripts/build.mjs
+
+Pages 包已生成：dist/
+定时备份 Worker 已生成：backup-dist/backup-worker.js
+生产JS已压缩与变量名混淆，无source map；构建工具离线可复现。
+静态文件已加版本号。
+{
+  "version": "0.5.0-tencent.20261118.check1",
+  "output": "/workspace/yijiexingtu-tencent/deploy/packages/package-check.zip",
+  "sha256": "f38df256742b00fbc5f5ffa19b4912e3b6b7147ce0fb77182660fcbf89e0ec70",
+  "files": 121,
+  "metadata": {
+    "schema": 1,
+    "version": "0.5.0-tencent.20261118.check1",
+    "applicationVersion": "0.5.0",
+    "createdAt": "2026-11-18T13:17:48.537Z",
+    "maxMigration": 28,
+    "migrations": [
+      {
+        "version": 1,
+        "name": "0001_foundation.sql",
+        "sha256": "b8783e5a110c21a5796e2b578102d3e0ddc6407a4eff678e46a7bdcfd3338311"
+      },
+      {
+        "version": 2,
+        "name": "0002_security_review.sql",
+        "sha256": "aa308ea417e37b696a409e39e95372d9f3e5d9be2f265bc86f9bae79b805f6fe"
+      },
+      {
+        "version": 3,
+        "name": "0003_scheduling.sql",
+        "sha256": "4a09f3024fee6eb715848d9591f1767f5a543dc9a8950afe35d3eeea467eb010"
+      },
+      {
+        "version": 4,
+        "name": "0004_credits.sql",
+        "sha256": "dd478ad58f252e528a9e6cf0b2ae380ee29461197d2901f99f7e795ae2a6a5f0"
+      },
+      {
+        "version": 5,
+        "name": "0005_integer_money.sql",
+        "sha256": "992c6815c8d351ead694344fbb477d0f47ad8de9c370fb740f26ba85d7c309f6"
+      },
+      {
+        "version": 6,
+        "name": "0006_finance.sql",
+        "sha256": "ffe5838d0e23d9666cfa31b3d4bfe6d082552a79700cf9ec6243b25aa21bc91b"
+      },
+      {
+        "version": 7,
+        "name": "0007_settlement_fingerprint.sql",
+        "sha256": "d8f5d52766f06d435b13bf241b523af452233e2cc5394ca1d3b7a75275aef667"
+      },
+      {
+        "version": 8,
+        "name": "0008_mobile_reviews.sql",
+        "sha256": "fb75c82f35a49936df4baa6f7ccb37422d049db2ebb127def9ff9e7fd51678f5"
+      },
+      {
+        "version": 9,
+        "name": "0009_tools.sql",
+        "sha256": "0deebe356b35ad72ac6633a71c672e0362aa003dcbc58cb71e5debcaff678419"
+      },
+      {
+        "version": 10,
+        "name": "0010_promo.sql",
+        "sha256": "512c8f53b88ebfd86db605fa365aa6fa96d454e4c3ac5455444d665c6047fc1d"
+      },
+      {
+        "version": 11,
+        "name": "0011_promo_image_limits.sql",
+        "sha256": "0fece3d7a975937cff6c0b9e9e5a264bc9f19874422fea7d0f838f1e7f189c38"
+      },
+      {
+        "version": 12,
+        "name": "0012_ui_rebuild.sql",
+        "sha256": "91f04b474149991aa82361ea377a8b5f64ef2628d2bc48fd9ff6141fb6cbf484"
+      },
+      {
+        "version": 13,
+        "name": "0013_promo_rebuild.sql",
+        "sha256": "ab65b33c93d6d0f6aebebef40f40468b75d99a2801be24868e9c9c798a737401"
+      },
+      {
+        "version": 14,
+        "name": "0014_debt_and_balance.sql",
+        "sha256": "1db5f7fc3d9f23675565d5d7772f5476dd2aea98cd160d68378c288e0d57d702"
+      },
+      {
+        "version": 15,
+        "name": "0015_delete_capabilities.sql",
+        "sha256": "88c214932dfc2ebc01f8a607f293b5bfc1bf48f325fc987a02552a826d3f0779"
+      },
+      {
+        "version": 16,
+        "name": "0016_page_query_indexes.sql",
+        "sha256": "dd921fd86586856f73c59df137c89859f20b78712d48526076be2ad73042ddb2"
+      },
+      {
+        "version": 17,
+        "name": "0017_student_schedule_indexes.sql",
+        "sha256": "de36b444d01b5ce3a23ed20ba04acd627621e4cc3538591a52771c3e0ad474e9"
+      },
+      {
+        "version": 18,
+        "name": "0018_credit_income_and_schedule_guards.sql",
+        "sha256": "79c8a6dd9f1d7488040b8aaba410715ced42c23263836011d082fff0ea790504"
+      },
+      {
+        "version": 19,
+        "name": "0019_identity_and_institutions.sql",
+        "sha256": "29b5b411f5f4f44499240e4eeaa454b19c0b23b1f5e203cd192c50f40497752b"
+      },
+      {
+        "version": 20,
+        "name": "0020_settings_and_templates.sql",
+        "sha256": "7ed2e20ec729290e6165a517fa724bde07df3fb595e55e8d477552a818ee5abc"
+      },
+      {
+        "version": 21,
+        "name": "0021_course_plans.sql",
+        "sha256": "537a09d5c6b28465b6d629b4b3a8b33c8c485be9cd7d14b05a51da32303fe1e7"
+      },
+      {
+        "version": 22,
+        "name": "0022_content_and_ai.sql",
+        "sha256": "3a34f4022e574e40e80007ef3f9f89c72e6e6da0a5a49b51528d5af912a7bf04"
+      },
+      {
+        "version": 23,
+        "name": "0023_feedback_and_growth_reports.sql",
+        "sha256": "9a2a231671c369dcc12b77244a86c2be9953fa169b10fe36f1594d58928eee76"
+      },
+      {
+        "version": 24,
+        "name": "0024_platform_management.sql",
+        "sha256": "d6c04f3a4b62e3ad46689e01a77f5730ce0132eb441433de9683cf1511aef725"
+      },
+      {
+        "version": 25,
+        "name": "0025_article_metadata.sql",
+        "sha256": "88c1b513f4ca9ea454778991507fdd5ce4fa9a983f0a2301f2fc8f24f74408e0"
+      },
+      {
+        "version": 26,
+        "name": "0026_plan_prospects.sql",
+        "sha256": "37b9699b5b7376c41d96ad2a7483f0e04330e5739032a6c41405cd16df67f8eb"
+      },
+      {
+        "version": 27,
+        "name": "0027_gallery_storage.sql",
+        "sha256": "4c1cbd91302b5bc50433c9b49471d6e8eec2255f1e8c54d56cb1fce48e7c4778"
+      },
+      {
+        "version": 28,
+        "name": "0028_plan_v2.sql",
+        "sha256": "cf6e5c328eb977de4d7e4056dd308509473bca7d7d9df8fe9bcbd9666cc9b352"
+      }
+    ],
+    "artifacts": {
+      "dist/_worker.js": "e2f059820bfe7e353212b34bc4b9919403a7094276d99402977c0f2ad50a8076",
+      "backup-dist/backup-worker.js": "28561583aef8450921fdca957664934cdbfe587342c7fe21fd9e68445d83aa9b"
+    }
+  }
+}

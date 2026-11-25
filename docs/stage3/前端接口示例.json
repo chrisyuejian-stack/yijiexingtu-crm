@@ -1,0 +1,1794 @@
+{
+  "contract": "v0.3.4",
+  "notice": "本地真实HTTP处理响应；同一演示场景。Cookie未导出。multipart用字段和文件元数据表示，图片响应是二进制而非JSON。修改卡片的AI建议是本地前置夹具，未调用模型接口。",
+  "examples": [
+    {
+      "key": "subjects_empty",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/subjects",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": []
+      }
+    },
+    {
+      "key": "subjects_import",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/subjects",
+        "body": {
+          "key": "music_interest"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "key": "music_interest",
+            "name": "音乐兴趣",
+            "pack_version": "0.1"
+          }
+        ]
+      }
+    },
+    {
+      "key": "subjects_list",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/subjects",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "key": "music_interest",
+            "name": "音乐兴趣",
+            "pack_version": "0.1"
+          }
+        ]
+      }
+    },
+    {
+      "key": "courses_list",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/courses?subject=music_interest&limit=2",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "group": "基础乐科",
+              "name": "乐理与视唱练耳",
+              "form": "group",
+              "minutes": 45,
+              "duration_text": null,
+              "pricing": null,
+              "active": true,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "crs_cd91c3706e6e4837b5b0af5a",
+              "source": "template"
+            },
+            {
+              "group": "主修",
+              "name": "古筝一对一30分钟",
+              "form": "one_to_one",
+              "minutes": 30,
+              "duration_text": null,
+              "pricing": null,
+              "active": true,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "crs_5f30baebae0810748d226604",
+              "source": "template"
+            }
+          ],
+          "total": 27,
+          "next_offset": 2,
+          "price_list_rev": 2
+        }
+      }
+    },
+    {
+      "key": "course_create",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/courses",
+        "body": {
+          "subject": "music_interest",
+          "group": "主修",
+          "name": "对接报价示例",
+          "form": "one_to_one",
+          "minutes": 45,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 200
+          },
+          "optional": false
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接报价示例",
+          "active": true,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 200
+          },
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "optional": false,
+          "course_type_id": null,
+          "version": 1,
+          "id": "crs_e3f0ca6ee2521f552efefea1",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "course_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/courses/crs_e3f0ca6ee2521f552efefea1",
+        "body": {
+          "subject": "music_interest",
+          "name": "对接报价示例",
+          "active": true,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 220.5
+          },
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "optional": false,
+          "course_type_id": null,
+          "version": 1,
+          "id": "crs_e3f0ca6ee2521f552efefea1",
+          "source": "manual"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接报价示例",
+          "active": true,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 220.5
+          },
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "optional": false,
+          "course_type_id": null,
+          "version": 2,
+          "id": "crs_e3f0ca6ee2521f552efefea1",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "course_detail",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/courses/crs_e3f0ca6ee2521f552efefea1",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接报价示例",
+          "active": true,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 220.5
+          },
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "optional": false,
+          "course_type_id": null,
+          "version": 2,
+          "id": "crs_e3f0ca6ee2521f552efefea1",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "course_delete",
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-handoff/api/settings/courses/crs_e3f0ca6ee2521f552efefea1",
+        "body": {
+          "version": 2
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接报价示例",
+          "active": false,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 220.5
+          },
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "optional": false,
+          "course_type_id": null,
+          "version": 3,
+          "id": "crs_e3f0ca6ee2521f552efefea1",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "stage_types_list",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/stage-types?limit=2",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "name": "体验与适应",
+              "default_months": {
+                "min": 1,
+                "max": 2
+              },
+              "anchor": "start",
+              "anchor_node": null,
+              "offset_months": 0,
+              "active": true,
+              "order": 10,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "stg_ae4b1a3206f9832d73996786",
+              "source": "template"
+            },
+            {
+              "name": "假期集训",
+              "default_months": {
+                "min": 1,
+                "max": 2
+              },
+              "anchor": "on_node",
+              "anchor_node": "summer_camp",
+              "offset_months": 0,
+              "active": true,
+              "order": 40,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "stg_6d97062598e8daa7dd088d7c",
+              "source": "template"
+            }
+          ],
+          "total": 4,
+          "next_offset": 2
+        }
+      }
+    },
+    {
+      "key": "stage_type_create",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/stage-types",
+        "body": {
+          "subject": "music_interest",
+          "name": "对接阶段示例",
+          "default_months": {
+            "min": 2,
+            "max": 3
+          },
+          "anchor": "normal",
+          "anchor_node": null,
+          "offset_months": 0,
+          "order": 20
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接阶段示例",
+          "active": true,
+          "default_months": {
+            "min": 2,
+            "max": 3
+          },
+          "anchor": "normal",
+          "anchor_node": null,
+          "offset_months": 0,
+          "order": 20,
+          "version": 1,
+          "id": "stg_5b889c8c8980b5ec71d9af01",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "stage_type_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/stage-types",
+        "body": {
+          "subject": "music_interest",
+          "name": "对接阶段更新",
+          "active": true,
+          "default_months": {
+            "min": 2,
+            "max": 3
+          },
+          "anchor": "normal",
+          "anchor_node": null,
+          "offset_months": 0,
+          "order": 20,
+          "version": 1,
+          "id": "stg_5b889c8c8980b5ec71d9af01",
+          "source": "manual"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接阶段更新",
+          "active": true,
+          "default_months": {
+            "min": 2,
+            "max": 3
+          },
+          "anchor": "normal",
+          "anchor_node": null,
+          "offset_months": 0,
+          "order": 20,
+          "version": 2,
+          "id": "stg_5b889c8c8980b5ec71d9af01",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "stage_type_delete",
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-handoff/api/settings/stage-types",
+        "body": {
+          "id": "stg_5b889c8c8980b5ec71d9af01",
+          "version": 2
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接阶段更新",
+          "active": false,
+          "default_months": {
+            "min": 2,
+            "max": 3
+          },
+          "anchor": "normal",
+          "anchor_node": null,
+          "offset_months": 0,
+          "order": 20,
+          "version": 3,
+          "id": "stg_5b889c8c8980b5ec71d9af01",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "stage_rules_get",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/stage-rules",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "rules": {
+            "exam_sprint_before_grade": true,
+            "insert_holiday_camp": true,
+            "art_exam_end_after_school_exam": false,
+            "art_transition_stage": false,
+            "mock_exam_schedule": false
+          },
+          "version": 1
+        }
+      }
+    },
+    {
+      "key": "stage_rules_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/stage-rules",
+        "body": {
+          "rules": {
+            "exam_sprint_before_grade": true,
+            "insert_holiday_camp": false,
+            "art_exam_end_after_school_exam": false,
+            "art_transition_stage": false,
+            "mock_exam_schedule": false
+          },
+          "version": 1
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "rules": {
+            "exam_sprint_before_grade": true,
+            "insert_holiday_camp": false,
+            "art_exam_end_after_school_exam": false,
+            "art_transition_stage": false,
+            "mock_exam_schedule": false
+          },
+          "version": 2
+        }
+      }
+    },
+    {
+      "key": "calendar_get",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/calendar",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "region": null,
+          "items": [
+            {
+              "key": "grade_exam",
+              "name": "考级季",
+              "months": [
+                1,
+                7,
+                8
+              ]
+            },
+            {
+              "key": "showcase",
+              "name": "汇报演出",
+              "months": [
+                6,
+                12
+              ]
+            },
+            {
+              "key": "winter_camp",
+              "name": "寒假集训",
+              "months": [
+                1,
+                2
+              ]
+            },
+            {
+              "key": "summer_camp",
+              "name": "暑假集训",
+              "months": [
+                7,
+                8
+              ]
+            }
+          ],
+          "version": 1
+        }
+      }
+    },
+    {
+      "key": "calendar_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/calendar",
+        "body": {
+          "region": "上海",
+          "items": [
+            {
+              "key": "grade_exam",
+              "name": "考级季",
+              "months": [
+                11
+              ]
+            },
+            {
+              "key": "showcase",
+              "name": "汇报演出",
+              "months": [
+                6,
+                12
+              ]
+            },
+            {
+              "key": "winter_camp",
+              "name": "寒假集训",
+              "months": [
+                1,
+                2
+              ]
+            },
+            {
+              "key": "summer_camp",
+              "name": "暑假集训",
+              "months": [
+                7,
+                8
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "region": "上海",
+          "items": [
+            {
+              "key": "grade_exam",
+              "name": "考级季",
+              "months": [
+                11
+              ]
+            },
+            {
+              "key": "showcase",
+              "name": "汇报演出",
+              "months": [
+                6,
+                12
+              ]
+            },
+            {
+              "key": "winter_camp",
+              "name": "寒假集训",
+              "months": [
+                1,
+                2
+              ]
+            },
+            {
+              "key": "summer_camp",
+              "name": "暑假集训",
+              "months": [
+                7,
+                8
+              ]
+            }
+          ],
+          "version": 2
+        }
+      }
+    },
+    {
+      "key": "calendar_conflict",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/calendar",
+        "body": {
+          "region": null,
+          "items": [
+            {
+              "key": "grade_exam",
+              "name": "考级季",
+              "months": [
+                1,
+                7,
+                8
+              ]
+            },
+            {
+              "key": "showcase",
+              "name": "汇报演出",
+              "months": [
+                6,
+                12
+              ]
+            },
+            {
+              "key": "winter_camp",
+              "name": "寒假集训",
+              "months": [
+                1,
+                2
+              ]
+            },
+            {
+              "key": "summer_camp",
+              "name": "暑假集训",
+              "months": [
+                7,
+                8
+              ]
+            }
+          ],
+          "version": 1
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "设置已被修改，请刷新后重试",
+          "details": {
+            "latest": {
+              "region": "上海",
+              "items": [
+                {
+                  "key": "grade_exam",
+                  "name": "考级季",
+                  "months": [
+                    11
+                  ]
+                },
+                {
+                  "key": "showcase",
+                  "name": "汇报演出",
+                  "months": [
+                    6,
+                    12
+                  ]
+                },
+                {
+                  "key": "winter_camp",
+                  "name": "寒假集训",
+                  "months": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "key": "summer_camp",
+                  "name": "暑假集训",
+                  "months": [
+                    7,
+                    8
+                  ]
+                }
+              ],
+              "version": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "course_rules_get",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/course-rules",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [],
+          "version": 1
+        }
+      }
+    },
+    {
+      "key": "course_rules_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/course-rules",
+        "body": {
+          "version": 1,
+          "items": [
+            {
+              "stage_type_id": "stg_ae4b1a3206f9832d73996786",
+              "required": [
+                "crs_cd91c3706e6e4837b5b0af5a"
+              ],
+              "recommended": [],
+              "exclusive": [],
+              "units": {
+                "min": 6,
+                "max": 20
+              }
+            }
+          ]
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "stage_type_id": "stg_ae4b1a3206f9832d73996786",
+              "required": [
+                "crs_cd91c3706e6e4837b5b0af5a"
+              ],
+              "recommended": [],
+              "exclusive": [],
+              "units": {
+                "min": 6,
+                "max": 20
+              }
+            }
+          ],
+          "version": 2
+        }
+      }
+    },
+    {
+      "key": "report_classes_list",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/report-classes?limit=2",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "name": "器乐通用",
+              "dimensions": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6,
+                  "feedback_tags": []
+                }
+              ],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "subject": "music_interest",
+              "version": 1,
+              "id": "rcl_26f06cfa590b2f03dc4d59f4",
+              "source": "template",
+              "active": true
+            },
+            {
+              "name": "声乐",
+              "dimensions": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d3",
+                  "name": "音准",
+                  "order": 3,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d4",
+                  "name": "气息",
+                  "order": 4,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d5",
+                  "name": "咬字",
+                  "order": 5,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d6",
+                  "name": "音乐表现力",
+                  "order": 6,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d7",
+                  "name": "练习习惯",
+                  "order": 7,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d8",
+                  "name": "课堂专注与自信",
+                  "order": 8,
+                  "feedback_tags": []
+                }
+              ],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "subject": "music_interest",
+              "version": 1,
+              "id": "rcl_fe2bd2a530b5ecc2600eec33",
+              "source": "template",
+              "active": true
+            }
+          ],
+          "total": 3,
+          "next_offset": 2
+        }
+      }
+    },
+    {
+      "key": "report_class_create",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/report-classes",
+        "body": {
+          "subject": "music_interest",
+          "name": "对接声乐班",
+          "dimensions": [
+            {
+              "key": "pitch",
+              "name": "音准",
+              "order": 1,
+              "feedback_tags": [
+                "音准稳"
+              ]
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          }
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接声乐班",
+          "active": true,
+          "dimensions": [
+            {
+              "key": "pitch",
+              "name": "音准",
+              "order": 1,
+              "feedback_tags": [
+                "音准稳"
+              ]
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "version": 1,
+          "id": "rcl_abb6b2c16240ae0106289325",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "report_class_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/report-classes",
+        "body": {
+          "subject": "music_interest",
+          "name": "对接声乐班",
+          "active": true,
+          "dimensions": [
+            {
+              "key": "pitch",
+              "name": "音准表现",
+              "order": 1,
+              "feedback_tags": [
+                "音准稳"
+              ]
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "version": 1,
+          "id": "rcl_abb6b2c16240ae0106289325",
+          "source": "manual"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接声乐班",
+          "active": true,
+          "dimensions": [
+            {
+              "key": "pitch",
+              "name": "音准表现",
+              "order": 1,
+              "feedback_tags": [
+                "音准稳"
+              ]
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "version": 2,
+          "id": "rcl_abb6b2c16240ae0106289325",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "report_class_delete",
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-handoff/api/settings/report-classes",
+        "body": {
+          "id": "rcl_abb6b2c16240ae0106289325",
+          "version": 2
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "subject": "music_interest",
+          "name": "对接声乐班",
+          "active": false,
+          "dimensions": [
+            {
+              "key": "pitch",
+              "name": "音准表现",
+              "order": 1,
+              "feedback_tags": [
+                "音准稳"
+              ]
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "version": 3,
+          "id": "rcl_abb6b2c16240ae0106289325",
+          "source": "manual"
+        }
+      }
+    },
+    {
+      "key": "profile_get",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/profile",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "version": 1,
+          "introduction": "",
+          "features": [],
+          "address": "",
+          "class_hours": "",
+          "contact_phone": "",
+          "selling_points": [],
+          "teachers": []
+        }
+      }
+    },
+    {
+      "key": "profile_put",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-handoff/api/settings/profile",
+        "body": {
+          "version": 1,
+          "introduction": "本地模拟机构介绍",
+          "features": [
+            "小班教学"
+          ],
+          "address": "测试地址",
+          "class_hours": "周末",
+          "contact_phone": "13800000000",
+          "selling_points": [
+            "按学员情况制定练习安排"
+          ],
+          "teachers": [
+            {
+              "teacher_id": "rec_40a8edae2cb38d1208e833b9",
+              "introduction": "本地模拟老师介绍"
+            }
+          ]
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "introduction": "本地模拟机构介绍",
+          "features": [
+            "小班教学"
+          ],
+          "address": "测试地址",
+          "class_hours": "周末",
+          "contact_phone": "13800000000",
+          "selling_points": [
+            "按学员情况制定练习安排"
+          ],
+          "teachers": [
+            {
+              "teacher_id": "rec_40a8edae2cb38d1208e833b9",
+              "introduction": "本地模拟老师介绍"
+            }
+          ],
+          "version": 2
+        }
+      }
+    },
+    {
+      "key": "brand_get",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/brand",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "version": 1,
+          "name": "验收 handoff",
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#2B4C7E",
+          "qr_image_id": null
+        }
+      }
+    },
+    {
+      "key": "brand_invalid",
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-handoff/api/settings/brand",
+        "body": {
+          "version": 1,
+          "name": "不允许改名"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "机构只能修改主色与咨询二维码",
+          "details": {
+            "fields": [
+              {
+                "field": "body",
+                "message": "机构只能修改主色与咨询二维码"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "key": "gallery_upload",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/gallery",
+        "body": {
+          "multipart": [
+            [
+              "file",
+              {
+                "file": "gallery-example.png",
+                "bytes": 68,
+                "type": "image/png"
+              }
+            ],
+            [
+              "tags",
+              "[\"作品\"]"
+            ]
+          ]
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "img_e037e3b2ff7d0c10d10e98d3",
+          "version": 1,
+          "url": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file",
+          "width": 1,
+          "height": 1,
+          "tags": [
+            "作品"
+          ],
+          "parent_consent_media": false,
+          "hidden": false
+        }
+      }
+    },
+    {
+      "key": "gallery_list",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/gallery?tag=作品",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "img_e037e3b2ff7d0c10d10e98d3",
+              "version": 1,
+              "url": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file",
+              "width": 1,
+              "height": 1,
+              "tags": [
+                "作品"
+              ],
+              "parent_consent_media": false,
+              "hidden": false
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        }
+      }
+    },
+    {
+      "key": "gallery_patch",
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3",
+        "body": {
+          "version": 1,
+          "tags": [
+            "作品",
+            "家长已同意展示"
+          ]
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "img_e037e3b2ff7d0c10d10e98d3",
+          "version": 2,
+          "url": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file",
+          "width": 1,
+          "height": 1,
+          "tags": [
+            "作品",
+            "家长已同意展示"
+          ],
+          "parent_consent_media": true,
+          "hidden": false
+        }
+      }
+    },
+    {
+      "key": "gallery_file",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "binary_bytes": 68,
+          "content_type": "image/png"
+        }
+      }
+    },
+    {
+      "key": "brand_patch",
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-handoff/api/settings/brand",
+        "body": {
+          "version": 1,
+          "primary_color": "#123456",
+          "qr_image_id": "img_e037e3b2ff7d0c10d10e98d3"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "version": 2,
+          "name": "验收 handoff",
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#123456",
+          "qr_image_id": "img_e037e3b2ff7d0c10d10e98d3",
+          "qr_url": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file"
+        }
+      }
+    },
+    {
+      "key": "gallery_delete",
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3",
+        "body": {
+          "version": 2
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "hidden": true
+        }
+      }
+    },
+    {
+      "key": "brand_after_image_hidden",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/brand",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "version": 2,
+          "name": "验收 handoff",
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#123456",
+          "qr_image_id": "img_e037e3b2ff7d0c10d10e98d3",
+          "qr_url": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file"
+        }
+      }
+    },
+    {
+      "key": "brand_color_keep_hidden_qr",
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-handoff/api/settings/brand",
+        "body": {
+          "version": 2,
+          "primary_color": "#654321"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "version": 3,
+          "name": "验收 handoff",
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#654321",
+          "qr_image_id": "img_e037e3b2ff7d0c10d10e98d3",
+          "qr_url": "/schedule-handoff/api/gallery/img_e037e3b2ff7d0c10d10e98d3/file"
+        }
+      }
+    },
+    {
+      "key": "courses_import_preview",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/courses/import",
+        "body": {
+          "multipart": [
+            [
+              "file",
+              {
+                "file": "course-import-example.xlsx",
+                "bytes": 4409,
+                "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+              }
+            ]
+          ]
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "preview_id": "imp_7f567a89686e91edcc32e321",
+          "expires_in": 1200,
+          "rows": [
+            {
+              "row": 2,
+              "errors": [],
+              "course": {
+                "subject": "music_interest",
+                "name": "对接Excel课程",
+                "active": true,
+                "pricing": {
+                  "mode": "per_unit",
+                  "amount": 199.99
+                },
+                "group": "主修",
+                "form": "one_to_one",
+                "minutes": 45,
+                "duration_text": null,
+                "optional": false,
+                "course_type_id": null
+              }
+            }
+          ],
+          "can_commit": true,
+          "price_list_rev": 5
+        }
+      }
+    },
+    {
+      "key": "courses_import_confirm",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/courses/import",
+        "body": {
+          "multipart": [
+            [
+              "preview_id",
+              "imp_7f567a89686e91edcc32e321"
+            ],
+            [
+              "confirm",
+              "true"
+            ]
+          ]
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "imported": 1
+        }
+      }
+    },
+    {
+      "key": "change_submit",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/changes",
+        "body": {
+          "suggestion_id": "sg_handoff",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          }
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "chg_72e7a8ded9372464378b4695",
+          "version": 1,
+          "suggestion_id": "sg_handoff",
+          "status": "pending",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          },
+          "created_by": "usr_20716ef02197aadff3eea49f",
+          "created_at": "2026-11-13T21:41:07.969+08:00",
+          "updated_at": "2026-11-13T21:41:07.969+08:00"
+        }
+      }
+    },
+    {
+      "key": "changes_list",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-handoff/api/settings/changes?status=pending",
+        "body": null,
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "chg_72e7a8ded9372464378b4695",
+              "version": 1,
+              "suggestion_id": "sg_handoff",
+              "status": "pending",
+              "payload": {
+                "ops": [
+                  {
+                    "op": "update",
+                    "entity": "calendar",
+                    "key": "grade_exam",
+                    "field": "months",
+                    "from": [
+                      11
+                    ],
+                    "to": [
+                      1,
+                      11
+                    ]
+                  }
+                ],
+                "side_effects": [],
+                "affected": {
+                  "plans_in_progress": 0
+                }
+              },
+              "created_by": "usr_20716ef02197aadff3eea49f",
+              "created_at": "2026-11-13T21:41:07.969+08:00",
+              "updated_at": "2026-11-13T21:41:07.969+08:00"
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        }
+      }
+    },
+    {
+      "key": "change_approve",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/changes/chg_72e7a8ded9372464378b4695/approve",
+        "body": {},
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "chg_72e7a8ded9372464378b4695",
+          "version": 2,
+          "suggestion_id": "sg_handoff",
+          "status": "approved",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          },
+          "created_by": "usr_20716ef02197aadff3eea49f",
+          "created_at": "2026-11-13T21:41:07.969+08:00",
+          "updated_at": "2026-11-13T21:41:07.983+08:00"
+        }
+      }
+    },
+    {
+      "key": "change_revert",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/changes/chg_72e7a8ded9372464378b4695/revert",
+        "body": {},
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "chg_72e7a8ded9372464378b4695",
+          "version": 3,
+          "suggestion_id": "sg_handoff",
+          "status": "reverted",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          },
+          "created_by": "usr_20716ef02197aadff3eea49f",
+          "created_at": "2026-11-13T21:41:07.969+08:00",
+          "updated_at": "2026-11-13T21:41:07.991+08:00"
+        }
+      }
+    },
+    {
+      "key": "change_submit_reject",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/changes",
+        "body": {
+          "suggestion_id": "sg_handoff_reject",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          }
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "chg_882b38684790d08b4206fe72",
+          "version": 1,
+          "suggestion_id": "sg_handoff_reject",
+          "status": "pending",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          },
+          "created_by": "usr_20716ef02197aadff3eea49f",
+          "created_at": "2026-11-13T21:41:07.998+08:00",
+          "updated_at": "2026-11-13T21:41:07.998+08:00"
+        }
+      }
+    },
+    {
+      "key": "change_reject",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/settings/changes/chg_882b38684790d08b4206fe72/reject",
+        "body": {},
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "chg_882b38684790d08b4206fe72",
+          "version": 2,
+          "suggestion_id": "sg_handoff_reject",
+          "status": "rejected",
+          "payload": {
+            "ops": [
+              {
+                "op": "update",
+                "entity": "calendar",
+                "key": "grade_exam",
+                "field": "months",
+                "from": [
+                  11
+                ],
+                "to": [
+                  1,
+                  11
+                ]
+              }
+            ],
+            "side_effects": [],
+            "affected": {
+              "plans_in_progress": 0
+            }
+          },
+          "created_by": "usr_20716ef02197aadff3eea49f",
+          "created_at": "2026-11-13T21:41:07.998+08:00",
+          "updated_at": "2026-11-13T21:41:08.006+08:00"
+        }
+      }
+    },
+    {
+      "key": "guardian_no_tenant_id",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-handoff/api/students/rec_5c1a23cbd56d07b34d80f043/guardians",
+        "body": {
+          "phone": "13800001111",
+          "name": "本地模拟家长",
+          "relation": "mother"
+        },
+        "actor": "supervisor_session"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "link": {
+            "id": "gdn_8e3a77102ebf083879b1deba",
+            "parent_user_id": "usr_e50fe8f5eed073b598f9e835",
+            "student_id": "rec_5c1a23cbd56d07b34d80f043",
+            "relation": "mother",
+            "created_by": "usr_20716ef02197aadff3eea49f",
+            "created_at": "2026-11-13T21:41:08.032+08:00",
+            "updated_by": "usr_20716ef02197aadff3eea49f",
+            "updated_at": "2026-11-13T21:41:08.032+08:00",
+            "version": 1,
+            "revoked_at": null
+          },
+          "user": {
+            "id": "usr_e50fe8f5eed073b598f9e835",
+            "name": "本地模拟家长",
+            "roles": [
+              "parent"
+            ],
+            "phone": "***1111",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": true,
+            "active": true,
+            "version": 1
+          },
+          "temporary_password": "aHX2YDVqCp"
+        }
+      }
+    }
+  ]
+}

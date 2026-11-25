@@ -1,0 +1,18 @@
+{
+  "name": "17-share-create",
+  "request": {
+    "method": "POST",
+    "path": "/schedule-yx4/api/plans/pln_2821a4ba24b06d4cff51ca21/share-links",
+    "body": {},
+    "authenticated": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "shr_3416bdf7af9d64c30ce37499",
+      "url": "https://school.test/s/Sy9boNT1csDF3Iu0W5EY9sPsH37L0DZ-0lzWP_j-yjc",
+      "expires_at": "2026-12-14T00:08:01.525+08:00"
+    },
+    "queries": 7
+  }
+}

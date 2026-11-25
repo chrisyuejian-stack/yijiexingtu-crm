@@ -1,0 +1,1 @@
+CREATE TABLE setting_asset_refs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,image_id TEXT NOT NULL,entity TEXT NOT NULL,entity_id TEXT NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,image_id) REFERENCES gallery_images(tenant_id,id));

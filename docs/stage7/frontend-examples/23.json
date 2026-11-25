@@ -1,0 +1,45 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ops/compliance/terms",
+    "body": null,
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "term_0",
+          "term": "包过",
+          "active": 1,
+          "version": 1
+        },
+        {
+          "id": "term_1",
+          "term": "保录",
+          "active": 1,
+          "version": 1
+        },
+        {
+          "id": "term_2",
+          "term": "100% 合格",
+          "active": 1,
+          "version": 1
+        },
+        {
+          "id": "term_3",
+          "term": "第一",
+          "active": 1,
+          "version": 1
+        },
+        {
+          "id": "term_4",
+          "term": "最好",
+          "active": 1,
+          "version": 1
+        }
+      ]
+    }
+  }
+}

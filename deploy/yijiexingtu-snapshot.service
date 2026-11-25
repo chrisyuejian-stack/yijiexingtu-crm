@@ -1,0 +1,18 @@
+[Unit]
+Description=Yijiexingtu consistent encrypted SQLite snapshot
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=yxt
+Group=yxt
+WorkingDirectory=/opt/yijiexingtu/current
+EnvironmentFile=/etc/yijiexingtu/app.env
+ExecStart=/usr/bin/node --max-old-space-size=768 deploy/snapshot.mjs
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/yijiexingtu
+TimeoutStartSec=1800

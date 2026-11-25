@@ -1,0 +1,1 @@
+CREATE TRIGGER lesson_submission_reference BEFORE UPDATE OF current_submission_id ON lessons WHEN NEW.current_submission_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM lesson_submissions r WHERE r.tenant_id=NEW.tenant_id AND r.id=NEW.current_submission_id AND r.lesson_id=NEW.id) THEN RAISE(ABORT,'invalid_lesson_submission') END; END;

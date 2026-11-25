@@ -1,0 +1,92 @@
+{
+  "date_beijing": "2026-11-13",
+  "patch": {
+    "patch": "艺界星途_阶段3前端_补丁_20261113.zip",
+    "patch_bytes": 45350,
+    "patch_sha256": "1fe5ccd53ac025d4c7760e32b6eb506b4bd437fe4ed0e091335e14dd912f6bf6",
+    "files": [
+      {
+        "path": "src/tenant/yx-settings.js",
+        "new": true,
+        "before_sha256": null,
+        "after_sha256": "fade87e284ba8b7349cc7125e90aeacb8022bfda6e6f465a694c12ebda8c6d77",
+        "bytes": 41549
+      },
+      {
+        "path": "src/tenant/v2a.js",
+        "new": false,
+        "before_sha256": "46837260aa0a566b3336081329a9cb1b50c29f6ea86d7634b721fb97edabcaea",
+        "after_sha256": "7f46bc1473e136e4125d21e284c362c8fd5b866231113ee7f02785d0b786aaf5",
+        "bytes": 28790
+      },
+      {
+        "path": "src/tenant/yx.css",
+        "new": false,
+        "before_sha256": "fbd2d16102cd14b416bb96f3f950eef70c774517bfe0354ecf6cf4efd5a3110e",
+        "after_sha256": "60949aa73468c4bde2a3af460139d89599787da76925abb2a28b584ebf7cf679",
+        "bytes": 15647
+      },
+      {
+        "path": "scripts/frontend-bundle.mjs",
+        "new": false,
+        "before_sha256": "e177400f8fe6f71700a2604005520de0b1df0d34f7f513ee52a41c63ca1c684b",
+        "after_sha256": "2ab534177887e7723298295ddc25877235bbb4303040b94fcdbb0b713c098b3a",
+        "bytes": 2554
+      },
+      {
+        "path": "scripts/yx-preview.mjs",
+        "new": false,
+        "before_sha256": "1759ce31bd9ccba45a5dbfb66002f15f81958c1f5715ac0dc6060c42434148fb",
+        "after_sha256": "99c21a7f635c928e1a74eb38dab5c6dd1a40b7d4f5e601d6b29d56ac020b832e",
+        "bytes": 5879
+      },
+      {
+        "path": "tests/yx-frontend-stage2.test.mjs",
+        "new": false,
+        "before_sha256": "56533641a2869243012a2513c736d511837aa1890ba2126f608a85e782c8fe65",
+        "after_sha256": "36d27f90d18c57c818b687656c63c85d79af910abed50176292d1ccccb43a99f",
+        "bytes": 3361
+      },
+      {
+        "path": "tests/settings-stage3.test.mjs",
+        "new": false,
+        "before_sha256": "979c1728b731aba81fe26603079aa52b487a307743dea67f8bea8f83f925b783",
+        "after_sha256": "45893457307ef98bd6f4a23d218b5467feec72aeb340479d30df401701511ea1",
+        "bytes": 40865
+      },
+      {
+        "path": "docs/stage3-frontend/阶段3前端交付说明.md",
+        "new": true,
+        "before_sha256": null,
+        "after_sha256": "fb44a5d2f893ffe8ad35cc62a123311a0b530ebb0f1d2fd7eae3efbe405d0c6d",
+        "bytes": 3148
+      }
+    ],
+    "backend_and_migrations_changed": [],
+    "authorization": "用户明确要求按原路径覆盖8文件；允许移除前端哈希锁定断言，不改其他断言。"
+  },
+  "build_command": "npm run build",
+  "build_exit_code": 0,
+  "test_runs": [
+    {
+      "kind": "source",
+      "command": "npm test",
+      "tests": 326,
+      "pass": 326,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 196170.026372
+    },
+    {
+      "kind": "bundle",
+      "command": "TEST_BUNDLE=1 npm test",
+      "tests": 326,
+      "pass": 326,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 200986.206517
+    }
+  ]
+}

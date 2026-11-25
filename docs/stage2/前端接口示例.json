@@ -1,0 +1,2808 @@
+{
+  "contract": "v0.3.3",
+  "source": "最终源码回归中的本地HTTP调用；fixture为虚构数据，不是线上机构",
+  "notice": "不同测试场景分别建库，跨场景ID不能串联。Cookie、Access JWT未导出。样例临时密码/选择令牌仅属本地临时fixture，不可用于部署。response.body原样保留。",
+  "examples": [
+    {
+      "key": "login_error",
+      "description": "无匹配或登录失败",
+      "source_index": 0,
+      "request": {
+        "method": "POST",
+        "path": "/api/auth/login",
+        "body": {
+          "phone": "13911112222",
+          "password": "PhaseTwoSecure9",
+          "turnstile": "fixture-valid"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "unauthenticated",
+          "message": "手机号或密码不正确"
+        }
+      }
+    },
+    {
+      "key": "login_direct",
+      "description": "根地址单机构登录",
+      "source_index": 1,
+      "request": {
+        "method": "POST",
+        "path": "/api/auth/login",
+        "body": {
+          "phone": "13911112222",
+          "password": "PhaseTwoSecure9",
+          "turnstile": "fixture-valid"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "user": {
+            "id": "usr_14e2596cadf91786c4aae1ae",
+            "name": "主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***2222",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "must_change": false,
+          "api_base": "/api"
+        }
+      }
+    },
+    {
+      "key": "login_choose_prompt",
+      "description": "根地址多机构选择",
+      "source_index": 5,
+      "request": {
+        "method": "POST",
+        "path": "/api/auth/login",
+        "body": {
+          "phone": "13911112222",
+          "password": "PhaseTwoSecure9",
+          "turnstile": "fixture-valid"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "need_tenant_choice": true,
+          "choices": [
+            {
+              "choice_token": "Oy8FUuPSgPnvtAWbMe/bq4LLGqhNRODPlsWZpuBdyDE=",
+              "name": "验收 cb",
+              "logo_url": null
+            },
+            {
+              "choice_token": "RJHpbpanr2OdzQqzSGSVOLAYATT4E46DGUsfP4vAwvo=",
+              "name": "验收 ca",
+              "logo_url": null
+            }
+          ],
+          "ttl": 120
+        }
+      }
+    },
+    {
+      "key": "login_choose",
+      "description": "提交一次性机构选择令牌",
+      "source_index": 6,
+      "request": {
+        "method": "POST",
+        "path": "/api/auth/login/choose",
+        "body": {
+          "choice_token": "RJHpbpanr2OdzQqzSGSVOLAYATT4E46DGUsfP4vAwvo="
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "user": {
+            "id": "usr_10cacee09b6a643d967d78f3",
+            "name": "主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***2222",
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "must_change": false,
+          "api_base": "/api"
+        }
+      }
+    },
+    {
+      "key": "path_login",
+      "description": "机构路径登录",
+      "source_index": 37,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/auth/login",
+        "body": {
+          "phone": "13911112222",
+          "password": "PhaseTwoSecure9",
+          "turnstile": "fixture-valid"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "user": {
+            "id": "usr_c4feb5618eea870edf7f64c6",
+            "name": "主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***2222",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "must_change": false,
+          "api_base": "/schedule-identity/api"
+        }
+      }
+    },
+    {
+      "key": "path_status",
+      "description": "机构路径状态",
+      "source_index": 38,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-identity/api/auth/status",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "usr_c4feb5618eea870edf7f64c6",
+            "name": "主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***2222",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "api_base": "/schedule-identity/api",
+          "tenant_status": "active"
+        }
+      }
+    },
+    {
+      "key": "anonymous_status",
+      "description": "根地址未登录状态",
+      "source_index": 39,
+      "request": {
+        "method": "GET",
+        "path": "/api/auth/status",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false,
+          "api_base": "/api"
+        }
+      }
+    },
+    {
+      "key": "root_status_suspended",
+      "description": "停用机构保留会话的状态",
+      "source_index": 50,
+      "request": {
+        "method": "GET",
+        "path": "/api/auth/status",
+        "body": null,
+        "actor": "root_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "usr_7867dc6c4c0cfe845445f636",
+            "name": "主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***2222",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "api_base": "/api",
+          "tenant_status": "paused"
+        }
+      }
+    },
+    {
+      "key": "brand",
+      "description": "公开登录品牌例外",
+      "source_index": 52,
+      "request": {
+        "method": "GET",
+        "path": "/api/public/tenant-brand?slug=schedule-identity",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "name": "验收 identity",
+          "logo_url": null,
+          "login_bg_url": null,
+          "primary_color": "#2B4C7E"
+        }
+      }
+    },
+    {
+      "key": "root_me",
+      "description": "员工 me 与模块中文名",
+      "source_index": 7,
+      "request": {
+        "method": "GET",
+        "path": "/api/me",
+        "body": null,
+        "actor": "root_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "features": {
+            "referrals": true
+          },
+          "user": {
+            "id": "usr_10cacee09b6a643d967d78f3",
+            "name": "主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***2222",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "labels": {
+            "import_headers": {
+              "students": [
+                "姓名",
+                "手机号",
+                "家长姓名",
+                "家长手机号",
+                "年级",
+                "专业方向",
+                "学校",
+                "备注"
+              ],
+              "teachers": [
+                "姓名",
+                "手机号",
+                "任教科目"
+              ],
+              "balances": [
+                "学员姓名",
+                "课程名称",
+                "剩余课时",
+                "有效期至"
+              ]
+            },
+            "lead_stages": {
+              "new": "新咨询",
+              "contacted": "跟进中",
+              "trial": "已试听",
+              "enrolled": "已转正",
+              "lost": "已流失"
+            },
+            "modules": {
+              "home": "工作台",
+              "schedule": "课表",
+              "templates": "固定排课",
+              "lessons": "课程",
+              "attendance": "出勤销课",
+              "students": "学员",
+              "followup": "教务跟进",
+              "packages": "课时包",
+              "tuition": "学费收款",
+              "teacher_pay": "教师课酬",
+              "settlements": "月度结算",
+              "reports": "统计报表",
+              "content": "招生内容",
+              "plans": "课程方案",
+              "growth_reports": "成长报告",
+              "school_db": "院校库",
+              "prices": "报价价格",
+              "feedback": "课后反馈",
+              "parents": "家长管理",
+              "ai": "AI工具",
+              "usage": "AI用量",
+              "exports": "导出",
+              "settings": "设置",
+              "accounts": "账号权限",
+              "logs": "操作记录",
+              "profile": "个人中心",
+              "classes": "班级",
+              "leads": "招生线索",
+              "referrals": "升学推荐",
+              "imports": "导入",
+              "comments": "课后点评",
+              "promo": "推广中心"
+            },
+            "actions": {
+              "read": "查看",
+              "create": "新增",
+              "update": "修改",
+              "delete": "删除",
+              "approve": "批准",
+              "submit": "提交",
+              "reject": "退回",
+              "unlock": "解锁",
+              "transfer": "课时转移",
+              "adjust": "课时调整",
+              "status": "整课销课",
+              "attendance": "逐人出勤",
+              "undo": "撤销销课",
+              "confirm_submission": "确认教师提交",
+              "return_submission": "退回教师提交",
+              "submit_attendance": "教师提交出勤",
+              "submit_comments": "教师提交点评",
+              "correct_comments": "员工更正点评",
+              "download": "下载导出",
+              "export": "下载导出",
+              "remind": "登记续费提醒",
+              "timetable": "导出品牌课表图",
+              "setting": "修改机构设置",
+              "generate": "生成排课",
+              "reorder": "调整顺序",
+              "reset_password": "重置密码",
+              "password": "修改密码",
+              "phone": "查看完整手机号"
+            },
+            "lessons": {
+              "planned": "待上课",
+              "completed": "已销课",
+              "student_leave": "学员请假",
+              "student_no_show": "学员旷课",
+              "teacher_leave": "教师请假",
+              "cancelled": "机构取消",
+              "rescheduled": "已调课"
+            },
+            "attendance": {
+              "planned": "未登记",
+              "attended": "出勤",
+              "student_leave": "请假",
+              "no_show": "旷课",
+              "teacher_leave": "教师请假",
+              "cancelled": "机构取消"
+            },
+            "reviews": {
+              "pending": "待确认",
+              "returned": "已退回",
+              "confirmed": "已确认",
+              "superseded": "已替换"
+            },
+            "events": {
+              "login_success": "登录成功",
+              "login_failed": "登录失败",
+              "login_locked": "登录已锁定",
+              "logout": "退出登录"
+            },
+            "rate_units": {
+              "legacy": "课时",
+              "unit": "课时",
+              "lesson": "课次",
+              "person": "人次"
+            },
+            "promo": {
+              "types": {
+                "message": "消息",
+                "material": "物料",
+                "course": "课程与讲座"
+              },
+              "applications": {
+                "applied": "已申请",
+                "following": "跟进中",
+                "confirmed": "已确认",
+                "opened": "已开班",
+                "failed": "未成班",
+                "withdrawn": "已撤回"
+              },
+              "courses": {
+                "recruiting": "招募中",
+                "opened": "已开班",
+                "running": "进行中",
+                "ended": "已结束",
+                "failed": "未成班"
+              }
+            }
+          },
+          "tenant_id": "ten_e197513e5e6e3a8a7acb52cd",
+          "api_base": "/api",
+          "module_labels": {
+            "home": "工作台",
+            "schedule": "课表",
+            "templates": "固定排课",
+            "lessons": "课程",
+            "attendance": "出勤销课",
+            "students": "学员",
+            "followup": "教务跟进",
+            "packages": "课时包",
+            "tuition": "学费收款",
+            "teacher_pay": "教师课酬",
+            "settlements": "月度结算",
+            "reports": "统计报表",
+            "content": "招生内容",
+            "plans": "课程方案",
+            "growth_reports": "成长报告",
+            "school_db": "院校库",
+            "prices": "报价价格",
+            "feedback": "课后反馈",
+            "parents": "家长管理",
+            "ai": "AI工具",
+            "usage": "AI用量",
+            "exports": "导出",
+            "settings": "设置",
+            "accounts": "账号权限",
+            "logs": "操作记录",
+            "profile": "个人中心",
+            "classes": "班级",
+            "leads": "招生线索",
+            "referrals": "升学推荐",
+            "imports": "导入",
+            "comments": "课后点评",
+            "promo": "推广中心"
+          },
+          "policy": {
+            "modules": {
+              "accounts": true,
+              "ai": true,
+              "attendance": true,
+              "classes": true,
+              "comments": true,
+              "content": true,
+              "exports": true,
+              "feedback": true,
+              "followup": true,
+              "growth_reports": true,
+              "home": true,
+              "imports": true,
+              "leads": true,
+              "lessons": true,
+              "logs": true,
+              "packages": true,
+              "parents": true,
+              "plans": true,
+              "prices": true,
+              "profile": true,
+              "promo": true,
+              "referrals": true,
+              "reports": true,
+              "schedule": true,
+              "school_db": false,
+              "settings": true,
+              "settlements": true,
+              "students": true,
+              "teacher_pay": true,
+              "templates": true,
+              "tuition": true,
+              "usage": true
+            },
+            "settings": {
+              "max_debt_units": 3
+            },
+            "rights": []
+          },
+          "capabilities": {
+            "home": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "schedule": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "templates": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "lessons": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "attendance": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": false,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "students": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "followup": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "packages": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "tuition": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "teacher_pay": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "settlements": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": false,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "reports": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "exports": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "settings": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "accounts": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "logs": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "profile": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "classes": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "leads": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "referrals": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "imports": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "comments": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": false,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "promo": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": true,
+              "unpublish": true,
+              "manage": true,
+              "use": true,
+              "propose": true,
+              "read_finance": true,
+              "create": true,
+              "update": true,
+              "delete": true,
+              "export": true,
+              "approve": true,
+              "adjust": true,
+              "transfer": true,
+              "submit": true,
+              "unlock": true,
+              "confirm": true,
+              "return": true,
+              "correct": true,
+              "create_personal": true,
+              "reset_personal": true,
+              "reveal_phone": true
+            },
+            "content": {
+              "read": true,
+              "write": true,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "plans": {
+              "read": true,
+              "write": true,
+              "share": true,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "growth_reports": {
+              "read": true,
+              "write": true,
+              "share": false,
+              "publish": true,
+              "unpublish": true,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "school_db": {
+              "read": false,
+              "write": false,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "prices": {
+              "read": true,
+              "write": true,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "feedback": {
+              "read": false,
+              "write": false,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": true,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "parents": {
+              "read": false,
+              "write": false,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": true,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "ai": {
+              "read": false,
+              "write": false,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": true,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            },
+            "usage": {
+              "read": true,
+              "write": false,
+              "share": false,
+              "publish": false,
+              "unpublish": false,
+              "manage": false,
+              "use": false,
+              "propose": false,
+              "read_finance": false,
+              "create": false,
+              "update": false,
+              "delete": false,
+              "export": false,
+              "approve": false,
+              "adjust": false,
+              "transfer": false,
+              "submit": false,
+              "unlock": false,
+              "confirm": false,
+              "return": false,
+              "correct": false,
+              "create_personal": false,
+              "reset_personal": false,
+              "reveal_phone": false
+            }
+          },
+          "limits": {
+            "staff": 50,
+            "student": 100
+          }
+        }
+      }
+    },
+    {
+      "key": "parent_me",
+      "description": "家长 me 只显示机构和孩子",
+      "source_index": 179,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-identity/api/me",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "user": {
+            "id": "usr_368df939d382e871cbb3b052",
+            "name": "测试家长",
+            "roles": [
+              "parent"
+            ],
+            "phone": "***1111",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          },
+          "api_base": "/schedule-identity/api",
+          "brand": {
+            "name": "验收 identity",
+            "logo_url": null,
+            "primary_color": "#2B4C7E"
+          },
+          "children": [
+            {
+              "id": "rec_8ddae272caca8c10202deb3e",
+              "name": "学员0",
+              "nickname": "X 同学",
+              "grade": "",
+              "direction": "",
+              "relation": "mother"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "guardian_create",
+      "description": "首次绑定并创建家长，返回临时密码",
+      "source_index": 31,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/students/rec_c0e96f648dda26e5d7c31548/guardians",
+        "body": {
+          "phone": "13800001111",
+          "name": "测试家长",
+          "relation": "mother"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "link": {
+            "tenant_id": "ten_1b8129eac05b7d55e7921b7b",
+            "id": "gdn_03c62b897f374dd06175b25f",
+            "parent_user_id": "usr_bd83086f9f3f84a31cb3de89",
+            "student_id": "rec_c0e96f648dda26e5d7c31548",
+            "relation": "mother",
+            "created_by": "usr_c4feb5618eea870edf7f64c6",
+            "created_at": "2026-11-13T18:20:28.110+08:00",
+            "updated_by": "usr_c4feb5618eea870edf7f64c6",
+            "updated_at": "2026-11-13T18:20:28.110+08:00",
+            "version": 1,
+            "revoked_at": null
+          },
+          "user": {
+            "id": "usr_bd83086f9f3f84a31cb3de89",
+            "name": "测试家长",
+            "roles": [
+              "parent"
+            ],
+            "phone": "***1111",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": true,
+            "active": true,
+            "version": 1
+          },
+          "temporary_password": "NX6dFHphXx"
+        }
+      }
+    },
+    {
+      "key": "guardian_reuse",
+      "description": "复用原家长绑定第二个孩子，不改密码",
+      "source_index": 74,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/students/rec_a454528190ac1a6b7ff3dc75/guardians",
+        "body": {
+          "phone": "13800001111",
+          "name": "测试家长",
+          "relation": "mother"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "link": {
+            "tenant_id": "ten_4daca23f3f37ea8bfcc778b3",
+            "id": "gdn_90583a98ea27e11b75c49889",
+            "parent_user_id": "usr_94d64bfd9aaac3ae6df9beab",
+            "student_id": "rec_a454528190ac1a6b7ff3dc75",
+            "relation": "mother",
+            "created_by": "usr_4f15173ee1d31a6155ddb066",
+            "created_at": "2026-11-13T18:20:29.996+08:00",
+            "updated_by": "usr_4f15173ee1d31a6155ddb066",
+            "updated_at": "2026-11-13T18:20:29.996+08:00",
+            "version": 1,
+            "revoked_at": null
+          },
+          "user": {
+            "id": "usr_94d64bfd9aaac3ae6df9beab",
+            "name": "测试家长",
+            "roles": [
+              "parent"
+            ],
+            "phone": "***1111",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 1
+          }
+        }
+      }
+    },
+    {
+      "key": "guardian_list",
+      "description": "列出孩子的家长与停用原因",
+      "source_index": 87,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-identity/api/students/rec_7521dd0739c5d1d4fb0ddfed/guardians",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "gdn_ebe420a400c712a9cf79b155",
+              "student_id": "rec_7521dd0739c5d1d4fb0ddfed",
+              "parent_user_id": "usr_d846fa584d878d37d7746e13",
+              "relation": "mother",
+              "version": 1,
+              "name": "测试家长",
+              "phone_last4": "1111",
+              "active": 1,
+              "disabled_reason": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "guardian_patch",
+      "description": "修改称呼",
+      "source_index": 88,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/students/rec_7521dd0739c5d1d4fb0ddfed/guardians/gdn_ebe420a400c712a9cf79b155",
+        "body": {
+          "version": 1,
+          "relation": "grandparent"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "link": {
+            "tenant_id": "ten_c3164983461a5fbf59cb227e",
+            "id": "gdn_ebe420a400c712a9cf79b155",
+            "parent_user_id": "usr_d846fa584d878d37d7746e13",
+            "student_id": "rec_7521dd0739c5d1d4fb0ddfed",
+            "relation": "grandparent",
+            "created_by": "usr_89e735d3e3b9c1796838df34",
+            "created_at": "2026-11-13T18:20:30.749+08:00",
+            "updated_by": "usr_89e735d3e3b9c1796838df34",
+            "updated_at": "2026-11-13T18:20:30.765+08:00",
+            "version": 2,
+            "revoked_at": null
+          }
+        }
+      }
+    },
+    {
+      "key": "guardian_delete",
+      "description": "解绑孩子",
+      "source_index": 76,
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-identity/api/students/rec_5e365ee567ed83ca4c9b81a3/guardians/gdn_46aa9e9c3b485d2a21d824ad",
+        "body": {},
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "parent_children",
+      "description": "家长查看绑定的两个孩子",
+      "source_index": 75,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-identity/api/parent/children",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "rec_5e365ee567ed83ca4c9b81a3",
+              "name": "学员0",
+              "nickname": "X 同学",
+              "grade": "",
+              "direction": "",
+              "relation": "mother"
+            },
+            {
+              "id": "rec_a454528190ac1a6b7ff3dc75",
+              "name": "学员1",
+              "nickname": "X 同学",
+              "grade": "",
+              "direction": "",
+              "relation": "mother"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "parent_reset_password",
+      "description": "重置家长临时密码",
+      "source_index": 93,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/parents/usr_d846fa584d878d37d7746e13/reset-password",
+        "body": {},
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "usr_d846fa584d878d37d7746e13",
+          "temporary_password": "oQnXZKD7RY"
+        }
+      }
+    },
+    {
+      "key": "parent_disable",
+      "description": "人工停用家长",
+      "source_index": 82,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/parents/usr_a6aac463825553b1ff99b8b1/disable",
+        "body": {},
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "parent_enable",
+      "description": "沿用账号接口先启用再绑定",
+      "source_index": 84,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/accounts/usr_a6aac463825553b1ff99b8b1",
+        "body": {
+          "version": 2,
+          "name": "测试家长",
+          "roles": [
+            "parent"
+          ],
+          "active": true
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "account_create",
+      "description": "新建顾问员工账号",
+      "source_index": 136,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/accounts",
+        "body": {
+          "phone": "13810000101",
+          "name": "员工",
+          "roles": [
+            "consultant"
+          ]
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "usr_579febac4f005996b7f51ee5",
+          "temporary_password": "wrJ2oAqCYK"
+        }
+      }
+    },
+    {
+      "key": "account_phone_role_update",
+      "description": "修改员工手机号及角色",
+      "source_index": 137,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/accounts/usr_579febac4f005996b7f51ee5",
+        "body": {
+          "version": 1,
+          "name": "员工",
+          "roles": [
+            "academic"
+          ],
+          "active": true,
+          "phone": "13810000102"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "account_disable",
+      "description": "停用员工",
+      "source_index": 138,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/accounts/usr_579febac4f005996b7f51ee5",
+        "body": {
+          "version": 2,
+          "name": "员工",
+          "roles": [
+            "academic"
+          ],
+          "active": false
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "account_enable",
+      "description": "启用员工",
+      "source_index": 139,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/accounts/usr_579febac4f005996b7f51ee5",
+        "body": {
+          "version": 3,
+          "name": "员工",
+          "roles": [
+            "academic"
+          ],
+          "active": true
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "account_list",
+      "description": "根会话查询账号",
+      "source_index": 189,
+      "request": {
+        "method": "GET",
+        "path": "/api/accounts",
+        "body": null,
+        "actor": "root_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "usr_04cc55aa28e47b2978a11c5f",
+              "name": "新主管",
+              "roles": [
+                "supervisor"
+              ],
+              "phone": "***6789",
+              "teacher_id": null,
+              "student_id": null,
+              "must_change": false,
+              "active": true,
+              "version": 2
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        }
+      }
+    },
+    {
+      "key": "student_before",
+      "description": "读取学员新增字段默认值",
+      "source_index": 145,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-identity/api/data/students/rec_a281e9af9cbf4ccb04917bed",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "record": {
+            "id": "rec_a281e9af9cbf4ccb04917bed",
+            "name": "学员0",
+            "gender": "",
+            "birth_year": null,
+            "school": "",
+            "grade": "",
+            "direction": "",
+            "parent_name": "",
+            "status": "active",
+            "notes": "",
+            "sort_order": 0,
+            "created_at": 1794565234318,
+            "created_by": "usr_93fd752cfb4067479b551e1f",
+            "updated_at": 1794565234318,
+            "updated_by": "usr_93fd752cfb4067479b551e1f",
+            "version": 1,
+            "deleted_at": null,
+            "billing_mode": "package",
+            "report_class_id": null,
+            "source_lead_id": null,
+            "nickname": "X 同学",
+            "parent_consent_media": 0,
+            "account_id": null,
+            "account_active": null,
+            "search_keys": [
+              "xueyuan0",
+              "xy0",
+              "学员0",
+              "xueyun0"
+            ],
+            "phone": "",
+            "parent_phone": ""
+          }
+        }
+      }
+    },
+    {
+      "key": "student_patch",
+      "description": "保存学员新增字段",
+      "source_index": 146,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/data/students/rec_a281e9af9cbf4ccb04917bed",
+        "body": {
+          "version": 1,
+          "nickname": "小星",
+          "parent_consent_media": true,
+          "source_lead_id": null,
+          "report_class_id": null
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "rec_a281e9af9cbf4ccb04917bed",
+          "committed": true
+        }
+      }
+    },
+    {
+      "key": "student_after",
+      "description": "读取学员已保存字段",
+      "source_index": 147,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-identity/api/data/students/rec_a281e9af9cbf4ccb04917bed",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "record": {
+            "id": "rec_a281e9af9cbf4ccb04917bed",
+            "name": "学员0",
+            "gender": "",
+            "birth_year": null,
+            "school": "",
+            "grade": "",
+            "direction": "",
+            "parent_name": "",
+            "status": "active",
+            "notes": "",
+            "sort_order": 0,
+            "created_at": 1794565234318,
+            "created_by": "usr_93fd752cfb4067479b551e1f",
+            "updated_at": 1794565234346,
+            "updated_by": "usr_93fd752cfb4067479b551e1f",
+            "version": 2,
+            "deleted_at": null,
+            "billing_mode": "package",
+            "report_class_id": null,
+            "source_lead_id": null,
+            "nickname": "小星",
+            "parent_consent_media": 1,
+            "account_id": null,
+            "account_active": null,
+            "search_keys": [
+              "xueyuan0",
+              "xy0",
+              "学员0",
+              "xueyun0"
+            ],
+            "phone": "",
+            "parent_phone": ""
+          }
+        }
+      }
+    },
+    {
+      "key": "ops_create",
+      "description": "创建机构、学科选择、模块和AI覆盖",
+      "source_index": 149,
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/tenants",
+        "body": {
+          "name": "星光测试",
+          "slug": "starlight-test",
+          "staff_seat_limit": 4,
+          "expires_at": "2026-12-31",
+          "subjects": [
+            "music_interest"
+          ],
+          "modules": {
+            "growth_reports": false
+          },
+          "ai_override": {
+            "fast_daily_limit": 12,
+            "deep_daily_limit": null
+          }
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "ten_dfb3d523f4ac62d35925879c",
+          "version": 1,
+          "name": "星光测试",
+          "slug": "starlight-test",
+          "status": "active",
+          "expires_at": "2026-12-31",
+          "staff_seat_limit": 4,
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#6A35B8",
+          "modules": {
+            "accounts": true,
+            "ai": true,
+            "attendance": true,
+            "classes": true,
+            "comments": true,
+            "content": true,
+            "exports": true,
+            "feedback": true,
+            "followup": true,
+            "growth_reports": false,
+            "home": true,
+            "imports": true,
+            "leads": true,
+            "lessons": true,
+            "logs": true,
+            "packages": true,
+            "parents": true,
+            "plans": true,
+            "prices": true,
+            "profile": true,
+            "promo": true,
+            "referrals": true,
+            "reports": true,
+            "schedule": true,
+            "school_db": false,
+            "settings": true,
+            "settlements": true,
+            "students": true,
+            "teacher_pay": true,
+            "templates": true,
+            "tuition": true,
+            "usage": true
+          },
+          "module_labels": {
+            "content": "招生内容",
+            "plans": "课程方案",
+            "growth_reports": "成长报告",
+            "school_db": "院校库",
+            "prices": "报价价格",
+            "feedback": "课后反馈",
+            "parents": "家长管理",
+            "ai": "AI工具",
+            "usage": "AI用量",
+            "reports": "统计报表"
+          },
+          "subjects": [
+            {
+              "key": "music_interest",
+              "pack_version": "0.1"
+            }
+          ],
+          "ai_override": {
+            "fast_daily_limit": 12,
+            "deep_daily_limit": null
+          }
+        }
+      }
+    },
+    {
+      "key": "ops_list",
+      "description": "分页机构列表",
+      "source_index": 150,
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/tenants?offset=0&limit=1",
+        "body": null,
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "ten_dfb3d523f4ac62d35925879c",
+              "version": 1,
+              "name": "星光测试",
+              "slug": "starlight-test",
+              "status": "active",
+              "expires_at": "2026-12-31",
+              "staff_seat_limit": 4,
+              "logo": null,
+              "login_bg": null,
+              "primary_color": "#6A35B8",
+              "modules": {
+                "accounts": true,
+                "ai": true,
+                "attendance": true,
+                "classes": true,
+                "comments": true,
+                "content": true,
+                "exports": true,
+                "feedback": true,
+                "followup": true,
+                "growth_reports": false,
+                "home": true,
+                "imports": true,
+                "leads": true,
+                "lessons": true,
+                "logs": true,
+                "packages": true,
+                "parents": true,
+                "plans": true,
+                "prices": true,
+                "profile": true,
+                "promo": true,
+                "referrals": true,
+                "reports": true,
+                "schedule": true,
+                "school_db": false,
+                "settings": true,
+                "settlements": true,
+                "students": true,
+                "teacher_pay": true,
+                "templates": true,
+                "tuition": true,
+                "usage": true
+              },
+              "module_labels": {
+                "content": "招生内容",
+                "plans": "课程方案",
+                "growth_reports": "成长报告",
+                "school_db": "院校库",
+                "prices": "报价价格",
+                "feedback": "课后反馈",
+                "parents": "家长管理",
+                "ai": "AI工具",
+                "usage": "AI用量",
+                "reports": "统计报表"
+              },
+              "subjects": [
+                {
+                  "key": "music_interest",
+                  "pack_version": "0.1"
+                }
+              ],
+              "ai_override": {
+                "tenant_id": "ten_dfb3d523f4ac62d35925879c",
+                "id": "limits",
+                "fast_daily_limit": 12,
+                "deep_daily_limit": null
+              }
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        }
+      }
+    },
+    {
+      "key": "ops_put",
+      "description": "按version修改机构",
+      "source_index": 151,
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/tenants",
+        "body": {
+          "id": "ten_dfb3d523f4ac62d35925879c",
+          "version": 1,
+          "name": "星光更新"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "ten_dfb3d523f4ac62d35925879c",
+          "version": 2,
+          "name": "星光更新",
+          "slug": "starlight-test",
+          "status": "active",
+          "expires_at": "2026-12-31",
+          "staff_seat_limit": 4,
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#6A35B8",
+          "modules": {
+            "accounts": true,
+            "ai": true,
+            "attendance": true,
+            "classes": true,
+            "comments": true,
+            "content": true,
+            "exports": true,
+            "feedback": true,
+            "followup": true,
+            "growth_reports": false,
+            "home": true,
+            "imports": true,
+            "leads": true,
+            "lessons": true,
+            "logs": true,
+            "packages": true,
+            "parents": true,
+            "plans": true,
+            "prices": true,
+            "profile": true,
+            "promo": true,
+            "referrals": true,
+            "reports": true,
+            "schedule": true,
+            "school_db": false,
+            "settings": true,
+            "settlements": true,
+            "students": true,
+            "teacher_pay": true,
+            "templates": true,
+            "tuition": true,
+            "usage": true
+          },
+          "module_labels": {
+            "content": "招生内容",
+            "plans": "课程方案",
+            "growth_reports": "成长报告",
+            "school_db": "院校库",
+            "prices": "报价价格",
+            "feedback": "课后反馈",
+            "parents": "家长管理",
+            "ai": "AI工具",
+            "usage": "AI用量",
+            "reports": "统计报表"
+          },
+          "subjects": [
+            {
+              "key": "music_interest",
+              "pack_version": "0.1"
+            }
+          ],
+          "ai_override": {
+            "fast_daily_limit": 12,
+            "deep_daily_limit": null
+          }
+        }
+      }
+    },
+    {
+      "key": "ops_detail",
+      "description": "按ID读取机构配置",
+      "source_index": 46,
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/tenants/ten_0d35cbf30294c94ee4cb1b63",
+        "body": null,
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "ten_0d35cbf30294c94ee4cb1b63",
+          "version": 1,
+          "name": "验收 identity",
+          "slug": "schedule-identity",
+          "status": "active",
+          "expires_at": null,
+          "staff_seat_limit": 50,
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#2B4C7E",
+          "modules": {
+            "accounts": true,
+            "ai": true,
+            "attendance": true,
+            "classes": true,
+            "comments": true,
+            "content": true,
+            "exports": true,
+            "feedback": true,
+            "followup": true,
+            "growth_reports": true,
+            "home": true,
+            "imports": true,
+            "leads": true,
+            "lessons": true,
+            "logs": true,
+            "packages": true,
+            "parents": true,
+            "plans": true,
+            "prices": true,
+            "profile": true,
+            "promo": true,
+            "referrals": true,
+            "reports": true,
+            "schedule": true,
+            "school_db": false,
+            "settings": true,
+            "settlements": true,
+            "students": true,
+            "teacher_pay": true,
+            "templates": true,
+            "tuition": true,
+            "usage": true
+          },
+          "module_labels": {
+            "content": "招生内容",
+            "plans": "课程方案",
+            "growth_reports": "成长报告",
+            "school_db": "院校库",
+            "prices": "报价价格",
+            "feedback": "课后反馈",
+            "parents": "家长管理",
+            "ai": "AI工具",
+            "usage": "AI用量",
+            "reports": "统计报表"
+          },
+          "subjects": [],
+          "ai_override": null
+        }
+      }
+    },
+    {
+      "key": "ops_suspend",
+      "description": "停用但保留会话",
+      "source_index": 47,
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/tenants/ten_0d35cbf30294c94ee4cb1b63/suspend",
+        "body": {
+          "version": 1,
+          "reason": "试用停用"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "status": "paused",
+          "version": 2
+        }
+      }
+    },
+    {
+      "key": "ops_resume",
+      "description": "恢复机构",
+      "source_index": 54,
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/tenants/ten_0d35cbf30294c94ee4cb1b63/resume",
+        "body": {
+          "version": 2,
+          "reason": "恢复试用"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "status": "active",
+          "version": 3
+        }
+      }
+    },
+    {
+      "key": "ops_extend",
+      "description": "清除过期日期恢复正式机构",
+      "source_index": 61,
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/tenants",
+        "body": {
+          "id": "ten_0d35cbf30294c94ee4cb1b63",
+          "version": 4,
+          "expires_at": null
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "ten_0d35cbf30294c94ee4cb1b63",
+          "version": 5,
+          "name": "验收 identity",
+          "slug": "schedule-identity",
+          "status": "active",
+          "expires_at": null,
+          "staff_seat_limit": 50,
+          "logo": null,
+          "login_bg": null,
+          "primary_color": "#2B4C7E",
+          "modules": {
+            "accounts": true,
+            "ai": true,
+            "attendance": true,
+            "classes": true,
+            "comments": true,
+            "content": true,
+            "exports": true,
+            "feedback": true,
+            "followup": true,
+            "growth_reports": true,
+            "home": true,
+            "imports": true,
+            "leads": true,
+            "lessons": true,
+            "logs": true,
+            "packages": true,
+            "parents": true,
+            "plans": true,
+            "prices": true,
+            "profile": true,
+            "promo": true,
+            "referrals": true,
+            "reports": true,
+            "schedule": true,
+            "school_db": false,
+            "settings": true,
+            "settlements": true,
+            "students": true,
+            "teacher_pay": true,
+            "templates": true,
+            "tuition": true,
+            "usage": true
+          },
+          "module_labels": {
+            "content": "招生内容",
+            "plans": "课程方案",
+            "growth_reports": "成长报告",
+            "school_db": "院校库",
+            "prices": "报价价格",
+            "feedback": "课后反馈",
+            "parents": "家长管理",
+            "ai": "AI工具",
+            "usage": "AI用量",
+            "reports": "统计报表"
+          },
+          "subjects": [],
+          "ai_override": null
+        }
+      }
+    },
+    {
+      "key": "ops_revoke_sessions",
+      "description": "二次确认强制本机构全部下线",
+      "source_index": 160,
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/tenants/ten_6c551610cf5a8c04052fcfd7/revoke-sessions",
+        "body": {
+          "version": 1,
+          "reason": "强制下线",
+          "confirm_name": "验收 identity"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "open_supervisor",
+      "description": "沿用原平台主管开通接口",
+      "source_index": 185,
+      "request": {
+        "method": "POST",
+        "path": "/api/tenants/ten_f0259a840161af34978e410c/supervisors",
+        "body": {
+          "name": "新主管",
+          "phone": "13823456789",
+          "roles": [
+            "supervisor"
+          ]
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "usr_04cc55aa28e47b2978a11c5f",
+          "temporary_password": "LMvw53kQSf"
+        }
+      }
+    },
+    {
+      "key": "first_login",
+      "description": "临时密码首次登录",
+      "source_index": 186,
+      "request": {
+        "method": "POST",
+        "path": "/api/auth/login",
+        "body": {
+          "phone": "13823456789",
+          "password": "LMvw53kQSf",
+          "turnstile": "fixture-valid"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "user": {
+            "id": "usr_04cc55aa28e47b2978a11c5f",
+            "name": "新主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***6789",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": true,
+            "active": true,
+            "version": 1
+          },
+          "must_change": true,
+          "api_base": "/api"
+        }
+      }
+    },
+    {
+      "key": "password_change",
+      "description": "首次改密并撤销旧会话",
+      "source_index": 187,
+      "request": {
+        "method": "POST",
+        "path": "/api/password",
+        "body": {
+          "old_password": "LMvw53kQSf",
+          "password": "OwnerSecure9Z"
+        },
+        "actor": "root_session"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "key": "login_after_change",
+      "description": "改密后重新根登录",
+      "source_index": 188,
+      "request": {
+        "method": "POST",
+        "path": "/api/auth/login",
+        "body": {
+          "phone": "13823456789",
+          "password": "OwnerSecure9Z",
+          "turnstile": "fixture-valid"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "user": {
+            "id": "usr_04cc55aa28e47b2978a11c5f",
+            "name": "新主管",
+            "roles": [
+              "supervisor"
+            ],
+            "phone": "***6789",
+            "teacher_id": null,
+            "student_id": null,
+            "must_change": false,
+            "active": true,
+            "version": 2
+          },
+          "must_change": false,
+          "api_base": "/api"
+        }
+      }
+    },
+    {
+      "key": "tenant_expired",
+      "description": "有效会话访问停用机构返回403",
+      "source_index": 48,
+      "request": {
+        "method": "GET",
+        "path": "/api/me",
+        "body": null,
+        "actor": "root_session"
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "tenant_expired",
+          "message": "机构已到期或停用，请联系机构负责人"
+        }
+      }
+    },
+    {
+      "key": "cross_tenant",
+      "description": "跨机构路径返回404",
+      "source_index": 40,
+      "request": {
+        "method": "GET",
+        "path": "/schedule-foreign/api/me",
+        "body": null,
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        }
+      }
+    },
+    {
+      "key": "version_conflict",
+      "description": "绑定修改并发冲突附最新对象",
+      "source_index": 89,
+      "request": {
+        "method": "PATCH",
+        "path": "/schedule-identity/api/students/rec_7521dd0739c5d1d4fb0ddfed/guardians/gdn_ebe420a400c712a9cf79b155",
+        "body": {
+          "version": 1,
+          "relation": "father"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "记录已被修改，请刷新",
+          "details": {
+            "latest": {
+              "tenant_id": "ten_c3164983461a5fbf59cb227e",
+              "id": "gdn_ebe420a400c712a9cf79b155",
+              "parent_user_id": "usr_d846fa584d878d37d7746e13",
+              "student_id": "rec_7521dd0739c5d1d4fb0ddfed",
+              "relation": "grandparent",
+              "created_by": "usr_89e735d3e3b9c1796838df34",
+              "created_at": "2026-11-13T18:20:30.749+08:00",
+              "updated_by": "usr_89e735d3e3b9c1796838df34",
+              "updated_at": "2026-11-13T18:20:30.765+08:00",
+              "version": 2,
+              "revoked_at": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "phone_in_use",
+      "description": "本机构员工手机号不可绑定家长",
+      "source_index": 92,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/students/rec_7521dd0739c5d1d4fb0ddfed/guardians",
+        "body": {
+          "phone": "13911112222",
+          "name": "员工",
+          "relation": "father"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "phone_in_use",
+          "message": "该手机号已被其他类型账号使用"
+        }
+      }
+    },
+    {
+      "key": "manual_disabled",
+      "description": "人工停用家长不能自动重绑启用",
+      "source_index": 83,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/students/rec_27f1a08b40cc67a33cb1e255/guardians",
+        "body": {
+          "phone": "13800001111",
+          "name": "家长",
+          "relation": "father"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "account_disabled",
+          "message": "家长账号已被停用，请先手动启用"
+        }
+      }
+    },
+    {
+      "key": "guardian_limit",
+      "description": "单个孩子最多4位家长",
+      "source_index": 98,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/students/rec_196918c7368ab72e9819283e/guardians",
+        "body": {
+          "phone": "13800009999",
+          "name": "超限",
+          "relation": "other"
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "一个孩子最多4位家长，一个家长最多10个孩子"
+        }
+      }
+    },
+    {
+      "key": "seat_limit",
+      "description": "管理席位已满",
+      "source_index": 130,
+      "request": {
+        "method": "POST",
+        "path": "/schedule-identity/api/accounts",
+        "body": {
+          "phone": "13810000002",
+          "name": "顾问",
+          "roles": [
+            "consultant"
+          ]
+        },
+        "actor": "path_session_or_anonymous"
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "账号数量已达到上限",
+          "code": "seat_limit_reached"
+        }
+      }
+    },
+    {
+      "key": "ops_conflict",
+      "description": "机构修改版本冲突",
+      "source_index": 152,
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/tenants",
+        "body": {
+          "id": "ten_dfb3d523f4ac62d35925879c",
+          "version": 1,
+          "name": "覆盖"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "记录已被修改，请刷新",
+          "details": {
+            "latest": {
+              "id": "ten_dfb3d523f4ac62d35925879c",
+              "version": 2,
+              "name": "星光更新",
+              "slug": "starlight-test",
+              "status": "active",
+              "expires_at": "2026-12-31",
+              "staff_seat_limit": 4,
+              "logo": null,
+              "login_bg": null,
+              "primary_color": "#6A35B8",
+              "modules": {
+                "accounts": true,
+                "ai": true,
+                "attendance": true,
+                "classes": true,
+                "comments": true,
+                "content": true,
+                "exports": true,
+                "feedback": true,
+                "followup": true,
+                "growth_reports": false,
+                "home": true,
+                "imports": true,
+                "leads": true,
+                "lessons": true,
+                "logs": true,
+                "packages": true,
+                "parents": true,
+                "plans": true,
+                "prices": true,
+                "profile": true,
+                "promo": true,
+                "referrals": true,
+                "reports": true,
+                "schedule": true,
+                "school_db": false,
+                "settings": true,
+                "settlements": true,
+                "students": true,
+                "teacher_pay": true,
+                "templates": true,
+                "tuition": true,
+                "usage": true
+              },
+              "module_labels": {
+                "content": "招生内容",
+                "plans": "课程方案",
+                "growth_reports": "成长报告",
+                "school_db": "院校库",
+                "prices": "报价价格",
+                "feedback": "课后反馈",
+                "parents": "家长管理",
+                "ai": "AI工具",
+                "usage": "AI用量",
+                "reports": "统计报表"
+              },
+              "subjects": [
+                {
+                  "key": "music_interest",
+                  "pack_version": "0.1"
+                }
+              ],
+              "ai_override": {
+                "fast_daily_limit": 12,
+                "deep_daily_limit": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "revoke_confirmation",
+      "description": "强制下线的名称确认失败",
+      "source_index": 159,
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/tenants/ten_6c551610cf5a8c04052fcfd7/revoke-sessions",
+        "body": {
+          "version": 1,
+          "reason": "强制下线",
+          "confirm_name": "错误"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "请再次确认机构全名"
+        }
+      }
+    }
+  ]
+}

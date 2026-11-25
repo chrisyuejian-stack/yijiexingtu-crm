@@ -1,0 +1,1 @@
+CREATE TABLE backup_snapshot_rows(tenant_id TEXT NOT NULL,id TEXT NOT NULL,snapshot_id TEXT NOT NULL REFERENCES backup_snapshots(id),table_name TEXT NOT NULL,source_id TEXT NOT NULL,row_json TEXT NOT NULL,PRIMARY KEY(tenant_id,id));

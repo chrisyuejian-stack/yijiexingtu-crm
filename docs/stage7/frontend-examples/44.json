@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-platformdemo/api/plans/pln_0af024bb5bc5944005886852/share-links",
+    "body": {},
+    "authenticated": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "shr_44d8f89d15460faba5047d78",
+      "url": "https://school.test/s/J17yHaAIEN3D1rHEcmHdYrDRM_-TIubx4sC7NozbZpk",
+      "expires_at": "2026-12-16T12:56:54.607+08:00"
+    },
+    "queries": 7
+  }
+}

@@ -1,0 +1,48 @@
+
+> yijiexingtu-crm@0.5.0 test:platform
+> node --test tests/platform/*.test.mjs
+
+✔ PLAT bridge overwrites forged cf headers, host allowlist, fresh env, streaming and cookies (27.362603ms)
+✔ PLAT bridge rejects advertised and streaming request bodies over limit with 413 (5.338899ms)
+✔ PLAT bridge unhandled exceptions log id/path/frames without body or Cookie (2.751799ms)
+✔ PLAT assets in-memory MIME/HEAD, traversal rejection and no Worker source exposure (6.978295ms)
+✔ PLAT COS byte/string put/get/head round trip and missing keys (6.246535ms)
+✔ PLAT COS marker pagination, list metadata, delete array chunks and idempotence (1.856192ms)
+✔ PLAT COS only network/5xx retry twice; 403 is not missing and not retried (1.148417ms)
+✔ PLAT CVM role expiry refresh at five minutes, coalesced metadata calls and SDK auth (2.104084ms)
+✔ PLAT CVM bad role/expired or failed metadata rejects without credential fallback (0.830469ms)
+✔ PLAT D1 WAL/NORMAL/5000ms and foreign keys enforced (6.734489ms)
+✔ PLAT D1 run/batch meta.changes and last_row_id, missing updates remain zero (3.938122ms)
+✔ PLAT D1 boolean/blob conversion, undefined rejection, first column and raw rows (4.551235ms)
+✔ PLAT D1 failed batch rolls back every table and preserves original error (3.228466ms)
+✔ PLAT D1 deferred foreign keys support child-before-parent and roll back commit failure (3.244089ms)
+✔ PLAT D1 same-process interleaved writes use actual affected counts (3.626194ms)
+✔ PLAT E2E built Workers via server.mjs: real HTTP logins/student/plan/COS gallery/full encrypted backup (510.143641ms)
+✔ PLAT server startup failure releases file lock and does not bind public interfaces (183.144131ms)
+✔ PLAT dump lexer handles quoted semicolons/comments/CASE trigger and rejects unfinished SQL (0.914465ms)
+✔ PLAT full D1 export/import preserves every table row, encrypted fields and triggers; skips _cf_ (259.587542ms)
+✔ PLAT invalid import rolls back and never publishes partial output, foreign-key violation rejected (153.793107ms)
+✔ PLAT post-write rollback SQL replaces rows without firing business triggers and restores exact trigger DDL (186.271544ms)
+✔ PLAT WAL-safe file snapshot compress/encrypt/upload then restore; wrong key rejects and old snapshots retained 14 days (216.11241ms)
+✔ PLAT backup monitoring uses actual completed status and 26-hour boundary (221.956695ms)
+✔ PLAT maintenance package rejects GET/POST on all paths without business writes (3.143418ms)
+✔ PLAT rclone child receives role credentials only in memory; no business keys are forwarded (1.22385ms)
+✔ PLAT health state alarms only on three consecutive failures and resets on success (5.96431ms)
+✔ PLAT source count JSON accepts D1 console single row and Wrangler shapes (0.656478ms)
+✔ PLAT pinned official COS SDK loads offline without making service requests (51.4624ms)
+✔ PLAT shutdown deadline closes/checkpoints DB and releases process lock despite pending cron (240.775579ms)
+✔ PLAT EnvironmentFile values remain literal, including dollar/backtick/backslash/hash; no shell evaluation (0.922969ms)
+✔ PLAT rehearsal cleanup is preview by default, preserves baseline keys and requires matching bucket identity (1.795099ms)
+✔ PLAT UTC 19:00 invokes daily then five-minute with exact minute and separate env (1.159561ms)
+✔ PLAT cron no overlap, tracks waitUntil, skips missed minutes and no startup backfill (1.569136ms)
+✔ PLAT cron failure of daily still runs separately scheduled maintenance (0.298438ms)
+✔ PLAT config role default, explicit off, original key formats, no AI_PROVIDER or wrong region (186.561896ms)
+✔ PLAT startup checks migration 0028 and foreign keys; missing version objects rejected (167.411982ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3122.250108

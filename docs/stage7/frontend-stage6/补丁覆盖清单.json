@@ -1,0 +1,90 @@
+{
+  "patch": "艺界星途_前端补丁_课后反馈与成长报告_20261116.zip",
+  "zip_sha256": "4a7910e36b2bfcfaa139526c3d057eab0a4175b547515027973a20197d309749",
+  "files": [
+    {
+      "path": "docs/stage6-frontend/前端补丁说明_课后反馈与成长报告.md",
+      "before_sha256": null,
+      "after_sha256": "515c924b9cc2a35ede0a65fc57bffe7ee2cb0c1481adb5d1ffe82ba7a191b5a5",
+      "bytes": 4545
+    },
+    {
+      "path": "scripts/frontend-bundle.mjs",
+      "before_sha256": "0a2586a8a582a03b4bac1d34d3da36bd54b10e57fc274a97afe6cc5cb0d7961b",
+      "after_sha256": "05c305027c7e82db18fbcfa880021b8d9002c7746d735cbc75497dd8e6bbe248",
+      "bytes": 2801
+    },
+    {
+      "path": "scripts/yx-preview.mjs",
+      "before_sha256": "8dfeeaf91f5e32400a9a1a25015612a847d610a05bb6877d756bb28b8243fa21",
+      "after_sha256": "8391a249492b3a11d1b64c3b0b1df45f009c024df5401e8ededbfce6caccbb07",
+      "bytes": 14579
+    },
+    {
+      "path": "src/tenant/app.js",
+      "before_sha256": "af81a123bd91267588b8c4be4e37d2eb47e9a93ecaca0cd9633e32bcc45d4273",
+      "after_sha256": "c7ec77a0712ebd7a922338dafcb8ca51ae80468137dbd5b97a2cb13441809355",
+      "bytes": 264366
+    },
+    {
+      "path": "src/tenant/c2.js",
+      "before_sha256": "61d9099305eefb4b0bf9c75a43820d76bedab7d20e13e88d85786641f5070c33",
+      "after_sha256": "0c79489a60fc431e755a9bd1d7932c4e8eab38034cff058332654a5e79019d7d",
+      "bytes": 59802
+    },
+    {
+      "path": "src/tenant/v2m.js",
+      "before_sha256": "18e070fb7f13c83cc119b42709c9a81bca7c416928aad2be136a771d4064bb42",
+      "after_sha256": "d70ed7ec97d7f03e5580c7e8556dfa82cef1079c50710608be86545de5bdab78",
+      "bytes": 28104
+    },
+    {
+      "path": "src/tenant/v2p.js",
+      "before_sha256": "8ea5d5ea7060f1429631aa77deeb7f6a9fe278e7cf27c23939c7e84421e3f865",
+      "after_sha256": "ad394d3ae8c9c548bfb13e248cb023d5ce30c25558e181a270b0864e8dc38abd",
+      "bytes": 54089
+    },
+    {
+      "path": "src/tenant/yx-growth.js",
+      "before_sha256": null,
+      "after_sha256": "e58fba96d66e90631ac7825d7b23a953d90ec98f17d1e4f9f1f0a4cf94cea04a",
+      "bytes": 19722
+    },
+    {
+      "path": "src/tenant/yx-home.js",
+      "before_sha256": "0c79aba6ebd96e1ceaf656cdd4aadd605eadea9c71cb381930c8f5b1294f106d",
+      "after_sha256": "ddd48545452f87121d0c6af5f3c7ac0b74c52f3e2c30f53eec4ea7b8ded183c0",
+      "bytes": 8079
+    },
+    {
+      "path": "src/tenant/yx-reports.js",
+      "before_sha256": null,
+      "after_sha256": "b040b26b72f4343ae48cd0f0c2f1d8399441eec453f3df0de1f66f7234f4a5e4",
+      "bytes": 28239
+    },
+    {
+      "path": "src/tenant/yx-settings.js",
+      "before_sha256": "fade87e284ba8b7349cc7125e90aeacb8022bfda6e6f465a694c12ebda8c6d77",
+      "after_sha256": "ea2af6480aa8dfd4e0c46522402e3e61748bb50063a9874dd200fefb8378cd07",
+      "bytes": 43918
+    },
+    {
+      "path": "src/tenant/yx.css",
+      "before_sha256": "95d233223fc7624abbcf5e443ba0fc953c67893f1573844048f5ee454a5113f1",
+      "after_sha256": "1b9165ab5f8c673fa4050899ed17e53c0b348149d9924001170936dc8320cc0b",
+      "bytes": 40200
+    },
+    {
+      "path": "src/tenant/yx.js",
+      "before_sha256": "4ee8f305214e1d965f0a8ea777df9f24186e26084d4ecb9a3d522676febd7e30",
+      "after_sha256": "bbf8d403c8156e0b26aaec92c39950800bcb6598eaad3f129645af8ce035b0e5",
+      "bytes": 27550
+    },
+    {
+      "path": "tests/yx-frontend-stage2.test.mjs",
+      "before_sha256": "d8dbb75d8a308ccef211ecfe7834f578b4cd7b3188c0146214d1de8a7b12ff52",
+      "after_sha256": "c162d9b6ab8f2d53a1158107889aa86eacf499f8b66965b82dc8ea6c05155c00",
+      "bytes": 4199
+    }
+  ]
+}

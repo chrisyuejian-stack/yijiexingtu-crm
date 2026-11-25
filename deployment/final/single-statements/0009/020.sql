@@ -1,0 +1,1 @@
+CREATE TABLE data_job_rows(tenant_id TEXT NOT NULL,id TEXT NOT NULL,job_id TEXT NOT NULL,table_name TEXT NOT NULL,row_id TEXT NOT NULL,row_json TEXT NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,job_id) REFERENCES data_jobs(tenant_id,id),UNIQUE(tenant_id,job_id,table_name,row_id));

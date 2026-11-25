@@ -1,0 +1,48 @@
+✖ YX39 0025仅加默认列，0024旧行原列原值保留，无回填即可读写 (382.153262ms)
+✔ YX39 文章元数据整体替换、省略保留、null清除，旧字段与409最新对象保留 (327.759056ms)
+✔ YX39 状态更新保留article，修订JSON锁定元数据与头图引用 (315.817751ms)
+✔ YX39 文章文字长度、真实日期和布尔开关校验失败不写入 (419.654402ms)
+✔ YX39 头图本机构归属校验，缺失/跨机构/已删均422 invalid_image且原子不写 (369.273685ms)
+✔ YX39 新选隐藏头图被拒，原头图隐藏后可继续保存，未知article属性不落库 (428.545033ms)
+✔ YX39 头图检查后被删除时事务回滚并返回invalid_image (348.40567ms)
+✔ YX39 跨机构内容访问仍404，finance不能写article (740.737023ms)
+✔ YX39 AI起草/改写不发送或修改article，模型伪造的article被剔除 (319.819003ms)
+✔ YX39 人工采用正文建议时未带article仍保留；AI不改品牌或机构地址 (281.304972ms)
+✔ YX39 新article列与修订article进入完整备份，不遗漏头图元数据 (740.962222ms)
+✔ YX39 报告feedback_count只计已确认，待审和退回不计，重新提交不重复 (589.10483ms)
+✔ YX39 旧纯文字公共及个人点评同一课计一条，后续点评修订仍计一条 (528.667923ms)
+✔ YX39 feedback_count按报告首尾日期和学员过滤，客户端伪造值无效 (777.302449ms)
+✔ YX39 今天课程student_names最多6个，正确字符串与本机构在册名单 (569.231572ms)
+✔ YX39 今天课程剔除已删参与者，零学员返回空数组，保留老师访问权限 (449.163393ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7739.200488
+
+✖ failing tests:
+
+test at tests/content-metadata-v039.test.mjs:15:1
+✖ YX39 0025仅加默认列，0024旧行原列原值保留，无回填即可读写 (382.153262ms)
+  AssertionError [ERR_ASSERTION]: security_limits
+  + actual - expected
+  
+    [
+      '{"key":"request:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":5,"window_start":1794832719293,"locked_until":0}',
+  +   '{"key":"request-get:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":1,"window_start":1794832719373,"locked_until":0}',
+  +   '{"key":"read:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":2,"window_start":1794830400000,"locked_until":0}'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/yijiexingtu-v039/tests/content-metadata-v039.test.mjs:22:31)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ '{"key":"request:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":5,"window_start":1794832719293,"locked_until":0}', '{"key":"request-get:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":1,"window_start":1794832719373,"locked_until":0}', '{"key":"read:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":2,"window_start":1794830400000,"locked_until":0}' ],
+    expected: [ '{"key":"request:ten_4dc044b058ffb3a262a7dca4:usr_146426f0def56d28b57d3d94","count":5,"window_start":1794832719293,"locked_until":0}' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

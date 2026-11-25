@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-growth/api/students/rec_8b78d3c0c08cba1725186bd0/guardians",
+    "body": {
+      "name": "家长",
+      "phone": "13812344321",
+      "relation": "mother"
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "link": {
+        "id": "gdn_8a6416aea0ac32bca3cc282e",
+        "parent_user_id": "usr_b222a959ca99b758104cd6d3",
+        "student_id": "rec_8b78d3c0c08cba1725186bd0",
+        "relation": "mother",
+        "created_by": "usr_9f360c35aaee7874a2feff93",
+        "created_at": "2026-11-10T10:00:00.000+08:00",
+        "updated_by": "usr_9f360c35aaee7874a2feff93",
+        "updated_at": "2026-11-10T10:00:00.000+08:00",
+        "version": 1,
+        "revoked_at": null
+      },
+      "user": {
+        "id": "usr_b222a959ca99b758104cd6d3",
+        "name": "家长",
+        "roles": [
+          "parent"
+        ],
+        "phone": "***4321",
+        "teacher_id": null,
+        "student_id": null,
+        "must_change": true,
+        "active": true,
+        "version": 1
+      },
+      "temporary_password": "TQuz3an9RC"
+    },
+    "queries": 6
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/share/J17yHaAIEN3D1rHEcmHdYrDRM_-TIubx4sC7NozbZpk/style-assets/pic.png",
+    "body": null,
+    "authenticated": false
+  },
+  "response": {
+    "status": 404,
+    "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><title>页面不存在</title><p>页面不存在，或该机构暂不可用</p></html>",
+    "queries": 4
+  }
+}

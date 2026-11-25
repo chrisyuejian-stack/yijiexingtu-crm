@@ -1,0 +1,58 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/schedule-platformdemo/api/settings/courses?include_inactive=1&q=%E9%92%A2%E7%90%B4%E4%B8%80%E5%AF%B9%E4%B8%80",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "group": "主修",
+          "name": "钢琴一对一30分钟",
+          "form": "one_to_one",
+          "minutes": 30,
+          "duration_text": null,
+          "pricing": null,
+          "active": true,
+          "subject": "music_interest",
+          "version": 1,
+          "id": "crs_8b916ce5aff28b438f504081",
+          "source": "template"
+        },
+        {
+          "group": "主修",
+          "name": "钢琴一对一45分钟",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "pricing": null,
+          "active": true,
+          "subject": "music_interest",
+          "version": 1,
+          "id": "crs_9538d3174acdb0bd433d1bcd",
+          "source": "template"
+        },
+        {
+          "group": "主修",
+          "name": "钢琴一对一60分钟",
+          "form": "one_to_one",
+          "minutes": 60,
+          "duration_text": null,
+          "pricing": null,
+          "active": true,
+          "subject": "music_interest",
+          "version": 1,
+          "id": "crs_e53f7c847b769612089a89c5",
+          "source": "template"
+        }
+      ],
+      "total": 3,
+      "next_offset": null,
+      "price_list_rev": 2
+    },
+    "queries": 4
+  }
+}

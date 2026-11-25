@@ -1,0 +1,333 @@
+{
+  "notice": "v1 来源不含 doc_version。source 完整值在 legacy-source-v1.json；computed 由既有 plan-math 生成，后续核对报告包含实测结果。",
+  "source_revision_id": "prv_legacy_demo",
+  "source_context_teacher": {
+    "requested_id": "teacher_demo_old",
+    "name": "旧示例导师",
+    "introduction": "取自旧 context，不查现职资料覆盖。",
+    "subjects": []
+  },
+  "expected_v2_business_projection": {
+    "doc_version": 2,
+    "student_id": "stu_demo",
+    "source_lead_id": null,
+    "subject": "music_interest",
+    "title": "旧方案示例",
+    "style": {
+      "pack_id": "stp_folio",
+      "pack_version": "1.0.0",
+      "cover_image_id": null,
+      "text_mode": "auto",
+      "text_mode_resolved": null,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "show_unit_price": true,
+      "show_latin_eyebrow": true,
+      "show_consultant": true
+    },
+    "meta": {
+      "start_month": "2027-01",
+      "target": {
+        "node_key": null,
+        "month": null,
+        "text": ""
+      },
+      "consultant_id": null,
+      "budget_cap": null,
+      "budget": {
+        "amount": null,
+        "period": "unspecified",
+        "note": ""
+      }
+    },
+    "module_order": [
+      "basic",
+      "assessment",
+      "strategy",
+      "path",
+      "timeline",
+      "courses",
+      "teachers",
+      "fees",
+      "goals",
+      "photos",
+      "about"
+    ],
+    "modules": {
+      "basic": {
+        "visible": true,
+        "student_name": "周示例",
+        "grade": "初二",
+        "plan_date": "2026-11-17",
+        "direction": "",
+        "direction_en": "",
+        "english_enabled": true,
+        "cover_visible": true,
+        "cover_eyebrow": "PLAN",
+        "cover_subtitle": "旧封面说明"
+      },
+      "assessment": {
+        "visible": true,
+        "title": "学员测评",
+        "text": "已有学习基础。\n\n优势\n- 节奏感较好\n\n待提升\n- 手型需稳定\n\n目标\n- 完成学期展示\n\n补充说明\n来自本次面谈",
+        "scores": [],
+        "tags": []
+      },
+      "strategy": {
+        "visible": false,
+        "title": "学习策略",
+        "text": ""
+      },
+      "path": {
+        "visible": true,
+        "title": "学习路径",
+        "stages": [
+          {
+            "key": "stk_demo1",
+            "stage_type_id": "stage_demo_base",
+            "name": "基础巩固",
+            "teaching_weeks": null,
+            "weeks_note": "",
+            "goals": [
+              "稳定手型与节奏"
+            ],
+            "node_tags": [],
+            "stage_snapshot": {
+              "name": "基础巩固",
+              "anchor": "normal",
+              "anchor_node": null,
+              "offset_months": 0,
+              "rule_keys": [],
+              "type_version": 1,
+              "rules_version": 1,
+              "taken_at": "2026-11-17T21:00:00+08:00"
+            },
+            "start_month": "2027-01",
+            "end_month": "2027-03",
+            "legacy_range": {
+              "start": "2027-01-17",
+              "end": "2027-03-16"
+            },
+            "nodes": []
+          }
+        ]
+      },
+      "timeline": {
+        "visible": false,
+        "title": "关键节点时间线",
+        "items": []
+      },
+      "courses": {
+        "visible": true,
+        "title": "课程计划",
+        "stage_settings": [],
+        "groups": [
+          {
+            "id": "grp_legacy_demo_base",
+            "stage_key": "stk_demo1",
+            "name": "课程安排"
+          }
+        ],
+        "lines": [
+          {
+            "line_id": "ln_demo1",
+            "stage_key": "stk_demo1",
+            "group_id": "grp_legacy_demo_base",
+            "pricing_source": "catalog",
+            "course_id": "course_demo_piano",
+            "origin_course_id": null,
+            "name": "钢琴一对一",
+            "name_en": "Piano",
+            "frequency_text": "每周 2 次 · 每次 1 课时",
+            "minutes": 45,
+            "billing_mode": "per_unit",
+            "qty": {
+              "units": 1
+            },
+            "teaching_units": 1,
+            "manual_unit_price": null,
+            "units_per_package": null,
+            "optional": false,
+            "note": "以稳定手型和节奏为主",
+            "includes": [],
+            "ai_filled": false,
+            "snapshot": {
+              "name": "钢琴一对一",
+              "form": "one_to_one",
+              "minutes": 45,
+              "duration_text": null,
+              "optional": false,
+              "pricing": {
+                "mode": "per_unit",
+                "amount_cents": 30001,
+                "units_per_package": null
+              },
+              "course_version": 2,
+              "price_list_rev": 8,
+              "taken_at": "2026-11-17T21:00:00+08:00"
+            }
+          }
+        ]
+      },
+      "teachers": {
+        "visible": true,
+        "title": "师资",
+        "groups": [
+          {
+            "id": "tgrp_legacy_demo",
+            "role": "授课导师",
+            "members": [
+              {
+                "id": "tm_legacy_demo_old",
+                "teacher_id": "teacher_demo_old",
+                "name": "旧示例导师",
+                "title": "",
+                "introduction": "取自旧 context，不查现职资料覆盖。",
+                "photo_image_id": null,
+                "proposed": false
+              }
+            ]
+          }
+        ]
+      },
+      "fees": {
+        "visible": true,
+        "installments": "custom",
+        "custom": [
+          {
+            "stage_key": null,
+            "label": "第一期",
+            "due": "2027-01-17",
+            "ratio_bps": 5000
+          },
+          {
+            "stage_key": null,
+            "label": "第二期",
+            "due": "2027-02-17",
+            "ratio_bps": 5000
+          }
+        ],
+        "due_dates": {},
+        "note": "原说明一字不丢",
+        "title": "费用与缴费",
+        "stage_extras": [],
+        "other_fees": [],
+        "discount": {
+          "type": "none",
+          "amount": null,
+          "rate_bps": null,
+          "note": ""
+        },
+        "fixed": []
+      },
+      "goals": {
+        "visible": false,
+        "title": "阶段目标",
+        "groups": []
+      },
+      "photos": {
+        "visible": false,
+        "pages": []
+      },
+      "about": {
+        "visible": false,
+        "image_ids": [],
+        "text": null
+      }
+    },
+    "computed": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 1,
+          "amount": 300.01,
+          "known_units": 1,
+          "known_amount": 300.01,
+          "draft_amount": null,
+          "pending": false
+        }
+      ],
+      "total": {
+        "units": 1,
+        "bundles": [],
+        "amount": 300.01,
+        "known_amount": 300.01,
+        "known_units": 1,
+        "complete": true
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 150.01
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 150
+        }
+      ],
+      "optional_fees": [],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ],
+      "currency": "CNY",
+      "lines": [
+        {
+          "line_id": "ln_demo1",
+          "amount": 300.01,
+          "units": 1,
+          "optional": false,
+          "pricing_source": "catalog"
+        }
+      ],
+      "unassigned": {
+        "amount": 0,
+        "known_amount": 0,
+        "units": 0,
+        "known_units": 0
+      },
+      "subtotal": {
+        "amount": 300.01,
+        "known_amount": 300.01
+      },
+      "discount": {
+        "amount": 0,
+        "known_amount": 0
+      },
+      "installment_status": "balanced",
+      "budget_comparison": {
+        "period": "unspecified",
+        "cap": null,
+        "comparable_amount": null,
+        "over": null,
+        "reason": "budget_unspecified"
+      }
+    }
+  },
+  "assertions": [
+    "首次 GET 不写库、不增加 version",
+    "source stage.key 和 line_id/全部 snapshot 原样保留",
+    "legacy_range 保留 2027-01-17 至 2027-03-16",
+    "费用旧字段逐值不变，total=300.01，分期150.01/150.00",
+    "新模块隐藏，旧分享继续 v1，不读取此编辑投影"
+  ]
+}

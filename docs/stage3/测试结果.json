@@ -1,0 +1,122 @@
+{
+  "date_beijing": "2026-11-13",
+  "contract": "v0.3.4",
+  "contract_sha256": "f14afd24a62c7f798bf9e8aa8e8960dd38dce1ffdcfa58b0ff63dcb553bce298",
+  "basis_zip": "艺界星途_阶段2_融合源码_精简版_20261113.zip",
+  "basis_bytes": 6290324,
+  "basis_sha256": "8663537bb1e00660953fb787ea5038c366dc7fde43fe2f4b7e717916f5f6ec35",
+  "node_version": "v24.22.1",
+  "test_runs": [
+    {
+      "kind": "baseline_source",
+      "command": "npm run build（先构建），然后 npm test",
+      "total": 286,
+      "passed": 286,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "inherited_passed": 286,
+      "stage2_in_inherited": 28,
+      "stage2_frontend_in_inherited": 3,
+      "stage3_passed": 0,
+      "duration_ms": 169275.297193,
+      "log": "verification/baseline-source.log"
+    },
+    {
+      "kind": "new_source",
+      "command": "node --test tests/settings-stage3.test.mjs",
+      "total": 40,
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "inherited_passed": 0,
+      "stage2_in_inherited": 0,
+      "stage2_frontend_in_inherited": 0,
+      "stage3_passed": 40,
+      "duration_ms": 17248.851921,
+      "log": "verification/phase3-new-final.log"
+    },
+    {
+      "kind": "source",
+      "command": "npm test（已先运行 npm run build）",
+      "total": 326,
+      "passed": 326,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "inherited_passed": 286,
+      "stage2_in_inherited": 28,
+      "stage2_frontend_in_inherited": 3,
+      "stage3_passed": 40,
+      "duration_ms": 200072.439706,
+      "log": "verification/phase3-source-final.log"
+    },
+    {
+      "kind": "bundle",
+      "command": "TEST_BUNDLE=1 npm test（使用同次构建产物）",
+      "total": 326,
+      "passed": 326,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "inherited_passed": 286,
+      "stage2_in_inherited": 28,
+      "stage2_frontend_in_inherited": 3,
+      "stage3_passed": 40,
+      "duration_ms": 193034.054164,
+      "log": "verification/phase3-bundle-final.log"
+    }
+  ],
+  "integrity": {
+    "migration_count": 20,
+    "foreign_key_check": [],
+    "integrity_check": [
+      [
+        "ok"
+      ]
+    ],
+    "baseline_checks": {
+      "fusion_migrations_0001_0019": {
+        "count": 19,
+        "changed": []
+      },
+      "fusion_frontend": {
+        "count": 31,
+        "changed": []
+      },
+      "access_mode_test": {
+        "count": 1,
+        "changed": []
+      }
+    },
+    "built_js_syntax_checked": [
+      "backup-dist/backup-worker.js",
+      "dist/_worker.js",
+      "dist/assets/tenant.js",
+      "dist/console-assets/console.js",
+      "dist/console-assets/pinyin-pro.js"
+    ],
+    "source_maps": 0
+  },
+  "backup_built_worker": {
+    "result": "pass",
+    "worker": "backup-dist/backup-worker.js",
+    "manifest_published": true,
+    "offer_course_rows": 13,
+    "price_cents": 12345,
+    "dimensions_preserved": true,
+    "subject_content_preserved": true,
+    "nickname_correct": true,
+    "fetch_status": 404,
+    "remote_calls": 0
+  },
+  "http_walkthrough": {
+    "result": "pass",
+    "examples": 44,
+    "all_stage3_http_methods_exercised": true,
+    "remote_calls": 0
+  },
+  "remote_resources_used": false,
+  "browser_e2e_included": false
+}

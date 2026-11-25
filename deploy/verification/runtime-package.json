@@ -1,0 +1,11 @@
+{
+  "version": "0.5.0-tencent.20261118.release1",
+  "files": 122,
+  "sha256": "d7cf35058a72cd9908b3eaa17dd0e8c1d90d3104ae7e6b93917d4376e2f17896",
+  "archive_crc": "passed",
+  "all_internal_sha256": "passed",
+  "payload_matches_current_files": true,
+  "no_source_tests_or_node_modules": true,
+  "migration_count": 28,
+  "node_extract_and_directory_verify": "passed"
+}

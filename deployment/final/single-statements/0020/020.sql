@@ -1,0 +1,1 @@
+CREATE TABLE ai_suggestions(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,user_id TEXT NOT NULL,kind TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,expires_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id));

@@ -1,0 +1,67 @@
+
+> yijiexingtu-crm@0.5.0 test:platform
+> node --test tests/platform/*.test.mjs
+
+✔ PLAT bridge overwrites forged cf headers, host allowlist, fresh env, streaming and cookies (86.358571ms)
+✔ PLAT bridge rejects advertised and streaming request bodies over limit with 413 (10.482766ms)
+✔ PLAT bridge unhandled exceptions log id/path/frames without body or Cookie (4.90591ms)
+✔ PLAT assets in-memory MIME/HEAD, traversal rejection and no Worker source exposure (17.087913ms)
+✔ PLAT COS byte/string put/get/head round trip and missing keys (18.048933ms)
+✔ PLAT COS marker pagination, list metadata, delete array chunks and idempotence (3.218346ms)
+✔ PLAT COS only network/5xx retry twice; 403 is not missing and not retried (1.48964ms)
+✔ PLAT CVM role expiry refresh at five minutes, coalesced metadata calls and SDK auth (6.836974ms)
+✔ PLAT CVM bad role/expired or failed metadata rejects without credential fallback (1.663325ms)
+✔ PLAT D1 WAL/NORMAL/5000ms and foreign keys enforced (33.91883ms)
+✔ PLAT D1 run/batch meta.changes and last_row_id, missing updates remain zero (30.488066ms)
+✔ PLAT D1 boolean/blob conversion, undefined rejection, first column and raw rows (15.342838ms)
+✔ PLAT D1 failed batch rolls back every table and preserves original error (17.200486ms)
+✔ PLAT D1 deferred foreign keys support child-before-parent and roll back commit failure (9.586242ms)
+✔ PLAT D1 same-process interleaved writes use actual affected counts (13.364937ms)
+✔ PLAT E2E built Workers via server.mjs: real HTTP logins/student/plan/COS gallery/full encrypted backup (1652.969172ms)
+✔ PLAT server startup failure releases file lock and does not bind public interfaces (1049.169238ms)
+✔ PLAT dump lexer handles quoted semicolons/comments/CASE trigger and rejects unfinished SQL (3.13167ms)
+✔ PLAT full D1 export/import preserves every table row, encrypted fields and triggers; skips _cf_ (867.693441ms)
+✔ PLAT invalid import rolls back and never publishes partial output, foreign-key violation rejected (786.803413ms)
+✔ PLAT post-write rollback SQL replaces rows without firing business triggers and restores exact trigger DDL (739.858443ms)
+✔ PLAT WAL-safe file snapshot compress/encrypt/upload then restore; wrong key rejects and old snapshots retained 14 days (704.812377ms)
+✔ PLAT backup monitoring uses actual completed status and 26-hour boundary (585.307933ms)
+✔ PLAT maintenance package rejects GET/POST on all paths without business writes (28.134585ms)
+✔ PLAT rclone child receives role credentials only in memory; no business keys are forwarded (3.213862ms)
+✔ PLAT health state alarms only on three consecutive failures and resets on success (21.671073ms)
+✔ PLAT source count JSON accepts D1 console single row and Wrangler shapes (1.174114ms)
+✔ PLAT pinned official COS SDK loads offline without making service requests (193.109745ms)
+✔ PLAT shutdown deadline closes/checkpoints DB and releases process lock despite pending cron (1435.493793ms)
+✔ PLAT EnvironmentFile values remain literal, including dollar/backtick/backslash/hash; no shell evaluation (1.910316ms)
+✔ PLAT rehearsal cleanup is preview by default, preserves baseline keys and requires matching bucket identity (3.525827ms)
+✔ PLAT release format has only runtime payload, all hashes verified, no source/tests/dependency installation (3516.955016ms)
+✔ PLAT release SHA/sidecar/path traversal tampering rejected before stopping or changing current (3121.7996ms)
+✔ PLAT first update recognizes ledgerless v0.5 and skips all 28 historical scripts without revoking sessions (3392.536243ms)
+✔ PLAT online snapshot is taken before stop and frozen snapshot includes final in-flight writes (3179.246787ms)
+✔ PLAT migration halfway failure rolls back EVERY pending migration and ledger, never switches version (2895.239381ms)
+✔ PLAT migrations execute once, ledger hashes immutable, changed historical migration rejected before downtime (4674.650361ms)
+✔ PLAT new health failure automatically switches back and restarts previous version, never restores DB (3247.723993ms)
+✔ PLAT health rollback after committed migrations preserves new rows and keeps maintenance with independent restore command (2982.098334ms)
+✔ PLAT rollback.sh core selects recorded predecessor; migration rollback only suggests snapshot and never overwrites new data (2792.927872ms)
+✔ PLAT explicitly confirmed snapshot restore saves current DB first, restores atomically and remains in maintenance (2769.890785ms)
+✔ PLAT retain five immutable versions, protect current and predecessor, duplicate version never deletes existing code (8380.982505ms)
+✔ PLAT unknown untracked schema and transaction-owning migrations rejected without downtime (3819.39667ms)
+✔ PLAT actual packaged Node workers restart across current switch and keep existing authenticated sessions (4358.853313ms)
+✔ PLAT retry after migration/health failure retains the original pre-migration recovery point (4092.035477ms)
+✔ PLAT UTC 19:00 invokes daily then five-minute with exact minute and separate env (5.989327ms)
+✔ PLAT cron no overlap, tracks waitUntil, skips missed minutes and no startup backfill (6.659736ms)
+✔ PLAT cron failure of daily still runs separately scheduled maintenance (0.705704ms)
+✔ PLAT config role default, explicit off, original key formats, no AI_PROVIDER or wrong region (816.70667ms)
+✔ PLAT startup checks migration 0028 and foreign keys; missing version objects rejected (628.901495ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 50
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56172.483649
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

@@ -1,0 +1,72 @@
+{
+  "patch": "艺界星途_阶段4前端_补丁_20261114.zip",
+  "zip_bytes": 66353,
+  "zip_sha256": "7d26ea90c4ba5e83dde7f1f66c6481994046fd6f5fa61c2dd24d1065832dc091",
+  "files": [
+    {
+      "path": "src/tenant/yx-plans.js",
+      "archive_name": "src/tenant/yx-plans.js",
+      "bytes": 40622,
+      "before_sha256": null,
+      "after_sha256": "f56c172d8eaf1e338d05470a0825807e89d5a74fa8d82c70144e609d04896c90"
+    },
+    {
+      "path": "src/tenant/v2p.js",
+      "archive_name": "src/tenant/v2p.js",
+      "bytes": 53897,
+      "before_sha256": "f4f259067b314d8c1ca58441b9f03affc68bdb0c1a200547d2f8f5995fd99ec1",
+      "after_sha256": "8ea5d5ea7060f1429631aa77deeb7f6a9fe278e7cf27c23939c7e84421e3f865"
+    },
+    {
+      "path": "src/tenant/yx.js",
+      "archive_name": "src/tenant/yx.js",
+      "bytes": 27621,
+      "before_sha256": "854c143b02ec126ab4ba0b6d6d3eb2f5ad6673d56da982452e8fe0c8df1d6cb8",
+      "after_sha256": "4ee8f305214e1d965f0a8ea777df9f24186e26084d4ecb9a3d522676febd7e30"
+    },
+    {
+      "path": "src/tenant/yx.css",
+      "archive_name": "src/tenant/yx.css",
+      "bytes": 26158,
+      "before_sha256": "60949aa73468c4bde2a3af460139d89599787da76925abb2a28b584ebf7cf679",
+      "after_sha256": "00c97cb7fdb42ac73f69046c3dec1629f9691ddb7f15fb3b2c560866150dd55b"
+    },
+    {
+      "path": "src/tenant/c2.js",
+      "archive_name": "src/tenant/c2.js",
+      "bytes": 59791,
+      "before_sha256": "2ac7ad77cda39c10ea8537a4517cf2d0a3f8b24de711f66596782980944b80d5",
+      "after_sha256": "61d9099305eefb4b0bf9c75a43820d76bedab7d20e13e88d85786641f5070c33"
+    },
+    {
+      "path": "scripts/yx-preview.mjs",
+      "archive_name": "scripts/yx-preview.mjs",
+      "bytes": 6579,
+      "before_sha256": "99c21a7f635c928e1a74eb38dab5c6dd1a40b7d4f5e601d6b29d56ac020b832e",
+      "after_sha256": "81452b7763f8e2887236c19fcb4137a79d569a15cf5980f4306d79580a48e46a"
+    },
+    {
+      "path": "scripts/frontend-bundle.mjs",
+      "archive_name": "scripts/frontend-bundle.mjs",
+      "bytes": 2595,
+      "before_sha256": "2ab534177887e7723298295ddc25877235bbb4303040b94fcdbb0b713c098b3a",
+      "after_sha256": "d73379ad3b705bb45d38fd792d1002f81a42755e134e86d69805135aa1fd4193"
+    },
+    {
+      "path": "tests/yx-frontend-stage2.test.mjs",
+      "archive_name": "tests/yx-frontend-stage2.test.mjs",
+      "bytes": 3452,
+      "before_sha256": "36d27f90d18c57c818b687656c63c85d79af910abed50176292d1ccccb43a99f",
+      "after_sha256": "0abdfa35bc10cc27335e62877f2e603bfbb6e430e1bb8d77932587d1d91afdfc"
+    },
+    {
+      "path": "docs/stage4-frontend/阶段4前端交付说明.md",
+      "archive_name": "docs/stage4-frontend/Θÿ╢µ«╡4σëìτ½»Σ║ñΣ╗ÿΦ»┤µÿÄ.md",
+      "bytes": 2889,
+      "before_sha256": null,
+      "after_sha256": "7496c71e1ecd556de481ef6d19bbbb87278dec13d4715654ce4bb11e94e97a8d"
+    }
+  ],
+  "backend_and_migrations_unchanged_by_patch": true,
+  "note": "仅将ZIP未标记UTF-8的中文说明文件名按UTF-8恢复；9文件内容逐字节覆盖，不改前端实现。"
+}

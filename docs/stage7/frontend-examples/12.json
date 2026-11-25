@@ -1,0 +1,98 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ops/style-packs/demo_platform_style",
+    "body": null,
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "demo_platform_style",
+      "name": "平台示例风格",
+      "active": true,
+      "current_version": "1.0.0",
+      "versions": [
+        {
+          "pack_id": "demo_platform_style",
+          "name": "平台示例风格",
+          "pack_version": "1.0.0",
+          "version": 2,
+          "status": "published",
+          "scope": "tenants",
+          "active": true,
+          "manifest": {
+            "id": "demo_platform_style",
+            "name": "平台示例风格",
+            "version": "1.0.0",
+            "doc_types": [
+              "plan",
+              "report",
+              "feedback_card",
+              "article"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none",
+              "corner_image": "assets/pic.png"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": "assets/pic.png"
+          },
+          "checks": {
+            "errors": [],
+            "warnings": [
+              "assets/pic.png宽度小于1600"
+            ],
+            "usable_text_modes": [
+              "light"
+            ],
+            "contrast": {
+              "ink_paper": 15.797339723332843,
+              "muted_paper": 5.85386937679366
+            }
+          },
+          "published_at": 1794805014435,
+          "asset_base": "/api/ops/style-packs/demo_platform_style/versions/1.0.0/assets/"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "ten_5998dbed580ef5144dce0f82",
+          "pack_version": "1.0.0"
+        }
+      ],
+      "used_count": 0
+    }
+  }
+}

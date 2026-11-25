@@ -1,0 +1,107 @@
+{
+  "contract": "v0.3.5",
+  "contract_sha256": "2401107e0257ba0a4b24fddc9d15fd6c138548a0900f9e9420b18edcbe69c7c6",
+  "date_utc": "2026-11-13T16:14:21.804281+00:00",
+  "date_beijing": "2026-11-14T00:14:21.804281+08:00",
+  "node_version": "v24.22.1",
+  "baseline": "已验收阶段3完整源码+用户指定8文件前端补丁",
+  "runs": [
+    {
+      "label": "final-build",
+      "command": "npm run build",
+      "exit_code": 0,
+      "seconds": 9.927,
+      "log": "verification/final-build.log"
+    },
+    {
+      "label": "final-new-source",
+      "command": "node --test tests/plans-stage4.test.mjs tests/plans-stage4-integrity.test.mjs",
+      "exit_code": 0,
+      "seconds": 31.395,
+      "log": "verification/final-new-source.log",
+      "tests": 46,
+      "pass": 46,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 31349.789503
+    },
+    {
+      "label": "final-new-bundle",
+      "command": "env TEST_BUNDLE=1 node --test tests/plans-stage4.test.mjs tests/plans-stage4-integrity.test.mjs",
+      "exit_code": 0,
+      "seconds": 30.15,
+      "log": "verification/final-new-bundle.log",
+      "tests": 46,
+      "pass": 46,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 30108.209742
+    },
+    {
+      "label": "final-source",
+      "command": "npm test",
+      "exit_code": 0,
+      "seconds": 224.299,
+      "log": "verification/final-source.log",
+      "tests": 372,
+      "pass": 372,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 224125.793141,
+      "inherited_passed": 326,
+      "stage4_passed": 46
+    },
+    {
+      "label": "final-bundle",
+      "command": "env TEST_BUNDLE=1 npm test",
+      "exit_code": 0,
+      "seconds": 226.104,
+      "log": "verification/final-bundle.log",
+      "tests": 372,
+      "pass": 372,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 225892.788255,
+      "inherited_passed": 326,
+      "stage4_passed": 46
+    },
+    {
+      "label": "final-backup",
+      "command": "env TEST_BUNDLE=1 node docs/stage4/verification/verify-backup-bundle.mjs",
+      "exit_code": 0,
+      "seconds": 0.995,
+      "log": "verification/final-backup.log"
+    },
+    {
+      "label": "final-integrity",
+      "command": "python docs/stage4/verification/verify-integrity.py",
+      "exit_code": 0,
+      "seconds": 0.305,
+      "log": "verification/final-integrity.log"
+    },
+    {
+      "label": "final-migrations",
+      "command": "npm run test:migrations:preflight",
+      "exit_code": 0,
+      "seconds": 0.246,
+      "log": "verification/final-migrations.log"
+    }
+  ],
+  "old_tests_passed": 326,
+  "new_tests_passed": 46,
+  "total": 372,
+  "failed": 0,
+  "skipped": 0,
+  "max_new_api_queries": 9,
+  "local_only": true,
+  "browser_pdf_tests_run": false,
+  "deployed": false
+}

@@ -1,0 +1,49 @@
+--- 已验收阶段5/tests/share-shell-stage5.test.mjs
++++ 前端融合更新/tests/share-shell-stage5.test.mjs
+@@ -5,7 +5,7 @@
+ 
+ test('YX5S 无会话可读取独立静态外壳，响应头和CSP与机构端一致',()=>school(async s=>{
+  const shell=await call(s,'/s/not-a-valid-token','GET',undefined,null);ok(shell);assert.match(shell.headers.get('content-type'),/text\/html/);assert.equal(shell.headers.get('x-robots-tag'),'noindex');assert.equal(shell.headers.get('referrer-policy'),'no-referrer');assert.equal(shell.headers.get('cache-control'),'no-store');assert.equal(shell.headers.get('set-cookie'),null);assert.equal(shell.queries,0);
+- const app=await call(s,'/app','GET',undefined,null);assert.equal(shell.headers.get('content-security-policy'),app.headers.get('content-security-policy'));assert.ok(!shell.text.includes('艺界星途'));assert.ok(!shell.text.includes('tenant.js'));assert.ok(!shell.text.includes('__BASE__'));
++ const app=await call(s,'/app','GET',undefined,null);assert.equal(shell.headers.get('content-security-policy'),app.headers.get('content-security-policy'));assert.ok(!shell.text.includes('艺界星途'));assert.ok(shell.text.includes('/assets/tenant.js')&&!shell.text.includes('turnstile-key'));assert.ok(!shell.text.includes('__BASE__'));
+ }));
+ test('YX5S 有效、错误、过期、作废和机构到期的令牌均返回相同外壳，不计访问',()=>school(async s=>{
+  const p=await filled(s);ok(await call(s,'plans/'+p.id+'/send','POST',{}));const link=ok(await call(s,'plans/'+p.id+'/share-links','POST',{}),201),token=link.url.split('/').at(-1),path='/s/'+token,db=s.f.db.raw;
+
+--- 已验收阶段5/tests/yx-frontend-stage2.test.mjs
++++ 前端融合更新/tests/yx-frontend-stage2.test.mjs
+@@ -53,7 +53,7 @@
+ });
+ 
+ test('YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，并已进入机构端打包', async () => {
+-  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js', 'src/tenant/yx-plans.js']) {
++  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js', 'src/tenant/yx-plans.js', 'src/tenant/yx-home.js', 'src/tenant/yx-ai.js', 'src/tenant/yx-content.js']) {
+     const source = await readFile(file, 'utf8');
+     assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write|\beval\s*\(|new\s+Function\s*\(/.test(source), file);
+     assert.ok(!/style\s*=\s*["']/.test(source), file + ' 不写内联 style 属性（CSP 不允许）');
+@@ -62,6 +62,11 @@
+   assert.ok(assets.js.includes('function yxLoginPage('));
+   assert.ok(assets.js.includes('async function yxSettingsSection('));
+   assert.ok(assets.js.includes('async function yxPlanEditor('));
++  assert.ok(assets.js.includes('async function yxContentEditor('));
++  assert.ok(assets.js.includes('async function yxAi('));
++  // 分享页 /s/{token} 复用机构端脚本：启动时先进入 yxSharePage，不请求 me、不进登录页。
++  const appSource = await readFile('src/tenant/app.js', 'utf8');
++  assert.match(appSource, /if \(\/\^\\\/s\\\/\[\^\/\]\+\$\/\.test\(location\.pathname\) && typeof yxSharePage === "function"\) return yxSharePage\(\);\n    const isLogin/);
+   assert.ok(assets.css.includes('.yx-login'));
+   const consoleSource = await readFile('src/console/app.js', 'utf8');
+   assert.ok(consoleSource.includes('async function yxOpsPanel('));
+
+--- 已验收阶段5/tests/stage4-review.test.mjs
++++ 前端融合更新/tests/stage4-review.test.mjs
+@@ -110,7 +110,9 @@
+     f.restore();
+   }
+ });
+-test("第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效", async () => {
++test("第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效", async (t) => {
++  // Keep the added Nov 15 lesson in the future so fingerprint checks run before pending-lesson validation.
++  t.mock.timers.enable({ apis: ["Date"], now: Date.parse("2026-11-14T12:00:00+08:00") });
+   for (const change of [
+     "attendance",
+     "rate",

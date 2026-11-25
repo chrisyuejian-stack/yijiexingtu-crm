@@ -1,0 +1,12 @@
+[Unit]
+Description=Yijiexingtu public HTTPS health probe
+[Service]
+Type=oneshot
+User=yxt
+WorkingDirectory=/opt/yijiexingtu/current
+ExecStart=/usr/bin/node --max-old-space-size=768 deploy/health-check.mjs
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/yijiexingtu

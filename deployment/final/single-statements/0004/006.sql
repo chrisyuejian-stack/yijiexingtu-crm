@@ -1,0 +1,1 @@
+ALTER TABLE packages ADD COLUMN scope_kind TEXT NOT NULL DEFAULT 'type';

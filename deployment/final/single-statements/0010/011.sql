@@ -1,0 +1,1 @@
+CREATE TABLE partner_rosters(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,course_id TEXT NOT NULL REFERENCES partner_courses(id),student_id TEXT NOT NULL,created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,course_id,student_id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id));

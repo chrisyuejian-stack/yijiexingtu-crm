@@ -1,0 +1,3 @@
+import {readFile} from 'node:fs/promises';
+const [left,right]=process.argv.slice(2);
+try{if(!left||!right)throw Error('Usage: node deploy/compare-object-counts.mjs r2-size.json cos-size.json');const a=JSON.parse(await readFile(left,'utf8')),b=JSON.parse(await readFile(right,'utf8'));if(!Number.isSafeInteger(a.count)||!Number.isSafeInteger(b.count)||!Number.isSafeInteger(a.bytes)||!Number.isSafeInteger(b.bytes))throw Error('Invalid rclone size JSON');const ok=a.count===b.count&&a.bytes===b.bytes;console.log(JSON.stringify({ok,source:{count:a.count,bytes:a.bytes},target:{count:b.count,bytes:b.bytes}}));if(!ok)process.exitCode=1;}catch(error){console.error('OBJECT CHECK FAILED:',error.message);process.exitCode=1;}

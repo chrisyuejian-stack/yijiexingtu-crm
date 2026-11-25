@@ -1,0 +1,16 @@
+{
+  "result": "pass",
+  "from": 24,
+  "to": 25,
+  "new_tables": 0,
+  "new_columns": [
+    "content_items.article_json"
+  ],
+  "single_statements": 1,
+  "raw_and_step_bytes_equal": true,
+  "migration_sha256": "88c1b513f4ca9ea454778991507fdd5ce4fa9a983f0a2301f2fc8f24f74408e0",
+  "readonly_files_executed": 3,
+  "quick_check": "ok",
+  "foreign_key_check": [],
+  "remote_execution": false
+}

@@ -1,0 +1,22 @@
+✔ PLAT release format has only runtime payload, all hashes verified, no source/tests/dependency installation (1386.790663ms)
+✔ PLAT release SHA/sidecar/path traversal tampering rejected before stopping or changing current (1286.087771ms)
+✔ PLAT first update recognizes ledgerless v0.5 and skips all 28 historical scripts without revoking sessions (1245.172864ms)
+✔ PLAT online snapshot is taken before stop and frozen snapshot includes final in-flight writes (1235.465046ms)
+✔ PLAT migration halfway failure rolls back EVERY pending migration and ledger, never switches version (1212.001028ms)
+✔ PLAT migrations execute once, ledger hashes immutable, changed historical migration rejected before downtime (2195.593631ms)
+✔ PLAT new health failure automatically switches back and restarts previous version, never restores DB (1330.543686ms)
+✔ PLAT health rollback after committed migrations preserves new rows and keeps maintenance with independent restore command (1246.949218ms)
+✔ PLAT rollback.sh core selects recorded predecessor; migration rollback only suggests snapshot and never overwrites new data (1231.415565ms)
+✔ PLAT explicitly confirmed snapshot restore saves current DB first, restores atomically and remains in maintenance (1301.50528ms)
+✔ PLAT retain five immutable versions, protect current and predecessor, duplicate version never deletes existing code (3743.656566ms)
+✔ PLAT unknown untracked schema and transaction-owning migrations rejected without downtime (1616.49156ms)
+✔ PLAT actual packaged Node workers restart across current switch and keep existing authenticated sessions (1353.239812ms)
+✔ PLAT retry after migration/health failure retains the original pre-migration recovery point (1728.238497ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22281.411254

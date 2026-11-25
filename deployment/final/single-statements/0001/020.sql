@@ -1,0 +1,1 @@
+CREATE TABLE platform_sessions(token_hash TEXT PRIMARY KEY,admin_id TEXT NOT NULL REFERENCES platform_admins(id),expires_at INTEGER NOT NULL,last_seen_at INTEGER NOT NULL,ip TEXT NOT NULL,ua TEXT NOT NULL);

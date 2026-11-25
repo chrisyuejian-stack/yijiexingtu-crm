@@ -1,0 +1,82 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/schedule-growth/api/settings/stage-types",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "name": "体验与适应",
+          "default_months": {
+            "min": 1,
+            "max": 2
+          },
+          "anchor": "start",
+          "anchor_node": null,
+          "offset_months": 0,
+          "active": true,
+          "subject": "music_interest",
+          "order": 10,
+          "version": 1,
+          "id": "stg_a00b2ee67eb8d5998426ba3c",
+          "source": "template"
+        },
+        {
+          "name": "假期集训",
+          "default_months": {
+            "min": 1,
+            "max": 2
+          },
+          "anchor": "on_node",
+          "anchor_node": "summer_camp",
+          "offset_months": 0,
+          "active": true,
+          "subject": "music_interest",
+          "order": 40,
+          "version": 1,
+          "id": "stg_91d90b7b23fcf5536542e031",
+          "source": "template"
+        },
+        {
+          "name": "常规学习",
+          "default_months": {
+            "min": 3,
+            "max": 5
+          },
+          "anchor": "normal",
+          "anchor_node": null,
+          "offset_months": 0,
+          "active": true,
+          "subject": "music_interest",
+          "order": 20,
+          "version": 1,
+          "id": "stg_76051ebc0a65edbbc12b0c35",
+          "source": "template"
+        },
+        {
+          "name": "考级冲刺",
+          "default_months": {
+            "min": 2,
+            "max": 2
+          },
+          "anchor": "before_node",
+          "anchor_node": "grade_exam",
+          "offset_months": -2,
+          "active": true,
+          "subject": "music_interest",
+          "order": 30,
+          "version": 1,
+          "id": "stg_8513bb7b6288f3970fa63bdc",
+          "source": "template"
+        }
+      ],
+      "total": 4,
+      "next_offset": null
+    },
+    "queries": 3
+  }
+}

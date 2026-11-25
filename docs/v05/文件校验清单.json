@@ -1,0 +1,162 @@
+{
+  "version": "v0.5-contract-draft-0.1",
+  "date": "2026-11-17",
+  "status": "待确认，未实现",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1498,
+      "sha256": "987176cfe1fe6b739ff4018474a4c50e3b6852ac258d9370447cf641a081621c"
+    },
+    {
+      "path": "evidence/basis-build.log",
+      "bytes": 261,
+      "sha256": "435d0599dea5a1172d8893dbed65d88cf6a4d5511fbde2091b9992474051080b"
+    },
+    {
+      "path": "evidence/basis-bundle.log",
+      "bytes": 85621,
+      "sha256": "82eeb0dcee24709f480c0ac8c951a8c1b75facb0676e422d994c3ff750a1f6b5"
+    },
+    {
+      "path": "evidence/basis-runs.json",
+      "bytes": 321,
+      "sha256": "0c5b859499a6b07ceaab873005414bf45a3b28f37984b0f295866c54dd03d4e4"
+    },
+    {
+      "path": "evidence/basis-source.log",
+      "bytes": 85618,
+      "sha256": "6e14bb3caf1ea34c561bdc4387b26dc5763d45fc93d96563ffccb82406bc3357"
+    },
+    {
+      "path": "evidence/frontend-patch.json",
+      "bytes": 1570,
+      "sha256": "164adb6eefcc7ee9a93c8c6ceea1b5fa267a0e0013b963cd3a9162811687410d"
+    },
+    {
+      "path": "evidence/workers-unchanged.json",
+      "bytes": 194,
+      "sha256": "391f996b28f07160e0fd241804781d7beda1cf60936923c39bd6cd56d5e47ed1"
+    },
+    {
+      "path": "evidence/文档与基准校验结果.json",
+      "bytes": 3685,
+      "sha256": "6a84e28aad2cb0fabf4c56f5a2f05ca27259a602abdf8d7b718bbee1cea0627b"
+    },
+    {
+      "path": "examples/brief-one-submit.json",
+      "bytes": 11764,
+      "sha256": "aa75606043470c4c8ffa0b70b252c3427bb083703475861b49dfd85818276660"
+    },
+    {
+      "path": "examples/budget-parsing.json",
+      "bytes": 955,
+      "sha256": "f6b0d74701399dbf7e22b7509559787d70df0d828661d9a4dd725a4171974225"
+    },
+    {
+      "path": "examples/content-inline.json",
+      "bytes": 3702,
+      "sha256": "370c35034e9e28f8b0107c5db75ccce377ba327a16d84eed5823eb61077bbe5b"
+    },
+    {
+      "path": "examples/dates-and-errors.json",
+      "bytes": 2154,
+      "sha256": "d146ffd131a16cc7220a77b0cb511d4cb09b33b19cfe7ec3c50a5fd48af3bea9"
+    },
+    {
+      "path": "examples/doc-v2-full.json",
+      "bytes": 11632,
+      "sha256": "d831bf3b97e7bab593755b692f5f4f63c7ddf953208eab27d06df7d8ba7f3e84"
+    },
+    {
+      "path": "examples/legacy-billing-vectors.json",
+      "bytes": 9517,
+      "sha256": "29698e883de1326881dde836848180d55afbd4719fa8afe6a2b52d4937c62239"
+    },
+    {
+      "path": "examples/legacy-conversion.json",
+      "bytes": 8778,
+      "sha256": "1648f411a3c1474308c615222502867dfb299ba1e7809e340a3706c91101243a"
+    },
+    {
+      "path": "examples/legacy-source-v1.json",
+      "bytes": 4245,
+      "sha256": "b7d8a6f39992747477d0579a8072ffc4dd496490a7f8178c5027296d754f5870"
+    },
+    {
+      "path": "examples/money-vectors.json",
+      "bytes": 859,
+      "sha256": "373d971b3f5d6a734eb4a873ef273945d062d118f6429f518fca029f4a3f211f"
+    },
+    {
+      "path": "examples/plan-create-from-template.json",
+      "bytes": 23829,
+      "sha256": "fb297dbe1eca47b4ad05a8f04542c6be23b5be354e4aa40e2fbd1310c15bfe7b"
+    },
+    {
+      "path": "examples/plan-save.json",
+      "bytes": 24682,
+      "sha256": "61f8a8b0ea21cd390a73d3e08e16c0afacdb274bf5be28282d27512cba058db1"
+    },
+    {
+      "path": "examples/platform-sample.json",
+      "bytes": 6802,
+      "sha256": "c62fb2a46b647c97b6a5f23ba810790be44f3e335f7e9f5b01e9c211147d3baf"
+    },
+    {
+      "path": "examples/public-v2.json",
+      "bytes": 14081,
+      "sha256": "5c48767c0d3e96840905f7e67f55a7f7dca92bf5bc60f17e53ed45be6db394f9"
+    },
+    {
+      "path": "examples/quote-and-price-changed.json",
+      "bytes": 29648,
+      "sha256": "4c2d625ce2dd958ec7470beb42d183fc1ff068253edd2f0bca744ed90e8cbded"
+    },
+    {
+      "path": "examples/template-instantiate.json",
+      "bytes": 12868,
+      "sha256": "21c38c9899a338fd74cbcde054167ae412a4475a9e1fe368a55f0c0ba748b730"
+    },
+    {
+      "path": "examples/templates.json",
+      "bytes": 35174,
+      "sha256": "4f8102de82e97f0af510c38e8149ab689aac03da75425c88fad77584e4ab9dd0"
+    },
+    {
+      "path": "reference/学员方案重构_设计稿_原件_20261117.md",
+      "bytes": 12773,
+      "sha256": "45e940aa65daa7dca4caeb54f1d5a2ece381fad88aae59240ae2809dda4014bf"
+    },
+    {
+      "path": "schemas/doc-v2.schema.json",
+      "bytes": 43776,
+      "sha256": "5f6b90b7dafeb6e1d518f411d5076a6c1a508b3a2b21ed95790b4f63c08a4e10"
+    },
+    {
+      "path": "schemas/plan-cardset.schema.json",
+      "bytes": 43569,
+      "sha256": "fe1fe472c6d59fb7d2670ebeec26326f1cbc8bb00cd864da76df602edf959f35"
+    },
+    {
+      "path": "schemas/platform-sample.schema.json",
+      "bytes": 46933,
+      "sha256": "ac828c6205f5a5cc40688392c43d06c996173d17cd1fcf392c2fece3fc079f74"
+    },
+    {
+      "path": "基准融合与文档校验报告.md",
+      "bytes": 4207,
+      "sha256": "8b1f560ae657fa68eefecfb0bd8a12c27232dcd71ee8858a4ae935a424f0ab75"
+    },
+    {
+      "path": "艺界星途_v0.5_doc_v2字段表与接口约定_草案v0.1.md",
+      "bytes": 76937,
+      "sha256": "2c54e326d5ad48418149bc2dc0113fc5c8825d6c53142b1a3807135fe65211ad"
+    },
+    {
+      "path": "请先看_评审摘要.md",
+      "bytes": 2592,
+      "sha256": "c65ed7924808e8ee352dea5b9543aad6af3f9e9b845e7a0b4dd9821fdadf4aa4"
+    }
+  ]
+}

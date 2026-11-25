@@ -1,0 +1,93 @@
+{
+  "shift": {
+    "request": {
+      "method": "POST",
+      "path": "/api/plans/pln_demo/shift-dates/preview",
+      "json": {
+        "version": 7,
+        "months": 1
+      }
+    },
+    "response_fragment": {
+      "status": 200,
+      "json": {
+        "changes": [
+          {
+            "path": "modules.basic.plan_date",
+            "before": "2026-11-17",
+            "after": "2026-12-17"
+          },
+          {
+            "path": "modules.timeline.items[id=nd_demo2].date",
+            "before": "2027-12-10",
+            "after": "2028-01-10"
+          },
+          {
+            "path": "modules.fees.custom[0].due",
+            "before": "2027-01-01",
+            "after": "2027-02-01"
+          }
+        ],
+        "warnings": [
+          "文字中提到的日期不会自动修改，请检查。"
+        ],
+        "save_options": {
+          "date_shift": {
+            "months": 1,
+            "base_version": 7
+          }
+        }
+      }
+    },
+    "confirmation_fields": {
+      "version": 7,
+      "date_shift": {
+        "months": 1,
+        "base_version": 7
+      }
+    },
+    "confirmation_note": "将以上两个字段与预览返回的完整 doc 一起提交 PUT /plans/pln_demo。"
+  },
+  "month_end_vectors": [
+    {
+      "date": "2028-01-31",
+      "months": 1,
+      "shifted": "2028-02-29"
+    },
+    {
+      "date": "2027-03-31",
+      "months": -1,
+      "shifted": "2027-02-28"
+    }
+  ],
+  "errors": [
+    {
+      "status": 409,
+      "json": {
+        "error": "version_conflict",
+        "message": "原文已被修改，请对比后重试",
+        "details": {
+          "latest": {
+            "version": 4,
+            "text": "本机构其他有权员工保存的最新原文",
+            "updated_at": "2026-11-17T21:10:00+08:00"
+          }
+        }
+      }
+    },
+    {
+      "status": 422,
+      "json": {
+        "error": "invalid_image",
+        "message": "请选择本机构可用图库图片"
+      }
+    },
+    {
+      "status": 502,
+      "json": {
+        "error": "ai_timeout",
+        "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+      }
+    }
+  ]
+}

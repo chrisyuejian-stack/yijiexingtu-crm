@@ -1,0 +1,1 @@
+CREATE TRIGGER course_limits_course_types_insert BEFORE INSERT ON course_types WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) AND ((NEW.units_per_lesson<1 OR NEW.default_minutes NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END;

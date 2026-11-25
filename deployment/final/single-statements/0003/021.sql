@@ -1,0 +1,1 @@
+CREATE TRIGGER user_teacher_reference BEFORE INSERT ON users WHEN NEW.teacher_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM teachers WHERE tenant_id=NEW.tenant_id AND id=NEW.teacher_id AND status='active' AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_teacher_reference') END; END;

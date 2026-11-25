@@ -1,0 +1,3076 @@
+{
+  "local_only": true,
+  "examples": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "tenant_id": "foreign",
+          "author_id": "foreign"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.330+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": {
+          "version": 1,
+          "title": "新标题"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.340+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": {
+          "version": 1,
+          "title": "旧写入"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "内容已被修改，请刷新后重试",
+          "details": {
+            "latest": {
+              "type": "article",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "新标题",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+              "version": 2,
+              "status": "draft",
+              "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+              "created_at": "2026-11-15T22:14:10.330+08:00",
+              "updated_at": "2026-11-15T22:14:10.340+08:00"
+            }
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content?type=article&author=usr_2799cbcbbdcfc27c6c44f193&limit=1",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "type": "article",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "新标题",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+              "version": 2,
+              "status": "draft",
+              "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+              "created_at": "2026-11-15T22:14:10.330+08:00",
+              "updated_at": "2026-11-15T22:14:10.340+08:00"
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content?status=published",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [],
+          "total": 0,
+          "next_offset": null
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.340+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3/status",
+        "body": {
+          "version": 2,
+          "status": "ready"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 3,
+          "status": "ready",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.380+08:00"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 3,
+          "status": "ready",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.380+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3/status",
+        "body": {
+          "version": 3,
+          "status": "copied"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 4,
+          "status": "copied",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.398+08:00"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 4,
+          "status": "copied",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.398+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3/status",
+        "body": {
+          "version": 4,
+          "status": "published"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 5,
+          "status": "published",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.414+08:00"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 5,
+          "status": "published",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.414+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3/status",
+        "body": {
+          "version": 5,
+          "status": "draft"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 6,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.428+08:00"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 6,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.428+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": {
+          "version": 6
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [],
+          "total": 0,
+          "next_offset": null
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "heading",
+              "text": "标题",
+              "level": 2
+            },
+            {
+              "type": "paragraph",
+              "text": "段落"
+            },
+            {
+              "type": "list",
+              "items": [
+                "条目"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "table",
+              "rows": [
+                [
+                  "表头"
+                ],
+                [
+                  "值"
+                ]
+              ]
+            },
+            {
+              "type": "quote",
+              "text": "引用"
+            },
+            {
+              "type": "image",
+              "image_id": "img_content",
+              "caption": "说明"
+            },
+            {
+              "type": "divider"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "heading",
+              "text": "标题",
+              "level": 2
+            },
+            {
+              "type": "paragraph",
+              "text": "段落"
+            },
+            {
+              "type": "list",
+              "items": [
+                "条目"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "table",
+              "rows": [
+                [
+                  "表头"
+                ],
+                [
+                  "值"
+                ]
+              ]
+            },
+            {
+              "type": "quote",
+              "text": "引用"
+            },
+            {
+              "type": "image",
+              "image_id": "img_content",
+              "caption": "说明"
+            },
+            {
+              "type": "divider"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_aed43aa49c60e3f0b80030dd",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_1a3e2dc2eee887b5182e00e2",
+          "created_at": "2026-11-15T22:14:10.861+08:00",
+          "updated_at": "2026-11-15T22:14:10.861+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "p",
+              "text": "旧HTML块"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "不支持的内容块类型",
+          "details": {
+            "fields": [
+              {
+                "field": "blocks[0].type",
+                "message": "不支持的内容块类型"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "<script>bad</script>"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "请使用符合长度限制的纯文字，不要包含HTML标签",
+          "details": {
+            "fields": [
+              {
+                "field": "blocks[0].text",
+                "message": "请使用符合长度限制的纯文字，不要包含HTML标签"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "heading",
+              "text": "标题",
+              "level": 4
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "标题级别只能为2或3",
+          "details": {
+            "fields": [
+              {
+                "field": "blocks[0].level",
+                "message": "标题级别只能为2或3"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "table",
+              "rows": [
+                [
+                  "a"
+                ],
+                [
+                  "a",
+                  "b"
+                ]
+              ]
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "表格须有表头且每行列数相同",
+          "details": {
+            "fields": [
+              {
+                "field": "blocks[0].rows",
+                "message": "表格须有表头且每行列数相同"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "a"
+              ],
+              "ordered": 1
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "ordered须为布尔值",
+          "details": {
+            "fields": [
+              {
+                "field": "blocks[0].ordered",
+                "message": "ordered须为布尔值"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "image",
+              "image_id": "img_foreign"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/scenes",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "music_interest:type:0",
+              "subject": "music_interest",
+              "name": "课程介绍 / 招生简章",
+              "required": [
+                "适合谁",
+                "学什么",
+                "上课形式与时间",
+                "报名方式"
+              ],
+              "optional": [
+                "师资",
+                "学员作品",
+                "常见问题"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:1",
+              "subject": "music_interest",
+              "name": "体验课邀约",
+              "required": [
+                "体验内容",
+                "时间地点",
+                "预约方式"
+              ],
+              "optional": [
+                "老师介绍",
+                "家长常问"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:2",
+              "subject": "music_interest",
+              "name": "考级报名提醒",
+              "required": [
+                "考级时间",
+                "报名截止",
+                "需要准备什么"
+              ],
+              "optional": [
+                "各级别要求",
+                "冲刺课安排"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:3",
+              "subject": "music_interest",
+              "name": "演出预告 / 回顾",
+              "required": [
+                "活动概况",
+                "时间地点或现场亮点"
+              ],
+              "optional": [
+                "节目单",
+                "学员和家长感言",
+                "下一场预告"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:4",
+              "subject": "music_interest",
+              "name": "考级 / 比赛喜报",
+              "required": [
+                "成绩概况",
+                "祝贺"
+              ],
+              "optional": [
+                "学员故事",
+                "老师寄语"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:5",
+              "subject": "music_interest",
+              "name": "寒暑假班招生",
+              "required": [
+                "班型",
+                "时间",
+                "报名方式"
+              ],
+              "optional": [
+                "往期回顾",
+                "优惠说明"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "grade_exam",
+              "name": "考级季",
+              "months": [
+                1,
+                7,
+                8
+              ],
+              "subject": null,
+              "course_ids": []
+            },
+            {
+              "id": "showcase",
+              "name": "汇报演出",
+              "months": [
+                6,
+                12
+              ],
+              "subject": null,
+              "course_ids": []
+            },
+            {
+              "id": "winter_camp",
+              "name": "寒假集训",
+              "months": [
+                1,
+                2
+              ],
+              "subject": null,
+              "course_ids": []
+            },
+            {
+              "id": "summer_camp",
+              "name": "暑假集训",
+              "months": [
+                7,
+                8
+              ],
+              "subject": null,
+              "course_ids": []
+            }
+          ]
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_8d8f084b12aae0d047908585",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_52e651c927798c6f3ae67d8f",
+          "created_at": "2026-11-15T22:14:11.386+08:00",
+          "updated_at": "2026-11-15T22:14:11.386+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "moments",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "moments",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_011ae468078d03f790b7da7d",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_52e651c927798c6f3ae67d8f",
+          "created_at": "2026-11-15T22:14:11.394+08:00",
+          "updated_at": "2026-11-15T22:14:11.394+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "xhs",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "xhs",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_1434f4760ed3ef8b6b41d973",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_52e651c927798c6f3ae67d8f",
+          "created_at": "2026-11-15T22:14:11.403+08:00",
+          "updated_at": "2026-11-15T22:14:11.403+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "poster_text",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "poster_text",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_7a7d22b16bd0f45f90661ca6",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_52e651c927798c6f3ae67d8f",
+          "created_at": "2026-11-15T22:14:11.412+08:00",
+          "updated_at": "2026-11-15T22:14:11.412+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "group_notice",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "group_notice",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_39f243e6d1d78a7138362144",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_52e651c927798c6f3ae67d8f",
+          "created_at": "2026-11-15T22:14:11.419+08:00",
+          "updated_at": "2026-11-15T22:14:11.419+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "event_invite",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "event_invite",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_c4e79072fc35dedf11f6bb1f",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_52e651c927798c6f3ae67d8f",
+          "created_at": "2026-11-15T22:14:11.426+08:00",
+          "updated_at": "2026-11-15T22:14:11.426+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "type": "event_invite",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_c4e79072fc35dedf11f6bb1f",
+              "version": 1,
+              "status": "draft",
+              "author_id": "usr_52e651c927798c6f3ae67d8f",
+              "created_at": "2026-11-15T22:14:11.426+08:00",
+              "updated_at": "2026-11-15T22:14:11.426+08:00"
+            },
+            {
+              "type": "group_notice",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_39f243e6d1d78a7138362144",
+              "version": 1,
+              "status": "draft",
+              "author_id": "usr_52e651c927798c6f3ae67d8f",
+              "created_at": "2026-11-15T22:14:11.419+08:00",
+              "updated_at": "2026-11-15T22:14:11.419+08:00"
+            },
+            {
+              "type": "poster_text",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_7a7d22b16bd0f45f90661ca6",
+              "version": 1,
+              "status": "draft",
+              "author_id": "usr_52e651c927798c6f3ae67d8f",
+              "created_at": "2026-11-15T22:14:11.412+08:00",
+              "updated_at": "2026-11-15T22:14:11.412+08:00"
+            },
+            {
+              "type": "xhs",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_1434f4760ed3ef8b6b41d973",
+              "version": 1,
+              "status": "draft",
+              "author_id": "usr_52e651c927798c6f3ae67d8f",
+              "created_at": "2026-11-15T22:14:11.403+08:00",
+              "updated_at": "2026-11-15T22:14:11.403+08:00"
+            },
+            {
+              "type": "moments",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_011ae468078d03f790b7da7d",
+              "version": 1,
+              "status": "draft",
+              "author_id": "usr_52e651c927798c6f3ae67d8f",
+              "created_at": "2026-11-15T22:14:11.394+08:00",
+              "updated_at": "2026-11-15T22:14:11.394+08:00"
+            },
+            {
+              "type": "article",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_8d8f084b12aae0d047908585",
+              "version": 1,
+              "status": "draft",
+              "author_id": "usr_52e651c927798c6f3ae67d8f",
+              "created_at": "2026-11-15T22:14:11.386+08:00",
+              "updated_at": "2026-11-15T22:14:11.386+08:00"
+            }
+          ],
+          "total": 6,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6440ffd721dd9d423f70bfd9",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_f2f35b7ce846d5dc49dfa253",
+          "created_at": "2026-11-15T22:14:11.665+08:00",
+          "updated_at": "2026-11-15T22:14:11.665+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-content-other/api/content/cnt_6440ffd721dd9d423f70bfd9",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-content-other/api/content/cnt_6440ffd721dd9d423f70bfd9",
+        "body": {
+          "version": 1,
+          "title": "x"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-content-other/api/content/cnt_6440ffd721dd9d423f70bfd9",
+        "body": {},
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-content-other/api/content/cnt_6440ffd721dd9d423f70bfd9/status",
+        "body": {
+          "version": 1,
+          "status": "ready"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-content-other/api/content",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [],
+          "total": 0,
+          "next_offset": null
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6440ffd721dd9d423f70bfd9",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6440ffd721dd9d423f70bfd9",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_f2f35b7ce846d5dc49dfa253",
+          "created_at": "2026-11-15T22:14:11.665+08:00",
+          "updated_at": "2026-11-15T22:14:11.665+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6440ffd721dd9d423f70bfd9",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "sources": {
+            "profile": true,
+            "course_ids": [],
+            "gallery_tags": [],
+            "prices": false,
+            "profile_data": {
+              "address": "伪造地址"
+            }
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": true,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_caa2b161c8fc3c799ba5d7fb",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_fe4ef50d3ec49a4f8ac51d40",
+          "created_at": "2026-11-15T22:14:13.202+08:00",
+          "updated_at": "2026-11-15T22:14:13.202+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_caa2b161c8fc3c799ba5d7fb",
+        "body": {
+          "version": 1,
+          "title": "仍可编辑"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "仍可编辑",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": true,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_caa2b161c8fc3c799ba5d7fb",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_fe4ef50d3ec49a4f8ac51d40",
+          "created_at": "2026-11-15T22:14:13.202+08:00",
+          "updated_at": "2026-11-15T22:14:13.214+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "style": {
+            "pack_id": "stp_article"
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "风格包已停用",
+          "details": {
+            "fields": [
+              {
+                "field": "style.pack_id",
+                "message": "风格包已停用"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "sources": {
+            "profile": true,
+            "course_ids": [],
+            "gallery_tags": [
+              "作品"
+            ],
+            "prices": false
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": true,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": [
+              "作品"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_90a3a04839a792f5f9f065dc",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_a63251d0aa057ddd385e8f71",
+          "created_at": "2026-11-15T22:14:13.488+08:00",
+          "updated_at": "2026-11-15T22:14:13.488+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_90a3a04839a792f5f9f065dc",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "段落",
+              "basis": [
+                0
+              ]
+            }
+          ],
+          "applied_suggestion_ids": [
+            "sg_319b59e2d03aa8d7cab4a4c1"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": true,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": [
+              "作品"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "段落"
+            }
+          ],
+          "applied_suggestion_ids": [
+            "sg_319b59e2d03aa8d7cab4a4c1"
+          ],
+          "id": "cnt_90a3a04839a792f5f9f065dc",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_a63251d0aa057ddd385e8f71",
+          "created_at": "2026-11-15T22:14:13.488+08:00",
+          "updated_at": "2026-11-15T22:14:13.536+08:00"
+        },
+        "queries": 6
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "sources": {
+            "profile": false,
+            "course_ids": [
+              "crs_b98691894102cdd404862019"
+            ],
+            "gallery_tags": [
+              "作品"
+            ],
+            "prices": false
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [
+              "crs_b98691894102cdd404862019"
+            ],
+            "gallery_tags": [
+              "作品"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_271cff553632b389bc8fd0a5",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_0a04a81cd2961375d3f6c051",
+          "created_at": "2026-11-15T22:14:13.895+08:00",
+          "updated_at": "2026-11-15T22:14:13.895+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "我们的地址是错误地址"
+            }
+          ],
+          "sources": {
+            "profile": true,
+            "course_ids": [],
+            "gallery_tags": [],
+            "prices": false
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": true,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "我们的地址是错误地址"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_b078bdfe47e9a10d096a83f7",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_1025189eacbdbbad7a6553f9",
+          "created_at": "2026-11-15T22:14:14.154+08:00",
+          "updated_at": "2026-11-15T22:14:14.154+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "sources": {
+            "profile": true,
+            "course_ids": [],
+            "gallery_tags": [],
+            "prices": false
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": true,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_f439beac4b41ea6fcc4d96f4",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_50b39340282451c4c08a5532",
+          "created_at": "2026-11-15T22:14:14.392+08:00",
+          "updated_at": "2026-11-15T22:14:14.392+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_3a4cb23c9f46f03bb252dd3a",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_f34ce0710d8bdcefc48d8bec",
+          "created_at": "2026-11-15T22:14:14.646+08:00",
+          "updated_at": "2026-11-15T22:14:14.646+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/outline",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b3dddf80-0810-4141-8b4f-690354ec99b6"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_c0efeb37473a8bfacaa55c11",
+              "kind": "content.outline",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "sections": [
+                  {
+                    "key": "intro",
+                    "title": "课程介绍",
+                    "required": true,
+                    "points": [
+                      "了解课程"
+                    ]
+                  },
+                  {
+                    "key": "required_1",
+                    "title": "适合谁",
+                    "required": true,
+                    "points": []
+                  },
+                  {
+                    "key": "required_2",
+                    "title": "学什么",
+                    "required": true,
+                    "points": []
+                  },
+                  {
+                    "key": "required_3",
+                    "title": "上课形式与时间",
+                    "required": true,
+                    "points": []
+                  },
+                  {
+                    "key": "required_4",
+                    "title": "报名方式",
+                    "required": true,
+                    "points": []
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "了解课程"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/section",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "8bef7954-72f4-45a9-96cb-90b67053fa71"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc",
+          "section_key": "intro"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_319b59e2d03aa8d7cab4a4c1",
+              "kind": "content.section",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc",
+                "section_key": "intro"
+              },
+              "payload": {
+                "section_key": "intro",
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "text": "段落",
+                    "basis": [
+                      0
+                    ]
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "段落"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6fc9ab24-0208-4450-982a-969989a22999"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_f953e92413849a2c61422c6f",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 3,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/rewrite",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "292e5bee-4af2-4d08-94ea-ac5a7bb95d0a"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc",
+          "block_index": 0,
+          "mode": "shorten",
+          "text": "原文"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_8e8b695579e98c5c76bb7774",
+              "kind": "content.rewrite",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc",
+                "block_index": 0
+              },
+              "payload": {
+                "mode": "shorten",
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "text": "改写结果",
+                    "basis": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "改写结果"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 4,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/fact-check",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "90a290c8-3f87-433c-8794-f93e85c09c43"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_37f415872843615d03e6fb40",
+              "kind": "content.fact_check",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "items": [
+                  {
+                    "result": "missing",
+                    "block_index": 0,
+                    "quote": "段落",
+                    "expected": "",
+                    "source": ""
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 5,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/images",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "95a9d73e-fccf-42ac-8095-803da7fef7e7"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_aa94b973a73fa454e79c5cac",
+              "kind": "content.images",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "items": [
+                  {
+                    "section_key": "intro",
+                    "image_ids": [
+                      "img_own"
+                    ],
+                    "reason": "作品"
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "已丢弃本次图库范围以外的图片"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 6,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/images",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "51f29b5b-7099-42b2-ae7d-a6d53cabc051"
+        },
+        "body": {
+          "content_id": "cnt_271cff553632b389bc8fd0a5",
+          "context": {
+            "profile": {
+              "address": "伪造地址"
+            },
+            "course": {
+              "amount": 1
+            }
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "已丢弃本次图库范围以外的图片",
+            "没有符合本次资料范围的内容建议"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/fact-check",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b72ce9a7-2f57-4a2a-927a-c1368a795fc1"
+        },
+        "body": {
+          "content_id": "cnt_b078bdfe47e9a10d096a83f7"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_45798166ad20744ec33c1305",
+              "kind": "content.fact_check",
+              "target": {
+                "content_id": "cnt_b078bdfe47e9a10d096a83f7"
+              },
+              "payload": {
+                "items": [
+                  {
+                    "result": "mismatch",
+                    "block_index": 0,
+                    "quote": "错误地址",
+                    "expected": "真实地址",
+                    "source": "profile.address"
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "所标依据无法在本次勾选资料中核对：编造的引用"
+                }
+              ],
+              "warnings": [
+                "已将无法核验的引用标为unsupported"
+              ]
+            }
+          ],
+          "warnings": [
+            "已将无法核验的引用标为unsupported"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "0d28cda1-3f57-4ef6-9e4f-0c3cc7b647ea"
+        },
+        "body": {
+          "content_id": "cnt_f439beac4b41ea6fcc4d96f4"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_bea7a4c2639d0f7142df9416",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_f439beac4b41ea6fcc4d96f4"
+              },
+              "payload": {
+                "versions": {
+                  "short": "联系电话13800001111",
+                  "medium": "联系电话13800001111",
+                  "long": "联系电话13800001111"
+                }
+              },
+              "basis": [
+                {
+                  "type": "profile",
+                  "ref": "profile.contact_phone",
+                  "quote": "13800001111"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "联系电话13800001111"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "24-public-media",
+  "request": {
+    "method": "GET",
+    "path": "/api/share/ZuCmk9MVcHuBQDzndeLYZV7qk5wxcggCBWx7N_36y-k/media/img_cover",
+    "body": null,
+    "authenticated": false
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "binary": true,
+      "mime": "image/png",
+      "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jw1kAAAAASUVORK5CYII="
+    },
+    "queries": 6
+  }
+}

@@ -1,0 +1,5290 @@
+{
+  "local_only": true,
+  "examples": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/polish",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "63f5674c-3408-4cc8-ae65-81cea69b8eba"
+        },
+        "body": {
+          "plan_id": "pln_db4bbad9346d4df2e2878381"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_4115bb778a0e1bba7a34a7ee",
+              "kind": "plan.text",
+              "target": {
+                "plan_id": "pln_db4bbad9346d4df2e2878381"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "title",
+                    "value": "文字建议"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/stage-courses",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3a22c7e9-ab7d-446f-a93a-0d87e7a65768"
+        },
+        "body": {
+          "plan_id": "pln_ffdce1ff7d8b5b762097945f",
+          "context": {
+            "tenant_id": "other",
+            "courses": [
+              {
+                "amount": 1
+              }
+            ]
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_5697dbbaaa45357f32ba6d14",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_ffdce1ff7d8b5b762097945f"
+              },
+              "payload": {
+                "variant": "recommended",
+                "price_list_rev": 5,
+                "lines": [
+                  {
+                    "line_id": "ln_b5a89ef2f90c51744a4055b1",
+                    "stage_key": "stk_931e4bee719b966934f67dbc",
+                    "course_id": "crs_8b79b5cd6a89d496b48996e4",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  },
+                  {
+                    "line_id": "tmp_ai_a68a882d8b868e75337f90fd_1",
+                    "stage_key": "stk_931e4bee719b966934f67dbc",
+                    "course_id": "crs_fbd4b2a64c495ce38c53e394",
+                    "qty": {
+                      "units": 1
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_931e4bee719b966934f67dbc",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 3,
+                      "amount": 500
+                    }
+                  ],
+                  "total": {
+                    "units": 3,
+                    "bundles": [],
+                    "amount": 500
+                  },
+                  "budget": {
+                    "cap": 550,
+                    "remaining": 50,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_931e4bee719b966934f67dbc",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 500
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/stage-courses",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "75cb5928-bac4-43af-ba35-f9eb32ddece6"
+        },
+        "body": {
+          "plan_id": "pln_fcd910f43af97f22fde6e7f5"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "已丢弃不在启用报价范围内或未定价的课程",
+            "没有合规计费行，已丢弃该配法",
+            "已丢弃无效配法：方案金额超出支持范围"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/stage-courses",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e3b5ae7f-3fbf-49fc-9aa6-ecfcb77ea395"
+        },
+        "body": {
+          "plan_id": "pln_a21a74cd3940b25be94d740e"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_fe39800e82260ca5e5fd9f85",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_a21a74cd3940b25be94d740e"
+              },
+              "payload": {
+                "variant": "recommended",
+                "price_list_rev": 3,
+                "lines": [
+                  {
+                    "line_id": "ln_87e6f7507da3ea62321e37ed",
+                    "stage_key": "stk_5e51a61df341c466add66766",
+                    "course_id": "crs_a5c733947f29f57db29619d6",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_5e51a61df341c466add66766",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 2,
+                      "amount": 400
+                    }
+                  ],
+                  "total": {
+                    "units": 2,
+                    "bundles": [],
+                    "amount": 400
+                  },
+                  "budget": {
+                    "cap": null,
+                    "remaining": null,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_5e51a61df341c466add66766",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 400
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            },
+            {
+              "id": "sg_b3d00af41da8c74e5337e85e",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_a21a74cd3940b25be94d740e"
+              },
+              "payload": {
+                "variant": "alt",
+                "price_list_rev": 3,
+                "lines": [
+                  {
+                    "line_id": "ln_87e6f7507da3ea62321e37ed",
+                    "stage_key": "stk_5e51a61df341c466add66766",
+                    "course_id": "crs_a5c733947f29f57db29619d6",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_5e51a61df341c466add66766",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 2,
+                      "amount": 400
+                    }
+                  ],
+                  "total": {
+                    "units": 2,
+                    "bundles": [],
+                    "amount": 400
+                  },
+                  "budget": {
+                    "cap": null,
+                    "remaining": null,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_5e51a61df341c466add66766",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 400
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            },
+            {
+              "id": "sg_4dd8f3b61c32ef9969da612d",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_a21a74cd3940b25be94d740e"
+              },
+              "payload": {
+                "variant": "alt",
+                "price_list_rev": 3,
+                "lines": [
+                  {
+                    "line_id": "ln_87e6f7507da3ea62321e37ed",
+                    "stage_key": "stk_5e51a61df341c466add66766",
+                    "course_id": "crs_a5c733947f29f57db29619d6",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_5e51a61df341c466add66766",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 2,
+                      "amount": 400
+                    }
+                  ],
+                  "total": {
+                    "units": 2,
+                    "bundles": [],
+                    "amount": 400
+                  },
+                  "budget": {
+                    "cap": null,
+                    "remaining": null,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_5e51a61df341c466add66766",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 400
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "没有合规计费行，已丢弃该配法"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/stage-courses",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "012d28e2-bb75-41fb-b45a-d85fc1c38c5f"
+        },
+        "body": {
+          "plan_id": "pln_7b16fa2e8210ad140cfd3fa5"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_cb7bcacf0d213766135848f9",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_7b16fa2e8210ad140cfd3fa5"
+              },
+              "payload": {
+                "variant": "recommended",
+                "price_list_rev": 4,
+                "lines": [
+                  {
+                    "line_id": "ln_35e2fa5758ef62c4e91a1c1d",
+                    "stage_key": "stk_f73102e4fae9c4c794f8ca40",
+                    "course_id": "crs_df3fcd1f654e1ed7ce582a9d",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_f73102e4fae9c4c794f8ca40",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 2,
+                      "amount": 400
+                    }
+                  ],
+                  "total": {
+                    "units": 2,
+                    "bundles": [],
+                    "amount": 400
+                  },
+                  "budget": {
+                    "cap": null,
+                    "remaining": null,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_f73102e4fae9c4c794f8ca40",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 400
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "已丢弃不在启用报价范围内或未定价的课程"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/polish",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "678a9866-d20d-4c68-b21e-535c8a74cfde"
+        },
+        "body": {
+          "plan_id": "pln_f77d53c64f524b8790e90f38"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_62cf164faff2ad7993b9ce6a",
+              "kind": "plan.text",
+              "target": {
+                "plan_id": "pln_f77d53c64f524b8790e90f38"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "modules.path.stages[key=stk_746fce977813c087c4be1610].goals",
+                    "value": [
+                      "连贯演奏"
+                    ]
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "已剔除AI返回的分数字段",
+            "已丢弃越界文字path：modules.path.stages[0].goals",
+            "已丢弃越界文字path：meta.budget_cap",
+            "已丢弃越界文字path：scores"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/adjust",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ee20c50e-d65a-4cc2-9679-53bf149f435a"
+        },
+        "body": {
+          "plan_id": "pln_dff6d1e12082aacba783721d",
+          "page": "courses",
+          "instruction": "保留课程"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_9600fad5861f3fb930d5cc4f",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_dff6d1e12082aacba783721d"
+              },
+              "payload": {
+                "variant": "recommended",
+                "price_list_rev": 3,
+                "lines": [
+                  {
+                    "line_id": "ln_d6f9942ae5b5765a034cbb83",
+                    "stage_key": "stk_7fdf9313d9d5bb2d1ed96b05",
+                    "course_id": "crs_9b75de5f2ae6345d242deed9",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_7fdf9313d9d5bb2d1ed96b05",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 2,
+                      "amount": 400
+                    }
+                  ],
+                  "total": {
+                    "units": 2,
+                    "bundles": [],
+                    "amount": 400
+                  },
+                  "budget": {
+                    "cap": null,
+                    "remaining": null,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_7fdf9313d9d5bb2d1ed96b05",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 400
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/adjust",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e8f2240c-c46d-4c10-924c-99b8e103b92b"
+        },
+        "body": {
+          "plan_id": "pln_dff6d1e12082aacba783721d",
+          "page": "assessment",
+          "instruction": "润色"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_812735d64c6f66dc99ac321e",
+              "kind": "plan.text",
+              "target": {
+                "plan_id": "pln_dff6d1e12082aacba783721d"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "modules.assessment.text",
+                    "value": "评估文字"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7ecbd74b-8c67-4c10-a5ea-e1b7a5018c58"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "in_progress",
+          "message": "这个AI请求仍在处理中"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7ecbd74b-8c67-4c10-a5ea-e1b7a5018c58"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92",
+          "instruction": "不同"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "idempotency_mismatch",
+          "message": "同一个幂等键不能用于不同请求"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "dbe47840-e971-44c7-a8f1-4997b22c7237"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "rate_limited",
+          "message": "同时最多进行两个AI请求，请稍后再试"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7ecbd74b-8c67-4c10-a5ea-e1b7a5018c58"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "bc272508-9104-4257-ac5d-eb854ac3146c"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/outline",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7ecbd74b-8c67-4c10-a5ea-e1b7a5018c58"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "idempotency_mismatch",
+          "message": "同一个幂等键不能用于不同请求"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7ecbd74b-8c67-4c10-a5ea-e1b7a5018c58"
+        },
+        "body": {
+          "content_id": "cnt_1c6a838a4f7fed31ea973b92"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d58f6fd9-d49c-43c1-9826-93623c5882c1"
+        },
+        "body": {
+          "content_id": "cnt_b193175fa97dc8d556bea3fe"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_e6f9f8533d1051e588cd1acd",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_b193175fa97dc8d556bea3fe"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "8949eb08-55d2-4b2e-bf29-987760408e92"
+        },
+        "body": {
+          "content_id": "cnt_b193175fa97dc8d556bea3fe"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_c79eac6a2fbdf685aec0ad63",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_b193175fa97dc8d556bea3fe"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d58f6fd9-d49c-43c1-9826-93623c5882c1"
+        },
+        "body": {
+          "content_id": "cnt_b193175fa97dc8d556bea3fe"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_e6f9f8533d1051e588cd1acd",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_b193175fa97dc8d556bea3fe"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3071e973-e5c3-41f9-81af-92a101c448b1"
+        },
+        "body": {
+          "content_id": "cnt_c6a3d7d6bab017b048d0406c"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 502,
+        "body": {
+          "error": "ai_unavailable",
+          "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3071e973-e5c3-41f9-81af-92a101c448b1"
+        },
+        "body": {
+          "content_id": "cnt_c6a3d7d6bab017b048d0406c"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a6c6cea9-cc4b-42c5-bcf6-a020bda98090"
+        },
+        "body": {
+          "content_id": "cnt_c6a3d7d6bab017b048d0406c"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 502,
+        "body": {
+          "error": "ai_unavailable",
+          "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7311c4c7-4dd4-4bce-86e0-6cccd8851f09"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "822ce5e8-18b0-43eb-bf4e-1371af37f995"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d460c1ad-15a2-4baa-b890-60de38cf73ff"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 3,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "796336c2-450a-4023-8d6a-45b9cddebae6"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 4,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "cc2f89b9-19d2-45ac-8a1e-a5570e02f110"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 5,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d8a3f226-a049-41f5-9415-d1d17f6d5fcc"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 6,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "66ce963d-37a1-4426-b565-3210d1f4764a"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 7,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "90742fd5-0b51-40ba-bdc1-cee32603bf67"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 8,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "15c2b703-d5ee-4804-aac9-7cca14714066"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 9,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e1ce6ece-31a8-49b9-8d0d-841df82429c8"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 10,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "0233c827-46ab-4b26-866f-22b9fd5c5ad3"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 11,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "52cc65ea-3b7d-43a9-8c7a-a85cebb40abf"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 12,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a2920bda-ae77-473d-ab03-2f965d3f1590"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 13,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a29fcdef-5cee-4ae2-bf18-4bee584082e2"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 14,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "45d0fff0-e21b-472a-b38e-148bf5e0e108"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 15,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d9b26b56-74a7-4cb3-8f03-0e338cf4af54"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 16,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "2acc8227-4382-4af8-a8f1-37590e49a60b"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 17,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "60c23431-3a48-4c68-a8c3-6da1b659b58f"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 18,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "97dd803a-90e1-4be6-b98e-892f11912dca"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 19,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "45a12158-e77a-450f-9160-8d74f878988d"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 20,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "dfb470e6-dad8-47a1-9a4d-3af31a65f490"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 21,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "303f559f-9733-4a89-8780-12f7bbef4861"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 22,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "0ecb86c0-d04f-4755-b3d3-94676be55145"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 23,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b1050d48-eb1c-49f8-af33-c36f8af253b3"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 24,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "94ad9b04-ad45-4842-bede-e8fc5bc8d8e7"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 25,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a7b43ff5-054b-4278-8c61-f3b83e2a88e8"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 26,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4eb7ce4b-a284-419b-aac6-2a44e47d9cef"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 27,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "12063342-588f-4c2c-8400-52fe9cdf9bfd"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 28,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6ee1e758-6992-4ad7-ad18-6c12f6a3ebe7"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 29,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "78309ad2-34e2-4d57-ae82-59a1b7a5005a"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 30,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7c6c331b-9aa4-4e78-be69-532b77d593ac"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 31,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6e0855b1-c4bd-4d8e-b8f3-4c1be7045fa8"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 32,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f6c348a5-fe42-4d17-9c3c-77e588632bfc"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 33,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f41d58a0-c69a-4370-ab14-06a35448116e"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 34,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f70a45a1-c96a-4393-8d68-2b42bdb0f81b"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 35,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "aefef72a-8067-434f-9ef2-1c794deb1e61"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 36,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b5bf2808-2210-41cd-a4b8-1c9c485fd761"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 37,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "feab191e-527c-48fc-b053-54a483a55692"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 38,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ec708d01-2f86-49e8-ab56-5105f468cb58"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 39,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ec4acf9c-2027-4b06-ab60-3354a767bcc2"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 40,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "56912e26-77d3-4602-b67c-afe88dbb4b44"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 41,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7d2541d0-9624-4e36-a505-af73549e0c84"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 42,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a13ebd78-ed3f-4ace-86f0-0efcfbc09904"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 43,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d5283bbd-5e5b-4ef0-87ce-ee97774c8cc9"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 44,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "29495070-6d3e-4318-b79f-1bb8b24efde4"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 45,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "60be16bc-24c7-4c2c-b693-0a6cc0b070e3"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 46,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3855fc3d-43da-4397-b211-40f7641ac01f"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 47,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e18290f6-2fe2-436f-97b2-d9cb02b4adea"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 48,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9a6eac82-32c4-4984-9657-ca9ec099febb"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 49,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "8b1d4c17-dd0f-4c64-90cd-de732cdde2ce"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 50,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "69639b4f-872e-4986-aec3-12e32762947b"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 51,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d6068cc3-6194-43b6-a16e-83087040f869"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 52,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "842ec0f1-f546-4fb6-b48c-16fd83c1427a"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 53,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "78883f86-090d-4956-953f-e154bf7b2405"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 54,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4b63f5b6-e70e-4427-b468-9e91f2ec2c05"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 55,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ca070d71-068e-45e2-ac20-d41cf62b746e"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 56,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "5bab62a2-ea55-469a-a0b3-0aec30bcbc94"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 57,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "19376216-3b95-47ab-8338-7e008cdcd935"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 58,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "914b3880-d4c0-416a-a20b-bcff880899f3"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 59,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f51925e1-7293-4507-a211-1e9359d75aca"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 60,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "8e0edbc9-f57b-49c9-8300-cea913c6d7c1"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 61,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3c1d0557-5b18-401c-acd3-e13184d144f0"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 62,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "2a2849bd-6670-447f-9875-86ed7ee2218a"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 63,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f453e948-9d20-4d84-af13-676c9bc82f68"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 64,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f41c9575-b1aa-4314-a28e-dd90eea895d9"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 65,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d01f6510-67ef-4152-beca-85fc1a160d5e"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 66,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "2fe4c8fc-fb9d-4e29-8808-99358b6aa236"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 67,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "1a53150d-eed8-486a-9325-32efc2b06331"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 68,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a58e5932-b51a-4db5-979f-7f0dfa09552a"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 69,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "08843573-1b1c-4646-95d8-5d137ca414bc"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 70,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "70b83baf-cca6-4446-b51e-f75e10906de8"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 71,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "49977980-f59c-48d6-9b35-e01b54349642"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 72,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f138f99c-e993-4e33-bf85-699d55d8031e"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 73,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7eae9b94-60e1-4822-9ed1-d5099e907983"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 74,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6b106986-42aa-4e4f-9451-0879a23c21e9"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 75,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9a4fc155-19ab-409c-88b9-fd51d21b8c56"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 76,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e62c77c6-b5fa-483e-b367-7cb956cced84"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 77,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d2512d56-e31c-4849-ad9c-5b0bf13d3a88"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 78,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "276818f1-5b82-47f1-b0ed-c6d8fc2fad52"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 79,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "8a0b6893-6cb4-4e9e-85f7-52b46b5d7b8a"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 80,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "36b34592-d0a1-4dff-a9a6-50f34e685cf8"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "68a4db01-6525-4601-ac77-faac4ff53c60"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434",
+          "tier": "deep"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "deep",
+            "used_today": 1,
+            "limit": 50
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "c9da087c-b022-4ebd-935f-082f8cb13853"
+        },
+        "body": {
+          "content_id": "cnt_23c124d3b4a87645d8913434"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "1cd57a84-7755-4a46-8960-95d6256f66e8"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4feea815-f6d0-4a4a-ac01-436f95f02189"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3a0b70c4-aa88-445c-afb3-0ff4f4382951"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "105e7c5e-499a-47e0-a493-2c835ec64069"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a16d039a-c5f4-4aaf-996f-ee6fdac0fa3b"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "39c54244-c21b-4466-94ca-a34c4f7e0490"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "72fe005c-1ffa-403b-a927-de47e14f3b41"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9d66b1c2-b9b4-469a-a542-2c5b1a6efa8a"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4a219e42-6682-48a1-9ce4-07285d6c27b5"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ea986a8c-5228-4449-a7d5-226202bc429c"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "57d20af4-9ccd-49ea-a4f8-9fdbe79d204b"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d83873d2-9fd5-4473-a3cf-5cb8dd0b05d5"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a313998f-cb21-468a-a42f-7927b444aabe"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e36a65cb-9a80-4b39-9473-2d425989d23e"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "12d36a6c-6fae-43e9-96e9-7a9c3f894b5c"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "bae19011-3a1a-4b72-ae24-530bbb845174"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "e6a9e7e4-6d38-4f51-bb31-160f0b99fa09"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "23c0daea-c3cb-41fa-97d8-efade3f6fd96"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 78,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "c077abc4-6938-4d02-8296-7eb8101618fe"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 79,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "26af26f0-f95c-486b-9aff-088455a84614"
+        },
+        "body": {
+          "content_id": "cnt_2cf48757200ff48b55d30006"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 80,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-ai-other/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "0007b53b-35a1-4c70-a694-d039aac03ba9"
+        },
+        "body": {
+          "content_id": "cnt_1a29c4fe9421fa741730c2e7"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6503970d-378d-49b1-99db-e1e077dedfe0"
+        },
+        "body": {
+          "content_id": "cnt_1a29c4fe9421fa741730c2e7",
+          "tenant_id": "ten_a8cd32756cbfb9a1fced7ce5",
+          "user_id": "usr_3c0562c1991d5505769d9369"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "dd1acb6a-ff40-4e73-822a-e8482057b407"
+        },
+        "body": {
+          "content_id": "cnt_1a29c4fe9421fa741730c2e7"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b13f9e08-7ec5-4b1c-9414-ecfbf1e8688c"
+        },
+        "body": {
+          "content_id": "cnt_1a29c4fe9421fa741730c2e7"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "ab815d21-6b14-4f37-83d1-7f026a2135aa"
+        },
+        "body": {
+          "content_id": "cnt_1a29c4fe9421fa741730c2e7"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "99b97bc6-1731-4184-a962-c10ede26b42d"
+        },
+        "body": {
+          "content_id": "cnt_fadc0f523ac3cb862b3ad3f5"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "tenant_expired",
+          "message": "机构已到期或停用，请联系机构负责人"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "7f44ed1f-33f5-4926-a26d-4e92483c86b3"
+        },
+        "body": {
+          "content_id": "cnt_fadc0f523ac3cb862b3ad3f5"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b40dc28e-eb90-42c9-9976-0357dd627f66"
+        },
+        "body": {
+          "content_id": "cnt_fadc0f523ac3cb862b3ad3f5"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "tenant_expired",
+          "message": "机构已到期或停用"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/fill-from-consult",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9688772e-dce0-40d1-a0d0-c1c206c2dda6"
+        },
+        "body": {
+          "plan_id": "pln_551cc28cd8cbf47684531520",
+          "context": {
+            "student": {
+              "phone": "13999998888",
+              "name": "客户伪造"
+            }
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_34562021d4f0d4695b54a643",
+              "kind": "plan.fields",
+              "target": {
+                "plan_id": "pln_551cc28cd8cbf47684531520"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "modules.assessment.text",
+                    "value": "加强读谱",
+                    "quote": "希望加强读谱"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "已丢弃无法核对咨询原话的字段：modules.assessment.source_note"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "486ed5ae-bbf4-4704-849c-68fe152e8836"
+        },
+        "body": {
+          "content_id": "cnt_df29c54b18da0cd45a6adc72",
+          "tier": "bad"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "AI档位不正确",
+          "details": {
+            "fields": [
+              {
+                "field": "tier",
+                "message": "AI档位不正确"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/polish",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "c4861a85-3177-4976-8a55-e526f92c9726"
+        },
+        "body": {
+          "plan_id": "pln_foreign"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "2e403dd2-0ebe-4da6-9fd3-361bcb91acab"
+        },
+        "body": {
+          "content_id": "cnt_24e9589af6e1d40c36d4e132",
+          "model": "injected",
+          "endpoint": "https://invalid.test"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 1
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "42cb5eb5-5dfe-4495-9508-4544ab9084ba"
+        },
+        "body": {
+          "content_id": "cnt_24e9589af6e1d40c36d4e132",
+          "tier": "deep"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的深度 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "deep",
+            "limit": 0,
+            "reset_at": "2026-11-15T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "d1ad06e4-c983-4bff-bca8-f1618ccf4512"
+        },
+        "body": {
+          "content_id": "cnt_aeafba148a243042db03e817"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "56fc0a11-243c-4624-b019-1058a2b2976a"
+        },
+        "body": {
+          "content_id": "cnt_aeafba148a243042db03e817"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 502,
+        "body": {
+          "error": "ai_unavailable",
+          "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/settings/propose",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "03e957b6-14e4-4f85-a6c4-c79450ba39ea"
+        },
+        "body": {
+          "instruction": "考级改到11月"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_87d65b0f2cce2d073d6a3f59",
+              "kind": "settings.change",
+              "target": {},
+              "payload": {
+                "ops": [
+                  {
+                    "op": "update",
+                    "entity": "calendar",
+                    "key": "grade_exam",
+                    "field": "months",
+                    "from": [
+                      1,
+                      7,
+                      8
+                    ],
+                    "to": [
+                      1,
+                      11
+                    ]
+                  }
+                ],
+                "side_effects": [],
+                "affected": {
+                  "plans_in_progress": 0
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/ai/settings",
+        "host": "console.school.test",
+        "authenticated": true,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cf-Access-Jwt-Assertion": "<Access JWT>",
+          "Cookie": "<ops session>"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "main",
+          "fast_daily_limit": 80,
+          "deep_daily_limit": 50,
+          "fast_model": null,
+          "deep_model": null,
+          "version": 1,
+          "updated_at": 0,
+          "updated_by": "migration0022"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/ai/settings",
+        "host": "console.school.test",
+        "authenticated": true,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cf-Access-Jwt-Assertion": "<Access JWT>",
+          "Cookie": "<ops session>"
+        },
+        "body": {
+          "version": 1,
+          "fast_daily_limit": 5,
+          "deep_daily_limit": 2,
+          "fast_model": "model-A",
+          "deep_model": "model-B",
+          "DEEPSEEK_API_KEY": "must-ignore"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "main",
+          "fast_daily_limit": 5,
+          "deep_daily_limit": 2,
+          "fast_model": "model-A",
+          "deep_model": "model-B",
+          "version": 2,
+          "updated_at": 1794599192077,
+          "updated_by": "adm_fixture"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/ai/settings",
+        "host": "console.school.test",
+        "authenticated": true,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cf-Access-Jwt-Assertion": "<Access JWT>",
+          "Cookie": "<ops session>"
+        },
+        "body": {
+          "version": 1
+        }
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "平台设置已变化",
+          "details": {
+            "latest": {
+              "id": "main",
+              "fast_daily_limit": 5,
+              "deep_daily_limit": 2,
+              "fast_model": "model-A",
+              "deep_model": "model-B",
+              "version": 2,
+              "updated_at": 1794599192077,
+              "updated_by": "adm_fixture"
+            }
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "777095ab-7cff-4c50-b6e6-56d526e3d64b"
+        },
+        "body": {
+          "content_id": "cnt_8b2ce5bbff65decc8dc2614d"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 502,
+        "body": {
+          "error": "ai_unavailable",
+          "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "777095ab-7cff-4c50-b6e6-56d526e3d64b"
+        },
+        "body": {
+          "content_id": "cnt_8b2ce5bbff65decc8dc2614d"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_0ecfca80003fa4075a163a85",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_8b2ce5bbff65decc8dc2614d"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "fbc0ff0a-5779-4601-a973-00ef08334657"
+        },
+        "body": {
+          "content_id": "cnt_3b094dc1dd404074fabc3866"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_e5b29691852ba7bda5798674",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_3b094dc1dd404074fabc3866"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/settings/propose",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b2b1adba-b667-4398-857d-17317eb93a14"
+        },
+        "body": {
+          "instruction": "调整考级"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_fafa45092867844099123744",
+              "kind": "settings.change",
+              "target": {},
+              "payload": {
+                "ops": [
+                  {
+                    "op": "update",
+                    "entity": "calendar",
+                    "key": "grade_exam",
+                    "field": "months",
+                    "from": [
+                      1,
+                      7,
+                      8
+                    ],
+                    "to": [
+                      11
+                    ]
+                  }
+                ],
+                "side_effects": [],
+                "affected": {
+                  "plans_in_progress": 0
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6041ec12-8d4c-4e9c-a49c-7c581a98d46a"
+        },
+        "body": {
+          "content_id": "cnt_58059229eb36ba1cb7963a81",
+          "model": "ignored",
+          "endpoint": "https://ignored.invalid"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "未找到符合本次条件的建议，请调整资料后再试"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 2,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 2,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_0f4527b68de042d48c7f10d6",
+              "name": "主管",
+              "fast": 2,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 0,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 0,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_62625e8a16d29b28e992d86f",
+              "name": "主管",
+              "fast": 0,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_62625e8a16d29b28e992d86f",
+              "name": "主管",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_62625e8a16d29b28e992d86f",
+              "name": "主管",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 80,
+            "limit": 80
+          },
+          "deep": {
+            "used": 1,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 80,
+              "deep": 1
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_123c813e42531dab1290832a",
+              "name": "主管",
+              "fast": 80,
+              "deep": 1
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 80,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 3,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_0dcdf9354952830db0db8019",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_13ff9186369f79aa4f6153d0",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_142809b3e0d745cbfe917231",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_1a7f3389c356861796fa7d71",
+              "name": "验收账号",
+              "fast": 1,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_27077aa558aaee1ad1880fb3",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_3d06146cd26a5ec1ddb182f2",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_5e60a968429e71d97db51b04",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_650c2f06266ebed000bcbfd5",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_6b7f9f4888ae51b336efbe6a",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_70dbf450a34777db5e352c10",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_73c55380842393e4719703f7",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_83a1190a4ab8842d4b8eda9b",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_90d9d07b4fda21b2d9958a20",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_9721329e1bf58f36df2d5bb7",
+              "name": "验收账号",
+              "fast": 1,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_c915c2211597a808ebc2ea61",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_d749b6665e440fd11a5bb9e9",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_dfbe56344a8b5346fed1b779",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_e604b553bb0e286d830afdc8",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_ee8b1eb8c15963b07ad3bdd5",
+              "name": "验收账号",
+              "fast": 0,
+              "deep": 0
+            },
+            {
+              "user_id": "usr_fe9d9292842f5ad4f796141d",
+              "name": "验收账号",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-ai-other/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 0,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [],
+          "by_user": [],
+          "warnings": []
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "warnings": []
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "warnings": []
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "warnings": []
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_8290d89eee770f1146bd3e73",
+              "name": "主管",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 0,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 0,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_867552432c91a3027a963db8",
+              "name": "主管",
+              "fast": 0,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-14",
+          "fast": {
+            "used": 1,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_867552432c91a3027a963db8",
+              "name": "主管",
+              "fast": 1,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    }
+  ]
+}

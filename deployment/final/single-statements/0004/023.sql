@@ -1,0 +1,1 @@
+INSERT INTO package_transactions(tenant_id,id,package_id,student_id,delta,type,date,created_at,created_by,updated_at,updated_by) SELECT tenant_id,'txn_'||lower(hex(randomblob(12))),id,student_id,units_total,'opening',purchase_date,created_at,'system_migration',updated_at,'system_migration' FROM packages WHERE units_total<>0;

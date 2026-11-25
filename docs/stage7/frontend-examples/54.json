@@ -1,0 +1,218 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-growth/api/report-batches",
+    "body": {
+      "name": "秋季报告",
+      "from": "2026-11-01",
+      "to": "2026-11-30",
+      "report_class_id": "rcl_6e6285a33627e54832045c30",
+      "teacher_id": "rec_b35f53def4646bc8db0c83ed",
+      "student_ids": [
+        "rec_8b78d3c0c08cba1725186bd0",
+        "rec_8b00d16b6108fc88e5499a6e"
+      ]
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "batch": {
+        "id": "gb_2394b4ec89a323f06df663b9",
+        "name": "秋季报告",
+        "from": "2026-11-01",
+        "to": "2026-11-30",
+        "teacher_id": "rec_b35f53def4646bc8db0c83ed",
+        "version": 1
+      },
+      "reports": [
+        {
+          "student_id": "rec_8b78d3c0c08cba1725186bd0",
+          "teacher_id": "rec_b35f53def4646bc8db0c83ed",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "demo_report_style",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [],
+          "mock_exams": [],
+          "texts": {
+            "progress": "",
+            "focus": "",
+            "next_goals": [],
+            "home_practice": [],
+            "teacher_note": ""
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_a051b1f92b06193c4f299df4",
+          "version": 1,
+          "batch_id": "gb_2394b4ec89a323f06df663b9",
+          "status": "draft",
+          "progress": "not_started",
+          "report_class_id": "rcl_6e6285a33627e54832045c30"
+        },
+        {
+          "student_id": "rec_8b00d16b6108fc88e5499a6e",
+          "teacher_id": "rec_b35f53def4646bc8db0c83ed",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "demo_report_style",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [],
+          "mock_exams": [],
+          "texts": {
+            "progress": "",
+            "focus": "",
+            "next_goals": [],
+            "home_practice": [],
+            "teacher_note": ""
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_975d02ef6146d5584d6edf0c",
+          "version": 1,
+          "batch_id": "gb_2394b4ec89a323f06df663b9",
+          "status": "draft",
+          "progress": "not_started",
+          "report_class_id": "rcl_6e6285a33627e54832045c30"
+        }
+      ]
+    },
+    "queries": 8
+  }
+}

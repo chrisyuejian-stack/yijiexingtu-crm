@@ -1,0 +1,449 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ops/style-packs",
+    "body": null,
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "demo_platform_style",
+          "name": "平台示例风格",
+          "active": true,
+          "current_version": "1.0.0",
+          "versions": [
+            {
+              "pack_id": "demo_platform_style",
+              "name": "平台示例风格",
+              "pack_version": "1.0.0",
+              "version": 2,
+              "status": "published",
+              "scope": "tenants",
+              "active": true,
+              "manifest": {
+                "id": "demo_platform_style",
+                "name": "平台示例风格",
+                "version": "1.0.0",
+                "doc_types": [
+                  "plan",
+                  "report",
+                  "feedback_card",
+                  "article"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none",
+                  "corner_image": "assets/pic.png"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": "assets/pic.png"
+              },
+              "checks": {
+                "errors": [],
+                "warnings": [
+                  "assets/pic.png宽度小于1600"
+                ],
+                "usable_text_modes": [
+                  "light"
+                ],
+                "contrast": {
+                  "ink_paper": 15.797339723332843,
+                  "muted_paper": 5.85386937679366
+                }
+              },
+              "published_at": 1794805014435,
+              "asset_base": "/api/ops/style-packs/demo_platform_style/versions/1.0.0/assets/"
+            }
+          ]
+        },
+        {
+          "id": "stp_article",
+          "name": "简洁文章",
+          "active": true,
+          "current_version": "1.0.0",
+          "versions": [
+            {
+              "pack_id": "stp_article",
+              "name": "简洁文章",
+              "pack_version": "1.0.0",
+              "version": 1,
+              "status": "published",
+              "scope": "all",
+              "active": true,
+              "manifest": {
+                "id": "stp_article",
+                "name": "简洁文章",
+                "version": "1.0.0",
+                "doc_types": [
+                  "article"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              },
+              "checks": {
+                "errors": [],
+                "warnings": []
+              },
+              "published_at": 0,
+              "asset_base": "/api/ops/style-packs/stp_article/versions/1.0.0/assets/"
+            }
+          ]
+        },
+        {
+          "id": "stp_folio",
+          "name": "书册",
+          "active": true,
+          "current_version": "1.0.0",
+          "versions": [
+            {
+              "pack_id": "stp_folio",
+              "name": "书册",
+              "pack_version": "1.0.0",
+              "version": 1,
+              "status": "published",
+              "scope": "all",
+              "active": true,
+              "manifest": {
+                "id": "stp_folio",
+                "name": "书册",
+                "version": "1.0.0",
+                "doc_types": [
+                  "plan"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              },
+              "checks": {
+                "errors": [],
+                "warnings": []
+              },
+              "published_at": 0,
+              "asset_base": "/api/ops/style-packs/stp_folio/versions/1.0.0/assets/"
+            }
+          ]
+        },
+        {
+          "id": "stp_growth_folio",
+          "name": "成长书册",
+          "active": true,
+          "current_version": "1.0.0",
+          "versions": [
+            {
+              "pack_id": "stp_growth_folio",
+              "name": "成长书册",
+              "pack_version": "1.0.0",
+              "version": 1,
+              "status": "published",
+              "scope": "all",
+              "active": true,
+              "manifest": {
+                "id": "stp_growth_folio",
+                "name": "成长书册",
+                "version": "1.0.0",
+                "doc_types": [
+                  "report",
+                  "feedback_card"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              },
+              "checks": {
+                "errors": [],
+                "warnings": []
+              },
+              "published_at": 0,
+              "asset_base": "/api/ops/style-packs/stp_growth_folio/versions/1.0.0/assets/"
+            }
+          ]
+        },
+        {
+          "id": "stp_journal",
+          "name": "手记",
+          "active": true,
+          "current_version": "1.0.0",
+          "versions": [
+            {
+              "pack_id": "stp_journal",
+              "name": "手记",
+              "pack_version": "1.0.0",
+              "version": 1,
+              "status": "published",
+              "scope": "all",
+              "active": true,
+              "manifest": {
+                "id": "stp_journal",
+                "name": "手记",
+                "version": "1.0.0",
+                "doc_types": [
+                  "plan"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "journal",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              },
+              "checks": {
+                "errors": [],
+                "warnings": []
+              },
+              "published_at": 0,
+              "asset_base": "/api/ops/style-packs/stp_journal/versions/1.0.0/assets/"
+            }
+          ]
+        },
+        {
+          "id": "stp_stage",
+          "name": "舞台",
+          "active": true,
+          "current_version": "1.0.0",
+          "versions": [
+            {
+              "pack_id": "stp_stage",
+              "name": "舞台",
+              "pack_version": "1.0.0",
+              "version": 1,
+              "status": "published",
+              "scope": "all",
+              "active": true,
+              "manifest": {
+                "id": "stp_stage",
+                "name": "舞台",
+                "version": "1.0.0",
+                "doc_types": [
+                  "plan"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "stage",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              },
+              "checks": {
+                "errors": [],
+                "warnings": []
+              },
+              "published_at": 0,
+              "asset_base": "/api/ops/style-packs/stp_stage/versions/1.0.0/assets/"
+            }
+          ]
+        }
+      ],
+      "defaults": [
+        {
+          "doc_type": "article",
+          "pack_id": "stp_article"
+        },
+        {
+          "doc_type": "feedback_card",
+          "pack_id": "stp_growth_folio"
+        },
+        {
+          "doc_type": "plan",
+          "pack_id": "stp_folio"
+        },
+        {
+          "doc_type": "report",
+          "pack_id": "stp_growth_folio"
+        }
+      ]
+    }
+  }
+}

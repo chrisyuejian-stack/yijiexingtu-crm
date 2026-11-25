@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/schedule-platformdemo/api/parent/plans/pln_0af024bb5bc5944005886852/style-assets/pic.png",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "binary": true,
+      "mime": "image/png",
+      "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jw1kAAAAASUVORK5CYII="
+    },
+    "queries": 6
+  }
+}

@@ -1,0 +1,1 @@
+CREATE TABLE setting_template_refs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,subject TEXT NOT NULL,kind TEXT NOT NULL,template_key TEXT NOT NULL,entity_id TEXT NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,subject,kind,template_key));

@@ -1,0 +1,2 @@
+git apply --check against a clean baseline package; all other diff paths are new.
+Exit: 0

@@ -1,0 +1,109 @@
+/* UI基础：按Main.png核对。独立命名空间，阶段A尚未接入业务页面。 */
+.ui-root {
+  --ui-primary: #2b4c7e;
+  --ui-primary-soft: #eef1f6;
+  --ui-primary-hover: #203d68;
+  --ui-page: #f4f2f7;
+  --ui-panel: #ffffff;
+  --ui-text: #1e1a26;
+  --ui-secondary: #3f3a48;
+  --ui-muted: #6b6476;
+  --ui-border: #e3deea;
+  --ui-input-border: #d5cedf;
+  --ui-header: #faf9fc;
+  --ui-divider: #efebf3;
+  --ui-success-bg: #e6f4ea;
+  --ui-success: #256b40;
+  --ui-warning-bg: #fdf0df;
+  --ui-warning: #8a4506;
+  --ui-error-bg: #fbe9eb;
+  --ui-error: #9b2c35;
+  --ui-info-bg: #e6eff8;
+  --ui-info: #285480;
+  --ui-neutral-bg: #f1eff4;
+  --ui-neutral: #5e5869;
+  --ui-category-1: #8b7bb5;
+  --ui-category-1-soft: #f0eaf7;
+  --ui-category-1-text: #594275;
+  --ui-category-2: #5b8db8;
+  --ui-category-2-soft: #e6eff8;
+  --ui-category-2-text: #285480;
+  --ui-category-3: #62a598;
+  --ui-category-3-soft: #e7f3ee;
+  --ui-category-3-text: #235e4b;
+  --ui-category-4: #c99a54;
+  --ui-category-4-soft: #fdf0df;
+  --ui-category-4-text: #79511d;
+  --ui-category-5: #b7768c;
+  --ui-category-5-soft: #fbe9ef;
+  --ui-category-5-text: #8b334b;
+  --ui-category-6: #7b93ab;
+  --ui-category-6-soft: #edf1f5;
+  --ui-category-6-text: #41566b;
+  --ui-category-7: #a48b69;
+  --ui-category-7-soft: #f7f0e6;
+  --ui-category-7-text: #6e5334;
+  --ui-category-8: #8c9d62;
+  --ui-category-8-soft: #f1f4e8;
+  --ui-category-8-text: #4e622b;
+  --ui-font:
+    "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --ui-font-xs: 12px;
+  --ui-font-sm: 13px;
+  --ui-font-body: 14px;
+  --ui-font-section: 16px;
+  --ui-font-title: 22px;
+  --ui-font-number: 28px;
+  --ui-weight-regular: 400;
+  --ui-weight-medium: 500;
+  --ui-weight-heading: 600;
+  --ui-weight-number: 700;
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-space-6: 24px;
+  --ui-space-8: 32px;
+  --ui-space-12: 48px;
+  --ui-radius-tag: 6px;
+  --ui-radius-control: 9px;
+  --ui-radius-avatar: 10px;
+  --ui-radius-panel: 14px;
+  --ui-touch: 44px;
+  --ui-button-visual: 36px;
+  --ui-sidebar: 232px;
+  --ui-topbar: 64px;
+  --ui-content-max: 1360px;
+  --ui-drawer: 520px;
+  --ui-shadow-hover: 0 6px 18px rgb(30 26 38 / 8%);
+  --ui-shadow-panel: 0 16px 56px rgb(30 26 38 / 14%);
+  --ui-shadow-toast: 0 8px 28px rgb(30 26 38 / 12%);
+  --ui-focus: 0 0 0 3px rgb(43 76 126 / 20%);
+  --ui-duration-press: 120ms;
+  --ui-duration-micro: 160ms;
+  --ui-duration-page: 180ms;
+  --ui-duration-panel: 240ms;
+  --ui-ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ui-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  font-family: var(--ui-font);
+  font-size: var(--ui-font-body);
+  line-height: 1.6;
+  color: var(--ui-text);
+  font-variant-numeric: tabular-nums;
+  color-scheme: light;
+}
+.ui-root[data-ui-theme="purple"] {
+  --ui-primary: #3b2a5e;
+  --ui-primary-hover: #2c1e48;
+  --ui-primary-soft: #efedf2;
+}
+.ui-root[data-ui-theme="green"] {
+  --ui-primary: #1f6b5c;
+  --ui-primary-hover: #155044;
+  --ui-primary-soft: #edf3f2;
+}
+.ui-root[data-ui-theme="red"] {
+  --ui-primary: #8a3b2e;
+  --ui-primary-hover: #6b2a20;
+  --ui-primary-soft: #f6efee;
+}

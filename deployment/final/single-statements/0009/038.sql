@@ -1,0 +1,1 @@
+CREATE TRIGGER lessons_class_insert BEFORE INSERT ON lessons WHEN NEW.class_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM classes WHERE tenant_id=NEW.tenant_id AND id=NEW.class_id) THEN RAISE(ABORT,'invalid_class_reference') END; END;

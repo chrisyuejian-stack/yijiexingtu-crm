@@ -1,0 +1,63 @@
+
+> yijiexingtu-crm@0.5.0 test:platform
+> node --test tests/platform/*.test.mjs
+
+✔ PLAT bridge overwrites forged cf headers, host allowlist, fresh env, streaming and cookies (18.730847ms)
+✔ PLAT bridge rejects advertised and streaming request bodies over limit with 413 (3.890232ms)
+✔ PLAT bridge unhandled exceptions log id/path/frames without body or Cookie (1.923965ms)
+✔ PLAT assets in-memory MIME/HEAD, traversal rejection and no Worker source exposure (4.602924ms)
+✔ PLAT COS byte/string put/get/head round trip and missing keys (4.980031ms)
+✔ PLAT COS marker pagination, list metadata, delete array chunks and idempotence (0.830669ms)
+✔ PLAT COS only network/5xx retry twice; 403 is not missing and not retried (0.585611ms)
+✔ PLAT CVM role expiry refresh at five minutes, coalesced metadata calls and SDK auth (1.647138ms)
+✔ PLAT CVM bad role/expired or failed metadata rejects without credential fallback (0.479992ms)
+✔ PLAT D1 WAL/NORMAL/5000ms and foreign keys enforced (16.179399ms)
+✔ PLAT D1 run/batch meta.changes and last_row_id, missing updates remain zero (4.414431ms)
+✔ PLAT D1 boolean/blob conversion, undefined rejection, first column and raw rows (4.893822ms)
+✔ PLAT D1 failed batch rolls back every table and preserves original error (3.680967ms)
+✔ PLAT D1 deferred foreign keys support child-before-parent and roll back commit failure (2.98465ms)
+✔ PLAT D1 same-process interleaved writes use actual affected counts (2.796166ms)
+✖ PLAT E2E built Workers via server.mjs: real HTTP logins/student/plan/COS gallery/full encrypted backup (359.601115ms)
+✔ PLAT server startup failure releases file lock and does not bind public interfaces (180.06124ms)
+✔ PLAT dump lexer handles quoted semicolons/comments/CASE trigger and rejects unfinished SQL (1.074807ms)
+✖ PLAT full D1 export/import preserves every table row, encrypted fields and triggers; skips _cf_ (320.450929ms)
+✔ PLAT invalid import rolls back and never publishes partial output, foreign-key violation rejected (196.422375ms)
+✔ PLAT post-write rollback SQL replaces rows without firing business triggers and restores exact trigger DDL (222.91235ms)
+✔ PLAT WAL-safe file snapshot compress/encrypt/upload then restore; wrong key rejects and old snapshots retained 14 days (186.43016ms)
+✔ PLAT backup monitoring uses actual completed status and 26-hour boundary (176.168673ms)
+✔ PLAT UTC 19:00 invokes daily then five-minute with exact minute and separate env (1.102319ms)
+✔ PLAT cron no overlap, tracks waitUntil, skips missed minutes and no startup backfill (1.691284ms)
+✔ PLAT cron failure of daily still runs separately scheduled maintenance (0.264568ms)
+✔ PLAT config role default, explicit off, original key formats, no AI_PROVIDER or wrong region (224.832203ms)
+✔ PLAT startup checks migration 0028 and foreign keys; missing version objects rejected (180.060834ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 26
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2687.375342
+
+✖ failing tests:
+
+test at tests/platform/e2e.test.mjs:11:1
+✖ PLAT E2E built Workers via server.mjs: real HTTP logins/student/plan/COS gallery/full encrypted backup (359.601115ms)
+  TypeError [Error]: Cannot convert undefined to a BigInt
+      at BigInt (<anonymous>)
+      at totp (file:///workspace/yijiexingtu-tencent/src/server/crypto.js:181:37)
+      at TestContext.<anonymous> (file:///workspace/yijiexingtu-tencent/tests/platform/e2e.test.mjs:25:242)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests/platform/migration.test.mjs:19:1
+✖ PLAT full D1 export/import preserves every table row, encrypted fields and triggers; skips _cf_ (320.450929ms)
+  Error: no such table: main.growth_feedback
+      at importD1 (file:///workspace/yijiexingtu-tencent/deploy/import-d1.mjs:18:114)
+      at async TestContext.<anonymous> (file:///workspace/yijiexingtu-tencent/tests/platform/migration.test.mjs:22:217)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    code: 'ERR_SQLITE_ERROR',
+    errcode: 1,
+    errstr: 'SQL logic error'
+  }

@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-platformdemo/api/ai/content/versions",
+    "body": {
+      "content_id": "cnt_84150a36530678fb8707d2ae"
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "suggestions": [],
+      "warnings": [
+        "未找到符合本次条件的建议，请调整资料后再试"
+      ],
+      "usage": {
+        "tier": "fast",
+        "used_today": 1,
+        "limit": 80
+      }
+    },
+    "queries": 12
+  }
+}

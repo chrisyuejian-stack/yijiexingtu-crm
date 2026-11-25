@@ -1,0 +1,9 @@
+✔ 账号上限在写入语句强制；手机号跨机构 HMAC 不同；所有 SQL 仅在 repo (282.788346ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 462.114581

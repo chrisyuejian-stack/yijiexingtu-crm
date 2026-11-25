@@ -1,0 +1,52 @@
+[
+  {
+    "case": "v1 custom 余分不变",
+    "total": 300.01,
+    "ratio_bps": [
+      5000,
+      5000
+    ],
+    "installments": [
+      150.01,
+      150
+    ]
+  },
+  {
+    "case": "自由课程半分向上",
+    "manual_unit_price": 300.01,
+    "qty": 1.5,
+    "amount": 450.02
+  },
+  {
+    "case": "完整方案",
+    "catalog_course": {
+      "unit_price": 300.01,
+      "qty": 48,
+      "amount": 14400.48
+    },
+    "manual_course": {
+      "unit_price": 350,
+      "qty": 36,
+      "amount": 12600
+    },
+    "stage_extras": 500,
+    "other_fees": 1500,
+    "discount": 1000,
+    "total": 28000.48,
+    "ratio_bps": [
+      5000,
+      5000
+    ],
+    "installments": [
+      14000.24,
+      14000.24
+    ]
+  },
+  {
+    "case": "未报价不是免费",
+    "manual_unit_price": null,
+    "qty": 10,
+    "amount": null,
+    "complete": false
+  }
+]

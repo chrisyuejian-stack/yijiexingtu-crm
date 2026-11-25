@@ -1,0 +1,351 @@
+{
+  "notice": "模型不得提供金额；response.payload.computed 由服务器计算。卡 after 不含价格快照。",
+  "save_brief": {
+    "request": {
+      "method": "PUT",
+      "path": "/api/plans/pln_demo/brief",
+      "json": {
+        "version": 2,
+        "text": "孩子初二，钢琴有基础，手型有点塌。一年预算约三万，希望先补基础，再多些舞台表现。"
+      }
+    },
+    "response": {
+      "status": 200,
+      "json": {
+        "brief": {
+          "version": 3,
+          "text": "孩子初二，钢琴有基础，手型有点塌。一年预算约三万，希望先补基础，再多些舞台表现。",
+          "updated_at": "2026-11-17T21:00:00+08:00"
+        },
+        "warnings": []
+      }
+    }
+  },
+  "generate": {
+    "request": {
+      "method": "POST",
+      "path": "/api/ai/plan/brief",
+      "headers": {
+        "Idempotency-Key": "38a74d48-5e9d-469d-8dde-d388c0a12345"
+      },
+      "json": {
+        "plan_id": "pln_demo",
+        "doc_version": 2,
+        "plan_version": 7,
+        "brief_version": 3,
+        "scope": "auto",
+        "tier": "fast"
+      }
+    },
+    "response": {
+      "status": 200,
+      "json": {
+        "suggestions": [
+          {
+            "id": "ais_demo",
+            "kind": "plan.v2.cardset",
+            "target": {
+              "plan_id": "pln_demo",
+              "doc_version": 2,
+              "base_version": 7,
+              "brief_version": 3,
+              "scope": "auto"
+            },
+            "payload": {
+              "intent": "mixed",
+              "recommended": true,
+              "variant": "A",
+              "cards": [
+                {
+                  "card_id": "card_text1",
+                  "module": "assessment",
+                  "entity_type": "module",
+                  "op": "update",
+                  "entity_id": null,
+                  "parent_id": null,
+                  "field": "text",
+                  "before": "已有钢琴学习基础，建议进一步**稳定手型**。\n- 节奏练习逐步增加\n- 保持每周练习记录",
+                  "after": "已有钢琴学习基础，近期应着重改善手型稳定性。",
+                  "evidence": {
+                    "kind": "quote",
+                    "quote": "钢琴有基础，手型有点塌",
+                    "verified": true,
+                    "source": "brief"
+                  },
+                  "depends_on": [],
+                  "default_selected": true,
+                  "label": "整理学员测评"
+                },
+                {
+                  "card_id": "card_stage3",
+                  "module": "path",
+                  "entity_type": "stage",
+                  "op": "add",
+                  "entity_id": "tmp_stage3",
+                  "parent_id": null,
+                  "field": null,
+                  "before": null,
+                  "after": {
+                    "key": "tmp_stage3",
+                    "name": "集中展示准备",
+                    "stage_type_id": null,
+                    "start_month": "2028-01",
+                    "end_month": "2028-02",
+                    "teaching_weeks": null,
+                    "weeks_note": "",
+                    "goals": [
+                      "完成展示曲目准备"
+                    ],
+                    "nodes": [],
+                    "node_tags": [],
+                    "stage_snapshot": null,
+                    "legacy_range": null
+                  },
+                  "evidence": {
+                    "kind": "inference",
+                    "quote": null,
+                    "verified": false,
+                    "source": "brief"
+                  },
+                  "depends_on": [],
+                  "default_selected": false,
+                  "label": "增加展示准备阶段"
+                },
+                {
+                  "card_id": "card_group3",
+                  "module": "courses",
+                  "entity_type": "course_group",
+                  "op": "add",
+                  "entity_id": "tmp_group3",
+                  "parent_id": "tmp_stage3",
+                  "field": null,
+                  "before": null,
+                  "after": {
+                    "id": "tmp_group3",
+                    "stage_key": "tmp_stage3",
+                    "name": "演奏训练"
+                  },
+                  "evidence": {
+                    "kind": "inference",
+                    "quote": null,
+                    "verified": false,
+                    "source": "brief"
+                  },
+                  "depends_on": [
+                    "card_stage3"
+                  ],
+                  "default_selected": false,
+                  "label": "增加课程分组"
+                },
+                {
+                  "card_id": "card_course3",
+                  "module": "courses",
+                  "entity_type": "course_line",
+                  "op": "add",
+                  "entity_id": "tmp_line3",
+                  "parent_id": "tmp_group3",
+                  "field": null,
+                  "before": null,
+                  "after": {
+                    "line_id": "tmp_line3",
+                    "stage_key": "tmp_stage3",
+                    "group_id": "tmp_group3",
+                    "pricing_source": "catalog",
+                    "course_id": "course_demo_piano",
+                    "origin_course_id": null,
+                    "name": "钢琴一对一",
+                    "name_en": "Piano",
+                    "frequency_text": "每周 1 次 · 每次 1 课时",
+                    "minutes": 45,
+                    "billing_mode": "per_unit",
+                    "qty": {
+                      "units": 8
+                    },
+                    "teaching_units": 8,
+                    "manual_unit_price": null,
+                    "units_per_package": null,
+                    "optional": false,
+                    "note": "展示准备",
+                    "includes": [],
+                    "ai_filled": true
+                  },
+                  "evidence": {
+                    "kind": "inference",
+                    "quote": null,
+                    "verified": false,
+                    "source": "brief"
+                  },
+                  "depends_on": [
+                    "card_stage3",
+                    "card_group3"
+                  ],
+                  "default_selected": false,
+                  "label": "建议展示准备配课"
+                }
+              ],
+              "completion": {
+                "text": "complete",
+                "path": "complete",
+                "courses": "complete"
+              },
+              "computed": {
+                "currency": "CNY",
+                "stages": [
+                  {
+                    "key": "stk_demo1",
+                    "months": 6,
+                    "calendar_weeks": 26,
+                    "teaching_weeks": null,
+                    "weeks_display": 26,
+                    "units": 48,
+                    "known_units": 48,
+                    "amount": 14900.48,
+                    "known_amount": 14900.48,
+                    "draft_amount": null,
+                    "pending": false
+                  },
+                  {
+                    "key": "stk_demo2",
+                    "months": 6,
+                    "calendar_weeks": 26,
+                    "teaching_weeks": null,
+                    "weeks_display": 26,
+                    "units": 36,
+                    "known_units": 36,
+                    "amount": 12600,
+                    "known_amount": 12600,
+                    "draft_amount": null,
+                    "pending": false
+                  },
+                  {
+                    "key": "tmp_stage3",
+                    "months": 2,
+                    "calendar_weeks": 9,
+                    "teaching_weeks": null,
+                    "weeks_display": 9,
+                    "units": 8,
+                    "known_units": 8,
+                    "amount": 2400.08,
+                    "known_amount": 2400.08,
+                    "draft_amount": null,
+                    "pending": false
+                  }
+                ],
+                "lines": [
+                  {
+                    "line_id": "ln_demo1",
+                    "amount": 14400.48,
+                    "units": 48,
+                    "optional": false,
+                    "pricing_source": "catalog"
+                  },
+                  {
+                    "line_id": "ln_demo2",
+                    "amount": 12600,
+                    "units": 36,
+                    "optional": false,
+                    "pricing_source": "manual"
+                  },
+                  {
+                    "line_id": "tmp_line3",
+                    "amount": 2400.08,
+                    "units": 8,
+                    "optional": false,
+                    "pricing_source": "catalog"
+                  }
+                ],
+                "unassigned": {
+                  "amount": 0,
+                  "known_amount": 0,
+                  "units": 0,
+                  "known_units": 0
+                },
+                "subtotal": {
+                  "amount": 31400.56,
+                  "known_amount": 31400.56
+                },
+                "discount": {
+                  "amount": 1000,
+                  "known_amount": 1000
+                },
+                "total": {
+                  "amount": 30400.56,
+                  "known_amount": 30400.56,
+                  "units": 92,
+                  "known_units": 92,
+                  "bundles": [],
+                  "complete": true
+                },
+                "installments": [
+                  {
+                    "stage_key": null,
+                    "label": "第一期",
+                    "due": "2027-01-01",
+                    "amount": 15200.28
+                  },
+                  {
+                    "stage_key": null,
+                    "label": "第二期",
+                    "due": "2027-07-01",
+                    "amount": 15200.28
+                  }
+                ],
+                "installment_status": "balanced",
+                "optional_fees": [],
+                "budget": {
+                  "cap": null,
+                  "remaining": null,
+                  "over": false
+                },
+                "budget_comparison": {
+                  "period": "year",
+                  "cap": 30000,
+                  "comparable_amount": null,
+                  "over": null,
+                  "reason": "period_not_comparable"
+                },
+                "cover_numbers": [
+                  {
+                    "label": "规划周期",
+                    "value": "14",
+                    "unit": "个月",
+                    "sub": "2027.01 – 2028.02"
+                  }
+                ]
+              },
+              "price_list_rev": 8
+            },
+            "basis": [],
+            "warnings": []
+          }
+        ],
+        "warnings": [
+          "建议增加了方案周期，请确认年度预算与规划范围。"
+        ],
+        "usage": {
+          "tier": "fast",
+          "used_today": 1,
+          "limit": 100
+        }
+      }
+    }
+  },
+  "adoption_audit_request_fragment": {
+    "applied_suggestion_ids": [
+      "ais_demo"
+    ],
+    "applied_cards": [
+      {
+        "suggestion_id": "ais_demo",
+        "card_ids": [
+          "card_text1"
+        ],
+        "edited_card_ids": []
+      }
+    ]
+  },
+  "notices": [
+    "只采用测评卡时不能显示整组 30400.56 为已采用报价，需 quote-preview。",
+    "采用阶段+分组+课程必须包含三张依赖卡，或改绑并记 edited。"
+  ]
+}

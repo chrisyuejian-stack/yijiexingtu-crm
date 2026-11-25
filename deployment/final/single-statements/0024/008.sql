@@ -1,0 +1,1 @@
+CREATE TABLE style_assets(pack_id TEXT NOT NULL,pack_version TEXT NOT NULL,path TEXT NOT NULL,r2_key TEXT NOT NULL,mime TEXT NOT NULL,width INTEGER NOT NULL,height INTEGER NOT NULL,bytes INTEGER NOT NULL,sha256 TEXT NOT NULL,PRIMARY KEY(pack_id,pack_version,path),FOREIGN KEY(pack_id,pack_version) REFERENCES style_pack_versions(pack_id,version));

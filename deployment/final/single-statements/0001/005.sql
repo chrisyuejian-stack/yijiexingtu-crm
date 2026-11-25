@@ -1,0 +1,1 @@
+CREATE TABLE tenant_domains (domain TEXT PRIMARY KEY,tenant_id TEXT NOT NULL REFERENCES tenants(id),kind TEXT NOT NULL,verified INTEGER NOT NULL DEFAULT 0);

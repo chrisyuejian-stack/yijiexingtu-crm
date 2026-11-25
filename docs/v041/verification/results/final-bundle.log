@@ -1,0 +1,698 @@
+
+> yijiexingtu-crm@0.4.0 test
+> node --test tests/*.test.mjs
+
+✔ 第九阶段：默认/空串/on均强制Access，缺三个Access变量503，JWT验证与超管会话两层保留 (165.959273ms)
+✔ 第九阶段：off无Access头可读控制台和静态资源，提示仅off出现，其他API未登录仍401且CSP不变 (142.321862ms)
+✔ 第九阶段：off用户名密码TOTP失败一致，五次锁IP十五分钟，正确登录/防重放及会话Cookie保留 (223.420571ms)
+✔ 第九阶段：off初始化仍需PLATFORM_SETUP_KEY和有效TOTP，初始化后两个setup接口永久404 (578.153534ms)
+✔ 第九阶段：off authenticateAdmin仍拒绝失效/停用会话，控制台读请求每分钟240次后仍限流 (272.115273ms)
+✔ 第九阶段：非法ACCESS_MODE严格503 CONFIG_INVALID，off不放宽其他Secrets/主机名/Turnstile配置 (148.366151ms)
+✔ 第九阶段：on/off租户端响应及CSP一致，租户域名下控制台文件和接口始终404 (1791.008254ms)
+✔ 第九阶段：控制台登录文案在off不宣称Access已验证，on保持原文案且提示独立于应用内容 (4.82532ms)
+✔ YX5AI 成功只写AI专用记录，不改方案、内容或修订 (302.123594ms)
+✔ YX5AI v036旧快照加新报价=500元，模型金额作废，采用保存结果一致 (251.747386ms)
+✔ YX5AI 越界、未定价、超预算全部过滤，空建议200计一次并返回警告 (279.127254ms)
+✔ YX5AI 推荐淘汰后首个合规备选成为推荐，最多三个配法 (209.783991ms)
+✔ YX5AI 停用旧行只读保留，不能通过新ID重新报价或改变其数量 (228.024006ms)
+✔ YX5AI 文字path白名单、稳定ID定位与递归剔除分数字段 (228.288343ms)
+✔ YX5AI adjust课程页与文字页使用不同kind (215.35794ms)
+✔ YX5AI 固定键重放、不同请求422、进行中409与单人并发最多2个 (274.735361ms)
+✔ YX5AI 十分钟缓存过期后从重放凭据恢复原usage和原建议，不增加记录或调用 (234.408498ms)
+✔ YX5AI 模型错误和两次解析失败不计次数，同键失败可重试 (244.680546ms)
+✔ YX5AI 第81次快速请求429，深度独立，GET用量无需幂等键 (708.615703ms)
+✔ YX5AI 20账号并发抢剩余3次，仅3个模型调用且用量准确至80 (630.345939ms)
+✔ YX5AI 120秒预占自动不再占位，过期结算重新抢名额，重复结算不二次扣费 (153.881285ms)
+✔ YX5AI 过期后配额已满丢弃结果并记录blocked_after_expiry (176.127623ms)
+✔ YX5AI 跨日按预占日期结算；次日用量独立 (183.552904ms)
+✔ YX5AI 批量基础预占min人数剩余额度，每位成功计次，一批只占一个并发名额 (201.319285ms)
+✔ YX5AI 请求按机构隔离且忽略伪造tenant，家长财务教务看不到AI明细 (513.189533ms)
+✔ YX5AI 机构到期优先于配额、模块关闭不调用模型，生成中停用也不扣次 (380.506887ms)
+✔ YX5AI 咨询原话核对与学员隐私，伪造客户端上下文不进入模型 (245.763907ms)
+✔ YX5AI 缺幂等键、无效档位和外机构plan在预占前拒绝 (373.888517ms)
+✔ YX5AI 平台模型和机构覆盖生效，长文动作快速深度硬截止分别120/150秒 (196.850199ms)
+✔ YX5AI 硬截止后才返回的结果丢弃，解析重试不延长原截止 (197.370513ms)
+✔ YX5AI settings/propose仅建议，经过既有校验后可走修改卡片审批 (193.619191ms)
+✔ YX5AI 平台AI设置只给超管，可配置模型和限额且不回传密钥 (357.870325ms)
+✔ YX5AI 结算数据库失败四项同事务回滚，成功重试只扣一次 (198.038196ms)
+✔ YX5AI 10分钟缓存清理仍可重放；两天后清请求/预占，七天后清未引用建议 (209.94501ms)
+✔ YX5AI 被修改卡引用的过期建议保留审计外键，但不能再被采纳 (438.30167ms)
+✔ YX5AI 生产DeepSeek HTTP适配器仅访问固定地址，模型与密钥来自平台配置 (258.782703ms)
+✔ V041 G1 动作时限120/150和其他45/90，max_tokens按动作，额度预占覆盖长请求 (435.268913ms)
+✔ V041 G1 超时返回ai_timeout、记录timeout、不计次、不记录输入或模型内容 (227.55003ms)
+✔ V041 G1 深度长请求149秒完成可结算，预占150秒内不被当过期 (197.99261ms)
+✔ V041 G1 剩余29999毫秒不重试，恰好30000毫秒可重试且不延长截止 (244.604366ms)
+✔ V041 G1 HTTP401/402/404/503原因保留，机构只返回ai_unavailable且不计次 (308.350664ms)
+✔ V041 G1 协议错误、响应超大、其他异常分类，不额外计次或保存原文 (221.911329ms)
+✔ V041 G1 提供方JSON包装损坏或超过2MiB受限，无真实网络 (246.083528ms)
+✔ V041 G1 平台按day/tenant/tool附failure_reasons，旧失败归other (245.678739ms)
+✔ V041 G2 省略modules前缀可采用，about静默丢弃，稳定路径及金额仍受保护 (267.517956ms)
+✔ V041 G2 仍拒绝数组下标/错误稳定ID/金额path，adjust只返回本页文字 (229.300496ms)
+✔ V041 G3 custom改写只定位选中块，instruction传模型，正文和article不自动写入 (283.339055ms)
+✔ V041 G3 custom要求非空且≤500字，其他mode可加instruction (268.487887ms)
+✔ 第六阶段：定时全库加密备份、30天保留、按机构恢复演练、保留安全配置/审计、撤销会话、他机构不变 (733.165232ms)
+✔ 第六阶段：旧 JSON 只导空机构，购买课时不重复记账；旧密码和会话不迁移，错误预览无业务写入 (186.415397ms)
+✔ 第六阶段：恢复缺页和新账号关联阻断；损坏备份拒绝；失败不留下可信导入标记或半恢复 (535.201766ms)
+✔ 第六阶段：暂存快照不随日常写入改变，断点续传；只清理超过30天的本应用备份 (445.252641ms)
+✔ 第六阶段：旧金额负数、三位小数和超精度课时在预览中拒绝，原业务不变；暂存手机号加密 (167.307687ms)
+✔ 第六阶段：只读查看、限时代管、过期/撤销/机构间租约均不能写，维护留双审计；机构端没有旁路 (437.69662ms)
+request_failure err_766c923af9b1f874149ee737 Error
+✔ 第六阶段：恢复提交中遇到数据库约束错误，全部业务和可信标记原子回滚 (495.574878ms)
+✔ 控制台改版：不用 innerHTML/内联样式/浏览器原生弹窗；动效只用位移/透明度且有减少动态兜底；悬停只在可悬停设备 (3.696834ms)
+✔ 控制台改版：主管顾问只看到“推广中心”；超级管理员看到全部菜单，合作升学推荐按平台开关显示 (1.57143ms)
+✔ 控制台改版：推广页面只调用推广与控制台账号接口；收款只做标记；开班需达到最低人数；跟进记录写入时间线 (1.669327ms)
+✔ YX5I 0001–0021与阶段4验收源码逐字节一致，仅新增0022 (6.241129ms)
+✔ YX5I 0022从已有阶段4数据升级，所有原有行原样保留、外键完整 (205.517537ms)
+✔ YX5I 内容、AI状态、请求重放与用量进入全量加密备份 (463.032537ms)
+✔ YX5I 定时清理按机构处理：过期缓存可重放且用量不回退 (263.458407ms)
+✔ YX39 0025仅加默认列，0024旧行原列原值保留，无回填即可读写 (245.948127ms)
+✔ YX39 文章元数据整体替换、省略保留、null清除，旧字段与409最新对象保留 (271.786377ms)
+✔ YX39 状态更新保留article，修订JSON锁定元数据与头图引用 (201.964104ms)
+✔ YX39 文章文字长度、真实日期和布尔开关校验失败不写入 (275.057972ms)
+✔ YX39 头图本机构归属校验，缺失/跨机构/已删均422 invalid_image且原子不写 (283.918578ms)
+✔ YX39 新选隐藏头图被拒，原头图隐藏后可继续保存，未知article属性不落库 (184.408879ms)
+✔ YX39 头图检查后被删除时事务回滚并返回invalid_image (212.825804ms)
+✔ YX39 跨机构内容访问仍404，finance不能写article (668.339959ms)
+✔ YX39 AI起草/改写不发送或修改article，模型伪造的article被剔除 (238.609512ms)
+✔ YX39 人工采用正文建议时未带article仍保留；AI不改品牌或机构地址 (196.500843ms)
+✔ YX39 新article列与修订article进入完整备份，不遗漏头图元数据 (490.157218ms)
+✔ YX39 报告feedback_count只计已确认，待审和退回不计，重新提交不重复 (371.259218ms)
+✔ YX39 旧纯文字公共及个人点评同一课计一条，后续点评修订仍计一条 (357.826945ms)
+✔ YX39 feedback_count按报告首尾日期和学员过滤，客户端伪造值无效 (574.678674ms)
+✔ YX39 今天课程student_names最多6个，正确字符串与本机构在册名单 (350.831671ms)
+✔ YX39 今天课程剔除已删参与者，零学员返回空数组，保留老师访问权限 (287.470588ms)
+✔ YX5C 内容CRUD版本、筛选分页、状态人工标记、作者不可伪造、修订不可覆盖 (501.049295ms)
+✔ YX5C 七种纯文字块可保存，HTML、旧块类型、错误标题级别和不规则表格422 (442.284842ms)
+✔ YX5C 六种内容类型与场景来自本机构模板、节点和课程库 (224.721182ms)
+✔ YX5C 内容读改删、图库和来源跨机构404，只有主管顾问可读写 (1308.77073ms)
+✔ YX5C 内容风格锁版本，旧风格停用后仍可保存，来源字段不接受注入资料 (193.95475ms)
+✔ YX5C 六类内容AI使用冻结target与payload，保存采纳时重做校验 (231.918934ms)
+✔ YX5C AI只看勾选资料，不发送隐藏图库、价格或客户端伪造资料 (206.665272ms)
+✔ YX5C 来源核验不信任模型match、伪造依据不再标unsupported (181.425242ms)
+✔ YX5C 勾选机构档案允许使用公开业务电话，不与学员隐私字段混用 (171.181689ms)
+✔ YX5C 内容模块独立读取文章风格，停用且撤销范围后本机构旧文件仍可读取锁定版本 (821.346148ms)
+{"budget":40,"scale":"30人班课，30个课时包；每次请求独立计数（含认证、权限、审计、幂等）","build":"dist/_worker.js","results":[{"name":"新建学习阶段","method":"POST","path":"credits/stages","queries":7,"statements":23},{"name":"修改学习阶段","method":"PATCH","path":"credits/stages/stage_0c517200fc46060e8a4fb0e5","queries":8,"statements":25},{"name":"阶段列表","method":"GET","path":"credits/stages","queries":3,"statements":13},{"name":"阶段详情","method":"GET","path":"credits/stages/stage_0c517200fc46060e8a4fb0e5","queries":3,"statements":13},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"购买课时包（30人逐人独立请求）","method":"POST","path":"credits/packages","queries":9,"statements":33},{"name":"修改课时包","method":"PATCH","path":"credits/packages/pkg_5ac037f07e634d367876f242","queries":10,"statements":35},{"name":"课时包列表","method":"GET","path":"credits/packages","queries":3,"statements":13},{"name":"课时包详情","method":"GET","path":"credits/packages/pkg_5ac037f07e634d367876f242","queries":4,"statements":14},{"name":"登记缴费","method":"POST","path":"credits/payments","queries":9,"statements":25},{"name":"缴费列表","method":"GET","path":"credits/payments","queries":4,"statements":14},{"name":"缴费详情","method":"GET","path":"credits/payments/pay_96a684658d6a8271a5bc42e8","queries":3,"statements":13},{"name":"手工调整","method":"POST","path":"credits/adjust","queries":9,"statements":29},{"name":"第二课程包","method":"POST","path":"credits/packages","queries":7,"statements":24},{"name":"课时转换参考比例","method":"GET","path":"credits/transfer","queries":3,"statements":11},{"name":"课时转换","method":"POST","path":"credits/transfer","queries":10,"statements":31},{"name":"30人逐人出勤一次提交","method":"POST","path":"credits/lessons/les_40d5f6e89949bd0144c792f6/attendance","queries":11,"statements":123},{"name":"30人撤销销课","method":"POST","path":"credits/lessons/les_40d5f6e89949bd0144c792f6/undo","queries":11,"statements":123},{"name":"30人整班销课","method":"POST","path":"credits/lessons/les_40d5f6e89949bd0144c792f6/status","queries":11,"statements":123},{"name":"新建补课课程","method":"POST","path":"credits/makeups","queries":18,"statements":46},{"name":"补课关联列表","method":"GET","path":"credits/makeups","queries":3,"statements":13},{"name":"补课关联详情","method":"GET","path":"credits/makeups/makeup_88201570bef919b64cff61bb","queries":3,"statements":13},{"name":"解除补课关联","method":"POST","path":"credits/makeups/makeup_88201570bef919b64cff61bb/unlink","queries":12,"statements":38},{"name":"加入已有班课补课","method":"POST","path":"credits/makeups","queries":17,"statements":44},{"name":"流水列表","method":"GET","path":"credits/transactions","queries":4,"statements":14},{"name":"流水详情","method":"GET","path":"credits/transactions/txn_0a39a0f7aa8006f9141e0494","queries":3,"statements":13},{"name":"删除30人课程并回补","method":"POST","path":"credits/lessons/les_b604a5375438d84822167016/delete","queries":11,"statements":123},{"name":"旧入口课时包创建","method":"POST","path":"data/packages","queries":7,"statements":24},{"name":"旧入口课时包修改","method":"PATCH","path":"data/packages/pkg_bd1b71c8a2d28f2e2c3ac821","queries":8,"statements":26},{"name":"旧入口列表","method":"GET","path":"data/packages","queries":3,"statements":13},{"name":"旧入口详情","method":"GET","path":"data/packages/pkg_bd1b71c8a2d28f2e2c3ac821","queries":4,"statements":14},{"name":"旧入口课程删除","method":"DELETE","path":"data/lessons/les_9cf61a574a9752eba50ed95e","queries":11,"statements":93}],"max":18}
+✔ 第三阶段查询预算：30人班课及每个新接口均不超过40次 (836.956991ms)
+✔ 第三阶段：购买流水、销课、逐人出勤、撤销和删除回补，余额恒等于流水 (614.19079ms)
+✔ 第三阶段：旧版缺勤规则、跨包FIFO、整体收费、补课免重复扣与原课联动 (347.332637ms)
+✔ 第三阶段：禁止欠课时的学员单独待销、幂等、课时转换及跨机构引用拒绝 (471.249861ms)
+✔ 第三阶段：教务金额按HTTP裁剪且提交不覆盖；关闭学员缴费可见后无数据 (272.820058ms)
+✔ 第三阶段：锁月拒绝、乐观并发、跨机构写入及混合班课补课状态 (497.107045ms)
+✔ 第三阶段：重复请求并发只扣一次；授予日志读取也不能绕过金额裁剪 (409.592221ms)
+✔ 第三阶段：HTTP结果逐项对照旧包最终生效的扣课与余额函数 (665.075389ms)
+✔ D1限制模拟：模式50字节、单值/整行200万、参数100、SQL10万边界 (16.870516ms)
+✔ D1回归：真实cf城市登录成功、同城不告警、异城一小时仅告警一次 (398.602515ms)
+✔ D1回归：五类搜索100中文、百分号下划线反斜线字面匹配及ASCII大小写 (292.215641ms)
+✔ D1回归：三张最大品牌图片可保存并备份，超限图片在写入前明确拒绝 (574.449748ms)
+✔ D1回归：最大合法审计完整保留、批量审计按字节拆行且事务原子 (519.661835ms)
+✔ D1回归：历史超大记录备份预检回滚，不产生半快照或SQLITE_TOOBIG (491.598823ms)
+✔ D1回归：清单/导入行超限预先拒绝，推广GLOB断言及JSON函数32参数生效 (2.456972ms)
+✔ D1回归：50万字节旧JSON行加密暂存成功、超1字节拒绝且原行不变 (258.106835ms)
+✔ D1回归：实际备份Worker两条Cron处理最大品牌行，宽表JSON保留null且可解密 (574.923572ms)
+✔ B1 欠课：默认 3、先实扣再记欠、整体收费无欠、续费分类 (332.859478ms)
+✔ B1 欠课：超限仅留该学员待销，补包后只处理未销者，幂等 (240.373055ms)
+✔ B1 欠课：同学员 FIFO 部分补扣、补扣日期确认收入、撤销后流水回补 (245.022854ms)
+✔ B1 缴费：多包、超额转预收、分位、原子失败和幂等 (408.419795ms)
+✔ B1 预收：一次兑换多个包，自动补欠，退款不透支，金额权限与跨机构 (729.603105ms)
+✔ B1 待核对：三种历史归类、旧包已收、补价后未处理数下降及直接确认其他收入 (286.967325ms)
+✔ B1 旧锁月：认定其他收入落在认定月，历史结算与现金日期不变 (212.451428ms)
+✔ B1 并发：同一预收余额不能重复兑换，财务写入全有或全无 (195.705309ms)
+✔ B1 备份恢复：欠课时、分类、预收流水及分配一同还原 (508.116075ms)
+✔ B1 未购包欠课：可登记续费提醒，非欠课学员不能伪造空包提醒 (383.069381ms)
+✔ D1 停用封闭机构所有入口、保留会话；恢复后有效会话可继续使用 (893.679143ms)
+✔ D1 删除前置：必须停用、满冷静期、完整近期导出、名称相同和新 TOTP (325.60111ms)
+request_failure err_ce7f5fede46b60bebae0cf47 Error
+request_failure err_e37945047cc9539edc49f230 Error
+✔ D1 删除可续跑：多批数据、D1/R2 故障、跨机构、单条审计及路径释放 (1214.39713ms)
+✔ D1 学习阶段与课时包：软删、版本、幂等和关联拒绝；可解除阶段关联 (425.549597ms)
+✔ D1 推广：只删已下架的无关联内容，同批清理目标、已读、海报产出 (397.132772ms)
+✔ D1 平台公告：撤回后不再送达和计未读，平台历史可见 (174.622487ms)
+✔ YX6F 结构化反馈待确认不扣课、不公开，确认后家长可见；新点评待审仍看旧版 (407.224066ms)
+✔ YX6F 自动确认同事务扣课，失败回滚不发布；别名冲突422、老师当日课 (277.876347ms)
+✔ YX6F 缺省personal保持旧纯文字提交，旧确认可复制并进入时间线 (310.956036ms)
+✔ YX6F 出勤别名冲突422、缺people按旧校验拒绝，外机构曲目/图不能进入提交 (683.776129ms)
+✔ YX6F 自动确认全体欠课受阻仍待审，部分受阻只公开实际确认者 (287.767537ms)
+request_failure err_c36a963acb8906ced6c0c503 Error
+✔ YX6F 助教只读、开关仅主管，事务失败没有半份结构化数据 (319.493352ms)
+✔ YX6F 自动确认部分受阻，公共点评也不能变成受阻孩子的已确认反馈 (301.538146ms)
+✔ YX6F 相同操作重放不重复提交，修改内容复用操作号仍冲突 (278.984605ms)
+✔ YX6F 普通点评也能替换旧结构化版本，窗口外员工更正不重新扣课 (340.046166ms)
+✔ YX6F 关闭成长模块不破坏原纯文字出勤流程，结构化入口返回404 (732.662109ms)
+✔ YX6F 自动确认后点评可更新但出勤不能重提，不产生第二份销课 (310.71653ms)
+{"budget":40,"scale":"30教师 × 30人班课（900参与记录）","build":"dist/_worker.js","max":11,"results":[{"name":"读取统一默认缺勤规则","path":"absence-policies","method":"GET","queries":1,"statements":9},{"name":"保存缺勤规则（含并发版本触发器）","path":"absence-policies","method":"PUT","queries":2,"statements":11},{"name":"新增 rates","path":"finance/rates","method":"POST","queries":10,"statements":26},{"name":"列表 rates","path":"finance/rates","method":"GET","queries":3,"statements":13},{"name":"详情 rates","path":"finance/rates/rates_5c1c0d085d66939c60b7943d","method":"GET","queries":3,"statements":13},{"name":"修改 rates","path":"finance/rates/rates_5c1c0d085d66939c60b7943d","method":"PATCH","queries":11,"statements":28},{"name":"删除 rates","path":"finance/rates/rates_5c1c0d085d66939c60b7943d","method":"DELETE","queries":10,"statements":27},{"name":"新增 payments","path":"finance/payments","method":"POST","queries":8,"statements":22},{"name":"列表 payments","path":"finance/payments","method":"GET","queries":3,"statements":13},{"name":"详情 payments","path":"finance/payments/payments_b22b4cbe7b5bd46a24f244ad","method":"GET","queries":3,"statements":13},{"name":"修改 payments","path":"finance/payments/payments_b22b4cbe7b5bd46a24f244ad","method":"PATCH","queries":11,"statements":26},{"name":"删除 payments","path":"finance/payments/payments_b22b4cbe7b5bd46a24f244ad","method":"DELETE","queries":11,"statements":26},{"name":"新增 adjustments","path":"finance/adjustments","method":"POST","queries":9,"statements":23},{"name":"列表 adjustments","path":"finance/adjustments","method":"GET","queries":3,"statements":13},{"name":"详情 adjustments","path":"finance/adjustments/adjustments_8f7e57d8007d58b4e6616ebf","method":"GET","queries":3,"statements":13},{"name":"修改 adjustments","path":"finance/adjustments/adjustments_8f7e57d8007d58b4e6616ebf","method":"PATCH","queries":10,"statements":25},{"name":"删除 adjustments","path":"finance/adjustments/adjustments_8f7e57d8007d58b4e6616ebf","method":"DELETE","queries":10,"statements":25},{"name":"新增 costs","path":"finance/costs","method":"POST","queries":7,"statements":21},{"name":"列表 costs","path":"finance/costs","method":"GET","queries":3,"statements":13},{"name":"详情 costs","path":"finance/costs/costs_78d02334cea8cf5507cb05f3","method":"GET","queries":3,"statements":13},{"name":"修改 costs","path":"finance/costs/costs_78d02334cea8cf5507cb05f3","method":"PATCH","queries":8,"statements":23},{"name":"删除 costs","path":"finance/costs/costs_78d02334cea8cf5507cb05f3","method":"DELETE","queries":8,"statements":23},{"name":"月度课酬","path":"finance/payroll?month=2026-11","method":"GET","queries":3,"statements":26},{"name":"月度报表","path":"finance/report?month=2026-11","method":"GET","queries":3,"statements":27},{"name":"结算状态","path":"finance/settlement?month=2026-11","method":"GET","queries":2,"statements":23},{"name":"单课课酬覆盖","path":"finance/lessons/lesson_eb65d85211f33c26a97f9e91/rate","method":"POST","queries":8,"statements":23},{"name":"缴费登记","path":"credits/payments","method":"POST","queries":8,"statements":24},{"name":"缴费修改","path":"finance/tuition/pay_7ae517ab09dbf1f6e4c81dae","method":"PATCH","queries":9,"statements":24},{"name":"缴费删除","path":"finance/tuition/pay_7ae517ab09dbf1f6e4c81dae","method":"DELETE","queries":9,"statements":24},{"name":"财务提交","path":"finance/settlements/submit","method":"POST","queries":7,"statements":35},{"name":"主管退回","path":"finance/settlements/reject","method":"POST","queries":7,"statements":35},{"name":"重新提交","path":"finance/settlements/submit","method":"POST","queries":7,"statements":36},{"name":"主管批准900参与记录","path":"finance/settlements/approve","method":"POST","queries":7,"statements":126},{"name":"已锁定月度课酬","path":"finance/payroll?month=2026-11","method":"GET","queries":3,"statements":26},{"name":"主管解锁","path":"finance/settlements/unlock","method":"POST","queries":7,"statements":35},{"name":"Excel导出 lessons","path":"export?kind=lessons","method":"GET","queries":4,"statements":14},{"name":"Excel导出 packages","path":"export?kind=packages","method":"GET","queries":3,"statements":11},{"name":"Excel导出 finance","path":"export?kind=finance","method":"GET","queries":4,"statements":27},{"name":"Excel导出 report","path":"export?kind=report","method":"GET","queries":4,"statements":27},{"name":"Excel导出 logs","path":"export?kind=logs","method":"GET","queries":4,"statements":14}]}
+✔ 第四阶段查询预算：30教师、30人班课、900参与记录，所有新财务接口≤40 (771.234356ms)
+✔ 修复：INTEGER分迁移、0.1+0.2精确合计、金额和课时小数限制、归属触发器 (287.395066ms)
+✔ 修复：教务默认不能调整或转换；单独授权；参考比例20%边界和原因 (241.655672ms)
+✔ 第四阶段：三种新增计费模式与旧按课时并存、生效日期、单课覆盖和助教不计酬 (283.557108ms)
+✔ 第四阶段：收款、课酬调整付款、其他成本、利润及按领域裁剪 (259.022719ms)
+✔ 第四阶段：财务提交主管批准、提交后变更重提、锁月阻断、解锁原因及教师确认状态 (337.060768ms)
+✔ 第四阶段：教师只读本人课酬、跨机构财务ID拒绝、真实XLSX文本防注入与导出预算 (920.829111ms)
+✔ 第四阶段：同一份旧版导出形状数据对照 rate/teacherCost/financeItems/paidTeacher (305.165018ms)
+✔ 第四阶段：按课时保留旧版月合计并分配尾差；新增按课次独立逐节入分 (282.166779ms)
+✔ 第四阶段：主管审批不可委派、机构缺勤规则不可借历史授权改写、并发锁月只提交一次 (310.495346ms)
+✔ 第四阶段：未来标准日期调整不改变锁月；财务引用阻止教师/课程删除 (249.883528ms)
+✔ 第四阶段补充：新课程、模板及默认值限30/45/60分钟且至少1课时，改排和SQL不能绕过 (321.679745ms)
+✔ YX6AI 反馈草稿仅用主讲原文、剔除评分、不写提交，采用通过原保存 (334.694505ms)
+✔ YX6AI 报告仅取已确认反馈、真实target与人工分数，未确认文本不进入模型 (330.485011ms)
+✔ YX6AI 批量按人计次、额度不足按输入顺序返回、业务占位未改变且可重放 (299.542748ms)
+✔ YX6AI 批量跳过已开始、零合格不调用模型不计次、零余额429 (323.005442ms)
+✔ YX6AI 批量部分模型失败只计成功者、全部失败502且释放，失败键可重试 (271.051322ms)
+✔ YX6AI 批量并发最多4人，空合规建议仍按人计次，超过100拒绝 (278.475585ms)
+✔ YX6AI 十二人批量保持最多4并发且HTTP查询不超40，按输入顺序返回 (339.304498ms)
+✔ YX6AI 批量整批校验归属、请求体不符422、运行中重放409，不调用越权模型 (507.222042ms)
+✔ YX6AI 批量只占一个账号并发名额，另一请求可用，第三个429 (270.939356ms)
+✔ YX6AI 整批共用45秒截止，超时全部释放不计次，内部重试不延长 (275.292214ms)
+✔ YX6AI 批量结算故障整个事务回滚，失败键重试只结算一次 (281.23595ms)
+✔ YX6AI 生成中停用或关模块不计次、恢复会话后可重试 (474.632214ms)
+✔ YX6AI 一百人真实批量80名额，剩20位跳过且整个HTTP在40次查询内 (329.709041ms)
+✔ YX6AI 大响应以凭据重建而不塞进单行缓存，重复不扣次 (291.901648ms)
+✔ YX6AI 报告模型只看本学员昵称和已确认原文，姓名及电话被隐去 (269.156193ms)
+✔ YX6AI compose拒绝非主讲、别的学生曲目和48小时窗口外请求，均不调用模型 (459.199744ms)
+✔ YX6AI 结算已提交但回执丢失，按持久结果返回成功，不误报不计次或重复结算 (236.633635ms)
+✔ YX6I 0001–0022与阶段5逐字节相同；0023仅扩展旧点评字段、保留原列原值且可升级 (320.528811ms)
+✔ YX6I 新增结构及已发布修订纳入全量加密快照，修订/已确认反馈不可覆盖 (997.792073ms)
+✔ YX6I 同版本并发报告保存只成功一份，失败不遗留修订或通知 (260.015237ms)
+✔ YX6I 未登录新接口401，跨机构会话404，到期403且原会话保留 (505.001511ms)
+✔ YX6I 校验和提交之间图片变隐藏，报告整笔冲突且不留下修订 (264.29898ms)
+✔ YX6G 批次普通创建占位、未开始与版本，未分配班型整批拒绝 (352.179858ms)
+✔ YX6G 发布指针与新工作稿分离、撤回留审计，家长只能看绑定孩子 (1165.620975ms)
+✔ YX6G 老师直发默认关、启用后仍检查必填，财务仍只用统计报表 (513.08762ms)
+✔ YX6G 曲目完成口径、只刷新crm_value而保留人工数值 (329.331454ms)
+✔ YX6G 维度和班型选项锁快照，上一期按稳定key取已发布且排除撤回 (334.752067ms)
+✔ YX6G 集训只按显式排课映射、同日只算一天、配置/精确考期与报告快照 (393.387572ms)
+✔ YX6G 校验伪造分数/previous/统计、模拟考满分、只读数字不被覆盖 (349.565811ms)
+✔ YX6G 不同机构所有成长资源统一404，老师不能看他人，员工可分配 (1752.959567ms)
+✔ YX6G 报告图片绑定已发布修订、未授权不显示，跨孩子媒体404 (714.403721ms)
+✔ YX6G 畸形嵌套值统一校验，不能用对象标量触发500或写入 (306.017852ms)
+✔ YX6G 缺少精确日期不生成距考；自定义统计受配置约束、无映射提示且不按名字猜 (271.061748ms)
+✔ YX6G 关闭旧统计模块仍可读成长，批次分页只返回进度摘要，老师不能移交评分 (243.011138ms)
+✔ YX6G 需要作品的班型快照不能通过关闭新设置绕过完成检查 (265.515048ms)
+✔ YX6G 上一份按发布先后确定，同期且同毫秒也稳定，撤回后回退到仍发布者 (364.043779ms)
+✔ V041 G1 批量报告全部超时返回ai_timeout，逐人原因timeout且不计次 (354.410163ms)
+✔ V041 G1 批量报告HTTP402逐人记录原因，保持整批截止和零扣次 (267.141315ms)
+✔ V041 G1 批量报告剩余不足30秒停止解析重试，protocol_invalid不计次 (248.923895ms)
+✔ YX2 根登录0/1/3/5候选均固定五槽，超过5候选告警且不泄漏其他机构 (511.667831ms)
+✔ YX2 多机构选择只列密码通过项，选择令牌120秒/一次有效且只存哈希 (268.02058ms)
+✔ YX2 单机构匹配直接建根会话，多候选只有一个密码匹配不泄漏其他机构 (214.935994ms)
+✔ YX2 登录限流同时按手机号与IP，固定五槽仍执行，15分钟后恢复 (1045.899317ms)
+✔ YX2 根登录拒绝老师/家长/学员账号，路径登录返回api_base及受限Cookie (373.666942ms)
+✔ YX2 路径A会话不能访问B，根/路径会话不得互冒用 (449.487778ms)
+✔ YX2 停用/到期403不删会话；status与品牌例外；恢复后原会话继续用 (249.365191ms)
+✔ YX2 停用期间自然过期会话恢复后仍401；改slug仍撤销所有会话 (239.473751ms)
+✔ YX2 家长绑定多孩子、不改原密码、解绑立即不可见及自动停用恢复 (444.421963ms)
+✔ YX2 家长手动停用不会被重新绑定恢复，员工启用后可重绑 (202.814865ms)
+✔ YX2 家长CRUD乐观锁、关系校验、密码重置、重复绑定及员工手机号冲突 (255.442244ms)
+✔ YX2 家长和学员可并存，四位家长与十个孩子数量限制原子执行 (340.694431ms)
+✔ YX2 A机构不能读改删B的家长绑定或账号，家长不能自行绑孩子 (1230.30428ms)
+✔ YX2 新角色组合合法性与权限并集，个人角色不能混用 (1.529802ms)
+✔ YX2 财务计管理席位，老师和家长不计；停用员工释放席位，重新启用受限制 (252.571359ms)
+✔ YX2 平台手机号索引随创建、改号、角色、启停账号及机构启停同步 (198.363074ms)
+✔ YX2 平台索引重建脚本权限检查、密钥独立、修复缺失索引 (211.940549ms)
+✔ YX2 学员新增字段保存读取，伪造跨机构来源线索拒绝 (404.509473ms)
+✔ YX2 ops机构创建、列表分页、修改、模块标签、学科与覆盖配置、并发和Access (117.747387ms)
+✔ YX2 超管撤销会话需要二次确认，只撤本机构且有审计 (233.737685ms)
+✔ YX2 统计报表与成长报告权限/模块完全独立，财务仍能查询与导出统计报表 (439.761979ms)
+✔ YX2 新字段和家长绑定进入加密备份快照 (425.463252ms)
+✔ YX2 根路径在认证前拒绝控制台与未知路由，路径新接口跨机构返回not_found (1963.315605ms)
+✔ YX2 顾问兼财务权限取并集，教务可管家长，平台顾问不能管理机构 (253.966926ms)
+✔ YX2 ops停用状态字段生效、品牌图片按实际字节检查、写入竞态回滚且返回最新版本 (159.341277ms)
+✔ YX2 手动停用且解绑全部孩子后可先启用再重绑，家长me只返回机构信息 (214.506373ms)
+✔ YX2 新机构可由超管沿用主管开通接口，初始改密后根登录与账号列表可用 (306.836441ms)
+✔ YX2 接口例子为本次HTTP调用真实响应，写出前端模拟素材 (4.637777ms)
+✔ 第六阶段：Excel四步校验、同名不自动覆盖、仅合法行提交、200行批次幂等、金额不可注入和跨机构凭证拒绝 (310.732141ms)
+✔ 第六阶段：普通DEFLATE Excel、数值课时/日期兼容；公式、压缩炸弹、错误手机和超精度课时拒绝 (195.050175ms)
+PASS 7.7-01 A 会话访问 B 接口被拒绝 
+PASS 7.7-02 A 读取/修改 B 账号 ID 返回不存在 
+PASS 第二阶段双机构资料准备 
+PASS 7.7-02 业务读取、修改、删除跨机构 ID 均返回不存在 
+PASS 7.7-03 课程跨机构学员、教师、教室、课时包引用均拒绝 
+PASS 第二阶段个人账号跨机构档案关联拒绝 
+PASS 7.7-06 教师不能读取其他教师课程（HTTP） 
+PASS 7.7-07 学员不能读取他人课程或同学名单（HTTP） 
+PASS 7.7-04 客户端 tenant_id/created_by/role 不可信 
+PASS 7.7-09 教务默认权限及无金额的当前接口 
+PASS 7.7-09 课时包金额对教务裁剪且伪造写入无效（HTTP） 
+PASS 7.7-08 缴费开关关闭后学员列表和详情均拒绝（HTTP） 
+PASS 第四阶段财务准备与跨机构关联拒绝（HTTP） 
+PASS 7.7-05 财务报表、课程搜索和Excel导出不包含B（HTTP） 
+PASS 7.7-06 教师只能读和导出本人课酬（HTTP） 
+PASS 7.7-09 教务财务响应及报表Excel无金额（HTTP） 
+PASS 7.7-13 当前报表和Excel的姓名按文本输出（HTTP） 
+PASS 7.7-14 锁月后课程、出勤及回补拒绝，解锁须主管原因（HTTP） 
+PASS 第五阶段 HTTP：主讲提交待确认、跨机构/跨课参与人拒绝，学员不见草稿或同学 
+PASS 第五阶段 HTTP：教师不能确认，教务确认后点评只含公共及本人；金额无泄漏 
+PASS 第五阶段 HTTP：点评修订待审与退回保留已确认版本，关闭点评模块不泄漏草稿 
+PASS 第五阶段 HTTP：品牌个人课表图教师/学员不可指定他人或跨机构 
+PASS 第六阶段 HTTP 7.7-02/03：班级与跟进跨机构读取、修改、删除及关联全部拒绝 
+PASS 第六阶段 HTTP 7.7-06/07/09：教师学员无员工工具，教务工作台/预警不含金额 
+PASS 第六阶段 HTTP：线索转正与推荐只在本机构，手机加密字段及未同意推荐不可读写 
+PASS 第六阶段 HTTP：平台公告只投指定机构/角色，机构域名控制台数据工具仍404 
+PASS 第八阶段 HTTP：推广指定机构、角色与tuition价格裁剪；跨机构申请拒绝 
+PASS 第八阶段 HTTP：开班与学员名单同机构；学员仅见本人合作课，不见会议号、链接或同学 
+PASS 第八阶段 HTTP：合作课不能经普通接口修改、删除、销课或点评；不计机构课酬 
+PASS 第八阶段 HTTP：推广R2图片按机构及角色鉴权；关闭promo后图片与列表均拒绝 
+PASS 7.7-10 超管关闭模块后主管接口拒绝 
+PASS 7.7-11 不存在/停用/普通不存在页的 404 完全一致 
+PASS 7.7-12 机构域名控制台文件/接口均为 404 
+PASS 7.7-13 当前文本字段原样返回，严格 CSP 禁止内联 
+PASS 7.7-13 第1–7阶段全部导出种类与业务文本/页面壳（HTTP）；DOM注入汇另由前端全量静态及运行测试验证 
+PASS 第七阶段 HTTP：有效代管租约的四个月结审批路径全部404，只读结算正常 
+PASS 7.7-15 连错五次锁定，账号不存在与密码错误一致 
+PASS 补充 Origin 和 Content-Type 校验 
+PASS 补充公开品牌只包含五个许可字段 
+PASS 补充 Access 伪造头不能进入控制台 
+PASS 补充修改机构路径使旧会话失效，旧路径跳转 
+✔ 第八阶段 HTTP 隔离验收（本地 SQLite / D1 接口适配） (14525.287857ms)
+✔ 补课 M1：100 人原始夹具三位学员的推荐分散、理由准确，每条均通过正式规则预查 (1481.533193ms)
+✔ 补课 M2：当天时间轴仅暴露必要文字，含教室、学员及不可排时段，日期和机构均受限 (531.045442ms)
+✔ 补课 M3：预查报告实际冲突，不写业务或审计，推荐后被占用仍拒绝正式保存 (723.25009ms)
+✔ V041 G5 最近/最后/最终不因单字最提醒，广告法词组仍提醒 (1.093414ms)
+✔ V041 G5 方案详情返回student/lead/prospect的party和party_name，无联系人泄露 (330.57974ms)
+✔ V041 G5 content建议最近不产生ad_law，best词组仍留提醒且不阻止人保存 (180.698433ms)
+✔ 第五阶段界面修正：品牌首字、月份跨年/闰月切换即加载；学员记录排除未来、逐人待销课状态准确 (25.956727ms)
+✔ 第五阶段界面修正：待确认与出勤名单同序、空点评无尾分隔；未销课课酬区别显示；品牌图按七天分组且不重复本人、不含金额同学 (16.036026ms)
+✔ UI重构回归：两组导航（日常7项+机构管理5项）、按角色和权限隐藏空项；第七阶段未来课酬仍按北京时间汇总 (14.279375ms)
+✔ 第七阶段界面：续费图中文标点不居行首、无二维码默认联系说明、内容决定高度，二维码和长说明完整绘制 (8.177258ms)
+✔ 第八阶段界面：合作课个人详情无销课/会议信息；Logo等比居中不拉伸 (13.37805ms)
+✔ 第八阶段收尾界面：课程信息/截止先于步骤条和营销长图，课程封面不占首屏；学员直播文案 (6.586285ms)
+✔ 第五阶段：仅主讲可提交，助教只读，默认关闭；开课前/截止后拒绝且边界可提交 (430.549926ms)
+✔ 第五阶段：待确认不扣课不计酬，退回无流水，重提确认一次原子生效、重复确认幂等 (300.215067ms)
+✔ 第五阶段：点评修订待审/退回保留旧版本；确认替换；员工锁月更正保存前后全文且不改课时课酬 (383.851567ms)
+✔ 第五阶段：锁月不能确认；待确认课程阻断提交/批准并列出课程；相关课次变化才拒绝 (308.790084ms)
+✔ 第五阶段：禁止欠课且无人可确认时保留提交；出勤改动或点评更正使本课提案过期，不影响其他课 (300.063777ms)
+✔ 第五阶段：超时未提交筛选、员工可直接销课；个人图片/开关/跨机构与跨课关联均强制隔离 (1216.474756ms)
+✔ 第五阶段查询预算：30人班课的读取/提交/退回/确认/更正/队列/图片/财务拦截每请求≤40 (794.11457ms)
+✔ 第五阶段：点评模块关闭仍可提交和确认纯出勤；无草稿内容泄漏 (237.845117ms)
+✔ 第五阶段：并发确认同一提案只扣一次；同课跨参与人注入拒绝 (483.082996ms)
+✔ 第五阶段：0008预检只读检出异常时间，旧迁移文件保持不变 (224.353297ms)
+✔ 第五阶段：未保存缺勤规则，教师旷课提案确认后按GET默认扣课并计酬 (281.120013ms)
+✔ 第五阶段：课程导出无内部ID和英文状态，时间明确按北京时间显示 (288.150674ms)
+✔ 第五阶段：下一节课跨周查询，教师不见他人课，学员跳过自己的请假课 (297.231534ms)
+✔ P3 会话：机构和控制台续期每分钟最多一次，读写各自限额且不增加鉴权往返 (307.070445ms)
+✔ P3 人机验证：控制台提示 off，on 或默认没有警告，租户概览不暴露平台警告 (212.571629ms)
+✔ P3 F1：单价及收费方式不重写入账，锁月读快照，跨月撤销引用原流水原金额 (321.580934ms)
+✔ P3 F1：未定价流水在补价日入账且审计，已冲回的未定价流水不再入账 (294.801852ms)
+✔ P3 F1：0018 为旧流水生成估算和未定价标记，原流水逐列保持 (179.777878ms)
+✔ P3 F2：预演、销课、欠课补扣都按原课日期，含到期当天与补销历史课 (296.18768ms)
+✔ P3 F3：结算逐人校验，班课部分待销、21 节上限及批准前跨过开课时间 (412.066755ms)
+✔ P3 S1：解除补课扣课受限时两份关联和流水均保留，解除成功时一并更新 (310.76194ms)
+✔ P3 补课：并发最多一条有效关联，取消、再次缺席允许重约，完成后禁止 (334.159543ms)
+✔ P3 S2/S3：跨日改期按原发生日跳过，同批其余模板生成，班级模板拒绝独立报名 (236.590581ms)
+✔ P3 S4：改课程清除不适用的旧包、同大类保留、显式清空和显式错误都生效 (238.3496ms)
+✔ P3 F4/F5：旧版超收分配到预收，关联阶段不得删除，旧缴费编辑不能制造超收 (219.632484ms)
+✔ P3 F1 备份恢复：新版保留冻结估价，0018 前的备份只生成缺失估算 (609.981521ms)
+✔ P4 batch whitelist rejects writes, traversal, absolute URLs and oversized arrays (0.843818ms)
+✔ P4 batch parity for five roles, personal isolation, money projection and one authentication count (1802.256253ms)
+✔ P4 partial read-limit 429 preserves ordered accounting and permits zero-record sibling (353.367516ms)
+✔ P4 counts equal five legacy filters, including status, empty and out-of-range pages (353.920557ms)
+✔ P4 brand lite uses versioned binary images, legacy unchanged and inactive tenant returns 404 (1091.14594ms)
+✔ P4 metadata sums statements once, first exposes row/column and sanitizes region (1.589189ms)
+✔ P1 路由与鉴权：绑定域名一趟，旧路径和无效路由不扣账号限额，停用或跨机构拒绝 (669.456248ms)
+✔ P1 首页和消息：一批读取，仍按角色裁剪；独立读量计数照常执行 (303.255085ms)
+✔ P1 缓存：品牌短缓存，已授权成功读取图片才长缓存，按会话隔开 (626.576322ms)
+✔ P1 查询计划：续费流水、欠课与月收款使用按机构限定的索引 (220.645185ms)
+✔ YX4 0001–0020迁移与已验收阶段3逐字节一致 (6.893121ms)
+✔ YX4 0021可从已有阶段3数据升级，所有旧表内容原样保留 (264.942964ms)
+✔ YX4 分享单条地址只支持DELETE，历史修订风格不因工作稿换包而失去读取 (610.138585ms)
+✔ YX4 风格ID、修订ID与骨架选项拒绝错误类型，避免数据库绑定异常 (262.03084ms)
+✔ YX4 基础方案创建、列表、读写、修订、并发版本与草稿删除 (445.374611ms)
+✔ YX4 金额伪造和快照伪造被忽略、临时引用统一改写 (219.805238ms)
+✔ YX4 日历周、自然月、整数分分配纯函数边界 (2.467272ms)
+✔ YX4 范例A：完整四阶段得到11400元、49课时和寒假营1期 (233.229498ms)
+✔ YX4 范例B：学期、期、4×6500元按月不重计包含项，总价68000元 (224.55795ms)
+✔ YX4 课包按包收一次钱，课时按包内课时相乘，包含项不收费 (206.963416ms)
+✔ YX4 自定义分期按整数分分配，引用临时ID并忽略客户端金额 (215.755169ms)
+✔ YX4 自定义分期排除可选费用，零总额也守恒 (237.363324ms)
+✔ YX4 分期模式、比例、标签、日期和跨方案阶段引用均校验 (253.95729ms)
+✔ YX4 qty只能带匹配的一种正数数量字段 (229.70326ms)
+✔ YX4 教学周必须有原因，日期必须真实、连续且无重叠 (251.898369ms)
+✔ YX4 快照保价，按最新价格预览不落库，选择重算后预览与执行一致 (225.380875ms)
+✔ YX4 停用旧课程仍可保存和导出，新行与重算拒绝停用或未定价课程 (262.946278ms)
+✔ YX4 expected_price_list_rev冲突返回最新计算、不写方案或修订，旧行不受影响 (207.010629ms)
+✔ YX4 稳定ID不能重复、借用或修改已有课程行的course_id (421.564913ms)
+✔ YX4 发送后工作稿改价和改分期不影响家长与旧分享链接，再发送才更新 (510.537604ms)
+✔ YX4 签约只能选已发送修订，复制签约方案可换学员且不联动财务 (438.103964ms)
+✔ YX4 归档关闭家长入口并立即作废分享，已发送不能按草稿删除 (635.711633ms)
+✔ YX4 所有方案资源及分享链接跨机构读改删统一404，列表不混入 (4461.800609ms)
+✔ YX4 老师不能读方案和价格，财务只能读方案，顾问教务可编辑 (317.200087ms)
+✔ YX4 家长只见所绑两个孩子已发送方案，解绑即时失去读取权限 (930.478316ms)
+✔ YX4 学员账号仅可读自己的已发送快照 (641.091482ms)
+✔ YX4 根会话和机构路径会话均可访问新接口，api_base与路径对应 (201.076491ms)
+✔ YX4 导出检查覆盖预算、旧价、档案、禁用词与主管强制审计 (265.269782ms)
+✔ YX4 已发送后的工作稿违规不影响旧版本导出和分享检查 (221.072701ms)
+✔ YX4 show_unit_price关闭时导出、家长和公开分享均剔除单价及可选费用price_text (273.961742ms)
+✔ YX4 分享token仅首次返回、只存哈希，链接列表与审计不泄露token，访问计数和作废即时生效 (411.599384ms)
+✔ YX4 分享错误、过期、作废、删除、机构到期或停用使用相同中性404且至少200ms (1402.192531ms)
+✔ YX4 公开分享按IP限速，换IP不沿用该计数 (386.201881ms)
+✔ YX4 程序骨架只读、阶段连续，按机构规则插入集训与考级前冲刺，不串学科 (224.999452ms)
+✔ YX4 风格发布新版本或停用后，已有方案与导出仍锁旧manifest (225.185585ms)
+✔ YX4 图片按发送版本和孩子授权，隐藏模块图片不外泄，员工文件URL可读取 (1502.142324ms)
+✔ YX4 机构停用或到期阻止新私有接口但保留会话，模块关闭同时关闭分享 (643.087653ms)
+✔ YX4 新迁移保留旧数据，修订与资料快照不可覆盖，外键完整 (265.693135ms)
+✔ YX4 同版本并发保存只有一个成功，失败事务不留下多余修订或元素 (200.658755ms)
+✔ YX4 完整加密备份包含方案、修订、分享哈希及风格词库 (426.071383ms)
+✔ YX4 未登录新私有接口为401，公开链接不依赖会话 (187.761028ms)
+✔ YX4 骨架按真实学员年龄插入美术过渡阶段，艺考模拟考与校考收尾仅给文字建议 (209.963119ms)
+✔ YX4 恶意结构和错误标量返回校验错误，不产生500或落库 (264.473261ms)
+✔ YX4 历史阶段设置和机构档案保留快照，新方案读取当前配置 (214.032377ms)
+✔ YX4 记录已采用建议ID，外机构或过期建议不允许写入 (386.098176ms)
+✔ YX4 查询预算、无tenant_id输出，保存真实HTTP请求响应供前端复用 (31.72414ms)
+✔ YX7I 0024只追加平台表和映射，旧表每行原样，旧改名模板不猜key (212.328151ms)
+✔ YX7I 平台管理与机构映射/发布范围进入全量加密快照，机构清理覆盖新租户表 (446.623045ms)
+✔ YX7I 同一草稿并发编辑只成功一份，409附完整latest；发布后不改内容 (144.604399ms)
+✔ YX7I 同风格版本并发上传只留一个元数据与一份图片，不覆盖胜者 (119.639601ms)
+request_failure err_c66887a6dd16da7c86933b84 Error
+✔ YX7I 导入SQL故障整批回滚，没有新课程/映射/开通标志；清除故障可重试 (174.069047ms)
+✔ YX7I 禁用机构/模块/越机构会话的资源请求被拒绝，R2不读取 (589.851784ms)
+✔ YX7I 深层模板和非法标量返回422，不触发500或写入草稿 (121.420328ms)
+✔ YX7I 平台开通使用当前发布模板，已有机构普通保存不自动换版 (131.704357ms)
+✔ YX7I 纯成长风格财务不可读，文档类型和默认类型由服务器检查 (379.680446ms)
+✔ YX7 模板草稿编辑版本、发布不可变、既有0.1与原迁移保留 (177.32292ms)
+✔ YX7 模板错误引用、价格、机构ID和未知学科422，失败不留草稿 (130.204053ms)
+✔ YX7 新机构按发布版导入，课程/阶段规则映射各自机构正式ID (239.764921ms)
+✔ YX7 老机构不自动更新，显式导入只追加key，原价格/改名/维度/日历不覆盖，同版幂等 (192.744155ms)
+✔ YX7 手建同名项不冒充模板key，规则无法映射整次422回滚 (180.771839ms)
+✔ YX7 ZIP上传校验/草稿预览不写业务、不调用AI，图片二进制原样 (145.673224ms)
+✔ YX7 静态对比度/字体/组件/坏路径/脚本/CRC/真实格式错误均拒绝，不生成版本 (173.816659ms)
+✔ YX7 发布范围、默认回退、旧版本和图片不可覆盖，草稿对机构不可读 (906.45179ms)
+✔ YX7 平台接口只认超管owner和Access，不接受机构会话冒用 (173.464674ms)
+✔ YX7 财务不能借图片入口读取成长资源，老师不能借入口读方案包 (498.371241ms)
+✔ YX7 家长/分享图片只读可见修订，包更新停用不换图，解绑与作废立即404 (1101.250539ms)
+✔ YX7 报告图片按已发布指针，不给工作稿或其他孩子；撤回即时收回 (907.083214ms)
+✔ YX7 admin_only只供平台，机构/伪造tenant_id和路径穿越都不能取图 (1401.263603ms)
+✔ YX7 无默认范围时回退可用包；全部不可用时报错，不绕过scope (173.662406ms)
+✔ YX7 AI机构覆盖清零/取消、平台分组统计北京时间、词库写入留审计且机构禁用词随之生效 (412.313639ms)
+request_failure err_e32c4f747fcf11ebbf462b75 Error
+request_failure err_c92dd0ce2bd9826345433928 Error
+✔ YX7 R2写失败与SQL失败回滚，不留可发布元数据，不覆盖旧对象 (139.291826ms)
+✔ YX7 超大单图与解压总量拒绝；存储/压缩ZIP均可，嵌套目录合法 (983.265953ms)
+✔ YX7 上传提交成功但回执丢失时保留图片并返回已提交版本 (120.184047ms)
+✔ YX7 同版本并发重复导入幂等，不留重复课程或半份映射 (160.583637ms)
+POST /api/promo（30课次）: 4/40
+POST /promo/ID/application: 6/40
+GET /api/promo/ID（30机构汇总）: 9/40
+PUT /api/promo/ID/applications/ID: 9/40
+GET /api/promo/ID: 9/40
+POST /api/promo/ID/open（30机构×30课次）: 9/40
+GET /promo/ID（30课次）: 9/40
+PUT /promo/ID/roster（30课次×30人）: 9/40
+GET /promo/ID/roster: 4/40
+GET /promo: 7/40
+GET /promo/assets: 2/40
+PUT /promo/assets: 3/40
+POST /promo/ID/read: 3/40
+PUT /api/promo/ID/sessions/ID（同步30机构）: 9/40
+POST /api/promo/ID/fail（取消900课次）: 9/40
+✔ 第八阶段查询预算：30机构、30课次、30人名单；所有新接口每请求不超过40次 (2029.909122ms)
+✔ 第八阶段收尾：每机构未完成上传最多5个，跨账号共享配额、并发不能突破，其他机构和平台不受限 (324.86061ms)
+✔ 第八阶段收尾：完成图片50张/100MB原子限制，边界允许、并发拒绝超额，平台素材豁免 (315.112228ms)
+✔ 第八阶段收尾：5分钟Cron清理超24小时任务及全部分片/孤立对象，保留新任务和完成图；失败重试且不影响备份 (456.101715ms)
+✔ 第八阶段收尾：过期清理与在途分片竞态不会留下孤立R2对象 (169.668625ms)
+✔ 第八阶段：指定机构/类型/显示时间与promo角色硬隔离；申请跨机构及价格tuition裁剪 (783.918785ms)
+✔ 第八阶段：确认人数/开班/名单限制、学生范围及会议私密；普通接口拒绝改课销课；改期同步且不进月结指纹 (347.323987ms)
+✔ 第八阶段：R2图片分片/类型/尺寸/作用域、海报框校验，品牌独立且不漏其他机构，效果统计真实事件 (1142.035178ms)
+✔ 第八阶段：未成班只取消未来课次，已开始记录与审计保留；已开课机构撤回只提示联系平台 (262.221066ms)
+✔ 第八阶段：恢复普通业务保留当前合作课改期、名单、讲师和来源；缺少参课学员先阻止恢复 (569.665756ms)
+✔ 推广改版 P1/P4/P5/P9：真实100人导入和第二机构，顾问权限、跟进、收款、开班及财务不变 (1548.790041ms)
+✔ 推广改版 P2/P3/P6：免费讲座、整数元兼容旧价格、750px 长图物料及二维码文字 (239.511154ms)
+✔ 推广改版 P7：未读、新内容、个人不再提示和截止提醒的原子一次性 (264.381897ms)
+[{"label":"新建学员","method":"POST","path":"data/students","queries":6,"statements":19,"status":200},{"label":"新增一对一课程类型","method":"POST","path":"data/course_types","queries":6,"statements":19,"status":200},{"label":"一对一课程","method":"POST","path":"data/lessons","queries":11,"statements":30,"status":200},{"label":"30人班课","method":"POST","path":"data/lessons","queries":11,"statements":59,"status":200},{"label":"30人课程详情","method":"GET","path":"data/lessons/les_480acf3aa977cd223bd3279a","queries":5,"statements":16,"status":200},{"label":"1模板生成4周（30人）","method":"POST","path":"templates/generate","queries":13,"statements":154,"status":200},{"label":"30模板生成整月（900名学员，150节、4500参与记录）","method":"POST","path":"templates/generate","queries":13,"statements":4685,"status":200},{"label":"整月周课表页（150节）","method":"GET","path":"schedule?from=2026-11-01&to=2026-12-01","queries":3,"statements":15,"status":200},{"label":"重复生成去重","method":"POST","path":"templates/generate","queries":10,"statements":23,"status":200},{"label":"账号与权限","method":"GET","path":"me","queries":2,"statements":10,"status":200},{"label":"学员列表","method":"GET","path":"data/students","queries":3,"statements":14,"status":200},{"label":"教师列表","method":"GET","path":"data/teachers","queries":3,"statements":14,"status":200},{"label":"固定模板列表","method":"GET","path":"data/schedule_templates","queries":3,"statements":15,"status":200},{"label":"财务/业务日志","method":"GET","path":"logs","queries":4,"statements":14,"status":200},{"label":"编辑用学员新建","method":"POST","path":"data/students","queries":6,"statements":19,"status":200},{"label":"编辑学员","method":"PATCH","path":"data/students/rec_dd963b2c8dc1ee3d93d9bd68","queries":7,"statements":21,"status":200},{"label":"删除学员","method":"DELETE","path":"data/students/rec_dd963b2c8dc1ee3d93d9bd68","queries":8,"statements":22,"status":200},{"label":"学员搜索","method":"GET","path":"data/students?q=%E5%AD%A6%E5%91%98","queries":3,"statements":14,"status":200},{"label":"30名学员排序","method":"PUT","path":"reorder","queries":6,"statements":79,"status":200},{"label":"学员档案详情","method":"GET","path":"data/students/stu_f3a22576be4f3412cda4417b","queries":3,"statements":13,"status":200},{"label":"查看联系方式","method":"POST","path":"data/students/stu_f3a22576be4f3412cda4417b/contact","queries":3,"statements":11,"status":200},{"label":"缺勤规则","method":"GET","path":"absence-policies","queries":1,"statements":9,"status":200},{"label":"创建教师","method":"POST","path":"data/teachers","queries":6,"statements":19,"status":200},{"label":"创建教室","method":"POST","path":"data/locations","queries":6,"statements":19,"status":200},{"label":"新建模板","method":"POST","path":"data/schedule_templates","queries":8,"statements":24,"status":200},{"label":"模板报名","method":"POST","path":"data/schedule_enrollments","queries":6,"statements":23,"status":200},{"label":"不可排时段","method":"POST","path":"data/student_schedule_blocks","queries":6,"statements":21,"status":200},{"label":"创建员工账号","method":"POST","path":"accounts","queries":3,"statements":12,"status":201},{"label":"修改员工账号","method":"PATCH","path":"accounts/usr_e99acf598d95cabb2386d655","queries":4,"statements":13,"status":200},{"label":"重置员工密码","method":"POST","path":"accounts/usr_e99acf598d95cabb2386d655/reset-password","queries":3,"statements":12,"status":200},{"label":"创建教师关联账号","method":"POST","path":"accounts","queries":5,"statements":14,"status":201},{"label":"登录","method":"POST","path":"login","queries":6,"statements":7,"status":200},{"label":"我的设备","method":"GET","path":"sessions","queries":2,"statements":10,"status":200}]
+✔ D1 查询预算：30人班课、30个模板整月生成及所有已测接口每请求不超过40次 (1117.919501ms)
+✔ R1 批量权限：三项保存只撤销一次会话，另一机构不受影响 (255.201047ms)
+✔ R1 批量权限：空数组、超限、非法项整批拒绝，合法重复以最后一项为准 (173.426342ms)
+✔ R1 批量权限：旧格式兼容，教务和财务两种格式均拒绝 (257.876519ms)
+✔ 第二阶段 HTTP：双机构各20名学员、一周课表、跨机构读取修改删除及全部关联 ID 被拒绝 (4381.522893ms)
+✔ 第二阶段：冲突、不可排时段、线上教室豁免、模板整批回滚与去重、日期报名 (329.673179ms)
+✔ 第二阶段：个人账号档案关联同机构、唯一关联、教师学员只见自己、教务开关及归档下线 (1055.27138ms)
+✔ 第二阶段：教师仅自己课程、默认教务不能建教师教室、主管授权后可建、个人档案重新启用 (521.242436ms)
+✔ 第二阶段：线上不占教室、报名起止日期、排序版本、搜索通配符转义与跨机构搜索 (335.528332ms)
+✔ 第二阶段：并发排课重新校验，重叠只写一节，非重叠两节都保存 (272.203595ms)
+✔ 第二阶段：档案联系方式加密、主管查看留痕、教务历史授权也不能读取完整号码 (190.672034ms)
+✔ 字段加密使用随机 IV、绑定机构上下文；HMAC 隔离；密码独立盐和弱密码库 (161.62338ms)
+✔ 所有必需 Secret 缺失均拒绝服务，客户端无堆栈或 SQL (156.968924ms)
+✔ 三层权限、个人归属、金额裁剪和教务默认配置 (1.168632ms)
+✔ 账号变更/密码变更撤销会话，乐观锁拒绝覆盖，审计只增不改 (137.303776ms)
+✔ 到期/停用/路径别名、保留字和版本并发、模块修改及时生效 (524.807718ms)
+✔ 员工闲置/绝对时限、个人会话时限、Cookie 安全属性和非法会话 (126.367732ms)
+✔ 首个超管初始化永久关闭；TOTP 签名校验与防重放 (317.104682ms)
+✔ 初始化从空库完成，验证器必须先确认，平台与机构账号完全分离 (400.369101ms)
+✔ 请求上限、图片真实格式、保留路由和非登录 CSP (1320.0431ms)
+✔ 账号上限在写入语句强制；手机号跨机构 HMAC 不同；所有 SQL 仅在 repo (189.940053ms)
+✔ 密码哈希计算期间账号或机构已变更，旧凭据不能建立新会话 (165.861322ms)
+✔ 同一 IP 跨机构失败 20 次封禁，计数写入原子化且锁定不被重试延长 (121.528614ms)
+✔ 审查回归：历史 accounts 授权不能完成教务提权、改角色或接管财务的完整攻击链 (200.284172ms)
+✔ 审查回归：学费和课酬按领域递归独立裁剪 (0.875124ms)
+✔ 审查回归：机构字段未变或停用均保留会话；财务日志 SQL 分页前过滤 (142.254471ms)
+✔ 会话失效的已知机构网页回登录；API仍401，未知路径和主机仍404，有效会话可用 (788.263921ms)
+✔ YX3 姓氏称呼支持单姓、常见复姓、英文与无法判断，字面X不作默认 (1.001473ms)
+✔ YX3 学员新建与手工覆盖称呼、空值默认、改名不覆盖手工称呼 (294.646841ms)
+✔ YX3 0020升级修正旧字面称呼、保留手工值，并带入阶段2已选择学科的内容 (162.275888ms)
+✔ YX3 没有模板的三类集合GET为空且version1，首次PUT递增 (169.755959ms)
+✔ YX3 阶段规则必须五个布尔key齐全；缺项、未知项、非布尔全部422且不写 (175.80479ms)
+✔ YX3 集合整体替换、版本冲突附完整latest，不局部覆盖 (219.344688ms)
+✔ YX3 日历节点重复、月份为空/越界/非整数、region格式错误全部拒绝 (186.404834ms)
+✔ YX3 四种模板都可导入；报价无预设价格、内容结构保留、同包重试不覆盖 (217.600654ms)
+✔ YX3 模板同名手工项保留，手工日历和规则不会被后加模板覆盖 (204.085669ms)
+✔ YX3 报价五种计价均用整数分存储，课包数量及金额小数严格校验 (211.398468ms)
+✔ YX3 报价时长与排课时长分离，跨机构排课课程不能关联 (370.230286ms)
+✔ YX3 报价筛选分页、停用保留历史价格、价目表版本递增 (172.129521ms)
+✔ YX3 新设置权限不改变财务旧授权；无prices.read时课程DTO不含价格 (257.262414ms)
+✔ YX3 阶段类型增改停用和锚点校验；保留仍引用的日历节点 (190.206715ms)
+✔ YX3 选课规则引用自己的阶段/课程，重复阶段或跨机构引用422 (176.244865ms)
+✔ YX3 报告维度按key改名，删除后key不能复用，老师只读维度 (207.443424ms)
+✔ YX3 学员报告班型校验机构归属，可显式清空 (403.190834ms)
+✔ YX3 机构档案版本和老师归属校验，不能信任请求中的机构或作者 (379.821629ms)
+✔ YX3 图库上传服务端识别尺寸，私有二进制读取、标签和家长同意 (190.417478ms)
+✔ YX3 图库拒绝SVG和伪造图片，不创建对象或记录 (183.882173ms)
+✔ YX3 未引用图片删除后R2移除且不可读取，重试删除可完成清理 (371.600145ms)
+✔ YX3 已引用图库图只隐藏，历史URL仍可读，不再出现在列表 (158.725666ms)
+✔ YX3 品牌只允许主色和本机构二维码，其他字段422不改名 (392.820027ms)
+✔ YX3 A会话不能读改删B报价、图库、卡片，列表不混入B数据 (1639.036717ms)
+✔ YX3 新DTO不含tenant_id，旧me既有tenant_id保持兼容 (194.801414ms)
+✔ YX3 settings模块关闭后新设置入口404，旧统计报表不受影响 (591.649488ms)
+✔ YX3 修改卡片提交不改业务表；主管审批原子写入，撤回恢复快照 (242.630502ms)
+✔ YX3 修改卡片目标版本已变409且不改任一资源；撤回不覆盖后续编辑 (216.809409ms)
+✔ YX3 修改卡片拒绝状态、价格权限、过期建议和实体白名单 (408.836152ms)
+✔ YX3 Excel预览逐行校验不写课程，确认只用服务器保存行，一次提交防重复 (194.041327ms)
+✔ YX3 Excel坏行不能确认、预览跨人不可用、价格版本变化后不能覆盖 (198.755033ms)
+✔ YX3 新设置和维度墓碑进入全量加密备份，原迁移与融合版前端原样保留 (418.689551ms)
+✔ YX3 根会话与机构路径共用设置服务，到期认证后403且不删会话 (247.458877ms)
+✔ YX3 200行Excel预览与确认各自≤40查询，别人的预览不能确认 (423.671789ms)
+request_failure err_ad2064696d068f28ce795f0a Error
+✔ YX3 多目标审批中途数据库错误全部回滚，恢复后可重试 (189.429874ms)
+request_failure err_ef68478eb11c76aa7d941c15 Error
+request_failure err_18ebd752f52074084d7c1104 Error
+✔ YX3 图库上传数据库失败删除暂存对象，R2失败不产生数据库行 (167.391059ms)
+✔ YX3 ops设置学科与导入同事务，重复保存保留模板内容及导入标记 (175.205099ms)
+✔ YX3 阶段/报告班型/修改卡片跨机构修改删除审批404，过期建议不可提交 (1848.032465ms)
+✔ YX3 同版本并发整体保存只有一个成功，另一个409带最新完整对象 (157.791497ms)
+✔ YX3 输出本轮真实HTTP请求响应素材 (6.601621ms)
+✔ YX5S 无会话可读取独立静态外壳，响应头和CSP与机构端一致 (290.548846ms)
+✔ YX5S 有效、错误、过期、作废和机构到期的令牌均返回相同外壳，不计访问 (435.38546ms)
+✔ YX5S 数据API仍返回固定版本JSON并独立鉴权、计数与作废，外壳不影响它 (663.824667ms)
+✔ YX5S 外壳不受会话错误或分享IP限流影响，API继续限流 (189.332821ms)
+✔ YX5S 外壳不进入控制台或机构路由，非GET受限、媒体仍按原令牌权限校验 (568.511807ms)
+✔ YX5S 外壳打包为一个独立HTML，无内联脚本或事件，不改变前端页面内容 (1.069124ms)
+✔ YX5H 冲刺顾问提示只在阶段hints中，采用、发送、导出和家长分享均不泄露 (280.917386ms)
+✔ YX5H 关闭冲刺规则时hints为空，艺考学生可见目标继续保留 (273.721452ms)
+✔ 速度 S1：仅成功白名单静态响应可缓存，合法版本号、HTML、API 与越界路径 (1300.046447ms)
+✔ 速度 S2/S3：认证固定往返与实测 D1 次数，成功及失败的 API 计时 (377.429949ms)
+✔ 速度预算样本：典型接口的独立 D1 往返统计 (286.763322ms)
+✔ 第四阶段复核 P1：其他月份成本/课程、学员档案与本月课酬付款不阻断批准 (321.820621ms)
+✔ 第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效 (1375.314244ms)
+✔ 第四阶段复核 P1：缺勤规则变化拒批，保存等价默认规则不误拦 (411.804445ms)
+✔ 第四阶段复核 P1：指纹校验后到 batch 提交前改本月成本或缺勤规则不能穿透；其他月并发可重试 (686.349712ms)
+✔ 第四阶段复核 P2：未保存及部分缺失规则逐项回落，GET/扣课/teacher_paid/课酬一致；锁定历史不静默改写 (244.765226ms)
+✔ 第四阶段复核 P3：迁移预检检出负数与三位小数；只读识别未迁移/已迁移/半迁移 (51.545324ms)
+✔ 第四阶段复核 Excel：状态/维度中文、调整付款教师姓名、日志北京时间、所有金额数字类型两位小数 (352.278094ms)
+✔ 第四阶段复核查询预算：批准成功/指纹拒绝/并发重试均≤40 (1.172328ms)
+✔ 第七阶段：有效代管租约不能提交/批准/退回/解锁结算，均404；结算状态可读 (1062.573257ms)
+✔ 读取限额修复：230学员教务每30秒读200条持续60分钟全部200，只告警一次且会话保留 (1245.986429ms)
+✔ 读取限额修复：员工50000/教师5000拦截但保留会话，新会话仍有效，写入登出不受影响，自然小时恢复 (286.708073ms)
+✔ 第七阶段：员工和个人读请求每分钟240次限流、第五次失败告警；真实cf城市元数据触发异地告警，伪造Header无效 (287.859845ms)
+✔ 第七阶段：全部自有前端无HTML注入汇、内联事件或动态执行；生产包压缩混淆、不含源码/映射/测试数据 (23.002663ms)
+✔ V041 G4 0027仅加两列，旧表原行和版本不变，原图按对象大小回填 (204.225091ms)
+✔ V041 G4 默认500MiB，上传按R2实际Base64字节计量，列表携带storage (165.080656ms)
+✔ V041 G4 容量满返回413 used/limit，未写R2或元数据，删除真释放后可再上传 (218.007701ms)
+✔ V041 G4 只剩一张图容量时并发只成功一张，失败对象清理且不超额 (189.852035ms)
+✔ V041 G4 历史引用图只隐藏仍计容量，保护旧文档且不能靠隐藏绕限额 (218.366563ms)
+✔ V041 G4 容量和回填限本机构，外机构图库404，不读取其他对象 (401.874081ms)
+✔ V041 G4 缺失旧对象标NULL，网络错误保留待统计；回填不改其他业务列 (201.763311ms)
+✔ V041 G4 回填每次最多20对象，未完成时禁止上传避免低估 (215.814149ms)
+✔ V041 G4 平台owner调整限额/版本冲突/回填，员工无权操作 (569.105452ms)
+request_failure err_d29ed9c3c1ce89d844773670 Error
+✔ V041 G4 R2删除失败仍计费，重试删除成功才释放容量 (167.807649ms)
+request_failure err_3e80255197c761fce69e5ebd Error
+✔ V041 G4 SQL故障清理新R2对象，提交回执丢失保持已提交对象 (193.43597ms)
+✔ V041 G4 R2 head路径用实际size，图库bytes和机构上限进入加密备份快照 (415.777971ms)
+✔ P2 选学员：拼音、12 个多音字姓氏、英文和 HTML 字面姓名，各选择器字段一致 (496.416042ms)
+✔ P2 学员周课表：已生成固定课、逐人请假、真实补课、取消、移除及空页查询预算 (327.755727ms)
+✔ P2 固定规则及模板名单：按北京时间有效期、班级继承、人数、拼音、索引与 D1 预算 (349.913778ms)
+✔ P2 学员课表与固定规则权限：教师主讲和助教交集、学员仅本人、跨机构 404 (2054.472443ms)
+POST tools/classes: 8/40
+POST tools/classes/ID/members（30人）: 8/40
+POST data/schedule_templates（班级）: 10/40
+POST templates/generate（30模板×30人×整月）: 14/40
+GET tools/classes: 3/40
+GET tools/classes/ID（30人）: 4/40
+GET tools/class_members: 4/40
+GET workbench: 4/40
+GET renewals: 2/40
+GET renewal-brand: 3/40
+GET renewal-settings: 1/40
+PUT renewal-settings: 2/40
+GET followup-assignees: 3/40
+POST tools/followup_tasks: 7/40
+POST tools/followup_notes: 6/40
+GET tools/followup_notes: 3/40
+GET tools/followup_notes/ID: 3/40
+PATCH tools/followup_notes/ID: 7/40
+POST tools/student_routines: 6/40
+GET tools/student_routines: 3/40
+GET tools/student_routines/ID: 3/40
+PATCH tools/student_routines/ID: 7/40
+POST tools/leads: 5/40
+GET tools/leads: 3/40
+GET tools/leads/ID: 3/40
+PATCH tools/leads/ID: 6/40
+POST tools/referrals: 7/40
+GET tools/referrals: 4/40
+GET tools/referrals/ID: 4/40
+PATCH tools/referrals/ID: 7/40
+GET tools/followup_tasks/ID: 3/40
+DELETE tools/followup_tasks/ID: 6/40
+POST imports/preview（200行）: 2/40
+POST imports/commit（200行）: 7/40
+GET overview: 3/40
+GET backups: 2/40
+GET referrals: 4/40
+GET announcements: 2/40
+POST announcements: 2/40
+GET system-messages: 3/40
+POST system-messages/ID/read: 2/40
+GET tenants/ID/business: 7/40
+POST tenants/ID/maintenance: 4/40
+POST tenants/ID/operate: 12/40
+DELETE tenants/ID/maintenance/ID: 4/40
+GET tenants/ID/export-schema: 3/40
+GET tenants/ID/export（200行）: 5/40
+Cron每日启动: 31/40
+Cron分批续传: 31/40
+POST tenants/ID/jobs（恢复暂存）: 7/40
+GET tenants/ID/jobs: 4/40
+GET tenants/ID/jobs/ID: 4/40
+POST tenants/ID/jobs/ID/page: 6/40
+POST tenants/ID/jobs/ID/commit（完整恢复）: 8/40
+POST tenants/ID/jobs（旧JSON）: 8/40
+POST tenants/ID/jobs/ID/page（旧JSON）: 6/40
+POST tenants/ID/jobs/ID/preview: 7/40
+POST tenants/ID/jobs/ID/cancel: 6/40
+✔ 第六阶段查询预算：30人班级、30个班级模板整月、200行Excel；所有新增/修改接口及分批Cron均≤40 (3744.798907ms)
+✔ 第六阶段：班级、跟进、线索、推荐均校验同机构关联；招生转正原子建档；名单、金额无个人泄漏 (985.260735ms)
+✔ 第六阶段：网页空助教规范化为null；只生成所选班级；混入他课或跨机构学员拒绝 (652.701052ms)
+✔ 第六阶段：顾问联系说明加密落库，公共品牌不泄露，授权续费通知解密并留审计 (218.411191ms)
+✔ 第九阶段二：未设置/空串/on要求双Key，登录必须siteverify，登录CSP与旧版逐字一致 (254.923149ms)
+✔ 第九阶段二：on拒绝siteverify失败/异常、hostname/action不符与缺少token，统一401并记失败日志 (208.422677ms)
+✔ 第九阶段二：off零挑战外联可建会话，错误/停用/不存在账号统一401，虚拟PBKDF2哈希仍执行 (188.303049ms)
+✔ 第九阶段二：off缺双Key正常渲染、HTML无挑战域且CSP严格，非法模式503且其他Secrets仍必需 (167.411613ms)
+✔ 第九阶段二：off同手机号三次失败锁十五分钟，跨IP仍锁、到期可恢复，失败文案和日志不变 (208.576368ms)
+✔ 第九阶段二：off同IP十次失败锁一小时，换IP正常、到期恢复且不调用挑战服务 (299.591371ms)
+✔ 第九阶段二：Turnstile与Access四种组合独立，控制台校验/CSP和租户其他接口保持原样 (1087.003357ms)
+✔ 第九阶段二：off主管/教务/财务/教师/学员均可登录，首次强制改密和会话撤销流程保留 (566.80797ms)
+✔ 第九阶段二：实际前端on仍等待挑战token，off不插脚本/占位且无token直接提交，失败也不调用widget (46.036408ms)
+✔ UI B1：确认收入按消耗及回补，分位精确，锁月冻结，报表裁剪及导出 (359.017154ms)
+✔ UI B2：同范围提醒落库及审计，拒绝其他学员/机构和无权账号 (671.100605ms)
+✔ UI B3：原始100人JSON导入后，续费和待办均为6个用完组 (1301.390627ms)
+✔ UI B6：班级名单余额批量读取，出勤按班级限制，跨机构与个人范围拒绝 (491.593111ms)
+✔ UI B7：教师开关仅过滤对外图，默认显示，修改资料后保留课表 (189.460666ms)
+✔ UI B8：日志模块与操作精确组合，导出事件可筛选，财务边界不扩大 (195.427756ms)
+✔ UI B2/B7：续费提醒与教师对外课表设置可从加密快照按机构恢复 (525.333767ms)
+✔ UI B3/B6：同类包合并，不混入已过期和其他作用范围的课时包 (218.768286ms)
+✔ UI 待补课近30天：保留全量计数，按北京时间零点截断且纳入未来课程 (260.660501ms)
+✔ UI B8：登录日志支持主管按人和日期筛选，财务仍返回空列表 (229.193145ms)
+✔ C复核：合作升学默认暂停，主管不能启用，机构和控制台接口拒绝，平台显式开启后恢复 (441.648971ms)
+✔ C复核：收款与课时流水批量返回本机构学员姓名，学员仅见本人且查询预算不超限 (706.521355ms)
+✔ C复核：待办列表返回服务端总数，空页和续费分组分页准确 (239.937951ms)
+✔ C1格式：金额边界、表格零值、北京时间日期/星期/时间段、课时和同名区分 (12.069616ms)
+✔ C1状态：从未保存设置逐项回落、保留机构阈值，暂停/到期/零/低优先级与阶段到期 (0.204006ms)
+✔ C1摘要：85节两次业务往返、整次HTTP≤40、班课前三姓名、学员仅本人且跨机构不串 (328.130777ms)
+✔ C1权限：纯财务课表/学员只读及联系方式裁剪，主管兼财务保留写权限 (186.07407ms)
+✔ C1搜索：三组各8条、最长中文和字面%_反斜杠、不泄露电话、租户隔离与个人禁止 (232.883866ms)
+✔ C1待办：待办字段准确、阶段到期合入今天、保留阈值、角标不含续费、个人不得读取 (191.876816ms)
+✔ C1欠费：明确关联应收减实收，缺价/未关联待核对且教务不能读取 (195.591756ms)
+✔ C1约束：界面无toFixed(2)、新共享部件齐全、无框架/新增迁移/内联脚本 (1.691317ms)
+✔ C2课表：重叠链分道不撞、超过3道聚合、动态范围与最小08–20 (8.386781ms)
+✔ C2员工接口：学生真实分页/余额排序/详情应收；跨机构ID404、个人403、教务无金额，每请求≤40 (956.478176ms)
+✔ C2销课预判：禁止欠课且无余额提前发现且不写流水，补包后通过；跨课参与人及跨机构ID拒绝 (628.946406ms)
+✔ C2待办/建议：机构隔离、已过开始课、独立统计、补课建议只读且查询预算固定 (198.337772ms)
+✔ C3教师余额：未保存默认无余额；仅当前主讲本人课程；历史/助教不返回，关闭或模块停用不能注入授权 (410.628341ms)
+✔ C3个人隔离：教师历史只含本人参与课程，跨机构/无关联学生404；学员点评仅公共与本人，员工专用403 (678.075608ms)
+✔ C3报表：已发生/待销课/已排未上分列；未保存缺勤按默认，取消不计，未来成本不进利润，原课酬算法不变 (2.540841ms)
+✔ C3报表HTTP：六个月固定批量读取≤40；教务分领域裁剪，财务可读，跨机构无他人名字 (608.520935ms)
+✔ C3固定排课只读预览：复用原冲突计划，不写课程流水；确认时仍重新校验；所有请求≤40 (193.053249ms)
+✔ C3线索汇总：统计整机构而非页面，转正不出看板；模板预览权限和设置枚举失败关闭 (404.301681ms)
+✔ C3余额授权不能被历史角色授权注入，线索相邻拖动且流失仅重新跟进；财务日志入口可见 (255.095901ms)
+✔ C3预览查询预算：30个模板×30人×一个月，预览无写入，单请求≤40 (368.933196ms)
+✔ 阶段A：金额仅省略零小数，分位/负数/缺失值不被改写 (8.755734ms)
+✔ 阶段A：日期选择校验闰日和月年边界，不把无效日期自动改日 (0.32638ms)
+✔ 阶段B：已知快照教师/助教、教室和学员冲突在保存前识别，排除自己及取消课程 (0.752439ms)
+✔ 阶段B：已知快照边界时间、不同日期、线上教室及不可排时段与后端口径一致 (0.154041ms)
+✔ 阶段B：北京时间日期、跨周跨年与15分钟目标不经浏览器时区换算 (0.307722ms)
+✔ 阶段B：全部19处原生确认已替换为共享弹窗，无新增内联HTML/样式/事件或外部字体 (5.108082ms)
+✔ 阶段B：组件合并进既有两条静态路径，生产图标来自A的本地符号，金额仅隐藏.00 (12.116334ms)
+✔ UI重构v2：新页面并入既有两条静态路径，样式最后加载；无内联HTML/样式/原生弹窗/外部字体 (11.9266ms)
+✔ UI重构v2：弹层规则（抽屉560、弹窗480、手机底部升起）与手机五个底部标签 (2.09365ms)
+✔ UI重构v2：今天页与点名面板只调用既有接口，销课/撤销沿用原写入路径 (1.325048ms)
+✔ UI重构v2：续费按“学员+课程”分组选择，复制文字/下载图片后登记提醒（B2/B3 对接） (1.334572ms)
+✔ UI重构v2：学员/教师页（左列表右详情）只读既有接口，写入沿用原表单；无内联样式 (9.022744ms)
+✔ UI重构v2：编辑学员/教师时不把打码手机号回填进表单（留空=保留原号码） (0.594902ms)
+✔ UI重构v2：待办角标只算最近30天请假待补课（后端给 makeup_recent 时用它，没给时退回原总数） (1.774622ms)
+✔ UI重构v2：细节打磨——联系方式整段换行、号码原位显示；悬停只在可悬停设备；按压动效有减少动态兜底 (2.25349ms)
+✔ UI重构v2 第4组：待办（续费、补课）与招生看板只读既有接口，写入沿用原路径与原表单；无内联样式/原生弹窗 (12.908432ms)
+✔ UI重构v2：顶栏分页≥4个时搜索收成放大镜，标题与新建不换行 (2.037717ms)
+✔ UI重构v2 第5组：财务五个分页只读既有接口，写入沿用原表单/原路径；报表收入默认确认口径并区分 null (12.876315ms)
+✔ UI重构v2 第6组：班级（B6 名单）、固定排课看板、课程与教室只读既有接口，写入沿用原表单/原路径 (5.181762ms)
+✔ UI重构v2：B7 教师表单可关闭“对外课表图显示”，保存为 0/1 (3.612118ms)
+✔ UI重构v2 第7组：账号、机构设置、操作记录（B8 筛选）只读既有接口，写入沿用原路径/原表单 (7.298868ms)
+✔ UI重构v2 第8组：教师端/学员端手机页只读既有接口；点名、改密码等沿用原页面；标签按权限显示 (7.754311ms)
+✔ UI重构v2：教师手机课程详情/点名页只重排原页面——原提交按钮与原接口不变，只在个人端生效；提交栏停在底部导航上方 (0.815393ms)
+✔ 推广中心改版（机构端）：只读既有推广接口，申请/名单/上传沿用原表单；会议信息只在员工页面；下载文件名为英文 (6.283025ms)
+✔ 推广推送（P7/P8）：今天页枫琴推荐一次一条可“不再提示”；铃铛分“来自枫琴/系统”；招生旁“新 N”；合作升学按平台开关隐藏 (1.233871ms)
+✔ 提速：同页内切换只换变化的区域；请求并行；字典缓存遇写即清；静态文件带内容版本号 (1.565689ms)
+✔ 二级页面改版·通用：顶栏全局区常驻、本页按钮单独一行、左侧小菜单提为顶部分页；菜单贴按钮、按钮等待不转圈、铃铛先开再填 (1.316414ms)
+✔ 二级页面改版·表单：侧边栏表单分组、两列、必填 *、排序收进高级设置、保存取消固定底部；学员叫姓名、颜色用色块、新建不提示留空 (2.149614ms)
+✔ 二级页面改版·待办与排课：未销课+教师提交合为“点名销课”；跟进任务分组列表+详情；学员报名并入固定排课并可按天快速添加；课酬标准成为教师页分页 (1.271307ms)
+✔ 二级页面改版·角色权限：整张表勾选、一次保存；默认值与服务端一致；教师只看自己（固定说明）；推广中心财务不适用 (1.257416ms)
+✔ 二级页面改版·补课面板：自选时间在最上（当天时间轴＋实时冲突检查），推荐居中带理由，加入已有课在最后；时间块用类名定位、不写行内样式 (0.828582ms)
+✔ 二级页面改版·财务与导入导出：月份切换放到按钮行；月度结算不再有第三层整排分页、课酬标准移走；长表格每次 50 行；导出集中成一个分页 (4.504367ms)
+✔ 二级页面改版·线索详情与周课表：线索详情有阶段进度、一键改回访、直接改备注；周课表“＋N 节”改为贴着按钮的小列表 (0.762093ms)
+✔ QA-01/02/03 前端：待确认出勤提交的课不能走普通销课；控制台日志不撑宽；机构设置不露平台品牌 (0.980391ms)
+✔ B1 前端：登记缴费可分多个课时包、剩余进预收、其他收入；待核对逐条处理；预收兑换；欠课时显示与超限只拦本人 (2.649895ms)
+✔ D1 前端与界面修复：删除按钮、机构停用/彻底删除、公告撤回；空日期从今天开始；排课选学员改为搜索+卡片；强制保存只在冲突后出现 (2.056745ms)
+✔ 今天页（设计稿 10）：接下来要做分三组、类型筛选、我的/全部、记录回访就地填写、明天再说 (0.41329ms)
+✔ 选项缓存：同一份名单的不同写法算一份；写操作只作废相关名单 (1.587141ms)
+✔ v040 A 创意无出处仍保留，语气、素材原文和温度进入模型，flags持久化及过期重放 (244.492966ms)
+✔ v040 A 六类flags仅提醒，quote均在正文；确定价格、名称、电话地址比对 (1.081221ms)
+✔ v040 A content格式容错仍生效，真实姓名提示且模型不接收学生名单；plan咨询严格核验 (190.251245ms)
+✔ v040 A fact-check结果仅ok/mismatch/needs_confirm，文案仍可保存 (199.680253ms)
+✔ v040 B 三种来源、互斥与筛选；意向加密且不在文档/列表/审计中出现手机号 (216.581189ms)
+✔ v040 B 意向可继续保存、复制、AI；转换只建档、保留意向和分享、版本/重复转换受控 (215.538025ms)
+✔ v040 B 重复提示、确认新建与关联已有学员；线索转正来源、审计及跟进最近20条 (228.845135ms)
+request_failure err_4a02e219568c34e5f1467055 Error
+✔ v040 B 建档/线索/方案/审计任何一步失败全回滚；并发同方案只成功一次 (190.593408ms)
+✔ v040 B 0026只新增表、历史数据不变；意向数据纳入完整加密备份 (381.066881ms)
+✔ v040 0026在旧库执行后所有旧表、旧记录和约束逐项不变 (159.303694ms)
+✔ v040 B 跨机构、未登录、无新建学员权限转换均不泄露不写入 (621.428496ms)
+✔ v040 B 转正保留已发送分享链接；恢复转正前修订不会解除学员关联 (230.521471ms)
+✔ v040 A 格式错误、超长和明确不安全内容丢弃，不因合规/无出处而丢弃 (148.27378ms)
+✔ YXF 根地址：/ 转到 /login；/login 与 /app 给前端外壳（基础路径 /），未知路径仍 404 (935.556854ms)
+✔ YXF 根会话的 me 带机构代号，供前端取品牌；机构路径的 me 同样带 (208.853177ms)
+✔ YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，并已进入机构端打包 (9.833731ms)
+ℹ tests 556
+ℹ suites 0
+ℹ pass 556
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 225674.618154

@@ -1,0 +1,10 @@
+--- a/tests/support.mjs
++++ b/tests/support.mjs
+@@ -189,6 +189,7 @@
+   if(migrateSettings && migratePlans && migrateAi && migrateArticle) db.raw.exec(await readFile(new URL("../migrations/0025_article_metadata.sql", import.meta.url), "utf8"));
+   if(migrateSettings && migratePlans && migrateProspects) db.raw.exec(await readFile(new URL('../migrations/0026_plan_prospects.sql',import.meta.url),'utf8'));
+   if(migrateSettings && migrateStorage) db.raw.exec(await readFile(new URL('../migrations/0027_gallery_storage.sql',import.meta.url),'utf8'));
++  if(migrateSettings && migratePlans && migrateStorage) db.raw.exec(await readFile(new URL('../migrations/0028_plan_v2.sql',import.meta.url),'utf8'));
+   // The legacy referral tests run with the persisted platform switch enabled.
+   db.raw
+     .prepare(

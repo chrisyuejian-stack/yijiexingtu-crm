@@ -1,0 +1,1 @@
+CREATE TRIGGER precision_schedule_templates_update BEFORE UPDATE OF units ON schedule_templates WHEN NEW.units IS NOT OLD.units AND ABS(NEW.units*100-ROUND(NEW.units*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END;

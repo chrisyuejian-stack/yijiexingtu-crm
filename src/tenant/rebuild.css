@@ -1,0 +1,1386 @@
+/* Structural composition only; A token values and motion curves stay unchanged. */
+.c2-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ui-space-4);
+  margin-block: var(--ui-space-4);
+}
+.c2-metric > strong {
+  display: block;
+  font-size: var(--ui-font-number);
+  font-weight: var(--ui-weight-number);
+  font-variant-numeric: tabular-nums;
+}
+.c2-metric.is-danger {
+  background: var(--ui-error-bg);
+  color: var(--ui-error);
+}
+.c2-home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: var(--ui-space-6);
+}
+.c2-home-grid > .ui-card {
+  min-width: 0;
+}
+.c2-home-grid > .ui-card > button {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-block: var(--ui-space-2);
+}
+.c2-course-line > .ui-button-face {
+  display: grid;
+  grid-template-columns: 100px minmax(100px, 1fr) 1fr 90px auto;
+  gap: var(--ui-space-2);
+  width: 100%;
+  text-align: left;
+}
+.c2-week-bars {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--ui-space-2);
+}
+.c2-week-bars .ui-button-face {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 80px;
+  background: var(--ui-primary-soft);
+}
+.c2-detail-head {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  flex-wrap: wrap;
+}
+.c2-detail-head > p {
+  flex-basis: 100%;
+}
+.c2-detail-head > .ui-filter-bar {
+  margin-left: auto;
+}
+.c2-task-row,
+.c2-attendee {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--ui-divider);
+  padding-block: var(--ui-space-3);
+}
+.c2-attendee > small {
+  flex-basis: 100%;
+  color: var(--ui-muted);
+}
+.c2-attendance-buttons {
+  display: flex;
+  gap: var(--ui-space-1);
+  margin-left: auto;
+}
+.c2-attendance-buttons [aria-pressed="true"] .ui-button-face {
+  background: var(--ui-primary);
+  color: var(--ui-panel);
+}
+.c2-recent {
+  border-bottom: 1px solid var(--ui-divider);
+  padding: var(--ui-space-3);
+}
+.ui-root .ui-filter-bar {
+  max-width: 100%;
+}
+.c1-content .ui-page-body > .ui-data-table {
+  width: 100%;
+}
+.c1-content .ui-table-scroll {
+  max-width: 100%;
+  overflow: auto;
+}
+.c2-task-row > input {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+@media (max-width: 760px) {
+  .c2-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .c2-home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .c2-course-line > .ui-button-face {
+    grid-template-columns: 1fr 1fr;
+  }
+  .c2-course-line time {
+    grid-column: 1/-1;
+  }
+  .c2-attendee {
+    align-items: flex-start;
+  }
+  .c2-attendance-buttons {
+    margin-left: 0;
+  }
+  .c2-detail-head > .ui-filter-bar {
+    margin-left: 0;
+  }
+  .c2-week-bars {
+    gap: 0;
+  }
+  .c2-week-bars .ui-button-face {
+    padding: var(--ui-space-1);
+  }
+}
+
+.c2-grid {
+  grid-template-columns: 56px repeat(7, minmax(336px, 1fr));
+  grid-template-rows: 60px repeat(var(--c2-slot-count), 22px);
+  min-width: 2408px;
+}
+.c2-grid.is-day {
+  grid-template-columns: 56px minmax(336px, 1fr);
+  min-width: 392px;
+}
+.c2-grid .cal-background {
+  grid-row: 2 / span var(--c2-slot-count);
+}
+.c2-grid .b-course > strong {
+  font-size: var(--ui-font-xs);
+  text-align: left;
+}
+.c2-grid .b-course > span,
+.c2-grid .b-course > small {
+  text-align: left;
+}
+.c2-grid .status-completed {
+  opacity: 0.6;
+}
+.b-course.is-unchecked:not([aria-busy="true"]):after {
+  content: "";
+  position: absolute;
+  right: var(--ui-space-1);
+  top: var(--ui-space-1);
+  width: 6px;
+  height: 6px;
+  border-radius: var(--ui-radius-tag);
+  background: var(--ui-error);
+}
+.b-course.has-conflict {
+  outline: 1px dashed var(--ui-error);
+}
+.calendar-filter-panel {
+  position: fixed;
+  top: anchor(bottom);
+  right: anchor(right);
+  left: auto;
+  width: min(620px, calc(100vw - 32px));
+  max-height: 70vh;
+  overflow: auto;
+  margin: 0;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-panel);
+  padding: var(--ui-space-4);
+  background: var(--ui-panel);
+  position-try-fallbacks: flip-block, flip-inline;
+}
+.c2-overflow {
+  background: var(--ui-neutral-bg);
+  color: var(--ui-primary);
+}
+.c2-grid .c2-overflow > .ui-button-face {
+  display: flex;
+}
+.c2-grid .b-course {
+  padding: var(--ui-space-1);
+  min-height: 22px;
+}
+.b-calendar-page {
+  max-width: 100%;
+  min-width: 0;
+}
+.b-calendar-viewport {
+  max-width: 100%;
+  min-width: 0;
+}
+.c2-start-0 {
+  --c2-slot-start: 0;
+}
+.c2-count-0 {
+  --c2-slot-count: 1;
+}
+.c2-grid .cal-slot-0 {
+  grid-row-start: calc(2 - var(--c2-slot-start));
+}
+.c2-start-1 {
+  --c2-slot-start: 1;
+}
+.c2-count-1 {
+  --c2-slot-count: 1;
+}
+.c2-grid .cal-slot-1 {
+  grid-row-start: calc(3 - var(--c2-slot-start));
+}
+.c2-start-2 {
+  --c2-slot-start: 2;
+}
+.c2-count-2 {
+  --c2-slot-count: 2;
+}
+.c2-grid .cal-slot-2 {
+  grid-row-start: calc(4 - var(--c2-slot-start));
+}
+.c2-start-3 {
+  --c2-slot-start: 3;
+}
+.c2-count-3 {
+  --c2-slot-count: 3;
+}
+.c2-grid .cal-slot-3 {
+  grid-row-start: calc(5 - var(--c2-slot-start));
+}
+.c2-start-4 {
+  --c2-slot-start: 4;
+}
+.c2-count-4 {
+  --c2-slot-count: 4;
+}
+.c2-grid .cal-slot-4 {
+  grid-row-start: calc(6 - var(--c2-slot-start));
+}
+.c2-start-5 {
+  --c2-slot-start: 5;
+}
+.c2-count-5 {
+  --c2-slot-count: 5;
+}
+.c2-grid .cal-slot-5 {
+  grid-row-start: calc(7 - var(--c2-slot-start));
+}
+.c2-start-6 {
+  --c2-slot-start: 6;
+}
+.c2-count-6 {
+  --c2-slot-count: 6;
+}
+.c2-grid .cal-slot-6 {
+  grid-row-start: calc(8 - var(--c2-slot-start));
+}
+.c2-start-7 {
+  --c2-slot-start: 7;
+}
+.c2-count-7 {
+  --c2-slot-count: 7;
+}
+.c2-grid .cal-slot-7 {
+  grid-row-start: calc(9 - var(--c2-slot-start));
+}
+.c2-start-8 {
+  --c2-slot-start: 8;
+}
+.c2-count-8 {
+  --c2-slot-count: 8;
+}
+.c2-grid .cal-slot-8 {
+  grid-row-start: calc(10 - var(--c2-slot-start));
+}
+.c2-start-9 {
+  --c2-slot-start: 9;
+}
+.c2-count-9 {
+  --c2-slot-count: 9;
+}
+.c2-grid .cal-slot-9 {
+  grid-row-start: calc(11 - var(--c2-slot-start));
+}
+.c2-start-10 {
+  --c2-slot-start: 10;
+}
+.c2-count-10 {
+  --c2-slot-count: 10;
+}
+.c2-grid .cal-slot-10 {
+  grid-row-start: calc(12 - var(--c2-slot-start));
+}
+.c2-start-11 {
+  --c2-slot-start: 11;
+}
+.c2-count-11 {
+  --c2-slot-count: 11;
+}
+.c2-grid .cal-slot-11 {
+  grid-row-start: calc(13 - var(--c2-slot-start));
+}
+.c2-start-12 {
+  --c2-slot-start: 12;
+}
+.c2-count-12 {
+  --c2-slot-count: 12;
+}
+.c2-grid .cal-slot-12 {
+  grid-row-start: calc(14 - var(--c2-slot-start));
+}
+.c2-start-13 {
+  --c2-slot-start: 13;
+}
+.c2-count-13 {
+  --c2-slot-count: 13;
+}
+.c2-grid .cal-slot-13 {
+  grid-row-start: calc(15 - var(--c2-slot-start));
+}
+.c2-start-14 {
+  --c2-slot-start: 14;
+}
+.c2-count-14 {
+  --c2-slot-count: 14;
+}
+.c2-grid .cal-slot-14 {
+  grid-row-start: calc(16 - var(--c2-slot-start));
+}
+.c2-start-15 {
+  --c2-slot-start: 15;
+}
+.c2-count-15 {
+  --c2-slot-count: 15;
+}
+.c2-grid .cal-slot-15 {
+  grid-row-start: calc(17 - var(--c2-slot-start));
+}
+.c2-start-16 {
+  --c2-slot-start: 16;
+}
+.c2-count-16 {
+  --c2-slot-count: 16;
+}
+.c2-grid .cal-slot-16 {
+  grid-row-start: calc(18 - var(--c2-slot-start));
+}
+.c2-start-17 {
+  --c2-slot-start: 17;
+}
+.c2-count-17 {
+  --c2-slot-count: 17;
+}
+.c2-grid .cal-slot-17 {
+  grid-row-start: calc(19 - var(--c2-slot-start));
+}
+.c2-start-18 {
+  --c2-slot-start: 18;
+}
+.c2-count-18 {
+  --c2-slot-count: 18;
+}
+.c2-grid .cal-slot-18 {
+  grid-row-start: calc(20 - var(--c2-slot-start));
+}
+.c2-start-19 {
+  --c2-slot-start: 19;
+}
+.c2-count-19 {
+  --c2-slot-count: 19;
+}
+.c2-grid .cal-slot-19 {
+  grid-row-start: calc(21 - var(--c2-slot-start));
+}
+.c2-start-20 {
+  --c2-slot-start: 20;
+}
+.c2-count-20 {
+  --c2-slot-count: 20;
+}
+.c2-grid .cal-slot-20 {
+  grid-row-start: calc(22 - var(--c2-slot-start));
+}
+.c2-start-21 {
+  --c2-slot-start: 21;
+}
+.c2-count-21 {
+  --c2-slot-count: 21;
+}
+.c2-grid .cal-slot-21 {
+  grid-row-start: calc(23 - var(--c2-slot-start));
+}
+.c2-start-22 {
+  --c2-slot-start: 22;
+}
+.c2-count-22 {
+  --c2-slot-count: 22;
+}
+.c2-grid .cal-slot-22 {
+  grid-row-start: calc(24 - var(--c2-slot-start));
+}
+.c2-start-23 {
+  --c2-slot-start: 23;
+}
+.c2-count-23 {
+  --c2-slot-count: 23;
+}
+.c2-grid .cal-slot-23 {
+  grid-row-start: calc(25 - var(--c2-slot-start));
+}
+.c2-start-24 {
+  --c2-slot-start: 24;
+}
+.c2-count-24 {
+  --c2-slot-count: 24;
+}
+.c2-grid .cal-slot-24 {
+  grid-row-start: calc(26 - var(--c2-slot-start));
+}
+.c2-start-25 {
+  --c2-slot-start: 25;
+}
+.c2-count-25 {
+  --c2-slot-count: 25;
+}
+.c2-grid .cal-slot-25 {
+  grid-row-start: calc(27 - var(--c2-slot-start));
+}
+.c2-start-26 {
+  --c2-slot-start: 26;
+}
+.c2-count-26 {
+  --c2-slot-count: 26;
+}
+.c2-grid .cal-slot-26 {
+  grid-row-start: calc(28 - var(--c2-slot-start));
+}
+.c2-start-27 {
+  --c2-slot-start: 27;
+}
+.c2-count-27 {
+  --c2-slot-count: 27;
+}
+.c2-grid .cal-slot-27 {
+  grid-row-start: calc(29 - var(--c2-slot-start));
+}
+.c2-start-28 {
+  --c2-slot-start: 28;
+}
+.c2-count-28 {
+  --c2-slot-count: 28;
+}
+.c2-grid .cal-slot-28 {
+  grid-row-start: calc(30 - var(--c2-slot-start));
+}
+.c2-start-29 {
+  --c2-slot-start: 29;
+}
+.c2-count-29 {
+  --c2-slot-count: 29;
+}
+.c2-grid .cal-slot-29 {
+  grid-row-start: calc(31 - var(--c2-slot-start));
+}
+.c2-start-30 {
+  --c2-slot-start: 30;
+}
+.c2-count-30 {
+  --c2-slot-count: 30;
+}
+.c2-grid .cal-slot-30 {
+  grid-row-start: calc(32 - var(--c2-slot-start));
+}
+.c2-start-31 {
+  --c2-slot-start: 31;
+}
+.c2-count-31 {
+  --c2-slot-count: 31;
+}
+.c2-grid .cal-slot-31 {
+  grid-row-start: calc(33 - var(--c2-slot-start));
+}
+.c2-start-32 {
+  --c2-slot-start: 32;
+}
+.c2-count-32 {
+  --c2-slot-count: 32;
+}
+.c2-grid .cal-slot-32 {
+  grid-row-start: calc(34 - var(--c2-slot-start));
+}
+.c2-start-33 {
+  --c2-slot-start: 33;
+}
+.c2-count-33 {
+  --c2-slot-count: 33;
+}
+.c2-grid .cal-slot-33 {
+  grid-row-start: calc(35 - var(--c2-slot-start));
+}
+.c2-start-34 {
+  --c2-slot-start: 34;
+}
+.c2-count-34 {
+  --c2-slot-count: 34;
+}
+.c2-grid .cal-slot-34 {
+  grid-row-start: calc(36 - var(--c2-slot-start));
+}
+.c2-start-35 {
+  --c2-slot-start: 35;
+}
+.c2-count-35 {
+  --c2-slot-count: 35;
+}
+.c2-grid .cal-slot-35 {
+  grid-row-start: calc(37 - var(--c2-slot-start));
+}
+.c2-start-36 {
+  --c2-slot-start: 36;
+}
+.c2-count-36 {
+  --c2-slot-count: 36;
+}
+.c2-grid .cal-slot-36 {
+  grid-row-start: calc(38 - var(--c2-slot-start));
+}
+.c2-start-37 {
+  --c2-slot-start: 37;
+}
+.c2-count-37 {
+  --c2-slot-count: 37;
+}
+.c2-grid .cal-slot-37 {
+  grid-row-start: calc(39 - var(--c2-slot-start));
+}
+.c2-start-38 {
+  --c2-slot-start: 38;
+}
+.c2-count-38 {
+  --c2-slot-count: 38;
+}
+.c2-grid .cal-slot-38 {
+  grid-row-start: calc(40 - var(--c2-slot-start));
+}
+.c2-start-39 {
+  --c2-slot-start: 39;
+}
+.c2-count-39 {
+  --c2-slot-count: 39;
+}
+.c2-grid .cal-slot-39 {
+  grid-row-start: calc(41 - var(--c2-slot-start));
+}
+.c2-start-40 {
+  --c2-slot-start: 40;
+}
+.c2-count-40 {
+  --c2-slot-count: 40;
+}
+.c2-grid .cal-slot-40 {
+  grid-row-start: calc(42 - var(--c2-slot-start));
+}
+.c2-start-41 {
+  --c2-slot-start: 41;
+}
+.c2-count-41 {
+  --c2-slot-count: 41;
+}
+.c2-grid .cal-slot-41 {
+  grid-row-start: calc(43 - var(--c2-slot-start));
+}
+.c2-start-42 {
+  --c2-slot-start: 42;
+}
+.c2-count-42 {
+  --c2-slot-count: 42;
+}
+.c2-grid .cal-slot-42 {
+  grid-row-start: calc(44 - var(--c2-slot-start));
+}
+.c2-start-43 {
+  --c2-slot-start: 43;
+}
+.c2-count-43 {
+  --c2-slot-count: 43;
+}
+.c2-grid .cal-slot-43 {
+  grid-row-start: calc(45 - var(--c2-slot-start));
+}
+.c2-start-44 {
+  --c2-slot-start: 44;
+}
+.c2-count-44 {
+  --c2-slot-count: 44;
+}
+.c2-grid .cal-slot-44 {
+  grid-row-start: calc(46 - var(--c2-slot-start));
+}
+.c2-start-45 {
+  --c2-slot-start: 45;
+}
+.c2-count-45 {
+  --c2-slot-count: 45;
+}
+.c2-grid .cal-slot-45 {
+  grid-row-start: calc(47 - var(--c2-slot-start));
+}
+.c2-start-46 {
+  --c2-slot-start: 46;
+}
+.c2-count-46 {
+  --c2-slot-count: 46;
+}
+.c2-grid .cal-slot-46 {
+  grid-row-start: calc(48 - var(--c2-slot-start));
+}
+.c2-start-47 {
+  --c2-slot-start: 47;
+}
+.c2-count-47 {
+  --c2-slot-count: 47;
+}
+.c2-grid .cal-slot-47 {
+  grid-row-start: calc(49 - var(--c2-slot-start));
+}
+.c2-start-48 {
+  --c2-slot-start: 48;
+}
+.c2-count-48 {
+  --c2-slot-count: 48;
+}
+.c2-grid .cal-slot-48 {
+  grid-row-start: calc(50 - var(--c2-slot-start));
+}
+.c2-start-49 {
+  --c2-slot-start: 49;
+}
+.c2-count-49 {
+  --c2-slot-count: 49;
+}
+.c2-grid .cal-slot-49 {
+  grid-row-start: calc(51 - var(--c2-slot-start));
+}
+.c2-start-50 {
+  --c2-slot-start: 50;
+}
+.c2-count-50 {
+  --c2-slot-count: 50;
+}
+.c2-grid .cal-slot-50 {
+  grid-row-start: calc(52 - var(--c2-slot-start));
+}
+.c2-start-51 {
+  --c2-slot-start: 51;
+}
+.c2-count-51 {
+  --c2-slot-count: 51;
+}
+.c2-grid .cal-slot-51 {
+  grid-row-start: calc(53 - var(--c2-slot-start));
+}
+.c2-start-52 {
+  --c2-slot-start: 52;
+}
+.c2-count-52 {
+  --c2-slot-count: 52;
+}
+.c2-grid .cal-slot-52 {
+  grid-row-start: calc(54 - var(--c2-slot-start));
+}
+.c2-start-53 {
+  --c2-slot-start: 53;
+}
+.c2-count-53 {
+  --c2-slot-count: 53;
+}
+.c2-grid .cal-slot-53 {
+  grid-row-start: calc(55 - var(--c2-slot-start));
+}
+.c2-start-54 {
+  --c2-slot-start: 54;
+}
+.c2-count-54 {
+  --c2-slot-count: 54;
+}
+.c2-grid .cal-slot-54 {
+  grid-row-start: calc(56 - var(--c2-slot-start));
+}
+.c2-start-55 {
+  --c2-slot-start: 55;
+}
+.c2-count-55 {
+  --c2-slot-count: 55;
+}
+.c2-grid .cal-slot-55 {
+  grid-row-start: calc(57 - var(--c2-slot-start));
+}
+.c2-start-56 {
+  --c2-slot-start: 56;
+}
+.c2-count-56 {
+  --c2-slot-count: 56;
+}
+.c2-grid .cal-slot-56 {
+  grid-row-start: calc(58 - var(--c2-slot-start));
+}
+.c2-start-57 {
+  --c2-slot-start: 57;
+}
+.c2-count-57 {
+  --c2-slot-count: 57;
+}
+.c2-grid .cal-slot-57 {
+  grid-row-start: calc(59 - var(--c2-slot-start));
+}
+.c2-start-58 {
+  --c2-slot-start: 58;
+}
+.c2-count-58 {
+  --c2-slot-count: 58;
+}
+.c2-grid .cal-slot-58 {
+  grid-row-start: calc(60 - var(--c2-slot-start));
+}
+.c2-start-59 {
+  --c2-slot-start: 59;
+}
+.c2-count-59 {
+  --c2-slot-count: 59;
+}
+.c2-grid .cal-slot-59 {
+  grid-row-start: calc(61 - var(--c2-slot-start));
+}
+.c2-start-60 {
+  --c2-slot-start: 60;
+}
+.c2-count-60 {
+  --c2-slot-count: 60;
+}
+.c2-grid .cal-slot-60 {
+  grid-row-start: calc(62 - var(--c2-slot-start));
+}
+.c2-start-61 {
+  --c2-slot-start: 61;
+}
+.c2-count-61 {
+  --c2-slot-count: 61;
+}
+.c2-grid .cal-slot-61 {
+  grid-row-start: calc(63 - var(--c2-slot-start));
+}
+.c2-start-62 {
+  --c2-slot-start: 62;
+}
+.c2-count-62 {
+  --c2-slot-count: 62;
+}
+.c2-grid .cal-slot-62 {
+  grid-row-start: calc(64 - var(--c2-slot-start));
+}
+.c2-start-63 {
+  --c2-slot-start: 63;
+}
+.c2-count-63 {
+  --c2-slot-count: 63;
+}
+.c2-grid .cal-slot-63 {
+  grid-row-start: calc(65 - var(--c2-slot-start));
+}
+.c2-start-64 {
+  --c2-slot-start: 64;
+}
+.c2-count-64 {
+  --c2-slot-count: 64;
+}
+.c2-grid .cal-slot-64 {
+  grid-row-start: calc(66 - var(--c2-slot-start));
+}
+.c2-start-65 {
+  --c2-slot-start: 65;
+}
+.c2-count-65 {
+  --c2-slot-count: 65;
+}
+.c2-grid .cal-slot-65 {
+  grid-row-start: calc(67 - var(--c2-slot-start));
+}
+.c2-start-66 {
+  --c2-slot-start: 66;
+}
+.c2-count-66 {
+  --c2-slot-count: 66;
+}
+.c2-grid .cal-slot-66 {
+  grid-row-start: calc(68 - var(--c2-slot-start));
+}
+.c2-start-67 {
+  --c2-slot-start: 67;
+}
+.c2-count-67 {
+  --c2-slot-count: 67;
+}
+.c2-grid .cal-slot-67 {
+  grid-row-start: calc(69 - var(--c2-slot-start));
+}
+.c2-start-68 {
+  --c2-slot-start: 68;
+}
+.c2-count-68 {
+  --c2-slot-count: 68;
+}
+.c2-grid .cal-slot-68 {
+  grid-row-start: calc(70 - var(--c2-slot-start));
+}
+.c2-start-69 {
+  --c2-slot-start: 69;
+}
+.c2-count-69 {
+  --c2-slot-count: 69;
+}
+.c2-grid .cal-slot-69 {
+  grid-row-start: calc(71 - var(--c2-slot-start));
+}
+.c2-start-70 {
+  --c2-slot-start: 70;
+}
+.c2-count-70 {
+  --c2-slot-count: 70;
+}
+.c2-grid .cal-slot-70 {
+  grid-row-start: calc(72 - var(--c2-slot-start));
+}
+.c2-start-71 {
+  --c2-slot-start: 71;
+}
+.c2-count-71 {
+  --c2-slot-count: 71;
+}
+.c2-grid .cal-slot-71 {
+  grid-row-start: calc(73 - var(--c2-slot-start));
+}
+.c2-start-72 {
+  --c2-slot-start: 72;
+}
+.c2-count-72 {
+  --c2-slot-count: 72;
+}
+.c2-grid .cal-slot-72 {
+  grid-row-start: calc(74 - var(--c2-slot-start));
+}
+.c2-start-73 {
+  --c2-slot-start: 73;
+}
+.c2-count-73 {
+  --c2-slot-count: 73;
+}
+.c2-grid .cal-slot-73 {
+  grid-row-start: calc(75 - var(--c2-slot-start));
+}
+.c2-start-74 {
+  --c2-slot-start: 74;
+}
+.c2-count-74 {
+  --c2-slot-count: 74;
+}
+.c2-grid .cal-slot-74 {
+  grid-row-start: calc(76 - var(--c2-slot-start));
+}
+.c2-start-75 {
+  --c2-slot-start: 75;
+}
+.c2-count-75 {
+  --c2-slot-count: 75;
+}
+.c2-grid .cal-slot-75 {
+  grid-row-start: calc(77 - var(--c2-slot-start));
+}
+.c2-start-76 {
+  --c2-slot-start: 76;
+}
+.c2-count-76 {
+  --c2-slot-count: 76;
+}
+.c2-grid .cal-slot-76 {
+  grid-row-start: calc(78 - var(--c2-slot-start));
+}
+.c2-start-77 {
+  --c2-slot-start: 77;
+}
+.c2-count-77 {
+  --c2-slot-count: 77;
+}
+.c2-grid .cal-slot-77 {
+  grid-row-start: calc(79 - var(--c2-slot-start));
+}
+.c2-start-78 {
+  --c2-slot-start: 78;
+}
+.c2-count-78 {
+  --c2-slot-count: 78;
+}
+.c2-grid .cal-slot-78 {
+  grid-row-start: calc(80 - var(--c2-slot-start));
+}
+.c2-start-79 {
+  --c2-slot-start: 79;
+}
+.c2-count-79 {
+  --c2-slot-count: 79;
+}
+.c2-grid .cal-slot-79 {
+  grid-row-start: calc(81 - var(--c2-slot-start));
+}
+.c2-start-80 {
+  --c2-slot-start: 80;
+}
+.c2-count-80 {
+  --c2-slot-count: 80;
+}
+.c2-grid .cal-slot-80 {
+  grid-row-start: calc(82 - var(--c2-slot-start));
+}
+.c2-start-81 {
+  --c2-slot-start: 81;
+}
+.c2-count-81 {
+  --c2-slot-count: 81;
+}
+.c2-grid .cal-slot-81 {
+  grid-row-start: calc(83 - var(--c2-slot-start));
+}
+.c2-start-82 {
+  --c2-slot-start: 82;
+}
+.c2-count-82 {
+  --c2-slot-count: 82;
+}
+.c2-grid .cal-slot-82 {
+  grid-row-start: calc(84 - var(--c2-slot-start));
+}
+.c2-start-83 {
+  --c2-slot-start: 83;
+}
+.c2-count-83 {
+  --c2-slot-count: 83;
+}
+.c2-grid .cal-slot-83 {
+  grid-row-start: calc(85 - var(--c2-slot-start));
+}
+.c2-start-84 {
+  --c2-slot-start: 84;
+}
+.c2-count-84 {
+  --c2-slot-count: 84;
+}
+.c2-grid .cal-slot-84 {
+  grid-row-start: calc(86 - var(--c2-slot-start));
+}
+.c2-start-85 {
+  --c2-slot-start: 85;
+}
+.c2-count-85 {
+  --c2-slot-count: 85;
+}
+.c2-grid .cal-slot-85 {
+  grid-row-start: calc(87 - var(--c2-slot-start));
+}
+.c2-start-86 {
+  --c2-slot-start: 86;
+}
+.c2-count-86 {
+  --c2-slot-count: 86;
+}
+.c2-grid .cal-slot-86 {
+  grid-row-start: calc(88 - var(--c2-slot-start));
+}
+.c2-start-87 {
+  --c2-slot-start: 87;
+}
+.c2-count-87 {
+  --c2-slot-count: 87;
+}
+.c2-grid .cal-slot-87 {
+  grid-row-start: calc(89 - var(--c2-slot-start));
+}
+.c2-start-88 {
+  --c2-slot-start: 88;
+}
+.c2-count-88 {
+  --c2-slot-count: 88;
+}
+.c2-grid .cal-slot-88 {
+  grid-row-start: calc(90 - var(--c2-slot-start));
+}
+.c2-start-89 {
+  --c2-slot-start: 89;
+}
+.c2-count-89 {
+  --c2-slot-count: 89;
+}
+.c2-grid .cal-slot-89 {
+  grid-row-start: calc(91 - var(--c2-slot-start));
+}
+.c2-start-90 {
+  --c2-slot-start: 90;
+}
+.c2-count-90 {
+  --c2-slot-count: 90;
+}
+.c2-grid .cal-slot-90 {
+  grid-row-start: calc(92 - var(--c2-slot-start));
+}
+.c2-start-91 {
+  --c2-slot-start: 91;
+}
+.c2-count-91 {
+  --c2-slot-count: 91;
+}
+.c2-grid .cal-slot-91 {
+  grid-row-start: calc(93 - var(--c2-slot-start));
+}
+.c2-start-92 {
+  --c2-slot-start: 92;
+}
+.c2-count-92 {
+  --c2-slot-count: 92;
+}
+.c2-grid .cal-slot-92 {
+  grid-row-start: calc(94 - var(--c2-slot-start));
+}
+.c2-start-93 {
+  --c2-slot-start: 93;
+}
+.c2-count-93 {
+  --c2-slot-count: 93;
+}
+.c2-grid .cal-slot-93 {
+  grid-row-start: calc(95 - var(--c2-slot-start));
+}
+.c2-start-94 {
+  --c2-slot-start: 94;
+}
+.c2-count-94 {
+  --c2-slot-count: 94;
+}
+.c2-grid .cal-slot-94 {
+  grid-row-start: calc(96 - var(--c2-slot-start));
+}
+.c2-start-95 {
+  --c2-slot-start: 95;
+}
+.c2-count-95 {
+  --c2-slot-count: 95;
+}
+.c2-grid .cal-slot-95 {
+  grid-row-start: calc(97 - var(--c2-slot-start));
+}
+.c2-start-96 {
+  --c2-slot-start: 96;
+}
+.c2-count-96 {
+  --c2-slot-count: 96;
+}
+.c2-grid .cal-slot-96 {
+  grid-row-start: calc(98 - var(--c2-slot-start));
+}
+
+.c2-week-bars .c2-bar {
+  display: block;
+  width: var(--ui-space-6);
+  background: var(--ui-primary);
+  border-radius: var(--ui-radius-control);
+}
+.c2-height-0 {
+  height: 0px;
+}
+.c2-height-1 {
+  height: 4px;
+}
+.c2-height-2 {
+  height: 8px;
+}
+.c2-height-3 {
+  height: 12px;
+}
+.c2-height-4 {
+  height: 16px;
+}
+.c2-height-5 {
+  height: 20px;
+}
+.c2-height-6 {
+  height: 24px;
+}
+.c2-height-7 {
+  height: 28px;
+}
+.c2-height-8 {
+  height: 32px;
+}
+.c2-height-9 {
+  height: 36px;
+}
+.c2-height-10 {
+  height: 40px;
+}
+.c2-height-11 {
+  height: 44px;
+}
+.c2-height-12 {
+  height: 48px;
+}
+.c2-height-13 {
+  height: 52px;
+}
+.c2-height-14 {
+  height: 56px;
+}
+.c2-height-15 {
+  height: 60px;
+}
+.c2-height-16 {
+  height: 64px;
+}
+.c2-height-17 {
+  height: 68px;
+}
+.c2-height-18 {
+  height: 72px;
+}
+.c2-height-19 {
+  height: 76px;
+}
+.c2-height-20 {
+  height: 80px;
+}
+
+.c2-manual-order .student-split {
+  display: block;
+}
+.c2-manual-order .student-detail {
+  display: none;
+}
+.c2-manual-order .student-index {
+  width: 100%;
+  min-width: 0;
+}
+/* C3 structure only; A tokens and timing curves stay unchanged. */
+.c3-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ui-space-4);
+}
+.c3-lead-column {
+  min-width: 0;
+  padding: var(--ui-space-3);
+  background: var(--ui-header);
+  border-radius: var(--ui-radius-panel);
+}
+.c3-lead-column h2 {
+  font-size: var(--ui-font-sm);
+}
+.c3-lead-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--ui-space-2);
+  padding: var(--ui-space-4);
+  margin-bottom: var(--ui-space-3);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-height: var(--ui-touch);
+}
+.c3-lead-card.is-lost {
+  opacity: 0.6;
+}
+.c3-settings {
+  display: grid;
+  grid-template-columns: minmax(150px, 200px) minmax(0, 1fr);
+  gap: var(--ui-space-6);
+}
+.c3-settings > nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+  align-items: stretch;
+}
+.c3-settings > section {
+  min-width: 0;
+}
+.c3-settings > nav [aria-current="page"] {
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+}
+.c3-steps {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  gap: var(--ui-space-4);
+}
+.c3-steps li {
+  padding: var(--ui-space-3);
+  border-bottom: 2px solid var(--ui-border);
+}
+.c3-steps [aria-current="step"] {
+  color: var(--ui-primary);
+  border-color: var(--ui-primary);
+  font-weight: var(--ui-weight-heading);
+}
+.c3-trend {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--ui-space-3);
+}
+.c3-trend section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.c3-trend-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 81px;
+  border-bottom: 1px solid var(--ui-border);
+}
+.c3-trend-bar {
+  display: block;
+  width: min(25%, var(--ui-space-6));
+  background: var(--ui-primary);
+}
+.c3-trend-legend,
+.c3-trend-legend > span {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+.c3-trend-legend .c3-trend-bar {
+  width: var(--ui-space-3);
+  height: var(--ui-space-3);
+}
+.c3-teacher-student {
+  width: 100%;
+  text-align: left;
+}
+.c3-teacher-student > .ui-button-face {
+  width: 100%;
+  justify-content: space-between;
+}
+.c3-teacher-student .ui-icon {
+  order: 1;
+}
+
+.c3-bar-teacher_pay_amount {
+  background: var(--ui-warning);
+}
+.c3-bar-cost_amount {
+  background: var(--ui-error);
+}
+.c3-personal .personal-nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  min-height: 56px;
+}
+.c3-personal-course {
+  min-height: 100px;
+  gap: var(--ui-space-2);
+  width: 100%;
+  text-align: left;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.c3-personal-course::before {
+  display: none;
+}
+.c3-personal .personal-content {
+  padding-bottom: 100px;
+  min-width: 0;
+}
+.c3-personal .week-strip button {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: var(--ui-space-1);
+}
+.c3-personal .week-strip {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.c3-pending-callout {
+  border: 1px solid var(--ui-error);
+  background: var(--ui-error-bg);
+}
+.c3-pending-callout .personal-course {
+  background: var(--ui-panel);
+}
+.c3-own-pay strong {
+  font-size: var(--ui-font-number);
+}
+.c3-tap-target,
+.c3-personal form button {
+  min-height: 44px;
+}
+.c3-personal .personal-content > button {
+  margin: var(--ui-space-2);
+}
+.c3-personal pre,
+.c1-content pre {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .c3-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .c3-board,
+  .c3-settings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .c3-settings > nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .c3-personal .personal-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.c3-lead-card > .ui-button-face,
+.c3-personal-course > .ui-button-face,
+.c3-personal .personal-nav button > .ui-button-face,
+.c3-personal .week-strip button > .ui-button-face {
+  display: none;
+}
+.c3-lead-card > .ui-button-face:not(:empty) {
+  display: contents;
+}
+.c3-lead-card {
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-panel);
+}
+.c3-personal-course {
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-panel);
+  padding: var(--ui-space-4);
+}
+.c3-personal .week-strip button {
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-control);
+  background: var(--ui-panel);
+}
+.c3-personal .week-strip [aria-current="date"] {
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+}
+.c3-personal .ui-table {
+  min-width: 0;
+  width: 100%;
+}
+.c3-personal .ui-data-table,
+.c3-personal .ui-table-scroll {
+  min-width: 0;
+  max-width: 100%;
+}

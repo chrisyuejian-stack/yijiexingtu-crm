@@ -1,0 +1,20 @@
+{
+  "result": "pass",
+  "worker": "backup-dist/backup-worker.js",
+  "manifest_encrypted": true,
+  "new_table_rows": {
+    "lesson_submissions": 1,
+    "lesson_comments": 3,
+    "growth_repertoire": 1,
+    "growth_feedback_copies": 1,
+    "growth_batches": 1,
+    "growth_reports": 2,
+    "growth_report_revisions": 3,
+    "growth_notifications": 1
+  },
+  "published_revision_retained": true,
+  "publication_order_retained": true,
+  "batch_replay_receipt_retained": true,
+  "fetch_status": 404,
+  "remote_calls": 0
+}

@@ -1,0 +1,65 @@
+{
+  "status": "阶段6准备；业务实现等待冻结接口补齐",
+  "baseline": {
+    "source": "艺界星途_阶段5_前端融合源码_20261115.zip",
+    "zip_sha256": "fe16549c75aa6e3e966fc11fa6079e4b14d5a24342215398b224b60812b9889c",
+    "files": 522
+  },
+  "patch": {
+    "patch": "艺界星途_前端补丁_价格变动确认_20261115.zip",
+    "zip_sha256": "48149833324e73a7c44922546f0730154c6e55c8cd4b581ac57ede0019f883bd",
+    "files": [
+      {
+        "path": "src/tenant/yx-plans.js",
+        "before_sha256": "f44abeafb5aac32cdfe16156dbcbe55c356682521b796b91eb0ff5e4e63a24e5",
+        "after_sha256": "d0ca3e726076352c980c6f1b807e515ece29b39a390d59dcde67a8efa6859068",
+        "bytes": 45570
+      },
+      {
+        "path": "docs/stage5-frontend/前端补丁说明_价格变动确认.md",
+        "before_sha256": null,
+        "after_sha256": "990f8018bbfebc87e422cc24f157f56f8330c922a9c4d6186ad0c647f01f6a96",
+        "bytes": 728
+      }
+    ]
+  },
+  "changed_runtime_files": [
+    "src/tenant/yx-plans.js"
+  ],
+  "backend_unchanged": true,
+  "all_migrations_unchanged": 22,
+  "tests_unchanged": true,
+  "build_script_unchanged": true,
+  "source_tests": 422,
+  "bundle_tests": 422,
+  "failures": 0,
+  "skipped": 0,
+  "stage6_implemented": false,
+  "new_migrations": [],
+  "frozen_contract": "v0.3.6，未改",
+  "runs": [
+    {
+      "label": "build",
+      "command": "npm run build",
+      "exit_code": 0,
+      "seconds": 8.86,
+      "log": "work/stage6/price-patch-build.log"
+    },
+    {
+      "label": "source",
+      "command": "npm test",
+      "exit_code": 0,
+      "seconds": 231.22,
+      "log": "work/stage6/price-patch-source.log"
+    },
+    {
+      "label": "bundle",
+      "command": "env TEST_BUNDLE=1 npm test",
+      "exit_code": 0,
+      "seconds": 236.616,
+      "log": "work/stage6/price-patch-bundle.log"
+    }
+  ],
+  "remote_calls": 0,
+  "deployed": false
+}

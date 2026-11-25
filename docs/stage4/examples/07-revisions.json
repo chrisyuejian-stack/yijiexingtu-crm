@@ -1,0 +1,35 @@
+{
+  "name": "07-revisions",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/plans/pln_f9b7ed1599d21a063512e7c7/revisions",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "rev_e338586896f3dbc79fdde88d",
+          "version": 2,
+          "action": "save",
+          "sent_at": null,
+          "created_at": "2026-11-14T00:07:55.533+08:00",
+          "created_by": "usr_b49c448bd8d21f9486d62c35"
+        },
+        {
+          "id": "rev_12a752e39914f1fc395b92a9",
+          "version": 1,
+          "action": "create",
+          "sent_at": null,
+          "created_at": "2026-11-14T00:07:55.495+08:00",
+          "created_by": "usr_b49c448bd8d21f9486d62c35"
+        }
+      ],
+      "total": 2,
+      "next_offset": null
+    },
+    "queries": 4
+  }
+}

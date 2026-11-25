@@ -1,0 +1,2 @@
+CREATE TABLE tenant_role_rights(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,role TEXT NOT NULL,module TEXT NOT NULL,action TEXT NOT NULL,allowed INTEGER NOT NULL,
+ created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,role,module,action));

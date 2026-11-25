@@ -1,0 +1,1 @@
+CREATE TRIGGER partner_lesson_protect_update BEFORE UPDATE ON lessons WHEN OLD.source_course_id IS NOT NULL AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=OLD.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END;

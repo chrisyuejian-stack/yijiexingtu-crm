@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "allow",
+      "action": ["name/cos:GetBucket"],
+      "resource": [
+        "qcs::cos:ap-shanghai:uid/REPLACE_APPID:REPLACE_MEDIA_BUCKET-REPLACE_APPID/",
+        "qcs::cos:ap-shanghai:uid/REPLACE_APPID:REPLACE_BACKUP_BUCKET-REPLACE_APPID/"
+      ]
+    },
+    {
+      "effect": "allow",
+      "action": ["name/cos:GetObject", "name/cos:PutObject", "name/cos:DeleteObject"],
+      "resource": [
+        "qcs::cos:ap-shanghai:uid/REPLACE_APPID:REPLACE_MEDIA_BUCKET-REPLACE_APPID/*",
+        "qcs::cos:ap-shanghai:uid/REPLACE_APPID:REPLACE_BACKUP_BUCKET-REPLACE_APPID/*"
+      ]
+    }
+  ]
+}

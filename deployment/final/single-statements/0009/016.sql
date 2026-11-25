@@ -1,0 +1,1 @@
+CREATE TABLE announcement_targets(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,announcement_id TEXT NOT NULL REFERENCES platform_announcements(id),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,announcement_id));

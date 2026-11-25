@@ -1,0 +1,60 @@
+✔ V041 G1 动作时限120/150和其他45/90，max_tokens按动作，额度预占覆盖长请求 (496.772185ms)
+✔ V041 G1 超时返回ai_timeout、记录timeout、不计次、不记录输入或模型内容 (170.796951ms)
+✔ V041 G1 深度长请求149秒完成可结算，预占150秒内不被当过期 (184.293354ms)
+✔ V041 G1 剩余29999毫秒不重试，恰好30000毫秒可重试且不延长截止 (180.029678ms)
+✖ V041 G1 HTTP401/402/404/503原因保留，机构只返回ai_unavailable且不计次 (198.882796ms)
+✔ V041 G1 协议错误、响应超大、其他异常分类，不额外计次或保存原文 (197.490699ms)
+✖ V041 G1 提供方JSON包装损坏或超过2MiB受限，无真实网络 (197.233704ms)
+✔ V041 G1 平台按day/tenant/tool附failure_reasons，旧失败归other (197.857527ms)
+✔ V041 G2 省略modules前缀可采用，about静默丢弃，稳定路径及金额仍受保护 (223.991146ms)
+✔ V041 G2 仍拒绝数组下标/错误稳定ID/金额path，adjust只返回本页文字 (187.43255ms)
+✔ V041 G3 custom改写只定位选中块，instruction传模型，正文和article不自动写入 (158.937599ms)
+✔ V041 G3 custom要求非空且≤500字，其他mode可加instruction (199.356921ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 10
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2743.477638
+
+✖ failing tests:
+
+test at tests/ai-v041.test.mjs:34:1
+✖ V041 G1 HTTP401/402/404/503原因保留，机构只返回ai_unavailable且不计次 (198.882796ms)
+  AssertionError [ERR_ASSERTION]: {"error":"configuration_missing","message":"请先在平台配置AI模型和服务密钥"}
+  
+  503 !== 502
+  
+      at ok (file:///workspace/yijiexingtu-v041/tests/fixtures-plans.mjs:57:12)
+      at file:///workspace/yijiexingtu-v041/tests/ai-v041.test.mjs:36:403
+      at async school (file:///workspace/yijiexingtu-v041/tests/fixtures-plans.mjs:66:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 503,
+    expected: 502,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/ai-v041.test.mjs:45:1
+✖ V041 G1 提供方JSON包装损坏或超过2MiB受限，无真实网络 (197.233704ms)
+  AssertionError [ERR_ASSERTION]: {"error":"configuration_missing","message":"请先在平台配置AI模型和服务密钥"}
+  
+  503 !== 502
+  
+      at ok (file:///workspace/yijiexingtu-v041/tests/fixtures-plans.mjs:57:12)
+      at file:///workspace/yijiexingtu-v041/tests/ai-v041.test.mjs:47:236
+      at async school (file:///workspace/yijiexingtu-v041/tests/fixtures-plans.mjs:66:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 503,
+    expected: 502,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "PUT",
+    "path": "/api/ops/ai/settings",
+    "body": {
+      "id": "main",
+      "fast_daily_limit": 80,
+      "deep_daily_limit": 50,
+      "fast_model": "local-demo-fast",
+      "deep_model": "local-demo-deep",
+      "version": 1,
+      "updated_at": 0,
+      "updated_by": "migration0022"
+    },
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "main",
+      "fast_daily_limit": 80,
+      "deep_daily_limit": 50,
+      "fast_model": "local-demo-fast",
+      "deep_model": "local-demo-deep",
+      "version": 2,
+      "updated_at": 1794805014828,
+      "updated_by": "adm_fixture"
+    }
+  }
+}

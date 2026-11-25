@@ -1,0 +1,57 @@
+{
+  "request": {
+    "method": "PUT",
+    "path": "/api/ops/compliance/terms",
+    "body": {
+      "terms": [
+        "包过",
+        "保录",
+        "平台演示禁词"
+      ]
+    },
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "term_0",
+          "term": "包过",
+          "active": 1,
+          "version": 2
+        },
+        {
+          "id": "term_1",
+          "term": "保录",
+          "active": 1,
+          "version": 2
+        },
+        {
+          "id": "term_2",
+          "term": "100% 合格",
+          "active": 0,
+          "version": 2
+        },
+        {
+          "id": "term_3",
+          "term": "第一",
+          "active": 0,
+          "version": 2
+        },
+        {
+          "id": "term_39e8e26082d56dbb37a67e37",
+          "term": "平台演示禁词",
+          "active": 1,
+          "version": 1
+        },
+        {
+          "id": "term_4",
+          "term": "最好",
+          "active": 0,
+          "version": 2
+        }
+      ]
+    }
+  }
+}

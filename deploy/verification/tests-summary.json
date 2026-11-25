@@ -1,0 +1,50 @@
+{
+  "node": "v24.22.1",
+  "build": "npm run build",
+  "build_success": true,
+  "runs": [
+    {
+      "suite": "original-source",
+      "command": "npm test",
+      "log": "legacy-source-release.log",
+      "tests": 608,
+      "pass": 608,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 240471.403102
+    },
+    {
+      "suite": "original-bundle",
+      "command": "TEST_BUNDLE=1 npm test",
+      "log": "legacy-bundle-release.log",
+      "tests": 608,
+      "pass": 608,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 244669.352478
+    },
+    {
+      "suite": "platform",
+      "command": "npm run test:platform",
+      "log": "platform-release-final.log",
+      "tests": 50,
+      "pass": 50,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 25024.311867
+    }
+  ],
+  "real_cloud_operations": false,
+  "limitations": [
+    "No real TencentOS install/system service start",
+    "No real Nginx TLS/Basic Auth integration",
+    "No live CAM/COS/Cloudflare/DeepSeek/DNS tests"
+  ],
+  "unit_parser": "User-mode syntax check, Node executable path changed ONLY in disposable test copies"
+}

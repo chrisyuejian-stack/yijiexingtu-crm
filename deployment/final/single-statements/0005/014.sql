@@ -1,0 +1,1 @@
+CREATE TRIGGER payment_student_reference BEFORE INSERT ON student_payments WHEN NEW.package_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM packages WHERE tenant_id=NEW.tenant_id AND id=NEW.package_id AND student_id=NEW.student_id) THEN RAISE(ABORT,'invalid_payment_student') END; END;

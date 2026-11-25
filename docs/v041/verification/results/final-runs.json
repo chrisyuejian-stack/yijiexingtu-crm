@@ -1,0 +1,38 @@
+[
+  {
+    "name": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 6.947
+  },
+  {
+    "name": "new-source",
+    "command": "node --test tests/ai-v041.test.mjs tests/storage-v041.test.mjs tests/misc-v041.test.mjs tests/growth-v041.test.mjs",
+    "exit_code": 0,
+    "seconds": 7.494
+  },
+  {
+    "name": "new-bundle",
+    "command": "TEST_BUNDLE=1 node --test tests/ai-v041.test.mjs tests/storage-v041.test.mjs tests/misc-v041.test.mjs tests/growth-v041.test.mjs",
+    "exit_code": 0,
+    "seconds": 7.802
+  },
+  {
+    "name": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 223.141
+  },
+  {
+    "name": "bundle",
+    "command": "TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 225.791
+  },
+  {
+    "name": "preflight",
+    "command": "npm run test:migrations:preflight",
+    "exit_code": 0,
+    "seconds": 0.197
+  }
+]

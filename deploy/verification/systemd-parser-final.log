@@ -1,0 +1,2 @@
+User-mode syntax verification only. Copies use container Node path instead of CVM /usr/bin/node; stub dependency targets; no service started. Original unit files unchanged.
+Exit: 0

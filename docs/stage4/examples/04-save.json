@@ -1,0 +1,303 @@
+{
+  "name": "04-save",
+  "request": {
+    "method": "PUT",
+    "path": "/schedule-yx4/api/plans/pln_ef98466ddcc1247bdb3e73cb",
+    "body": {
+      "student_id": "rec_8c00d02d614d6edc2dfdab27",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "钢琴学习方案",
+      "style": {
+        "pack_id": "stp_folio",
+        "pack_version": "1.0.0",
+        "cover_image_id": null,
+        "text_mode": "auto",
+        "focal_point": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "show_unit_price": false,
+        "show_latin_eyebrow": true,
+        "show_consultant": true
+      },
+      "meta": {
+        "start_month": "2026-11",
+        "target": {
+          "node_key": null,
+          "month": null,
+          "text": ""
+        },
+        "consultant_id": "usr_0d67812485f73c87a6c30974",
+        "budget_cap": null
+      },
+      "modules": {
+        "cover": {
+          "visible": true,
+          "eyebrow": "",
+          "subtitle": ""
+        },
+        "assessment": {
+          "visible": true,
+          "text": "",
+          "source_note": "",
+          "strengths": [],
+          "gaps": [],
+          "goals": []
+        },
+        "path": {
+          "visible": true,
+          "stages": [
+            {
+              "key": "tmp_stage_1",
+              "stage_type_id": "stg_53449fac6d917f4644273277",
+              "name": "体验与适应",
+              "start": "2026-12-01",
+              "end": "2026-12-31"
+            }
+          ]
+        },
+        "courses": {
+          "visible": true,
+          "lines": [
+            {
+              "line_id": "tmp_line_1",
+              "stage_key": "tmp_stage_1",
+              "course_id": "crs_f343b329ae92a55c3ff4a055",
+              "qty": {
+                "units": 2
+              },
+              "includes": []
+            }
+          ]
+        },
+        "fees": {
+          "visible": true,
+          "installments": "per_stage",
+          "custom": [],
+          "due_dates": {},
+          "note": ""
+        },
+        "teachers": {
+          "visible": true,
+          "teacher_ids": []
+        },
+        "about": {
+          "visible": false,
+          "image_ids": []
+        }
+      },
+      "applied_suggestion_ids": [],
+      "computed": {
+        "stages": [],
+        "total": {
+          "units": 0,
+          "bundles": [],
+          "amount": 0
+        },
+        "budget": {
+          "cap": null,
+          "remaining": null,
+          "over": false
+        },
+        "installments": [],
+        "optional_fees": [],
+        "cover_numbers": [
+          {
+            "label": "规划周期",
+            "value": "0",
+            "unit": "个月",
+            "sub": ""
+          }
+        ]
+      },
+      "id": "pln_ef98466ddcc1247bdb3e73cb",
+      "version": 1,
+      "status": "draft",
+      "current_revision_id": "rev_682b0175b1adc1e8aefd877a",
+      "sent_revision_id": null,
+      "signed_revision_id": null,
+      "updated_at": "2026-11-14T00:07:56.091+08:00",
+      "updated_by": "usr_0d67812485f73c87a6c30974",
+      "id_map": {}
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "student_id": "rec_8c00d02d614d6edc2dfdab27",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "钢琴学习方案",
+      "style": {
+        "pack_id": "stp_folio",
+        "pack_version": "1.0.0",
+        "cover_image_id": null,
+        "text_mode": "auto",
+        "focal_point": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "show_unit_price": false,
+        "show_latin_eyebrow": true,
+        "show_consultant": true
+      },
+      "meta": {
+        "start_month": "2026-11",
+        "target": {
+          "node_key": null,
+          "month": null,
+          "text": ""
+        },
+        "consultant_id": "usr_0d67812485f73c87a6c30974",
+        "budget_cap": null
+      },
+      "modules": {
+        "cover": {
+          "visible": true,
+          "eyebrow": "",
+          "subtitle": ""
+        },
+        "assessment": {
+          "visible": true,
+          "text": "",
+          "source_note": "",
+          "strengths": [],
+          "gaps": [],
+          "goals": []
+        },
+        "path": {
+          "visible": true,
+          "stages": [
+            {
+              "key": "stk_436d168771a31fd3ead53f97",
+              "stage_type_id": "stg_53449fac6d917f4644273277",
+              "name": "体验与适应",
+              "start": "2026-12-01",
+              "end": "2026-12-31",
+              "teaching_weeks": null,
+              "weeks_note": "",
+              "goals": [],
+              "node_tags": [],
+              "stage_snapshot": {
+                "name": "体验与适应",
+                "anchor": "start",
+                "anchor_node": null,
+                "offset_months": 0,
+                "rule_keys": [
+                  "exam_sprint_before_grade",
+                  "insert_holiday_camp"
+                ],
+                "type_version": 1,
+                "rules_version": 1,
+                "taken_at": "2026-11-14T00:07:56.099+08:00"
+              }
+            }
+          ]
+        },
+        "courses": {
+          "visible": true,
+          "lines": [
+            {
+              "line_id": "ln_4da2aebff73e42ae39f227af",
+              "stage_key": "stk_436d168771a31fd3ead53f97",
+              "course_id": "crs_f343b329ae92a55c3ff4a055",
+              "qty": {
+                "units": 2
+              },
+              "frequency_text": "",
+              "note": "",
+              "ai_filled": false,
+              "includes": [],
+              "snapshot": {
+                "name": "钢琴一对一",
+                "form": "one_to_one",
+                "minutes": 45,
+                "duration_text": null,
+                "optional": false,
+                "pricing": {
+                  "mode": "per_unit",
+                  "amount_cents": 20000,
+                  "units_per_package": null
+                },
+                "course_version": 1,
+                "price_list_rev": 3,
+                "taken_at": "2026-11-14T00:07:56.099+08:00"
+              }
+            }
+          ]
+        },
+        "fees": {
+          "visible": true,
+          "installments": "per_stage",
+          "custom": [],
+          "due_dates": {},
+          "note": ""
+        },
+        "teachers": {
+          "visible": true,
+          "teacher_ids": []
+        },
+        "about": {
+          "visible": false,
+          "image_ids": []
+        }
+      },
+      "applied_suggestion_ids": [],
+      "computed": {
+        "stages": [
+          {
+            "key": "stk_436d168771a31fd3ead53f97",
+            "months": 1,
+            "calendar_weeks": 4,
+            "teaching_weeks": null,
+            "weeks_display": 4,
+            "units": 2,
+            "amount": 400
+          }
+        ],
+        "total": {
+          "units": 2,
+          "bundles": [],
+          "amount": 400
+        },
+        "budget": {
+          "cap": null,
+          "remaining": null,
+          "over": false
+        },
+        "installments": [
+          {
+            "stage_key": "stk_436d168771a31fd3ead53f97",
+            "label": "第1期 · 体验与适应",
+            "due": null,
+            "amount": 400
+          }
+        ],
+        "optional_fees": [],
+        "cover_numbers": [
+          {
+            "label": "规划周期",
+            "value": "1",
+            "unit": "个月",
+            "sub": "2026.12 – 2026.12"
+          }
+        ]
+      },
+      "id": "pln_ef98466ddcc1247bdb3e73cb",
+      "version": 2,
+      "status": "draft",
+      "current_revision_id": "rev_de959da61d41af0a780129c7",
+      "sent_revision_id": null,
+      "signed_revision_id": null,
+      "updated_at": "2026-11-14T00:07:56.100+08:00",
+      "updated_by": "usr_0d67812485f73c87a6c30974",
+      "id_map": {
+        "tmp_stage_1": "stk_436d168771a31fd3ead53f97",
+        "tmp_line_1": "ln_4da2aebff73e42ae39f227af"
+      }
+    },
+    "queries": 8
+  }
+}

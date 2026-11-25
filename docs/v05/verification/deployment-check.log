@@ -1,0 +1,1 @@
+PASS: 10 copyable SQL statements; 6 new tables; 2 indexes; 2 triggers; old DDL unchanged; all read-only checks executable.

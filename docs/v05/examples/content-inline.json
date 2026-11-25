@@ -1,0 +1,160 @@
+{
+  "save": {
+    "request": {
+      "method": "PUT",
+      "path": "/api/content/cnt_demo",
+      "json": {
+        "version": 4,
+        "text_format": "inline_v1",
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "一起走近**音乐**"
+          },
+          {
+            "type": "paragraph",
+            "text": "每周的练习，从*认真聆听*开始。欢迎参加==开放课堂==，体验[[专注表达]]。"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "先听一段旋律",
+              "再试着**表达**"
+            ]
+          },
+          {
+            "type": "table",
+            "rows": [
+              [
+                "课程",
+                "体验内容"
+              ],
+              [
+                "钢琴",
+                "==节奏与旋律=="
+              ]
+            ]
+          },
+          {
+            "type": "quote",
+            "text": "让孩子看见自己的进步。"
+          },
+          {
+            "type": "image",
+            "image_id": "img_demo_campus",
+            "caption": "[[校区环境]]示例"
+          },
+          {
+            "type": "divider"
+          }
+        ]
+      }
+    },
+    "response": {
+      "status": 200,
+      "json": {
+        "version": 5,
+        "text_format": "inline_v1",
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "一起走近**音乐**"
+          },
+          {
+            "type": "paragraph",
+            "text": "每周的练习，从*认真聆听*开始。欢迎参加==开放课堂==，体验[[专注表达]]。"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "先听一段旋律",
+              "再试着**表达**"
+            ]
+          },
+          {
+            "type": "table",
+            "rows": [
+              [
+                "课程",
+                "体验内容"
+              ],
+              [
+                "钢琴",
+                "==节奏与旋律=="
+              ]
+            ]
+          },
+          {
+            "type": "quote",
+            "text": "让孩子看见自己的进步。"
+          },
+          {
+            "type": "image",
+            "image_id": "img_demo_campus",
+            "caption": "[[校区环境]]示例"
+          },
+          {
+            "type": "divider"
+          }
+        ],
+        "id": "cnt_demo",
+        "warnings": []
+      }
+    }
+  },
+  "normalize": [
+    {
+      "input": "请看 **重点",
+      "saved": "请看 重点",
+      "plain": "请看 重点"
+    },
+    {
+      "input": "欢迎==体验==与[[聆听]]",
+      "saved": "欢迎==体验==与[[聆听]]",
+      "plain": "欢迎体验与聆听"
+    },
+    {
+      "input": "最**专业**",
+      "saved": "最**专业**",
+      "plain": "最专业"
+    },
+    {
+      "text_format": "plain",
+      "input": "原始 ** 星号",
+      "saved": "原始 ** 星号",
+      "plain": "原始 ** 星号"
+    }
+  ],
+  "ai_rewrite_response_fragment": {
+    "payload": {
+      "mode": "polish",
+      "text_format": "inline_v1",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "从*聆听*开始，让==练习==更有方向。"
+        }
+      ]
+    },
+    "warnings": []
+  },
+  "fact_check_response_fragment": {
+    "items": [
+      {
+        "result": "unknown",
+        "block_index": 1,
+        "quote": "开放课堂",
+        "plain_span": {
+          "start": 18,
+          "end": 22
+        },
+        "expected": null,
+        "source": null
+      }
+    ]
+  }
+}

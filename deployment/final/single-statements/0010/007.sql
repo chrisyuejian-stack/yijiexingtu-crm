@@ -1,0 +1,1 @@
+CREATE TABLE tenant_promo_assets(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL DEFAULT 'brand',logo_key TEXT REFERENCES promo_images(id),qr_key TEXT REFERENCES promo_images(id),updated_by TEXT NOT NULL,updated_at INTEGER NOT NULL,version INTEGER NOT NULL DEFAULT 1,PRIMARY KEY(tenant_id,id));

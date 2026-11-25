@@ -1,0 +1,17 @@
+
+> yijiexingtu-crm@0.0.0 test:migrations:preflight
+> node scripts/e2e/check-migrations.mjs
+
+{
+  "migrations": 21,
+  "lastMigration": "0021_course_plans.sql",
+  "counts": {
+    "table": 112,
+    "view": 3,
+    "index": 75,
+    "trigger": 99
+  },
+  "foreignKeys": 0,
+  "integrity": "ok",
+  "reportDir": "/workspace/yijiexingtu-stage4/work/migration-preflight"
+}

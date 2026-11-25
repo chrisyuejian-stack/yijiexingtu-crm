@@ -1,0 +1,1 @@
+CREATE TRIGGER precision_course_types_insert BEFORE INSERT ON course_types WHEN ABS(NEW.units_per_lesson*100-ROUND(NEW.units_per_lesson*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END;

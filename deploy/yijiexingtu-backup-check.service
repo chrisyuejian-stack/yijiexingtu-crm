@@ -1,0 +1,13 @@
+[Unit]
+Description=Yijiexingtu backup and certificate freshness check
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/yijiexingtu/current
+EnvironmentFile=/etc/yijiexingtu/app.env
+ExecStart=/bin/bash deploy/check-system.sh
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true

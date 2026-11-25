@@ -1,0 +1,1 @@
+CREATE TRIGGER plan_element_identity BEFORE UPDATE ON plan_elements WHEN OLD.tenant_id IS NOT NEW.tenant_id OR OLD.id IS NOT NEW.id OR OLD.plan_id IS NOT NEW.plan_id OR OLD.kind IS NOT NEW.kind OR (OLD.kind='line' AND OLD.target_id IS NOT NEW.target_id) BEGIN SELECT RAISE(ABORT,'plan_element_identity'); END;

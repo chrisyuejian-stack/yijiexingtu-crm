@@ -1,0 +1,1 @@
+CREATE TABLE maintenance_leases(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,admin_id TEXT NOT NULL,reason TEXT NOT NULL,expires_at INTEGER NOT NULL,revoked INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id));

@@ -1,0 +1,42 @@
+{
+  "result": "pass",
+  "basis": "艺界星途_阶段7_完整源码_20261116.zip",
+  "basis_sha256": "ecfa4a33bd7288ae8b1b7766cc3dd88dfdfd483b506f56742e2516b440912bd3",
+  "patch_files_exact": 16,
+  "unchanged_old_test_case_files": 58,
+  "unchanged_old_migrations": 24,
+  "unchanged_build_script": true,
+  "unchanged_frontend_outside_patch": 26,
+  "runtime_matches_final_test_freeze": true,
+  "migrations_total": 25,
+  "only_new_column": "content_items.article_json",
+  "foreign_key_check": [],
+  "quick_check": "ok",
+  "pages_files": 12,
+  "compiled_javascript_syntax_checked": 5,
+  "worker_comparison": [
+    {
+      "file": "dist/_worker.js",
+      "stage7_sha256": "d93b2c9b9c558389bd916744c2c0d94591064795f66fab8c13dcd252afa38068",
+      "pure_frontend_fusion_sha256": "d93b2c9b9c558389bd916744c2c0d94591064795f66fab8c13dcd252afa38068",
+      "pure_fusion_same": true,
+      "stage7_artifact_bytes_checked_this_run": true,
+      "fusion_product_bytes_checked_this_run": true,
+      "final_v039_sha256": "4306f2f3ab5de157182a6c0a43ff21249f7d189a61707e662276e35be66659f0",
+      "final_same": false,
+      "final_bytes": 1000354
+    },
+    {
+      "file": "backup-dist/backup-worker.js",
+      "stage7_sha256": "432809319476248cd2922cecb359a8c965599c0da1ef1c9e22f9accfb02792f8",
+      "pure_frontend_fusion_sha256": "432809319476248cd2922cecb359a8c965599c0da1ef1c9e22f9accfb02792f8",
+      "pure_fusion_same": true,
+      "stage7_artifact_bytes_checked_this_run": true,
+      "fusion_product_bytes_checked_this_run": true,
+      "final_v039_sha256": "0d7847e5cdddde05baab51c45a9cba14890ada0d62b52bceca57590ae20502e2",
+      "final_same": false,
+      "final_bytes": 563613
+    }
+  ],
+  "remote_calls": 0
+}

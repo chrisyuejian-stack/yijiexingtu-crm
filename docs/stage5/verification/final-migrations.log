@@ -1,0 +1,17 @@
+
+> yijiexingtu-crm@0.0.0 test:migrations:preflight
+> node scripts/e2e/check-migrations.mjs
+
+{
+  "migrations": 22,
+  "lastMigration": "0022_content_and_ai.sql",
+  "counts": {
+    "table": 119,
+    "view": 3,
+    "index": 81,
+    "trigger": 101
+  },
+  "foreignKeys": 0,
+  "integrity": "ok",
+  "reportDir": "/workspace/yijiexingtu-stage5/work/migration-preflight"
+}

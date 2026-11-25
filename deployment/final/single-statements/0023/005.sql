@@ -1,0 +1,1 @@
+CREATE TABLE growth_feedback_copies(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,feedback_id TEXT,submission_id TEXT,student_id TEXT NOT NULL,actor_id TEXT NOT NULL,copied_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id));

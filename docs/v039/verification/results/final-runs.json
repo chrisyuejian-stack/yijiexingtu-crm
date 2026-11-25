@@ -1,0 +1,38 @@
+[
+  {
+    "name": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 10.44
+  },
+  {
+    "name": "new-source",
+    "command": "node --test tests/content-metadata-v039.test.mjs",
+    "exit_code": 0,
+    "seconds": 7.721
+  },
+  {
+    "name": "new-bundle",
+    "command": "TEST_BUNDLE=1 node --test tests/content-metadata-v039.test.mjs",
+    "exit_code": 0,
+    "seconds": 7.609
+  },
+  {
+    "name": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 295.025
+  },
+  {
+    "name": "bundle",
+    "command": "TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 296.531
+  },
+  {
+    "name": "preflight",
+    "command": "npm run test:migrations:preflight",
+    "exit_code": 0,
+    "seconds": 0.301
+  }
+]

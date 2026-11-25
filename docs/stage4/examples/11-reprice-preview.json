@@ -1,0 +1,30 @@
+{
+  "name": "11-reprice-preview",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/plans/pln_8ebf8546dbe67640ce9ce2cc/reprice",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "lines": [
+        {
+          "line_id": "ln_b70636eb919366f831b42a6a",
+          "name": "钢琴一对一",
+          "old_amount": 400,
+          "new_amount": 500,
+          "status": "changed"
+        }
+      ],
+      "total": {
+        "old": 400,
+        "new": 500
+      },
+      "budget_over": false,
+      "price_list_rev": 4
+    },
+    "queries": 4
+  }
+}

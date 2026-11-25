@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>教务管理系统 · 组件展示（仅开发预览）</title>
+    <link rel="stylesheet" href="/ui/tokens.css" />
+    <link rel="stylesheet" href="/ui/components.css" />
+    <link rel="stylesheet" href="/preview.css" />
+    <script type="module" src="/preview.js"></script>
+  </head>
+  <body class="ui-root">
+    <main>
+      <section id="main-spec" class="preview-main" aria-labelledby="spec-title">
+        <header class="preview-heading">
+          <div>
+            <h1 id="spec-title">教务管理系统 · UI 规范</h1>
+            <p>机构合作版 · 浅色界面 · 所有内容均为组件演示，不连接业务数据</p>
+          </div>
+          <div class="preview-theme">
+            <span>当前主题色</span
+            ><span class="preview-current-theme" aria-hidden="true"></span>
+          </div>
+        </header>
+        <div class="preview-top-grid">
+          <section class="preview-panel" aria-labelledby="colors-title">
+            <h2 id="colors-title">1. 颜色</h2>
+            <div id="swatches" class="preview-swatches"></div>
+            <div id="status-colors" class="preview-tag-row"></div>
+            <div id="category-colors" class="preview-tag-row"></div>
+            <p class="preview-rule">
+              主题色只用于：Logo
+              区、主按钮、当前导航、链接、焦点框、关键数字。不做大面积和页背景。正文与背景对比度至少
+              4.5:1。课程类别使用既有预设颜色，不新增任意配色能力。
+            </p>
+          </section>
+          <section class="preview-panel" aria-labelledby="type-title">
+            <h2 id="type-title">2. 字体与字号</h2>
+            <p class="preview-note preview-type-note">
+              使用本机中文字体，不加载远程字体。数字使用等宽数字（tabular-nums）。
+            </p>
+            <div id="typography" class="preview-type-samples"></div>
+            <h2 class="preview-spacing-title">3. 尺寸与间距</h2>
+            <p class="preview-rule">
+              间距取 4 的倍数（常用 8 / 12 / 16 / 24）。圆角：面板
+              14、按钮与输入框 9、标签 6、头像 10。电脑侧栏 232、顶栏
+              64、内容区最大宽 1360；手机左右边距 16。所有可点击区域 ≥ 44×44。
+            </p>
+          </section>
+        </div>
+        <section
+          class="preview-panel preview-basic"
+          aria-labelledby="basic-title"
+        >
+          <h2 id="basic-title">4. 基础组件</h2>
+          <div class="preview-basic-grid">
+            <div id="basic-inputs"></div>
+            <div id="basic-switches"></div>
+            <div id="basic-table"></div>
+          </div>
+        </section>
+        <section class="preview-panel preview-rules">
+          <div>
+            <h2>5. 交互规则</h2>
+            <ul>
+              <li>新建和编辑在右侧抽屉完成，桌面宽 520，手机全屏。</li>
+              <li>取消、删除等重要操作确认；未保存修改先提示。</li>
+              <li>保存成功提示 3 秒；错误提示保留到手动关闭。</li>
+              <li>开关保存中不可重复提交，失败恢复原值。</li>
+              <li>没有金额权限，金额列和金额卡片整块不显示。</li>
+              <li>遵守减少动态效果设置，使用清晰的键盘焦点。</li>
+            </ul>
+          </div>
+          <div>
+            <h2>6. 品牌与文案</h2>
+            <ul>
+              <li>
+                通用系统名为“教务管理系统”，业务页使用机构自己的名称和 Logo。
+              </li>
+              <li>此页仅为开发预览，样例不进入生产包。</li>
+              <li>只使用本地资源，不加载远程脚本、字体或图标。</li>
+              <li>日期、星期、时间使用北京时间，统一 24 小时制。</li>
+              <li>金额只省略 .00；保留实际分位，例如 ¥12、¥12.30。</li>
+              <li>存储、接口、编辑提交和 Excel 的精度不变。</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+      <section
+        id="component-lab"
+        class="preview-lab"
+        aria-labelledby="lab-title"
+      >
+        <header class="preview-lab-header">
+          <div>
+            <h2 id="lab-title">组件行为与状态</h2>
+            <p class="preview-note">
+              仅开发预览 · 操作只改变本页样例，模拟延迟与失败不会请求业务接口
+            </p>
+          </div>
+          <a class="preview-anchor" href="#main-spec">返回规范</a>
+        </header>
+        <div class="preview-lab-grid">
+          <section class="preview-panel">
+            <h3>交互、反馈与主题</h3>
+            <div id="interaction-actions" class="preview-actions"></div>
+            <label class="preview-option"
+              ><input
+                id="simulate-failure"
+                type="checkbox"
+                class="ui-checkbox"
+              />模拟下一次组件请求失败</label
+            >
+            <div id="theme-select"></div>
+            <div id="motion-exception"></div>
+            <div id="click-card"></div>
+          </section>
+          <section class="preview-panel">
+            <h3>下拉与日期选择</h3>
+            <div id="select-demo"></div>
+            <div id="date-demo"></div>
+            <p id="date-result" class="preview-note" aria-live="polite">
+              选择结果：2026-11-02（北京时间日期）
+            </p>
+          </section>
+          <section class="preview-panel">
+            <h3>加载、空状态与关键数字</h3>
+            <div id="loading-demo"></div>
+            <div id="empty-demo"></div>
+            <div id="number-demo"></div>
+          </section>
+        </div>
+        <section class="preview-panel preview-list-panel">
+          <div class="preview-lab-header">
+            <div>
+              <h3>统一列表基础</h3>
+              <p class="preview-note">
+                范围：本页已加载样例。升序 → 降序 → 默认；不伪造全局排序和总数。
+              </p>
+            </div>
+            <div id="list-actions" class="preview-actions"></div>
+          </div>
+          <div id="list-demo"></div>
+          <div id="pagination-demo"></div>
+        </section>
+        <section class="preview-panel">
+          <h3>统一图标集</h3>
+          <p class="preview-note">本地 SVG sprite · 不使用外部图标库</p>
+          <div id="icon-demo" class="preview-icons"></div>
+        </section>
+        <footer class="preview-footer">
+          阶段 A · 仅设计基础，不包含业务页面改版
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

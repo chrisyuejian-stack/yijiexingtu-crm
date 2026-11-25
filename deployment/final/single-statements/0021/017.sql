@@ -1,0 +1,1 @@
+CREATE TABLE tenant_compliance_terms(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,term TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1,version INTEGER NOT NULL DEFAULT 1,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,term));

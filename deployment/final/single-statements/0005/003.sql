@@ -1,0 +1,1 @@
+UPDATE packages SET unit_price_cents=CASE WHEN unit_price IS NULL THEN NULL ELSE CAST(ROUND(unit_price*100) AS INTEGER) END,amount_cents=CASE WHEN amount IS NULL THEN NULL ELSE CAST(ROUND(amount*100) AS INTEGER) END;

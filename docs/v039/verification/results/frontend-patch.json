@@ -1,0 +1,86 @@
+{
+  "source": "艺界星途_阶段7_前端补丁_界面v3与平台后台_20261116.zip",
+  "sha256": "1ff0e73767bf1062d3fb733afb3343e51e5d5494619ae0505fc086f66904732f",
+  "files": [
+    {
+      "path": "src/tenant/yx-theme.css",
+      "bytes": 70649,
+      "sha256": "ebd473b730fc7269652ba048bbf2ea1329acff5389358ab8d9d918fe3992e493"
+    },
+    {
+      "path": "src/tenant/yx-plans.js",
+      "bytes": 62356,
+      "sha256": "bba8a254af3c7b6c660f6d502611b5ba22a83ec63fe81de74df46c017ee9fc8d"
+    },
+    {
+      "path": "src/tenant/yx-settings.js",
+      "bytes": 60141,
+      "sha256": "12bfe3bdb2083d21702d832bd43c9f5db809c69a267e02d4e259105ea7c286ea"
+    },
+    {
+      "path": "src/tenant/app.js",
+      "bytes": 264543,
+      "sha256": "bfbdbbc447caa10c03e08dc0fef4c7351db7c62d8393511cbcd752ebad92f653"
+    },
+    {
+      "path": "src/tenant/yx-content.js",
+      "bytes": 51344,
+      "sha256": "b1ce740ad3f0d76c71b3531702f8903d2dba7a06c0007cb764c42b01e93b3c3f"
+    },
+    {
+      "path": "src/tenant/v2a.js",
+      "bytes": 29022,
+      "sha256": "656852ebc38e5ec591f28322d6d599b74f550ae9c36cce4dfa4b0cf5ca112415"
+    },
+    {
+      "path": "src/tenant/yx-ai.js",
+      "bytes": 20141,
+      "sha256": "e690ca7e47cc3c53ac4f5b5c8b78b6481d1cd9b0229c7a82d72b9893e8e06bef"
+    },
+    {
+      "path": "src/tenant/yx-growth.js",
+      "bytes": 24330,
+      "sha256": "e54137eff66f19251d09c655772657c16ed4d2eb2b3c9bce50ab8ab2b982877c"
+    },
+    {
+      "path": "src/tenant/yx-reports.js",
+      "bytes": 44081,
+      "sha256": "8c16a2841214620a15b0be3bfc43dbff31857f6a845158f74dd15e04327dcb75"
+    },
+    {
+      "path": "src/tenant/yx-home.js",
+      "bytes": 17948,
+      "sha256": "6d3ddfab79fb97b7b5836fab3aeba4c58b0b38514129eab6650b5f39f687ba53"
+    },
+    {
+      "path": "src/tenant/yx.css",
+      "bytes": 48372,
+      "sha256": "ba6877f133e74b6e8915bca1efc3f9456e09383061b57befff919cd62c875126"
+    },
+    {
+      "path": "src/console/app.css",
+      "bytes": 35290,
+      "sha256": "f9505264b8faf1298ba2ce22473e09177b46fdf5b91183119ffcb75da6aa6457"
+    },
+    {
+      "path": "src/console/app.js",
+      "bytes": 169287,
+      "sha256": "7cdfc924e27fde1c5100d9fdd19520df8ff71d5e23990573bf8a1b50adfe5577"
+    },
+    {
+      "path": "scripts/frontend-bundle.mjs",
+      "bytes": 2862,
+      "sha256": "9745cad403bc39cc1cb229503ffe6262291d0abf574382254cdcdc173432c9eb"
+    },
+    {
+      "path": "docs/stage6-frontend/界面对齐设计稿v3_20261116.md",
+      "bytes": 4672,
+      "sha256": "0fa87b9be254b29de9abcf0b885c3fdf1c9c0e7ef77142fed2ae283342cc7faa"
+    },
+    {
+      "path": "docs/stage7-frontend/阶段7前端与界面v3_20261116.md",
+      "bytes": 4505,
+      "sha256": "9091f5e87816d52db69fda9b9b8e774cbdc1b0e51d9bf4563abf4d83b67e122f"
+    }
+  ]
+}

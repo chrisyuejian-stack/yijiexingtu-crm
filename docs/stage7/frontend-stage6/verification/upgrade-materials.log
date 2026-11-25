@@ -1,0 +1,13 @@
+{
+  "result": "pass",
+  "single_statement_steps": 35,
+  "steps_by_migration": {
+    "0022": 18,
+    "0023": 17
+  },
+  "trigger_bodies_kept_whole": true,
+  "whole_and_single_statement_schema_equal": true,
+  "read_only_queries_executed": true,
+  "foreign_keys": 0,
+  "remote_execution": false
+}

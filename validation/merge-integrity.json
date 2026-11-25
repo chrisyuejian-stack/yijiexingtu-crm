@@ -1,0 +1,27 @@
+{
+  "originalMigrationsUnchanged": true,
+  "frontendPatchExact": true,
+  "modifiedExistingFiles": [
+    "src/console/app.js",
+    "src/server/ai-context.js",
+    "src/server/ai-filter.js",
+    "src/server/ai.js",
+    "src/server/backup-model.js",
+    "src/server/plan-document.js",
+    "src/server/plans.js",
+    "src/server/purge-schema.js",
+    "src/server/repo.js",
+    "src/server/worker.js",
+    "src/tenant/yx-content.js",
+    "src/tenant/yx-reports.js",
+    "src/tenant/yx-theme.css",
+    "tests/ai-stage5.test.mjs",
+    "tests/content-stage5.test.mjs",
+    "tests/support.mjs"
+  ],
+  "aiRepairSources": {
+    "ai-filter.js": "f039d594c6fc2689be73c64db330ee1a55f0c7522259bd3def00a382e2af81f3",
+    "ai.js": "09c309d3cb2a1c45271c1e1e7a3e4fff86d465e05030906264113907009fc6ce"
+  },
+  "repairContentNormalizerRetained": true
+}

@@ -1,0 +1,174 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/schedule-growth/api/settings/report-classes",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "name": "器乐通用",
+          "dimensions": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1,
+              "feedback_tags": []
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2,
+              "feedback_tags": []
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3,
+              "feedback_tags": []
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4,
+              "feedback_tags": []
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5,
+              "feedback_tags": []
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6,
+              "feedback_tags": []
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "subject": "music_interest",
+          "version": 1,
+          "id": "rcl_6e6285a33627e54832045c30",
+          "source": "template",
+          "active": true
+        },
+        {
+          "name": "声乐",
+          "dimensions": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1,
+              "feedback_tags": []
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2,
+              "feedback_tags": []
+            },
+            {
+              "key": "d3",
+              "name": "音准",
+              "order": 3,
+              "feedback_tags": []
+            },
+            {
+              "key": "d4",
+              "name": "气息",
+              "order": 4,
+              "feedback_tags": []
+            },
+            {
+              "key": "d5",
+              "name": "咬字",
+              "order": 5,
+              "feedback_tags": []
+            },
+            {
+              "key": "d6",
+              "name": "音乐表现力",
+              "order": 6,
+              "feedback_tags": []
+            },
+            {
+              "key": "d7",
+              "name": "练习习惯",
+              "order": 7,
+              "feedback_tags": []
+            },
+            {
+              "key": "d8",
+              "name": "课堂专注与自信",
+              "order": 8,
+              "feedback_tags": []
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "subject": "music_interest",
+          "version": 1,
+          "id": "rcl_42b2cadc59780ae4efbc922e",
+          "source": "template",
+          "active": true
+        },
+        {
+          "name": "音乐启蒙",
+          "dimensions": [
+            {
+              "key": "d1",
+              "name": "节奏",
+              "order": 1,
+              "feedback_tags": []
+            },
+            {
+              "key": "d2",
+              "name": "听辨",
+              "order": 2,
+              "feedback_tags": []
+            },
+            {
+              "key": "d3",
+              "name": "模仿",
+              "order": 3,
+              "feedback_tags": []
+            },
+            {
+              "key": "d4",
+              "name": "参与度",
+              "order": 4,
+              "feedback_tags": []
+            }
+          ],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "subject": "music_interest",
+          "version": 1,
+          "id": "rcl_fe52891bfc25d960c575ebf9",
+          "source": "template",
+          "active": true
+        }
+      ],
+      "total": 3,
+      "next_offset": null
+    },
+    "queries": 3
+  }
+}

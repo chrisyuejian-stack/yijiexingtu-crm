@@ -1,0 +1,22 @@
+{
+  "name": "27-terms",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/compliance/terms",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        "100% 合格",
+        "保录",
+        "包过",
+        "最好",
+        "第一"
+      ]
+    },
+    "queries": 2
+  }
+}

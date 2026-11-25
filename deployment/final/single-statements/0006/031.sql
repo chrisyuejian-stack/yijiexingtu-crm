@@ -1,0 +1,1 @@
+CREATE TRIGGER precision_package_transactions_update BEFORE UPDATE OF delta ON package_transactions WHEN NEW.delta IS NOT OLD.delta AND ABS(NEW.delta*100-ROUND(NEW.delta*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END;

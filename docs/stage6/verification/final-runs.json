@@ -1,0 +1,58 @@
+[
+  {
+    "name": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 10.148,
+    "log": "final-build.log"
+  },
+  {
+    "name": "new-source",
+    "command": "node --test tests/feedback-stage6.test.mjs tests/growth-stage6.test.mjs tests/growth-ai-stage6.test.mjs tests/growth-integrity-stage6.test.mjs",
+    "exit_code": 0,
+    "seconds": 31.095,
+    "log": "final-new-source.log"
+  },
+  {
+    "name": "new-bundle",
+    "command": "TEST_BUNDLE=1 node --test tests/feedback-stage6.test.mjs tests/growth-stage6.test.mjs tests/growth-ai-stage6.test.mjs tests/growth-integrity-stage6.test.mjs",
+    "exit_code": 0,
+    "seconds": 29.992,
+    "log": "final-new-bundle.log"
+  },
+  {
+    "name": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 273.893,
+    "log": "final-source.log"
+  },
+  {
+    "name": "bundle",
+    "command": "TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 276.592,
+    "log": "final-bundle.log"
+  },
+  {
+    "name": "backup-bundle",
+    "command": "TEST_BUNDLE=1 node docs/stage6/verification/verify-backup-bundle.mjs",
+    "exit_code": 0,
+    "seconds": 1.344,
+    "log": "final-backup-bundle.log"
+  },
+  {
+    "name": "integrity",
+    "command": "python docs/stage6/verification/verify-integrity.py",
+    "exit_code": 0,
+    "seconds": 0.324,
+    "log": "final-integrity.log"
+  },
+  {
+    "name": "migration-preflight",
+    "command": "npm run test:migrations:preflight",
+    "exit_code": 0,
+    "seconds": 0.266,
+    "log": "final-migration-preflight.log"
+  }
+]

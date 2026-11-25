@@ -1,0 +1,191 @@
+{
+  "name": "14-sign",
+  "request": {
+    "method": "POST",
+    "path": "/schedule-yx4/api/plans/pln_2821a4ba24b06d4cff51ca21/sign",
+    "body": {
+      "revision_id": "rev_95e828333447f6afdba90d9a"
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "student_id": "rec_2ba33e43c924baa0f6889594",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "新工作稿",
+      "style": {
+        "pack_id": "stp_folio",
+        "pack_version": "1.0.0",
+        "cover_image_id": null,
+        "text_mode": "auto",
+        "focal_point": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "show_unit_price": false,
+        "show_latin_eyebrow": true,
+        "show_consultant": true
+      },
+      "meta": {
+        "start_month": "2026-11",
+        "target": {
+          "node_key": null,
+          "month": null,
+          "text": ""
+        },
+        "consultant_id": "usr_0c1e812703e4b0dfc8c5aaa3",
+        "budget_cap": null
+      },
+      "modules": {
+        "cover": {
+          "visible": true,
+          "eyebrow": "",
+          "subtitle": ""
+        },
+        "assessment": {
+          "visible": true,
+          "text": "",
+          "source_note": "",
+          "strengths": [],
+          "gaps": [],
+          "goals": []
+        },
+        "path": {
+          "visible": true,
+          "stages": [
+            {
+              "key": "stk_1999fb71956f993dd602ff81",
+              "stage_type_id": "stg_db11271d8340429f99abfa56",
+              "name": "体验与适应",
+              "start": "2026-12-01",
+              "end": "2026-12-31",
+              "teaching_weeks": null,
+              "weeks_note": "",
+              "goals": [],
+              "node_tags": [],
+              "stage_snapshot": {
+                "name": "体验与适应",
+                "anchor": "start",
+                "anchor_node": null,
+                "offset_months": 0,
+                "rule_keys": [
+                  "exam_sprint_before_grade",
+                  "insert_holiday_camp"
+                ],
+                "type_version": 1,
+                "rules_version": 1,
+                "taken_at": "2026-11-14T00:08:01.270+08:00"
+              }
+            }
+          ]
+        },
+        "courses": {
+          "visible": true,
+          "lines": [
+            {
+              "line_id": "ln_c982cb0b40c80c11cb41e75a",
+              "stage_key": "stk_1999fb71956f993dd602ff81",
+              "course_id": "crs_84c13cb8204fd6aaba8f66f7",
+              "qty": {
+                "units": 1
+              },
+              "frequency_text": "",
+              "note": "",
+              "ai_filled": false,
+              "includes": [],
+              "snapshot": {
+                "name": "钢琴一对一",
+                "form": "one_to_one",
+                "minutes": 45,
+                "duration_text": null,
+                "optional": false,
+                "pricing": {
+                  "mode": "per_unit",
+                  "amount_cents": 40000,
+                  "units_per_package": null
+                },
+                "course_version": 2,
+                "price_list_rev": 4,
+                "taken_at": "2026-11-14T00:08:01.572+08:00"
+              }
+            }
+          ]
+        },
+        "fees": {
+          "visible": true,
+          "installments": "custom",
+          "custom": [
+            {
+              "stage_key": null,
+              "label": "一次付清",
+              "due": null,
+              "ratio_bps": 10000
+            }
+          ],
+          "due_dates": {},
+          "note": ""
+        },
+        "teachers": {
+          "visible": true,
+          "teacher_ids": []
+        },
+        "about": {
+          "visible": false,
+          "image_ids": []
+        }
+      },
+      "applied_suggestion_ids": [],
+      "computed": {
+        "stages": [
+          {
+            "key": "stk_1999fb71956f993dd602ff81",
+            "months": 1,
+            "calendar_weeks": 4,
+            "teaching_weeks": null,
+            "weeks_display": 4,
+            "units": 1,
+            "amount": 400
+          }
+        ],
+        "total": {
+          "units": 1,
+          "bundles": [],
+          "amount": 400
+        },
+        "budget": {
+          "cap": null,
+          "remaining": null,
+          "over": false
+        },
+        "installments": [
+          {
+            "stage_key": null,
+            "label": "一次付清",
+            "due": null,
+            "amount": 400
+          }
+        ],
+        "optional_fees": [],
+        "cover_numbers": [
+          {
+            "label": "规划周期",
+            "value": "1",
+            "unit": "个月",
+            "sub": "2026.12 – 2026.12"
+          }
+        ]
+      },
+      "id": "pln_2821a4ba24b06d4cff51ca21",
+      "version": 7,
+      "status": "signed",
+      "current_revision_id": "rev_c05cc76817e20affc74e308b",
+      "sent_revision_id": "rev_c05cc76817e20affc74e308b",
+      "signed_revision_id": "rev_95e828333447f6afdba90d9a",
+      "updated_at": "2026-11-14T00:08:01.614+08:00",
+      "updated_by": "usr_0c1e812703e4b0dfc8c5aaa3"
+    },
+    "queries": 5
+  }
+}

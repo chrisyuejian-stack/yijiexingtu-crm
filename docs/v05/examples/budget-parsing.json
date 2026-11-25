@@ -1,0 +1,39 @@
+{
+  "notice": "预算数值由服务器从可核验原话确定解析，不读取模型提供的 amount；均须人工确认后才保存。",
+  "vectors": [
+    {
+      "quote": "一年预算约三万",
+      "candidate": {
+        "budget": {
+          "amount": 30000,
+          "period": "year",
+          "note": "约三万"
+        },
+        "budget_cap": null
+      },
+      "default_selected": false
+    },
+    {
+      "quote": "总预算不超过2万元",
+      "candidate": {
+        "budget": {
+          "amount": 20000,
+          "period": "total",
+          "note": "总预算不超过2万元"
+        },
+        "budget_cap": 20000
+      },
+      "default_selected": false
+    },
+    {
+      "quote": "预算两到三万，具体再看",
+      "candidate": null,
+      "warning": "预算为区间，请在费用区确认。"
+    },
+    {
+      "quote": "每个月能上四次课",
+      "candidate": null,
+      "warning": null
+    }
+  ]
+}

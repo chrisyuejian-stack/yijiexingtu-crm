@@ -1,0 +1,1 @@
+UPDATE calendar_nodes SET doc_json=json_insert(doc_json,'$.items[#]',json('{"key":"showcase","name":"汇报演出","months":[6,12]}')) WHERE tenant_id IN(SELECT tenant_id FROM tenant_subjects WHERE id='music_interest') AND NOT EXISTS(SELECT 1 FROM json_each(calendar_nodes.doc_json,'$.items') WHERE json_extract(value,'$.key')='showcase');

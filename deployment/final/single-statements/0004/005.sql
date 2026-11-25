@@ -1,0 +1,1 @@
+ALTER TABLE packages ADD COLUMN purchase_date TEXT NOT NULL DEFAULT '';

@@ -1,0 +1,10 @@
+{
+  "dist/_worker.js": {
+    "same_as_stage7": true,
+    "sha256": "d93b2c9b9c558389bd916744c2c0d94591064795f66fab8c13dcd252afa38068"
+  },
+  "backup-dist/backup-worker.js": {
+    "same_as_stage7": true,
+    "sha256": "432809319476248cd2922cecb359a8c965599c0da1ef1c9e22f9accfb02792f8"
+  }
+}

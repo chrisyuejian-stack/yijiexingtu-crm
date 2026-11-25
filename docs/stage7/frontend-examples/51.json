@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-growth/api/settings/subjects",
+    "body": {
+      "key": "music_interest"
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "key": "music_interest",
+        "name": "音乐兴趣",
+        "pack_version": "0.1"
+      }
+    ],
+    "queries": 7
+  }
+}

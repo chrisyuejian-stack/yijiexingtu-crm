@@ -1,0 +1,98 @@
+{
+  "name": "09-skeleton",
+  "request": {
+    "method": "POST",
+    "path": "/schedule-yx4/api/plans/pln_e9019543853595c0721843e6/skeleton",
+    "body": {
+      "start_month": "2026-12",
+      "target": {
+        "node_key": "grade_exam",
+        "month": "2027-07"
+      },
+      "options": {
+        "insert_holiday_camp": true
+      }
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "stages": [
+        {
+          "key": "tmp_stage_1",
+          "stage_type_id": "stg_42844b059d2dd840de75a87e",
+          "name": "体验与适应",
+          "start": "2026-12-01",
+          "end": "2026-12-31",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [
+            "阶段末安排1次模拟考"
+          ],
+          "node_tags": []
+        },
+        {
+          "key": "tmp_stage_2",
+          "stage_type_id": "stg_047a3aaad63670fe5bbf8d36",
+          "name": "假期集训",
+          "start": "2027-01-01",
+          "end": "2027-02-28",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [
+            "阶段末安排1次模拟考"
+          ],
+          "node_tags": [
+            "winter_camp"
+          ]
+        },
+        {
+          "key": "tmp_stage_3",
+          "stage_type_id": "stg_b3fcb74d8c37919ca17e8180",
+          "name": "常规学习",
+          "start": "2027-03-01",
+          "end": "2027-04-30",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [
+            "阶段末安排1次模拟考"
+          ],
+          "node_tags": []
+        },
+        {
+          "key": "tmp_stage_4",
+          "stage_type_id": "stg_341fc8362a9538a758ec7fd4",
+          "name": "考级冲刺",
+          "start": "2027-05-01",
+          "end": "2027-06-30",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [
+            "阶段末安排1次模拟考",
+            "选课时加入冲刺课程，课程与数量由顾问确认"
+          ],
+          "node_tags": [
+            "grade_exam"
+          ]
+        },
+        {
+          "key": "tmp_stage_5",
+          "stage_type_id": "stg_047a3aaad63670fe5bbf8d36",
+          "name": "假期集训",
+          "start": "2027-07-01",
+          "end": "2027-07-31",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [
+            "阶段末安排1次模拟考"
+          ],
+          "node_tags": [
+            "summer_camp"
+          ]
+        }
+      ]
+    },
+    "queries": 4
+  }
+}

@@ -1,0 +1,19 @@
+START build npm run build
+END build 0 9.377
+START new-source node --test tests/platform-stage7.test.mjs tests/platform-integrity-stage7.test.mjs
+END new-source 0 14.468
+START new-bundle TEST_BUNDLE=1 node --test tests/platform-stage7.test.mjs tests/platform-integrity-stage7.test.mjs
+END new-bundle 0 14.735
+START source npm test
+END source 0 279.968
+START bundle TEST_BUNDLE=1 npm test
+END bundle 0 280.926
+START platform-backup TEST_BUNDLE=1 node docs/stage7/verification/verify-platform-backup.mjs
+END platform-backup 0 0.929
+START growth-backup TEST_BUNDLE=1 node docs/stage6/verification/verify-backup-bundle.mjs
+END growth-backup 0 1.229
+START integrity python docs/stage7/verification/verify-final-integrity.py
+END integrity 0 0.287
+START migration-preflight npm run test:migrations:preflight
+END migration-preflight 0 0.227
+FINAL_ALL_GATES_PASSED_SOURCE_FROZEN

@@ -1,0 +1,1 @@
+CREATE TRIGGER teacher_archive_accounts AFTER UPDATE OF status,deleted_at ON teachers WHEN NEW.status<>'active' OR NEW.deleted_at IS NOT NULL BEGIN UPDATE users SET active=0,version=version+1 WHERE tenant_id=NEW.tenant_id AND teacher_id=NEW.id; END;

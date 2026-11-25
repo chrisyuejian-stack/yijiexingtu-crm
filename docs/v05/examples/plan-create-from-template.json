@@ -1,0 +1,816 @@
+{
+  "notice": "示例使用已存在的本机构学员；普通创建也可使用原 lead_id/prospect 分支。",
+  "request": {
+    "method": "POST",
+    "path": "/api/plans",
+    "json": {
+      "template": {
+        "id": "tpl_demo",
+        "version": 1,
+        "shift_months": 0,
+        "pricing": "current"
+      },
+      "expected_price_list_rev": 8,
+      "doc": {
+        "doc_version": 2,
+        "subject": "music_interest",
+        "title": "年度学习方案",
+        "style": {
+          "pack_id": "stp_folio",
+          "pack_version": "1.0.0",
+          "cover_image_id": null,
+          "text_mode": "auto",
+          "text_mode_resolved": null,
+          "focal_point": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "show_unit_price": true,
+          "show_latin_eyebrow": true,
+          "show_consultant": true
+        },
+        "meta": {
+          "start_month": "2027-01",
+          "budget_cap": null,
+          "target": {
+            "node_key": null,
+            "month": "2027-12",
+            "text": "完成阶段展示与考级准备"
+          },
+          "consultant_id": null,
+          "budget": {
+            "amount": 30000,
+            "period": "year",
+            "note": "家长说明：一年预算约三万元"
+          }
+        },
+        "module_order": [
+          "basic",
+          "assessment",
+          "strategy",
+          "path",
+          "timeline",
+          "courses",
+          "teachers",
+          "fees",
+          "goals",
+          "photos",
+          "about"
+        ],
+        "modules": {
+          "basic": {
+            "visible": true,
+            "student_name": "周示例",
+            "grade": "初二",
+            "plan_date": "2026-11-17",
+            "direction": "钢琴演奏",
+            "direction_en": "",
+            "english_enabled": true,
+            "cover_visible": true,
+            "cover_eyebrow": "LEARNING PLAN",
+            "cover_subtitle": "循序推进，重视演奏与表达"
+          },
+          "assessment": {
+            "visible": true,
+            "title": "学员测评",
+            "text": "已有钢琴学习基础，建议进一步**稳定手型**。\n- 节奏练习逐步增加\n- 保持每周练习记录",
+            "scores": [
+              {
+                "id": "tmp_sc_demo1",
+                "label": "节奏稳定",
+                "value": 3,
+                "max": 5
+              }
+            ],
+            "tags": [
+              "有基础"
+            ]
+          },
+          "strategy": {
+            "visible": true,
+            "title": "学习策略",
+            "text": "先巩固基本功，再增加作品表达与舞台展示。"
+          },
+          "path": {
+            "visible": true,
+            "title": "学习路径",
+            "stages": [
+              {
+                "key": "tmp_stk_demo1",
+                "name": "基础巩固",
+                "stage_type_id": null,
+                "start_month": "2027-01",
+                "end_month": "2027-06",
+                "teaching_weeks": null,
+                "weeks_note": "",
+                "goals": [
+                  "稳定手型与节奏"
+                ],
+                "nodes": [
+                  {
+                    "id": "tmp_nd_demo1",
+                    "date": "2027-06-20",
+                    "name": "学期展示",
+                    "note": ""
+                  }
+                ],
+                "node_tags": [],
+                "stage_snapshot": null,
+                "legacy_range": null
+              },
+              {
+                "key": "tmp_stk_demo2",
+                "name": "表现提升",
+                "stage_type_id": null,
+                "start_month": "2027-07",
+                "end_month": "2027-12",
+                "teaching_weeks": null,
+                "weeks_note": "",
+                "goals": [
+                  "完成两首展示曲目"
+                ],
+                "nodes": [],
+                "node_tags": [],
+                "stage_snapshot": null,
+                "legacy_range": null
+              }
+            ]
+          },
+          "timeline": {
+            "visible": true,
+            "title": "关键节点时间线",
+            "items": [
+              {
+                "id": "tmp_nd_demo2",
+                "date": "2027-12-10",
+                "name": "考级准备检查",
+                "type": "grade_exam",
+                "note": "日期以实际通知为准",
+                "source_key": null
+              }
+            ]
+          },
+          "courses": {
+            "visible": true,
+            "title": "课程计划",
+            "stage_settings": [
+              {
+                "stage_key": "tmp_stk_demo1",
+                "pending": false,
+                "pending_note": ""
+              },
+              {
+                "stage_key": "tmp_stk_demo2",
+                "pending": false,
+                "pending_note": ""
+              }
+            ],
+            "groups": [
+              {
+                "id": "tmp_grp_demo1",
+                "stage_key": "tmp_stk_demo1",
+                "name": "基础课程"
+              },
+              {
+                "id": "tmp_grp_demo2",
+                "stage_key": "tmp_stk_demo2",
+                "name": "核心与表现"
+              }
+            ],
+            "lines": [
+              {
+                "line_id": "tmp_ln_demo1",
+                "stage_key": "tmp_stk_demo1",
+                "group_id": "tmp_grp_demo1",
+                "pricing_source": "catalog",
+                "course_id": "course_demo_piano",
+                "origin_course_id": null,
+                "name": "钢琴一对一",
+                "name_en": "Piano",
+                "frequency_text": "每周 2 次 · 每次 1 课时",
+                "minutes": 45,
+                "billing_mode": "per_unit",
+                "qty": {
+                  "units": 48
+                },
+                "teaching_units": 48,
+                "manual_unit_price": null,
+                "units_per_package": null,
+                "optional": false,
+                "note": "以稳定手型和节奏为主",
+                "includes": [],
+                "ai_filled": false
+              },
+              {
+                "line_id": "tmp_ln_demo2",
+                "stage_key": "tmp_stk_demo2",
+                "group_id": "tmp_grp_demo2",
+                "pricing_source": "manual",
+                "course_id": null,
+                "origin_course_id": null,
+                "name": "舞台表现工作坊",
+                "name_en": "Performance Workshop",
+                "frequency_text": "每周 1–2 次，具体由顾问确认",
+                "minutes": 60,
+                "billing_mode": "per_unit",
+                "qty": {
+                  "units": 36
+                },
+                "teaching_units": 36,
+                "manual_unit_price": 350,
+                "units_per_package": null,
+                "optional": false,
+                "note": "非价目表，自由课程",
+                "includes": [],
+                "ai_filled": false
+              }
+            ]
+          },
+          "teachers": {
+            "visible": true,
+            "title": "拟任师资",
+            "groups": [
+              {
+                "id": "tmp_tgrp_demo1",
+                "role": "演奏指导",
+                "members": [
+                  {
+                    "id": "tmp_tm_demo1",
+                    "teacher_id": null,
+                    "name": "示例导师",
+                    "title": "演奏与表现指导",
+                    "introduction": "根据学习进度设计练习与展示。",
+                    "photo_image_id": null,
+                    "proposed": true
+                  }
+                ]
+              }
+            ]
+          },
+          "fees": {
+            "visible": true,
+            "title": "费用与缴费",
+            "installments": "custom",
+            "custom": [
+              {
+                "stage_key": null,
+                "label": "第一期",
+                "due": "2027-01-01",
+                "ratio_bps": 5000
+              },
+              {
+                "stage_key": null,
+                "label": "第二期",
+                "due": "2027-07-01",
+                "ratio_bps": 5000
+              }
+            ],
+            "due_dates": {},
+            "note": "本表以最终确认方案为准",
+            "stage_extras": [
+              {
+                "id": "tmp_fee_demo1",
+                "stage_key": "tmp_stk_demo1",
+                "label": "阶段材料费",
+                "amount": 500,
+                "note": ""
+              }
+            ],
+            "other_fees": [
+              {
+                "id": "tmp_fee_demo2",
+                "label": "展示支持服务",
+                "amount": 1500,
+                "note": ""
+              }
+            ],
+            "discount": {
+              "type": "fixed",
+              "amount": 1000,
+              "rate_bps": null,
+              "note": "顾问确认的方案优惠"
+            },
+            "fixed": []
+          },
+          "goals": {
+            "visible": true,
+            "title": "阶段目标",
+            "groups": [
+              {
+                "id": "tmp_goalgrp_demo1",
+                "title": "演奏与展示",
+                "items": [
+                  {
+                    "id": "tmp_goal_demo1",
+                    "name": "完成学期汇报",
+                    "name_en": "Term Recital",
+                    "tier": "基础目标",
+                    "note": "不作结果保证"
+                  }
+                ]
+              }
+            ]
+          },
+          "photos": {
+            "visible": false,
+            "pages": []
+          },
+          "about": {
+            "visible": false,
+            "image_ids": [],
+            "text": null
+          }
+        },
+        "student_id": "stu_demo",
+        "source_lead_id": null
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "json": {
+      "doc_version": 2,
+      "student_id": "stu_demo",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "年度学习方案",
+      "style": {
+        "pack_id": "stp_folio",
+        "pack_version": "1.0.0",
+        "cover_image_id": null,
+        "text_mode": "auto",
+        "text_mode_resolved": null,
+        "focal_point": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "show_unit_price": true,
+        "show_latin_eyebrow": true,
+        "show_consultant": true
+      },
+      "meta": {
+        "start_month": "2027-01",
+        "budget_cap": null,
+        "target": {
+          "node_key": null,
+          "month": "2027-12",
+          "text": "完成阶段展示与考级准备"
+        },
+        "consultant_id": null,
+        "budget": {
+          "amount": 30000,
+          "period": "year",
+          "note": "家长说明：一年预算约三万元"
+        }
+      },
+      "module_order": [
+        "basic",
+        "assessment",
+        "strategy",
+        "path",
+        "timeline",
+        "courses",
+        "teachers",
+        "fees",
+        "goals",
+        "photos",
+        "about"
+      ],
+      "modules": {
+        "basic": {
+          "visible": true,
+          "student_name": "周示例",
+          "grade": "初二",
+          "plan_date": "2026-11-17",
+          "direction": "钢琴演奏",
+          "direction_en": "",
+          "english_enabled": true,
+          "cover_visible": true,
+          "cover_eyebrow": "LEARNING PLAN",
+          "cover_subtitle": "循序推进，重视演奏与表达"
+        },
+        "assessment": {
+          "visible": true,
+          "title": "学员测评",
+          "text": "已有钢琴学习基础，建议进一步**稳定手型**。\n- 节奏练习逐步增加\n- 保持每周练习记录",
+          "scores": [
+            {
+              "id": "sc_demo1",
+              "label": "节奏稳定",
+              "value": 3,
+              "max": 5
+            }
+          ],
+          "tags": [
+            "有基础"
+          ]
+        },
+        "strategy": {
+          "visible": true,
+          "title": "学习策略",
+          "text": "先巩固基本功，再增加作品表达与舞台展示。"
+        },
+        "path": {
+          "visible": true,
+          "title": "学习路径",
+          "stages": [
+            {
+              "key": "stk_demo1",
+              "name": "基础巩固",
+              "stage_type_id": null,
+              "start_month": "2027-01",
+              "end_month": "2027-06",
+              "teaching_weeks": null,
+              "weeks_note": "",
+              "goals": [
+                "稳定手型与节奏"
+              ],
+              "nodes": [
+                {
+                  "id": "nd_demo1",
+                  "date": "2027-06-20",
+                  "name": "学期展示",
+                  "note": ""
+                }
+              ],
+              "node_tags": [],
+              "stage_snapshot": null,
+              "legacy_range": null
+            },
+            {
+              "key": "stk_demo2",
+              "name": "表现提升",
+              "stage_type_id": null,
+              "start_month": "2027-07",
+              "end_month": "2027-12",
+              "teaching_weeks": null,
+              "weeks_note": "",
+              "goals": [
+                "完成两首展示曲目"
+              ],
+              "nodes": [],
+              "node_tags": [],
+              "stage_snapshot": null,
+              "legacy_range": null
+            }
+          ]
+        },
+        "timeline": {
+          "visible": true,
+          "title": "关键节点时间线",
+          "items": [
+            {
+              "id": "nd_demo2",
+              "date": "2027-12-10",
+              "name": "考级准备检查",
+              "type": "grade_exam",
+              "note": "日期以实际通知为准",
+              "source_key": null
+            }
+          ]
+        },
+        "courses": {
+          "visible": true,
+          "title": "课程计划",
+          "stage_settings": [
+            {
+              "stage_key": "stk_demo1",
+              "pending": false,
+              "pending_note": ""
+            },
+            {
+              "stage_key": "stk_demo2",
+              "pending": false,
+              "pending_note": ""
+            }
+          ],
+          "groups": [
+            {
+              "id": "grp_demo1",
+              "stage_key": "stk_demo1",
+              "name": "基础课程"
+            },
+            {
+              "id": "grp_demo2",
+              "stage_key": "stk_demo2",
+              "name": "核心与表现"
+            }
+          ],
+          "lines": [
+            {
+              "line_id": "ln_demo1",
+              "stage_key": "stk_demo1",
+              "group_id": "grp_demo1",
+              "pricing_source": "catalog",
+              "course_id": "course_demo_piano",
+              "origin_course_id": null,
+              "name": "钢琴一对一",
+              "name_en": "Piano",
+              "frequency_text": "每周 2 次 · 每次 1 课时",
+              "minutes": 45,
+              "billing_mode": "per_unit",
+              "qty": {
+                "units": 48
+              },
+              "teaching_units": 48,
+              "manual_unit_price": null,
+              "units_per_package": null,
+              "optional": false,
+              "note": "以稳定手型和节奏为主",
+              "includes": [],
+              "ai_filled": false,
+              "snapshot": {
+                "name": "钢琴一对一",
+                "form": "one_to_one",
+                "minutes": 45,
+                "duration_text": null,
+                "optional": false,
+                "pricing": {
+                  "mode": "per_unit",
+                  "amount_cents": 30001,
+                  "units_per_package": null
+                },
+                "course_version": 2,
+                "price_list_rev": 8,
+                "taken_at": "2026-11-17T21:00:00+08:00"
+              }
+            },
+            {
+              "line_id": "ln_demo2",
+              "stage_key": "stk_demo2",
+              "group_id": "grp_demo2",
+              "pricing_source": "manual",
+              "course_id": null,
+              "origin_course_id": null,
+              "name": "舞台表现工作坊",
+              "name_en": "Performance Workshop",
+              "frequency_text": "每周 1–2 次，具体由顾问确认",
+              "minutes": 60,
+              "billing_mode": "per_unit",
+              "qty": {
+                "units": 36
+              },
+              "teaching_units": 36,
+              "manual_unit_price": 350,
+              "units_per_package": null,
+              "optional": false,
+              "note": "非价目表，自由课程",
+              "includes": [],
+              "ai_filled": false,
+              "snapshot": {
+                "source": "manual",
+                "pricing": {
+                  "mode": "per_unit",
+                  "amount_cents": 35000,
+                  "units_per_package": null
+                },
+                "taken_at": "2026-11-17T21:00:00+08:00"
+              }
+            }
+          ]
+        },
+        "teachers": {
+          "visible": true,
+          "title": "拟任师资",
+          "groups": [
+            {
+              "id": "tgrp_demo1",
+              "role": "演奏指导",
+              "members": [
+                {
+                  "id": "tm_demo1",
+                  "teacher_id": null,
+                  "name": "示例导师",
+                  "title": "演奏与表现指导",
+                  "introduction": "根据学习进度设计练习与展示。",
+                  "photo_image_id": null,
+                  "proposed": true
+                }
+              ]
+            }
+          ]
+        },
+        "fees": {
+          "visible": true,
+          "title": "费用与缴费",
+          "installments": "custom",
+          "custom": [
+            {
+              "stage_key": null,
+              "label": "第一期",
+              "due": "2027-01-01",
+              "ratio_bps": 5000
+            },
+            {
+              "stage_key": null,
+              "label": "第二期",
+              "due": "2027-07-01",
+              "ratio_bps": 5000
+            }
+          ],
+          "due_dates": {},
+          "note": "本表以最终确认方案为准",
+          "stage_extras": [
+            {
+              "id": "fee_demo1",
+              "stage_key": "stk_demo1",
+              "label": "阶段材料费",
+              "amount": 500,
+              "note": ""
+            }
+          ],
+          "other_fees": [
+            {
+              "id": "fee_demo2",
+              "label": "展示支持服务",
+              "amount": 1500,
+              "note": ""
+            }
+          ],
+          "discount": {
+            "type": "fixed",
+            "amount": 1000,
+            "rate_bps": null,
+            "note": "顾问确认的方案优惠"
+          },
+          "fixed": []
+        },
+        "goals": {
+          "visible": true,
+          "title": "阶段目标",
+          "groups": [
+            {
+              "id": "goalgrp_demo1",
+              "title": "演奏与展示",
+              "items": [
+                {
+                  "id": "goal_demo1",
+                  "name": "完成学期汇报",
+                  "name_en": "Term Recital",
+                  "tier": "基础目标",
+                  "note": "不作结果保证"
+                }
+              ]
+            }
+          ]
+        },
+        "photos": {
+          "visible": false,
+          "pages": []
+        },
+        "about": {
+          "visible": false,
+          "image_ids": [],
+          "text": null
+        }
+      },
+      "computed": {
+        "currency": "CNY",
+        "stages": [
+          {
+            "key": "stk_demo1",
+            "months": 6,
+            "calendar_weeks": 26,
+            "teaching_weeks": null,
+            "weeks_display": 26,
+            "units": 48,
+            "known_units": 48,
+            "amount": 14900.48,
+            "known_amount": 14900.48,
+            "draft_amount": null,
+            "pending": false
+          },
+          {
+            "key": "stk_demo2",
+            "months": 6,
+            "calendar_weeks": 26,
+            "teaching_weeks": null,
+            "weeks_display": 26,
+            "units": 36,
+            "known_units": 36,
+            "amount": 12600,
+            "known_amount": 12600,
+            "draft_amount": null,
+            "pending": false
+          }
+        ],
+        "lines": [
+          {
+            "line_id": "ln_demo1",
+            "amount": 14400.48,
+            "units": 48,
+            "optional": false,
+            "pricing_source": "catalog"
+          },
+          {
+            "line_id": "ln_demo2",
+            "amount": 12600,
+            "units": 36,
+            "optional": false,
+            "pricing_source": "manual"
+          }
+        ],
+        "unassigned": {
+          "amount": 0,
+          "known_amount": 0,
+          "units": 0,
+          "known_units": 0
+        },
+        "subtotal": {
+          "amount": 29000.48,
+          "known_amount": 29000.48
+        },
+        "discount": {
+          "amount": 1000,
+          "known_amount": 1000
+        },
+        "total": {
+          "amount": 28000.48,
+          "known_amount": 28000.48,
+          "units": 84,
+          "known_units": 84,
+          "bundles": [],
+          "complete": true
+        },
+        "installments": [
+          {
+            "stage_key": null,
+            "label": "第一期",
+            "due": "2027-01-01",
+            "amount": 14000.24
+          },
+          {
+            "stage_key": null,
+            "label": "第二期",
+            "due": "2027-07-01",
+            "amount": 14000.24
+          }
+        ],
+        "installment_status": "balanced",
+        "optional_fees": [],
+        "budget": {
+          "cap": null,
+          "remaining": null,
+          "over": false
+        },
+        "budget_comparison": {
+          "period": "year",
+          "cap": 30000,
+          "comparable_amount": 28000.48,
+          "over": false,
+          "reason": null
+        },
+        "cover_numbers": [
+          {
+            "label": "规划周期",
+            "value": "12",
+            "unit": "个月",
+            "sub": "2027.01 – 2027.12"
+          }
+        ]
+      },
+      "id": "pln_demo",
+      "version": 1,
+      "status": "draft",
+      "current_revision_id": "prv_created1",
+      "sent_revision_id": null,
+      "signed_revision_id": null,
+      "updated_at": "2026-11-17T21:00:00+08:00",
+      "updated_by": "usr_demo",
+      "party": "student",
+      "party_name": "周示例",
+      "stored_doc_version": 2,
+      "converted_from": null,
+      "brief": {
+        "version": 0,
+        "text": "",
+        "updated_at": null
+      },
+      "applied_suggestion_ids": [],
+      "warnings": [],
+      "id_map": {
+        "tmp_sc_demo1": "sc_demo1",
+        "tmp_stk_demo1": "stk_demo1",
+        "tmp_nd_demo1": "nd_demo1",
+        "tmp_stk_demo2": "stk_demo2",
+        "tmp_nd_demo2": "nd_demo2",
+        "tmp_grp_demo1": "grp_demo1",
+        "tmp_grp_demo2": "grp_demo2",
+        "tmp_ln_demo1": "ln_demo1",
+        "tmp_ln_demo2": "ln_demo2",
+        "tmp_tgrp_demo1": "tgrp_demo1",
+        "tmp_tm_demo1": "tm_demo1",
+        "tmp_fee_demo1": "fee_demo1",
+        "tmp_fee_demo2": "fee_demo2",
+        "tmp_goalgrp_demo1": "goalgrp_demo1",
+        "tmp_goal_demo1": "goal_demo1"
+      },
+      "reference": {
+        "enabled": false,
+        "version": 0,
+        "revision_id": null,
+        "updated_at": null
+      }
+    }
+  }
+}

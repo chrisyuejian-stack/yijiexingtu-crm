@@ -1,0 +1,22 @@
+[
+  {
+    "file": "dist/_worker.js",
+    "before": 1068979,
+    "after": 763139
+  },
+  {
+    "file": "backup-dist/backup-worker.js",
+    "before": 569515,
+    "after": 451078
+  },
+  {
+    "file": "dist/assets/tenant.js",
+    "before": 965600,
+    "after": 550961
+  },
+  {
+    "file": "dist/console-assets/console.js",
+    "before": 130428,
+    "after": 83543
+  }
+]

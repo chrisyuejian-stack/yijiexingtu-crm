@@ -1,0 +1,16 @@
+node_modules/
+dist/
+backup-dist/
+work/
+release/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+__pycache__/
+.DS_Store

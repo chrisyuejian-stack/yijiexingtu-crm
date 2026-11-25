@@ -1,0 +1,1 @@
+INSERT INTO report_dimensions(tenant_id,id,class_id,dim_key) SELECT c.tenant_id,'dim_'||lower(hex(randomblob(12))),c.id,json_extract(d.value,'$.key') FROM report_classes c,json_each(c.doc_json,'$.dimensions') d;

@@ -1,0 +1,1 @@
+CREATE TABLE setting_imports(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,owner_id TEXT NOT NULL,rows_json TEXT NOT NULL CHECK(json_valid(rows_json)),price_rev INTEGER NOT NULL,expires_at INTEGER NOT NULL,consumed INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id));

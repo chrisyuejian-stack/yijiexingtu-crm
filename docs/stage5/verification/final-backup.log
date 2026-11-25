@@ -1,0 +1,15 @@
+{
+  "result": "pass",
+  "worker": "backup-dist/backup-worker.js",
+  "manifest_published": true,
+  "content_items": 1,
+  "content_revisions": 1,
+  "ai_requests": 1,
+  "quota": 1,
+  "ai_usage": 1,
+  "ai_suggestions": 1,
+  "encrypted_replay_receipt": true,
+  "model_key_not_in_settings": true,
+  "fetch_status": 404,
+  "remote_calls": 0
+}

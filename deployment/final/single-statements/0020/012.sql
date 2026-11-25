@@ -1,0 +1,1 @@
+CREATE TABLE tenant_profile(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id));

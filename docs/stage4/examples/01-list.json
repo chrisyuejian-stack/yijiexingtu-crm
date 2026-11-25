@@ -1,0 +1,33 @@
+{
+  "name": "01-list",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/plans",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "pln_f9b7ed1599d21a063512e7c7",
+          "title": "钢琴学习方案",
+          "subject": "music_interest",
+          "status": "draft",
+          "student_id": "rec_f8a697203f1d0264789b70f9",
+          "version": 1,
+          "total": {
+            "units": 0,
+            "bundles": [],
+            "amount": 0
+          },
+          "updated_at": "2026-11-14T00:07:55.495+08:00"
+        }
+      ],
+      "total": 1,
+      "next_offset": null
+    },
+    "queries": 3
+  }
+}

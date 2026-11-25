@@ -1,0 +1,1495 @@
+{
+  "mode": "source",
+  "local_only": true,
+  "credentials_omitted": true,
+  "examples": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-article39/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "article": null,
+          "id": "cnt_a6ce7bb097d09390e24e269f",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_ae33df314c4ca89a15d3a0bf",
+          "created_at": "2026-11-16T20:41:02.412+08:00",
+          "updated_at": "2026-11-16T20:41:02.412+08:00"
+        },
+        "queries": 7
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-article39/api/content/cnt_a6ce7bb097d09390e24e269f",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "article": null,
+          "id": "cnt_a6ce7bb097d09390e24e269f",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_ae33df314c4ca89a15d3a0bf",
+          "created_at": "2026-11-16T20:41:02.412+08:00",
+          "updated_at": "2026-11-16T20:41:02.412+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-article39/api/content/cnt_a6ce7bb097d09390e24e269f",
+        "body": {
+          "version": 1,
+          "article": {
+            "column": "招生 · 寒假集训",
+            "header_image_id": "img_39header",
+            "author": "星光琴行",
+            "publish_date": "2026-11-20",
+            "footer": {
+              "qr": true,
+              "address": true
+            }
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "article": {
+            "column": "招生 · 寒假集训",
+            "author": "星光琴行",
+            "header_image_id": "img_39header",
+            "publish_date": "2026-11-20",
+            "footer": {
+              "qr": true,
+              "address": true
+            }
+          },
+          "id": "cnt_a6ce7bb097d09390e24e269f",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_ae33df314c4ca89a15d3a0bf",
+          "created_at": "2026-11-16T20:41:02.412+08:00",
+          "updated_at": "2026-11-16T20:41:02.448+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-article39/api/content/cnt_a6ce7bb097d09390e24e269f",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "article": {
+            "column": "招生 · 寒假集训",
+            "author": "星光琴行",
+            "header_image_id": "img_39header",
+            "publish_date": "2026-11-20",
+            "footer": {
+              "qr": true,
+              "address": true
+            }
+          },
+          "id": "cnt_a6ce7bb097d09390e24e269f",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_ae33df314c4ca89a15d3a0bf",
+          "created_at": "2026-11-16T20:41:02.412+08:00",
+          "updated_at": "2026-11-16T20:41:02.448+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-article39/api/content/cnt_a6ce7bb097d09390e24e269f",
+        "body": {
+          "version": 2,
+          "article": {
+            "header_image_id": "foreign_image"
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "invalid_image",
+          "message": "头图必须属于本机构图库"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-article39/api/content/cnt_a6ce7bb097d09390e24e269f",
+        "body": {
+          "version": 2,
+          "article": {
+            "publish_date": "2026-02-30"
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "日期不正确",
+          "details": {
+            "fields": [
+              {
+                "field": "article.publish_date",
+                "message": "日期不正确"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-article39/api/content/cnt_a6ce7bb097d09390e24e269f",
+        "body": {
+          "version": 1,
+          "article": null
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "内容已被修改，请刷新后重试",
+          "details": {
+            "latest": {
+              "type": "article",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "本地测试内容",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "article": {
+                "column": "招生 · 寒假集训",
+                "author": "星光琴行",
+                "header_image_id": "img_39header",
+                "publish_date": "2026-11-20",
+                "footer": {
+                  "qr": true,
+                  "address": true
+                }
+              },
+              "id": "cnt_a6ce7bb097d09390e24e269f",
+              "version": 2,
+              "status": "draft",
+              "author_id": "usr_ae33df314c4ca89a15d3a0bf",
+              "created_at": "2026-11-16T20:41:02.412+08:00",
+              "updated_at": "2026-11-16T20:41:02.448+08:00"
+            }
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/settings/subjects",
+        "body": {
+          "key": "music_interest"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "key": "music_interest",
+            "name": "音乐兴趣",
+            "pack_version": "0.1"
+          }
+        ],
+        "queries": 7
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/settings/stage-types",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "name": "体验与适应",
+              "default_months": {
+                "min": 1,
+                "max": 2
+              },
+              "anchor": "start",
+              "anchor_node": null,
+              "offset_months": 0,
+              "active": true,
+              "subject": "music_interest",
+              "order": 10,
+              "version": 1,
+              "id": "stg_45e63b45183cd165d00f1609",
+              "source": "template"
+            },
+            {
+              "name": "假期集训",
+              "default_months": {
+                "min": 1,
+                "max": 2
+              },
+              "anchor": "on_node",
+              "anchor_node": "summer_camp",
+              "offset_months": 0,
+              "active": true,
+              "subject": "music_interest",
+              "order": 40,
+              "version": 1,
+              "id": "stg_a53075b7c22985c38bbd8139",
+              "source": "template"
+            },
+            {
+              "name": "常规学习",
+              "default_months": {
+                "min": 3,
+                "max": 5
+              },
+              "anchor": "normal",
+              "anchor_node": null,
+              "offset_months": 0,
+              "active": true,
+              "subject": "music_interest",
+              "order": 20,
+              "version": 1,
+              "id": "stg_2ca11dd73441d726bac80699",
+              "source": "template"
+            },
+            {
+              "name": "考级冲刺",
+              "default_months": {
+                "min": 2,
+                "max": 2
+              },
+              "anchor": "before_node",
+              "anchor_node": "grade_exam",
+              "offset_months": -2,
+              "active": true,
+              "subject": "music_interest",
+              "order": 30,
+              "version": 1,
+              "id": "stg_58c5d84f9911d9d1a2035c24",
+              "source": "template"
+            }
+          ],
+          "total": 4,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/settings/report-classes",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "name": "器乐通用",
+              "dimensions": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6,
+                  "feedback_tags": []
+                }
+              ],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "subject": "music_interest",
+              "version": 1,
+              "id": "rcl_642fccd5af6d7e1f96318a7b",
+              "source": "template",
+              "active": true
+            },
+            {
+              "name": "声乐",
+              "dimensions": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d3",
+                  "name": "音准",
+                  "order": 3,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d4",
+                  "name": "气息",
+                  "order": 4,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d5",
+                  "name": "咬字",
+                  "order": 5,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d6",
+                  "name": "音乐表现力",
+                  "order": 6,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d7",
+                  "name": "练习习惯",
+                  "order": 7,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d8",
+                  "name": "课堂专注与自信",
+                  "order": 8,
+                  "feedback_tags": []
+                }
+              ],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "subject": "music_interest",
+              "version": 1,
+              "id": "rcl_64faa1747789ffcfd33e7ab9",
+              "source": "template",
+              "active": true
+            },
+            {
+              "name": "音乐启蒙",
+              "dimensions": [
+                {
+                  "key": "d1",
+                  "name": "节奏",
+                  "order": 1,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d2",
+                  "name": "听辨",
+                  "order": 2,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d3",
+                  "name": "模仿",
+                  "order": 3,
+                  "feedback_tags": []
+                },
+                {
+                  "key": "d4",
+                  "name": "参与度",
+                  "order": 4,
+                  "feedback_tags": []
+                }
+              ],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "subject": "music_interest",
+              "version": 1,
+              "id": "rcl_afe34707ec4f3cc9e7eee463",
+              "source": "template",
+              "active": true
+            }
+          ],
+          "total": 3,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/report-batches",
+        "body": {
+          "name": "秋季报告",
+          "from": "2026-11-01",
+          "to": "2026-11-30",
+          "report_class_id": "rcl_642fccd5af6d7e1f96318a7b",
+          "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+          "student_ids": [
+            "rec_37c7920b08fb3c5e0d2ad64a",
+            "rec_1ff61a63b6e48d7b21bc31e9"
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "batch": {
+            "id": "gb_a60c355fa82329e4e6ac7efe",
+            "name": "秋季报告",
+            "from": "2026-11-01",
+            "to": "2026-11-30",
+            "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+            "version": 1
+          },
+          "reports": [
+            {
+              "student_id": "rec_37c7920b08fb3c5e0d2ad64a",
+              "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+              "period": {
+                "from": "2026-11-01",
+                "to": "2026-11-30"
+              },
+              "style": {
+                "pack_id": "stp_growth_folio",
+                "pack_version": "1.0.0"
+              },
+              "dimensions_snapshot": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6
+                }
+              ],
+              "stats": {
+                "lessons": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "attendance": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "repertoire_done": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                }
+              },
+              "scores": [],
+              "mock_exams": [],
+              "texts": {
+                "progress": "",
+                "focus": "",
+                "next_goals": [],
+                "home_practice": [],
+                "teacher_note": ""
+              },
+              "artwork_image_ids": [],
+              "renewal": {
+                "visible": false,
+                "text": ""
+              },
+              "applied_suggestion_ids": [],
+              "warnings": [],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "id": "gr_f5db09378db9e97afead3482",
+              "version": 1,
+              "batch_id": "gb_a60c355fa82329e4e6ac7efe",
+              "status": "draft",
+              "progress": "not_started",
+              "report_class_id": "rcl_642fccd5af6d7e1f96318a7b"
+            },
+            {
+              "student_id": "rec_1ff61a63b6e48d7b21bc31e9",
+              "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+              "period": {
+                "from": "2026-11-01",
+                "to": "2026-11-30"
+              },
+              "style": {
+                "pack_id": "stp_growth_folio",
+                "pack_version": "1.0.0"
+              },
+              "dimensions_snapshot": [
+                {
+                  "key": "d1",
+                  "name": "读谱识谱",
+                  "order": 1
+                },
+                {
+                  "key": "d2",
+                  "name": "节奏感",
+                  "order": 2
+                },
+                {
+                  "key": "d3",
+                  "name": "演奏技术",
+                  "order": 3
+                },
+                {
+                  "key": "d4",
+                  "name": "音乐表现力",
+                  "order": 4
+                },
+                {
+                  "key": "d5",
+                  "name": "练习习惯",
+                  "order": 5
+                },
+                {
+                  "key": "d6",
+                  "name": "课堂专注与自信",
+                  "order": 6
+                }
+              ],
+              "stats": {
+                "lessons": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "attendance": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                },
+                "repertoire_done": {
+                  "value": 0,
+                  "crm_value": 0,
+                  "source": "crm",
+                  "overridden": false
+                }
+              },
+              "scores": [],
+              "mock_exams": [],
+              "texts": {
+                "progress": "",
+                "focus": "",
+                "next_goals": [],
+                "home_practice": [],
+                "teacher_note": ""
+              },
+              "artwork_image_ids": [],
+              "renewal": {
+                "visible": false,
+                "text": ""
+              },
+              "applied_suggestion_ids": [],
+              "warnings": [],
+              "options": {
+                "compare_previous": true,
+                "mock_exam": false,
+                "require_artwork": false,
+                "renewal_suggestion": false
+              },
+              "id": "gr_a19666c0748d09f35fa5d88f",
+              "version": 1,
+              "batch_id": "gb_a60c355fa82329e4e6ac7efe",
+              "status": "draft",
+              "progress": "not_started",
+              "report_class_id": "rcl_642fccd5af6d7e1f96318a7b"
+            }
+          ]
+        },
+        "queries": 8
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/reports/gr_f5db09378db9e97afead3482",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_37c7920b08fb3c5e0d2ad64a",
+          "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [],
+          "mock_exams": [],
+          "texts": {
+            "progress": "",
+            "focus": "",
+            "next_goals": [],
+            "home_practice": [],
+            "teacher_note": ""
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_f5db09378db9e97afead3482",
+          "version": 1,
+          "batch_id": "gb_a60c355fa82329e4e6ac7efe",
+          "status": "draft",
+          "progress": "not_started",
+          "report_class_id": "rcl_642fccd5af6d7e1f96318a7b",
+          "feedback_count": 0
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/lessons/les_db0583e9e5b905e9037ac2bd/review",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "lesson": {
+            "id": "les_db0583e9e5b905e9037ac2bd",
+            "version": 1,
+            "start_at": "2026-11-10T10:00+08:00",
+            "duration": 45,
+            "units": 1,
+            "status": "planned",
+            "course_name": "班课",
+            "course_type_id": "rec_56df7c3d0f60aee530d8de34",
+            "teacher_name": "教师",
+            "location_name": "教室"
+          },
+          "participants": [
+            {
+              "id": "part_66c324bcad18364561ebc229",
+              "student_id": "rec_1ff61a63b6e48d7b21bc31e9",
+              "name": "学员1",
+              "attendance": "planned",
+              "version": 1
+            },
+            {
+              "id": "part_a853b4409da704a7570a7b32",
+              "student_id": "rec_37c7920b08fb3c5e0d2ad64a",
+              "name": "学员0",
+              "attendance": "planned",
+              "version": 1
+            }
+          ],
+          "published": [],
+          "submission": null,
+          "people": [],
+          "comment_fingerprint": "CRoLldv7f0jvWw5oi/w5aGvju8Hgmwe05s3/1YLarvo=",
+          "can_submit_attendance": true,
+          "can_submit_comments": false,
+          "can_review": false,
+          "can_correct_comments": false,
+          "window": {
+            "opens_at": 1794276000000,
+            "closes_at": 1794451500000,
+            "open": true,
+            "overdue": false
+          }
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/lessons/les_db0583e9e5b905e9037ac2bd/review",
+        "body": {
+          "operation_id": "op_c52d2edc-431a-4d3b-b4bb-29e09f9c0096",
+          "kind": "attendance",
+          "previous_id": null,
+          "comment_fingerprint": "CRoLldv7f0jvWw5oi/w5aGvju8Hgmwe05s3/1YLarvo=",
+          "public_text": "全班节奏练习",
+          "homework": "练习两遍",
+          "people": [
+            {
+              "participant_id": "part_66c324bcad18364561ebc229",
+              "student_id": "rec_1ff61a63b6e48d7b21bc31e9",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            },
+            {
+              "participant_id": "part_a853b4409da704a7570a7b32",
+              "student_id": "rec_37c7920b08fb3c5e0d2ad64a",
+              "attendance": "attended",
+              "comment": "节奏稳定"
+            }
+          ],
+          "personal": [
+            {
+              "student_id": "rec_1ff61a63b6e48d7b21bc31e9",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            },
+            {
+              "student_id": "rec_37c7920b08fb3c5e0d2ad64a",
+              "tags": [
+                "节奏稳定"
+              ],
+              "repertoire_ids": [],
+              "note": "节奏稳定",
+              "message": {
+                "learned": "节奏练习",
+                "good": "节奏稳定",
+                "attention": "句尾注意",
+                "homework": "练习两遍"
+              },
+              "image_ids": []
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "committed": true,
+          "lesson_id": "les_db0583e9e5b905e9037ac2bd",
+          "id": "submission_1e929470c3dc297e3d1b4559"
+        },
+        "queries": 10
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-growth/api/submissions/submission_1e929470c3dc297e3d1b4559/confirm",
+        "body": {
+          "operation_id": "op_2072a46f-b54b-4b5a-baa3-8ad55269f962",
+          "version": 1
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "committed": true,
+          "lesson_id": "les_db0583e9e5b905e9037ac2bd",
+          "blocked": []
+        },
+        "queries": 14
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/reports/gr_f5db09378db9e97afead3482",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_37c7920b08fb3c5e0d2ad64a",
+          "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+          "period": {
+            "from": "2026-11-01",
+            "to": "2026-11-30"
+          },
+          "style": {
+            "pack_id": "stp_growth_folio",
+            "pack_version": "1.0.0"
+          },
+          "dimensions_snapshot": [
+            {
+              "key": "d1",
+              "name": "读谱识谱",
+              "order": 1
+            },
+            {
+              "key": "d2",
+              "name": "节奏感",
+              "order": 2
+            },
+            {
+              "key": "d3",
+              "name": "演奏技术",
+              "order": 3
+            },
+            {
+              "key": "d4",
+              "name": "音乐表现力",
+              "order": 4
+            },
+            {
+              "key": "d5",
+              "name": "练习习惯",
+              "order": 5
+            },
+            {
+              "key": "d6",
+              "name": "课堂专注与自信",
+              "order": 6
+            }
+          ],
+          "stats": {
+            "lessons": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "attendance": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            },
+            "repertoire_done": {
+              "value": 0,
+              "crm_value": 0,
+              "source": "crm",
+              "overridden": false
+            }
+          },
+          "scores": [],
+          "mock_exams": [],
+          "texts": {
+            "progress": "",
+            "focus": "",
+            "next_goals": [],
+            "home_practice": [],
+            "teacher_note": ""
+          },
+          "artwork_image_ids": [],
+          "renewal": {
+            "visible": false,
+            "text": ""
+          },
+          "applied_suggestion_ids": [],
+          "warnings": [],
+          "options": {
+            "compare_previous": true,
+            "mock_exam": false,
+            "require_artwork": false,
+            "renewal_suggestion": false
+          },
+          "id": "gr_f5db09378db9e97afead3482",
+          "version": 1,
+          "batch_id": "gb_a60c355fa82329e4e6ac7efe",
+          "status": "draft",
+          "progress": "not_started",
+          "report_class_id": "rcl_642fccd5af6d7e1f96318a7b",
+          "feedback_count": 1
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-growth/api/feedback/today",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "lesson_id": "les_db0583e9e5b905e9037ac2bd",
+              "start_at": "2026-11-10T10:00+08:00",
+              "duration": 45,
+              "teacher_id": "rec_d9d2dec1aba0339bfb17d136",
+              "assistant_id": null,
+              "lesson_status": "completed",
+              "course_name": "班课",
+              "submission_id": "submission_1e929470c3dc297e3d1b4559",
+              "submission_status": "confirmed",
+              "kind": "attendance",
+              "version": 2,
+              "locked": 0,
+              "student_names": [
+                "学员1",
+                "学员0"
+              ],
+              "status": "confirmed",
+              "can_submit": false,
+              "can_submit_comments": true
+            }
+          ]
+        },
+        "queries": 3
+      }
+    }
+  ],
+  "platform_patch_mismatch_examples": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/style-packs/upload",
+        "body": {
+          "multipart": true,
+          "file": "style.zip"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "pack_id": "test_style",
+          "name": "测试风格",
+          "pack_version": "1.0.0",
+          "version": 1,
+          "status": "draft",
+          "scope": "admin_only",
+          "active": false,
+          "manifest": {
+            "id": "test_style",
+            "name": "测试风格",
+            "version": "1.0.0",
+            "doc_types": [
+              "plan",
+              "report",
+              "feedback_card",
+              "article"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none",
+              "corner_image": "assets/pic.png"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": "assets/pic.png"
+          },
+          "checks": {
+            "errors": [],
+            "warnings": [
+              "assets/pic.png宽度小于1600"
+            ],
+            "usable_text_modes": [
+              "light"
+            ],
+            "contrast": {
+              "ink_paper": 15.797339723332843,
+              "muted_paper": 5.85386937679366
+            }
+          },
+          "asset_base": "/api/ops/style-packs/test_style/versions/1.0.0/assets/"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/style-packs/test_style/versions/1.0.0/publish",
+        "body": {
+          "scope": "all",
+          "tenant_ids": [],
+          "version": 1
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "pack_id": "test_style",
+          "name": "测试风格",
+          "pack_version": "1.0.0",
+          "version": 2,
+          "status": "published",
+          "scope": "all",
+          "active": true,
+          "manifest": {
+            "id": "test_style",
+            "name": "测试风格",
+            "version": "1.0.0",
+            "doc_types": [
+              "plan",
+              "report",
+              "feedback_card",
+              "article"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none",
+              "corner_image": "assets/pic.png"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": "assets/pic.png"
+          },
+          "checks": {
+            "errors": [],
+            "warnings": [
+              "assets/pic.png宽度小于1600"
+            ],
+            "usable_text_modes": [
+              "light"
+            ],
+            "contrast": {
+              "ink_paper": 15.797339723332843,
+              "muted_paper": 5.85386937679366
+            }
+          },
+          "asset_base": "/api/ops/style-packs/test_style/versions/1.0.0/assets/"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/style-packs/test_style/versions/1.0.0/publish",
+        "body": {
+          "scope": "all",
+          "tenant_ids": [],
+          "version": 1
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "invalid_state",
+          "message": "风格版本已冻结"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/ai/settings",
+        "body": null,
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "main",
+          "fast_daily_limit": 80,
+          "deep_daily_limit": 50,
+          "fast_model": null,
+          "deep_model": null,
+          "version": 1,
+          "updated_at": 0,
+          "updated_by": "migration0022"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/ai/settings",
+        "body": {
+          "id": "main",
+          "fast_daily_limit": 80,
+          "deep_daily_limit": 50,
+          "fast_model": null,
+          "deep_model": null,
+          "version": 1,
+          "updated_at": 0,
+          "updated_by": "migration0022"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "请使用符合长度限制的纯文字，不要包含HTML标签",
+          "details": {
+            "fields": [
+              {
+                "field": "fast_model",
+                "message": "请使用符合长度限制的纯文字，不要包含HTML标签"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/style-packs/upload",
+        "body": {
+          "multipart": true,
+          "file": "style.zip"
+        },
+        "actor": "platform_admin"
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "style_pack_invalid",
+          "message": "字体不在白名单",
+          "details": {
+            "fields": [
+              {
+                "field": "font.body",
+                "message": "字体不在白名单"
+              }
+            ],
+            "checks": {
+              "errors": [
+                "字体不在白名单"
+              ],
+              "warnings": []
+            }
+          }
+        }
+      }
+    }
+  ]
+}

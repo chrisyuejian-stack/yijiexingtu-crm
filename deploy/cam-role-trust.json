@@ -1,0 +1,8 @@
+{
+  "version": "2.0",
+  "statement": [{
+    "effect": "allow",
+    "principal": {"service": ["cvm.qcloud.com"]},
+    "action": ["name/sts:AssumeRole"]
+  }]
+}

@@ -1,0 +1,1 @@
+CREATE TRIGGER course_limits_schedule_templates_update BEFORE UPDATE ON schedule_templates WHEN ((NEW.units IS NOT OLD.units AND NEW.units<1) OR (NEW.duration IS NOT OLD.duration AND NEW.duration NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END;

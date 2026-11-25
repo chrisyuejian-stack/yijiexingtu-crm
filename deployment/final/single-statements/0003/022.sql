@@ -1,0 +1,1 @@
+CREATE TRIGGER user_student_reference BEFORE INSERT ON users WHEN NEW.student_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM students WHERE tenant_id=NEW.tenant_id AND id=NEW.student_id AND status='active' AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_student_reference') END; END;

@@ -1,0 +1,14 @@
+[
+  {
+    "command": "node docs/stage5/verification/capture-extra-http.mjs",
+    "exit_code": 0,
+    "seconds": 0.749,
+    "log": "docs/stage5/verification/extra-http-source.log"
+  },
+  {
+    "command": "env TEST_BUNDLE=1 node docs/stage5/verification/capture-extra-http.mjs",
+    "exit_code": 0,
+    "seconds": 0.714,
+    "log": "docs/stage5/verification/extra-http-bundle.log"
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "baseline": "艺界星途_阶段4_完整源码_20261114.zip",
+  "baseline_zip_sha256": "923fe83088549014cce7e9b113b08cf4635bc369a07f27332355bf778376fc03",
+  "status": "阶段5未完成；仅分享外壳配合完成，AI等待冻结条款补充",
+  "modified": [
+    {
+      "path": "README.md",
+      "before_sha256": "e3dd67e3fd877ab9cb4bd550311c5569db2302fcfcaaf3c37892d1a4c0fe04fb",
+      "after_sha256": "53ff6f26e07cd4c7987c3aff9ed8c9c20893602bc7774937b049b8351dccd706"
+    },
+    {
+      "path": "docs/项目决策与范围.md",
+      "before_sha256": "21e26803e6e46397eee8531f160c1618b5d770e83b0d879caac1f86060214762",
+      "after_sha256": "ead38bb0d0371be237b9db4c6646aee09c7f398d1bcfb554cac1ffd5982ad757"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "before_sha256": "7dcbfc386c0befc5b1033b4e63356b68f24bb6ba1f38185ad5dc8445a8df552c",
+      "after_sha256": "6326acb1271fdf2f425d6c2f80be9bb6114b496664cbb9175f200fad5f3695eb"
+    },
+    {
+      "path": "src/server/plans.js",
+      "before_sha256": "d4ca0aaae8bb4fccedd89f19dd760245db92ce4d84467c27d8e012be36b91cf2",
+      "after_sha256": "4b9da4e0a79255a448cbe3a8e1b2f215654d8bee8b9e722f280db1bcc6e5fd12"
+    },
+    {
+      "path": "src/server/worker.js",
+      "before_sha256": "7dab97b8607cf62eb5c3b2f5bfb2d234f4f987bc213c2316c1062fc34add318e",
+      "after_sha256": "e0d940026168d63799d8ee0d4c5499bfdce376f54db40d6a6c0bff1bcf22909c"
+    },
+    {
+      "path": "tests/plans-stage4.test.mjs",
+      "before_sha256": "c8dc400d56588b7d9b561316f4b8d2fddb5dea6c66700e77737773b97208529f",
+      "after_sha256": "973966f8cdc8829573fbfeebb0765e2fcacbb743894abddcf4ac7a1f4a7c8820"
+    },
+    {
+      "path": "tests/stage7.test.mjs",
+      "before_sha256": "dceffb5c8059a314ebd7863219a8b02504518d1f676889ca7cfde0d9fec1659e",
+      "after_sha256": "e2c0c9387c38a835c5310f2211f10ab68504ca46dafe67475316a8288634bdbb"
+    },
+    {
+      "path": "tests/support.mjs",
+      "before_sha256": "426ab666e111ef42d3dfafdb294ebfe82bcb7232c59cd1cffa92f2481a817d4b",
+      "after_sha256": "e89520f2ec85b263bd16c164dfce9be7ec36508c18f1d050c0fde89895ca0689"
+    }
+  ],
+  "new_code": [
+    "src/share/index.html",
+    "tests/share-shell-stage5.test.mjs"
+  ],
+  "new_migrations": [],
+  "old_migrations_unchanged": 21,
+  "frontend_directories_changed": [],
+  "build_file_count": 12,
+  "source_passed": 378,
+  "bundle_passed": 378,
+  "inherited_passed": 372,
+  "new_share_tests_passed": 6,
+  "new_share_tests_standalone_source": 6,
+  "new_share_tests_standalone_bundle": 6,
+  "failed": 0,
+  "skipped": 0,
+  "remote_calls": 0
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "label": "final-build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 10.883,
+    "log": "work/stage5/final-build.log"
+  },
+  {
+    "label": "final-new-source",
+    "command": "node --test tests/ai-stage5.test.mjs tests/content-stage5.test.mjs tests/content-ai-stage5-integrity.test.mjs tests/share-shell-stage5.test.mjs tests/skeleton-hints-stage5.test.mjs",
+    "exit_code": 0,
+    "seconds": 23.853,
+    "log": "work/stage5/final-new-source.log"
+  },
+  {
+    "label": "final-new-bundle",
+    "command": "env TEST_BUNDLE=1 node --test tests/ai-stage5.test.mjs tests/content-stage5.test.mjs tests/content-ai-stage5-integrity.test.mjs tests/share-shell-stage5.test.mjs tests/skeleton-hints-stage5.test.mjs",
+    "exit_code": 0,
+    "seconds": 23.563,
+    "log": "work/stage5/final-new-bundle.log"
+  },
+  {
+    "label": "final-source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 253.029,
+    "log": "work/stage5/final-source.log"
+  },
+  {
+    "label": "final-bundle",
+    "command": "env TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 261.022,
+    "log": "work/stage5/final-bundle.log"
+  },
+  {
+    "label": "final-backup",
+    "command": "env TEST_BUNDLE=1 node docs/stage5/verification/verify-backup-bundle.mjs",
+    "exit_code": 0,
+    "seconds": 0.982,
+    "log": "work/stage5/final-backup.log"
+  },
+  {
+    "label": "final-integrity",
+    "command": "python docs/stage5/verification/verify-integrity.py",
+    "exit_code": 0,
+    "seconds": 0.35,
+    "log": "work/stage5/final-integrity.log"
+  },
+  {
+    "label": "final-migrations",
+    "command": "npm run test:migrations:preflight",
+    "exit_code": 0,
+    "seconds": 0.27,
+    "log": "work/stage5/final-migrations.log"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "result": "pass",
+  "frozen_contract": "v0.3.8",
+  "baseline_zip": "艺界星途_阶段6_前端融合源码_20261116.zip",
+  "baseline_sha256": "bd686ca670b129c5fc643cabd8ddddcd1b873c7d4fac615cb1f9c126860ef153",
+  "source_tests": {
+    "inherited": 469,
+    "new": 28,
+    "passed": 497,
+    "failed": 0,
+    "skipped": 0
+  },
+  "bundle_tests": {
+    "inherited": 469,
+    "new": 28,
+    "passed": 497,
+    "failed": 0,
+    "skipped": 0
+  },
+  "old_test_case_files_unchanged": 56,
+  "old_test_assertions_revised": 0,
+  "old_migrations_unchanged": 23,
+  "new_migration": "0024_platform_management.sql",
+  "frontend_files_unchanged": 38,
+  "frontend_directories": [
+    "src/tenant",
+    "src/console",
+    "src/ui",
+    "src/share"
+  ],
+  "runtime_freeze_matches": true,
+  "pages_files": 12,
+  "remote_calls": 0,
+  "deployed": false
+}

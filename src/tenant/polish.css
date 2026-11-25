@@ -1,0 +1,903 @@
+/* 第十阶段 C 后视觉微调（Claude）。只引用 tokens.css 变量；不改业务结构。
+   动效遵守决定 #19：除侧栏展开与删除行收起外只用位移和透明度，减少动态效果时降级为透明度。 */
+
+/* ---------- 顶栏 ---------- */
+.staff-header .ui-menu-holder > .ui-button > .ui-button-face {
+  flex-direction: row-reverse;
+  gap: var(--ui-space-1);
+}
+.staff-header .ui-menu-holder > .ui-button svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ui-muted);
+}
+.staff-header .header-title {
+  font-size: var(--ui-font-title);
+  font-weight: var(--ui-weight-heading);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- 页内分页标签 ---------- */
+.ui-page-heading {
+  margin-bottom: var(--ui-space-2);
+}
+.ui-page-tabs {
+  gap: var(--ui-space-1);
+}
+.ui-page-tabs > .ui-button {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding-inline: var(--ui-space-1);
+}
+.ui-page-tabs .ui-button-face {
+  padding-inline: var(--ui-space-2);
+  color: var(--ui-muted);
+  font-weight: var(--ui-weight-medium);
+}
+.ui-page-tabs > .ui-button:hover .ui-button-face {
+  color: var(--ui-text);
+}
+.ui-page-tabs [aria-current="page"] .ui-button-face {
+  border-bottom: 0;
+  color: var(--ui-primary);
+}
+.ui-page-tabs [aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: var(--ui-space-2);
+  right: var(--ui-space-2);
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ui-primary);
+}
+.ui-tab-count {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-inline-start: 0;
+  margin-inline-end: var(--ui-space-2);
+  display: inline-grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--ui-neutral-bg);
+  color: var(--ui-neutral);
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-medium);
+  line-height: 1;
+}
+.ui-page-tabs [aria-current="page"] .ui-tab-count {
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+}
+
+/* ---------- 卡片与关键数字 ---------- */
+.c2-metrics {
+  gap: var(--ui-space-4);
+  margin-block: var(--ui-space-3) var(--ui-space-6);
+}
+.c2-metric {
+  padding: var(--ui-space-4) var(--ui-space-6) var(--ui-space-4);
+  min-height: 0;
+  text-align: left;
+  align-items: flex-start;
+}
+.c2-metric .ui-card-title {
+  margin: 0 0 var(--ui-space-1);
+  font-size: var(--ui-font-sm);
+  font-weight: var(--ui-weight-regular);
+  color: var(--ui-muted);
+}
+.c2-metric > strong {
+  line-height: 1.25;
+  color: var(--ui-text);
+}
+.c2-metric.is-danger {
+  background: var(--ui-panel);
+  border-color: var(--ui-border);
+  box-shadow: inset 3px 0 0 var(--ui-error);
+}
+.c2-metric.is-danger > strong {
+  color: var(--ui-error);
+}
+.c2-metric.is-danger .ui-card-title {
+  color: var(--ui-muted);
+}
+
+/* ---------- 今天：今日课程列表 ---------- */
+.c2-home-grid {
+  gap: var(--ui-space-4);
+  align-items: start;
+}
+.c2-home-grid > .ui-card,
+.c2-week {
+  padding: var(--ui-space-4) var(--ui-space-6) var(--ui-space-3);
+}
+.c2-home-grid .ui-card-title,
+.c2-week .ui-card-title {
+  font-size: var(--ui-font-section);
+  font-weight: var(--ui-weight-heading);
+  margin-bottom: var(--ui-space-2);
+}
+.c2-today > .c2-course-line {
+  margin: 0;
+  min-height: 52px;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid var(--ui-divider);
+  background: transparent;
+}
+.c2-today > .c2-course-line > .ui-button-face {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: var(--ui-space-3) var(--ui-space-2);
+  align-items: center;
+  grid-template-columns: 96px minmax(96px, 1.1fr) minmax(0, 1fr) 80px auto;
+  font-weight: var(--ui-weight-regular);
+  min-height: 52px;
+}
+.c2-today > .c2-course-line:hover > .ui-button-face {
+  background: var(--ui-header);
+}
+.c2-course-line time {
+  color: var(--ui-muted);
+  font-variant-numeric: tabular-nums;
+}
+.c2-course-line strong {
+  font-weight: var(--ui-weight-heading);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.c2-course-line > .ui-button-face > span:not(.ui-badge) {
+  color: var(--ui-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.c2-course-line .ui-badge {
+  justify-self: end;
+}
+
+/* ---------- 今天：需要处理 ---------- */
+.c2-pending > .c2-pending-item {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--ui-divider);
+  border-radius: 0;
+  background: transparent;
+}
+.c2-pending > .c2-pending-item > .ui-button-face {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+  border: 0;
+  border-radius: var(--ui-radius-control);
+  background: transparent;
+  padding: var(--ui-space-3) var(--ui-space-2) var(--ui-space-3)
+    var(--ui-space-4);
+  font-weight: var(--ui-weight-regular);
+  position: relative;
+  white-space: normal;
+}
+.c2-pending > .c2-pending-item > .ui-button-face::before {
+  content: "";
+  position: absolute;
+  left: var(--ui-space-1);
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 3px;
+  background: var(--ui-neutral);
+}
+.c2-pending > .c2-pending-item.is-overdue > .ui-button-face::before {
+  background: var(--ui-error);
+}
+.c2-pending > .c2-pending-item.is-today > .ui-button-face::before {
+  background: var(--ui-warning);
+}
+.c2-pending > .c2-pending-item:hover > .ui-button-face {
+  background: var(--ui-header);
+}
+.c2-pending > .c2-pending-all {
+  margin: var(--ui-space-2) 0 0;
+  border-top: 1px solid var(--ui-divider);
+  border-radius: 0;
+}
+.c2-pending > .c2-pending-all > .ui-button-face {
+  border: 0;
+  background: transparent;
+  color: var(--ui-primary);
+  justify-content: flex-start;
+  padding-inline: var(--ui-space-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- 今天：本周概况 ---------- */
+.c2-week {
+  margin-top: var(--ui-space-4);
+}
+.c2-week-bars {
+  gap: var(--ui-space-3);
+  align-items: end;
+}
+.c2-week-bars > .ui-button {
+  border: 0;
+  background: transparent;
+}
+.c2-week-bars .ui-button-face {
+  border: 0;
+  border-radius: var(--ui-radius-control);
+  background: transparent;
+  gap: var(--ui-space-1);
+  min-height: 112px;
+  padding: var(--ui-space-2) var(--ui-space-1);
+}
+.c2-week-bars > .ui-button:hover .ui-button-face {
+  background: var(--ui-header);
+}
+.c2-week-bars .c2-bar {
+  width: 28px;
+  border-radius: var(--ui-radius-tag) var(--ui-radius-tag) 2px 2px;
+  background: var(--ui-primary);
+  opacity: 0.85;
+}
+.c2-week-bars strong {
+  font-size: var(--ui-font-sm);
+}
+.c2-week-bars .ui-button-face > span:last-child {
+  font-size: var(--ui-font-xs);
+  color: var(--ui-muted);
+}
+
+/* ---------- 周课表：一屏放下 7 天 ---------- */
+.c2-grid {
+  grid-template-columns: 56px repeat(7, minmax(148px, 1fr));
+  min-width: 1092px;
+}
+.c2-grid.is-day {
+  grid-template-columns: 56px minmax(300px, 1fr);
+  min-width: 0;
+}
+.c2-grid .b-course {
+  padding: 3px var(--ui-space-1) 3px 6px;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 70%);
+}
+.c2-grid .b-course > strong {
+  letter-spacing: -0.01em;
+}
+.c2-grid .b-course:not(.c2-overflow):hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ui-shadow-hover);
+  z-index: 4;
+}
+.c2-grid .c2-overflow {
+  border-left-color: var(--ui-border);
+  border-style: dashed;
+  border-width: 1px;
+  background: var(--ui-header);
+  font-weight: var(--ui-weight-medium);
+}
+.c2-grid .c2-overflow:hover {
+  background: var(--ui-primary-soft);
+}
+.c2-grid .c2-overflow > .ui-button-face {
+  height: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--ui-space-1);
+}
+.cal-column-head {
+  font-weight: var(--ui-weight-heading);
+}
+.cal-column-head small {
+  font-weight: var(--ui-weight-regular);
+  color: var(--ui-muted);
+}
+
+/* ---------- 线索看板 ---------- */
+.c3-board {
+  gap: var(--ui-space-3);
+}
+.c3-lead-column {
+  background: var(--ui-header);
+  border: 1px solid var(--ui-divider);
+  padding: var(--ui-space-3);
+}
+.c3-lead-column h2 {
+  margin: 0 0 var(--ui-space-3);
+  font-weight: var(--ui-weight-heading);
+  color: var(--ui-secondary);
+}
+.c3-lead-card {
+  padding: var(--ui-space-3) var(--ui-space-3);
+  gap: var(--ui-space-1);
+  margin-bottom: var(--ui-space-2);
+  border-color: var(--ui-border);
+  border-radius: var(--ui-radius-control);
+  font-weight: var(--ui-weight-regular);
+  color: var(--ui-secondary);
+  font-size: var(--ui-font-sm);
+}
+.c3-lead-card strong {
+  color: var(--ui-text);
+  font-size: var(--ui-font-body);
+  font-weight: var(--ui-weight-heading);
+}
+.c3-lead-card:hover {
+  border-color: var(--ui-input-border);
+  box-shadow: var(--ui-shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- 机构设置左侧目录 ---------- */
+.c3-settings > nav {
+  gap: 2px;
+  padding: var(--ui-space-2);
+  align-self: start;
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-panel);
+}
+.c3-settings > nav > .ui-button {
+  border: 0;
+  background: transparent;
+  width: 100%;
+}
+.c3-settings > nav > .ui-button > .ui-button-face {
+  width: 100%;
+  justify-content: flex-start;
+  border: 0;
+  background: transparent;
+  font-weight: var(--ui-weight-regular);
+  color: var(--ui-secondary);
+}
+.c3-settings > nav > .ui-button:hover > .ui-button-face {
+  background: var(--ui-header);
+}
+.c3-settings > nav [aria-current="page"] {
+  background: transparent;
+}
+.c3-settings > nav [aria-current="page"] > .ui-button-face {
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+  font-weight: var(--ui-weight-heading);
+}
+
+/* ---------- 表格 ---------- */
+.ui-table-scroll {
+  border-radius: var(--ui-radius-panel);
+}
+
+/* ---------- 路由切换：淡入加轻微上移 ---------- */
+.route-enter,
+.ui-page-enter {
+  animation-name: polish-page-enter;
+}
+@keyframes polish-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .c2-metric {
+    padding: var(--ui-space-3) var(--ui-space-4);
+  }
+  .c2-home-grid > .ui-card,
+  .c2-week {
+    padding: var(--ui-space-3) var(--ui-space-4);
+  }
+  .c2-today > .c2-course-line > .ui-button-face {
+    grid-template-columns: 1fr auto;
+    row-gap: 2px;
+  }
+  .c2-week-bars {
+    gap: var(--ui-space-1);
+  }
+  .c2-week-bars .c2-bar {
+    width: 18px;
+  }
+  .c3-settings > nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: var(--ui-space-1);
+  }
+  .c3-settings > nav > .ui-button {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c2-grid .b-course,
+  .c3-lead-card {
+    transition-property: opacity;
+  }
+  .c2-grid .b-course:hover,
+  .c3-lead-card:hover {
+    transform: none;
+  }
+}
+
+/* ---------- 周课表卡片：两道并排时首行拆为“时间 / 学生名”两行，名字完整可读 ---------- */
+.c2-grid .b-course > strong > time {
+  font-variant-numeric: tabular-nums;
+}
+.c2-grid .b-course.lanes-2 > strong {
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+  line-height: 1.3;
+}
+.c2-grid .b-course.lanes-2 > strong > time {
+  font-weight: var(--ui-weight-medium);
+  opacity: 0.8;
+}
+.c2-grid .b-course.lanes-2 > strong > .b-course-who {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.c2-grid .c2-overflow > .ui-button-face {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ui-primary);
+  min-height: 0;
+  width: 100%;
+}
+
+/* 今日课程行高收紧到约 48px */
+.c2-today > .c2-course-line,
+.c2-today > .c2-course-line > .ui-button-face {
+  min-height: 0;
+  padding-block: 0;
+}
+.c2-today > .c2-course-line > .ui-button-face {
+  padding: var(--ui-space-3) var(--ui-space-2);
+}
+.c2-pending > .c2-pending-item,
+.c2-pending > .c2-pending-item > .ui-button-face {
+  min-height: 0;
+}
+.c2-pending > .c2-pending-item {
+  padding: 0;
+}
+.c2-grid .b-course > strong {
+  flex-shrink: 0;
+}
+.c2-grid .b-course.lanes-2.status-completed > strong::after {
+  content: none;
+}
+.c2-grid .b-course.lanes-2.status-completed > strong > time::after {
+  content: " ✓";
+}
+.c2-grid .b-course {
+  overflow: hidden;
+}
+.c2-grid .b-course > * {
+  flex-shrink: 0;
+}
+/* 两道并排时高度只够三行：老师（优先级最低）不显示，悬浮提示与课程面板仍有完整信息 */
+.c2-grid .b-course.lanes-2 > small {
+  display: none;
+}
+
+/* ---------- 跟进任务行：学员名用链接样式，系统项与人工项同一行式 ---------- */
+.c2-task-row {
+  padding-inline: var(--ui-space-2);
+  min-height: 48px;
+}
+.c2-task-row > .ui-button,
+.c2-task-row > .ui-button > .ui-button-face {
+  border: 0;
+  background: transparent;
+  min-height: 0;
+  padding: 0;
+}
+.c2-task-row > .ui-button > .ui-button-face {
+  color: var(--ui-primary);
+  font-weight: var(--ui-weight-heading);
+}
+.c2-task-row > .ui-button:hover > .ui-button-face {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.c2-task-row > time {
+  color: var(--ui-muted);
+  font-size: var(--ui-font-sm);
+  margin-left: auto;
+}
+.c2-task-row > small {
+  color: var(--ui-muted);
+  min-width: 56px;
+}
+.c2-task-row.is-system > span:last-child {
+  color: var(--ui-secondary);
+}
+.ui-badge--neutral {
+  background: var(--ui-neutral-bg);
+  color: var(--ui-neutral);
+}
+.ui-disclosure-toggle {
+  font-weight: var(--ui-weight-heading);
+  color: var(--ui-secondary);
+}
+
+/* ---------- 数字卡补充说明 ---------- */
+.c3-metric-note {
+  font-size: var(--ui-font-sm);
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-warning);
+  white-space: nowrap;
+}
+
+/* ---------- “更多”类菜单按钮：箭头放在文字后 ---------- */
+.ui-menu-holder > .ui-button > .ui-button-face:has(> span) {
+  flex-direction: row-reverse;
+  gap: var(--ui-space-1);
+}
+.ui-menu-holder > .ui-button > .ui-button-face:has(> span) > svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+}
+
+/* ---------- 页面操作区与筛选条 ---------- */
+.ui-page-body > .ui-filter-bar,
+.c1-content .ui-filter-bar {
+  row-gap: var(--ui-space-2);
+}
+.ui-field > label {
+  font-size: var(--ui-font-xs);
+  color: var(--ui-muted);
+}
+.c3-board .c3-lead-card.ui-button {
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-control);
+  padding: var(--ui-space-3);
+  box-shadow: 0 1px 0 rgb(30 26 38 / 3%);
+  transition:
+    transform var(--ui-duration-micro) var(--ui-ease-enter),
+    box-shadow var(--ui-duration-micro) var(--ui-ease-enter),
+    border-color var(--ui-duration-micro) var(--ui-ease-enter);
+}
+.c3-board .c3-lead-card.ui-button:hover {
+  border-color: var(--ui-input-border);
+  box-shadow: var(--ui-shadow-hover);
+  transform: translateY(-1px);
+}
+.c3-board .c3-lead-card.ui-button.is-lost {
+  background: var(--ui-header);
+}
+.ui-tab-count {
+  background: var(--ui-divider);
+}
+@media (prefers-reduced-motion: reduce) {
+  .c3-board .c3-lead-card.ui-button {
+    transition-property: opacity;
+  }
+  .c3-board .c3-lead-card.ui-button:hover {
+    transform: none;
+  }
+}
+.c3-lead-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+}
+.c3-lead-column h2 {
+  margin-bottom: var(--ui-space-1);
+}
+.c3-board .c3-lead-card.ui-button {
+  margin: 0;
+}
+
+/* ---------- 手机端员工顶栏：两行，搜索框独占第二行 ---------- */
+@media (max-width: 760px) {
+  .main > .staff-header {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: var(--ui-space-2);
+    padding-bottom: var(--ui-space-3);
+  }
+  .main > .staff-header > .header-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+  }
+  .main > .staff-header > .header-tools {
+    display: contents;
+  }
+  .main > .staff-header .header-search {
+    order: 10;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+  .main > .staff-header .header-search input {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* ---------- 教师/学员手机端课程卡：三行紧凑排列 ---------- */
+.c3-personal .c3-personal-course {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--ui-space-2);
+  row-gap: 2px;
+  width: 100%;
+  margin: 0 0 var(--ui-space-2);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  text-align: left;
+  border-radius: var(--ui-radius-panel);
+  transition:
+    transform var(--ui-duration-press) var(--ui-ease-enter),
+    box-shadow var(--ui-duration-micro) var(--ui-ease-enter);
+}
+.c3-personal .c3-personal-course > time {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  font-size: var(--ui-font-sm);
+  color: var(--ui-muted);
+  font-variant-numeric: tabular-nums;
+}
+.c3-personal .c3-personal-course > .ui-badge {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+.c3-personal .c3-personal-course > span:not(.ui-badge):not(.ui-sr-only) {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: var(--ui-font-section);
+  font-weight: var(--ui-weight-heading);
+  color: var(--ui-text);
+}
+.c3-personal .c3-personal-course > strong {
+  grid-column: 1;
+  grid-row: 3;
+  font-weight: var(--ui-weight-regular);
+  color: var(--ui-secondary);
+  font-size: var(--ui-font-sm);
+}
+.c3-personal .c3-personal-course > small {
+  grid-column: 2 / -1;
+  grid-row: 3;
+  color: var(--ui-muted);
+  font-size: var(--ui-font-sm);
+}
+.c3-personal .c3-personal-course > strong + small::before {
+  content: "· ";
+}
+.c3-personal .c3-personal-course:active {
+  transform: scale(0.99);
+}
+.c3-personal .personal-content > h1 {
+  font-size: var(--ui-font-title);
+  margin-bottom: var(--ui-space-1);
+}
+.c3-personal .personal-content > h2 {
+  font-size: var(--ui-font-section);
+  margin: var(--ui-space-6) 0 var(--ui-space-2);
+}
+.c3-personal .personal-content > p {
+  color: var(--ui-muted);
+  margin-top: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .c3-personal .c3-personal-course {
+    transition-property: opacity;
+  }
+  .c3-personal .c3-personal-course:active {
+    transform: none;
+  }
+}
+.ui-page-tabs:empty {
+  display: none;
+}
+.ui-page-heading:has(> .ui-page-tabs:empty):has(> .ui-page-actions:empty) {
+  display: none;
+}
+
+/* ---------- 学员详情页头 ---------- */
+.c2-detail-head {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--ui-space-3);
+  row-gap: var(--ui-space-1);
+  padding: var(--ui-space-4) var(--ui-space-6);
+  margin-bottom: var(--ui-space-4);
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-panel);
+}
+.c2-detail-head > .ui-button:first-child {
+  grid-column: 1 / -1;
+  justify-self: start;
+  border: 0;
+  background: transparent;
+}
+.c2-detail-head > .ui-button:first-child > .ui-button-face {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  min-height: 0;
+  color: var(--ui-muted);
+  font-size: var(--ui-font-sm);
+  font-weight: var(--ui-weight-regular);
+}
+.c2-detail-head > .ui-button:first-child > .ui-button-face::before {
+  content: "‹ ";
+}
+.c2-detail-head > h2 {
+  margin: 0;
+  font-size: var(--ui-font-title);
+  font-weight: var(--ui-weight-heading);
+  line-height: 1.3;
+}
+.c2-detail-head > p {
+  grid-column: 1 / 4;
+  margin: 0;
+  color: var(--ui-muted);
+  font-size: var(--ui-font-sm);
+}
+.c2-detail-head > .ui-filter-bar {
+  grid-column: 4;
+  grid-row: 2 / span 2;
+  margin: 0;
+  justify-content: flex-end;
+}
+
+/* ---------- 课酬三步进度条 ---------- */
+.c3-steps {
+  counter-reset: polish-step;
+  gap: 0;
+  margin: var(--ui-space-4) 0;
+  max-width: 640px;
+}
+.c3-steps li {
+  counter-increment: polish-step;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  padding: 0 var(--ui-space-2) 0 0;
+  border: 0;
+  color: var(--ui-muted);
+  font-size: var(--ui-font-sm);
+  white-space: nowrap;
+}
+.c3-steps li::before {
+  content: counter(polish-step);
+  flex: none;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--ui-input-border);
+  background: var(--ui-panel);
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-heading);
+}
+.c3-steps li:not(:last-child)::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  min-width: var(--ui-space-4);
+  background: var(--ui-border);
+}
+.c3-steps li:has(~ [aria-current="step"]) {
+  color: var(--ui-success);
+}
+.c3-steps li:has(~ [aria-current="step"])::before {
+  content: "✓";
+  border-color: var(--ui-success);
+  background: var(--ui-success-bg);
+}
+.c3-steps li:has(~ [aria-current="step"])::after {
+  background: var(--ui-success);
+}
+.c3-steps [aria-current="step"] {
+  color: var(--ui-primary);
+  font-weight: var(--ui-weight-heading);
+}
+.c3-steps [aria-current="step"]::before {
+  border-color: var(--ui-primary);
+  background: var(--ui-primary);
+  color: var(--ui-panel);
+}
+@media (max-width: 760px) {
+  .c2-detail-head {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: var(--ui-space-3) var(--ui-space-4);
+  }
+  .c2-detail-head > p,
+  .c2-detail-head > .ui-filter-bar {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-content: flex-start;
+  }
+  .c3-steps li {
+    white-space: normal;
+  }
+}
+.c2-detail-head ~ .c2-metrics .c2-metric > strong {
+  font-size: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 760px) {
+  .c2-detail-head ~ .c2-metrics .c2-metric > strong {
+    font-size: 18px;
+    white-space: normal;
+  }
+}
+
+/* ---------- 课程面板（点名销课） ---------- */
+.impact-note:empty {
+  display: none;
+}
+.c2-attendee {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--ui-space-3);
+  row-gap: 2px;
+  align-items: center;
+}
+.c2-attendee > strong {
+  grid-column: 1;
+  font-size: var(--ui-font-section);
+}
+.c2-attendee > small {
+  grid-column: 1;
+  flex-basis: auto;
+}
+.c2-attendee > .c2-attendance-buttons {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+.c2-attendee > :not(strong):not(small):not(.c2-attendance-buttons) {
+  grid-column: 1 / -1;
+}
+.c2-attendance-buttons {
+  gap: 0;
+  padding: 2px;
+  border-radius: var(--ui-radius-control);
+  background: var(--ui-neutral-bg);
+}
+.c2-attendance-buttons > .ui-button > .ui-button-face {
+  border: 0;
+  background: transparent;
+  min-width: 52px;
+  transition:
+    background-color var(--ui-duration-micro) var(--ui-ease-enter),
+    color var(--ui-duration-micro) var(--ui-ease-enter);
+}
+.c2-attendance-buttons [aria-pressed="true"] .ui-button-face {
+  box-shadow: 0 1px 2px rgb(30 26 38 / 12%);
+}
+.ui-sheet-body > .ui-badge {
+  margin-bottom: var(--ui-space-2);
+}
+.ui-sheet-body > p.ui-muted:first-child {
+  margin-top: 0;
+}
+.c2-attendance-buttons > .ui-button[aria-pressed="true"] > .ui-button-face {
+  background: var(--ui-primary);
+  color: var(--ui-panel);
+}

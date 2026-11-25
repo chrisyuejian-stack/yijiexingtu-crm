@@ -1,0 +1,1 @@
+CREATE TRIGGER teacher_delete_link BEFORE UPDATE OF deleted_at ON teachers WHEN NEW.deleted_at IS NOT NULL AND EXISTS(SELECT 1 FROM users WHERE tenant_id=NEW.tenant_id AND teacher_id=NEW.id AND deleted_at IS NULL) BEGIN SELECT RAISE(ABORT,'profile_in_use'); END;

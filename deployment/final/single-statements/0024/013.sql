@@ -1,0 +1,1 @@
+INSERT INTO style_version_tenants(tenant_id,id,pack_id,pack_version) SELECT s.tenant_id,'svt_'||lower(hex(randomblob(12))),s.pack_id,v.version FROM style_pack_scopes s JOIN style_pack_versions v ON v.pack_id=s.pack_id;

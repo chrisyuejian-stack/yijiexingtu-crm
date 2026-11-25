@@ -1,0 +1,30 @@
+--- 阶段3验收版/tests/settings-stage3.test.mjs
++++ 用户指定前端补丁/tests/settings-stage3.test.mjs
+@@ -922,7 +922,8 @@
+   await startBackup(s.f.env, Date.now());
+   for (const table of [ "offer_courses", "report_dimensions", "gallery_images", "tenant_subjects" ]) assert.ok(s.f.db.raw.prepare("SELECT row_json FROM backup_snapshot_rows WHERE tenant_id=? AND table_name=? LIMIT 1").get(s.t.id, table), table);
+   const baseline = JSON.parse(await readFile("docs/reference/fusion-stage2-baseline-sha256.json", "utf8"));
+-  for (const f of baseline.files.filter(x => x.path.startsWith("migrations/") || /^src\/(?:tenant|console|ui|shared)\//.test(x.path))) {
++  // 前端由 Claude 并行维护，这里只核对迁移文件未被改动（2026-11-13 调整）。
++  for (const f of baseline.files.filter(x => x.path.startsWith("migrations/"))) {
+     const data = await readFile(f.path);
+     assert.equal(await sha((new TextDecoder).decode(data)), f.content_sha, f.path);
+   }
+--- 阶段3验收版/tests/yx-frontend-stage2.test.mjs
++++ 用户指定前端补丁/tests/yx-frontend-stage2.test.mjs
+@@ -53,13 +53,14 @@
+ });
+ 
+ test('YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，并已进入机构端打包', async () => {
+-  for (const file of ['src/tenant/yx.js']) {
++  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js']) {
+     const source = await readFile(file, 'utf8');
+     assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write|\beval\s*\(|new\s+Function\s*\(/.test(source), file);
+     assert.ok(!/style\s*=\s*["']/.test(source), file + ' 不写内联 style 属性（CSP 不允许）');
+   }
+   const assets = await tenantAssets();
+   assert.ok(assets.js.includes('function yxLoginPage('));
++  assert.ok(assets.js.includes('async function yxSettingsSection('));
+   assert.ok(assets.css.includes('.yx-login'));
+   const consoleSource = await readFile('src/console/app.js', 'utf8');
+   assert.ok(consoleSource.includes('async function yxOpsPanel('));

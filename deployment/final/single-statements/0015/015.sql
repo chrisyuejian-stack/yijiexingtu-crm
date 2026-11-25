@@ -1,0 +1,1 @@
+DROP TRIGGER platform_audit_no_delete;

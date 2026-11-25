@@ -1,0 +1,1 @@
+CREATE TABLE style_version_tenants(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,pack_id TEXT NOT NULL,pack_version TEXT NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,pack_id,pack_version),FOREIGN KEY(pack_id,pack_version) REFERENCES style_version_meta(pack_id,pack_version));

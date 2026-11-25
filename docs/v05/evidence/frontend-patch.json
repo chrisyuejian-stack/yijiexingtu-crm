@@ -1,0 +1,51 @@
+{
+  "source": "艺界星途_v0.4.1_最终前端_给GPT_20261117.zip",
+  "sha256": "6e3f7a4b990f0214d1a42d0ab5a1fd0dc3ef8df139469e547e522cf8ed39c41f",
+  "files": [
+    {
+      "path": "src/tenant/yx-theme.css",
+      "sha256": "6f7a6cc35416d511dda28014bb2eaa4a53f2f3a998d9fa43acd496ea7e9a7f81",
+      "bytes": 75899
+    },
+    {
+      "path": "src/tenant/yx-plans.js",
+      "sha256": "aa5373fdf36f5dad86341b835df0b76fc9f563846463afc63161dec3baa1b6e9",
+      "bytes": 67315
+    },
+    {
+      "path": "src/tenant/yx-settings.js",
+      "sha256": "c3181ffdd88f8051e09b956519a9480ad1920efbf3dd854d7e153b0734af5ab1",
+      "bytes": 61141
+    },
+    {
+      "path": "src/tenant/app.js",
+      "sha256": "594ac52ef6a5f734611b5d0e2cb655dfbd7c85a3cffda72744058c64d92df334",
+      "bytes": 265221
+    },
+    {
+      "path": "src/tenant/yx-content.js",
+      "sha256": "7400899bffb55a7f0ad2acdc2546352da0ee5f96d4547209e7033026ebe0ceb3",
+      "bytes": 69015
+    },
+    {
+      "path": "src/tenant/yx-ai.js",
+      "sha256": "5f10f700b7d3fdb4979f9717d95999dbe42e28861f13468cbeb59e816c57318e",
+      "bytes": 21319
+    },
+    {
+      "path": "src/tenant/yx-home.js",
+      "sha256": "b086fda1f882419c42637888d61e6ef6b5f951ea986a9dc99374bb7663bfa3c7",
+      "bytes": 27753
+    },
+    {
+      "path": "src/console/app.js",
+      "sha256": "91cbea1686881ac09d960afe65862856c0ef59c9347a4bf60160014df4184697",
+      "bytes": 173315
+    },
+    {
+      "path": "说明.md",
+      "sha256": "fdf53517702d0529d43d0aa57771334497a0470d652450777860b9c9b89632ea",
+      "bytes": 345
+    }
+  ]
+}

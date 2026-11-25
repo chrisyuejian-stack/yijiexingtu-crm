@@ -1,0 +1,2 @@
+const page='<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>系统维护中 · 艺界星途</title><h1>系统维护中</h1><p>艺界星途正在升级，请稍后再试。</p></html>';
+export default {async fetch(){return new Response(page,{status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','Retry-After':'3600','X-Robots-Tag':'noindex','Content-Security-Policy':"default-src 'none'; frame-ancestors 'none'; base-uri 'none'",'X-Content-Type-Options':'nosniff'}});}};

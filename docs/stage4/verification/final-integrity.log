@@ -1,0 +1,20 @@
+{
+  "result": "pass",
+  "migration_count": 21,
+  "old_migrations_unchanged": 20,
+  "foreign_key_check": [],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "built_js_syntax_checked": [
+    "backup-dist/backup-worker.js",
+    "dist/_worker.js",
+    "dist/assets/tenant.js",
+    "dist/console-assets/console.js",
+    "dist/console-assets/pinyin-pro.js"
+  ],
+  "source_maps": 0,
+  "frontend_hash_lock": false
+}

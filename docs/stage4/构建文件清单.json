@@ -1,0 +1,70 @@
+{
+  "files": [
+    {
+      "path": "dist/_routes.json",
+      "bytes": 43,
+      "sha256": "1301eaf7b0e8272b5bb4575abcfbd2cffde53af2c6ea4d77a5ec78919a5a2daa"
+    },
+    {
+      "path": "dist/_worker.js",
+      "bytes": 827504,
+      "sha256": "193470706d748daba9a5ec6e41ad3c81bf743534344a31c4ba4e62428f96b042"
+    },
+    {
+      "path": "dist/assets/tenant.css",
+      "bytes": 332832,
+      "sha256": "872bbb5188a8689a2cf3f9062f6de7080d0386cb8a1d91e3cde07c3cebdfbef7"
+    },
+    {
+      "path": "dist/assets/tenant.js",
+      "bytes": 579265,
+      "sha256": "2f05bfd6801d0063d3a7eaa31c57e668995fb7f59f8434a955d536cfd0b3031e"
+    },
+    {
+      "path": "dist/console-assets/console.css",
+      "bytes": 25187,
+      "sha256": "d3b7e2420d10c11247ee5802a7f84da548f07f91492a8a9bfa9df5a57c7c949d"
+    },
+    {
+      "path": "dist/console-assets/console.js",
+      "bytes": 83543,
+      "sha256": "16482e2d6ce9ff6d60e2b0f6d37e91c0d33430a03bd8e76ea5631ce9b6a28489"
+    },
+    {
+      "path": "dist/console-assets/pinyin-pro.LICENSE",
+      "bytes": 1070,
+      "sha256": "824f6069c5a59b0c1650d0fb9f8d091866c6019eb761c8e658dfc03f001eabd2"
+    },
+    {
+      "path": "dist/console-assets/pinyin-pro.js",
+      "bytes": 539229,
+      "sha256": "373ffe7d919483f881d3072a370f764c76ec6d6480e50cb87d6fd524e9386bac"
+    },
+    {
+      "path": "dist/console.html",
+      "bytes": 594,
+      "sha256": "075befdc7dadcfd8866fab5add85ab1a7772f5ba0e29a1ed767dee8f48f78cd5"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 139,
+      "sha256": "142a46786df3e317318d7bc6860e120c53db34184097258a4b63ccaba1fb2be4"
+    },
+    {
+      "path": "dist/tenant.html",
+      "bytes": 663,
+      "sha256": "f398ab7b5b3a7c158526ebc02f969c03ada850672795388089fe435d7d488bcb"
+    },
+    {
+      "path": "backup-dist/backup-worker.js",
+      "bytes": 468681,
+      "sha256": "daab88ed827075f3ae82c7832dbedaab8c82df7487bdf6a55f450836474ad537"
+    },
+    {
+      "path": "backup-dist/build-report.json",
+      "bytes": 366,
+      "sha256": "8fecc246abcf90c7340783c96e484667f2718967aaf199aee864d5f44a290f5e"
+    }
+  ],
+  "notice": "本地构建核验记录，源码包不包含dist和backup-dist。"
+}

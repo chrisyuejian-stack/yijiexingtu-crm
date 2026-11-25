@@ -1,0 +1,107 @@
+{
+  "contract": "v0.3.3",
+  "node_version": "v24.22.1",
+  "remote_resources_used": false,
+  "test_runs": [
+    {
+      "kind": "source",
+      "command": "npm test",
+      "total": 275,
+      "passed": 275,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "original_passed": 247,
+      "stage2_passed": 28,
+      "duration_ms": 174461.066124,
+      "log": "verification/stage2-source-final.log"
+    },
+    {
+      "kind": "bundle",
+      "command": "TEST_BUNDLE=1 npm test",
+      "total": 275,
+      "passed": 275,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "original_passed": 247,
+      "stage2_passed": 28,
+      "duration_ms": 178875.169122,
+      "log": "verification/stage2-bundle-final.log"
+    },
+    {
+      "kind": "new",
+      "command": "node --test tests/identity-stage2.test.mjs",
+      "total": 28,
+      "passed": 28,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "original_passed": 0,
+      "stage2_passed": 28,
+      "duration_ms": 15373.228993,
+      "log": "verification/stage2-new-final.log"
+    }
+  ],
+  "backup_built_worker_smoke": {
+    "result": "pass",
+    "worker": "backup-dist/backup-worker.js",
+    "manifest_published": true,
+    "encrypted_guardian_rows": 1,
+    "student_new_fields_preserved": true,
+    "fetch_status": 404,
+    "remote_calls": 0
+  },
+  "integrity": {
+    "migration_count": 19,
+    "migration_names": [
+      "0001_foundation.sql",
+      "0002_security_review.sql",
+      "0003_scheduling.sql",
+      "0004_credits.sql",
+      "0005_integer_money.sql",
+      "0006_finance.sql",
+      "0007_settlement_fingerprint.sql",
+      "0008_mobile_reviews.sql",
+      "0009_tools.sql",
+      "0010_promo.sql",
+      "0011_promo_image_limits.sql",
+      "0012_ui_rebuild.sql",
+      "0013_promo_rebuild.sql",
+      "0014_debt_and_balance.sql",
+      "0015_delete_capabilities.sql",
+      "0016_page_query_indexes.sql",
+      "0017_student_schedule_indexes.sql",
+      "0018_credit_income_and_schedule_guards.sql",
+      "0019_identity_and_institutions.sql"
+    ],
+    "foreign_key_check": [],
+    "integrity_check": [
+      [
+        "ok"
+      ]
+    ],
+    "baseline_checks": {
+      "original_migrations": {
+        "count": 18,
+        "changed": []
+      },
+      "frontend": {
+        "count": 28,
+        "changed": []
+      },
+      "access_mode_test": {
+        "count": 1,
+        "changed": []
+      }
+    },
+    "built_js_syntax_checked": [
+      "backup-dist/backup-worker.js",
+      "dist/_worker.js",
+      "dist/assets/tenant.js",
+      "dist/console-assets/console.js",
+      "dist/console-assets/pinyin-pro.js"
+    ],
+    "source_maps": 0
+  }
+}

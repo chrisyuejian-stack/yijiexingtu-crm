@@ -1,0 +1,485 @@
+{
+  "baseline": "艺界星途_阶段5_前端融合源码_20261115.zip",
+  "baseline_files": 522,
+  "baseline_zip_sha256": "fe16549c75aa6e3e966fc11fa6079e4b14d5a24342215398b224b60812b9889c",
+  "added": 55,
+  "modified": 12,
+  "deleted": [],
+  "excluded_inventory_files": [
+    "docs/stage6/文件变更清单.json",
+    "docs/stage6/源码文件清单.json"
+  ],
+  "old_test_case_changes": [],
+  "only_inherited_test_helper_change": "tests/support.mjs: local migration 0023 loader",
+  "files": [
+    {
+      "change": "modified",
+      "path": "README.md",
+      "sha256": "178ae95c6fb9f1c17041f77681ba71ac31fbd6c41fc8086b317822015f8f4eac",
+      "bytes": 2681,
+      "baseline_sha256": "b6328793aa1a36b49e43bcc0f1d5469fff1d23e8405cb69ee5801c6bdd14939c"
+    },
+    {
+      "change": "added",
+      "path": "docs/reference/stage6-start-baseline-sha256.json",
+      "sha256": "91e8d36eac6c40554b88bb5b6ac631f9c9e2b665a4dda04de34830990ff05dfa",
+      "bytes": 88490,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/reference/接口约定_v0.3.7_原件.md",
+      "sha256": "b45c7e5848998fd8682fb361321c44d770a7e929df2da7eafbce8c72393d2d2a",
+      "bytes": 109323,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5-frontend/前端补丁说明_价格变动确认.md",
+      "sha256": "990f8018bbfebc87e422cc24f157f56f8330c922a9c4d6186ad0c647f01f6a96",
+      "bytes": 728,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/ai-http-bundle.json",
+      "sha256": "ccf30e79126be966916bb11b767b97d686ce15ac5755b3c9524539ed3e39f7b3",
+      "bytes": 1661005,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/ai-http-source.json",
+      "sha256": "3856a8bf3305be0f2bfb4c1366f73bf8dc8a5bb9c6a2609bbfd28957756565f6",
+      "bytes": 1661005,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/capture-frontend-examples.mjs",
+      "sha256": "2ef5635959b9f88c9a7eba49e1d2cd815d9b1b4ea3e21697b2773b2dcca88a42",
+      "bytes": 4328,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/extra-http-bundle.json",
+      "sha256": "5de6cd76bf1f69d362740abb2417ba9defbefae58f76b4bf91a089fe14dd634e",
+      "bytes": 105165,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/extra-http-bundle.log",
+      "sha256": "76897fadbbd2cbb843d5d952418765e410ae0a0f08025e953fc7dbf119ff1834",
+      "bytes": 110,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/extra-http-source.json",
+      "sha256": "fa1186ac8bf1d59c585961dc4e9d7aa81d2a8170afbd53689dec4680513595f5",
+      "bytes": 105165,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/extra-http-source.log",
+      "sha256": "be14a24183dba60ad83819d2bc849dd6adc7467b81da48d925472aef5ec84100",
+      "bytes": 110,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/feedback-http-bundle.json",
+      "sha256": "19f64f329a7afbcedc1f7a2f23c0c09c4923cbe274daf65a963b7aca88458b85",
+      "bytes": 220050,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/feedback-http-source.json",
+      "sha256": "dc66b2d52d85f87bb0cb9a613ab5681a0ce64dd0a0ef06be04189c1fc0116c65",
+      "bytes": 220050,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-backup-bundle.log",
+      "sha256": "e4c982c094457a580096917640132238abdc08f3503530c8a55727b37d931f2d",
+      "bytes": 516,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-build.log",
+      "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+      "bytes": 261,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-bundle.log",
+      "sha256": "164007822fad8a57059efa3e741730a8b35d69f277b81de7fbdb6217c68ba797",
+      "bytes": 76198,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-integrity.log",
+      "sha256": "730369d7efb74009d08f8cb1966cd9ab9283776e802e42773a0b263a604afc0b",
+      "bytes": 413,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-migration-preflight.log",
+      "sha256": "e7a98a56ac078c39712cd34eed7ac6ddf33a40f756528948b797e8274be4ea73",
+      "bytes": 376,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-new-bundle.log",
+      "sha256": "96caa873a777c28f530024a1f6a67d076f00b050df4c85484fca47538bf0d4e9",
+      "bytes": 5151,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-new-source.log",
+      "sha256": "c812815befa57c9fcb94e54823ceaa6cca37d0eba88179f54f1fcc37eb70552a",
+      "bytes": 5160,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-runs.json",
+      "sha256": "2e125b2c14fcea04a4bd5986e3e23b616e1b4ded718cde520f0316522ce9a83b",
+      "bytes": 1538,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/final-source.log",
+      "sha256": "cbfd7c08f8e1dcf2b811206014d928207a944a958f4cf7904c9724bd3806151f",
+      "bytes": 76191,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/growth-http-bundle.json",
+      "sha256": "ee146494ce6e45b85fa4bbc9563c9a744c5324efb793d5896ca7126fb06ca2f5",
+      "bytes": 544344,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/growth-http-source.json",
+      "sha256": "d0d3d8fde0577a323389134857fc0ce1e08ee4b0bdd79a4f07fecec338d76c50",
+      "bytes": 544344,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/migration-report.json",
+      "sha256": "4cb5368db9125be7d52f53c2ea87942a3c5610e95abcfdef8f68b130c3ea67fc",
+      "bytes": 138323,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/migration-当前版本部署结构核验.sql",
+      "sha256": "3f23a41633673be02ac7345f8805aa8b3cb7414763d910f466329395165f62ca",
+      "bytes": 23238,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/price-patch-build.log",
+      "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+      "bytes": 261,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/price-patch-bundle.log",
+      "sha256": "dafdadd4ae282735bccbd684c47251bd04a911e236f39a0c5c346b6a9067cfc5",
+      "bytes": 71167,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/price-patch-runs.json",
+      "sha256": "ca59b1dd66b42ed0d86ba711d41bc3dde80bacf6dcbbc76150c5fae65f22fa8e",
+      "bytes": 473,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/price-patch-source.log",
+      "sha256": "6b2a03c28e33c2926cc7a14ac13260e0aeb807e7741a9766a70c54646cee93d7",
+      "bytes": 71182,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/style-regression-before-source.log",
+      "sha256": "5e3f133552c6a1d80540a357bd248995867192219707b2001e430ee743749b71",
+      "bytes": 77654,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/style-regression-focused-source.log",
+      "sha256": "0023b3f56e8f790fbdf84d21a471f6d04a47a47fed9cea73e78b40538741aaaa",
+      "bytes": 247,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/verify-backup-bundle.mjs",
+      "sha256": "2d594c2bb83f035d322a974d72a0035a0636d935fa865d2b4074cbcf57a61a9e",
+      "bytes": 3266,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/verify-integrity.py",
+      "sha256": "6d9c4a060fef22c69d9f853ec5e98d95a04be592202fdbc057cc0748fe8b02e1",
+      "bytes": 1322,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/价格补丁被测源码哈希.json",
+      "sha256": "b5a86e6d1aff737b23b8c1cab7f8c3206399aba8ed14f63f52560d5fb970d416",
+      "bytes": 35104,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/verification/被测源码哈希.json",
+      "sha256": "e0f530cd6b8b27c9a1fe7f12a31978b616975806d410378d5e7479e36c7e526b",
+      "bytes": 27528,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/中文交付说明.md",
+      "sha256": "0f3e8ceeb8a58b819710dd2f0f5887cd402c26479fe6db3cee2a05631196a403",
+      "bytes": 2475,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/价格补丁覆盖清单.json",
+      "sha256": "99ca24fc8370f9b92ad1431e6ff8cf7f744f9e81ce2ae52bd337c86e459c3c07",
+      "bytes": 661,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/准备核验.json",
+      "sha256": "bae33d6c1caad1feb2716d769071692dfa76f5bf99220e1fa64f704e164ed284",
+      "bytes": 1903,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/前端对接说明.md",
+      "sha256": "0eec6dead8b2cbeab4d624d4149dbc6ded8d0008528627103d223c200a432f2f",
+      "bytes": 13352,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/前端接口示例.json",
+      "sha256": "ab263f464907561027b546529c0edde97fece33e922f7d5d6f2864042df94a33",
+      "bytes": 115129,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/前端接口示例索引.md",
+      "sha256": "7c1072a45de57b574cfabd04106565441bfa03f724827cda68b158d305800873",
+      "bytes": 5066,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/变更清单.md",
+      "sha256": "a872a9a45b3d995d6f70d4519b5a67603b8d036c5f0a269c21826cc05a11ddc1",
+      "bytes": 5349,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/开工与价格补丁说明.md",
+      "sha256": "1756203b9e02f3b650bb718243ecfe065899134c9965333a31274cc909e1b954",
+      "bytes": 1814,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/接口核对与阻塞说明.md",
+      "sha256": "826da20603d9a72b6800ef62dd2868144f65f594713444163c9f9fcfb85a1137",
+      "bytes": 5199,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/接口补充建议_待确认.md",
+      "sha256": "c83ab3d814ca7fcd6045edd7dd8c1cc2dd0d5f99ccbd9151402c70803a8584fa",
+      "bytes": 9410,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage6/测试结果.md",
+      "sha256": "a25f353b5b0dc9832d4c6208f698e5ae029447e5c1ea78a9cdd23e07d11413fc",
+      "bytes": 5403,
+      "baseline_sha256": null
+    },
+    {
+      "change": "modified",
+      "path": "docs/项目决策与范围.md",
+      "sha256": "db8e572e0ed557d53d02b06766732b20f3f9880aec2b295561ae20c5c57aa000",
+      "bytes": 6799,
+      "baseline_sha256": "8c69ce8334a69ec22d1fe2ef6788a50349932f912538fdac31c34f6aa4a0574f"
+    },
+    {
+      "change": "added",
+      "path": "migrations/0023_feedback_and_growth_reports.sql",
+      "sha256": "9a2a231671c369dcc12b77244a86c2be9953fa169b10fe36f1594d58928eee76",
+      "bytes": 8859,
+      "baseline_sha256": null
+    },
+    {
+      "change": "modified",
+      "path": "src/server/ai.js",
+      "sha256": "a05b76ef66e004e3759f55b9a3533f291d3febc542e2f6de52db898a23593e89",
+      "bytes": 13905,
+      "baseline_sha256": "f659e978a91e2ab4bfb9a22a0a2a68f4a9c856d5b67e80f25df46584e62ffb3b"
+    },
+    {
+      "change": "modified",
+      "path": "src/server/backup-model.js",
+      "sha256": "a66df24f1e76ec50908099682eecfa5c7882d0562d05f389e9f848f34e98ffb9",
+      "bytes": 71166,
+      "baseline_sha256": "9cfe52cff2ff7872cdea2524054575351eb29150592935ea7a027e8fa157c063"
+    },
+    {
+      "change": "added",
+      "path": "src/server/growth-ai.js",
+      "sha256": "b86c54113ef31e2cfd7aebf9ff406241c3bfb684454ea7466ea5751ff9215553",
+      "bytes": 20596,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "src/server/growth-feedback.js",
+      "sha256": "cf2539511b27da3919f3311dbec405556d4634526fa19860299e6b470f448c1d",
+      "bytes": 6413,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "src/server/growth.js",
+      "sha256": "64e7e7989911b85a801ae93ca41de233fd42760730f2cecd413e61ea7ffe0cbf",
+      "bytes": 32745,
+      "baseline_sha256": null
+    },
+    {
+      "change": "modified",
+      "path": "src/server/plans.js",
+      "sha256": "6f8220bc17fb727bdc7a7dae83ed76cfa6739428cbe707b8d0a713ca250efdac",
+      "bytes": 39422,
+      "baseline_sha256": "bfb8237d76cbd58752b8c6bd7828153fcdb876dbe423f2baf1a740bf2a317c53"
+    },
+    {
+      "change": "modified",
+      "path": "src/server/purge-schema.js",
+      "sha256": "5b8e4aaebc845a4051685d21aab49a723a333a652f130a7328d860d3c9fde981",
+      "bytes": 2284,
+      "baseline_sha256": "8124682c08c78ad6cd0562a24c3579cb06942c99f28310220b01eef604367bff"
+    },
+    {
+      "change": "modified",
+      "path": "src/server/repo.js",
+      "sha256": "eeff707e0ac88ff3be4045a60431d04b5dba09fa0198f031df80761e5b74d359",
+      "bytes": 548265,
+      "baseline_sha256": "9e421715935b4116513f12fc1d3066d2111160aa5fa57cacb5f4369323ccb239"
+    },
+    {
+      "change": "modified",
+      "path": "src/server/reviews.js",
+      "sha256": "ef3c377e9ec9e53ccf616c558ebc06d6f822df9fc7811fcb5c3ec06c5da7aeb7",
+      "bytes": 21975,
+      "baseline_sha256": "dc4c82825daff5ec1dbeffaf0f42897aacfc27e60eac59611f8a33be4321673a"
+    },
+    {
+      "change": "modified",
+      "path": "src/server/tool-settings.js",
+      "sha256": "70762c7f48b9c6608b115fca65dfcc1116a1821a2edbcd871bd4d69745df73a9",
+      "bytes": 37174,
+      "baseline_sha256": "76f9ebb37be702e6508025d85d446b64fde817234d4e152b1d190c42a21ff9fa"
+    },
+    {
+      "change": "modified",
+      "path": "src/server/worker.js",
+      "sha256": "e424c07a66f8f2c7a2614cff7601ee0c49d1a2cc13a7ce1dd15c22882b010218",
+      "bytes": 46453,
+      "baseline_sha256": "857e0e5e55c1b92f5514407bf1afd92156d3e5ff8628a580223bf17b4d7b152a"
+    },
+    {
+      "change": "modified",
+      "path": "src/tenant/yx-plans.js",
+      "sha256": "d0ca3e726076352c980c6f1b807e515ece29b39a390d59dcde67a8efa6859068",
+      "bytes": 45570,
+      "baseline_sha256": "f44abeafb5aac32cdfe16156dbcbe55c356682521b796b91eb0ff5e4e63a24e5"
+    },
+    {
+      "change": "added",
+      "path": "tests/feedback-stage6.test.mjs",
+      "sha256": "09e75a0bb650e2ac59166f126c04f8d0840988f1683e9cdfec5a196bc0158432",
+      "bytes": 13405,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "tests/fixtures-growth.mjs",
+      "sha256": "6d1ed2016d655fabd4806471ee02bc2eb423dcf476dfee7b6ce1d78ce39dec6c",
+      "bytes": 3256,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "tests/growth-ai-stage6.test.mjs",
+      "sha256": "f388b2df21c0be130dfcc7afe98a9d60c435de8649e0eadb1e99c6078f338dca",
+      "bytes": 21444,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "tests/growth-integrity-stage6.test.mjs",
+      "sha256": "98860efb892d9f4cb67dd8f175d9c00f2d3babb8d71f550e28cdfa8b6ea45965",
+      "bytes": 7894,
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "tests/growth-stage6.test.mjs",
+      "sha256": "36e387b11a71becafe6fbd71946d80435d855e162c756ea3633eebabc71de16d",
+      "bytes": 18598,
+      "baseline_sha256": null
+    },
+    {
+      "change": "modified",
+      "path": "tests/support.mjs",
+      "sha256": "aa11d8d37ec2a7a54f8baa8c2586562c10fa7db51745bc284ecf6e45b1023d7e",
+      "bytes": 11841,
+      "baseline_sha256": "9bb2e85b5f625335de8579635f24302fea5be5e436687e7c3681b02cad7879af"
+    }
+  ]
+}

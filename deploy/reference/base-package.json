@@ -1,0 +1,24 @@
+{
+  "name": "yijiexingtu-crm",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:isolation": "node scripts/isolation.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test:e2e": "node scripts/e2e/run.mjs",
+    "test:e2e:headed": "node scripts/e2e/run.mjs --headed",
+    "test:e2e:report": "playwright show-report work/e2e/html",
+    "test:migrations:preflight": "node scripts/e2e/check-migrations.mjs",
+    "test:remote:public": "node scripts/e2e/remote-public.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0"
+  },
+  "version": "0.5.0",
+  "description": "艺界星途 CRM 与机构 AI 工具；独立项目底座"
+}

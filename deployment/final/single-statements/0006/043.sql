@@ -1,0 +1,1 @@
+CREATE TRIGGER course_limits_course_types_update BEFORE UPDATE ON course_types WHEN ((NEW.units_per_lesson IS NOT OLD.units_per_lesson AND NEW.units_per_lesson<1) OR (NEW.default_minutes IS NOT OLD.default_minutes AND NEW.default_minutes NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END;

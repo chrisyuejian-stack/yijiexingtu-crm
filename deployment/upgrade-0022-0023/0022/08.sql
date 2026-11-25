@@ -1,0 +1,1 @@
+CREATE TABLE ai_quota_daily(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,date TEXT NOT NULL,tier TEXT NOT NULL CHECK(tier IN('fast','deep')),used INTEGER NOT NULL DEFAULT 0 CHECK(used>=0),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,date,tier));

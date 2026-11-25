@@ -1,0 +1,1649 @@
+{
+  "scope": "本地空库顺序执行全部迁移；没有连接远端数据库",
+  "migrations": [
+    {
+      "file": "0001_foundation.sql",
+      "bytes": 7232,
+      "sha256": "b8783e5a110c21a5796e2b578102d3e0ddc6407a4eff678e46a7bdcfd3338311"
+    },
+    {
+      "file": "0002_security_review.sql",
+      "bytes": 634,
+      "sha256": "aa308ea417e37b696a409e39e95372d9f3e5d9be2f265bc86f9bae79b805f6fe"
+    },
+    {
+      "file": "0003_scheduling.sql",
+      "bytes": 10145,
+      "sha256": "4a09f3024fee6eb715848d9591f1767f5a543dc9a8950afe35d3eeea467eb010"
+    },
+    {
+      "file": "0004_credits.sql",
+      "bytes": 5445,
+      "sha256": "dd478ad58f252e528a9e6cf0b2ae380ee29461197d2901f99f7e795ae2a6a5f0"
+    },
+    {
+      "file": "0005_integer_money.sql",
+      "bytes": 2358,
+      "sha256": "992c6815c8d351ead694344fbb477d0f47ad8de9c370fb740f26ba85d7c309f6"
+    },
+    {
+      "file": "0006_finance.sql",
+      "bytes": 9206,
+      "sha256": "ffe5838d0e23d9666cfa31b3d4bfe6d082552a79700cf9ec6243b25aa21bc91b"
+    },
+    {
+      "file": "0007_settlement_fingerprint.sql",
+      "bytes": 1117,
+      "sha256": "d8f5d52766f06d435b13bf241b523af452233e2cc5394ca1d3b7a75275aef667"
+    },
+    {
+      "file": "0008_mobile_reviews.sql",
+      "bytes": 3771,
+      "sha256": "fb75c82f35a49936df4baa6f7ccb37422d049db2ebb127def9ff9e7fd51678f5"
+    },
+    {
+      "file": "0009_tools.sql",
+      "bytes": 10436,
+      "sha256": "0deebe356b35ad72ac6633a71c672e0362aa003dcbc58cb71e5debcaff678419"
+    },
+    {
+      "file": "0010_promo.sql",
+      "bytes": 7823,
+      "sha256": "512c8f53b88ebfd86db605fa365aa6fa96d454e4c3ac5455444d665c6047fc1d"
+    },
+    {
+      "file": "0011_promo_image_limits.sql",
+      "bytes": 1358,
+      "sha256": "0fece3d7a975937cff6c0b9e9e5a264bc9f19874422fea7d0f838f1e7f189c38"
+    },
+    {
+      "file": "0012_ui_rebuild.sql",
+      "bytes": 1062,
+      "sha256": "91f04b474149991aa82361ea377a8b5f64ef2628d2bc48fd9ff6141fb6cbf484"
+    },
+    {
+      "file": "0013_promo_rebuild.sql",
+      "bytes": 1444,
+      "sha256": "ab65b33c93d6d0f6aebebef40f40468b75d99a2801be24868e9c9c798a737401"
+    },
+    {
+      "file": "0014_debt_and_balance.sql",
+      "bytes": 6911,
+      "sha256": "1db5f7fc3d9f23675565d5d7772f5476dd2aea98cd160d68378c288e0d57d702"
+    },
+    {
+      "file": "0015_delete_capabilities.sql",
+      "bytes": 3858,
+      "sha256": "88c214932dfc2ebc01f8a607f293b5bfc1bf48f325fc987a02552a826d3f0779"
+    },
+    {
+      "file": "0016_page_query_indexes.sql",
+      "bytes": 765,
+      "sha256": "dd921fd86586856f73c59df137c89859f20b78712d48526076be2ad73042ddb2"
+    },
+    {
+      "file": "0017_student_schedule_indexes.sql",
+      "bytes": 565,
+      "sha256": "de36b444d01b5ce3a23ed20ba04acd627621e4cc3538591a52771c3e0ad474e9"
+    },
+    {
+      "file": "0018_credit_income_and_schedule_guards.sql",
+      "bytes": 6424,
+      "sha256": "79c8a6dd9f1d7488040b8aaba410715ced42c23263836011d082fff0ea790504"
+    },
+    {
+      "file": "0019_identity_and_institutions.sql",
+      "bytes": 8191,
+      "sha256": "29b5b411f5f4f44499240e4eeaa454b19c0b23b1f5e203cd192c50f40497752b"
+    },
+    {
+      "file": "0020_settings_and_templates.sql",
+      "bytes": 71162,
+      "sha256": "7ed2e20ec729290e6165a517fa724bde07df3fb595e55e8d477552a818ee5abc"
+    },
+    {
+      "file": "0021_course_plans.sql",
+      "bytes": 7756,
+      "sha256": "537a09d5c6b28465b6d629b4b3a8b33c8c485be9cd7d14b05a51da32303fe1e7"
+    },
+    {
+      "file": "0022_content_and_ai.sql",
+      "bytes": 4340,
+      "sha256": "3a34f4022e574e40e80007ef3f9f89c72e6e6da0a5a49b51528d5af912a7bf04"
+    }
+  ],
+  "counts": {
+    "table": 119,
+    "view": 3,
+    "index": 81,
+    "trigger": 101
+  },
+  "integrity": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "foreignKeys": [],
+  "objects": [
+    {
+      "type": "index",
+      "name": "ai_live_holds",
+      "sql": "CREATE INDEX ai_live_holds ON ai_quota_holds(tenant_id,date,tier,status,expires_at)"
+    },
+    {
+      "type": "index",
+      "name": "ai_pending_user",
+      "sql": "CREATE INDEX ai_pending_user ON ai_requests(tenant_id,user_id,status,deadline_at)"
+    },
+    {
+      "type": "index",
+      "name": "ai_request_retention",
+      "sql": "CREATE INDEX ai_request_retention ON ai_requests(tenant_id,retain_until)"
+    },
+    {
+      "type": "index",
+      "name": "ai_usage_stats",
+      "sql": "CREATE INDEX ai_usage_stats ON ai_usage(tenant_id,date,tool,tier,result)"
+    },
+    {
+      "type": "index",
+      "name": "aliases_tenant",
+      "sql": "CREATE INDEX aliases_tenant ON tenant_slug_aliases(tenant_id,expires_at)"
+    },
+    {
+      "type": "index",
+      "name": "announcement_read_once",
+      "sql": "CREATE UNIQUE INDEX announcement_read_once ON announcement_reads(tenant_id,announcement_id,user_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "audit_log_at",
+      "sql": "CREATE INDEX audit_log_at ON audit_log(tenant_id,at)"
+    },
+    {
+      "type": "index",
+      "name": "auth_log_at",
+      "sql": "CREATE INDEX auth_log_at ON auth_log(tenant_id,at)"
+    },
+    {
+      "type": "index",
+      "name": "backup_page",
+      "sql": "CREATE INDEX backup_page ON backup_snapshot_rows(snapshot_id,table_name,source_id,tenant_id)"
+    },
+    {
+      "type": "index",
+      "name": "block_student",
+      "sql": "CREATE INDEX block_student ON student_schedule_blocks(tenant_id,student_id)"
+    },
+    {
+      "type": "index",
+      "name": "class_member_once",
+      "sql": "CREATE UNIQUE INDEX class_member_once ON class_members(tenant_id,class_id,student_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "class_members_student",
+      "sql": "CREATE INDEX class_members_student ON class_members(tenant_id,student_id,class_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "content_author",
+      "sql": "CREATE INDEX content_author ON content_items(tenant_id,author_id,updated_at DESC)"
+    },
+    {
+      "type": "index",
+      "name": "content_list",
+      "sql": "CREATE INDEX content_list ON content_items(tenant_id,status,updated_at DESC,id)"
+    },
+    {
+      "type": "index",
+      "name": "credit_debt_active_part",
+      "sql": "CREATE UNIQUE INDEX credit_debt_active_part ON credit_debts(tenant_id,participant_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "credit_debt_student_fifo",
+      "sql": "CREATE INDEX credit_debt_student_fifo ON credit_debts(tenant_id,student_id,created_at,id) WHERE deleted_at IS NULL AND remaining_units>0"
+    },
+    {
+      "type": "index",
+      "name": "credit_income_month",
+      "sql": "CREATE INDEX credit_income_month ON credit_income_entries(tenant_id,booked_on) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "credit_income_reversal",
+      "sql": "CREATE INDEX credit_income_reversal ON credit_income_entries(tenant_id,reversed_by) WHERE reversed_by IS NOT NULL"
+    },
+    {
+      "type": "index",
+      "name": "credit_txn_participant_package",
+      "sql": "CREATE INDEX credit_txn_participant_package ON package_transactions(tenant_id,participant_id,package_id) WHERE participant_id IS NOT NULL AND deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "domains_tenant",
+      "sql": "CREATE INDEX domains_tenant ON tenant_domains(tenant_id,verified)"
+    },
+    {
+      "type": "index",
+      "name": "followup_due",
+      "sql": "CREATE INDEX followup_due ON followup_tasks(tenant_id,done,due_date)"
+    },
+    {
+      "type": "index",
+      "name": "guardian_pair_active",
+      "sql": "CREATE UNIQUE INDEX guardian_pair_active ON guardian_links(tenant_id,parent_user_id,student_id) WHERE revoked_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "guardian_student",
+      "sql": "CREATE INDEX guardian_student ON guardian_links(tenant_id,student_id,revoked_at)"
+    },
+    {
+      "type": "index",
+      "name": "identity_login_history",
+      "sql": "CREATE INDEX identity_login_history ON auth_log(tenant_id,user_id,event,at)"
+    },
+    {
+      "type": "index",
+      "name": "identity_session_hash",
+      "sql": "CREATE UNIQUE INDEX identity_session_hash ON sessions(token_hash)"
+    },
+    {
+      "type": "index",
+      "name": "lead_stages",
+      "sql": "CREATE INDEX lead_stages ON leads(tenant_id,stage,next_followup)"
+    },
+    {
+      "type": "index",
+      "name": "lesson_dates",
+      "sql": "CREATE INDEX lesson_dates ON lessons(tenant_id,start_at)"
+    },
+    {
+      "type": "index",
+      "name": "lesson_occurrence",
+      "sql": "CREATE UNIQUE INDEX lesson_occurrence ON lessons(tenant_id,template_id,occurrence_date) WHERE template_id IS NOT NULL AND deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "lesson_occurrence_range",
+      "sql": "CREATE INDEX lesson_occurrence_range ON lessons(tenant_id,occurrence_date,template_id) WHERE template_id IS NOT NULL AND deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "lesson_participants_student",
+      "sql": "CREATE INDEX lesson_participants_student ON lesson_participants(tenant_id,student_id,lesson_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "lesson_student",
+      "sql": "CREATE UNIQUE INDEX lesson_student ON lesson_participants(tenant_id,lesson_id,student_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "login_choices_expiry",
+      "sql": "CREATE INDEX login_choices_expiry ON login_choices(expires_at)"
+    },
+    {
+      "type": "index",
+      "name": "makeup_target",
+      "sql": "CREATE UNIQUE INDEX makeup_target ON makeup_links(tenant_id,target_participant_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "offer_courses_name",
+      "sql": "CREATE UNIQUE INDEX offer_courses_name ON offer_courses(tenant_id,subject,name) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "one_data_job",
+      "sql": "CREATE UNIQUE INDEX one_data_job ON data_jobs(tenant_id) WHERE status IN ('staging','ready')"
+    },
+    {
+      "type": "index",
+      "name": "one_pending_submission",
+      "sql": "CREATE UNIQUE INDEX one_pending_submission ON lesson_submissions(tenant_id,lesson_id) WHERE status='pending' AND deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "one_published_comment",
+      "sql": "CREATE UNIQUE INDEX one_published_comment ON lesson_comments(tenant_id,lesson_id,COALESCE(student_id,''))"
+    },
+    {
+      "type": "index",
+      "name": "one_running_backup",
+      "sql": "CREATE UNIQUE INDEX one_running_backup ON backup_snapshots(status) WHERE status='running'"
+    },
+    {
+      "type": "index",
+      "name": "other_costs_scope",
+      "sql": "CREATE INDEX other_costs_scope ON other_costs(tenant_id,date)"
+    },
+    {
+      "type": "index",
+      "name": "p1_credit_debt_active",
+      "sql": "CREATE INDEX p1_credit_debt_active ON credit_debts(tenant_id,student_id,course_type_id,category_id,remaining_units) WHERE deleted_at IS NULL AND remaining_units>0"
+    },
+    {
+      "type": "index",
+      "name": "p1_credit_ledger_active",
+      "sql": "CREATE INDEX p1_credit_ledger_active ON package_transactions(tenant_id,package_id,delta,date) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "p1_earned_by_date",
+      "sql": "CREATE INDEX p1_earned_by_date ON package_transactions(tenant_id,date,package_id,student_id,delta) WHERE deleted_at IS NULL AND type IN ('consume','reversal')"
+    },
+    {
+      "type": "index",
+      "name": "p1_payments_date_active",
+      "sql": "CREATE INDEX p1_payments_date_active ON student_payments(tenant_id,paid_at,amount) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "p1_payments_package_active",
+      "sql": "CREATE INDEX p1_payments_package_active ON student_payments(tenant_id,package_id,amount) WHERE deleted_at IS NULL AND package_id IS NOT NULL"
+    },
+    {
+      "type": "index",
+      "name": "partner_lesson_once",
+      "sql": "CREATE UNIQUE INDEX partner_lesson_once ON lessons(tenant_id,source_session_id) WHERE source_session_id IS NOT NULL"
+    },
+    {
+      "type": "index",
+      "name": "payment_allocation_package",
+      "sql": "CREATE INDEX payment_allocation_package ON student_payment_allocations(tenant_id,package_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "payment_allocation_payment",
+      "sql": "CREATE INDEX payment_allocation_payment ON student_payment_allocations(tenant_id,payment_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "payments_student",
+      "sql": "CREATE INDEX payments_student ON student_payments(tenant_id,student_id,paid_at)"
+    },
+    {
+      "type": "index",
+      "name": "payroll_snapshots_scope",
+      "sql": "CREATE INDEX payroll_snapshots_scope ON payroll_snapshots(tenant_id,month,snapshot_token,teacher_id)"
+    },
+    {
+      "type": "index",
+      "name": "plan_element_owner",
+      "sql": "CREATE INDEX plan_element_owner ON plan_elements(tenant_id,plan_id,kind)"
+    },
+    {
+      "type": "index",
+      "name": "plan_revision_history",
+      "sql": "CREATE INDEX plan_revision_history ON plan_revisions(tenant_id,plan_id,seq DESC)"
+    },
+    {
+      "type": "index",
+      "name": "plan_revision_student",
+      "sql": "CREATE INDEX plan_revision_student ON plan_revisions(tenant_id,student_id,id)"
+    },
+    {
+      "type": "index",
+      "name": "plan_share_list",
+      "sql": "CREATE INDEX plan_share_list ON share_links(tenant_id,plan_id,created_at DESC)"
+    },
+    {
+      "type": "index",
+      "name": "plans_lead",
+      "sql": "CREATE INDEX plans_lead ON plans(tenant_id,source_lead_id,deleted_at)"
+    },
+    {
+      "type": "index",
+      "name": "plans_list",
+      "sql": "CREATE INDEX plans_list ON plans(tenant_id,status,updated_at DESC,id)"
+    },
+    {
+      "type": "index",
+      "name": "plans_student",
+      "sql": "CREATE INDEX plans_student ON plans(tenant_id,student_id,deleted_at)"
+    },
+    {
+      "type": "index",
+      "name": "platform_phone_lookup",
+      "sql": "CREATE INDEX platform_phone_lookup ON platform_phone_index(phone_hmac_platform,tenant_id,user_id)"
+    },
+    {
+      "type": "index",
+      "name": "promo_applications_course",
+      "sql": "CREATE INDEX promo_applications_course ON course_applications(course_id,status)"
+    },
+    {
+      "type": "index",
+      "name": "promo_followups_timeline",
+      "sql": "CREATE INDEX promo_followups_timeline ON promo_followups(campaign_id,tenant_id,created_at DESC,id)"
+    },
+    {
+      "type": "index",
+      "name": "promo_image_cleanup",
+      "sql": "CREATE INDEX promo_image_cleanup ON promo_images(ready,created_at)"
+    },
+    {
+      "type": "index",
+      "name": "promo_live",
+      "sql": "CREATE INDEX promo_live ON campaigns(status,publish_at,expire_at)"
+    },
+    {
+      "type": "index",
+      "name": "referral_status",
+      "sql": "CREATE INDEX referral_status ON referrals(tenant_id,status,created_at)"
+    },
+    {
+      "type": "index",
+      "name": "renewal_reminders_scope",
+      "sql": "CREATE INDEX renewal_reminders_scope ON renewal_reminders(tenant_id,student_id,scope_kind,scope_id,sent_at) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "report_classes_name",
+      "sql": "CREATE UNIQUE INDEX report_classes_name ON report_classes(tenant_id,subject,name) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "schedule_enrollments_student",
+      "sql": "CREATE INDEX schedule_enrollments_student ON schedule_enrollments(tenant_id,student_id,date_from,date_to,template_id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "schedule_templates_class",
+      "sql": "CREATE INDEX schedule_templates_class ON schedule_templates(tenant_id,class_id,id) WHERE deleted_at IS NULL AND class_id IS NOT NULL"
+    },
+    {
+      "type": "index",
+      "name": "sessions_user",
+      "sql": "CREATE INDEX sessions_user ON sessions(tenant_id,user_id)"
+    },
+    {
+      "type": "index",
+      "name": "setting_asset_image",
+      "sql": "CREATE INDEX setting_asset_image ON setting_asset_refs(tenant_id,image_id)"
+    },
+    {
+      "type": "index",
+      "name": "setting_changes_status",
+      "sql": "CREATE INDEX setting_changes_status ON setting_changes(tenant_id,status,created_at)"
+    },
+    {
+      "type": "index",
+      "name": "settlement_month",
+      "sql": "CREATE UNIQUE INDEX settlement_month ON settlements(tenant_id,month)"
+    },
+    {
+      "type": "index",
+      "name": "stage_types_name",
+      "sql": "CREATE UNIQUE INDEX stage_types_name ON stage_types(tenant_id,subject,name) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "student_balance_student",
+      "sql": "CREATE INDEX student_balance_student ON student_balances_ledger(tenant_id,student_id,created_at,id) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "submissions_month",
+      "sql": "CREATE INDEX submissions_month ON lesson_submissions(tenant_id,status,lesson_id)"
+    },
+    {
+      "type": "index",
+      "name": "teacher_adjustments_scope",
+      "sql": "CREATE INDEX teacher_adjustments_scope ON teacher_adjustments(tenant_id,month,teacher_id)"
+    },
+    {
+      "type": "index",
+      "name": "teacher_payments_scope",
+      "sql": "CREATE INDEX teacher_payments_scope ON teacher_payments(tenant_id,month,teacher_id)"
+    },
+    {
+      "type": "index",
+      "name": "teacher_rates_scope",
+      "sql": "CREATE INDEX teacher_rates_scope ON teacher_rates(tenant_id,teacher_id,course_type_id,effective_from,effective_to)"
+    },
+    {
+      "type": "index",
+      "name": "template_student_period",
+      "sql": "CREATE UNIQUE INDEX template_student_period ON schedule_enrollments(tenant_id,template_id,student_id,date_from) WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "transaction_participant",
+      "sql": "CREATE INDEX transaction_participant ON package_transactions(tenant_id,participant_id)"
+    },
+    {
+      "type": "index",
+      "name": "transaction_student",
+      "sql": "CREATE INDEX transaction_student ON package_transactions(tenant_id,student_id,package_id)"
+    },
+    {
+      "type": "index",
+      "name": "user_student",
+      "sql": "CREATE UNIQUE INDEX user_student ON users(tenant_id,student_id) WHERE student_id IS NOT NULL AND deleted_at IS NULL"
+    },
+    {
+      "type": "index",
+      "name": "user_teacher",
+      "sql": "CREATE UNIQUE INDEX user_teacher ON users(tenant_id,teacher_id) WHERE teacher_id IS NOT NULL AND deleted_at IS NULL"
+    },
+    {
+      "type": "table",
+      "name": "ai_quota_daily",
+      "sql": "CREATE TABLE ai_quota_daily(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,date TEXT NOT NULL,tier TEXT NOT NULL CHECK(tier IN('fast','deep')),used INTEGER NOT NULL DEFAULT 0 CHECK(used>=0),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,date,tier))"
+    },
+    {
+      "type": "table",
+      "name": "ai_quota_holds",
+      "sql": "CREATE TABLE ai_quota_holds(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL UNIQUE,date TEXT NOT NULL,tier TEXT NOT NULL,user_id TEXT NOT NULL,request_id TEXT NOT NULL,status TEXT NOT NULL CHECK(status IN('held','settled','released','expired')),expires_at INTEGER NOT NULL,settled_at INTEGER,created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,request_id) REFERENCES ai_requests(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "ai_requests",
+      "sql": "CREATE TABLE ai_requests(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,user_id TEXT NOT NULL,idem_key TEXT NOT NULL,request_hash TEXT NOT NULL,path TEXT NOT NULL,batch_parent_id TEXT,status TEXT NOT NULL CHECK(status IN('pending','done','failed')),hold_id TEXT NOT NULL,deadline_at INTEGER NOT NULL,response TEXT,cache_expires_at INTEGER,receipt_json TEXT,created_at INTEGER NOT NULL,finished_at INTEGER,retain_until INTEGER NOT NULL,version INTEGER NOT NULL DEFAULT 1,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,user_id,idem_key))"
+    },
+    {
+      "type": "table",
+      "name": "ai_settings",
+      "sql": "CREATE TABLE ai_settings(id TEXT PRIMARY KEY,fast_daily_limit INTEGER NOT NULL DEFAULT 80 CHECK(fast_daily_limit>=0),deep_daily_limit INTEGER NOT NULL DEFAULT 50 CHECK(deep_daily_limit>=0),fast_model TEXT,deep_model TEXT,version INTEGER NOT NULL DEFAULT 1,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "ai_suggestions",
+      "sql": "CREATE TABLE ai_suggestions(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,user_id TEXT NOT NULL,kind TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,expires_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "ai_usage",
+      "sql": "CREATE TABLE ai_usage(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,hold_id TEXT UNIQUE,request_id TEXT,user_id TEXT NOT NULL,date TEXT NOT NULL,tool TEXT NOT NULL,action TEXT NOT NULL,tier TEXT NOT NULL,model TEXT NOT NULL,prompt_tokens INTEGER NOT NULL DEFAULT 0,completion_tokens INTEGER NOT NULL DEFAULT 0,duration_ms INTEGER NOT NULL,result TEXT NOT NULL,created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "announcement_reads",
+      "sql": "CREATE TABLE announcement_reads(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,announcement_id TEXT NOT NULL,user_id TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "announcement_targets",
+      "sql": "CREATE TABLE announcement_targets(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,announcement_id TEXT NOT NULL REFERENCES platform_announcements(id),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,announcement_id))"
+    },
+    {
+      "type": "table",
+      "name": "audit_log",
+      "sql": "CREATE TABLE audit_log (\n tenant_id TEXT NOT NULL,id TEXT NOT NULL,at INTEGER NOT NULL,actor_id TEXT NOT NULL,actor_label TEXT NOT NULL,module TEXT NOT NULL,action TEXT NOT NULL,\n entity_id TEXT,summary TEXT NOT NULL,before_json TEXT,after_json TEXT, money_version INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "auth_log",
+      "sql": "CREATE TABLE auth_log (\n tenant_id TEXT NOT NULL,id TEXT NOT NULL,at INTEGER NOT NULL,user_id TEXT,phone_last4 TEXT,event TEXT NOT NULL,ip TEXT NOT NULL,ua TEXT NOT NULL,\n PRIMARY KEY(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "backup_runs",
+      "sql": "CREATE TABLE backup_runs(id TEXT PRIMARY KEY,at INTEGER NOT NULL,status TEXT NOT NULL,detail TEXT NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "backup_snapshot_rows",
+      "sql": "CREATE TABLE backup_snapshot_rows(tenant_id TEXT NOT NULL,id TEXT NOT NULL,snapshot_id TEXT NOT NULL REFERENCES backup_snapshots(id),table_name TEXT NOT NULL,source_id TEXT NOT NULL,row_json TEXT NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "backup_snapshots",
+      "sql": "CREATE TABLE backup_snapshots(id TEXT PRIMARY KEY,at INTEGER NOT NULL,status TEXT NOT NULL,manifest_json TEXT NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "calendar_nodes",
+      "sql": "CREATE TABLE calendar_nodes(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "campaign_reads",
+      "sql": "CREATE TABLE campaign_reads(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,campaign_id TEXT NOT NULL REFERENCES campaigns(id),user_id TEXT NOT NULL,at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,campaign_id,user_id),FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "campaign_targets",
+      "sql": "CREATE TABLE campaign_targets(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,campaign_id TEXT NOT NULL REFERENCES campaigns(id),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,campaign_id))"
+    },
+    {
+      "type": "table",
+      "name": "campaigns",
+      "sql": "CREATE TABLE campaigns(id TEXT PRIMARY KEY,type TEXT NOT NULL CHECK(type IN('message','material','course')),title TEXT NOT NULL,summary TEXT NOT NULL DEFAULT '',body TEXT NOT NULL DEFAULT '',cover TEXT,publish_at INTEGER NOT NULL,expire_at INTEGER,status TEXT NOT NULL CHECK(status IN('draft','published','archived')),audience TEXT NOT NULL CHECK(audience IN('all','type','selected')),audience_type TEXT,version INTEGER NOT NULL DEFAULT 1,created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "class_members",
+      "sql": "CREATE TABLE class_members(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,class_id TEXT NOT NULL,student_id TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,class_id) REFERENCES classes(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "classes",
+      "sql": "CREATE TABLE classes(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,course_type_id TEXT NOT NULL,teacher_id TEXT NOT NULL,location_id TEXT,date_from TEXT NOT NULL,date_to TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'active',note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id),FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id),FOREIGN KEY(tenant_id,location_id) REFERENCES locations(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "compliance_terms",
+      "sql": "CREATE TABLE compliance_terms(id TEXT PRIMARY KEY,term TEXT NOT NULL UNIQUE,active INTEGER NOT NULL DEFAULT 1,version INTEGER NOT NULL DEFAULT 1)"
+    },
+    {
+      "type": "table",
+      "name": "content_items",
+      "sql": "CREATE TABLE content_items(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,type TEXT NOT NULL,subject TEXT NOT NULL,scene TEXT,title TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'draft' CHECK(status IN('draft','ready','copied','published')),doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),manifest_json TEXT NOT NULL CHECK(json_valid(manifest_json)),author_id TEXT NOT NULL,created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "content_revisions",
+      "sql": "CREATE TABLE content_revisions(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,content_id TEXT NOT NULL,seq INTEGER NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),manifest_json TEXT NOT NULL CHECK(json_valid(manifest_json)),action TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,content_id,seq),FOREIGN KEY(tenant_id,content_id) REFERENCES content_items(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "course_applications",
+      "sql": "CREATE TABLE course_applications(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,course_id TEXT NOT NULL REFERENCES partner_courses(id),est_size INTEGER CHECK(est_size BETWEEN 1 AND 200),unsure INTEGER NOT NULL DEFAULT 0,contact_user_id TEXT NOT NULL,note TEXT NOT NULL DEFAULT '',status TEXT NOT NULL CHECK(status IN('applied','following','confirmed','opened','failed','withdrawn')),confirmed_size INTEGER NOT NULL DEFAULT 0 CHECK(confirmed_size BETWEEN 0 AND 200),seat_price INTEGER CHECK(seat_price IS NULL OR (typeof(seat_price)='integer' AND seat_price>=0)),consultant TEXT NOT NULL DEFAULT '',consultant_note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL,version INTEGER NOT NULL DEFAULT 1, paid INTEGER NOT NULL DEFAULT 0 CHECK(paid IN (0,1)), paid_by TEXT REFERENCES platform_admins(id), paid_at INTEGER,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,course_id),FOREIGN KEY(tenant_id,contact_user_id) REFERENCES users(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "course_categories",
+      "sql": "CREATE TABLE course_categories(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,color TEXT NOT NULL DEFAULT '#8B7BB5',active INTEGER NOT NULL DEFAULT 1,sort_order INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "course_rules",
+      "sql": "CREATE TABLE course_rules(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "course_types",
+      "sql": "CREATE TABLE course_types(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,category_id TEXT NOT NULL,format TEXT NOT NULL DEFAULT 'individual',default_minutes INTEGER NOT NULL DEFAULT 45,units_per_lesson REAL NOT NULL DEFAULT 1,capacity INTEGER NOT NULL DEFAULT 1,active INTEGER NOT NULL DEFAULT 1,sort_order INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,category_id) REFERENCES course_categories(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "credit_debts",
+      "sql": "CREATE TABLE credit_debts (\n  tenant_id TEXT NOT NULL, id TEXT NOT NULL,\n  student_id TEXT NOT NULL, lesson_id TEXT NOT NULL, participant_id TEXT NOT NULL,\n  course_type_id TEXT NOT NULL, category_id TEXT NOT NULL,\n  units REAL NOT NULL CHECK(units>0 AND ABS(units*100-ROUND(units*100))<0.0000001),\n  remaining_units REAL NOT NULL CHECK(remaining_units>=0 AND remaining_units<=units AND ABS(remaining_units*100-ROUND(remaining_units*100))<0.0000001),\n  settled_at INTEGER,\n  created_at INTEGER NOT NULL, created_by TEXT NOT NULL,\n  updated_at INTEGER NOT NULL, updated_by TEXT NOT NULL,\n  version INTEGER NOT NULL, deleted_at INTEGER,\n  PRIMARY KEY(tenant_id,id),\n  FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),\n  FOREIGN KEY(tenant_id,lesson_id) REFERENCES lessons(tenant_id,id),\n  FOREIGN KEY(tenant_id,participant_id) REFERENCES lesson_participants(tenant_id,id),\n  FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id),\n  FOREIGN KEY(tenant_id,category_id) REFERENCES course_categories(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "credit_income_entries",
+      "sql": "CREATE TABLE credit_income_entries (\n  tenant_id TEXT NOT NULL, id TEXT NOT NULL,\n  booked_on TEXT NOT NULL, amount INTEGER NOT NULL CHECK(typeof(amount)='integer'),\n  unpriced_units REAL NOT NULL, source TEXT NOT NULL,\n  reversed_by TEXT,\n  created_at INTEGER NOT NULL, created_by TEXT NOT NULL,\n  updated_at INTEGER NOT NULL, updated_by TEXT NOT NULL,\n  version INTEGER NOT NULL, deleted_at INTEGER,\n  PRIMARY KEY(tenant_id,id),\n  FOREIGN KEY(tenant_id,id) REFERENCES package_transactions(tenant_id,id),\n  FOREIGN KEY(tenant_id,reversed_by) REFERENCES package_transactions(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "credit_operations",
+      "sql": "CREATE TABLE credit_operations(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,actor_id TEXT NOT NULL,request_hash TEXT NOT NULL,response_json TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "data_job_rows",
+      "sql": "CREATE TABLE data_job_rows(tenant_id TEXT NOT NULL,id TEXT NOT NULL,job_id TEXT NOT NULL,table_name TEXT NOT NULL,row_id TEXT NOT NULL,row_json TEXT NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,job_id) REFERENCES data_jobs(tenant_id,id),UNIQUE(tenant_id,job_id,table_name,row_id))"
+    },
+    {
+      "type": "table",
+      "name": "data_jobs",
+      "sql": "CREATE TABLE data_jobs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,kind TEXT NOT NULL CHECK(kind IN ('legacy','restore')),status TEXT NOT NULL CHECK(status IN ('staging','ready','completed','cancelled')),source_tenant TEXT,manifest_json TEXT NOT NULL,created_at INTEGER NOT NULL,admin_id TEXT NOT NULL,reason TEXT NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "followup_notes",
+      "sql": "CREATE TABLE followup_notes(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,at TEXT NOT NULL,content TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "followup_tasks",
+      "sql": "CREATE TABLE followup_tasks(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT,title TEXT NOT NULL,due_date TEXT NOT NULL,assignee_id TEXT,legacy_owner TEXT NOT NULL DEFAULT '',done INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),FOREIGN KEY(tenant_id,assignee_id) REFERENCES users(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "gallery_images",
+      "sql": "CREATE TABLE gallery_images(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,r2_key TEXT NOT NULL,mime TEXT NOT NULL,width INTEGER NOT NULL,height INTEGER NOT NULL,tags_json TEXT NOT NULL CHECK(json_valid(tags_json)),consent INTEGER NOT NULL DEFAULT 0,hidden INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "guardian_links",
+      "sql": "CREATE TABLE guardian_links (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,parent_user_id TEXT NOT NULL,student_id TEXT NOT NULL,\n relation TEXT NOT NULL CHECK(relation IN ('mother','father','grandparent','other')),\n created_by TEXT NOT NULL,created_at INTEGER NOT NULL,updated_by TEXT NOT NULL,updated_at INTEGER NOT NULL,\n version INTEGER NOT NULL DEFAULT 1,revoked_at INTEGER,\n PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,parent_user_id) REFERENCES users(tenant_id,id),\n FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "leads",
+      "sql": "CREATE TABLE leads(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,phone_enc TEXT,parent_phone_enc TEXT,phone_last4 TEXT NOT NULL DEFAULT '',source TEXT NOT NULL DEFAULT '',stage TEXT NOT NULL DEFAULT 'new' CHECK(stage IN ('new','contacted','trial','enrolled','lost')),next_followup TEXT,trial_at TEXT,grade TEXT NOT NULL DEFAULT '',direction TEXT NOT NULL DEFAULT '',note TEXT NOT NULL DEFAULT '',student_id TEXT,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "lesson_comments",
+      "sql": "CREATE TABLE lesson_comments (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,lesson_id TEXT NOT NULL,student_id TEXT,\n text TEXT NOT NULL DEFAULT '',homework TEXT NOT NULL DEFAULT '',published_by TEXT NOT NULL,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,\n PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,lesson_id) REFERENCES lessons(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "lesson_participants",
+      "sql": "CREATE TABLE lesson_participants(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,lesson_id TEXT NOT NULL,student_id TEXT NOT NULL,attendance TEXT NOT NULL DEFAULT 'planned',deducted REAL NOT NULL DEFAULT 0,package_id TEXT,makeup_for TEXT,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,lesson_id) REFERENCES lessons(tenant_id,id), FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id), FOREIGN KEY(tenant_id,package_id) REFERENCES packages(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "lesson_submissions",
+      "sql": "CREATE TABLE lesson_submissions (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,lesson_id TEXT NOT NULL,\n kind TEXT NOT NULL CHECK(kind IN ('attendance','comments')),status TEXT NOT NULL CHECK(status IN ('pending','returned','confirmed','superseded')),\n public_text TEXT NOT NULL DEFAULT '',homework TEXT NOT NULL DEFAULT '',base_fingerprint TEXT NOT NULL,comment_fingerprint TEXT NOT NULL,\n submitted_by TEXT NOT NULL,submitted_at INTEGER NOT NULL,reviewed_by TEXT,reviewed_at INTEGER,reason TEXT NOT NULL DEFAULT '',\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,\n PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,lesson_id) REFERENCES lessons(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "lessons",
+      "sql": "CREATE TABLE lessons(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,start_at TEXT NOT NULL,duration INTEGER NOT NULL,units REAL NOT NULL,teacher_id TEXT NOT NULL,assistant_id TEXT,course_type_id TEXT NOT NULL,location_id TEXT,mode TEXT NOT NULL DEFAULT 'offline',status TEXT NOT NULL DEFAULT 'planned',template_id TEXT,occurrence_date TEXT,note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, teacher_paid INTEGER NOT NULL DEFAULT 0, format TEXT NOT NULL DEFAULT 'individual', override_rate INTEGER CHECK(override_rate IS NULL OR (typeof(override_rate)='integer' AND override_rate>=0)), override_basis TEXT NOT NULL DEFAULT 'legacy', locked_rate INTEGER CHECK(locked_rate IS NULL OR typeof(locked_rate)='integer'), current_submission_id TEXT, class_id TEXT, source_course_id TEXT REFERENCES partner_courses(id), source_session_id TEXT REFERENCES partner_sessions(id), PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id), FOREIGN KEY(tenant_id,assistant_id) REFERENCES teachers(tenant_id,id), FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id), FOREIGN KEY(tenant_id,location_id) REFERENCES locations(tenant_id,id), FOREIGN KEY(tenant_id,template_id) REFERENCES schedule_templates(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "locations",
+      "sql": "CREATE TABLE locations(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,campus TEXT NOT NULL DEFAULT '',offsite INTEGER NOT NULL DEFAULT 0,capacity INTEGER NOT NULL DEFAULT 1,active INTEGER NOT NULL DEFAULT 1,sort_order INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "login_choices",
+      "sql": "CREATE TABLE login_choices (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,token_hash TEXT NOT NULL UNIQUE,\n user_id TEXT NOT NULL,user_version INTEGER NOT NULL,tenant_version INTEGER NOT NULL,\n group_id TEXT NOT NULL,expires_at INTEGER NOT NULL,created_at INTEGER NOT NULL,\n PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "maintenance_leases",
+      "sql": "CREATE TABLE maintenance_leases(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,admin_id TEXT NOT NULL,reason TEXT NOT NULL,expires_at INTEGER NOT NULL,revoked INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "makeup_links",
+      "sql": "CREATE TABLE makeup_links(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,original_participant_id TEXT NOT NULL,target_participant_id TEXT NOT NULL,target_lesson_id TEXT NOT NULL,note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,original_participant_id) REFERENCES lesson_participants(tenant_id,id),FOREIGN KEY(tenant_id,target_participant_id) REFERENCES lesson_participants(tenant_id,id),FOREIGN KEY(tenant_id,target_lesson_id) REFERENCES lessons(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "mutation_guards",
+      "sql": "CREATE TABLE mutation_guards(tenant_id TEXT NOT NULL,id TEXT NOT NULL,expected INTEGER NOT NULL,actual INTEGER NOT NULL,CHECK(expected=actual),PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "offer_courses",
+      "sql": "CREATE TABLE offer_courses(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,subject TEXT NOT NULL,name TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1 CHECK(active IN(0,1)),source TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),price_cents INTEGER CHECK(price_cents IS NULL OR price_cents>=0),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "other_costs",
+      "sql": "CREATE TABLE other_costs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,date TEXT NOT NULL,category TEXT NOT NULL,amount INTEGER NOT NULL CHECK(typeof(amount)='integer' AND amount>=0),note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "package_transactions",
+      "sql": "CREATE TABLE package_transactions(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,package_id TEXT NOT NULL,student_id TEXT NOT NULL,delta REAL NOT NULL,type TEXT NOT NULL,date TEXT NOT NULL,participant_id TEXT,reference_id TEXT,note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,package_id) REFERENCES packages(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),FOREIGN KEY(tenant_id,participant_id) REFERENCES lesson_participants(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "packages",
+      "sql": "CREATE TABLE packages(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,course_type_id TEXT NOT NULL,units_total REAL NOT NULL DEFAULT 0,valid_from TEXT,valid_to TEXT,status TEXT NOT NULL DEFAULT 'active',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, stage_id TEXT, purchase_date TEXT NOT NULL DEFAULT '', scope_kind TEXT NOT NULL DEFAULT 'type', category_id TEXT, unit_price INTEGER CHECK(unit_price IS NULL OR (typeof(unit_price)='integer' AND unit_price>=0)), amount INTEGER CHECK(amount IS NULL OR (typeof(amount)='integer' AND amount>=0)), PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id), FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "partner_courses",
+      "sql": "CREATE TABLE partner_courses(id TEXT PRIMARY KEY,campaign_id TEXT NOT NULL UNIQUE REFERENCES campaigns(id),lecturer TEXT NOT NULL,detail_image_key TEXT REFERENCES promo_images(id),seat_price INTEGER CHECK(seat_price IS NULL OR (typeof(seat_price)='integer' AND seat_price>=0)),suggested_price INTEGER CHECK(suggested_price IS NULL OR (typeof(suggested_price)='integer' AND suggested_price>=0)),min_size INTEGER NOT NULL CHECK(min_size>=1),apply_deadline INTEGER NOT NULL,status TEXT NOT NULL CHECK(status IN('recruiting','opened','running','ended','failed')),reason TEXT NOT NULL DEFAULT '',version INTEGER NOT NULL DEFAULT 1, format TEXT NOT NULL DEFAULT 'course' CHECK(format IN ('course','lecture')), is_free INTEGER NOT NULL DEFAULT 0 CHECK(is_free IN (0,1)))"
+    },
+    {
+      "type": "table",
+      "name": "partner_rosters",
+      "sql": "CREATE TABLE partner_rosters(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,course_id TEXT NOT NULL REFERENCES partner_courses(id),student_id TEXT NOT NULL,created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,course_id,student_id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "partner_sessions",
+      "sql": "CREATE TABLE partner_sessions(id TEXT PRIMARY KEY,course_id TEXT NOT NULL REFERENCES partner_courses(id),start_at TEXT NOT NULL,duration INTEGER NOT NULL CHECK(duration IN(30,45,60)),meeting_no TEXT NOT NULL DEFAULT '',meeting_url TEXT NOT NULL DEFAULT '',cancelled INTEGER NOT NULL DEFAULT 0,version INTEGER NOT NULL DEFAULT 1)"
+    },
+    {
+      "type": "table",
+      "name": "partner_write_guards",
+      "sql": "CREATE TABLE partner_write_guards(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "payroll_snapshots",
+      "sql": "CREATE TABLE payroll_snapshots(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,month TEXT NOT NULL,snapshot_token TEXT NOT NULL,lesson_id TEXT NOT NULL,teacher_id TEXT NOT NULL,rate INTEGER NOT NULL CHECK(typeof(rate)='integer'),rate_basis TEXT NOT NULL,quantity REAL NOT NULL,amount INTEGER NOT NULL CHECK(typeof(amount)='integer'),lesson_json TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,lesson_id) REFERENCES lessons(tenant_id,id),FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "plan_contexts",
+      "sql": "CREATE TABLE plan_contexts(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,plan_id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,plan_id) REFERENCES plans(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "plan_elements",
+      "sql": "CREATE TABLE plan_elements(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,plan_id TEXT NOT NULL,kind TEXT NOT NULL CHECK(kind IN('stage','line')),target_id TEXT,snapshot_json TEXT CHECK(snapshot_json IS NULL OR json_valid(snapshot_json)),created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,plan_id) REFERENCES plans(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "plan_revisions",
+      "sql": "CREATE TABLE plan_revisions(\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,plan_id TEXT NOT NULL,seq INTEGER NOT NULL,student_id TEXT,source_lead_id TEXT,\n doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),context_id TEXT NOT NULL,manifest_json TEXT NOT NULL CHECK(json_valid(manifest_json)),image_ids_json TEXT NOT NULL CHECK(json_valid(image_ids_json)),\n action TEXT NOT NULL,sent_at INTEGER,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,\n PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,plan_id,seq),FOREIGN KEY(tenant_id,plan_id) REFERENCES plans(tenant_id,id),FOREIGN KEY(tenant_id,context_id) REFERENCES plan_contexts(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "plans",
+      "sql": "CREATE TABLE plans(\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT,source_lead_id TEXT,subject TEXT NOT NULL,title TEXT NOT NULL,\n status TEXT NOT NULL DEFAULT 'draft' CHECK(status IN('draft','sent','signed','archived')),\n doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),context_id TEXT NOT NULL,manifest_json TEXT NOT NULL CHECK(json_valid(manifest_json)),\n current_revision_id TEXT,sent_revision_id TEXT,signed_revision_id TEXT,signed_at INTEGER,archived_at INTEGER,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,\n PRIMARY KEY(tenant_id,id),CHECK(student_id IS NOT NULL OR source_lead_id IS NOT NULL))"
+    },
+    {
+      "type": "table",
+      "name": "platform_admins",
+      "sql": "CREATE TABLE platform_admins(id TEXT PRIMARY KEY,username TEXT NOT NULL UNIQUE,salt TEXT NOT NULL,digest TEXT NOT NULL,totp_enc TEXT NOT NULL,last_totp_step INTEGER NOT NULL DEFAULT -1,active INTEGER NOT NULL DEFAULT 1,created_at INTEGER NOT NULL, role TEXT NOT NULL DEFAULT 'owner' CHECK(role IN ('owner','consultant')))"
+    },
+    {
+      "type": "table",
+      "name": "platform_announcements",
+      "sql": "CREATE TABLE platform_announcements(id TEXT PRIMARY KEY,title TEXT NOT NULL,content TEXT NOT NULL,roles TEXT NOT NULL,starts_at INTEGER NOT NULL,ends_at INTEGER,created_at INTEGER NOT NULL,created_by TEXT NOT NULL, withdrawn_at INTEGER, withdrawn_by TEXT, withdrawal_reason TEXT)"
+    },
+    {
+      "type": "table",
+      "name": "platform_audit",
+      "sql": "CREATE TABLE platform_audit(id TEXT PRIMARY KEY,at INTEGER NOT NULL,admin_id TEXT NOT NULL,action TEXT NOT NULL,tenant_id TEXT,target TEXT,detail TEXT NOT NULL,reason TEXT,ip TEXT NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "platform_phone_index",
+      "sql": "CREATE TABLE platform_phone_index (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),user_id TEXT NOT NULL,phone_hmac_platform TEXT NOT NULL,\n PRIMARY KEY(tenant_id,user_id),FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "platform_sessions",
+      "sql": "CREATE TABLE platform_sessions(token_hash TEXT PRIMARY KEY,admin_id TEXT NOT NULL REFERENCES platform_admins(id),expires_at INTEGER NOT NULL,last_seen_at INTEGER NOT NULL,ip TEXT NOT NULL,ua TEXT NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "platform_state",
+      "sql": "CREATE TABLE platform_state(id TEXT PRIMARY KEY,value TEXT NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "poster_outputs",
+      "sql": "CREATE TABLE poster_outputs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,template_id TEXT NOT NULL REFERENCES poster_templates(id),user_id TEXT NOT NULL,action TEXT NOT NULL CHECK(action IN('view','download','save')),at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "poster_templates",
+      "sql": "CREATE TABLE poster_templates(id TEXT PRIMARY KEY,campaign_id TEXT NOT NULL REFERENCES campaigns(id),image_key TEXT NOT NULL REFERENCES promo_images(id),width INTEGER NOT NULL,height INTEGER NOT NULL,slots TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1)"
+    },
+    {
+      "type": "table",
+      "name": "promo_followups",
+      "sql": "CREATE TABLE promo_followups(\n  tenant_id TEXT NOT NULL REFERENCES tenants(id),\n  id TEXT NOT NULL,\n  campaign_id TEXT NOT NULL REFERENCES campaigns(id),\n  admin_id TEXT NOT NULL REFERENCES platform_admins(id),\n  text TEXT NOT NULL CHECK(length(text) BETWEEN 1 AND 500),\n  created_at INTEGER NOT NULL,\n  PRIMARY KEY(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "promo_images",
+      "sql": "CREATE TABLE promo_images(id TEXT NOT NULL,tenant_id TEXT NOT NULL,owner_id TEXT NOT NULL,kind TEXT NOT NULL,mime TEXT,width INTEGER,height INTEGER,parts INTEGER NOT NULL DEFAULT 0,part_keys TEXT NOT NULL DEFAULT '[]',bytes INTEGER NOT NULL DEFAULT 0,ready INTEGER NOT NULL DEFAULT 0,version INTEGER NOT NULL DEFAULT 1,created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),UNIQUE(id))"
+    },
+    {
+      "type": "table",
+      "name": "promo_user_notices",
+      "sql": "CREATE TABLE promo_user_notices(\n  tenant_id TEXT NOT NULL REFERENCES tenants(id),\n  user_id TEXT NOT NULL,\n  campaign_id TEXT NOT NULL REFERENCES campaigns(id),\n  dismissed_at INTEGER,\n  deadline_shown_at INTEGER,\n  PRIMARY KEY(tenant_id,user_id,campaign_id),\n  FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "referrals",
+      "sql": "CREATE TABLE referrals(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,name TEXT NOT NULL,grade TEXT NOT NULL DEFAULT '',direction TEXT NOT NULL DEFAULT '',intention TEXT NOT NULL,parent_phone_enc TEXT NOT NULL,consent_name TEXT NOT NULL,consent_at TEXT NOT NULL,consent_method TEXT NOT NULL,consent_operator TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'submitted' CHECK(status IN ('submitted','received','withdrawn')),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "renewal_reminders",
+      "sql": "CREATE TABLE renewal_reminders (\n  tenant_id TEXT NOT NULL REFERENCES tenants(id),\n  id TEXT NOT NULL,\n  student_id TEXT NOT NULL,\n  course_type_id TEXT NOT NULL,\n  scope_kind TEXT NOT NULL CHECK(scope_kind IN ('type','category')),\n  scope_id TEXT NOT NULL,\n  package_ids_json TEXT NOT NULL CHECK(json_valid(package_ids_json) AND json_type(package_ids_json)='array'),\n  channel TEXT NOT NULL CHECK(channel IN ('image','text')),\n  sent_at INTEGER NOT NULL,\n  created_at INTEGER NOT NULL,\n  created_by TEXT NOT NULL,\n  updated_at INTEGER NOT NULL,\n  updated_by TEXT NOT NULL,\n  version INTEGER NOT NULL DEFAULT 1,\n  deleted_at INTEGER,\n  PRIMARY KEY(tenant_id,id),\n  FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),\n  FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "report_classes",
+      "sql": "CREATE TABLE report_classes(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,subject TEXT NOT NULL,name TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1 CHECK(active IN(0,1)),source TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "report_dimensions",
+      "sql": "CREATE TABLE report_dimensions(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,class_id TEXT NOT NULL,dim_key TEXT NOT NULL,retired INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,class_id,dim_key),FOREIGN KEY(tenant_id,class_id) REFERENCES report_classes(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "schedule_enrollments",
+      "sql": "CREATE TABLE schedule_enrollments(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,template_id TEXT NOT NULL,student_id TEXT NOT NULL,date_from TEXT NOT NULL,date_to TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,template_id) REFERENCES schedule_templates(tenant_id,id), FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "schedule_templates",
+      "sql": "CREATE TABLE schedule_templates(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,teacher_id TEXT NOT NULL,assistant_id TEXT,course_type_id TEXT NOT NULL,location_id TEXT,weekday INTEGER NOT NULL,start_time TEXT NOT NULL,duration INTEGER NOT NULL,units REAL NOT NULL,mode TEXT NOT NULL DEFAULT 'offline',date_from TEXT NOT NULL,date_to TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1,note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, class_id TEXT, PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id), FOREIGN KEY(tenant_id,assistant_id) REFERENCES teachers(tenant_id,id), FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id), FOREIGN KEY(tenant_id,location_id) REFERENCES locations(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "security_limits",
+      "sql": "CREATE TABLE security_limits(key TEXT PRIMARY KEY,count INTEGER NOT NULL,window_start INTEGER NOT NULL,locked_until INTEGER NOT NULL DEFAULT 0)"
+    },
+    {
+      "type": "table",
+      "name": "sessions",
+      "sql": "CREATE TABLE sessions (\n tenant_id TEXT NOT NULL,id TEXT NOT NULL,token_hash TEXT NOT NULL,user_id TEXT NOT NULL,expires_at INTEGER NOT NULL,last_seen_at INTEGER NOT NULL,idle_ms INTEGER,\n ip TEXT NOT NULL,ua TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, kind TEXT NOT NULL DEFAULT 'path' CHECK(kind IN ('root','path')),\n PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,token_hash),FOREIGN KEY(tenant_id,user_id) REFERENCES users(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "setting_asset_refs",
+      "sql": "CREATE TABLE setting_asset_refs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,image_id TEXT NOT NULL,entity TEXT NOT NULL,entity_id TEXT NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,image_id) REFERENCES gallery_images(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "setting_changes",
+      "sql": "CREATE TABLE setting_changes(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,suggestion_id TEXT NOT NULL,payload_json TEXT NOT NULL CHECK(json_valid(payload_json)),before_json TEXT NOT NULL CHECK(json_valid(before_json)),after_json TEXT, status TEXT NOT NULL CHECK(status IN('pending','approved','rejected','reverted')),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,suggestion_id) REFERENCES ai_suggestions(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "setting_imports",
+      "sql": "CREATE TABLE setting_imports(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,owner_id TEXT NOT NULL,rows_json TEXT NOT NULL CHECK(json_valid(rows_json)),price_rev INTEGER NOT NULL,expires_at INTEGER NOT NULL,consumed INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "settlements",
+      "sql": "CREATE TABLE settlements(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,month TEXT NOT NULL,locked INTEGER NOT NULL DEFAULT 0,summary TEXT NOT NULL DEFAULT '{}',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, status TEXT NOT NULL DEFAULT 'draft', submitted_by TEXT, submitted_at INTEGER, submitted_revision INTEGER, approved_by TEXT, approved_at INTEGER, snapshot_token TEXT, reason TEXT NOT NULL DEFAULT '', total_amount INTEGER NOT NULL DEFAULT 0 CHECK(typeof(total_amount)='integer'), tuition_amount INTEGER NOT NULL DEFAULT 0 CHECK(typeof(tuition_amount)='integer'), cost_amount INTEGER NOT NULL DEFAULT 0 CHECK(typeof(cost_amount)='integer'), profit_amount INTEGER NOT NULL DEFAULT 0 CHECK(typeof(profit_amount)='integer'), submitted_fingerprint TEXT,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "share_links",
+      "sql": "CREATE TABLE share_links(\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,plan_id TEXT NOT NULL,revision_id TEXT NOT NULL,token_hash TEXT NOT NULL UNIQUE,\n expires_at INTEGER NOT NULL,revoked_at INTEGER,visits INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,\n PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,plan_id) REFERENCES plans(tenant_id,id),FOREIGN KEY(tenant_id,revision_id) REFERENCES plan_revisions(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "stage_rules",
+      "sql": "CREATE TABLE stage_rules(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "stage_types",
+      "sql": "CREATE TABLE stage_types(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,subject TEXT NOT NULL,name TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1 CHECK(active IN(0,1)),source TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "student_balances_ledger",
+      "sql": "CREATE TABLE student_balances_ledger (\n  tenant_id TEXT NOT NULL, id TEXT NOT NULL, student_id TEXT NOT NULL,\n  type TEXT NOT NULL CHECK(type IN ('deposit','redeem','refund','adjust')),\n  amount INTEGER NOT NULL CHECK(amount<>0 AND typeof(amount)='integer'),\n  payment_id TEXT, package_id TEXT,\n  reason TEXT NOT NULL,\n  created_at INTEGER NOT NULL, created_by TEXT NOT NULL,\n  updated_at INTEGER NOT NULL, updated_by TEXT NOT NULL,\n  version INTEGER NOT NULL, deleted_at INTEGER,\n  PRIMARY KEY(tenant_id,id),\n  FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),\n  FOREIGN KEY(tenant_id,payment_id) REFERENCES student_payments(tenant_id,id),\n  FOREIGN KEY(tenant_id,package_id) REFERENCES packages(tenant_id,id),\n  CHECK((type='deposit' AND amount>0 AND payment_id IS NOT NULL)\n    OR (type='redeem' AND amount<0 AND package_id IS NOT NULL)\n    OR (type='refund' AND amount<0) OR type='adjust')\n)"
+    },
+    {
+      "type": "table",
+      "name": "student_payment_allocations",
+      "sql": "CREATE TABLE student_payment_allocations (\n  tenant_id TEXT NOT NULL, id TEXT NOT NULL, student_id TEXT NOT NULL,\n  package_id TEXT NOT NULL, payment_id TEXT, ledger_id TEXT,\n  amount INTEGER NOT NULL CHECK(amount>0 AND typeof(amount)='integer'),\n  created_at INTEGER NOT NULL, created_by TEXT NOT NULL,\n  updated_at INTEGER NOT NULL, updated_by TEXT NOT NULL,\n  version INTEGER NOT NULL, deleted_at INTEGER,\n  PRIMARY KEY(tenant_id,id),\n  FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),\n  FOREIGN KEY(tenant_id,package_id) REFERENCES packages(tenant_id,id),\n  FOREIGN KEY(tenant_id,payment_id) REFERENCES student_payments(tenant_id,id),\n  FOREIGN KEY(tenant_id,ledger_id) REFERENCES student_balances_ledger(tenant_id,id),\n  CHECK((payment_id IS NOT NULL)<>(ledger_id IS NOT NULL))\n)"
+    },
+    {
+      "type": "table",
+      "name": "student_payment_resolutions",
+      "sql": "CREATE TABLE student_payment_resolutions (\n  tenant_id TEXT NOT NULL, id TEXT NOT NULL,\n  student_id TEXT NOT NULL,\n  kind TEXT NOT NULL CHECK(kind IN ('tuition','other_income')),\n  stage_id TEXT, other_category TEXT CHECK(other_category IN ('报名费','教材费','其他')),\n  other_note TEXT NOT NULL,\n  recognized_date TEXT,\n  created_at INTEGER NOT NULL, created_by TEXT NOT NULL,\n  updated_at INTEGER NOT NULL, updated_by TEXT NOT NULL,\n  version INTEGER NOT NULL, deleted_at INTEGER,\n  PRIMARY KEY(tenant_id,id),\n  FOREIGN KEY(tenant_id,id) REFERENCES student_payments(tenant_id,id),\n  FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),\n  FOREIGN KEY(tenant_id,stage_id) REFERENCES student_stages(tenant_id,id),\n  CHECK((kind='other_income' AND other_category IS NOT NULL AND recognized_date IS NOT NULL)\n    OR (kind='tuition' AND other_category IS NULL AND recognized_date IS NULL))\n)"
+    },
+    {
+      "type": "table",
+      "name": "student_payments",
+      "sql": "CREATE TABLE student_payments(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,package_id TEXT,paid_at TEXT NOT NULL,method TEXT NOT NULL DEFAULT '',note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, amount INTEGER NOT NULL DEFAULT 0 CHECK(typeof(amount)='integer' AND amount>=0),PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),FOREIGN KEY(tenant_id,package_id) REFERENCES packages(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "student_routines",
+      "sql": "CREATE TABLE student_routines(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,weekday INTEGER NOT NULL,time TEXT NOT NULL,content TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "student_schedule_blocks",
+      "sql": "CREATE TABLE student_schedule_blocks(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,weekday INTEGER NOT NULL,start_time TEXT NOT NULL,end_time TEXT NOT NULL,label TEXT NOT NULL DEFAULT '',active INTEGER NOT NULL DEFAULT 1,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, PRIMARY KEY(tenant_id,id), FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "student_stages",
+      "sql": "CREATE TABLE student_stages(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,student_id TEXT NOT NULL,name TEXT NOT NULL,date_from TEXT,date_to TEXT,goal TEXT NOT NULL DEFAULT '',status TEXT NOT NULL DEFAULT 'active',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "students",
+      "sql": "CREATE TABLE students(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,gender TEXT NOT NULL DEFAULT '',birth_year INTEGER,school TEXT NOT NULL DEFAULT '',grade TEXT NOT NULL DEFAULT '',direction TEXT NOT NULL DEFAULT '',phone_enc TEXT,parent_name TEXT NOT NULL DEFAULT '',parent_phone_enc TEXT,status TEXT NOT NULL DEFAULT 'active',notes TEXT NOT NULL DEFAULT '',sort_order INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, billing_mode TEXT NOT NULL DEFAULT 'package', report_class_id TEXT, source_lead_id TEXT, nickname TEXT NOT NULL DEFAULT 'X 同学', parent_consent_media INTEGER NOT NULL DEFAULT 0 CHECK(parent_consent_media IN (0,1)), PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "style_pack_scopes",
+      "sql": "CREATE TABLE style_pack_scopes(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,pack_id TEXT NOT NULL REFERENCES style_packs(id),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,pack_id))"
+    },
+    {
+      "type": "table",
+      "name": "style_pack_versions",
+      "sql": "CREATE TABLE style_pack_versions(id TEXT NOT NULL UNIQUE,pack_id TEXT NOT NULL REFERENCES style_packs(id),version TEXT NOT NULL,manifest_json TEXT NOT NULL CHECK(json_valid(manifest_json)),created_at INTEGER NOT NULL,PRIMARY KEY(pack_id,version))"
+    },
+    {
+      "type": "table",
+      "name": "style_packs",
+      "sql": "CREATE TABLE style_packs(id TEXT PRIMARY KEY,name TEXT NOT NULL,current_version TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1,scope_all INTEGER NOT NULL DEFAULT 1,default_plan INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "submission_people",
+      "sql": "CREATE TABLE submission_people (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,submission_id TEXT NOT NULL,participant_id TEXT NOT NULL,student_id TEXT NOT NULL,\n attendance TEXT NOT NULL CHECK(attendance IN ('planned','attended','student_leave','no_show','teacher_leave','cancelled')),comment TEXT NOT NULL DEFAULT '',\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,\n PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,submission_id) REFERENCES lesson_submissions(tenant_id,id),FOREIGN KEY(tenant_id,participant_id) REFERENCES lesson_participants(tenant_id,id),FOREIGN KEY(tenant_id,student_id) REFERENCES students(tenant_id,id),UNIQUE(tenant_id,submission_id,participant_id))"
+    },
+    {
+      "type": "table",
+      "name": "teacher_adjustments",
+      "sql": "CREATE TABLE teacher_adjustments(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,teacher_id TEXT NOT NULL,month TEXT NOT NULL,amount INTEGER NOT NULL CHECK(typeof(amount)='integer'),reason TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "teacher_payments",
+      "sql": "CREATE TABLE teacher_payments(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,teacher_id TEXT NOT NULL,month TEXT NOT NULL,amount INTEGER NOT NULL CHECK(typeof(amount)='integer' AND amount>0),paid_at TEXT NOT NULL,note TEXT NOT NULL DEFAULT '',created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "teacher_rates",
+      "sql": "CREATE TABLE teacher_rates(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,teacher_id TEXT NOT NULL,course_type_id TEXT NOT NULL,format TEXT NOT NULL,rate_basis TEXT NOT NULL DEFAULT 'legacy',rate INTEGER NOT NULL CHECK(typeof(rate)='integer' AND rate>=0),effective_from TEXT NOT NULL,effective_to TEXT NOT NULL,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,teacher_id) REFERENCES teachers(tenant_id,id),FOREIGN KEY(tenant_id,course_type_id) REFERENCES course_types(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "teachers",
+      "sql": "CREATE TABLE teachers(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,name TEXT NOT NULL,phone_enc TEXT,subjects TEXT NOT NULL DEFAULT '[]',employment TEXT NOT NULL DEFAULT 'part_time',status TEXT NOT NULL DEFAULT 'active',sort_order INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, show_in_timetable INTEGER NOT NULL DEFAULT 1 CHECK(show_in_timetable IN (0,1)), PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_ai_overrides",
+      "sql": "CREATE TABLE tenant_ai_overrides (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL DEFAULT 'limits',fast_daily_limit INTEGER,deep_daily_limit INTEGER,\n PRIMARY KEY(tenant_id,id),CHECK(fast_daily_limit IS NULL OR fast_daily_limit>=0),CHECK(deep_daily_limit IS NULL OR deep_daily_limit>=0)\n)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_brand",
+      "sql": "CREATE TABLE tenant_brand(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,qr_image_id TEXT,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_branding",
+      "sql": "CREATE TABLE tenant_branding (\n tenant_id TEXT NOT NULL REFERENCES tenants(id), id TEXT NOT NULL DEFAULT 'brand', display_name TEXT NOT NULL, logo TEXT, login_bg TEXT,\n theme_color TEXT NOT NULL DEFAULT '#2B4C7E',welcome_text TEXT NOT NULL DEFAULT '',consultant_qr TEXT,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL, version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, contact_text TEXT NOT NULL DEFAULT '',\n PRIMARY KEY(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_compliance_terms",
+      "sql": "CREATE TABLE tenant_compliance_terms(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,term TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1,version INTEGER NOT NULL DEFAULT 1,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,term))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_data_versions",
+      "sql": "CREATE TABLE tenant_data_versions(tenant_id TEXT PRIMARY KEY REFERENCES tenants(id),version INTEGER NOT NULL DEFAULT 0)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_domains",
+      "sql": "CREATE TABLE tenant_domains (domain TEXT PRIMARY KEY,tenant_id TEXT NOT NULL REFERENCES tenants(id),kind TEXT NOT NULL,verified INTEGER NOT NULL DEFAULT 0)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_export_runs",
+      "sql": "CREATE TABLE tenant_export_runs (\n  tenant_id TEXT PRIMARY KEY REFERENCES tenants(id),\n  id TEXT NOT NULL UNIQUE,\n  admin_id TEXT NOT NULL,\n  tenant_version INTEGER NOT NULL,\n  data_version INTEGER NOT NULL,\n  table_index INTEGER NOT NULL DEFAULT 0,\n  next_offset INTEGER NOT NULL DEFAULT 0,\n  completed_at INTEGER\n)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_modules",
+      "sql": "CREATE TABLE tenant_modules(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,enabled INTEGER NOT NULL DEFAULT 1,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_price_lists",
+      "sql": "CREATE TABLE tenant_price_lists(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_profile",
+      "sql": "CREATE TABLE tenant_profile(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,doc_json TEXT NOT NULL CHECK(json_valid(doc_json)),created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_promo_assets",
+      "sql": "CREATE TABLE tenant_promo_assets(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL DEFAULT 'brand',logo_key TEXT REFERENCES promo_images(id),qr_key TEXT REFERENCES promo_images(id),updated_by TEXT NOT NULL,updated_at INTEGER NOT NULL,version INTEGER NOT NULL DEFAULT 1, qr_caption TEXT NOT NULL DEFAULT '' CHECK(length(qr_caption)<=12),PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_purge_jobs",
+      "sql": "CREATE TABLE tenant_purge_jobs (\n  tenant_id TEXT PRIMARY KEY REFERENCES tenants(id),\n  id TEXT NOT NULL UNIQUE,\n  admin_id TEXT NOT NULL,\n  tenant_name TEXT NOT NULL,\n  reason TEXT NOT NULL,\n  fingerprint TEXT NOT NULL,\n  ip TEXT NOT NULL,\n  created_at INTEGER NOT NULL,\n  phase INTEGER NOT NULL DEFAULT -1,\n  counts TEXT NOT NULL DEFAULT '{}'\n)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_role_rights",
+      "sql": "CREATE TABLE tenant_role_rights(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,role TEXT NOT NULL,module TEXT NOT NULL,action TEXT NOT NULL,allowed INTEGER NOT NULL,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,role,module,action))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_settings",
+      "sql": "CREATE TABLE tenant_settings(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,value TEXT NOT NULL,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "tenant_slug_aliases",
+      "sql": "CREATE TABLE tenant_slug_aliases (slug TEXT PRIMARY KEY COLLATE NOCASE,tenant_id TEXT NOT NULL REFERENCES tenants(id),expires_at INTEGER NOT NULL)"
+    },
+    {
+      "type": "table",
+      "name": "tenant_subjects",
+      "sql": "CREATE TABLE tenant_subjects (\n tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,pack_version TEXT NOT NULL DEFAULT '0.1',\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL, imported_at INTEGER, content_json TEXT,PRIMARY KEY(tenant_id,id)\n)"
+    },
+    {
+      "type": "table",
+      "name": "tenants",
+      "sql": "CREATE TABLE tenants (\n id TEXT PRIMARY KEY, slug TEXT NOT NULL UNIQUE COLLATE NOCASE,\n name TEXT NOT NULL, type TEXT NOT NULL DEFAULT '其他', city TEXT NOT NULL DEFAULT '',\n status TEXT NOT NULL CHECK(status IN ('active','paused')), expires_at TEXT,\n staff_seat_limit INTEGER NOT NULL CHECK(staff_seat_limit>=1), student_seat_limit INTEGER NOT NULL CHECK(student_seat_limit>=0),\n contact_enc TEXT, created_at INTEGER NOT NULL, created_by TEXT NOT NULL, updated_at INTEGER NOT NULL, updated_by TEXT NOT NULL,\n version INTEGER NOT NULL DEFAULT 1, deleted_at INTEGER\n, disabled_at INTEGER, disabled_by TEXT, disabled_reason TEXT)"
+    },
+    {
+      "type": "table",
+      "name": "trusted_imports",
+      "sql": "CREATE TABLE trusted_imports(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,PRIMARY KEY(tenant_id,id))"
+    },
+    {
+      "type": "table",
+      "name": "users",
+      "sql": "CREATE TABLE users (\n tenant_id TEXT NOT NULL REFERENCES tenants(id), id TEXT NOT NULL,phone_hmac TEXT NOT NULL,phone_enc TEXT NOT NULL,phone_last4 TEXT NOT NULL,name TEXT NOT NULL,\n roles TEXT NOT NULL,teacher_id TEXT,student_id TEXT,salt TEXT NOT NULL,digest TEXT NOT NULL,iterations INTEGER NOT NULL DEFAULT 100000,\n must_change INTEGER NOT NULL DEFAULT 1,active INTEGER NOT NULL DEFAULT 1,\n created_at INTEGER NOT NULL,created_by TEXT NOT NULL,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1,deleted_at INTEGER, platform_phone_hmac TEXT, disabled_reason TEXT CHECK(disabled_reason IS NULL OR disabled_reason IN ('manual','no_children')),\n PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,phone_hmac)\n)"
+    },
+    {
+      "type": "trigger",
+      "name": "absence_revision_delete",
+      "sql": "CREATE TRIGGER absence_revision_delete AFTER DELETE ON tenant_settings WHEN OLD.id='absence_policies'\nBEGIN INSERT INTO tenant_data_versions(tenant_id,version) VALUES(OLD.tenant_id,1) ON CONFLICT(tenant_id) DO UPDATE SET version=version+1; END"
+    },
+    {
+      "type": "trigger",
+      "name": "absence_revision_insert",
+      "sql": "CREATE TRIGGER absence_revision_insert AFTER INSERT ON tenant_settings WHEN NEW.id='absence_policies'\nBEGIN INSERT INTO tenant_data_versions(tenant_id,version) VALUES(NEW.tenant_id,1) ON CONFLICT(tenant_id) DO UPDATE SET version=version+1; END"
+    },
+    {
+      "type": "trigger",
+      "name": "absence_revision_update",
+      "sql": "CREATE TRIGGER absence_revision_update AFTER UPDATE OF value ON tenant_settings WHEN NEW.id='absence_policies' AND NEW.value IS NOT OLD.value\nBEGIN INSERT INTO tenant_data_versions(tenant_id,version) VALUES(NEW.tenant_id,1) ON CONFLICT(tenant_id) DO UPDATE SET version=version+1; END"
+    },
+    {
+      "type": "trigger",
+      "name": "ai_usage_immutable",
+      "sql": "CREATE TRIGGER ai_usage_immutable BEFORE UPDATE ON ai_usage BEGIN SELECT RAISE(ABORT,'ai_usage_immutable'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "audit_no_delete",
+      "sql": "CREATE TRIGGER audit_no_delete BEFORE DELETE ON audit_log\nWHEN NOT EXISTS(SELECT 1 FROM tenant_purge_jobs j WHERE j.tenant_id=OLD.tenant_id)\nBEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "audit_no_update",
+      "sql": "CREATE TRIGGER audit_no_update BEFORE UPDATE ON audit_log BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "auth_no_delete",
+      "sql": "CREATE TRIGGER auth_no_delete BEFORE DELETE ON auth_log\nWHEN NOT EXISTS(SELECT 1 FROM tenant_purge_jobs j WHERE j.tenant_id=OLD.tenant_id)\nBEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "auth_no_update",
+      "sql": "CREATE TRIGGER auth_no_update BEFORE UPDATE ON auth_log BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "balance_ledger_owner",
+      "sql": "CREATE TRIGGER balance_ledger_owner BEFORE INSERT ON student_balances_ledger\nWHEN (NEW.payment_id IS NOT NULL AND NOT EXISTS (\n  SELECT 1 FROM student_payments p\n  WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.payment_id AND p.student_id=NEW.student_id\n)) OR (NEW.package_id IS NOT NULL AND NOT EXISTS (\n  SELECT 1 FROM packages p\n  WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.package_id AND p.student_id=NEW.student_id\n))\nBEGIN SELECT RAISE(ABORT,'balance_ledger_owner'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "comment_person_reference",
+      "sql": "CREATE TRIGGER comment_person_reference BEFORE INSERT ON lesson_comments WHEN NEW.student_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS (\n SELECT 1 FROM lesson_participants p WHERE p.tenant_id=NEW.tenant_id AND p.lesson_id=NEW.lesson_id AND p.student_id=NEW.student_id AND p.deleted_at IS NULL\n ) THEN RAISE(ABORT,'invalid_comment_person') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "content_revision_immutable",
+      "sql": "CREATE TRIGGER content_revision_immutable BEFORE UPDATE ON content_revisions BEGIN SELECT RAISE(ABORT,'content_revision_immutable'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "course_limits_course_types_insert",
+      "sql": "CREATE TRIGGER course_limits_course_types_insert BEFORE INSERT ON course_types WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) AND ((NEW.units_per_lesson<1 OR NEW.default_minutes NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "course_limits_course_types_update",
+      "sql": "CREATE TRIGGER course_limits_course_types_update BEFORE UPDATE ON course_types WHEN ((NEW.units_per_lesson IS NOT OLD.units_per_lesson AND NEW.units_per_lesson<1) OR (NEW.default_minutes IS NOT OLD.default_minutes AND NEW.default_minutes NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "course_limits_lessons_insert",
+      "sql": "CREATE TRIGGER course_limits_lessons_insert BEFORE INSERT ON lessons WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) AND ((NEW.units<1 OR NEW.duration NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "course_limits_lessons_update",
+      "sql": "CREATE TRIGGER course_limits_lessons_update BEFORE UPDATE ON lessons WHEN ((NEW.units IS NOT OLD.units AND NEW.units<1) OR (NEW.duration IS NOT OLD.duration AND NEW.duration NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "course_limits_schedule_templates_insert",
+      "sql": "CREATE TRIGGER course_limits_schedule_templates_insert BEFORE INSERT ON schedule_templates WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) AND ((NEW.units<1 OR NEW.duration NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "course_limits_schedule_templates_update",
+      "sql": "CREATE TRIGGER course_limits_schedule_templates_update BEFORE UPDATE ON schedule_templates WHEN ((NEW.units IS NOT OLD.units AND NEW.units<1) OR (NEW.duration IS NOT OLD.duration AND NEW.duration NOT IN (30,45,60))) BEGIN SELECT RAISE(ABORT,'course_duration_or_units'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "credit_debt_participant_owner",
+      "sql": "CREATE TRIGGER credit_debt_participant_owner BEFORE INSERT ON credit_debts\nWHEN NOT EXISTS (\n  SELECT 1 FROM lesson_participants p\n  WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.participant_id\n    AND p.student_id=NEW.student_id AND p.lesson_id=NEW.lesson_id\n)\nBEGIN SELECT RAISE(ABORT,'credit_debt_participant_owner'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "credit_income_consume",
+      "sql": "CREATE TRIGGER credit_income_consume AFTER INSERT ON package_transactions\nWHEN NEW.type='consume' AND NEW.deleted_at IS NULL\n AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id)\nBEGIN\n  INSERT INTO credit_income_entries(tenant_id,id,booked_on,amount,unpriced_units,source,created_at,created_by,updated_at,updated_by,version)\n  SELECT NEW.tenant_id,NEW.id,NEW.date,\n    CASE WHEN p.unit_price IS NULL THEN 0 ELSE (CAST(ROUND(-NEW.delta*100) AS INTEGER)*p.unit_price+50)/100 END,\n    CASE WHEN p.unit_price IS NULL THEN -NEW.delta ELSE 0 END,\n    CASE WHEN p.unit_price IS NULL THEN 'unpriced' WHEN NEW.note='补扣欠课时' THEN 'debt_repayment' ELSE 'checkout' END,\n    NEW.created_at,NEW.created_by,NEW.updated_at,NEW.updated_by,1\n  FROM packages p WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.package_id;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "credit_income_price_completion",
+      "sql": "CREATE TRIGGER credit_income_price_completion AFTER UPDATE OF unit_price ON packages\nWHEN OLD.unit_price IS NULL AND NEW.unit_price IS NOT NULL\n AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id)\n AND EXISTS(\n   SELECT 1 FROM credit_income_entries e JOIN package_transactions x ON x.tenant_id=e.tenant_id AND x.id=e.id\n   WHERE e.tenant_id=NEW.tenant_id AND x.package_id=NEW.id AND e.reversed_by IS NULL AND e.unpriced_units<>0 AND e.deleted_at IS NULL\n )\nBEGIN\n  SELECT RAISE(ABORT,'credit_price_locked') WHERE EXISTS(\n    SELECT 1 FROM settlements WHERE tenant_id=NEW.tenant_id AND month=substr(date(NEW.updated_at/1000,'unixepoch','+8 hours'),1,7)\n      AND locked=1 AND deleted_at IS NULL\n  );\n  UPDATE credit_income_entries\n    SET amount=CASE WHEN unpriced_units<0 THEN -1 ELSE 1 END *\n      ((CAST(ROUND(ABS(unpriced_units)*100) AS INTEGER)*NEW.unit_price+50)/100),\n      unpriced_units=0,booked_on=date(NEW.updated_at/1000,'unixepoch','+8 hours'),source='price_completion',\n      updated_at=NEW.updated_at,updated_by=NEW.updated_by,version=version+1\n    WHERE tenant_id=NEW.tenant_id AND reversed_by IS NULL AND unpriced_units<>0 AND deleted_at IS NULL\n      AND id IN (SELECT id FROM package_transactions WHERE tenant_id=NEW.tenant_id AND package_id=NEW.id);\n  INSERT INTO audit_log(tenant_id,id,at,actor_id,actor_label,module,action,entity_id,summary,before_json,after_json,money_version)\n  VALUES(NEW.tenant_id,'aud_'||lower(hex(randomblob(12))),NEW.updated_at,NEW.updated_by,\n    COALESCE((SELECT name FROM users WHERE tenant_id=NEW.tenant_id AND id=NEW.updated_by),'系统维护'),\n    'tuition','price_completion',NEW.id,'补录课时单价并确认收入 '||changes()||' 笔',NULL,\n    json_object('unit_price',NEW.unit_price,'booked_on',date(NEW.updated_at/1000,'unixepoch','+8 hours')),1);\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "credit_income_reverse",
+      "sql": "CREATE TRIGGER credit_income_reverse AFTER INSERT ON package_transactions\nWHEN NEW.type='reversal' AND NEW.deleted_at IS NULL\n AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id)\nBEGIN\n  UPDATE credit_income_entries SET reversed_by=NEW.id,updated_at=NEW.updated_at,updated_by=NEW.updated_by,version=version+1\n  WHERE tenant_id=NEW.tenant_id AND reversed_by IS NULL AND deleted_at IS NULL AND id IN (\n    SELECT x.id FROM package_transactions x WHERE x.tenant_id=NEW.tenant_id AND x.participant_id=NEW.participant_id\n      AND x.package_id=NEW.package_id AND x.deleted_at IS NULL AND x.id<>NEW.id\n  );\n  INSERT INTO credit_income_entries(tenant_id,id,booked_on,amount,unpriced_units,source,reversed_by,created_at,created_by,updated_at,updated_by,version)\n  SELECT NEW.tenant_id,NEW.id,NEW.date,-COALESCE(SUM(e.amount),0),ROUND(-COALESCE(SUM(e.unpriced_units),0),2),\n    'reversal',NEW.id,NEW.created_at,NEW.created_by,NEW.updated_at,NEW.updated_by,1\n  FROM credit_income_entries e WHERE e.tenant_id=NEW.tenant_id AND e.reversed_by=NEW.id AND e.deleted_at IS NULL;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "guardian_capacity",
+      "sql": "CREATE TRIGGER guardian_capacity BEFORE INSERT ON guardian_links WHEN NEW.revoked_at IS NULL BEGIN\n SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM users WHERE tenant_id=NEW.tenant_id AND id=NEW.parent_user_id AND roles='[\"parent\"]' AND deleted_at IS NULL)\n THEN RAISE(ABORT,'guardian_parent_invalid') END;\n SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM students WHERE tenant_id=NEW.tenant_id AND id=NEW.student_id AND deleted_at IS NULL)\n THEN RAISE(ABORT,'guardian_student_invalid') END;\n SELECT CASE WHEN (SELECT COUNT(*) FROM guardian_links WHERE tenant_id=NEW.tenant_id AND student_id=NEW.student_id AND revoked_at IS NULL)>=4\n OR (SELECT COUNT(*) FROM guardian_links WHERE tenant_id=NEW.tenant_id AND parent_user_id=NEW.parent_user_id AND revoked_at IS NULL)>=10\n THEN RAISE(ABORT,'guardian_limit') END;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "guardian_last_child",
+      "sql": "CREATE TRIGGER guardian_last_child AFTER UPDATE OF revoked_at ON guardian_links WHEN OLD.revoked_at IS NULL AND NEW.revoked_at IS NOT NULL BEGIN\n UPDATE users SET active=0,disabled_reason='no_children',version=version+1,updated_at=NEW.updated_at,updated_by=NEW.updated_by\n WHERE tenant_id=NEW.tenant_id AND id=NEW.parent_user_id AND active=1\n AND NOT EXISTS(SELECT 1 FROM guardian_links WHERE tenant_id=NEW.tenant_id AND parent_user_id=NEW.parent_user_id AND revoked_at IS NULL);\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_password_choice",
+      "sql": "CREATE TRIGGER identity_password_choice AFTER UPDATE OF digest ON users BEGIN\n DELETE FROM login_choices WHERE tenant_id=NEW.tenant_id AND user_id=NEW.id;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_phone_revoke",
+      "sql": "CREATE TRIGGER identity_phone_revoke AFTER UPDATE OF phone_hmac ON users WHEN NEW.phone_hmac IS NOT OLD.phone_hmac BEGIN\n DELETE FROM sessions WHERE tenant_id=NEW.tenant_id AND user_id=NEW.id;\n DELETE FROM login_choices WHERE tenant_id=NEW.tenant_id AND user_id=NEW.id;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_staff_insert",
+      "sql": "CREATE TRIGGER identity_staff_insert BEFORE INSERT ON users WHEN NEW.active=1 AND NEW.deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM json_each(NEW.roles) WHERE value IN ('supervisor','consultant','academic','finance')) BEGIN\n SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE tenant_id=NEW.tenant_id AND active=1 AND deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM json_each(users.roles) WHERE value IN ('supervisor','consultant','academic','finance')))>=(SELECT staff_seat_limit FROM tenants WHERE id=NEW.tenant_id)\n THEN RAISE(ABORT,'staff_seat_limit') END;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_staff_update",
+      "sql": "CREATE TRIGGER identity_staff_update BEFORE UPDATE OF active,roles ON users WHEN NEW.active=1 AND NEW.deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM json_each(NEW.roles) WHERE value IN ('supervisor','consultant','academic','finance')) BEGIN\n SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE tenant_id=NEW.tenant_id AND id<>NEW.id AND active=1 AND deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM json_each(users.roles) WHERE value IN ('supervisor','consultant','academic','finance')))>=(SELECT staff_seat_limit FROM tenants WHERE id=NEW.tenant_id)\n THEN RAISE(ABORT,'staff_seat_limit') END;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_tenant_index",
+      "sql": "CREATE TRIGGER identity_tenant_index AFTER UPDATE OF status,deleted_at ON tenants BEGIN\n DELETE FROM platform_phone_index WHERE tenant_id=NEW.id;\n INSERT INTO platform_phone_index(tenant_id,user_id,phone_hmac_platform)\n SELECT tenant_id,id,platform_phone_hmac FROM users WHERE tenant_id=NEW.id AND active=1 AND deleted_at IS NULL AND platform_phone_hmac IS NOT NULL\n AND NEW.status='active' AND NEW.deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM json_each(users.roles) WHERE value IN ('supervisor','consultant','academic','finance'));\n DELETE FROM login_choices WHERE tenant_id=NEW.id;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_user_insert",
+      "sql": "CREATE TRIGGER identity_user_insert AFTER INSERT ON users BEGIN\n INSERT INTO platform_phone_index(tenant_id,user_id,phone_hmac_platform)\n SELECT NEW.tenant_id,NEW.id,NEW.platform_phone_hmac WHERE NEW.platform_phone_hmac IS NOT NULL AND NEW.active=1 AND NEW.deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id AND status='active' AND deleted_at IS NULL)\n AND EXISTS(SELECT 1 FROM json_each(NEW.roles) WHERE value IN ('supervisor','consultant','academic','finance'));\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "identity_user_update",
+      "sql": "CREATE TRIGGER identity_user_update AFTER UPDATE OF platform_phone_hmac,roles,active,deleted_at ON users BEGIN\n DELETE FROM platform_phone_index WHERE tenant_id=NEW.tenant_id AND user_id=NEW.id;\n INSERT INTO platform_phone_index(tenant_id,user_id,phone_hmac_platform)\n SELECT NEW.tenant_id,NEW.id,NEW.platform_phone_hmac WHERE NEW.platform_phone_hmac IS NOT NULL AND NEW.active=1 AND NEW.deleted_at IS NULL\n AND EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id AND status='active' AND deleted_at IS NULL)\n AND EXISTS(SELECT 1 FROM json_each(NEW.roles) WHERE value IN ('supervisor','consultant','academic','finance'));\n DELETE FROM login_choices WHERE tenant_id=NEW.tenant_id AND user_id=NEW.id;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "ledger_no_delete",
+      "sql": "CREATE TRIGGER ledger_no_delete BEFORE DELETE ON package_transactions WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "ledger_no_update",
+      "sql": "CREATE TRIGGER ledger_no_update BEFORE UPDATE ON package_transactions WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "ledger_student_reference",
+      "sql": "CREATE TRIGGER ledger_student_reference BEFORE INSERT ON package_transactions BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM packages WHERE tenant_id=NEW.tenant_id AND id=NEW.package_id AND student_id=NEW.student_id) THEN RAISE(ABORT,'invalid_package_student') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "lesson_submission_reference",
+      "sql": "CREATE TRIGGER lesson_submission_reference BEFORE UPDATE OF current_submission_id ON lessons WHEN NEW.current_submission_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM lesson_submissions r WHERE r.tenant_id=NEW.tenant_id AND r.id=NEW.current_submission_id AND r.lesson_id=NEW.id) THEN RAISE(ABORT,'invalid_lesson_submission') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "lessons_class_insert",
+      "sql": "CREATE TRIGGER lessons_class_insert BEFORE INSERT ON lessons WHEN NEW.class_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM classes WHERE tenant_id=NEW.tenant_id AND id=NEW.class_id) THEN RAISE(ABORT,'invalid_class_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "lessons_class_update",
+      "sql": "CREATE TRIGGER lessons_class_update BEFORE UPDATE OF class_id ON lessons WHEN NEW.class_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM classes WHERE tenant_id=NEW.tenant_id AND id=NEW.class_id) THEN RAISE(ABORT,'invalid_class_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "package_owner_immutable",
+      "sql": "CREATE TRIGGER package_owner_immutable BEFORE UPDATE OF tenant_id,student_id ON packages WHEN NEW.tenant_id IS NOT OLD.tenant_id OR NEW.student_id IS NOT OLD.student_id BEGIN SELECT RAISE(ABORT,'immutable_package_owner'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "package_stage_reference",
+      "sql": "CREATE TRIGGER package_stage_reference BEFORE INSERT ON packages WHEN NEW.stage_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM student_stages WHERE tenant_id=NEW.tenant_id AND id=NEW.stage_id AND student_id=NEW.student_id AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_stage_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "package_stage_update_reference",
+      "sql": "CREATE TRIGGER package_stage_update_reference BEFORE UPDATE OF stage_id,student_id ON packages WHEN NEW.stage_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM student_stages WHERE tenant_id=NEW.tenant_id AND id=NEW.stage_id AND student_id=NEW.student_id AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_stage_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_lesson_protect_delete",
+      "sql": "CREATE TRIGGER partner_lesson_protect_delete BEFORE DELETE ON lessons WHEN OLD.source_course_id IS NOT NULL AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=OLD.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_lesson_protect_update",
+      "sql": "CREATE TRIGGER partner_lesson_protect_update BEFORE UPDATE ON lessons WHEN OLD.source_course_id IS NOT NULL AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=OLD.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_participant_protect_delete",
+      "sql": "CREATE TRIGGER partner_participant_protect_delete BEFORE DELETE ON lesson_participants WHEN EXISTS(SELECT 1 FROM lessons WHERE tenant_id=OLD.tenant_id AND id=OLD.lesson_id AND source_course_id IS NOT NULL) AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=OLD.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_participant_protect_insert",
+      "sql": "CREATE TRIGGER partner_participant_protect_insert BEFORE INSERT ON lesson_participants WHEN EXISTS(SELECT 1 FROM lessons WHERE tenant_id=NEW.tenant_id AND id=NEW.lesson_id AND source_course_id IS NOT NULL) AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=NEW.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_participant_protect_update",
+      "sql": "CREATE TRIGGER partner_participant_protect_update BEFORE UPDATE ON lesson_participants WHEN EXISTS(SELECT 1 FROM lessons WHERE tenant_id=OLD.tenant_id AND id=OLD.lesson_id AND source_course_id IS NOT NULL) AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=OLD.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_source_insert",
+      "sql": "CREATE TRIGGER partner_source_insert BEFORE INSERT ON lessons WHEN (NEW.source_course_id IS NOT NULL OR NEW.source_session_id IS NOT NULL) AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=NEW.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "partner_source_update",
+      "sql": "CREATE TRIGGER partner_source_update BEFORE UPDATE OF source_course_id,source_session_id ON lessons WHEN NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=NEW.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "payment_allocation_owner",
+      "sql": "CREATE TRIGGER payment_allocation_owner BEFORE INSERT ON student_payment_allocations\nWHEN NOT EXISTS (\n  SELECT 1 FROM packages p\n  WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.package_id AND p.student_id=NEW.student_id\n) OR (NEW.payment_id IS NOT NULL AND NOT EXISTS (\n  SELECT 1 FROM student_payments p\n  WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.payment_id AND p.student_id=NEW.student_id\n)) OR (NEW.ledger_id IS NOT NULL AND NOT EXISTS (\n  SELECT 1 FROM student_balances_ledger l\n  WHERE l.tenant_id=NEW.tenant_id AND l.id=NEW.ledger_id AND l.student_id=NEW.student_id\n    AND l.package_id=NEW.package_id AND l.type='redeem' AND l.amount=-NEW.amount\n))\nBEGIN SELECT RAISE(ABORT,'payment_allocation_owner'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "payment_resolution_owner",
+      "sql": "CREATE TRIGGER payment_resolution_owner BEFORE INSERT ON student_payment_resolutions\nWHEN NOT EXISTS (\n  SELECT 1 FROM student_payments p\n  WHERE p.tenant_id=NEW.tenant_id AND p.id=NEW.id AND p.student_id=NEW.student_id\n) OR (NEW.stage_id IS NOT NULL AND NOT EXISTS (\n  SELECT 1 FROM student_stages s\n  WHERE s.tenant_id=NEW.tenant_id AND s.id=NEW.stage_id AND s.student_id=NEW.student_id\n))\nBEGIN SELECT RAISE(ABORT,'payment_resolution_owner'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "payment_student_reference",
+      "sql": "CREATE TRIGGER payment_student_reference BEFORE INSERT ON student_payments WHEN NEW.package_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM packages WHERE tenant_id=NEW.tenant_id AND id=NEW.package_id AND student_id=NEW.student_id) THEN RAISE(ABORT,'invalid_payment_student') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "payment_student_update",
+      "sql": "CREATE TRIGGER payment_student_update BEFORE UPDATE OF package_id,student_id,tenant_id ON student_payments WHEN NEW.package_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM packages WHERE tenant_id=NEW.tenant_id AND id=NEW.package_id AND student_id=NEW.student_id) THEN RAISE(ABORT,'invalid_payment_student') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "plan_context_immutable",
+      "sql": "CREATE TRIGGER plan_context_immutable BEFORE UPDATE ON plan_contexts BEGIN SELECT RAISE(ABORT,'plan_context_immutable'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "plan_element_identity",
+      "sql": "CREATE TRIGGER plan_element_identity BEFORE UPDATE ON plan_elements WHEN OLD.tenant_id IS NOT NEW.tenant_id OR OLD.id IS NOT NEW.id OR OLD.plan_id IS NOT NEW.plan_id OR OLD.kind IS NOT NEW.kind OR (OLD.kind='line' AND OLD.target_id IS NOT NEW.target_id) BEGIN SELECT RAISE(ABORT,'plan_element_identity'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "plan_revision_immutable",
+      "sql": "CREATE TRIGGER plan_revision_immutable BEFORE UPDATE ON plan_revisions BEGIN SELECT RAISE(ABORT,'plan_revision_immutable'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "plan_style_version_immutable",
+      "sql": "CREATE TRIGGER plan_style_version_immutable BEFORE UPDATE ON style_pack_versions BEGIN SELECT RAISE(ABORT,'style_version_immutable'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "platform_audit_no_delete",
+      "sql": "CREATE TRIGGER platform_audit_no_delete BEFORE DELETE ON platform_audit\nWHEN NOT EXISTS(SELECT 1 FROM tenant_purge_jobs j WHERE j.tenant_id=OLD.tenant_id)\nBEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "platform_audit_no_update",
+      "sql": "CREATE TRIGGER platform_audit_no_update BEFORE UPDATE ON platform_audit BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_course_types_insert",
+      "sql": "CREATE TRIGGER precision_course_types_insert BEFORE INSERT ON course_types WHEN ABS(NEW.units_per_lesson*100-ROUND(NEW.units_per_lesson*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_course_types_update",
+      "sql": "CREATE TRIGGER precision_course_types_update BEFORE UPDATE OF units_per_lesson ON course_types WHEN NEW.units_per_lesson IS NOT OLD.units_per_lesson AND ABS(NEW.units_per_lesson*100-ROUND(NEW.units_per_lesson*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_lesson_participants_insert",
+      "sql": "CREATE TRIGGER precision_lesson_participants_insert BEFORE INSERT ON lesson_participants WHEN ABS(NEW.deducted*100-ROUND(NEW.deducted*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_lesson_participants_update",
+      "sql": "CREATE TRIGGER precision_lesson_participants_update BEFORE UPDATE OF deducted ON lesson_participants WHEN NEW.deducted IS NOT OLD.deducted AND ABS(NEW.deducted*100-ROUND(NEW.deducted*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_lessons_insert",
+      "sql": "CREATE TRIGGER precision_lessons_insert BEFORE INSERT ON lessons WHEN ABS(NEW.units*100-ROUND(NEW.units*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_lessons_update",
+      "sql": "CREATE TRIGGER precision_lessons_update BEFORE UPDATE OF units ON lessons WHEN NEW.units IS NOT OLD.units AND ABS(NEW.units*100-ROUND(NEW.units*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_package_transactions_insert",
+      "sql": "CREATE TRIGGER precision_package_transactions_insert BEFORE INSERT ON package_transactions WHEN ABS(NEW.delta*100-ROUND(NEW.delta*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_package_transactions_update",
+      "sql": "CREATE TRIGGER precision_package_transactions_update BEFORE UPDATE OF delta ON package_transactions WHEN NEW.delta IS NOT OLD.delta AND ABS(NEW.delta*100-ROUND(NEW.delta*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_packages_insert",
+      "sql": "CREATE TRIGGER precision_packages_insert BEFORE INSERT ON packages WHEN ABS(NEW.units_total*100-ROUND(NEW.units_total*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_packages_update",
+      "sql": "CREATE TRIGGER precision_packages_update BEFORE UPDATE OF units_total ON packages WHEN NEW.units_total IS NOT OLD.units_total AND ABS(NEW.units_total*100-ROUND(NEW.units_total*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_schedule_templates_insert",
+      "sql": "CREATE TRIGGER precision_schedule_templates_insert BEFORE INSERT ON schedule_templates WHEN ABS(NEW.units*100-ROUND(NEW.units*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "precision_schedule_templates_update",
+      "sql": "CREATE TRIGGER precision_schedule_templates_update BEFORE UPDATE OF units ON schedule_templates WHEN NEW.units IS NOT OLD.units AND ABS(NEW.units*100-ROUND(NEW.units*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "promo_image_pending_limit",
+      "sql": "CREATE TRIGGER promo_image_pending_limit BEFORE INSERT ON promo_images\nWHEN NEW.tenant_id<>'platform' AND NEW.ready=0 AND (SELECT COUNT(*) FROM promo_images WHERE tenant_id=NEW.tenant_id AND ready=0)>=5\nBEGIN SELECT RAISE(ABORT,'promo_pending_limit'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "promo_image_ready_insert_limit",
+      "sql": "CREATE TRIGGER promo_image_ready_insert_limit BEFORE INSERT ON promo_images\nWHEN NEW.tenant_id<>'platform' AND NEW.ready=1\nBEGIN\n SELECT CASE WHEN (SELECT COUNT(*) FROM promo_images WHERE tenant_id=NEW.tenant_id AND ready=1)>=50 THEN RAISE(ABORT,'promo_count_limit') END;\n SELECT CASE WHEN NEW.bytes+(SELECT COALESCE(SUM(bytes),0) FROM promo_images WHERE tenant_id=NEW.tenant_id AND ready=1)>104857600 THEN RAISE(ABORT,'promo_bytes_limit') END;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "promo_image_ready_update_limit",
+      "sql": "CREATE TRIGGER promo_image_ready_update_limit BEFORE UPDATE ON promo_images\nWHEN NEW.tenant_id<>'platform' AND NEW.ready=1\nBEGIN\n SELECT CASE WHEN (SELECT COUNT(*) FROM promo_images WHERE tenant_id=NEW.tenant_id AND ready=1 AND id<>OLD.id)>=50 THEN RAISE(ABORT,'promo_count_limit') END;\n SELECT CASE WHEN NEW.bytes+(SELECT COALESCE(SUM(bytes),0) FROM promo_images WHERE tenant_id=NEW.tenant_id AND ready=1 AND id<>OLD.id)>104857600 THEN RAISE(ABORT,'promo_bytes_limit') END;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "promo_image_tenant",
+      "sql": "CREATE TRIGGER promo_image_tenant BEFORE INSERT ON promo_images WHEN NEW.tenant_id<>'platform' AND NOT EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'invalid_image_tenant'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "purged_audit_insert_guard",
+      "sql": "CREATE TRIGGER purged_audit_insert_guard BEFORE INSERT ON audit_log\nWHEN NEW.tenant_id GLOB 'ten_*'\n  AND NOT EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id)\nBEGIN SELECT RAISE(ABORT,'tenant_disabled'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "purged_auth_insert_guard",
+      "sql": "CREATE TRIGGER purged_auth_insert_guard BEFORE INSERT ON auth_log\nWHEN NEW.tenant_id GLOB 'ten_*'\n  AND NOT EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id)\nBEGIN SELECT RAISE(ABORT,'tenant_disabled'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "purged_platform_audit_insert_guard",
+      "sql": "CREATE TRIGGER purged_platform_audit_insert_guard BEFORE INSERT ON platform_audit\nWHEN NEW.action<>'purge_tenant' AND NEW.tenant_id GLOB 'ten_*'\n  AND NOT EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id)\nBEGIN SELECT RAISE(ABORT,'tenant_disabled'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "purged_promo_image_insert_guard",
+      "sql": "CREATE TRIGGER purged_promo_image_insert_guard BEFORE INSERT ON promo_images\nWHEN NEW.tenant_id GLOB 'ten_*' AND (\n  NOT EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id)\n  OR EXISTS(SELECT 1 FROM tenant_purge_jobs WHERE tenant_id=NEW.tenant_id)\n)\nBEGIN SELECT RAISE(ABORT,'tenant_disabled'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "purged_security_limit_insert_guard",
+      "sql": "CREATE TRIGGER purged_security_limit_insert_guard BEFORE INSERT ON security_limits\nWHEN (NEW.key GLOB 'login:ten_*' OR NEW.key GLOB 'read:ten_*'\n   OR NEW.key GLOB 'request:ten_*' OR NEW.key GLOB 'city:ten_*')\n  AND NOT EXISTS(\n    SELECT 1 FROM tenants WHERE id=substr(NEW.key,instr(NEW.key,':')+1,28)\n  )\nBEGIN SELECT RAISE(ABORT,'tenant_disabled'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "schedule_templates_class_insert",
+      "sql": "CREATE TRIGGER schedule_templates_class_insert BEFORE INSERT ON schedule_templates WHEN NEW.class_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM classes WHERE tenant_id=NEW.tenant_id AND id=NEW.class_id) THEN RAISE(ABORT,'invalid_class_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "schedule_templates_class_update",
+      "sql": "CREATE TRIGGER schedule_templates_class_update BEFORE UPDATE OF class_id ON schedule_templates WHEN NEW.class_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM classes WHERE tenant_id=NEW.tenant_id AND id=NEW.class_id) THEN RAISE(ABORT,'invalid_class_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "setup_permanent",
+      "sql": "CREATE TRIGGER setup_permanent AFTER INSERT ON platform_admins BEGIN INSERT OR IGNORE INTO platform_state(id,value) VALUES('initialized','1'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "slug_alias",
+      "sql": "CREATE TRIGGER slug_alias AFTER UPDATE OF slug ON tenants WHEN OLD.slug<>NEW.slug BEGIN\n INSERT INTO tenant_slug_aliases(slug,tenant_id,expires_at) VALUES(OLD.slug,NEW.id,CAST(unixepoch('now') AS INTEGER)*1000+2592000000)\n ON CONFLICT(slug) DO UPDATE SET tenant_id=NEW.id,expires_at=excluded.expires_at;\nEND"
+    },
+    {
+      "type": "trigger",
+      "name": "slug_reserve_insert",
+      "sql": "CREATE TRIGGER slug_reserve_insert BEFORE INSERT ON tenants WHEN EXISTS(SELECT 1 FROM tenant_slug_aliases WHERE slug=NEW.slug AND expires_at>CAST(unixepoch('now') AS INTEGER)*1000) BEGIN SELECT RAISE(ABORT,'slug_reserved'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "slug_reserve_update",
+      "sql": "CREATE TRIGGER slug_reserve_update BEFORE UPDATE OF slug ON tenants WHEN OLD.slug<>NEW.slug AND EXISTS(SELECT 1 FROM tenant_slug_aliases WHERE slug=NEW.slug AND expires_at>CAST(unixepoch('now') AS INTEGER)*1000) BEGIN SELECT RAISE(ABORT,'slug_reserved'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "snapshot_no_delete",
+      "sql": "CREATE TRIGGER snapshot_no_delete BEFORE DELETE ON payroll_snapshots WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=OLD.tenant_id) BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "snapshot_no_update",
+      "sql": "CREATE TRIGGER snapshot_no_update BEFORE UPDATE ON payroll_snapshots WHEN NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'append only'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "stage_has_payment_resolution",
+      "sql": "CREATE TRIGGER stage_has_payment_resolution BEFORE UPDATE OF deleted_at ON student_stages\nWHEN OLD.deleted_at IS NULL AND NEW.deleted_at IS NOT NULL AND EXISTS(\n  SELECT 1 FROM student_payment_resolutions r JOIN student_payments p ON p.tenant_id=r.tenant_id AND p.id=r.id\n  WHERE r.tenant_id=NEW.tenant_id AND r.stage_id=NEW.id AND r.deleted_at IS NULL AND p.deleted_at IS NULL\n)\nBEGIN SELECT RAISE(ABORT,'stage_has_payment_resolution'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "stage_packages_guard",
+      "sql": "CREATE TRIGGER stage_packages_guard BEFORE UPDATE OF deleted_at ON student_stages\nWHEN OLD.deleted_at IS NULL AND NEW.deleted_at IS NOT NULL\n  AND EXISTS(SELECT 1 FROM packages p WHERE p.tenant_id=OLD.tenant_id AND p.stage_id=OLD.id AND p.deleted_at IS NULL)\nBEGIN SELECT RAISE(ABORT,'stage_has_packages'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "student_archive_accounts",
+      "sql": "CREATE TRIGGER student_archive_accounts AFTER UPDATE OF status,deleted_at ON students WHEN NEW.status<>'active' OR NEW.deleted_at IS NOT NULL BEGIN UPDATE users SET active=0,version=version+1 WHERE tenant_id=NEW.tenant_id AND student_id=NEW.id; END"
+    },
+    {
+      "type": "trigger",
+      "name": "student_delete_link",
+      "sql": "CREATE TRIGGER student_delete_link BEFORE UPDATE OF deleted_at ON students WHEN NEW.deleted_at IS NOT NULL AND EXISTS(SELECT 1 FROM users WHERE tenant_id=NEW.tenant_id AND student_id=NEW.id AND deleted_at IS NULL) BEGIN SELECT RAISE(ABORT,'profile_in_use'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "student_nickname_insert",
+      "sql": "CREATE TRIGGER student_nickname_insert AFTER INSERT ON students WHEN (NEW.nickname='X 同学' OR trim(NEW.nickname)='') AND NEW.nickname IS NOT (CASE WHEN trim(NEW.name)<>'' AND trim(NEW.name) NOT GLOB '*[^㐀-䶿一-鿿豈-﫿𠀀-𲎯]*' THEN CASE WHEN substr(trim(NEW.name),1,2) IN('欧阳','司马','上官','诸葛','夏侯','东方','皇甫','尉迟','公羊','赫连','澹台','公冶','宗政','濮阳','淳于','单于','太叔','申屠','公孙','仲孙','轩辕','令狐','钟离','宇文','长孙','慕容','司徒','司空','鲜于','闾丘','百里','东郭','南宫','西门','呼延','羊舌','微生','南门','第五','东门','端木','歐陽','司馬','諸葛','東方','尉遲','鍾離','鐘離','長孫','公孫','軒轅','閭丘','東郭','東門') THEN substr(trim(NEW.name),1,2) ELSE substr(trim(NEW.name),1,1) END||'同学' ELSE trim(NEW.name) END) BEGIN UPDATE students SET nickname=CASE WHEN trim(NEW.name)<>'' AND trim(NEW.name) NOT GLOB '*[^㐀-䶿一-鿿豈-﫿𠀀-𲎯]*' THEN CASE WHEN substr(trim(NEW.name),1,2) IN('欧阳','司马','上官','诸葛','夏侯','东方','皇甫','尉迟','公羊','赫连','澹台','公冶','宗政','濮阳','淳于','单于','太叔','申屠','公孙','仲孙','轩辕','令狐','钟离','宇文','长孙','慕容','司徒','司空','鲜于','闾丘','百里','东郭','南宫','西门','呼延','羊舌','微生','南门','第五','东门','端木','歐陽','司馬','諸葛','東方','尉遲','鍾離','鐘離','長孫','公孫','軒轅','閭丘','東郭','東門') THEN substr(trim(NEW.name),1,2) ELSE substr(trim(NEW.name),1,1) END||'同学' ELSE trim(NEW.name) END WHERE tenant_id=NEW.tenant_id AND id=NEW.id; END"
+    },
+    {
+      "type": "trigger",
+      "name": "student_nickname_update",
+      "sql": "CREATE TRIGGER student_nickname_update AFTER UPDATE OF name,nickname ON students WHEN (NEW.nickname='X 同学' OR trim(NEW.nickname)='') AND NEW.nickname IS NOT (CASE WHEN trim(NEW.name)<>'' AND trim(NEW.name) NOT GLOB '*[^㐀-䶿一-鿿豈-﫿𠀀-𲎯]*' THEN CASE WHEN substr(trim(NEW.name),1,2) IN('欧阳','司马','上官','诸葛','夏侯','东方','皇甫','尉迟','公羊','赫连','澹台','公冶','宗政','濮阳','淳于','单于','太叔','申屠','公孙','仲孙','轩辕','令狐','钟离','宇文','长孙','慕容','司徒','司空','鲜于','闾丘','百里','东郭','南宫','西门','呼延','羊舌','微生','南门','第五','东门','端木','歐陽','司馬','諸葛','東方','尉遲','鍾離','鐘離','長孫','公孫','軒轅','閭丘','東郭','東門') THEN substr(trim(NEW.name),1,2) ELSE substr(trim(NEW.name),1,1) END||'同学' ELSE trim(NEW.name) END) BEGIN UPDATE students SET nickname=CASE WHEN trim(NEW.name)<>'' AND trim(NEW.name) NOT GLOB '*[^㐀-䶿一-鿿豈-﫿𠀀-𲎯]*' THEN CASE WHEN substr(trim(NEW.name),1,2) IN('欧阳','司马','上官','诸葛','夏侯','东方','皇甫','尉迟','公羊','赫连','澹台','公冶','宗政','濮阳','淳于','单于','太叔','申屠','公孙','仲孙','轩辕','令狐','钟离','宇文','长孙','慕容','司徒','司空','鲜于','闾丘','百里','东郭','南宫','西门','呼延','羊舌','微生','南门','第五','东门','端木','歐陽','司馬','諸葛','東方','尉遲','鍾離','鐘離','長孫','公孫','軒轅','閭丘','東郭','東門') THEN substr(trim(NEW.name),1,2) ELSE substr(trim(NEW.name),1,1) END||'同学' ELSE trim(NEW.name) END WHERE tenant_id=NEW.tenant_id AND id=NEW.id; END"
+    },
+    {
+      "type": "trigger",
+      "name": "submission_person_reference",
+      "sql": "CREATE TRIGGER submission_person_reference BEFORE INSERT ON submission_people BEGIN SELECT CASE WHEN NOT EXISTS (\n SELECT 1 FROM lesson_submissions r JOIN lesson_participants p ON p.tenant_id=r.tenant_id AND p.lesson_id=r.lesson_id WHERE r.tenant_id=NEW.tenant_id AND r.id=NEW.submission_id AND p.id=NEW.participant_id AND p.student_id=NEW.student_id AND p.deleted_at IS NULL\n ) THEN RAISE(ABORT,'invalid_submission_person') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "teacher_archive_accounts",
+      "sql": "CREATE TRIGGER teacher_archive_accounts AFTER UPDATE OF status,deleted_at ON teachers WHEN NEW.status<>'active' OR NEW.deleted_at IS NOT NULL BEGIN UPDATE users SET active=0,version=version+1 WHERE tenant_id=NEW.tenant_id AND teacher_id=NEW.id; END"
+    },
+    {
+      "type": "trigger",
+      "name": "teacher_delete_link",
+      "sql": "CREATE TRIGGER teacher_delete_link BEFORE UPDATE OF deleted_at ON teachers WHEN NEW.deleted_at IS NOT NULL AND EXISTS(SELECT 1 FROM users WHERE tenant_id=NEW.tenant_id AND teacher_id=NEW.id AND deleted_at IS NULL) BEGIN SELECT RAISE(ABORT,'profile_in_use'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "tenant_disable_guard",
+      "sql": "CREATE TRIGGER tenant_disable_guard BEFORE UPDATE OF status,slug ON tenants\nWHEN (NEW.status='active' AND OLD.disabled_at IS NOT NULL AND NEW.disabled_at IS NOT NULL)\n  OR (EXISTS(SELECT 1 FROM tenant_purge_jobs j WHERE j.tenant_id=OLD.id)\n      AND (NEW.status IS NOT OLD.status OR NEW.slug IS NOT OLD.slug))\nBEGIN SELECT RAISE(ABORT,'tenant_disabled'); END"
+    },
+    {
+      "type": "trigger",
+      "name": "tenant_revoke",
+      "sql": "CREATE TRIGGER tenant_revoke AFTER UPDATE OF slug ON tenants\nWHEN OLD.slug IS NOT NEW.slug BEGIN DELETE FROM sessions WHERE tenant_id=NEW.id; END"
+    },
+    {
+      "type": "trigger",
+      "name": "user_revoke",
+      "sql": "CREATE TRIGGER user_revoke AFTER UPDATE OF digest,roles,active ON users BEGIN DELETE FROM sessions WHERE tenant_id=NEW.tenant_id AND user_id=NEW.id; END"
+    },
+    {
+      "type": "trigger",
+      "name": "user_student_active",
+      "sql": "CREATE TRIGGER user_student_active BEFORE UPDATE OF active ON users WHEN NEW.active=1 AND NEW.student_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM students WHERE tenant_id=NEW.tenant_id AND id=NEW.student_id AND status='active' AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_student_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "user_student_reference",
+      "sql": "CREATE TRIGGER user_student_reference BEFORE INSERT ON users WHEN NEW.student_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM students WHERE tenant_id=NEW.tenant_id AND id=NEW.student_id AND status='active' AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_student_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "user_teacher_active",
+      "sql": "CREATE TRIGGER user_teacher_active BEFORE UPDATE OF active ON users WHEN NEW.active=1 AND NEW.teacher_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM teachers WHERE tenant_id=NEW.tenant_id AND id=NEW.teacher_id AND status='active' AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_teacher_reference') END; END"
+    },
+    {
+      "type": "trigger",
+      "name": "user_teacher_reference",
+      "sql": "CREATE TRIGGER user_teacher_reference BEFORE INSERT ON users WHEN NEW.teacher_id IS NOT NULL BEGIN SELECT CASE WHEN NOT EXISTS(SELECT 1 FROM teachers WHERE tenant_id=NEW.tenant_id AND id=NEW.teacher_id AND status='active' AND deleted_at IS NULL) THEN RAISE(ABORT,'invalid_teacher_reference') END; END"
+    },
+    {
+      "type": "view",
+      "name": "credit_income_legacy_estimates",
+      "sql": "CREATE VIEW credit_income_legacy_estimates AS\nSELECT x.tenant_id,x.id,x.date AS booked_on,\n  CASE WHEN s.billing_mode='overall' OR p.unit_price IS NULL THEN 0\n    ELSE CASE WHEN x.delta>0 THEN -1 ELSE 1 END *\n      ((CAST(ROUND(ABS(x.delta)*100) AS INTEGER)*p.unit_price+50)/100) END AS amount,\n  CASE WHEN s.billing_mode<>'overall' AND p.unit_price IS NULL THEN -x.delta ELSE 0 END AS unpriced_units,\n  CASE WHEN s.billing_mode='overall' THEN 'legacy_overall'\n    WHEN p.unit_price IS NULL THEN 'legacy_no_price' ELSE 'legacy_estimate' END AS source,\n  NULL AS reversed_by,x.created_at,x.created_by,x.updated_at,x.updated_by,1 AS version,NULL AS deleted_at\nFROM package_transactions x\nJOIN packages p ON p.tenant_id=x.tenant_id AND p.id=x.package_id\nJOIN students s ON s.tenant_id=x.tenant_id AND s.id=x.student_id\nWHERE x.deleted_at IS NULL AND x.type IN ('consume','reversal')"
+    },
+    {
+      "type": "view",
+      "name": "package_receipt_lines",
+      "sql": "CREATE VIEW package_receipt_lines AS\nSELECT tenant_id,student_id,package_id,amount FROM student_payments\nWHERE package_id IS NOT NULL AND deleted_at IS NULL\nUNION ALL\nSELECT tenant_id,student_id,package_id,amount FROM student_payment_allocations WHERE deleted_at IS NULL"
+    },
+    {
+      "type": "view",
+      "name": "pending_student_payments",
+      "sql": "CREATE VIEW pending_student_payments AS\nSELECT p.* FROM student_payments p\nWHERE p.package_id IS NULL AND p.deleted_at IS NULL AND NOT EXISTS (\n  SELECT 1 FROM student_payment_resolutions r\n  WHERE r.tenant_id=p.tenant_id AND r.id=p.id AND r.deleted_at IS NULL\n)"
+    }
+  ]
+}

@@ -1,0 +1,1605 @@
+{
+  "source": "艺界星途_阶段2_融合源码_精简版_20261113.zip",
+  "files": [
+    {
+      "path": "src/shared/view.js",
+      "sha256": "62e696014e0662945573bc3cd6fdcef1914f3f51a561d7f0ed4273163d422d38",
+      "content_sha": "YuaWAU4GYpRVc7w81v3O8ZFPP1GlYdfw7UJzFj1CLTg="
+    },
+    {
+      "path": "src/server/presentation.js",
+      "sha256": "098efea154a8aff24c02d77814be23135bba6fc34ac540aae7f5abc5c9bd178e",
+      "content_sha": "CY7+oVSor/JMAtd4FL4jE1u6b8NKxUCq5/Wrxcm9F44="
+    },
+    {
+      "path": "src/server/d1-limits.js",
+      "sha256": "d0a7b60649c366c9199ef5011113598e40ebf4a9fd9b548433279a685d2448e0",
+      "content_sha": "0Ke2BknDZskZnvUBERNZjkDr9Kn9m1SEMyeaaF0kSOA="
+    },
+    {
+      "path": "src/server/backup.js",
+      "sha256": "f5b6603371af793d976ba41507b0754c920d379ca3f660ed3014056cab95e0e4",
+      "content_sha": "9bZgM3GveT2Xa6QVB7B1TJINN5yj9mDtMBQFbKuV4OQ="
+    },
+    {
+      "path": "src/server/legacy-import.js",
+      "sha256": "23a6ca8c266cd859ab844754720fb1db7a82d333a8a63d29465536edc4c91364",
+      "content_sha": "I6bKjCZs2FmrhEdUcg+x23qC0zOopj0pRlU27cTJE2Q="
+    },
+    {
+      "path": "src/server/scheduling.js",
+      "sha256": "6e22fee51a6c4810cf1e92200d85750ebcebf42bbb3f26ef440cea6ca0db6581",
+      "content_sha": "biL+5RpsSBDPHpIgDYV1Drzr9Cu7PybvRAzqbKDbZYE="
+    },
+    {
+      "path": "src/server/repo.js",
+      "sha256": "c8faee62fdaf79e763bbc79d6b333720ea28d5b4ce0fe3d80cabd7d986745a33",
+      "content_sha": "yPruYv2veedju8edazM3IOoo1bTOD+PYDKvX2YZ0WjM="
+    },
+    {
+      "path": "src/server/credit-funds.js",
+      "sha256": "82c0f462f43d3721957bb8ea913b2e11f4ea717fcff74bb930f7d2c67265b4b1",
+      "content_sha": "gsD0YvQ9NyGVe7jqkTsuEfTqcX/P90u5MPfSxnJltLE="
+    },
+    {
+      "path": "src/server/accounts.js",
+      "sha256": "6332fd7d428cb290880a169958ddb57716552ddbc0e88b5475958a9ea31b3923",
+      "content_sha": "YzL9fUKMspCIChaZWN21dxZVLdvA6ItUdZWKnqMbOSM="
+    },
+    {
+      "path": "src/server/core.js",
+      "sha256": "74d3a9fa422db21d47d96b4f424a55c7974f750311f23c7ff21f7068c861db65",
+      "content_sha": "dNOp+kItsh1H2WtPQkpVx5dPdQMR8jx/8h9waMhh22U="
+    },
+    {
+      "path": "src/server/tenant.js",
+      "sha256": "c87b9dc7c665724175e5e1cf5a7f2352c85a1b95eeb7af126ae11f7cb72c0d5b",
+      "content_sha": "yHudx8ZlckF15eHPWn8jUshaG5Xut68SauEffLcsDVs="
+    },
+    {
+      "path": "src/server/security.js",
+      "sha256": "cc84d88d94e84df00427a02ef3b4576021f1f798c9ba7b7b8cbd2836b788526e",
+      "content_sha": "zITYjZToTfAEJ6Au87RXYCHx95jJunt7jL0oNreIUm4="
+    },
+    {
+      "path": "src/server/tools.js",
+      "sha256": "443bc7230dc427dfce4e8c75c2955c76ecdc7f60bba9988e8218815e7b981d1f",
+      "content_sha": "RDvHIw3EJ9/OTox1wpVcduzcf2C7qZiOghiBXnuYHR8="
+    },
+    {
+      "path": "src/server/reviews.js",
+      "sha256": "dc4c82825daff5ec1dbeffaf0f42897aacfc27e60eac59611f8a33be4321673a",
+      "content_sha": "3EyCgl2v9ewdvv+vD0KJeqz8J+YOrFlhH4ozvkMhZzo="
+    },
+    {
+      "path": "src/server/tenant-lifecycle.js",
+      "sha256": "09b7c1e15e297fa2fe45e61334d8c235400c112a692d6e868124b1a6f5f4f821",
+      "content_sha": "CbfB4V4pf6L+ReYTNNjCNUAMESppLW6GgSSxpvX0+CE="
+    },
+    {
+      "path": "src/server/worker.js",
+      "sha256": "a71c9a3f837254d1e715add7cbf5b50b8858179947bb1a5118186eb4505b44fe",
+      "content_sha": "pxyaP4NyVNHnFa3Xy/W1C4hYF5lHuxpRGBhutFBbRP4="
+    },
+    {
+      "path": "src/server/student-pinyin-data.js",
+      "sha256": "f8d80554972065d94637329f7bd6feb665ec2dfded19ac425cd7c91c02035f39",
+      "content_sha": "+NgFVJcgZdlGNzKfe9b+tmXsLf3tGaxCXNfJHAIDXzk="
+    },
+    {
+      "path": "src/server/imports.js",
+      "sha256": "e9a3b1d8681798c73769af4f7aeea9e301da36ec0b1668ff3411aa84e6590d48",
+      "content_sha": "6aOx2GgXmMc3aa9Peu6p4wHaNuwLFmj/NBGqhOZZDUg="
+    },
+    {
+      "path": "src/server/xlsx.js",
+      "sha256": "c7800292c289917360e2c923851373ab72c0acb25ff75ae35e8e215fc24b5408",
+      "content_sha": "x4ACksKJkXNg4skjhRNzq3LArLJf91rjXo4hX8JLVAg="
+    },
+    {
+      "path": "src/server/backup-model.js",
+      "sha256": "2305a3e5de6386431ec33828fc4253e3e5bf10b845db0826a93a4eb64660a273",
+      "content_sha": "IwWj5d5jhkMewzgo/EJT4+W/ELhF2wgmqTpOtkZgonM="
+    },
+    {
+      "path": "src/server/makeup-planning.js",
+      "sha256": "5427ad2a8df89b95f90b3440e5321f01116f7e85433c9034fd9857c2b1d883ac",
+      "content_sha": "VCetKo34m5X5CzRA5TIfARFvfoVDPJA0/ZhXwrHYg6w="
+    },
+    {
+      "path": "src/server/rebuild3.js",
+      "sha256": "ca96d4a0ee164a55d13bff261181461b94a9f5f682e72e383138eda89dc00b28",
+      "content_sha": "ypbUoO4WSlXRO/8mEYFGG5Sp9faC5y44MTjtqJ3ACyg="
+    },
+    {
+      "path": "src/server/read-batch.js",
+      "sha256": "369220d07ba28ff6c91ee1150745b08da9011fdd8bf3f3456d073270a360a43f",
+      "content_sha": "NpIg0Huij/bJHuEVB0WwjakBH92L8/NFbQcycKNgpD8="
+    },
+    {
+      "path": "src/server/finance.js",
+      "sha256": "b8706bb46374f2627065dd6fd4987a84a16f7a920b48d1f4c385cb247b286a14",
+      "content_sha": "uHBrtGN08mJwZd1v1Jh6hKFvepILSNH0w4XLJHsoahQ="
+    },
+    {
+      "path": "src/server/rebuild.js",
+      "sha256": "bec116d5306b151eb74da3a2230e4b9039f275a34ca40655eaa4368b5e779f18",
+      "content_sha": "vsEW1TBrFR63TaOiIw5LkDnydaNMpAZV6qQ2i153nxg="
+    },
+    {
+      "path": "src/server/admin-tools.js",
+      "sha256": "f382c4d920d890be4ad888494d35c74616ece2028421aa83bdd304199c3cbd60",
+      "content_sha": "84LE2SDYkL5K2IhJTTXHRhbs4gKEIaqDvdMEGZw8vWA="
+    },
+    {
+      "path": "src/server/crypto.js",
+      "sha256": "d8cd914fd3b8f0d1f84839548f5643b199067ab1dcb4091b34fe116df7adcd6d",
+      "content_sha": "2M2RT9O48NH4SDlUj1ZDsZkGerHctAkbNP4RbfetzW0="
+    },
+    {
+      "path": "src/server/debt.js",
+      "sha256": "f1e9ca5b71474b4cd52913fcd32342b6b1c3bfe63c51c81f3151750cab4a1d67",
+      "content_sha": "8enKW3FHS0zVKRP80yNCtrHDv+Y8UcgfMVF1DKtKHWc="
+    },
+    {
+      "path": "src/server/identity.js",
+      "sha256": "59af955ecc02192f32228ad2797c75e1c16e6356f69150518a4244dba0d24b18",
+      "content_sha": "Wa+VXswCGS8yIorSeXx14cFuY1b2kVBRikJE26DSSxg="
+    },
+    {
+      "path": "src/server/auth.js",
+      "sha256": "d871d008e8dd5a8b6ca8567ff538537c42e44ec394ec1edc13ad8bbe7beaf4bb",
+      "content_sha": "2HHQCOjdWotsqFZ/9ThTfELkTsOU7B7cE62Lvnvq9Ls="
+    },
+    {
+      "path": "src/server/promo.js",
+      "sha256": "441a13c202d4fe7e0777bdc787721c25250a590fafe927c0a798ca9dcb82a2fb",
+      "content_sha": "RBoTwgLU/n4Hd73Hh3IcJSUKWQ+v6SfAp5jKncuCovs="
+    },
+    {
+      "path": "src/server/absence.js",
+      "sha256": "dbff45f0b644791f62e499bbdaf135eb7281ea1608fafae0e81ed26b783927f6",
+      "content_sha": "2/9F8LZEeR9i5Jm72vE163KB6hYI+vrg6B7Sa3g5J/Y="
+    },
+    {
+      "path": "src/server/student-search.js",
+      "sha256": "60396cf5909527be51a3abf6ff8c2e839ab99f5d6abdc7ff45465ddeade14d5e",
+      "content_sha": "YDls9ZCVJ75Ro6v2/4wug5q5n11qvcf/RUZd3q3hTV4="
+    },
+    {
+      "path": "src/server/credits.js",
+      "sha256": "bb5d04f9efa2ee8d393c47ff927cc0f233de2608b39d6c7b2a861d28ac98d41d",
+      "content_sha": "u10E+e+i7o05PEf/knzA8jPeJgiznWx7KoYdKKyY1B0="
+    },
+    {
+      "path": "src/server/request-timing.js",
+      "sha256": "6cc880b325ee3c38f9848cfa4193a2bb4903b68bdd76eee037168049f934f0f7",
+      "content_sha": "bMiAsyXuPDj5hIz6QZOiu0kDtovddu7gNxaASfk08Pc="
+    },
+    {
+      "path": "src/server/numbers.js",
+      "sha256": "c06c80b19de9a5520605cbebff1b98818cd85075437dc4a311d111ffebb73038",
+      "content_sha": "wGyAsZ3ppVIGBcvr/xuYgYzYUHVDfcSjEdER/+u3MDg="
+    },
+    {
+      "path": "src/server/permissions.js",
+      "sha256": "37c7cd8e4168bcf8179e336e6c44f7086d72ac1d4ae82305d1b39e89b0c1aa6c",
+      "content_sha": "N8fNjkFovPgXnjNubET3CG1yrB1K6CMF0bOeibDBqmw="
+    },
+    {
+      "path": "src/server/purge-schema.js",
+      "sha256": "112a2fc369b53dfea22d57b843ff2bd3bfa1ea241d70d6b9293651a47be57f50",
+      "content_sha": "ESovw2m1Pf6iLVe4Q/8r07+h6iQdcNa5KTZRpHvlf1A="
+    },
+    {
+      "path": "src/tenant/app.css",
+      "sha256": "39ce783f42ad63a2e1a43276c820199dd47457d5d794d64e0226656c6b1c4120",
+      "content_sha": "Oc54P0KtY6LhpDJ2yCAZndR0V9XXlNZOAiZlbGscQSA="
+    },
+    {
+      "path": "src/tenant/v2promo.js",
+      "sha256": "586b97e153d2660eaf7541960a272dbc86a1497d0e5a34c5975d25295458638c",
+      "content_sha": "WGuX4VPSZg6vdUGWCictvIahSX0OWjTFl10lKVRYY4w="
+    },
+    {
+      "path": "src/tenant/calendar.js",
+      "sha256": "bfd76eebd474c7934c0ab0d5be8021b5fbc896a4728832bcd533fefc904f3288",
+      "content_sha": "v9du69R0x5NMCrDVvoAhtfvIlqRyiDK81TP+/JBPMog="
+    },
+    {
+      "path": "src/tenant/v2.js",
+      "sha256": "8a910551ecaebfb95709965762e5e8099246c918dd406bff7a4700cc5351ceaa",
+      "content_sha": "ipEFUeyuv7lXCZZXYuXoCZJGyRjdQGv/ekcAzFNRzqo="
+    },
+    {
+      "path": "src/tenant/polish.css",
+      "sha256": "ca488ac803870961163468e46438b544f4dde148a14482293a82148212be529f",
+      "content_sha": "ykiKyAOHCWEWNGjkZDi1RPTd4UihRIIpOoIUghK+Up8="
+    },
+    {
+      "path": "src/tenant/v2pay.js",
+      "sha256": "a34870e584bdf7cd80bb8cbec20fb32fadc303c0c8bbecd6c3c446c918e757e3",
+      "content_sha": "o0hw5YS9982Au4y+wg+zL63DA8DIu+zWw8RGyRjnV+M="
+    },
+    {
+      "path": "src/tenant/v2.css",
+      "sha256": "d3a63972ed97dbc280d317dde499b15a4a53e4f0e90bf6070adb4c37f7dad0ed",
+      "content_sha": "06Y5cu2X28KA0xfd5JmxWkpT5PDpC/YHCttMN/fa0O0="
+    },
+    {
+      "path": "src/tenant/app.js",
+      "sha256": "735c5d132bc52af85609ef989b10ef155713b1310409c2d65e8fa0c4308df078",
+      "content_sha": "c1xdEyvFKvhWCe+YmxDvFVcTsTEECcLWXo+gxDCN8Hg="
+    },
+    {
+      "path": "src/tenant/v2m.js",
+      "sha256": "18e070fb7f13c83cc119b42709c9a81bca7c416928aad2be136a771d4064bb42",
+      "content_sha": "GOBw+38TyDzBGbQnCcmoG8p8QWkoqtK+E2p3HUBku0I="
+    },
+    {
+      "path": "src/tenant/v2a.js",
+      "sha256": "46837260aa0a566b3336081329a9cb1b50c29f6ea86d7634b721fb97edabcaea",
+      "content_sha": "RoNyYKoKVmszNggTKanLG1DCn26obXY0tyH7l+2ryuo="
+    },
+    {
+      "path": "src/tenant/c3.js",
+      "sha256": "ddb866aa60435a0d1f6acad15d3a32fc442ca3ebeb246a5c66b520de631fed16",
+      "content_sha": "3bhmqmBDWg0fasrRXToy/EQso+vrJGpcZrUg3mMf7RY="
+    },
+    {
+      "path": "src/tenant/index.html",
+      "sha256": "ea28ffec5a836f3f0bb55c47a4ebadf70ddb6a24d284444f851dad521cf3a91f",
+      "content_sha": "6ij/7FqDbz8LtVxHpOut9w3baiTShERPhR2tUhzzqR8="
+    },
+    {
+      "path": "src/tenant/v2s.js",
+      "sha256": "a29ede43fcdc45ded772aec1e3760df6813af553a5ece2cf7c120ab3e55a4564",
+      "content_sha": "op7eQ/zcRd7Xcq7B43YN9oE69VOl7OLPfBIKs+VaRWQ="
+    },
+    {
+      "path": "src/tenant/rebuild.css",
+      "sha256": "07c0c03d89bf2e1b90c8c653f173e847d735161aa289856f8c90ffbe1e362a71",
+      "content_sha": "B8DAPYm/LhuQyMZT8XPoR9c1FhqiiYVvjJD/vh42KnE="
+    },
+    {
+      "path": "src/tenant/v2today.js",
+      "sha256": "6efdc85bf157826f0c8ca4280cd7a7f62cb1a77b207a2f49c95ef0a7bfad7e30",
+      "content_sha": "bv3IW/FXgm8MjKQoDNen9iyxp3sgei9JyV7wp7+tfjA="
+    },
+    {
+      "path": "src/tenant/v2p.js",
+      "sha256": "f4f259067b314d8c1ca58441b9f03affc68bdb0c1a200547d2f8f5995fd99ec1",
+      "content_sha": "9PJZBnsxTYwcpYRBufA6/8aL2wwaIAVH0vj1mV/ZnsE="
+    },
+    {
+      "path": "src/tenant/v2f.js",
+      "sha256": "cff7c02fa2f15219d621e728a8d6b8a6211732674bcb40ad13be94e3cd1e544f",
+      "content_sha": "z/fAL6LxUhnWIecoqNa4piEXMmdLy0CtE76U480eVE8="
+    },
+    {
+      "path": "src/tenant/yx.js",
+      "sha256": "854c143b02ec126ab4ba0b6d6d3eb2f5ad6673d56da982452e8fe0c8df1d6cb8",
+      "content_sha": "hUwUOwLsEmq0ugttbT6y9a1mc9VtqYJFLo/gyN8dbLg="
+    },
+    {
+      "path": "src/tenant/yx.css",
+      "sha256": "fbd2d16102cd14b416bb96f3f950eef70c774517bfe0354ecf6cf4efd5a3110e",
+      "content_sha": "+9LRYQLNFLQWu5bz+VDu9wx3RRe/4DVOz2z079WjEQ4="
+    },
+    {
+      "path": "src/tenant/c2.js",
+      "sha256": "2ac7ad77cda39c10ea8537a4517cf2d0a3f8b24de711f66596782980944b80d5",
+      "content_sha": "Ksetd82jnBDqhTekUXzy0KP4sk3nEfZllngpgJRLgNU="
+    },
+    {
+      "path": "src/tenant/v2t.js",
+      "sha256": "603b6726c08f4627ed6a177f9f0c7fdf51336e87810aec3c17868080613d5140",
+      "content_sha": "YDtnJsCPRiftahd/nwx/31EzboeBCuw8F4aAgGE9UUA="
+    },
+    {
+      "path": "src/ui/components.css",
+      "sha256": "29484aa527e61619d4745cdb85a1a6315be8a772287cf4da772e0f12d556ba73",
+      "content_sha": "KUhKpSfmFhnUdFzbhaGmMVvop3IofPTady4PEtVWunM="
+    },
+    {
+      "path": "src/ui/tokens.css",
+      "sha256": "586ac99d725372e6ef3e437030809e66d1942fc37dd018131ecf189d706e8df5",
+      "content_sha": "WGrJnXJTcubvPkNwMICeZtGUL8N90BgTHs8YnXBujfU="
+    },
+    {
+      "path": "src/ui/icons.svg",
+      "sha256": "9e6cedba7e4ddcfa304da17c8e968a678c169b5f5dea9b4301bbcfa063208797",
+      "content_sha": "nmztun5N3PowTaF8jpaKZ4wWm19d6ptDAbvPoGMgh5c="
+    },
+    {
+      "path": "src/ui/components.js",
+      "sha256": "857684e79860a42df644c84181a35a8150b23489a129ae838939c8a7a25f6a97",
+      "content_sha": "hXaE55hgpC32RMhBgaNagVCyNImhKa6DiTnIp6Jfapc="
+    },
+    {
+      "path": "src/console/app.css",
+      "sha256": "d3b7e2420d10c11247ee5802a7f84da548f07f91492a8a9bfa9df5a57c7c949d",
+      "content_sha": "07fiQg0QwRJH7lgCp/hNpUjwf5FJKoqb+p31pXx8lJ0="
+    },
+    {
+      "path": "src/console/app.js",
+      "sha256": "9828f364b849e1700ca2652a62fe5d551d9a05ac6232978d06545c7776ab2630",
+      "content_sha": "mCjzZLhJ4XAMomUqYv5dVR2aBaxiMpeNBlRcd3arJjA="
+    },
+    {
+      "path": "src/console/index.html",
+      "sha256": "be5eb7811c842db35552f8fb075faf4bdd60b70e5929aa788b81393d3a1546a4",
+      "content_sha": "vl63gRyELbNVUvj7B1+vS91gtw5ZKap4i4E5PToVRqQ="
+    },
+    {
+      "path": "src/console/vendor/pinyin-pro.js",
+      "sha256": "373ffe7d919483f881d3072a370f764c76ec6d6480e50cb87d6fd524e9386bac",
+      "content_sha": "Nz/+fZGUg/iB0wcqNw92THbsbWSA5Qy4fW/VJOk4a6w="
+    },
+    {
+      "path": "src/console/vendor/pinyin-pro.LICENSE",
+      "sha256": "824f6069c5a59b0c1650d0fb9f8d091866c6019eb761c8e658dfc03f001eabd2",
+      "content_sha": "gk9gacWlmwwWUND7n40JGGbGAZ63YcjmWN/APwAeq9I="
+    },
+    {
+      "path": "dev/mock/教务模拟数据_100人.json",
+      "sha256": "294f578f6fb2cfc34dfeed399f0cd0283d1cbeb9dc4989856589cbf2b5d14cee",
+      "content_sha": "KU9Xj2+yz8NN/u05nwzQKD0cvrncSYmFZYnL8rXRTO4="
+    },
+    {
+      "path": "dev/ui-components/preview.css",
+      "sha256": "556c9e41ea0af4a29ff9affe2b3e48df246f865aff4e7f4e0e017e425f59acab",
+      "content_sha": "VWyeQeoK9KKf+a/+Kz5I3yRvhlr/Tn9ODgF+Ql9ZrKs="
+    },
+    {
+      "path": "dev/ui-components/index.html",
+      "sha256": "86b429f72e6bc9220b293cdc320312d8409ce022e12f47ee26ed0dd60eaf187b",
+      "content_sha": "hrQp9y5rySILKTzcMgMS2ECc4CLhL0fuJu0N1g6vGHs="
+    },
+    {
+      "path": "dev/ui-components/reference/ConsolePublish.png",
+      "sha256": "ead3fa96e497e8927cfb8b744153b306c9e4429f3d7be3c6616c7f46331bace5",
+      "content_sha": "6tP6luSX6JJ8+4t0QVOzBsnkQp89e+PGYWx/RjMbrOU="
+    },
+    {
+      "path": "dev/ui-components/reference/Import.png",
+      "sha256": "4e0dad939285c35afd9b45ee283297fd932f083c8e6d174e649ece43048de5e0",
+      "content_sha": "Tg2tk5KFw1r9m0XuKDKX/ZMvCDyObRdOZJ7OQwSN5eA="
+    },
+    {
+      "path": "dev/ui-components/reference/LoginDesktop.png",
+      "sha256": "b3d2ab6ba4308cbdb0c4fa21ce8f3a8e730531c398f6ba27c1acc2e2be4235dc",
+      "content_sha": "s9Kra6QwjL2wxPohzo86jnMFMcOY9ronwazC4r5CNdw="
+    },
+    {
+      "path": "dev/ui-components/reference/ConsoleDemand.png",
+      "sha256": "664bf3739bcf50eda4dc22b8162e920ef08bd5954a7c70d183b0c33513af2e08",
+      "content_sha": "Zkvzc5vPUO2k3CK4Fi6SDvCL1ZVKfHDRg7DDNROvLgg="
+    },
+    {
+      "path": "dev/ui-components/reference/StudentLessons.png",
+      "sha256": "4cb1a22cf69bc6c70da163bbe8635ed2948afecfb3505650b1abaff0210192fa",
+      "content_sha": "TLGiLPabxscNoWO76GNe0pSK/s+zUFZQsauv8CEBkvo="
+    },
+    {
+      "path": "dev/ui-components/reference/ConsoleNotice.png",
+      "sha256": "528f70e78164c05bd181540f52d30ce2c29016e67467abeb7cf7dcd996d7679f",
+      "content_sha": "Uo9w54FkwFvRgVQPUtMM4sKQFuZ0Z6vrfPfc2ZbXZ58="
+    },
+    {
+      "path": "dev/ui-components/reference/Promo.png",
+      "sha256": "dc34f1ebe772e26665126136900bb2860ea7a84fdde6200fd02cc6e9472917b8",
+      "content_sha": "3DTx6+dy4mZlEmE2kAuyhg6nqE/d5iAP0CzG6UcpF7g="
+    },
+    {
+      "path": "dev/ui-components/reference/StudentSchedule.png",
+      "sha256": "9e1e08a44109f27c5171ea9cb0a01c10aa7e126016fa62386e5d014f508ecaa7",
+      "content_sha": "nh4IpEEJ8nxRceqcsKAcEKp+EmAW+mI4bl0BT1COyqc="
+    },
+    {
+      "path": "dev/ui-components/reference/TeacherLesson.png",
+      "sha256": "cb69927c9aa06c5468cf7c5fabffa00f59e9952a39e0b12aafd0154f6a17b23b",
+      "content_sha": "y2mSfJqgbFRoz3xfq/+gD1nplSo54LEqr9AVT2oXsjs="
+    },
+    {
+      "path": "dev/ui-components/reference/PromoApply.png",
+      "sha256": "e789df6212343d635b288254d1e25eff51096e1e1605d0725370a52356e47f17",
+      "content_sha": "54nfYhI0PWNbKIJU0eJe/1EJbh4WBdByU3ClI1bkfxc="
+    },
+    {
+      "path": "dev/ui-components/reference/LoginMobile.png",
+      "sha256": "0d77df0218e1eb7b962a493bbea864291708fdf01089c8dbf9884adae0b5e5a4",
+      "content_sha": "DXffAhjh63uWKkk7vqhkKRcI/fAQicjb+YhK2uC15aQ="
+    },
+    {
+      "path": "dev/ui-components/reference/Accounts.png",
+      "sha256": "01096cc8b32c9a692bf4e4e38c579ef4d792f67d195adbb6258fabc213c52956",
+      "content_sha": "AQlsyLMsmmkr9OTjjFee9NeS9n0ZWtu2JY+rwhPFKVY="
+    },
+    {
+      "path": "dev/ui-components/reference/Packages.png",
+      "sha256": "6bbf5161539fbe3b5e9d59aa98f5824f85a2b6ba0f52139bc95af778f51fb6b3",
+      "content_sha": "a79RYVOfvjtenVmqmPWCT4WitroPUhObyVr3ePUftrM="
+    },
+    {
+      "path": "dev/ui-components/reference/Finance.png",
+      "sha256": "e66c8c7a1f2069bf8e86a05813c4ad9c5ff3053cbe2bad54d702e47619af8c4a",
+      "content_sha": "5myMeh8gab+OhqBYE8StnF/zBTy+K61U1wLkdhmvjEo="
+    },
+    {
+      "path": "dev/ui-components/reference/Classes.png",
+      "sha256": "5f94d7ec3b2e087aaea1ba175faa286097ba1447298ac95a2686332289ce4e3e",
+      "content_sha": "X5TX7DsuCHquoboXX6ooYJe6FEcpislaJoYzIonOTj4="
+    },
+    {
+      "path": "dev/ui-components/reference/ConsoleTenants.png",
+      "sha256": "199cf51d43e3a7c9caeaafffcef041bcc7f6a4faee27de30eb229d64b963d9f0",
+      "content_sha": "GZz1HUPjp8nK6q//zvBBvMf2pPruJ94w6yKdZLlj2fA="
+    },
+    {
+      "path": "dev/ui-components/reference/StaffSide.png",
+      "sha256": "7f8e4a74f343b86a2a434cc0074ccdabc7fca34feb5db98ca8480a84f45c618a",
+      "content_sha": "f45KdPNDuGoqQ0zAB0zNq8f8o0/rXbmMqEgKhPRcYYo="
+    },
+    {
+      "path": "dev/ui-components/reference/PhoneTab.png",
+      "sha256": "79ee673b0489b762233861628fb15105139ad416ec6627d103ca6264f2c2ec6a",
+      "content_sha": "ee5nOwSJt2IjOGFij7FRBROa1BbsZifRA8piZPLC7Go="
+    },
+    {
+      "path": "dev/ui-components/reference/Students.png",
+      "sha256": "fcce45064dc5373c0b2ae58fd63b38840ad4277bab250f7f1742ea35e3da0f62",
+      "content_sha": "/M5FBk3FNzwLKuWP1js4hArUJ3urJQ9/F0LqNePaD2I="
+    },
+    {
+      "path": "dev/ui-components/reference/Main.png",
+      "sha256": "f5653e22b563344ff4bc84a50b435953264f9572091d63b0f0c176b67ace75e3",
+      "content_sha": "9WU+IrVjNE/0vISlC0NZUyZPlXIJHWOw8MF2tnrOdeM="
+    },
+    {
+      "path": "dev/ui-components/reference/Checkin.png",
+      "sha256": "02b2e8ee762b26d904690cafaca1e59cb84c3abf1b32e3ce74bb55c77c9fa1e4",
+      "content_sha": "ArLo7nYrJtkEaQyvrKHlnLhMOr8bMuPOdLtVx3yfoeQ="
+    },
+    {
+      "path": "dev/ui-components/reference/ConsoleTenant.png",
+      "sha256": "5e04a7682345c26c8dbbe68f307fa06a5edb9549f3cd24bd84ff102643958d05",
+      "content_sha": "XgSnaCNFwmyNu+aPMH+gal7blUnzzSS9hP8QJkOVjQU="
+    },
+    {
+      "path": "dev/ui-components/reference/TeacherSchedule.png",
+      "sha256": "503d9e01376ac46be76d647c953dca5709bc7df6cee5eab7c59d83bcc85e2ed5",
+      "content_sha": "UD2eATdqxGvnbWR8lT3KVwm8ffbO5eq3xZ2DvMheLtU="
+    },
+    {
+      "path": "dev/ui-components/reference/Week.png",
+      "sha256": "17320d3a5a0b1d4426900d10716c6e01eb4ea46a5dae2634905b6c27c5f51487",
+      "content_sha": "FzINOloLHUQmkA0QcWxuAetOpGpdriY0kFtsJ8X1FIc="
+    },
+    {
+      "path": "dev/ui-components/reference/PromoPosterMobile.png",
+      "sha256": "22a0b3710b146aa777a1a0c1b0bdebcf78a5f2736fc540be5ef5902df93f2cb6",
+      "content_sha": "IqCzcQsUaqd3oaDBsL3rz3il8nNvxUC+XvWQLfk/LLY="
+    },
+    {
+      "path": "dev/ui-components/reference/PromoCourse.png",
+      "sha256": "71c28eecef7da1c42a74a8e143fafbf5b0b8f66c44ece5297be068d6456656d2",
+      "content_sha": "ccKO7O99ocQqdKjhQ/r79bC49mxE7OUpe+Bo1kVmVtI="
+    },
+    {
+      "path": "dev/ui-components/reference/Home.png",
+      "sha256": "efefbf32c46b4bc52dad44515f87fec827069e04b1eb0464cb7b8a6526cf34d9",
+      "content_sha": "7++/MsRrS8UtrURRX4f+yCcGngSx6wRky3uKZSbPNNk="
+    },
+    {
+      "path": "dev/ui-components/reference/PromoPoster.png",
+      "sha256": "d0da0fb5feceafb17a1e7365cca5aa9637ffa697702cc5dab565c027e8078d08",
+      "content_sha": "0NoPtf7Or7F6HnNlzKWqljf/ppdwLMXatWXAJ+gHjQg="
+    },
+    {
+      "path": "dev/ui-components/reference/TeacherPay.png",
+      "sha256": "ec9b101bfaa232af2763de0c7151e603da226345a238da44419402066ba68d72",
+      "content_sha": "7JsQG/qiMq8nY94McVHmA9oiY0WiONpEQZQCBmumjXI="
+    },
+    {
+      "path": "dev/ui-components/reference/Leads.png",
+      "sha256": "7ef285f251d2f71824e32a89cc427cb9aadc888d73a8ad2f4afa1584e5a2aa04",
+      "content_sha": "fvKF8lHS9xgk4yqJzEJ8uarciI1zqK0vSvoVhOWiqgQ="
+    },
+    {
+      "path": "dev/ui-components/reference/StudentBalance.png",
+      "sha256": "903ab4669fe49066d535214a672c310c8caee3dd1175b9c2d5aa747c4e3a2da6",
+      "content_sha": "kDq0Zp/kkGbVNSFKZywxDIyu490RdbnC1ap0fE46LaY="
+    },
+    {
+      "path": "dev/ui-components/preview.js",
+      "sha256": "6c9547f9128ee771b7a13c9cc03e7c79f6276c2fa34685e4ff3b790292082ae3",
+      "content_sha": "bJVH+RKO53G3oTycwD58efYnbC+jRoXk/zt5ApIIKuM="
+    },
+    {
+      "path": "README.md",
+      "sha256": "7dbd3d80f0dceacd31bbf36a1fa77008969312de12b1367c9676a9112c3c6bfd",
+      "content_sha": "fb09gPDc6s0xu/NqH6dwCJaTEt4SsTZ8lnapESw8a/0="
+    },
+    {
+      "path": "migrations/0017_student_schedule_indexes.sql",
+      "sha256": "de36b444d01b5ce3a23ed20ba04acd627621e4cc3538591a52771c3e0ad474e9",
+      "content_sha": "3ja0RNAbXOOiPtILoErNYnYh5Mw1OFkaUnccPgrUdOk="
+    },
+    {
+      "path": "migrations/0016_page_query_indexes.sql",
+      "sha256": "dd921fd86586856f73c59df137c89859f20b78712d48526076be2ad73042ddb2",
+      "content_sha": "3ZIf2GWGhW9zxZ3xN8iYWfILeHEtSFJgdr4q1zBC3bI="
+    },
+    {
+      "path": "migrations/0008_mobile_reviews.sql",
+      "sha256": "fb75c82f35a49936df4baa6f7ccb37422d049db2ebb127def9ff9e7fd51678f5",
+      "content_sha": "+3XILzWkmTbfS6pvfMs3Qi0EnbLrsSfe+f+ef9UWePU="
+    },
+    {
+      "path": "migrations/0015_delete_capabilities.sql",
+      "sha256": "88c214932dfc2ebc01f8a607f293b5bfc1bf48f325fc987a02552a826d3f0779",
+      "content_sha": "iMIUky38LrwB+KYH8pO1v8G/SPMl/Jh6AlUqgm0/B3k="
+    },
+    {
+      "path": "migrations/0003_scheduling.sql",
+      "sha256": "4a09f3024fee6eb715848d9591f1767f5a543dc9a8950afe35d3eeea467eb010",
+      "content_sha": "SgnzAk/ubrcVhI2VkfF2f1pUPcmolQr+NdPu6kZ+sBA="
+    },
+    {
+      "path": "migrations/0006_finance.sql",
+      "sha256": "ffe5838d0e23d9666cfa31b3d4bfe6d082552a79700cf9ec6243b25aa21bc91b",
+      "content_sha": "/+WDjQ4j2WZs+jGz1L/m0IJVKnlwDPnsYkOyWqIbyRs="
+    },
+    {
+      "path": "migrations/0011_promo_image_limits.sql",
+      "sha256": "0fece3d7a975937cff6c0b9e9e5a264bc9f19874422fea7d0f838f1e7f189c38",
+      "content_sha": "D+zj16l1k3z/bAuenlomS8nxmHRCL+p9D4OPHn8YnDg="
+    },
+    {
+      "path": "migrations/0018_credit_income_and_schedule_guards.sql",
+      "sha256": "79c8a6dd9f1d7488040b8aaba410715ced42c23263836011d082fff0ea790504",
+      "content_sha": "ecim3Z8ddIgEC4qrpBBxXO1CwjJjg2AR0IL/8Op5BQQ="
+    },
+    {
+      "path": "migrations/0014_debt_and_balance.sql",
+      "sha256": "1db5f7fc3d9f23675565d5d7772f5476dd2aea98cd160d68378c288e0d57d702",
+      "content_sha": "HbX3/D2fI2dVZdXXdy9Udt0q6pjNFg1oN4wojg1X1wI="
+    },
+    {
+      "path": "migrations/0013_promo_rebuild.sql",
+      "sha256": "ab65b33c93d6d0f6aebebef40f40468b75d99a2801be24868e9c9c798a737401",
+      "content_sha": "q2WzPJPW0Pauvr70D0BGi3XZmigBviSGjpyceYpzdAE="
+    },
+    {
+      "path": "migrations/0002_security_review.sql",
+      "sha256": "aa308ea417e37b696a409e39e95372d9f3e5d9be2f265bc86f9bae79b805f6fe",
+      "content_sha": "qjCOpBfje2lqQJ456VNy2fPl2b4vJlvIb5uuebgF9v4="
+    },
+    {
+      "path": "migrations/0005_integer_money.sql",
+      "sha256": "992c6815c8d351ead694344fbb477d0f47ad8de9c370fb740f26ba85d7c309f6",
+      "content_sha": "mSxoFcjTUerWlDRPu0d9D0etjenDcPt0Dya6hdfDCfY="
+    },
+    {
+      "path": "migrations/0007_settlement_fingerprint.sql",
+      "sha256": "d8f5d52766f06d435b13bf241b523af452233e2cc5394ca1d3b7a75275aef667",
+      "content_sha": "2PXVJ2bwbUNbE78kG1I69FIjPizFOUyh07enUnWu9mc="
+    },
+    {
+      "path": "migrations/0010_promo.sql",
+      "sha256": "512c8f53b88ebfd86db605fa365aa6fa96d454e4c3ac5455444d665c6047fc1d",
+      "content_sha": "USyPU7iOv9httgX6Nlqm+pbUVOTDrFRVRE1mXGBH/B0="
+    },
+    {
+      "path": "migrations/0009_tools.sql",
+      "sha256": "0deebe356b35ad72ac6633a71c672e0362aa003dcbc58cb71e5debcaff678419",
+      "content_sha": "De6+NWs1rXKsZjOnHGcuA2KqAD3LxYy3Hl3ryv9nhBk="
+    },
+    {
+      "path": "migrations/0001_foundation.sql",
+      "sha256": "b8783e5a110c21a5796e2b578102d3e0ddc6407a4eff678e46a7bdcfd3338311",
+      "content_sha": "uHg+WhEMIaV5bitXgQLT4N3GQHpO/2eORqe9z9MzgxE="
+    },
+    {
+      "path": "migrations/0004_credits.sql",
+      "sha256": "dd478ad58f252e528a9e6cf0b2ae380ee29461197d2901f99f7e795ae2a6a5f0",
+      "content_sha": "3UeK1Y8lLlKKnmzwsq44DuKUYRl9KQH5n355WuKmpfA="
+    },
+    {
+      "path": "migrations/0012_ui_rebuild.sql",
+      "sha256": "91f04b474149991aa82361ea377a8b5f64ef2628d2bc48fd9ff6141fb6cbf484",
+      "content_sha": "kfBLR0FJmRqoI2HqN3qLX2TvJijSvEj9n/YUH7bL9IQ="
+    },
+    {
+      "path": "migrations/0019_identity_and_institutions.sql",
+      "sha256": "29b5b411f5f4f44499240e4eeaa454b19c0b23b1f5e203cd192c50f40497752b",
+      "content_sha": "KbW0EfX09ESZJA5O6qRUsZwLI7H14gPNGSxQ9ASXdSs="
+    },
+    {
+      "path": "scripts/package-stage9.py",
+      "sha256": "806552daefa0ce93d7c4a821e14f56bc8ac5ff66012a88200dd78d71559f8b3f",
+      "content_sha": "gGVS2u+gzpPXxKgh4U9WvIrF/2YBKoggDdeNcVWfiz8="
+    },
+    {
+      "path": "scripts/sql/teacher_paid_audit.sql",
+      "sha256": "73c01f7e45983afcfd4d397631a6661c4ad76485a9c3337a63027c6bdf4a41ae",
+      "content_sha": "c8AffkWYOvz9TTl2MaZmHErXZIWpwzN6YwJ8a99KQa4="
+    },
+    {
+      "path": "scripts/sql/0008_precheck.sql",
+      "sha256": "a6d8a2c25ed0db88bab12a847c8cfa14880fb204901d2e75afd94a6709378310",
+      "content_sha": "ptiiwl7Q24i6sSqEfIz6FIgPsgSQHS51r9lKZwk3gxA="
+    },
+    {
+      "path": "scripts/sql/0009_precheck.sql",
+      "sha256": "0e1f369eeabe00f3893f1e5325ff60bf78a0d5a31e590ff3d251f75b4945d9db",
+      "content_sha": "Dh82nuq+APOJPx5TJf9gv3ig1aMeWQ/z0lH3W0lF2ds="
+    },
+    {
+      "path": "scripts/sql/D1限制只读检查.sql",
+      "sha256": "1afacb9ee9b40fbade0d044bf908e7180e9a52dca6f6183fb0a63df2d07f7fdd",
+      "content_sha": "GvrLnum0D7reDQRL+QjnGA6aUtym9hg/sKY98tB/f90="
+    },
+    {
+      "path": "scripts/sql/0005_money_precheck.sql",
+      "sha256": "3173e7e37a2c7821c9df0cb2a2a66fd2f875647fc987793e87477863cb3b1981",
+      "content_sha": "MXPn43oseCHJ3wyyoqZv0vh1ZH/Jh3k+h0d4Y8s7GYE="
+    },
+    {
+      "path": "scripts/sql/0005_money_state.sql",
+      "sha256": "8acc95e6363ac799f648234136d18e67a0d40689b5273db76e8a356955ceb53d",
+      "content_sha": "isyV5jY6x5n2SCNBNtGOZ6DUBom1Jz23boo1aVXOtT0="
+    },
+    {
+      "path": "scripts/sql/0011_precheck.sql",
+      "sha256": "669b28924ad3c0c6a9a93b1e014b7c919542a187c1936ef80c85450b6b5f41c5",
+      "content_sha": "ZpsokkrTwMapqTseAUt8kZVCoYfBk274DIVFC2tfQcU="
+    },
+    {
+      "path": "scripts/sql/P3/F1历史无可靠单价.sql",
+      "sha256": "ab167f3f6db0247844bf2d97934bbda4df3a5b0eb80c0cdac942843cf45f0b72",
+      "content_sha": "qxZ/P22wJHhEvy2Xk0u9pN86Ww64DAzayUKEPPRfC3I="
+    },
+    {
+      "path": "scripts/sql/P3/补课历史重复有效关联.sql",
+      "sha256": "7f07dae2a85f5d3cfab6878941c0a0ede60e297553c2c9dbf4a4e7e5d4dd571e",
+      "content_sha": "fwfa4qhfXTz6toeJQcCg7eYOKXVTwsnb9KTn5dTdVx4="
+    },
+    {
+      "path": "scripts/sql/P3/F1入账完整性.sql",
+      "sha256": "b97a5bedd0702dabeab610074d97d263e9bd0e44b07ec362298034c66041d79f",
+      "content_sha": "uXpb7dBwLavqthAHTZfSY+m9DkSwfsNiKYA0xmBB158="
+    },
+    {
+      "path": "scripts/sql/P3/S3班级模板历史报名.sql",
+      "sha256": "cb652a7833f5212391f7be8344d5ea448cffcb99c65f518ab6d69ba64eae6659",
+      "content_sha": "y2UqeDP1ISOR976DRNXqRIz/y5nGX1GKttabpk6uZlk="
+    },
+    {
+      "path": "scripts/sql/P3/F4历史超收.sql",
+      "sha256": "e6a3991e026cd3f33d3c21427126918fb8eb0b1b055a0833bae7905743074761",
+      "content_sha": "5qOZHgJs0/M9PCFCcSaRj7jrCxsFWggzuueQV0MHR2E="
+    },
+    {
+      "path": "scripts/sql/P3/0018索引与结构检查.sql",
+      "sha256": "63c937a45bacd23341ccd18268e6a7626d8d916cf36fbdfb68464f331dac9843",
+      "content_sha": "Y8k3pFus0jNBzNGCaOanYm2NkWzzb737aEZPMx2smEM="
+    },
+    {
+      "path": "scripts/sql/0005_money_details.sql",
+      "sha256": "a9663d858598f48a1feacd0607349238e99014987d4702d958cb4184543e164b",
+      "content_sha": "qWY9hYWY9Iof6s0GBzSSOOmQFJh9RwLZWMtBhFQ+Fks="
+    },
+    {
+      "path": "scripts/sql/0010_precheck.sql",
+      "sha256": "3d5013da2a1b800c2acdbea93721fdf768bf4c03ee97b5ca78dc93c408b652a1",
+      "content_sha": "PVAT2iobgAwqzb6pNyH992i/TAPul7XKeNyTxAi2UqE="
+    },
+    {
+      "path": "scripts/rebuild-platform-phone-index.mjs",
+      "sha256": "8247246d2b5cb3df0eb853aa61bb8821459b391f1ac8f327276881ab8385bb3a",
+      "content_sha": "gkckbStcs98OuFOqYbuIIUWbOR8ayPMnJ2iBq4OFuzo="
+    },
+    {
+      "path": "scripts/package-stage10c.py",
+      "sha256": "e308f258bcb242e86d911661dbf6a168a5b449ecc2f6e3d3b9778b07c178afe6",
+      "content_sha": "4wjyWLyyQuhtkRZh2/ahaKW0SezC9uPTuXeLB8F4r+Y="
+    },
+    {
+      "path": "scripts/zz-promo-seed.mjs",
+      "sha256": "4147e2888e4ea77898fef55f839c19620287b417f7493c798f45f2e5287204be",
+      "content_sha": "QUfiiI5Op3iY/vVfg5wZYgKHtBf3STx5j0Xy5ShyBL4="
+    },
+    {
+      "path": "scripts/query-report.mjs",
+      "sha256": "6b50b475b9d3ca573374cab0d6fdb17537e05e7cb6c9c200eb553b6168a83f7f",
+      "content_sha": "a1C0dbnTylczdMqw1v2xdTfgXny2ycIA61U7YWioP38="
+    },
+    {
+      "path": "scripts/yx-preview.mjs",
+      "sha256": "1759ce31bd9ccba45a5dbfb66002f15f81958c1f5715ac0dc6060c42434148fb",
+      "content_sha": "F1nOMb2cy6RaXb+2YALxX4GVjB9XFawNxgYMQkNBSPs="
+    },
+    {
+      "path": "scripts/seed-test-data.mjs",
+      "sha256": "ed09e31cfd3be7e5c4dc2ee8a52f118b2c8ed61305f0f4cc8963b8c13a153437",
+      "content_sha": "7QnjHP075+XE3C7opS8RiyyO1hMF8PTMiWO4wToVNDc="
+    },
+    {
+      "path": "scripts/ui-compare.py",
+      "sha256": "81681e00e8eb41ffbcaa85d84937649692cb182c0e891f46f920394788c4398d",
+      "content_sha": "gWgeAOjrQf+8qoXYSTdklpLLGCwOiR9G+SA5R4jEOY0="
+    },
+    {
+      "path": "scripts/isolation.mjs",
+      "sha256": "b3bd228156bd7ab4a1661473a973286bd356b31221fb4cd92e6e2ac25b80b939",
+      "content_sha": "s70igVa9erShZhRzqXMoa9NWsxIh+0zZLm4qwluAuTk="
+    },
+    {
+      "path": "scripts/package.py",
+      "sha256": "cfbf2b7fd4c34d269a88221e1698e1352403268ac66e99c242b58d7059580274",
+      "content_sha": "z78rf9TDTSaaiCIeFpjhNSQDJorGbpnCQrWNcFlYAnQ="
+    },
+    {
+      "path": "scripts/ui-stageb-check.mjs",
+      "sha256": "6b90c2321ac7025f4c9d122bb2aa9195eb6b486f96fae0b9818f22053cfd1c2d",
+      "content_sha": "a5DCMhrHAl9MnRIrsqqRletrSG+W+uC5gY8iBTz9HC0="
+    },
+    {
+      "path": "scripts/package-stage10c1.py",
+      "sha256": "6cc1fada873d8f502cba3ed6d7ed0975c45334410c6d096d3ba3bcea8ecb1b51",
+      "content_sha": "bMH62oc9j1Asuj7W1+0JdcRTNEEMbQltO6O86o7LG1E="
+    },
+    {
+      "path": "scripts/ui-preview.mjs",
+      "sha256": "9ea5ae704e2282b028bdefc9f349e7e94fe70f74e5ad08f117daa0cc27112117",
+      "content_sha": "nqWucE4igrAove/J80nn6U/nD3TlrQjxF9qgzCcRIRc="
+    },
+    {
+      "path": "scripts/ui-c-review-check.mjs",
+      "sha256": "a3646d5e5015c988dd3d05d96a4fdd9ddd413ea13f1f429e93f3e3407c46a29b",
+      "content_sha": "o2RtXlAVyYjdPQXZak/dnd1BPqE/H0Kek/PjQHxGops="
+    },
+    {
+      "path": "scripts/seed-verify.mjs",
+      "sha256": "e176cbb4575b7a7b932b0b699a968667c0272bc6830ad813a73658a494573a88",
+      "content_sha": "4XbLtFdbenuTKwtpmpaGZ8AnK8aDCtgTpzZYpJRXOog="
+    },
+    {
+      "path": "scripts/ui-foundation-check.mjs",
+      "sha256": "658a06298aa196806bea6d78baf31f2a35c31ae5d1a3818a15c1c44c05fa0bac",
+      "content_sha": "ZYoGKYqhloBr6m14uvMfKjXDGuXRo4GKFcHETAX6C6w="
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "7dcbfc386c0befc5b1033b4e63356b68f24bb6ba1f38185ad5dc8445a8df552c",
+      "content_sha": "fcv8OGwL78WxAztOYzVraPJLtrofOBha1dyERajfVSw="
+    },
+    {
+      "path": "scripts/ui-c3-check.mjs",
+      "sha256": "e4eeac98b726dbe854e9e55c1a95e634886cb479a64ad091284e7c42372ed9cd",
+      "content_sha": "5O6smLcm2+hU6eVcGpXmNIhstHmmStCRKE58Qjcu2c0="
+    },
+    {
+      "path": "scripts/ui-c1-compare.py",
+      "sha256": "46b44c2a97b78f9c41b9ab46335d15e1b2ddf62dc3106233b97757ce9a3658ed",
+      "content_sha": "RrRMKpe3j5xBuatGM10V4bLd9i3DEGIzuXdXzpo2WO0="
+    },
+    {
+      "path": "scripts/frontend-bundle.mjs",
+      "sha256": "e177400f8fe6f71700a2604005520de0b1df0d34f7f513ee52a41c63ca1c684b",
+      "content_sha": "4XdAD4/m9xcAomBABVIN4LHfDTT39RPuUqQcY8ocaEs="
+    },
+    {
+      "path": "scripts/dev.mjs",
+      "sha256": "19f0febe50a18f0047a5adbd3422d5042d0c566d38ba773d266039379bab9775",
+      "content_sha": "GfD+vlChjwBHpa29NCLVBC0MVm04unc9JmA5N5url3U="
+    },
+    {
+      "path": "scripts/generate-student-pinyin.mjs",
+      "sha256": "fd532ebaf1161feb806417a80457af6f94befa0b834309e1137889f00c81d3b7",
+      "content_sha": "/VMuuvEWH+uAZBeoBFevb5S++guDQwnhE3iJ8AyB07c="
+    },
+    {
+      "path": "scripts/package-stage10b.py",
+      "sha256": "729d4d03653362a55481f42503fecdfe67e158b3c9816f464c2fd97d87066dfd",
+      "content_sha": "cp1NA2UzYqVUgfQlA/7N/mfhWLPJgW9GTC/ZfYcGbf0="
+    },
+    {
+      "path": "scripts/ui-stageb-compare.py",
+      "sha256": "b33d7aa45b4a9496430b45ed0d7f174b301314efb689cd5c682b906a38699557",
+      "content_sha": "sz16pFtKlJZDC0XtDX8XSzATFO+2ic1caCuQajhplVc="
+    },
+    {
+      "path": "scripts/ui-stageb-roles.mjs",
+      "sha256": "fc2ab7539cafe7c579797f54e63fd1b3a2fd8844eadff2d98c2680d43565fa2d",
+      "content_sha": "/Cq3U5yv58V5eX9U5j/Rs6L9iETq3/LZjCaA1DVl+i0="
+    },
+    {
+      "path": "scripts/ui-c2-check.mjs",
+      "sha256": "2071a28e40c1c3d30f75f285fdec90c13f275d02b5b28c880a6e35911858f35e",
+      "content_sha": "IHGijkDBw9MPdfKF/eyQwT8nXQK1soyICm41kRhY814="
+    },
+    {
+      "path": "scripts/ui-bfix-check.mjs",
+      "sha256": "f50f38484b3b6a0be3dd4c8d2f926deb0f6181a01e9dd2a9884e78a14ef8fa5d",
+      "content_sha": "9Q84SEs7agvj3UyNL5Jt6w9hgaAendKpiE54oU74+l0="
+    },
+    {
+      "path": "scripts/package-stage10a.py",
+      "sha256": "2d845ed0c392b83f0fce34d3a1a18008ae8a6c52a4ba251bb3d4db0cf90b2cb4",
+      "content_sha": "LYRe0MOSuD8PzjTToaGACK6KbFKkuiUbs9TbDPkLLLQ="
+    },
+    {
+      "path": "scripts/promo-demo.mjs",
+      "sha256": "bf31a038a155ab50df0e1b61c59157bea5a2ed37642c4ac4bee45805aedffa61",
+      "content_sha": "vzGgOKFVq1DfDhthxZFXvqWi7TdkLErEvuRYBa7f+mE="
+    },
+    {
+      "path": "scripts/seed-run.mjs",
+      "sha256": "548df29d83c53134bc1f40c4249caa23e71cc895d2cbe043125c0a4142daaad8",
+      "content_sha": "VI3ynYPFMTS8H0DEJJyqI+ccyJXSy+BDElwKQULaqtg="
+    },
+    {
+      "path": "scripts/ui-c1-components.mjs",
+      "sha256": "8a79b5f0dd8bffad180e52ed7c631306755d32230b3b13e65420e4391cbf8a29",
+      "content_sha": "inm18N2L/60YDlLtfGMTBnVdMiMLOxPmVCDkORy/iik="
+    },
+    {
+      "path": "scripts/vendor/README.md",
+      "sha256": "7ce933c319ae2d37ea42cf3a57f87613df030d6b8106f8f709e594b09ed650f9",
+      "content_sha": "fOkzwxmuLTfqQs86V/h2E98DDWuBBvj3CeWUsJ7WUPk="
+    },
+    {
+      "path": "scripts/vendor/terser-5.44.1.cjs",
+      "sha256": "9a56763b35425aa5fbb9e66c75960b931089a3380a93507a5c7619ff55703989",
+      "content_sha": "mlZ2OzVCWqX7ueZsdZYLkxCJozgKk1B6XHYZ/1VwOYk="
+    },
+    {
+      "path": "scripts/vendor/terser.LICENSE",
+      "sha256": "901d0a7fcaccaae9917d165039c0473c354e5da2e0e94140dde67aad9ffb19da",
+      "content_sha": "kB0Kf8rMqumRfRZQOcBHPDVOXaLg6UFA3eZ6rZ/7Gdo="
+    },
+    {
+      "path": "scripts/zz-mock-preview.mjs",
+      "sha256": "19a799ae820020efa19611e9c4fa423b7c5c96c75c8e2bab29f3b920e2d16aba",
+      "content_sha": "GaeZroIAIO+hlhHpxPpCO3xclsdcjiurKfO5IOLRaro="
+    },
+    {
+      "path": "scripts/ui-c-compat.mjs",
+      "sha256": "88260aa2062598f79e3a2d5ebfe5091d1988891873157033a9445ad3a3deff19",
+      "content_sha": "iCYKogYlmPeeOi1ev+UJHRmIiRhzFXAzqURa06Pe/xk="
+    },
+    {
+      "path": "scripts/ui-c-extra.mjs",
+      "sha256": "7d698263f3678e827bb7abe3e5d6cd0b3dd0b87a8c8e341f169d2571d522e0d4",
+      "content_sha": "fWmCY/NnjoJ7t6vj5dbNCz3QuHqMjjQfFp0lcdUi4NQ="
+    },
+    {
+      "path": "scripts/e2e/scenario.mjs",
+      "sha256": "069c191d4e3c5fe2f8ca9b2b6b13bed33d1c94ae770ae5d863cedc25e501c437",
+      "content_sha": "BpwZHU48X+L4ypsraxO+0z0clK53CuXYY87cJeUBxDc="
+    },
+    {
+      "path": "scripts/e2e/reporter.mjs",
+      "sha256": "5a1469f1e359698302de9298f8a2774dd671aafc6c25433f36c1dd4e7bca6997",
+      "content_sha": "WhRp8eNZaYMC3pKY+KJ3TdZxqvxsJUM/NsHdTnvKaZc="
+    },
+    {
+      "path": "scripts/e2e/remote-public.mjs",
+      "sha256": "d23fe37af94174a42d0cbb1325380c6e7b07a9138b2ab83e4f8588496b9c4e33",
+      "content_sha": "0j/jevlBdKQtDLsTJTgMbnsHqROLKrg+T4WISWucTjM="
+    },
+    {
+      "path": "scripts/e2e/check-migrations.mjs",
+      "sha256": "b9f24882485850f00395e3efc20628f9ecaf2fbe911b6be48ab6bcaa0e271d65",
+      "content_sha": "ufJIgkhYUPADlePvwgYo+eyvL76RG2vkira8qg4nHWU="
+    },
+    {
+      "path": "scripts/e2e/server.mjs",
+      "sha256": "f78793dd406ea48df451736dffab68112b8d8cddf8458dbb214e48359cb9b26d",
+      "content_sha": "94eT3UBupI30UXNt/6toESuNjN34RY27IU5INZy5sm0="
+    },
+    {
+      "path": "scripts/e2e/run.mjs",
+      "sha256": "b28acd0076b007176f47092a860acf0d506a4c6b85aad7ebdf942c1d305efb4a",
+      "content_sha": "sorNAHawBxdvRwkqhgrPDVBqTGuFqtfr35QsHTBe+0o="
+    },
+    {
+      "path": "scripts/compare-legacy-finance.mjs",
+      "sha256": "4549e58978a0b48fc8b5f75432d65ccc5a3288a53507a1a2e1d0c4f601ce12fa",
+      "content_sha": "RUnliXigtI/ItfdUMtZczFoyiKU1B6Gi4dDE9gHOEvo="
+    },
+    {
+      "path": "scripts/d1-precheck.mjs",
+      "sha256": "caf771402e89eba09647d16017fba3a889bffd303c02a2c533e2357a9ffa1c57",
+      "content_sha": "yvdxQC6J66CWR9FgF/ujqIm//TA8AqLFM+I1ep/6HFc="
+    },
+    {
+      "path": "scripts/ui-c1-check.mjs",
+      "sha256": "a621cd4385fd59af4505819271c253752b331c42b1d93b9a3e12a9d2f836c205",
+      "content_sha": "piHNQ4X9Wa9FBYGSccJTdSszHEKx2TuaPhKp0vg2wgU="
+    },
+    {
+      "path": "scripts/package-stage9b.py",
+      "sha256": "2d76fbd0ed9fcab47ede6d0747e695c7dfeed679da026cf4a1040fc3d2a4777f",
+      "content_sha": "LXb70O2fyrR+3m0HR+aVx9/u1nnaAmz0oQQPw9Kkd38="
+    },
+    {
+      "path": "scripts/package-stage9c.py",
+      "sha256": "926a1175622e901255f48ec8714e54dd35c26fb2c47d899769cf86be5f2e9d87",
+      "content_sha": "kmoRdWIukBJV9I7IcU5U3TXCb7LEfYmXac+Gvl8unYc="
+    },
+    {
+      "path": "scripts/seed-dump.mjs",
+      "sha256": "f21d6928bfd2573e8a7078b3463cffd222fb577fe2c7205d6912e6e27d4b5da7",
+      "content_sha": "8h1pKL/SVz6KcHizRjz/0iL7V3/ixyBdaRLm4n1LXac="
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "68802c70bc18744f1c369473fb8c92559a547bd5ccd1b8fc754e284b58af5e02",
+      "content_sha": "aIAscLwYdE8cNpRz+4ySVZpUe9XM0bj8dU4oS1ivXgI="
+    },
+    {
+      "path": "playwright.config.mjs",
+      "sha256": "1ae2deb6ae67f131e095b8f7bb273b16d0b7db40aa3f7f2b6a6756e4f04421be",
+      "content_sha": "GuLetq5n8THglbj3uyc7FtC320CqP38ramdW5PBEIb4="
+    },
+    {
+      "path": "tests/ui-c3.test.mjs",
+      "sha256": "179ab4a5dd6d09208853a21d36596ac8d351f181ee39c5a39eca575e93796d69",
+      "content_sha": "F5q0pd1tCSCIU6IdNllqyNNR8YHuOcWjnspXXpN5bWk="
+    },
+    {
+      "path": "tests/promo.test.mjs",
+      "sha256": "12a20bf407c733f86f6f3b7d920f58e3c1cefe7769b4c56a80abd7896b4012b1",
+      "content_sha": "EqIL9AfHM/hvbzt9kg9Y48HO/ndptMVqgKvXiWtAErE="
+    },
+    {
+      "path": "tests/promo-budget.test.mjs",
+      "sha256": "cc536a7e1756b90c0272f193af4e3168daf75f185c218bd670674bffce323804",
+      "content_sha": "zFNqfhdWuQwCcvGTr04xaNr3XxhcIYvWcGdL/84yOAQ="
+    },
+    {
+      "path": "tests/tools.test.mjs",
+      "sha256": "556bcf17d023b54639824ab9b3fcdd4db6e20139309add5be2e5bd929bbb28c3",
+      "content_sha": "VWvPF9AjtUY5gkq5s/zdTbbiATkwmt1b4uW9kpu7KMM="
+    },
+    {
+      "path": "tests/ui-v2.test.mjs",
+      "sha256": "72777b1b7b812019ab324f822fc4cd8ffdd595127dcfe4b46a03782add78d1e8",
+      "content_sha": "cnd7G3uBIBmrMk+CL8TNj/3VlRJ9z+S0agN4Kt140eg="
+    },
+    {
+      "path": "tests/debt-and-balance.test.mjs",
+      "sha256": "d1408319876166ec7140ec68028a950e5279b12a602606df858d0863d53c3aa2",
+      "content_sha": "0UCDGYdhZuxxQOxoAoqVDlJ5sSpgJgbfhY0IY9U8OqI="
+    },
+    {
+      "path": "tests/r2.mjs",
+      "sha256": "d9ce2fc67cf651a6f2c74c3dcdd1c3f5fb427409591acef8fd7f8fff6526b1d9",
+      "content_sha": "2c4vxnz2Uabyx0w9zdHD9ftCdAlZGs74/X+P/2Umsdk="
+    },
+    {
+      "path": "tests/access-mode.test.mjs",
+      "sha256": "c42ed5d5a14faa8822878d788786142c202d3a2d824e0b544ca1225c1af73fbb",
+      "content_sha": "xC7V1aFPqogih414h4YULCAtOi2CTgtUTKEiXBr3P7s="
+    },
+    {
+      "path": "tests/stage7.test.mjs",
+      "sha256": "dceffb5c8059a314ebd7863219a8b02504518d1f676889ca7cfde0d9fec1659e",
+      "content_sha": "3O/7XIBZoxTr14YyGaiwJQRRjR9naInKfP3g2f7BZZ4="
+    },
+    {
+      "path": "tests/p3-relations.test.mjs",
+      "sha256": "53e6efaa3acb08769b5d00b4f899b451a3b1b6ac80946b1ba99f0d4f48c557fb",
+      "content_sha": "U+bvqjrLCHabXQC0+Jm0UaOxtqyAlGsbqZ8NT0jFV/s="
+    },
+    {
+      "path": "tests/d1-limits.test.mjs",
+      "sha256": "0cfb2d16bb2e06adfecfeb98ec57149cc4bd50c91e9b8a68d1bd9b1d176b0b7e",
+      "content_sha": "DPstFrsuBq3+z+uY7FcUnMS9UMkem4po0b2bHRdrC34="
+    },
+    {
+      "path": "tests/ui-c2.test.mjs",
+      "sha256": "b7ebe4ee011e46e333f4cf8c921fdcdc82914e4ba9c5be5111af695c24c27607",
+      "content_sha": "t+vk7gEeRuMz9M+Mkh/c3IKRTkupxb5REa9pXCTCdgc="
+    },
+    {
+      "path": "tests/isolation.test.mjs",
+      "sha256": "78718ecadd0c82157aa8588647db5c4bf724be3c90244a32b87f2dbc874ab030",
+      "content_sha": "eHGOyt0MghV6qFiGR9tcS/ckvjyQJEoyuH8tvIdKsDA="
+    },
+    {
+      "path": "tests/rights-batch.test.mjs",
+      "sha256": "85348ddf240e554e273d942063877c146802a58167a6e46ff99de61c1a63792b",
+      "content_sha": "hTSN3yQOVU4nPZQgY4d8FGgCpYFnpuRv+Z3mHBpjeSs="
+    },
+    {
+      "path": "tests/query-budget.test.mjs",
+      "sha256": "8c4d40f88bc4c98e85d12c90d61ab9cfd7c7866606eda037d2cea297eab857fe",
+      "content_sha": "jE1A+IvEyY6F0SyQ1hq5z9fHhmYG7aA30s6il+q4V/4="
+    },
+    {
+      "path": "tests/credits.test.mjs",
+      "sha256": "2c5f89fb73e16b8efd2938099040714f0450b2d6fe7f6ee09efb1bb3f15ac4a1",
+      "content_sha": "LF+J+3Pha479KTgJkEBxTwRQstb+f27gnvsbs/FaxKE="
+    },
+    {
+      "path": "tests/speed-backend.test.mjs",
+      "sha256": "98987ebe550e4d9d4dac8f3a9c0fcf18a61e25e5e553ee4510454900edf7e1b1",
+      "content_sha": "mJh+vlUOTZ1NrI86nA/PGKYeJeXlU+5FEEVJAO334bE="
+    },
+    {
+      "path": "tests/student-schedule.test.mjs",
+      "sha256": "ef76b2d8255b8379c56c8832987e2ac790a7ed46c19454f4c435236a92195b12",
+      "content_sha": "73ay2CVbg3nFbIgymH4qx5Cn7UbBlFT0xDUjapIZWxI="
+    },
+    {
+      "path": "tests/ui-foundation.test.mjs",
+      "sha256": "af5eb9e6bb5c1887a47c7f912295274aa9b5946a20d3ce84d3ac4edd7d631bb7",
+      "content_sha": "r1655rtcGIekfH+RIpUnSqm1lGog086E06xO3X1jG7c="
+    },
+    {
+      "path": "tests/assets/promo-qr-b.png",
+      "sha256": "82554f07a66f50692555fe7e9bba230a8c6d87d816490e535978ce12e0195be9",
+      "content_sha": "glVPB6ZvUGklVf5+m7ojCoxth9gWSQ5TWXjOEuAZW+k="
+    },
+    {
+      "path": "tests/assets/promo-qr-a.png",
+      "sha256": "b49d168295ef9a99652b65432cad768883f14232ac2c7dff9d308b463119d8fc",
+      "content_sha": "tJ0WgpXvmpllK2VDLK12iIPxQjKsLH3/nTCLRjEZ2Pw="
+    },
+    {
+      "path": "tests/assets/promo-logo-b.png",
+      "sha256": "7819a65a8168b7173e2e3523f6fbe8db372e0eb90db5a06b423bf99f539f8442",
+      "content_sha": "eBmmWoFotxc+LjUj9vvo2zcuDrkNtaBrQjv5n1OfhEI="
+    },
+    {
+      "path": "tests/assets/promo-logo-a.png",
+      "sha256": "93ffe61b22dff3c064b061e9a7973746a34e05eade13b761036807eed298a5cb",
+      "content_sha": "k//mGyLf88BksGHpp5c3RqNOBereE7dhA2gH7tKYpcs="
+    },
+    {
+      "path": "tests/finance.test.mjs",
+      "sha256": "21549631a6b890e09f1f2f3f87c616f9f0a85572fdd70327918bcd304ddb1d02",
+      "content_sha": "IVSWMaa4kOCfHy8/h8YW+fCoVXL91wMnkYvNME3bHQI="
+    },
+    {
+      "path": "tests/d1-emulator.mjs",
+      "sha256": "8978f63d232aefc33c220aac43044f1ca953f78310fc9f18eda8f6c502977e6e",
+      "content_sha": "iXj2PSMq78M8IgqsQwRPHKlT94MQ/J8Y7aj2xQKXfm4="
+    },
+    {
+      "path": "tests/makeup-planning.test.mjs",
+      "sha256": "c8176670a0736640e75c5135febf61fd328e410e900368d2e2b3c6c14057dc68",
+      "content_sha": "yBdmcKBzZkDnXFE1/r9h/TKOQQ6QA2jS4rPGwUBX3Gg="
+    },
+    {
+      "path": "tests/console-v2.test.mjs",
+      "sha256": "50efe47321739d4fb5fe31560a73d8ef5a135b3dedf30317ebda5c35bee473f6",
+      "content_sha": "UO/kcyFznU+1/jFWCnPY71oTWz3t8wMX69pcNb7kc/Y="
+    },
+    {
+      "path": "tests/support.mjs",
+      "sha256": "90ca38c98b355118225ca8af697749cc36d970248d0a2f6aa474435e454da079",
+      "content_sha": "kMo4yYs1URgiXKivaXdJzDbZcCSNCi9qpHRDXkVNoHk="
+    },
+    {
+      "path": "tests/ui-c-review.test.mjs",
+      "sha256": "9c5f9461ed44ab2b6d232b107186c873d7f4fa97aa20e56a8b7d3924bcfab54a",
+      "content_sha": "nF+UYe1EqyttIysQcYbIc9f0+peqIOVqi305JLz6tUo="
+    },
+    {
+      "path": "tests/fixtures-mobile.mjs",
+      "sha256": "0ef1dc57206a9bf69d2a2537848bc58cd0e1be96019ce359e5d7ed74458b4da1",
+      "content_sha": "DvHcVyBqm/adKiU3hIvFjNDhvpYBnONZ5dftdEWLTaE="
+    },
+    {
+      "path": "tests/fixtures-legacy-credit.mjs",
+      "sha256": "7e6d3942ee3f55596953b22a64e9b766ab2d113480cff4d52b7fbe12a3925a8f",
+      "content_sha": "fm05Qu4/VVlpU7IqZOm3ZqstETSAz/TVK3++EqOSWo8="
+    },
+    {
+      "path": "tests/fixtures-student-schedule.mjs",
+      "sha256": "3de407077b01f4fee1b427b2772aa6d4a43a73bcb0e49f568a5d80bdf43b38bd",
+      "content_sha": "PeQHB3sB9P7htCeydyqm1KQ6c7yw5J9Wil2AvfQ7OL0="
+    },
+    {
+      "path": "tests/tools-budget.test.mjs",
+      "sha256": "3ec86ceb134b4ab332489a1186527b68b1b1481a7a0356e649fccfe427d4c152",
+      "content_sha": "Pshs6xNLSrMySJoRhlJ7aLGxSBp6A1bmSfzP5CfUwVI="
+    },
+    {
+      "path": "tests/promo-final.test.mjs",
+      "sha256": "ee98fa72f0a2b7d89589881eb4cf10c40e70e7f14bf81223bda046ac7e7379a7",
+      "content_sha": "7pj6cvCit9iViYgetM8QxA5w5/FL+BIjvaBGrH5zeac="
+    },
+    {
+      "path": "tests/mobile.test.mjs",
+      "sha256": "91d03d75a30443a13df87027a1c91c454080e51d5cb694b993de7515e90ce4c0",
+      "content_sha": "kdA9daMEQ6E9+HAnockcRUCA5R1ctpS5k951FekM5MA="
+    },
+    {
+      "path": "tests/p1-query-sample.mjs",
+      "sha256": "3e8d1d472508e18946c2d694d4ca4919219be2840f9211a05370db71c3a5e496",
+      "content_sha": "Po0dRyUI4YlGwtaU1MpJGSGb4oQPkhGgU3DbccOl5JY="
+    },
+    {
+      "path": "tests/security.test.mjs",
+      "sha256": "9d2f62ac789d0f990136ed26f053c0d17adb04accab73369de2570803d292c43",
+      "content_sha": "nS9irHidD5kBNu0m8FPA0XrbBKzKtzNp3iVwgD0pLEM="
+    },
+    {
+      "path": "tests/ui-c1.test.mjs",
+      "sha256": "3813369def2e52e8716c8027a0e4a371e57f06a9618ba0ed874456de9df6c48a",
+      "content_sha": "OBM2ne8uUuhxbIAnoOSjceV/Bqlhi6Dth0RW3p32xIo="
+    },
+    {
+      "path": "tests/ui-stageb.test.mjs",
+      "sha256": "94160a17ea1ffae12c9592c732a60ad429e258d768cc926ea200d7ed2741ae2f",
+      "content_sha": "lBYKF+of+uEslZLHMqYK1CniWNdozJJuogDX7SdBri8="
+    },
+    {
+      "path": "tests/stage4-review.test.mjs",
+      "sha256": "dfaa34ab59c05bf9c9b59f4fb8feede369274cb0c90c370da89c8e85147dc5a2",
+      "content_sha": "36o0q1nAW/nJtZ9PuP7t42knTLDJDDcNqJyOhRR9xaI="
+    },
+    {
+      "path": "tests/imports.test.mjs",
+      "sha256": "be78ff5ae0be4123940001425633b9a8f3f3233e87f59377706075cff8ca76bd",
+      "content_sha": "vnj/WuC+QSOUAAFCVjO5qPPzIz6H9ZN3cGB1z/jKdr0="
+    },
+    {
+      "path": "tests/credits-budget.test.mjs",
+      "sha256": "f50bae84db819022093dcc44c30eb1cf826f891bf0f4b14c251442b43a008615",
+      "content_sha": "9QuuhNuBkCIJPcxEww6xz4JviRvw9LFMJRRCtDoAhhU="
+    },
+    {
+      "path": "tests/fixtures-legacy-finance.mjs",
+      "sha256": "cc32d8159e5c9cd8d5740bce488054cfd9e5d527fb6cbf41b6267621532fed27",
+      "content_sha": "zDLYFZ5cnNjVdAvOSIBUz9nl1Sf7bL9BtiZ2IVMv7Sc="
+    },
+    {
+      "path": "tests/identity-stage2.test.mjs",
+      "sha256": "7b849b8fa70db3a7eeba5f236bb3f123f2505e97c9555a82d9759232fec8072b",
+      "content_sha": "e4Sbj6cNs6fuul8ja7PxI/JQXpfJVVqC2XWSMv7IBys="
+    },
+    {
+      "path": "tests/backup.test.mjs",
+      "sha256": "e695530ba1073c3b3487a221cc5be14517fff3b17aa1794ac4254aa3fcbdd988",
+      "content_sha": "5pVTC6EHPDs0h6IhzFvhRRf/87F6oXlKxCVKo/y92Yg="
+    },
+    {
+      "path": "tests/delete-capabilities.test.mjs",
+      "sha256": "3d06faff88dc8507bef9bc4a456c140baef531bdf3ef5c3519148897f12569d4",
+      "content_sha": "PQb6/4jchQe++bxKRWwUC671Mb3z71w1GRSIl/EladQ="
+    },
+    {
+      "path": "tests/p3-query-sample.mjs",
+      "sha256": "34fc9bf140cb6bc2b039a9021f5e617cbb75cd7ad9b490c509ad103b99f12fec",
+      "content_sha": "NPyb8UDLa8KwOakCH15hfLt1zXrZtJDFCa0QO5nxL+w="
+    },
+    {
+      "path": "tests/finance-budget.test.mjs",
+      "sha256": "c607e4004fabfc7c9c5e1644a1ad1b4c6914ac28212a81a811da580cd74fad6e",
+      "content_sha": "xgfkAE+r/HycXhZEoa0bTGkUrCghKoGoEdpYDNdPrW4="
+    },
+    {
+      "path": "tests/p4-performance.test.mjs",
+      "sha256": "9eb2b7267bbf0117fbfaca297fd3176dc8f5253990379cf17b4fc9cd3a883f56",
+      "content_sha": "nrK3Jnu/ARf7+sopf9MXbcj1JTmQN5zxe0/JzTqIP1Y="
+    },
+    {
+      "path": "tests/session-navigation.test.mjs",
+      "sha256": "f0775284e2f5800032fed4f001d1456b618199bb9b827313f66df8b0f44002c9",
+      "content_sha": "8HdShOL1gAAy/tTwAdFFa2GBmbubgnMT9m34sPRAAsk="
+    },
+    {
+      "path": "tests/page-performance.test.mjs",
+      "sha256": "8afd3e466bcd7aa2e56dd3a8cd90c6a98adc3d69a5d98e0a6cec3c3cd92da2bc",
+      "content_sha": "iv0+RmvNeqLlbdOozZDGqYrcPWml2Y4KbOw8PNktorw="
+    },
+    {
+      "path": "tests/ui-dom-support.mjs",
+      "sha256": "8784117a1139425bbfdc9a5afb5851a845cb9b667cfd54b92d6bd0ed202f2200",
+      "content_sha": "h4QRehE5Qlu/3Jpa+1hRqEXLm2Z8/VS5LWvQ7SAvIgA="
+    },
+    {
+      "path": "tests/p1-query-plan.mjs",
+      "sha256": "30d45cdac447b3a6044ddfae2892bf6fa814ff8d4c61af11ce98d0fc0395ca63",
+      "content_sha": "MNRc2sRHs6YETd+uKJK/b6gU/41MYa8RzpjQ/AOVymM="
+    },
+    {
+      "path": "tests/p2-query-sample.mjs",
+      "sha256": "0c36b5f00468a1e7eb364f9ed732e737350ea41db91a0994dbdf4e06a3dcd2eb",
+      "content_sha": "DDa18ARooefrNk+e1zLnNzUOpB25GgmU299OBqPc0us="
+    },
+    {
+      "path": "tests/e2e/payments.spec.mjs",
+      "sha256": "a59da321eebcc245c67bbf3e6078f606f99dd72ef8033e2314324064939c5603",
+      "content_sha": "pZ2jIe68wkXGe78+YHj2Bvmd1y74Az4jFDJAZJOcVgM="
+    },
+    {
+      "path": "tests/e2e/makeup.spec.mjs",
+      "sha256": "0467c206a58336497eed21bd3c37c761d659114d84c314268e44eedbd76cffa8",
+      "content_sha": "BGfCBqWDNkl+7SG9PDfHYdZZEU2EwxQmjkTu29ds/6g="
+    },
+    {
+      "path": "tests/e2e/scheduling.spec.mjs",
+      "sha256": "06dce94bd310a15df9327de1ea988aa88d39a59399429e37ba4aeb5e4e09592e",
+      "content_sha": "BtzpS9MQoV35Mn3h6piKqI05pZOZQp43ukrrXk4JWS4="
+    },
+    {
+      "path": "tests/e2e/attendance.spec.mjs",
+      "sha256": "cbc002ccea19db97676ac4b38c3f3205eb152f97e8f5fac3143cd755deaf0a32",
+      "content_sha": "y8ACzOoZ25dnasSzjD8yBesVL5fo9frDFDzXVd6vCjI="
+    },
+    {
+      "path": "tests/e2e/reversal-used.spec.mjs",
+      "sha256": "00515450f31ba10965ecea3799748f1ab58f119ed127645eafaaf47444ac512d",
+      "content_sha": "AFFUUPMboQll7Oo3mXSPGrWPEZ7RJ2Rer6r0dESsUS0="
+    },
+    {
+      "path": "tests/e2e/concurrency.spec.mjs",
+      "sha256": "441b8c85d79c5c4c244dfedcddb2d3052d55227316484b0e250251d4df66cdbc",
+      "content_sha": "RBuMhdecXEwkTf7c3bLTBS1VInMWSEsOJQJR1N9mzbw="
+    },
+    {
+      "path": "tests/e2e/helpers.mjs",
+      "sha256": "f9078603ccaafa16b3ea3b30fc148e9a342e858fd006922c80fd7ef0a5413c9a",
+      "content_sha": "+QeGA8yq+haz6jsw/BSOmjQuhY/QBpIsgP1+8KVBPJo="
+    },
+    {
+      "path": "tests/e2e/balance.spec.mjs",
+      "sha256": "2715a0aef4a47502269caed4ec4ce305f105e2da6f9e821e5fb8fca4083818a5",
+      "content_sha": "JxWgrvSkdQImnK7U7EzjBfEF4tpvnoIeX7j8pAg4GKU="
+    },
+    {
+      "path": "tests/e2e/finance-helpers.mjs",
+      "sha256": "335bf036bca2262aea25c57194d0a86755e76296381e7f662281fe8d6c70aebb",
+      "content_sha": "M1vwNryiJirqJcVxlNCoZ1XnYpY4Hn9mIoH+jWxwrrs="
+    },
+    {
+      "path": "tests/e2e/settlement.spec.mjs",
+      "sha256": "851ebc2e65f9791e528483d296334fccbf3cf797e051ae8ad11a4b704267c15d",
+      "content_sha": "hR68LmX5eR5ShIPSljNPzL8895fgUa6K0RpLcEJnwV0="
+    },
+    {
+      "path": "tests/e2e/authentication.spec.mjs",
+      "sha256": "9a29d50323943cbd2ce1b21d6bb2d875aef75a77f4ab1aa903c2112a23ad0d39",
+      "content_sha": "minVAyOUPL0s4bIda7LYda73Wnf0qxqpA8IRKiOtDTk="
+    },
+    {
+      "path": "tests/scheduling.test.mjs",
+      "sha256": "78c175137aad62cd95b257c5732176b9a4537ad8f2024a68a1be97c8a6ef0a6b",
+      "content_sha": "eMF1E3qtYs2VslfFcyF2uaRTetjyAkpoob6XyKbvCms="
+    },
+    {
+      "path": "tests/yx-frontend-stage2.test.mjs",
+      "sha256": "56533641a2869243012a2513c736d511837aa1890ba2126f608a85e782c8fe65",
+      "content_sha": "VlM2QaKGkkMBKiUTxzbVEYN6oYkLohJvYIqF54LI/mU="
+    },
+    {
+      "path": "tests/fixtures-credit.mjs",
+      "sha256": "8333cdd4a9b914be9c158cb0de1e6a896287160eee8b17fa94c8db1b9e9345d4",
+      "content_sha": "gzPN1Km5FL6cFYyw3h5qiWKHFg7uixf6lMjbG56TRdQ="
+    },
+    {
+      "path": "tests/fixtures-school.mjs",
+      "sha256": "826e323b9c4c0960b7a75cd4feb39425656241797647b5ccfcaaab4185f784c6",
+      "content_sha": "gm4yO5xMCWC3p1zU/rOUJWViQXl2R7XM/KqrQYX3hMY="
+    },
+    {
+      "path": "tests/turnstile-mode.test.mjs",
+      "sha256": "2b551d5f8cd51c92a26129a2c936bc2703440271298041a96546e70150871a2e",
+      "content_sha": "K1UdX4zVHJKiYSmiyTa8JwNEAnEpgEGpZUbnAVCHGi4="
+    },
+    {
+      "path": "tests/ui-backend.test.mjs",
+      "sha256": "0a715aef21341ca6330a7c6797c0f160778abf7d9124d392f0972baa388617cc",
+      "content_sha": "CnFa7yE0HKYzCnxnl8DxYHeKv32RJNOS8JcrqjiGF8w="
+    },
+    {
+      "path": "tests/mobile-ui.test.mjs",
+      "sha256": "340d1855906d2b54dedd47830b39812519178a0770cb9d244ea430cf51c9dd35",
+      "content_sha": "NA0YVZBtK1Te3UeDCzmBJRkXigdwy50kTqQwz1HJ3TU="
+    },
+    {
+      "path": "tests/fixtures-admin.mjs",
+      "sha256": "6dc05fa7d4c78aec89efd16375ae1a54242c009017f365f3b9da84a1d33f93b5",
+      "content_sha": "bcBfp9THiuyJ79Fjda4aVCQsAJAX82XzudqEodM/k7U="
+    },
+    {
+      "path": "tests/p4/modal-budget.mjs",
+      "sha256": "4d65293f875ce5df91585b8b4eafac9bc3b9993b8180f64b741942dbd9986506",
+      "content_sha": "TWUpP4dc5d+RWFuLTq+sm8O5mTuBgPZLdBlC29mYZQY="
+    },
+    {
+      "path": "tests/p4/api-examples.mjs",
+      "sha256": "4b8aac7460d941a3550973cbd901f7a422525da525483772753f5d35fd8127a9",
+      "content_sha": "S4qsdGDZQaNVCXPL2QH3pCJSXaUlSDdydT9dNf2BJ6k="
+    },
+    {
+      "path": "tests/p4/README.md",
+      "sha256": "e47b3935e7232695829f5a9e679d0c332deb084bc13b6cdd40076f751f05a44f",
+      "content_sha": "5Hs5NecjJpWCn1qeZ50MMy3rCEvBO2zdQAdvdR8FpE8="
+    },
+    {
+      "path": "tests/p4/write-profile.mjs",
+      "sha256": "583c7859e6a434937b1981c85cbc106da6fa52856bac9ed9115f3add9117b3cf",
+      "content_sha": "WDx4WeakNJN7GYHIXLwQbab6UoVrrJ7ZEV863ZEXs88="
+    },
+    {
+      "path": "tests/p4/seeded-server.mjs",
+      "sha256": "b55af90f288a1965810cf32f3ac6be6cc31568f12e1202333455f392b8e594c3",
+      "content_sha": "tVr5DyiKGWWBDPMvOsa+bMMVaPEuEgIzNFXzkrjllMM="
+    },
+    {
+      "path": "tests/p4/page-comparison.mjs",
+      "sha256": "eecfa02f6c41fbc2feb86a9c7ff05ad8c8ef25be4b3603f4a781e744e5c57ba2",
+      "content_sha": "7s+gL2xB+8L+uGqcf/Ba2MjvJb5LNgP0p4HnROXFe6I="
+    },
+    {
+      "path": "tests/p4/large-query-plan.mjs",
+      "sha256": "b04fddd3ba3bf41f064f053331c4f868af091879a96a37bc70829c7755d8eb95",
+      "content_sha": "sE/d07o79B8GTwUzMcT4aK8JGHmpaje8cIKcd1XY65U="
+    },
+    {
+      "path": "tests/p4/payment-confirm-profile.mjs",
+      "sha256": "93fddeb3c670370720657f3b7a73b72ec4962ac081ac22242bb7f3134aec03c4",
+      "content_sha": "k/3es8ZwNwcgZX87enO3LsSWKsCBrCIkK7fzE0rsA8Q="
+    },
+    {
+      "path": "tests/p4/request-budget.mjs",
+      "sha256": "17edcda0fe9e2a3b6713a243ab2cd28b6bda89edf567b8f245c2f2cb1e42b4f0",
+      "content_sha": "F+3NoP6eKjtnE6JDqyzSi2vaie31Z7jyRcLyyx5CtPA="
+    },
+    {
+      "path": "tests/p3-auth.test.mjs",
+      "sha256": "f6756f171fd233596e7fa7b1cd1bc57a05f433057657ff5b5e4c1dc59c91fdbc",
+      "content_sha": "9nVvFx/SM1luf6exzRvFegX0MwV2V/9bXkwdxZyR/bw="
+    },
+    {
+      "path": "package.json",
+      "sha256": "d6b7a506c08afb767e58f81cffb13a44cd313261bf58b3418444cc90af5277b5",
+      "content_sha": "1relBsCK+3Z+WPgc/7E6RM0xMmG/WLNBhETMkK9Sd7U="
+    },
+    {
+      "path": "tools/keygen.js",
+      "sha256": "5639e87ebfbe0b59d0b32a4cf7e2f45c2b843a207e66ce0419ff0e7d8e3a0b37",
+      "content_sha": "Vjnofr++C1nQsypM9+L0XCuEOiB+Zs4EGf8OfY46Czc="
+    },
+    {
+      "path": "tools/keygen.css",
+      "sha256": "739bed731454b8d7fce152171c9582f08419347fa67599c33992223bd52b2be9",
+      "content_sha": "c5vtcxRUuNf84VIXHJWC8IQZNH+mdZnDOZIiO9UrK+k="
+    },
+    {
+      "path": "tools/密钥生成器.html",
+      "sha256": "0684c99097c12b605d3d43fc0c0a52a22f26019a8fc6f5a95dcbf63a81ab6191",
+      "content_sha": "BoTJkJfBK2BdPUP8DApSoi8mAZqPxvWpXcv2OoGrYZE="
+    },
+    {
+      "path": "deployment/独立环境准备说明.md",
+      "sha256": "9bebebedd7380170f7d00a6215c45907b424ce9d0086e7a05b14bf40168b7cd6",
+      "content_sha": "m+vr7dc4AXD30ApiFcRZB7Qkzp0AhuegWxS/QBaLfNY="
+    },
+    {
+      "path": "deployment/resources.template.json",
+      "sha256": "fe93979b39944a590fc767e464dbb0155dce625a63fe15de4bc5a3bee280adba",
+      "content_sha": "/pOXmzmUSlkPx2fkZNuwFV3OYlpj/hXeS8WjvuKArbo="
+    },
+    {
+      "path": "docs/接口v0.3核对记录.md",
+      "sha256": "45b90c5b545196ba05cb914d9d9b48977ccd10849cbb10c540bd2d0e6701560f",
+      "content_sha": "RbkMW1RRlroFy5FNnZtIl3zNEIScuxDFQL0tDmcBVg8="
+    },
+    {
+      "path": "docs/项目决策与范围.md",
+      "sha256": "aa1b971c60fc29dde9af1191e7a9ec52402bf7e74ea14eed861f865a98b66037",
+      "content_sha": "qhuXHGD8Kd3prxGR56nsUkAr9+dOoU7thh+GWpi2YDc="
+    },
+    {
+      "path": "docs/底座验收记录.md",
+      "sha256": "a7ea3908b4b57cbd3533b5fbbfdd3c9dccca95f06e2f20da8e81ed7d2ee5da3d",
+      "content_sha": "p+o5CLS1fL01M7X7v908nczKlfBuLyDajoHtfS7l2j0="
+    },
+    {
+      "path": "docs/设计稿画板索引.md",
+      "sha256": "15e9df0e68514da84e5c5e897b180febf533e8bbfe3b54caf4c652169ec5a63e",
+      "content_sha": "FenfDmhRTahOXF6JexgP6/Uz6Lv+O1TK9MZSFp7Fpj4="
+    },
+    {
+      "path": "docs/底座验收结果.json",
+      "sha256": "2fe63e944cb3e88ac8523fd8c9a86e99e0a4e191e8a6602f8a46e3971790fc9a",
+      "content_sha": "L+Y+lEyz6IrIUj/YyahumeCk4ZHopmAvikbjlxeQ/Jo="
+    },
+    {
+      "path": "docs/stage2-frontend/前端交付与底座融合说明.md",
+      "sha256": "12073ab0ca2fb0b1c530b000d5a5f972dc17d587e20f53995f4c58c9341b199f",
+      "content_sha": "Egc6sMovsLHFMLAA1aX5ctwX1YfiD1OZX0xYyTQbGZ8="
+    },
+    {
+      "path": "docs/阶段2_开工阻塞说明.md",
+      "sha256": "26cc2b9cf8a9eed02b6f4aca35aa3563cad4d71addf057ff974030a37f15322b",
+      "content_sha": "JswrnPip7tArb0rKNao1Y8rU1xrd8Ff/l0Awo38VMis="
+    },
+    {
+      "path": "docs/stage2/源码文件清单.json",
+      "sha256": "e169617eee5d7030cd7c2d1a88c19381fe2e3602a525459a6e81e6b0d8d697f2",
+      "content_sha": "4Wlhfu5dcDDNfC0aiMGTgf4uNgKlJUWaboHmsNjWl/I="
+    },
+    {
+      "path": "docs/stage2/verification/构建压缩报告.json",
+      "sha256": "5142d461739ccb921a65cfa470437e8c8d4c3fbfa710d6dcb316c533c6b3a127",
+      "content_sha": "UULUYXOcy5IaZc+kcEN+jI1MP7+nENbcsxbFM8azoSc="
+    },
+    {
+      "path": "docs/stage2/verification/stage2-integrity-final.json",
+      "sha256": "384a228876a3b9d1b4eeb3f629881ee0b535a9d8969c282613d85ed7f43722c1",
+      "content_sha": "OEoiiHajudG07rP2KYge4LU1qdiWnCgmE9he1/Q3IsE="
+    },
+    {
+      "path": "docs/stage2/verification/stage2-backup-bundle-final.log",
+      "sha256": "351f0557b6bbb2a937d1d4fdd4caf8635c029ae659bd97acd6ed0b969b816c21",
+      "content_sha": "NR8FV7a7sqk30dT91Mr4Y1wCmuZZvZes1u0LlpuBbCE="
+    },
+    {
+      "path": "docs/stage2/verification/verify-backup-bundle.mjs",
+      "sha256": "443ba8e83e23e6026304225a2aa0399940d51f0749a2ba0b524120c5213fd22e",
+      "content_sha": "RDuo6D4j5gJjBCJaKqA5mUDVHwdJoroLUkEgxSE/0i4="
+    },
+    {
+      "path": "docs/stage2/verification/stage2-source-final.log",
+      "sha256": "cb82914619c6ad17f20cb373ec164469dfa5e37dea563a41f482746e72e03769",
+      "content_sha": "y4KRRhnGrRfyDLNz7BZEad+l433qVjpB9IJ0bnLgN2k="
+    },
+    {
+      "path": "docs/stage2/verification/stage2-build-final.log",
+      "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+      "content_sha": "GzZ5VMSEboHC930Ym+cf1NqVD5SVWBFru3g7vK7dEdE="
+    },
+    {
+      "path": "docs/stage2/verification/stage2-new-final.log",
+      "sha256": "42235f922b059ebce6d3abdfb6daca479687b53373a89ca9cb363d4a70b08dab",
+      "content_sha": "QiNfkisFnrzm06vfttrKR5aHtTNzqJypyzY9SnCwjas="
+    },
+    {
+      "path": "docs/stage2/verification/verify-integrity.py",
+      "sha256": "fbaae0c9b65b289d49d7b196d8acf3af34ea030eae0f7531923cb8f607447b3c",
+      "content_sha": "+6rgybZbKJ1J17GW2KzzrzTqAw6uD3Uxkjy49gdEezw="
+    },
+    {
+      "path": "docs/stage2/verification/stage2-bundle-final.log",
+      "sha256": "6daa90734ffbe7cb4d09a4c03a2dcffcc802a91993c69e4c9a4d72cb20799b9d",
+      "content_sha": "baqQc0/758tNCaTAOi3P/MgCqRmTxp5Mmk1yyyB5m50="
+    },
+    {
+      "path": "docs/stage2/测试结果.md",
+      "sha256": "90586dfd386b87b51b5cce5367c94469ac3b57e70602a1cb9d8e04ae3af48147",
+      "content_sha": "kFht/Thrh7UbXM5TZ8lEaaw7V+cGAqHLnY4Erjr0gUc="
+    },
+    {
+      "path": "docs/stage2/HTTP实录_完整.json",
+      "sha256": "227cbb661908e78873567595e1325695c4dbdfaa6049044c5719263c1f31a1f7",
+      "content_sha": "Iny7ZhkI54hzVnWV4TJWlcTb36pgSQRMVxkmPB8xofc="
+    },
+    {
+      "path": "docs/stage2/前端接口示例.json",
+      "sha256": "59e85f45d13167ebb8d9d3bb325951c71bf33f49d835cfc057e04deb4ae26354",
+      "content_sha": "WehfRdExZ+u42dO7MllRxxvzP0nYNc/AV+BN60riY1Q="
+    },
+    {
+      "path": "docs/stage2/构建文件清单.json",
+      "sha256": "f0983d52bd0b2b4718ae79422b8776e1a0ac3192b9ea59d40e33adb1b6f3c82e",
+      "content_sha": "8Jg9Ur0LK0cYrnlCK4d24aCsMZK56lnUDjOtsbbzyC4="
+    },
+    {
+      "path": "docs/stage2/中文交付说明.md",
+      "sha256": "2f163b66b5ac9f754bf4801c9b68115b1dbbe0ee0085f529a7f8756c5a479aeb",
+      "content_sha": "LxY7ZrWsn3VL9IAcm2gRWx274O4AhfUpp/h1bFpHmus="
+    },
+    {
+      "path": "docs/stage2/前端对接说明.md",
+      "sha256": "647474efd137058483e2bed18718986ca8416f1534b7acf2f264139a5c09af82",
+      "content_sha": "ZHR079E3BYSD4r7RhxiYbKhBbxU0t6zy8mQTmlwJr4I="
+    },
+    {
+      "path": "docs/stage2/测试结果.json",
+      "sha256": "af01d23a73c66212cdb51c50159f0a3a0a5025c2d3a9338006391d4ed321c693",
+      "content_sha": "rwHSOnPGYhLNtRxQFZ8KOgpQJcLTqTOABjkdTtMhxpM="
+    },
+    {
+      "path": "docs/stage2/变更清单.md",
+      "sha256": "620a468847fd45c20a95b35ee2096bcfc40f1a074a56615df5bf29091eb85ff3",
+      "content_sha": "YgpGiEf9RcIKlbNe4glrz8QPGgdKVmFd9b8pCR64X/M="
+    },
+    {
+      "path": "docs/stage2/底座差异.json",
+      "sha256": "8a64ad818abe7daffa8118c63b8d368f40064904a1969cd1cea78add230c62fb",
+      "content_sha": "imStgYq+fa/6gRjGO402j0AGSQShlpzRzqeK3SMMYvs="
+    },
+    {
+      "path": "docs/reference/接口约定_v0.1_原件.md",
+      "sha256": "5df91e4fdcb7579664a6dbb7b574fda98d4b9f79058c2d29cee14800d2f30a09",
+      "content_sha": "XfkeT9y3V5Zkptu3tXT9qY1Ln3kFjC0pzuFIANLzCgk="
+    },
+    {
+      "path": "docs/reference/交接说明_20261112_原件.md",
+      "sha256": "49faa765e3e9ba6920840e751679b227eec960915ee93b3a51911dc7e7a3ef5b",
+      "content_sha": "SfqnZePpumkghA51FnmyJ+7JYJFe6Ts6UZEdx+ej71s="
+    },
+    {
+      "path": "docs/reference/接口约定_v0.3.3_原件.md",
+      "sha256": "dd8984cb8123a8cb8881178acc7d5bbbf1f88f730aaac111e451d2c58f6592ab",
+      "content_sha": "3YmEy4EjqMuIgReKzH1bu/H4j3MKqsER5FHSxY9lkqs="
+    },
+    {
+      "path": "docs/reference/学科模版包_v0.1_原件.md",
+      "sha256": "933e247ff4ae29063594b7f68c8038caa4dfd319bdbf9b10cdf375fe8a21e5e4",
+      "content_sha": "kz4kf/SuKQY1lLf2jIA4yqTf0xm9v5sQzfN1/ooh5eQ="
+    },
+    {
+      "path": "docs/reference/接口约定_v0.3.1_原件.md",
+      "sha256": "b80a5639802f7e7c27eeee6d16b6b0591eab7383f97c3e3426b284c2479ccfae",
+      "content_sha": "uApWOYAvfnwn7u5tFrawWR6rc4P5fD40JrKEwkecz64="
+    },
+    {
+      "path": "docs/reference/渠道CRM_源码包说明_原件.txt",
+      "sha256": "40471e94200a48abd7d3cf8b7251312df8e98409cb200a3d253af10166ee3d16",
+      "content_sha": "QEcelCAKSKvX08+LclExLfjphAnLIAo9JTrxAWbuPRY="
+    },
+    {
+      "path": "docs/reference/接口_v0.2到v0.3.diff",
+      "sha256": "cb87bbe65ba9503efb0f94fb6ecbbf022ae7509a2283082d1d5c9ce80984a301",
+      "content_sha": "y4e75lupUD77D5T7bsu/AirnUJoigwgtHVyc6AmEowE="
+    },
+    {
+      "path": "docs/reference/crm-baseline-sha256.json",
+      "sha256": "5f681e300d2a75464d76f303df79872caaeecf878177b2326c169958389a36bd",
+      "content_sha": "X2geMA0qdUZNdvMD33mHLKruz4eBd7IybBaZWDiaNr0="
+    },
+    {
+      "path": "docs/reference/crm-baseline-20261113-sha256.json",
+      "sha256": "2d3fbeb862cafb9bcdc0d14be75141038a0be87976a4b31ca3b8f82d45366cb1",
+      "content_sha": "LT++uGLK+5vNwNFL51FBA4oL6Hl2pLMco7j4LUU2bLE="
+    },
+    {
+      "path": "docs/reference/接口约定_v0.3_原件.md",
+      "sha256": "dd701e3e2df728987ba903470e3e1dcdce3be8c60b7e62612d7faeec7bdbee6f",
+      "content_sha": "3XAePi33KJh7qQNHDj4dzc476MYLfmJhLX+u7Hvb7m8="
+    },
+    {
+      "path": "docs/reference/接口约定_v0.3.2_原件.md",
+      "sha256": "736c34cfdc3f7e1783b6e458edcd3849370acdb4e5a76361d47edaf63d39cf65",
+      "content_sha": "c2w0z9w/fheDtuRY7c04STcKzbTlp2Nh1H7a9j05z2U="
+    },
+    {
+      "path": "docs/reference/渠道CRM_README_历史原件.md",
+      "sha256": "fbeca5e6d5d0a66643755e51150716b16c34c5fc6a5f16452094a7d4d601c371",
+      "content_sha": "++yl5tXQpmZDdV5RFQcWsWw0xfxqXxZFIJSn1NYBw3E="
+    },
+    {
+      "path": "docs/reference/接口约定_v0.2_原件.md",
+      "sha256": "1fa6da44f4c867671e4ce834b3abe963b4c64d0e83a6d781240599aa58a9937d",
+      "content_sha": "H6baRPTIZ2ceTOg0s6vpY7TGTQ6DpteBJAWZqlipk30="
+    },
+    {
+      "path": "docs/更新设计稿画板索引.md",
+      "sha256": "f0975196c991c054e95d2f5d5854a2020346ff2d2c6c964d067d2931f19a9ddf",
+      "content_sha": "8JdRlsmRwFTpXS9dWFSiAgNG/y0sbJZNBn0pMfGand8="
+    },
+    {
+      "path": "docs/接口与设计核对.md",
+      "sha256": "0958d7e513b3289288837166046755a819be73ae42f547e8c3fce1b59713b719",
+      "content_sha": "CVjX5ROzKJKIg3FmBGdVqBm+c65C9Ufow/zhtZcTtxk="
+    },
+    {
+      "path": "docs/阶段2_回归断言阻塞说明.md",
+      "sha256": "07de51b68895d4ed449c8ef779ca44958623a78850adf8983634c5e213e0ae0b",
+      "content_sha": "B95RtoiV1O1EnI73ecpElYYjp4hQrfiYNjTF4hPgrgs="
+    }
+  ]
+}

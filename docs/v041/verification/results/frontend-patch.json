@@ -1,0 +1,34 @@
+{
+  "source": "艺界星途_v0.4.0_前端补丁_给GPT_20261117.zip",
+  "sha256": "928e823da23d91d2b7713224b2c59053ff541b7f6e29ced20335d5a83158bfbe",
+  "files": [
+    {
+      "path": "src/tenant/yx-theme.css",
+      "sha256": "789bc1c3a7c30c20a6a74fbd88ffdd897c1add2abc4ab9c0c302be5f0dbbc905"
+    },
+    {
+      "path": "src/tenant/yx-plans.js",
+      "sha256": "af85341cb465fd2f3031cafc06a0925010b7c9e5a587dbefbb234540a35f8559"
+    },
+    {
+      "path": "src/tenant/yx-settings.js",
+      "sha256": "45f3495990bed24a24c5acd44005fca62b71915cfc61f830c638214c6718bec7"
+    },
+    {
+      "path": "src/tenant/app.js",
+      "sha256": "2f69b8fcbfb63297f9e2596dfe95ad0ff3f1bf002dd8800b8ba7e87911256809"
+    },
+    {
+      "path": "src/tenant/yx-content.js",
+      "sha256": "7a632bc11b059c0c51f5bbdec520b2da5dde0b12e868ed82fce16f16854fa839"
+    },
+    {
+      "path": "src/tenant/yx-home.js",
+      "sha256": "144a4f081af3d796a05bd4f279424fc71f738bd90bc34e428392649e893ad413"
+    },
+    {
+      "path": "给GPT_v0.4.0前端补丁说明.md",
+      "sha256": "fc7cce8f35a3dc35124e8ad688a760d83e022cc0d68e5169206f11aed157e2c8"
+    }
+  ]
+}

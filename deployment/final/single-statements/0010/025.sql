@@ -1,0 +1,1 @@
+CREATE TRIGGER promo_image_tenant BEFORE INSERT ON promo_images WHEN NEW.tenant_id<>'platform' AND NOT EXISTS(SELECT 1 FROM tenants WHERE id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'invalid_image_tenant'); END;

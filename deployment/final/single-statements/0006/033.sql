@@ -1,0 +1,1 @@
+CREATE TRIGGER precision_course_types_update BEFORE UPDATE OF units_per_lesson ON course_types WHEN NEW.units_per_lesson IS NOT OLD.units_per_lesson AND ABS(NEW.units_per_lesson*100-ROUND(NEW.units_per_lesson*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END;

@@ -1,0 +1,1 @@
+INSERT INTO style_version_meta(pack_id,pack_version,status,scope,checks_json,created_by,published_at) SELECT pack_id,version,'published',CASE WHEN p.scope_all=1 THEN 'all' ELSE 'tenants' END,'{"errors":[],"warnings":[]}','migration0024',v.created_at FROM style_pack_versions v JOIN style_packs p ON p.id=v.pack_id;

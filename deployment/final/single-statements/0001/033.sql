@@ -1,0 +1,1 @@
+CREATE TRIGGER slug_reserve_insert BEFORE INSERT ON tenants WHEN EXISTS(SELECT 1 FROM tenant_slug_aliases WHERE slug=NEW.slug AND expires_at>CAST(unixepoch('now') AS INTEGER)*1000) BEGIN SELECT RAISE(ABORT,'slug_reserved'); END;

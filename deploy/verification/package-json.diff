@@ -1,0 +1,24 @@
+--- a/package.json
++++ b/package.json
+@@ -11,7 +11,10 @@
+     "test:e2e:headed": "node scripts/e2e/run.mjs --headed",
+     "test:e2e:report": "playwright show-report work/e2e/html",
+     "test:migrations:preflight": "node scripts/e2e/check-migrations.mjs",
+-    "test:remote:public": "node scripts/e2e/remote-public.mjs"
++    "test:remote:public": "node scripts/e2e/remote-public.mjs",
++    "start": "node --max-old-space-size=768 server.mjs",
++    "test:platform": "node --test tests/platform/*.test.mjs",
++    "package:tencent": "npm run build && node deploy/package-tencent.mjs"
+   },
+   "engines": {
+     "node": ">=24"
+@@ -20,5 +23,8 @@
+     "@playwright/test": "1.65.0"
+   },
+   "version": "0.5.0",
+-  "description": "艺界星途 CRM 与机构 AI 工具；独立项目底座"
++  "description": "艺界星途 CRM 与机构 AI 工具；独立项目底座",
++  "dependencies": {
++    "cos-nodejs-sdk-v5": "3.0.0"
++  }
+ }

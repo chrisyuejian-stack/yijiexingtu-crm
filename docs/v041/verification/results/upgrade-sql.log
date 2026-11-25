@@ -1,0 +1,15 @@
+{
+  "result": "pass",
+  "migrations_total": 27,
+  "incremental_complete_statements": 2,
+  "whole_and_split_schema_equal": true,
+  "readonly_files_executed": 3,
+  "new_tables": 0,
+  "new_columns": [
+    "gallery_images.bytes",
+    "tenants.gallery_storage_limit"
+  ],
+  "quick_check": "ok",
+  "foreign_key_check": [],
+  "remote_execution": false
+}

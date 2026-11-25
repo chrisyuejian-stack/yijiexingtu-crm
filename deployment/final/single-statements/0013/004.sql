@@ -1,0 +1,1 @@
+ALTER TABLE course_applications ADD COLUMN paid INTEGER NOT NULL DEFAULT 0 CHECK(paid IN (0,1));

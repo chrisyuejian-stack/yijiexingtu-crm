@@ -1,0 +1,93 @@
+--- 阶段4/tests/plans-stage4.test.mjs
++++ 本次融合/tests/plans-stage4.test.mjs
+@@ -833,7 +833,10 @@
+         version: listed.items[0].version
+     }));
+     ok(await call(s, "/api/share/" + token, "GET", undefined, null), 404);
+-    ok(await call(s, "/s/" + token, "GET", undefined, null), 404);
++    const shell = await call(s, "/s/" + token, "GET", undefined, null);
++    ok(shell);
++    assert.match(shell.headers.get("content-type"), /text\/html/);
++    assert.equal(shell.headers.get("x-robots-tag"), "noindex");
+ }));
+ 
+ test("YX4 分享错误、过期、作废、删除、机构到期或停用使用相同中性404且至少200ms", () => school(async s => {
+
+--- 阶段4/tests/stage4-review.test.mjs
++++ 本次融合/tests/stage4-review.test.mjs
+@@ -110,7 +110,9 @@
+     f.restore();
+   }
+ });
+-test("第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效", async () => {
++test("第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效", async (t) => {
++  // Keep the added Nov 15 lesson in the future so fingerprint checks run before pending-lesson validation.
++  t.mock.timers.enable({ apis: ["Date"], now: Date.parse("2026-11-14T12:00:00+08:00") });
+   for (const change of [
+     "attendance",
+     "rate",
+
+--- 阶段4/tests/stage7.test.mjs
++++ 本次融合/tests/stage7.test.mjs
+@@ -322,7 +322,7 @@
+       )
+     ).flat();
+   const files = await walk("dist");
+-  assert.equal(files.length, 11);
++  assert.equal(files.length, 12);
+   assert.ok(!files.some((p) => /\.map$|\/src\/|\/tests\//.test(p)));
+   for (const file of [
+     "dist/_worker.js",
+
+--- 阶段4/tests/support.mjs
++++ 本次融合/tests/support.mjs
+@@ -101,7 +101,7 @@
+     }
+   }
+ }
+-export async function fixture({ migrateIncome = true, migrateSettings = true, migratePlans = true } = {}) {
++export async function fixture({ migrateIncome = true, migrateSettings = true, migratePlans = true, migrateAi = true } = {}) {
+   const db = new LocalD1();
+   db.raw.exec(
+     await readFile(
+@@ -183,6 +183,7 @@
+   db.raw.exec(await readFile(new URL("../migrations/0019_identity_and_institutions.sql", import.meta.url), "utf8"));
+   if(migrateSettings) db.raw.exec(await readFile(new URL("../migrations/0020_settings_and_templates.sql", import.meta.url), "utf8"));
+   if(migrateSettings && migratePlans) db.raw.exec(await readFile(new URL("../migrations/0021_course_plans.sql", import.meta.url), "utf8"));
++  if(migrateSettings && migratePlans && migrateAi) db.raw.exec(await readFile(new URL("../migrations/0022_content_and_ai.sql", import.meta.url), "utf8"));
+   // The legacy referral tests run with the persisted platform switch enabled.
+   db.raw
+     .prepare(
+@@ -215,6 +216,7 @@
+       const pathname = new URL(req.url).pathname;
+       const map = {
+         "/tenant.html": "src/tenant/index.html",
++        "/share/index.html": "src/share/index.html",
+         "/console.html": "src/console/index.html",
+         "/assets/tenant.js": "src/tenant/app.js",
+         "/assets/tenant.css": "src/tenant/app.css",
+
+--- 阶段4/tests/yx-frontend-stage2.test.mjs
++++ 本次融合/tests/yx-frontend-stage2.test.mjs
+@@ -53,7 +53,7 @@
+ });
+ 
+ test('YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，并已进入机构端打包', async () => {
+-  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js']) {
++  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js', 'src/tenant/yx-plans.js', 'src/tenant/yx-home.js', 'src/tenant/yx-ai.js', 'src/tenant/yx-content.js']) {
+     const source = await readFile(file, 'utf8');
+     assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write|\beval\s*\(|new\s+Function\s*\(/.test(source), file);
+     assert.ok(!/style\s*=\s*["']/.test(source), file + ' 不写内联 style 属性（CSP 不允许）');
+@@ -61,6 +61,12 @@
+   const assets = await tenantAssets();
+   assert.ok(assets.js.includes('function yxLoginPage('));
+   assert.ok(assets.js.includes('async function yxSettingsSection('));
++  assert.ok(assets.js.includes('async function yxPlanEditor('));
++  assert.ok(assets.js.includes('async function yxContentEditor('));
++  assert.ok(assets.js.includes('async function yxAi('));
++  // 分享页 /s/{token} 复用机构端脚本：启动时先进入 yxSharePage，不请求 me、不进登录页。
++  const appSource = await readFile('src/tenant/app.js', 'utf8');
++  assert.match(appSource, /if \(\/\^\\\/s\\\/\[\^\/\]\+\$\/\.test\(location\.pathname\) && typeof yxSharePage === "function"\) return yxSharePage\(\);\n    const isLogin/);
+   assert.ok(assets.css.includes('.yx-login'));
+   const consoleSource = await readFile('src/console/app.js', 'utf8');
+   assert.ok(consoleSource.includes('async function yxOpsPanel('));

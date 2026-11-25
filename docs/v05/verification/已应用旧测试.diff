@@ -1,0 +1,30 @@
+--- a/tests/plans-stage4.test.mjs
++++ b/tests/plans-stage4.test.mjs
+@@ -802,7 +802,7 @@
+     }
+     assert.equal(ok(await call(s, "plans/" + p.id)).modules.courses.lines[0].snapshot.pricing.amount_cents, 14e5);
+     const current = ok(await call(s, "plans/" + p.id)), changed = ok(await call(s, "plans/" + p.id, "PUT", {
+-        ...current,
++        version: current.version,
+         style: {
+             ...current.style,
+             show_unit_price: true
+@@ -1014,7 +1014,7 @@
+     ok(await call(s, base + "/media/img_unused", "GET", undefined, null), 404);
+     const row = ok(await call(s, "plans/" + p.id));
+     ok(await call(s, "plans/" + p.id, "PUT", {
+-        ...row,
++        version: row.version,
+         style: {
+             ...row.style,
+             cover_image_id: null
+--- a/tests/support.mjs
++++ b/tests/support.mjs
+@@ -189,6 +189,7 @@
+   if(migrateSettings && migratePlans && migrateAi && migrateArticle) db.raw.exec(await readFile(new URL("../migrations/0025_article_metadata.sql", import.meta.url), "utf8"));
+   if(migrateSettings && migratePlans && migrateProspects) db.raw.exec(await readFile(new URL('../migrations/0026_plan_prospects.sql',import.meta.url),'utf8'));
+   if(migrateSettings && migrateStorage) db.raw.exec(await readFile(new URL('../migrations/0027_gallery_storage.sql',import.meta.url),'utf8'));
++  if(migrateSettings && migratePlans && migrateStorage) db.raw.exec(await readFile(new URL('../migrations/0028_plan_v2.sql',import.meta.url),'utf8'));
+   // The legacy referral tests run with the persisted platform switch enabled.
+   db.raw
+     .prepare(

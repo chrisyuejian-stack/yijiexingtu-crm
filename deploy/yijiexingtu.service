@@ -1,0 +1,28 @@
+[Unit]
+Description=Yijiexingtu unchanged Workers on Node 24
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=yxt
+Group=yxt
+WorkingDirectory=/opt/yijiexingtu/current
+EnvironmentFile=/etc/yijiexingtu/app.env
+ExecStart=/usr/bin/node --max-old-space-size=768 /opt/yijiexingtu/current/server.mjs
+Restart=always
+RestartSec=5
+TimeoutStopSec=25
+KillSignal=SIGTERM
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/yijiexingtu
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

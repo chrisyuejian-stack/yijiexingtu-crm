@@ -1,0 +1,11 @@
+{
+  "result": "pass",
+  "from": 24,
+  "to": 25,
+  "complete_sql_statements": 1,
+  "raw_and_single_statement_bytes_equal": true,
+  "readonly_files_executed": 3,
+  "foreign_keys": [],
+  "quick_check": "ok",
+  "remote_execution": false
+}

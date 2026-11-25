@@ -1,0 +1,1 @@
+CREATE TABLE plan_elements(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,plan_id TEXT NOT NULL,kind TEXT NOT NULL CHECK(kind IN('stage','line')),target_id TEXT,snapshot_json TEXT CHECK(snapshot_json IS NULL OR json_valid(snapshot_json)),created_at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id),FOREIGN KEY(tenant_id,plan_id) REFERENCES plans(tenant_id,id));

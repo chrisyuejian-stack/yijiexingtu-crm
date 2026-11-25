@@ -1,0 +1,367 @@
+{
+  "baseline": "已验收阶段5_20261114，493文件",
+  "baseline_sha256": "833857c0c66b16502f57e42d5c817ec70410a85fd4cff900a92930dff612b753",
+  "scope": "仅本轮前端融合和测试时钟修复、交付文档/日志更新；后端和22份迁移、build.mjs未改。",
+  "added": 29,
+  "modified": 22,
+  "deleted": [],
+  "files": [
+    {
+      "change": "modified",
+      "path": "README.md",
+      "bytes": 3512,
+      "sha256": "b6328793aa1a36b49e43bcc0f1d5469fff1d23e8405cb69ee5801c6bdd14939c",
+      "baseline_sha256": "ef1be7cd5597c0338d52c6e8205830e13dd8934252aee9e819b52faf9d632c2d"
+    },
+    {
+      "change": "added",
+      "path": "docs/reference/stage5-frontend-start-baseline-sha256.json",
+      "bytes": 82947,
+      "sha256": "3fa0a7f6add721e7aa875eede0481123fa1309af2def1f873d69061edb8eadc7",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5-frontend/前端补丁说明_工作台_方案三栏_分享页.md",
+      "bytes": 2502,
+      "sha256": "625b57338969c06b6b001ca108ea93cf85025c34ba6bf3198d125099f0a2943d",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5-frontend/前端补丁说明_招生内容与AI.md",
+      "bytes": 3737,
+      "sha256": "3c8afe7402b72c6d0f22f03507b1d43ed2229019a5e554e9d056e050ac42df9c",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/clock-after.log",
+      "bytes": 230,
+      "sha256": "bc2c482891c53b1a7fcd27433cd82aeba7551f199f406ca68c4fe76633db6788",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/clock-before.log",
+      "bytes": 1176,
+      "sha256": "311673b322180a92b25c92f301b62d71c2668929451873e60fbd4b1d40cda0d7",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/manifest.json",
+      "bytes": 4711,
+      "sha256": "58c3c5d7579f813b0fcbc88513fd2079e96858513c7cb148ff7db858cd96f28f",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/ai-http-bundle.json",
+      "bytes": 139596,
+      "sha256": "87cc15e8eadc8b7191b9660533812edf6764c397de58efe6aaecc87acb17864d",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/ai-http-source.json",
+      "bytes": 139596,
+      "sha256": "1d6d2b1c0bcfb77a8f519af1065678e393aaa93af55dc976c9d521ba7575864b",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/build.log",
+      "bytes": 261,
+      "sha256": "1b367954c4846e81c2f77d189be71fd4da950f949558116bbb783bbcaedd11d1",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/bundle.log",
+      "bytes": 71164,
+      "sha256": "2ca6965dbd6905e8bd98871bb7be20deeaa6631fa1d38dd7bcbfa2fdc8e59bdf",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/content-http-bundle.json",
+      "bytes": 85846,
+      "sha256": "a3ec7b9c24d440e77a9f2b8744155423ca7f7dfebac09996c0729fb716627310",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/content-http-source.json",
+      "bytes": 85846,
+      "sha256": "10c813bccfe13af6f6caf474c6ddb0176dc33aabe2a929fd3068596776de5fb7",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/extra-http-bundle.json",
+      "bytes": 5386,
+      "sha256": "06a098ecc188bbfedcf779a1d98bab6771396f81738fd68697e251b898178a71",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/extra-http-bundle.log",
+      "bytes": 95,
+      "sha256": "e6cc3390a1e6e38ba51f156d97a77d2b60df1f1958dade5cfc21736380498aaa",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/extra-http-runs.json",
+      "bytes": 421,
+      "sha256": "d569af2d03cfa45bc4b511fb7df02c49be0263e3c8987affa8807f2ca43dd26d",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/extra-http-source.json",
+      "bytes": 5386,
+      "sha256": "00702d1f0fa8618c3e591f319ad4f18d5737041bbc657594c726d842f98c65a3",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/extra-http-source.log",
+      "bytes": 95,
+      "sha256": "e6cc3390a1e6e38ba51f156d97a77d2b60df1f1958dade5cfc21736380498aaa",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/integrity.log",
+      "bytes": 413,
+      "sha256": "839fea123cac2e8fdf9aea3557bbc2e7b9aa6385f0bd108bb03920a8a2fffe0e",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/runs.json",
+      "bytes": 697,
+      "sha256": "18c78f56b2ab96075a73916076b48549cc217c6ea216b13e586a2aee7cead982",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/source.log",
+      "bytes": 71154,
+      "sha256": "c63e58d46f9b47c72a93eed7e02f35eb313fc66f92bf67815dbeaf418f5dea18",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/verification/tested-source-freeze.json",
+      "bytes": 35104,
+      "sha256": "6a1c444ee0ae8ae31c4bc040d9a69e106e2887a1730920542d7ea5a20390173d",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/历史_阶段5后端交付核验.json",
+      "bytes": 6519,
+      "sha256": "aa5a25fc1656578a492a2fab2e9655e8ed8580dd8799a581edcc5c3bdc0efd2c",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/历史_阶段5后端文件变更清单.json",
+      "bytes": 22923,
+      "sha256": "d13eaefaa42cc7e6d231a707624dc6aec3de6a9b10148996af0c699576261eff",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/历史_阶段5后端测试结果.md",
+      "bytes": 6369,
+      "sha256": "8cc040fd686d68d4fc56b43e6feccbb82ea5c34852653b62d18a4811ef138109",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/本轮测试修订.diff",
+      "bytes": 3985,
+      "sha256": "e74796f576c3919ca099b3ecb8e7cff290bba28171abf3e6301c1f2a177ca886",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "docs/stage5/frontend-20261115/融合与复测说明.md",
+      "bytes": 4391,
+      "sha256": "a02f1d2cab22899dd049aca33c6c3e25a7bd82f44a7e46be1d3de2aa10bcc7f3",
+      "baseline_sha256": null
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/中文交付说明.md",
+      "bytes": 3791,
+      "sha256": "46410787b317b644a6b8f4547978337a88da9545b979c9548b47e0d0ac2d122c",
+      "baseline_sha256": "06f0fde493945f5c9e45b63ff8bc1caa9c67c0bfa9869b3e362c1e88419d7a30"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/交付核验.json",
+      "bytes": 7926,
+      "sha256": "11fac5129167a512fb8356f2f1d2e18f132c6d33447dadaa47a86d34b274d12b",
+      "baseline_sha256": "aa5a25fc1656578a492a2fab2e9655e8ed8580dd8799a581edcc5c3bdc0efd2c"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/前端对接说明.md",
+      "bytes": 11030,
+      "sha256": "2d1cdee67d4638008ea2efc2fad3c1c352492abbe0afb5da760d3732a81d09e9",
+      "baseline_sha256": "6bc69c2b6fe52560142db250793a421b269801ff3f79dca2faeb9d2b3d174978"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/前端接口示例.json",
+      "bytes": 57711,
+      "sha256": "410b92879cf59183f42c6b0f86dc1ed9f83794e955e79a671673f61f9103e03d",
+      "baseline_sha256": "c86a3e0f5b637595f711deacd42cc2df25e55ef194a65bcf6ed72314af8e3b8e"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/变更清单.md",
+      "bytes": 10054,
+      "sha256": "279803a9d293ac97aa5da7453bb61bde6ac5c9f88b97acc6991f1f84d324f424",
+      "baseline_sha256": "c04b9b08a33083ccc831041be1aa87fa6c2659059b7981e953cde61f66610da8"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/文件变更清单.json",
+      "sha256": null,
+      "baseline_sha256": "d13eaefaa42cc7e6d231a707624dc6aec3de6a9b10148996af0c699576261eff",
+      "note": "清单自身哈希省略以避免自引用；ZIP逐项字节校验覆盖该文件。"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/旧测试完整修订.diff",
+      "bytes": 4784,
+      "sha256": "e1b416bdb6a3dbcdcd9dcbcbd5cd0013e0351954c8866a6edab05c45eb9b2969",
+      "baseline_sha256": "4934440da2c2bb11f35df8d79074f4f87fa369beadc44e9e557210aa9d88ef96"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/测试结果.md",
+      "bytes": 2301,
+      "sha256": "887d8c6c9877e2e5cef5223d56bae42e07b7cdbaa2f5436b5ad860a616d38ec3",
+      "baseline_sha256": "8cc040fd686d68d4fc56b43e6feccbb82ea5c34852653b62d18a4811ef138109"
+    },
+    {
+      "change": "modified",
+      "path": "docs/stage5/源码文件清单.json",
+      "sha256": null,
+      "baseline_sha256": "8edb5a703b514b9f644b2721d5533f9655d7f201476f5e7490d5d1e7c2e2eed4",
+      "note": "清单自身哈希省略以避免自引用；ZIP逐项字节校验覆盖该文件。"
+    },
+    {
+      "change": "modified",
+      "path": "docs/项目决策与范围.md",
+      "bytes": 6689,
+      "sha256": "8c69ce8334a69ec22d1fe2ef6788a50349932f912538fdac31c34f6aa4a0574f",
+      "baseline_sha256": "f59df1cf6557ec25a79300444559d1da45e7d93daa84ecd185027b86eb39cd97"
+    },
+    {
+      "change": "modified",
+      "path": "scripts/frontend-bundle.mjs",
+      "bytes": 2716,
+      "sha256": "0a2586a8a582a03b4bac1d34d3da36bd54b10e57fc274a97afe6cc5cb0d7961b",
+      "baseline_sha256": "d73379ad3b705bb45d38fd792d1002f81a42755e134e86d69805135aa1fd4193"
+    },
+    {
+      "change": "modified",
+      "path": "scripts/yx-preview.mjs",
+      "bytes": 11856,
+      "sha256": "8dfeeaf91f5e32400a9a1a25015612a847d610a05bb6877d756bb28b8243fa21",
+      "baseline_sha256": "81452b7763f8e2887236c19fcb4137a79d569a15cf5980f4306d79580a48e46a"
+    },
+    {
+      "change": "modified",
+      "path": "src/console/app.js",
+      "bytes": 132395,
+      "sha256": "8b695ff5e08fea386b636d5a25c60d349d14aa026ada9a8286e3c8fd2f023072",
+      "baseline_sha256": "9828f364b849e1700ca2652a62fe5d551d9a05ac6232978d06545c7776ab2630"
+    },
+    {
+      "change": "modified",
+      "path": "src/share/index.html",
+      "bytes": 620,
+      "sha256": "8a54a6a193fb35878a4ca3210fc79dcdaf57dc963c7a27cd2911917619e24f7c",
+      "baseline_sha256": "32f719e341262f4cb06fda770598797291cb071df7ecac11c981e2fa764723b2"
+    },
+    {
+      "change": "modified",
+      "path": "src/tenant/app.js",
+      "bytes": 264293,
+      "sha256": "af81a123bd91267588b8c4be4e37d2eb47e9a93ecaca0cd9633e32bcc45d4273",
+      "baseline_sha256": "735c5d132bc52af85609ef989b10ef155713b1310409c2d65e8fa0c4308df078"
+    },
+    {
+      "change": "modified",
+      "path": "src/tenant/v2a.js",
+      "bytes": 28928,
+      "sha256": "b6c41b21b60a1754f03ce0c04faf4cc9861b1f1dea8e32e2206ad7f3b390c84d",
+      "baseline_sha256": "7f46bc1473e136e4125d21e284c362c8fd5b866231113ee7f02785d0b786aaf5"
+    },
+    {
+      "change": "added",
+      "path": "src/tenant/yx-ai.js",
+      "bytes": 15534,
+      "sha256": "3fefbb5e3b2276948d284c5367be62e437d1888d8e885dc58c0c463ffedaf1e4",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "src/tenant/yx-content.js",
+      "bytes": 32356,
+      "sha256": "8b16b144091dd488b16a6f168e7236a1b236a89deced940d408784269352679e",
+      "baseline_sha256": null
+    },
+    {
+      "change": "added",
+      "path": "src/tenant/yx-home.js",
+      "bytes": 7582,
+      "sha256": "0c79aba6ebd96e1ceaf656cdd4aadd605eadea9c71cb381930c8f5b1294f106d",
+      "baseline_sha256": null
+    },
+    {
+      "change": "modified",
+      "path": "src/tenant/yx-plans.js",
+      "bytes": 44957,
+      "sha256": "f44abeafb5aac32cdfe16156dbcbe55c356682521b796b91eb0ff5e4e63a24e5",
+      "baseline_sha256": "f56c172d8eaf1e338d05470a0825807e89d5a74fa8d82c70144e609d04896c90"
+    },
+    {
+      "change": "modified",
+      "path": "src/tenant/yx.css",
+      "bytes": 36316,
+      "sha256": "95d233223fc7624abbcf5e443ba0fc953c67893f1573844048f5ee454a5113f1",
+      "baseline_sha256": "00c97cb7fdb42ac73f69046c3dec1629f9691ddb7f15fb3b2c560866150dd55b"
+    },
+    {
+      "change": "modified",
+      "path": "tests/share-shell-stage5.test.mjs",
+      "bytes": 5169,
+      "sha256": "41e21f4925739f8b0df618d7abed01a68ce94c3f941c1387bd0531eacaa92f08",
+      "baseline_sha256": "88b10009cd78579b95ea4a86fcd76c4d303d573932aac52916ebd068ba4819de"
+    },
+    {
+      "change": "modified",
+      "path": "tests/stage4-review.test.mjs",
+      "bytes": 19687,
+      "sha256": "13bc7ed71b222cd794177c299c06300d1fdc8d2efa1e957092b91c8ea53c970a",
+      "baseline_sha256": "dfaa34ab59c05bf9c9b59f4fb8feede369274cb0c90c370da89c8e85147dc5a2"
+    },
+    {
+      "change": "modified",
+      "path": "tests/yx-frontend-stage2.test.mjs",
+      "bytes": 4008,
+      "sha256": "d8dbb75d8a308ccef211ecfe7834f578b4cd7b3188c0146214d1de8a7b12ff52",
+      "baseline_sha256": "0abdfa35bc10cc27335e62877f2e603bfbb6e430e1bb8d77932587d1d91afdfc"
+    }
+  ]
+}

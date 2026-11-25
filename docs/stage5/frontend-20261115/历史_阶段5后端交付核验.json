@@ -1,0 +1,206 @@
+{
+  "result": "pass",
+  "baseline": {
+    "source": "艺界星途_阶段4_完整源码_20261114.zip",
+    "zip_sha256": "923fe83088549014cce7e9b113b08cf4635bc369a07f27332355bf778376fc03",
+    "files": 422
+  },
+  "contract": "v0.3.6",
+  "inherited_tests": 372,
+  "new_tests": 50,
+  "full_source": 422,
+  "full_bundle": 422,
+  "failures": 0,
+  "skipped": 0,
+  "old_migrations_unchanged": 21,
+  "new_migration": "0022_content_and_ai.sql",
+  "frontend_patch": [
+    {
+      "path": "src/tenant/yx-plans.js",
+      "matches_uploaded_patch": true,
+      "sha256": "f56c172d8eaf1e338d05470a0825807e89d5a74fa8d82c70144e609d04896c90"
+    },
+    {
+      "path": "src/tenant/v2p.js",
+      "matches_uploaded_patch": true,
+      "sha256": "8ea5d5ea7060f1429631aa77deeb7f6a9fe278e7cf27c23939c7e84421e3f865"
+    },
+    {
+      "path": "src/tenant/yx.js",
+      "matches_uploaded_patch": true,
+      "sha256": "4ee8f305214e1d965f0a8ea777df9f24186e26084d4ecb9a3d522676febd7e30"
+    },
+    {
+      "path": "src/tenant/yx.css",
+      "matches_uploaded_patch": true,
+      "sha256": "00c97cb7fdb42ac73f69046c3dec1629f9691ddb7f15fb3b2c560866150dd55b"
+    },
+    {
+      "path": "src/tenant/c2.js",
+      "matches_uploaded_patch": true,
+      "sha256": "61d9099305eefb4b0bf9c75a43820d76bedab7d20e13e88d85786641f5070c33"
+    },
+    {
+      "path": "scripts/yx-preview.mjs",
+      "matches_uploaded_patch": true,
+      "sha256": "81452b7763f8e2887236c19fcb4137a79d569a15cf5980f4306d79580a48e46a"
+    },
+    {
+      "path": "scripts/frontend-bundle.mjs",
+      "matches_uploaded_patch": true,
+      "sha256": "d73379ad3b705bb45d38fd792d1002f81a42755e134e86d69805135aa1fd4193"
+    },
+    {
+      "path": "tests/yx-frontend-stage2.test.mjs",
+      "matches_uploaded_patch": true,
+      "sha256": "0abdfa35bc10cc27335e62877f2e603bfbb6e430e1bb8d77932587d1d91afdfc"
+    },
+    {
+      "path": "docs/stage4-frontend/阶段4前端交付说明.md",
+      "matches_uploaded_patch": true,
+      "sha256": "7496c71e1ecd556de481ef6d19bbbb87278dec13d4715654ce4bb11e94e97a8d"
+    }
+  ],
+  "other_frontend_files_unchanged": true,
+  "changed_old_test_files": [
+    "tests/plans-stage4.test.mjs",
+    "tests/stage7.test.mjs",
+    "tests/support.mjs",
+    "tests/yx-frontend-stage2.test.mjs"
+  ],
+  "tested_runtime_files": 263,
+  "built_artifacts": [
+    {
+      "path": "dist/_routes.json",
+      "bytes": 43,
+      "sha256": "1301eaf7b0e8272b5bb4575abcfbd2cffde53af2c6ea4d77a5ec78919a5a2daa"
+    },
+    {
+      "path": "dist/_worker.js",
+      "bytes": 880408,
+      "sha256": "7428230659043a76f0d2cd92f326cd838ec0306d4009a543ce3e894a494b3e9e"
+    },
+    {
+      "path": "dist/assets/tenant.css",
+      "bytes": 343343,
+      "sha256": "0b74b5d763d9e88d028efcd69652ba2f3efe1e38d12fcca0a0a1c74bcb4fe79e"
+    },
+    {
+      "path": "dist/assets/tenant.js",
+      "bytes": 607317,
+      "sha256": "75b8418907532c52fd22d8e295c128c3c595ddb14afea2a2f1f960947529ddab"
+    },
+    {
+      "path": "dist/console-assets/console.css",
+      "bytes": 25187,
+      "sha256": "d3b7e2420d10c11247ee5802a7f84da548f07f91492a8a9bfa9df5a57c7c949d"
+    },
+    {
+      "path": "dist/console-assets/console.js",
+      "bytes": 83543,
+      "sha256": "16482e2d6ce9ff6d60e2b0f6d37e91c0d33430a03bd8e76ea5631ce9b6a28489"
+    },
+    {
+      "path": "dist/console-assets/pinyin-pro.LICENSE",
+      "bytes": 1070,
+      "sha256": "824f6069c5a59b0c1650d0fb9f8d091866c6019eb761c8e658dfc03f001eabd2"
+    },
+    {
+      "path": "dist/console-assets/pinyin-pro.js",
+      "bytes": 539229,
+      "sha256": "373ffe7d919483f881d3072a370f764c76ec6d6480e50cb87d6fd524e9386bac"
+    },
+    {
+      "path": "dist/console.html",
+      "bytes": 594,
+      "sha256": "075befdc7dadcfd8866fab5add85ab1a7772f5ba0e29a1ed767dee8f48f78cd5"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 139,
+      "sha256": "142a46786df3e317318d7bc6860e120c53db34184097258a4b63ccaba1fb2be4"
+    },
+    {
+      "path": "dist/share/index.html",
+      "bytes": 383,
+      "sha256": "32f719e341262f4cb06fda770598797291cb071df7ecac11c981e2fa764723b2"
+    },
+    {
+      "path": "dist/tenant.html",
+      "bytes": 663,
+      "sha256": "3c52ab0a213c20a9bca0909cd33fe10dd0ef7fed6b9597fb1dbee517e135b797"
+    },
+    {
+      "path": "backup-dist/backup-worker.js",
+      "bytes": 490462,
+      "sha256": "b17fca48eb36f8bb6eb7ba8faee1754ef7c4b77167108d3c75f7921e49184fbb"
+    },
+    {
+      "path": "backup-dist/build-report.json",
+      "bytes": 366,
+      "sha256": "4faa1957fa790f778c99b34211000d39f2e2feca3a37c67f21e55e652082e0c9"
+    }
+  ],
+  "runs": [
+    {
+      "label": "final-build",
+      "command": "npm run build",
+      "exit_code": 0,
+      "seconds": 10.883,
+      "log": "work/stage5/final-build.log"
+    },
+    {
+      "label": "final-new-source",
+      "command": "node --test tests/ai-stage5.test.mjs tests/content-stage5.test.mjs tests/content-ai-stage5-integrity.test.mjs tests/share-shell-stage5.test.mjs tests/skeleton-hints-stage5.test.mjs",
+      "exit_code": 0,
+      "seconds": 23.853,
+      "log": "work/stage5/final-new-source.log"
+    },
+    {
+      "label": "final-new-bundle",
+      "command": "env TEST_BUNDLE=1 node --test tests/ai-stage5.test.mjs tests/content-stage5.test.mjs tests/content-ai-stage5-integrity.test.mjs tests/share-shell-stage5.test.mjs tests/skeleton-hints-stage5.test.mjs",
+      "exit_code": 0,
+      "seconds": 23.563,
+      "log": "work/stage5/final-new-bundle.log"
+    },
+    {
+      "label": "final-source",
+      "command": "npm test",
+      "exit_code": 0,
+      "seconds": 253.029,
+      "log": "work/stage5/final-source.log"
+    },
+    {
+      "label": "final-bundle",
+      "command": "env TEST_BUNDLE=1 npm test",
+      "exit_code": 0,
+      "seconds": 261.022,
+      "log": "work/stage5/final-bundle.log"
+    },
+    {
+      "label": "final-backup",
+      "command": "env TEST_BUNDLE=1 node docs/stage5/verification/verify-backup-bundle.mjs",
+      "exit_code": 0,
+      "seconds": 0.982,
+      "log": "work/stage5/final-backup.log"
+    },
+    {
+      "label": "final-integrity",
+      "command": "python docs/stage5/verification/verify-integrity.py",
+      "exit_code": 0,
+      "seconds": 0.35,
+      "log": "work/stage5/final-integrity.log"
+    },
+    {
+      "label": "final-migrations",
+      "command": "npm run test:migrations:preflight",
+      "exit_code": 0,
+      "seconds": 0.27,
+      "log": "work/stage5/final-migrations.log"
+    }
+  ],
+  "http_endpoint_examples": 24,
+  "adjust_second_example": true,
+  "remote_calls": 0,
+  "deployed": false
+}

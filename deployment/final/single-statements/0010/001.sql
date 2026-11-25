@@ -1,0 +1,2 @@
+-- 第八阶段；仅在0001–0009已成功执行后运行一次。先执行同名只读预检。
+CREATE TABLE campaigns(id TEXT PRIMARY KEY,type TEXT NOT NULL CHECK(type IN('message','material','course')),title TEXT NOT NULL,summary TEXT NOT NULL DEFAULT '',body TEXT NOT NULL DEFAULT '',cover TEXT,publish_at INTEGER NOT NULL,expire_at INTEGER,status TEXT NOT NULL CHECK(status IN('draft','published','archived')),audience TEXT NOT NULL CHECK(audience IN('all','type','selected')),audience_type TEXT,version INTEGER NOT NULL DEFAULT 1,created_at INTEGER NOT NULL,updated_at INTEGER NOT NULL);

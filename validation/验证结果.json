@@ -1,0 +1,36 @@
+{
+  "version": "0.4.0",
+  "sourceTests": {
+    "tests": 526,
+    "pass": 526,
+    "fail": 0,
+    "skipped": 0
+  },
+  "bundleTests": {
+    "tests": 526,
+    "pass": 526,
+    "fail": 0,
+    "skipped": 0
+  },
+  "workerSha256": "6af251f4fcc59f4c93c535d252780e0f88fae3d16dbe84993ef5f857c4a9eec0",
+  "backupWorkerSha256": "94bd31c746dabd827ddc62a14c92389bc13a7eeb9dd3aa01d7cfc2047acc5b27",
+  "migration": "0026_plan_prospects.sql (CREATE TABLE only)",
+  "newCloudflareSettings": false,
+  "newDeepSeekSettings": false,
+  "liveDeploymentPerformed": false,
+  "realProviderCalled": false,
+  "pagesFiles": {
+    "_routes.json": "1301eaf7b0e8272b5bb4575abcfbd2cffde53af2c6ea4d77a5ec78919a5a2daa",
+    "_worker.js": "6af251f4fcc59f4c93c535d252780e0f88fae3d16dbe84993ef5f857c4a9eec0",
+    "assets/tenant.css": "1e7dfadcb41a1a79b97c5e47385d654bc3bf0f33b4f2c851d2cbb9069b902813",
+    "assets/tenant.js": "8b15f373d36160cec35301bcdaa622bdcfc217ca0a3d451a8e7083b300a09f9a",
+    "console-assets/console.css": "f9505264b8faf1298ba2ce22473e09177b46fdf5b91183119ffcb75da6aa6457",
+    "console-assets/console.js": "9e8df5211528f3a3fe6acb58a35dc5f88ed57484205d42e8a41b23d749400247",
+    "console-assets/pinyin-pro.LICENSE": "824f6069c5a59b0c1650d0fb9f8d091866c6019eb761c8e658dfc03f001eabd2",
+    "console-assets/pinyin-pro.js": "373ffe7d919483f881d3072a370f764c76ec6d6480e50cb87d6fd524e9386bac",
+    "console.html": "7dcfdf0d7d79e81110649f6d11e82e018b11bfe660acb8a73924ff5cb6e4068f",
+    "index.html": "142a46786df3e317318d7bc6860e120c53db34184097258a4b63ccaba1fb2be4",
+    "share/index.html": "8a54a6a193fb35878a4ca3210fc79dcdaf57dc963c7a27cd2911917619e24f7c",
+    "tenant.html": "be1ada28a7f78d4b25cb7ea64e4d0c9c207e685420d85ac8973a1b08a66f5aaa"
+  }
+}

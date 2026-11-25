@@ -1,0 +1,139 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-growth/api/reports/gr_a051b1f92b06193c4f299df4/publish",
+    "body": {},
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "student_id": "rec_8b78d3c0c08cba1725186bd0",
+      "teacher_id": "rec_b35f53def4646bc8db0c83ed",
+      "period": {
+        "from": "2026-11-01",
+        "to": "2026-11-30"
+      },
+      "style": {
+        "pack_id": "demo_report_style",
+        "pack_version": "1.0.0"
+      },
+      "dimensions_snapshot": [
+        {
+          "key": "d1",
+          "name": "读谱识谱",
+          "order": 1
+        },
+        {
+          "key": "d2",
+          "name": "节奏感",
+          "order": 2
+        },
+        {
+          "key": "d3",
+          "name": "演奏技术",
+          "order": 3
+        },
+        {
+          "key": "d4",
+          "name": "音乐表现力",
+          "order": 4
+        },
+        {
+          "key": "d5",
+          "name": "练习习惯",
+          "order": 5
+        },
+        {
+          "key": "d6",
+          "name": "课堂专注与自信",
+          "order": 6
+        }
+      ],
+      "stats": {
+        "lessons": {
+          "value": 0,
+          "crm_value": 0,
+          "source": "crm",
+          "overridden": false
+        },
+        "attendance": {
+          "value": 0,
+          "crm_value": 0,
+          "source": "crm",
+          "overridden": false
+        },
+        "repertoire_done": {
+          "value": 0,
+          "crm_value": 0,
+          "source": "crm",
+          "overridden": false
+        }
+      },
+      "scores": [
+        {
+          "key": "d1",
+          "value": 3,
+          "previous": null
+        },
+        {
+          "key": "d2",
+          "value": 3,
+          "previous": null
+        },
+        {
+          "key": "d3",
+          "value": 3,
+          "previous": null
+        },
+        {
+          "key": "d4",
+          "value": 3,
+          "previous": null
+        },
+        {
+          "key": "d5",
+          "value": 3,
+          "previous": null
+        },
+        {
+          "key": "d6",
+          "value": 3,
+          "previous": null
+        }
+      ],
+      "mock_exams": [],
+      "texts": {
+        "progress": "节奏更稳定",
+        "focus": "注意句尾",
+        "next_goals": [
+          "练习下一首"
+        ],
+        "home_practice": [
+          "每天练习"
+        ],
+        "teacher_note": "继续保持"
+      },
+      "artwork_image_ids": [],
+      "renewal": {
+        "visible": false,
+        "text": ""
+      },
+      "applied_suggestion_ids": [],
+      "warnings": [],
+      "options": {
+        "compare_previous": true,
+        "mock_exam": false,
+        "require_artwork": false,
+        "renewal_suggestion": false
+      },
+      "id": "gr_a051b1f92b06193c4f299df4",
+      "version": 4,
+      "batch_id": "gb_2394b4ec89a323f06df663b9",
+      "status": "published",
+      "progress": "published",
+      "report_class_id": "rcl_6e6285a33627e54832045c30"
+    },
+    "queries": 5
+  }
+}

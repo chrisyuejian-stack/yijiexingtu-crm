@@ -1,0 +1,1 @@
+CREATE TABLE report_dimensions(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,class_id TEXT NOT NULL,dim_key TEXT NOT NULL,retired INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,class_id,dim_key),FOREIGN KEY(tenant_id,class_id) REFERENCES report_classes(tenant_id,id));

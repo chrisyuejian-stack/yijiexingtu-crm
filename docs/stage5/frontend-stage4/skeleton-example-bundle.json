@@ -1,0 +1,93 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-yx4/api/plans/pln_ca0934e8c27eadbbf6764813/skeleton",
+    "body": {
+      "start_month": "2026-12",
+      "target": {
+        "node_key": "grade_exam",
+        "month": "2027-07"
+      },
+      "options": {
+        "insert_holiday_camp": true
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "stages": [
+        {
+          "key": "tmp_stage_1",
+          "stage_type_id": "stg_fce7789500da4aa3c876b186",
+          "name": "体验与适应",
+          "start": "2026-12-01",
+          "end": "2026-12-31",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [],
+          "hints": [],
+          "node_tags": []
+        },
+        {
+          "key": "tmp_stage_2",
+          "stage_type_id": "stg_d5b551074b0438ad8ce6c507",
+          "name": "假期集训",
+          "start": "2027-01-01",
+          "end": "2027-02-28",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [],
+          "hints": [],
+          "node_tags": [
+            "winter_camp"
+          ]
+        },
+        {
+          "key": "tmp_stage_3",
+          "stage_type_id": "stg_0d862554ac9d4e5b07a65a4c",
+          "name": "常规学习",
+          "start": "2027-03-01",
+          "end": "2027-04-30",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [],
+          "hints": [],
+          "node_tags": []
+        },
+        {
+          "key": "tmp_stage_4",
+          "stage_type_id": "stg_187eb1e2c6b55cd45eb01afe",
+          "name": "考级冲刺",
+          "start": "2027-05-01",
+          "end": "2027-06-30",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [
+            "完成考级曲目的连贯演奏"
+          ],
+          "hints": [
+            "选课时加入冲刺课程，课程与数量由顾问确认"
+          ],
+          "node_tags": [
+            "grade_exam"
+          ]
+        },
+        {
+          "key": "tmp_stage_5",
+          "stage_type_id": "stg_d5b551074b0438ad8ce6c507",
+          "name": "假期集训",
+          "start": "2027-07-01",
+          "end": "2027-07-31",
+          "teaching_weeks": null,
+          "weeks_note": "",
+          "goals": [],
+          "hints": [],
+          "node_tags": [
+            "summer_camp"
+          ]
+        }
+      ]
+    }
+  }
+}

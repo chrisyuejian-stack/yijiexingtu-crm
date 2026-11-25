@@ -1,0 +1,1 @@
+CREATE TABLE platform_state(id TEXT PRIMARY KEY,value TEXT NOT NULL);

@@ -1,0 +1,79 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ops/tenants/ten_5998dbed580ef5144dce0f82",
+    "body": null,
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ten_5998dbed580ef5144dce0f82",
+      "version": 1,
+      "name": "验收 platformdemo",
+      "slug": "schedule-platformdemo",
+      "status": "active",
+      "expires_at": null,
+      "staff_seat_limit": 50,
+      "logo": null,
+      "login_bg": null,
+      "primary_color": "#2B4C7E",
+      "modules": {
+        "accounts": true,
+        "ai": true,
+        "attendance": true,
+        "classes": true,
+        "comments": true,
+        "content": true,
+        "exports": true,
+        "feedback": true,
+        "followup": true,
+        "growth_reports": true,
+        "home": true,
+        "imports": true,
+        "leads": true,
+        "lessons": true,
+        "logs": true,
+        "packages": true,
+        "parents": true,
+        "plans": true,
+        "prices": true,
+        "profile": true,
+        "promo": true,
+        "referrals": true,
+        "reports": true,
+        "schedule": true,
+        "school_db": false,
+        "settings": true,
+        "settlements": true,
+        "students": true,
+        "teacher_pay": true,
+        "templates": true,
+        "tuition": true,
+        "usage": true
+      },
+      "module_labels": {
+        "content": "招生内容",
+        "plans": "课程方案",
+        "growth_reports": "成长报告",
+        "school_db": "院校库",
+        "prices": "报价价格",
+        "feedback": "课后反馈",
+        "parents": "家长管理",
+        "ai": "AI工具",
+        "usage": "AI用量",
+        "reports": "统计报表"
+      },
+      "subjects": [
+        {
+          "key": "music_interest",
+          "pack_version": "0.2"
+        }
+      ],
+      "ai_override": {
+        "fast_daily_limit": 0,
+        "deep_daily_limit": null
+      }
+    }
+  }
+}

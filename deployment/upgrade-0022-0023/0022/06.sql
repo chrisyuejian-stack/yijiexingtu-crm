@@ -1,0 +1,1 @@
+CREATE TABLE ai_settings(id TEXT PRIMARY KEY,fast_daily_limit INTEGER NOT NULL DEFAULT 80 CHECK(fast_daily_limit>=0),deep_daily_limit INTEGER NOT NULL DEFAULT 50 CHECK(deep_daily_limit>=0),fast_model TEXT,deep_model TEXT,version INTEGER NOT NULL DEFAULT 1,updated_at INTEGER NOT NULL,updated_by TEXT NOT NULL);

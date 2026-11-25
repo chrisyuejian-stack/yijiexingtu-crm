@@ -1,0 +1,97 @@
+{
+  "baseline_zip": "艺界星途_阶段2_融合源码_精简版_20261113.zip",
+  "baseline_zip_sha256": "8663537bb1e00660953fb787ea5038c366dc7fde43fe2f4b7e717916f5f6ec35",
+  "new_files": [
+    "docs/reference/fusion-stage2-baseline-sha256.json",
+    "docs/reference/接口约定_v0.3.4_原件.md",
+    "docs/stage3/HTTP测试实录_完整.json",
+    "docs/stage3/examples/图库示例.png",
+    "docs/stage3/examples/报价导入示例.xlsx",
+    "docs/stage3/verification/backup-bundle-final.log",
+    "docs/stage3/verification/baseline-build.log",
+    "docs/stage3/verification/baseline-source.log",
+    "docs/stage3/verification/capture-http-examples.mjs",
+    "docs/stage3/verification/http-capture-final.log",
+    "docs/stage3/verification/integrity-final.json",
+    "docs/stage3/verification/phase3-build-final.log",
+    "docs/stage3/verification/phase3-bundle-final.log",
+    "docs/stage3/verification/phase3-new-final.log",
+    "docs/stage3/verification/phase3-source-final.log",
+    "docs/stage3/verification/verify-backup-bundle.mjs",
+    "docs/stage3/verification/verify-integrity.py",
+    "docs/stage3/verification/构建压缩报告.json",
+    "docs/stage3/中文交付说明.md",
+    "docs/stage3/前端对接说明.md",
+    "docs/stage3/前端接口示例.json",
+    "docs/stage3/变更清单.md",
+    "docs/stage3/底座差异.json",
+    "docs/stage3/构建文件清单.json",
+    "docs/stage3/测试结果.json",
+    "docs/stage3/测试结果.md",
+    "docs/stage3/源码文件清单.json",
+    "migrations/0020_settings_and_templates.sql",
+    "src/server/student-nickname.js",
+    "src/server/subject-packs.js",
+    "src/server/tool-settings.js",
+    "tests/settings-stage3.test.mjs"
+  ],
+  "modified_files": [
+    {
+      "path": "src/server/scheduling.js",
+      "before_sha256": "6e22fee51a6c4810cf1e92200d85750ebcebf42bbb3f26ef440cea6ca0db6581",
+      "after_sha256": "82eb480a4a41b791a6f7ff8a74f283c0bd87e683ee4042ad763bf6090897d4ae"
+    },
+    {
+      "path": "src/server/repo.js",
+      "before_sha256": "c8faee62fdaf79e763bbc79d6b333720ea28d5b4ce0fe3d80cabd7d986745a33",
+      "after_sha256": "34b3f9d99950e576851f55f53addd92980d5d770701e769c31e8cb8070ae174f"
+    },
+    {
+      "path": "src/server/worker.js",
+      "before_sha256": "a71c9a3f837254d1e715add7cbf5b50b8858179947bb1a5118186eb4505b44fe",
+      "after_sha256": "efa561ef8a49e8f3364c82832f58d445acb634889c6871d3359069e1dbe1a798"
+    },
+    {
+      "path": "src/server/backup-model.js",
+      "before_sha256": "2305a3e5de6386431ec33828fc4253e3e5bf10b845db0826a93a4eb64660a273",
+      "after_sha256": "a0371a3e680e04c0c81275acfadd044806aa2b7e1e09471262e83ae4db04cf83"
+    },
+    {
+      "path": "src/server/identity.js",
+      "before_sha256": "59af955ecc02192f32228ad2797c75e1c16e6356f69150518a4244dba0d24b18",
+      "after_sha256": "c3cee8e7eb27709ed1e6d146cae6027f068d744a4bbc2250cacc4156e8d504aa"
+    },
+    {
+      "path": "src/server/purge-schema.js",
+      "before_sha256": "112a2fc369b53dfea22d57b843ff2bd3bfa1ea241d70d6b9293651a47be57f50",
+      "after_sha256": "8bd0a8347f8fb6a71a1f8ae76056d2acd3e0521be1ee4331d49c2fa699e832ef"
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "7dbd3d80f0dceacd31bbf36a1fa77008969312de12b1367c9676a9112c3c6bfd",
+      "after_sha256": "4b0a8ca4f8bc381f6acac5185c4f49b172e6423b981bceb3b5fb6ed7678d3996"
+    },
+    {
+      "path": "tests/support.mjs",
+      "before_sha256": "90ca38c98b355118225ca8af697749cc36d970248d0a2f6aa474435e454da079",
+      "after_sha256": "920cc4a5fbdffa09036397f07edf1002468f5538b1b319a6c048199837490edb"
+    },
+    {
+      "path": "tests/identity-stage2.test.mjs",
+      "before_sha256": "7b849b8fa70db3a7eeba5f236bb3f123f2505e97c9555a82d9759232fec8072b",
+      "after_sha256": "4e8141331788c5ef5ef0c03bd2e529facdd7565a232de86dec651732a623a384"
+    },
+    {
+      "path": "deployment/独立环境准备说明.md",
+      "before_sha256": "9bebebedd7380170f7d00a6215c45907b424ce9d0086e7a05b14bf40168b7cd6",
+      "after_sha256": "0cbf865c2642a6ef988b2a9a434c5a50b176e99adea3945c7547e7f81c3e5faa"
+    },
+    {
+      "path": "docs/项目决策与范围.md",
+      "before_sha256": "aa1b971c60fc29dde9af1191e7a9ec52402bf7e74ea14eed861f865a98b66037",
+      "after_sha256": "56f4a9ac828518f64edd7c0a847f6284808d9b55e9d6d6964e0b3dec26400d74"
+    }
+  ],
+  "removed_files": [],
+  "frontend_or_migration_changes": []
+}

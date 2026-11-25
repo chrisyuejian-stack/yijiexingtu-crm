@@ -1,0 +1,1 @@
+CREATE TABLE data_jobs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,kind TEXT NOT NULL CHECK(kind IN ('legacy','restore')),status TEXT NOT NULL CHECK(status IN ('staging','ready','completed','cancelled')),source_tenant TEXT,manifest_json TEXT NOT NULL,created_at INTEGER NOT NULL,admin_id TEXT NOT NULL,reason TEXT NOT NULL,PRIMARY KEY(tenant_id,id));

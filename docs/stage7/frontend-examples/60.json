@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/schedule-growth/api/parent/reports/gr_a051b1f92b06193c4f299df4/style-assets/pic.png",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "binary": true,
+      "mime": "image/png",
+      "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jw1kAAAAASUVORK5CYII="
+    },
+    "queries": 6
+  }
+}

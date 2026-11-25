@@ -1,0 +1,1 @@
+INSERT INTO style_pack_versions(id,pack_id,version,manifest_json,created_at) SELECT 'sv_stp_growth_folio','stp_growth_folio','1.0.0',json_set(manifest_json,'$.id','stp_growth_folio','$.name','成长书册','$.doc_types',json('["report","feedback_card"]')),0 FROM style_pack_versions WHERE pack_id='stp_folio' AND version='1.0.0';

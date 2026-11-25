@@ -1,0 +1,48 @@
+{
+  "local_only": true,
+  "request": {
+    "method": "GET",
+    "path": "/schedule-upgrade2223/api/parent/children/rec_4bc604119ac75c222ae4e485/feed",
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "type": "feedback",
+          "id": "legacy_les_5f63db2ba95085319c482288_rec_4bc604119ac75c222ae4e485",
+          "status": "confirmed",
+          "student_id": "rec_4bc604119ac75c222ae4e485",
+          "revision_id": null,
+          "title": "课后反馈",
+          "at": "2026-11-10T10:00:00.000+08:00",
+          "lesson_id": "les_5f63db2ba95085319c482288",
+          "message": {
+            "learned": "升级前公共纯文字\n升级前个人纯文字学员0",
+            "good": "",
+            "attention": "",
+            "homework": "练习作业"
+          },
+          "tags": [],
+          "repertoire_ids": [],
+          "public_comment": "",
+          "image_ids": [],
+          "image_urls": []
+        },
+        {
+          "type": "plan",
+          "id": "plan_upgrade",
+          "status": "sent",
+          "student_id": "rec_4bc604119ac75c222ae4e485",
+          "revision_id": "rev_upgrade",
+          "title": "升级前价格快照",
+          "at": "2026-11-10T10:00:00.000+08:00",
+          "lesson_id": null
+        }
+      ],
+      "total": 2,
+      "next_offset": null
+    }
+  }
+}

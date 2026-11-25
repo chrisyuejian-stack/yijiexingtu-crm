@@ -1,0 +1,1 @@
+CREATE TABLE poster_outputs(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,template_id TEXT NOT NULL REFERENCES poster_templates(id),user_id TEXT NOT NULL,action TEXT NOT NULL CHECK(action IN('view','download','save')),at INTEGER NOT NULL,PRIMARY KEY(tenant_id,id));

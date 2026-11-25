@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "PUT",
+    "path": "/api/ops/tenants/ten_5998dbed580ef5144dce0f82/ai-override",
+    "body": {
+      "fast_daily_limit": 0,
+      "deep_daily_limit": null
+    },
+    "actor": "platform_admin"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ten_5998dbed580ef5144dce0f82",
+      "fast_daily_limit": 0,
+      "deep_daily_limit": null
+    }
+  }
+}

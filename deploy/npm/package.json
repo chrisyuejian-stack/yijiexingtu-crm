@@ -1,0 +1,8 @@
+{
+  "name": "yijiexingtu-platform-runtime",
+  "private": true,
+  "version": "0.5.0",
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "3.0.0"
+  }
+}

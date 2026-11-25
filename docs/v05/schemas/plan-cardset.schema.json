@@ -1,0 +1,2076 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:yijiexingtu:contract:v05:cardset:draft-01",
+  "$ref": "#/$defs/cardset",
+  "$defs": {
+    "money": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100000000,
+      "multipleOf": 0.01
+    },
+    "moneyOrNull": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/money"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "idOrNull": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "quantity": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1000000,
+      "multipleOf": 0.01
+    },
+    "quantityOrNull": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/quantity"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^(20[0-9]{2}|2100)-[0-9]{2}-[0-9]{2}$"
+    },
+    "month": {
+      "type": "string",
+      "pattern": "^(20[0-9]{2}|2100)-(0[1-9]|1[0-2])$"
+    },
+    "basic": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "student_name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "grade": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "plan_date": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "direction": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "direction_en": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "english_enabled": {
+          "type": "boolean"
+        },
+        "cover_visible": {
+          "type": "boolean"
+        },
+        "cover_eyebrow": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "cover_subtitle": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "visible",
+        "student_name",
+        "grade",
+        "plan_date",
+        "direction",
+        "direction_en",
+        "english_enabled",
+        "cover_visible",
+        "cover_eyebrow",
+        "cover_subtitle"
+      ],
+      "additionalProperties": false
+    },
+    "score": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "value",
+        "max"
+      ],
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/score"
+          },
+          "maxItems": 20
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "text",
+        "scores",
+        "tags"
+      ],
+      "additionalProperties": false
+    },
+    "strategy": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "node": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "id",
+        "date",
+        "name",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "stage_type_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "start_month": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/month"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "end_month": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/month"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "teaching_weeks": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "weeks_note": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "goals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "maxItems": 30
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "maxItems": 50
+        },
+        "node_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "maxItems": 30
+        },
+        "stage_snapshot": {
+          "anyOf": [
+            {
+              "type": "object",
+              "readOnly": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "legacy_range": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "$ref": "#/$defs/date"
+                },
+                "end": {
+                  "$ref": "#/$defs/date"
+                }
+              },
+              "required": [
+                "start",
+                "end"
+              ],
+              "additionalProperties": false,
+              "readOnly": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "stage_type_id",
+        "start_month",
+        "end_month",
+        "goals",
+        "nodes"
+      ],
+      "additionalProperties": false
+    },
+    "path": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stage"
+          },
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "stages"
+      ],
+      "additionalProperties": false
+    },
+    "timelineItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "type": {
+          "enum": [
+            "grade_exam",
+            "competition",
+            "art_exam",
+            "application_deadline",
+            "performance",
+            "other"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "source_key": {
+          "$ref": "#/$defs/idOrNull"
+        }
+      },
+      "required": [
+        "id",
+        "date",
+        "name",
+        "type",
+        "note",
+        "source_key"
+      ],
+      "additionalProperties": false
+    },
+    "timeline": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/timelineItem"
+          },
+          "maxItems": 200
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "qty": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "units": {
+              "$ref": "#/$defs/quantityOrNull"
+            }
+          },
+          "required": [
+            "units"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "terms": {
+              "$ref": "#/$defs/quantityOrNull"
+            }
+          },
+          "required": [
+            "terms"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "semesters": {
+              "$ref": "#/$defs/quantityOrNull"
+            }
+          },
+          "required": [
+            "semesters"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "months": {
+              "$ref": "#/$defs/quantityOrNull"
+            }
+          },
+          "required": [
+            "months"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "packages": {
+              "$ref": "#/$defs/quantityOrNull"
+            }
+          },
+          "required": [
+            "packages"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "includes": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "form": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "schedule_text": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "duration_text": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "label",
+        "form",
+        "schedule_text",
+        "duration_text"
+      ],
+      "additionalProperties": false
+    },
+    "line": {
+      "type": "object",
+      "properties": {
+        "line_id": {
+          "$ref": "#/$defs/id"
+        },
+        "stage_key": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "group_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "pricing_source": {
+          "enum": [
+            "catalog",
+            "manual"
+          ]
+        },
+        "course_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "origin_course_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "name_en": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "frequency_text": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "minutes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1440
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billing_mode": {
+          "enum": [
+            "per_unit",
+            "per_term",
+            "per_semester",
+            "per_month",
+            "package"
+          ]
+        },
+        "qty": {
+          "$ref": "#/$defs/qty"
+        },
+        "teaching_units": {
+          "$ref": "#/$defs/quantityOrNull"
+        },
+        "manual_unit_price": {
+          "$ref": "#/$defs/moneyOrNull"
+        },
+        "units_per_package": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "includes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/includes"
+          },
+          "maxItems": 50
+        },
+        "ai_filled": {
+          "type": "boolean"
+        },
+        "snapshot": {
+          "type": "object",
+          "readOnly": true
+        },
+        "price_tbd": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "line_id",
+        "stage_key",
+        "group_id",
+        "pricing_source",
+        "course_id",
+        "billing_mode",
+        "qty"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "pricing_source": {
+                "const": "catalog"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "course_id": {
+                "$ref": "#/$defs/id"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "pricing_source": {
+                "const": "manual"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "course_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "billing_mode": {
+                "const": "per_unit"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "qty": {
+                "type": "object",
+                "properties": {
+                  "units": {
+                    "$ref": "#/$defs/quantityOrNull"
+                  }
+                },
+                "required": [
+                  "units"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "billing_mode": {
+                "const": "per_term"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "qty": {
+                "type": "object",
+                "properties": {
+                  "terms": {
+                    "$ref": "#/$defs/quantityOrNull"
+                  }
+                },
+                "required": [
+                  "terms"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "billing_mode": {
+                "const": "per_semester"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "qty": {
+                "type": "object",
+                "properties": {
+                  "semesters": {
+                    "$ref": "#/$defs/quantityOrNull"
+                  }
+                },
+                "required": [
+                  "semesters"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "billing_mode": {
+                "const": "per_month"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "qty": {
+                "type": "object",
+                "properties": {
+                  "months": {
+                    "$ref": "#/$defs/quantityOrNull"
+                  }
+                },
+                "required": [
+                  "months"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "billing_mode": {
+                "const": "package"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "qty": {
+                "type": "object",
+                "properties": {
+                  "packages": {
+                    "$ref": "#/$defs/quantityOrNull"
+                  }
+                },
+                "required": [
+                  "packages"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    "courseGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "stage_key": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "id",
+        "stage_key",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "stageSetting": {
+      "type": "object",
+      "properties": {
+        "stage_key": {
+          "$ref": "#/$defs/id"
+        },
+        "pending": {
+          "type": "boolean"
+        },
+        "pending_note": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "stage_key",
+        "pending",
+        "pending_note"
+      ],
+      "additionalProperties": false
+    },
+    "courses": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "stage_settings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stageSetting"
+          },
+          "maxItems": 100
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/courseGroup"
+          },
+          "maxItems": 200
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/line"
+          },
+          "maxItems": 300
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "stage_settings",
+        "groups",
+        "lines"
+      ],
+      "additionalProperties": false
+    },
+    "teacher": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "teacher_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "introduction": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "photo_image_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "proposed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "teacher_id",
+        "name",
+        "title",
+        "introduction",
+        "photo_image_id",
+        "proposed"
+      ],
+      "additionalProperties": false
+    },
+    "teacherGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "role": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/teacher"
+          },
+          "maxItems": 60
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "members"
+      ],
+      "additionalProperties": false
+    },
+    "teachers": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/teacherGroup"
+          },
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "groups"
+      ],
+      "additionalProperties": false
+    },
+    "customInstallment": {
+      "type": "object",
+      "properties": {
+        "stage_key": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 30
+        },
+        "due": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ratio_bps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        }
+      },
+      "required": [
+        "stage_key",
+        "label",
+        "due",
+        "ratio_bps"
+      ],
+      "additionalProperties": false
+    },
+    "fixedInstallment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "stage_key": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "due": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "amount": {
+          "$ref": "#/$defs/moneyOrNull"
+        }
+      },
+      "required": [
+        "id",
+        "stage_key",
+        "label",
+        "due",
+        "amount"
+      ],
+      "additionalProperties": false
+    },
+    "extra": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "stage_key": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "amount": {
+          "$ref": "#/$defs/moneyOrNull"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "id",
+        "stage_key",
+        "label",
+        "amount",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "otherFee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "amount": {
+          "$ref": "#/$defs/moneyOrNull"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "amount",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "discount": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "none",
+            "fixed",
+            "percent"
+          ]
+        },
+        "amount": {
+          "$ref": "#/$defs/moneyOrNull"
+        },
+        "rate_bps": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "type",
+        "amount",
+        "rate_bps",
+        "note"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "none"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "amount": {
+                "type": "null"
+              },
+              "rate_bps": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "fixed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "amount": {
+                "$ref": "#/$defs/money"
+              },
+              "rate_bps": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "percent"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "amount": {
+                "type": "null"
+              },
+              "rate_bps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000
+              }
+            }
+          }
+        }
+      ]
+    },
+    "fees": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "installments": {
+          "enum": [
+            "per_stage",
+            "custom",
+            "fixed"
+          ]
+        },
+        "custom": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/customInstallment"
+          },
+          "maxItems": 100
+        },
+        "due_dates": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/date"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 3000
+        },
+        "stage_extras": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/extra"
+          },
+          "maxItems": 100
+        },
+        "other_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/otherFee"
+          },
+          "maxItems": 100
+        },
+        "discount": {
+          "$ref": "#/$defs/discount"
+        },
+        "fixed": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fixedInstallment"
+          },
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "installments",
+        "custom",
+        "due_dates",
+        "note",
+        "stage_extras",
+        "other_fees",
+        "discount",
+        "fixed"
+      ],
+      "additionalProperties": false
+    },
+    "goal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "name_en": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "tier": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "name_en",
+        "tier",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "goalGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/goal"
+          },
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "goals": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/goalGroup"
+          },
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "visible",
+        "title",
+        "groups"
+      ],
+      "additionalProperties": false
+    },
+    "photoPage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "layout": {
+          "enum": [
+            "grid_2x3",
+            "grid_3x3"
+          ]
+        },
+        "image_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "layout",
+        "image_ids"
+      ],
+      "additionalProperties": false
+    },
+    "photos": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/photoPage"
+          },
+          "maxItems": 20
+        }
+      },
+      "required": [
+        "visible",
+        "pages"
+      ],
+      "additionalProperties": false
+    },
+    "about": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "type": "boolean"
+        },
+        "image_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "maxItems": 50
+        },
+        "text": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "visible",
+        "image_ids",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "$ref": "#/$defs/moneyOrNull"
+        },
+        "period": {
+          "enum": [
+            "total",
+            "year",
+            "month",
+            "unspecified"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "amount",
+        "period",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "start_month": {
+          "$ref": "#/$defs/month"
+        },
+        "budget_cap": {
+          "$ref": "#/$defs/moneyOrNull"
+        },
+        "target": {
+          "type": "object",
+          "properties": {
+            "node_key": {
+              "$ref": "#/$defs/idOrNull"
+            },
+            "month": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/month"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "node_key",
+            "month",
+            "text"
+          ],
+          "additionalProperties": false
+        },
+        "consultant_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "budget": {
+          "$ref": "#/$defs/budget"
+        }
+      },
+      "required": [
+        "start_month",
+        "budget_cap",
+        "target",
+        "consultant_id",
+        "budget"
+      ],
+      "additionalProperties": false
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "pack_id": {
+          "$ref": "#/$defs/id"
+        },
+        "pack_version": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "cover_image_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "text_mode": {
+          "enum": [
+            "auto",
+            "dark",
+            "light",
+            "panel"
+          ]
+        },
+        "text_mode_resolved": {
+          "anyOf": [
+            {
+              "enum": [
+                "dark",
+                "light",
+                "panel"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "focal_point": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "x",
+            "y"
+          ],
+          "additionalProperties": false
+        },
+        "show_unit_price": {
+          "type": "boolean"
+        },
+        "show_latin_eyebrow": {
+          "type": "boolean"
+        },
+        "show_consultant": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pack_id",
+        "pack_version",
+        "cover_image_id",
+        "text_mode",
+        "text_mode_resolved",
+        "focal_point",
+        "show_unit_price",
+        "show_latin_eyebrow",
+        "show_consultant"
+      ],
+      "additionalProperties": false
+    },
+    "document": {
+      "type": "object",
+      "properties": {
+        "doc_version": {
+          "const": 2
+        },
+        "student_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "source_lead_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "subject": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "style": {
+          "$ref": "#/$defs/style"
+        },
+        "meta": {
+          "$ref": "#/$defs/meta"
+        },
+        "module_order": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "basic",
+              "assessment",
+              "strategy",
+              "path",
+              "timeline",
+              "courses",
+              "teachers",
+              "fees",
+              "goals",
+              "photos",
+              "about"
+            ]
+          },
+          "minItems": 11,
+          "maxItems": 11,
+          "uniqueItems": true
+        },
+        "modules": {
+          "type": "object",
+          "properties": {
+            "basic": {
+              "$ref": "#/$defs/basic"
+            },
+            "assessment": {
+              "$ref": "#/$defs/assessment"
+            },
+            "strategy": {
+              "$ref": "#/$defs/strategy"
+            },
+            "path": {
+              "$ref": "#/$defs/path"
+            },
+            "timeline": {
+              "$ref": "#/$defs/timeline"
+            },
+            "courses": {
+              "$ref": "#/$defs/courses"
+            },
+            "teachers": {
+              "$ref": "#/$defs/teachers"
+            },
+            "fees": {
+              "$ref": "#/$defs/fees"
+            },
+            "goals": {
+              "$ref": "#/$defs/goals"
+            },
+            "photos": {
+              "$ref": "#/$defs/photos"
+            },
+            "about": {
+              "$ref": "#/$defs/about"
+            }
+          },
+          "required": [
+            "basic",
+            "assessment",
+            "strategy",
+            "path",
+            "timeline",
+            "courses",
+            "teachers",
+            "fees",
+            "goals",
+            "photos",
+            "about"
+          ],
+          "additionalProperties": false
+        },
+        "computed": {
+          "type": "object",
+          "readOnly": true
+        },
+        "applied_suggestion_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "maxItems": 30
+        }
+      },
+      "required": [
+        "doc_version",
+        "subject",
+        "title",
+        "style",
+        "meta",
+        "module_order",
+        "modules"
+      ],
+      "additionalProperties": false
+    },
+    "templateDocument": {
+      "type": "object",
+      "properties": {
+        "doc_version": {
+          "const": 2
+        },
+        "subject": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "style": {
+          "$ref": "#/$defs/style"
+        },
+        "meta": {
+          "$ref": "#/$defs/meta"
+        },
+        "module_order": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "basic",
+              "assessment",
+              "strategy",
+              "path",
+              "timeline",
+              "courses",
+              "teachers",
+              "fees",
+              "goals",
+              "photos",
+              "about"
+            ]
+          },
+          "minItems": 11,
+          "maxItems": 11,
+          "uniqueItems": true
+        },
+        "modules": {
+          "type": "object",
+          "properties": {
+            "basic": {
+              "$ref": "#/$defs/basic"
+            },
+            "assessment": {
+              "$ref": "#/$defs/assessment"
+            },
+            "strategy": {
+              "$ref": "#/$defs/strategy"
+            },
+            "path": {
+              "$ref": "#/$defs/path"
+            },
+            "timeline": {
+              "$ref": "#/$defs/timeline"
+            },
+            "courses": {
+              "$ref": "#/$defs/courses"
+            },
+            "teachers": {
+              "$ref": "#/$defs/teachers"
+            },
+            "fees": {
+              "$ref": "#/$defs/fees"
+            },
+            "goals": {
+              "$ref": "#/$defs/goals"
+            },
+            "photos": {
+              "$ref": "#/$defs/photos"
+            },
+            "about": {
+              "$ref": "#/$defs/about"
+            }
+          },
+          "required": [
+            "basic",
+            "assessment",
+            "strategy",
+            "path",
+            "timeline",
+            "courses",
+            "teachers",
+            "fees",
+            "goals",
+            "photos",
+            "about"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "doc_version",
+        "subject",
+        "title",
+        "style",
+        "meta",
+        "module_order",
+        "modules"
+      ],
+      "additionalProperties": false
+    },
+    "card": {
+      "type": "object",
+      "properties": {
+        "card_id": {
+          "$ref": "#/$defs/id"
+        },
+        "module": {
+          "enum": [
+            "basic",
+            "assessment",
+            "strategy",
+            "path",
+            "timeline",
+            "courses",
+            "teachers",
+            "fees",
+            "goals",
+            "photos",
+            "about"
+          ]
+        },
+        "entity_type": {
+          "enum": [
+            "module",
+            "stage",
+            "stage_node",
+            "timeline_item",
+            "course_group",
+            "course_line",
+            "teacher_group",
+            "teacher",
+            "goal_group",
+            "goal",
+            "photo_page",
+            "budget"
+          ]
+        },
+        "op": {
+          "enum": [
+            "add",
+            "update",
+            "remove"
+          ]
+        },
+        "entity_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "parent_id": {
+          "$ref": "#/$defs/idOrNull"
+        },
+        "field": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 100
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before": {},
+        "after": {},
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "quote",
+                "inference"
+              ]
+            },
+            "quote": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 8000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "verified": {
+              "type": "boolean"
+            },
+            "source": {
+              "enum": [
+                "brief",
+                "instruction",
+                "plan"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "quote",
+            "verified",
+            "source"
+          ],
+          "additionalProperties": false
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "maxItems": 60
+        },
+        "default_selected": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "card_id",
+        "module",
+        "entity_type",
+        "op",
+        "entity_id",
+        "parent_id",
+        "field",
+        "before",
+        "after",
+        "evidence",
+        "depends_on",
+        "default_selected",
+        "label"
+      ],
+      "additionalProperties": false
+    },
+    "cardset": {
+      "type": "object",
+      "properties": {
+        "intent": {
+          "enum": [
+            "fill",
+            "adjust",
+            "mixed"
+          ]
+        },
+        "recommended": {
+          "type": "boolean"
+        },
+        "variant": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "cards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/card"
+          },
+          "maxItems": 60
+        },
+        "completion": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "enum": [
+                "complete",
+                "partial",
+                "not_requested"
+              ]
+            },
+            "path": {
+              "enum": [
+                "complete",
+                "partial",
+                "not_requested"
+              ]
+            },
+            "courses": {
+              "enum": [
+                "complete",
+                "partial",
+                "not_requested"
+              ]
+            }
+          },
+          "required": [
+            "text",
+            "path",
+            "courses"
+          ],
+          "additionalProperties": false
+        },
+        "computed": {
+          "type": "object",
+          "readOnly": true
+        },
+        "price_list_rev": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "intent",
+        "recommended",
+        "variant",
+        "cards",
+        "completion",
+        "computed",
+        "price_list_rev"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-platformdemo/api/settings/courses",
+    "body": {
+      "subject": "music_interest",
+      "name": "钢琴一对一",
+      "group": "主修",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "pricing": {
+        "mode": "per_unit",
+        "amount": 200,
+        "unit_label": "课时"
+      }
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "subject": "music_interest",
+      "name": "钢琴一对一",
+      "active": true,
+      "pricing": {
+        "mode": "per_unit",
+        "unit_label": "课时",
+        "amount": 200
+      },
+      "group": "主修",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": false,
+      "course_type_id": null,
+      "version": 1,
+      "id": "crs_d99c407e1fd0743889d8d79b",
+      "source": "manual"
+    },
+    "queries": 5
+  }
+}

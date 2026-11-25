@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "DELETE",
+    "path": "/schedule-platformdemo/api/plans/pln_0af024bb5bc5944005886852/share-links/shr_44d8f89d15460faba5047d78",
+    "body": {},
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "queries": 4
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/share/J17yHaAIEN3D1rHEcmHdYrDRM_-TIubx4sC7NozbZpk",
+    "body": null,
+    "authenticated": false
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "render_data": {
+        "subject": "music_interest",
+        "title": "钢琴学习方案",
+        "style": {
+          "pack_id": "demo_platform_style",
+          "pack_version": "1.0.0",
+          "cover_image_id": null,
+          "text_mode": "auto",
+          "focal_point": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "show_unit_price": false,
+          "show_latin_eyebrow": true,
+          "show_consultant": true
+        },
+        "meta": {
+          "start_month": "2026-11",
+          "target": {
+            "node_key": null,
+            "month": null,
+            "text": ""
+          },
+          "budget_cap": null
+        },
+        "modules": {
+          "cover": {
+            "visible": true,
+            "eyebrow": "",
+            "subtitle": ""
+          },
+          "assessment": {
+            "visible": true,
+            "text": "",
+            "source_note": "",
+            "strengths": [],
+            "gaps": [],
+            "goals": []
+          },
+          "path": {
+            "visible": true,
+            "stages": [
+              {
+                "key": "stk_d4f3b114579eb24875367d83",
+                "stage_type_id": "stg_781d899c322f71cb0d14b919",
+                "name": "体验与适应",
+                "start": "2026-12-01",
+                "end": "2026-12-31",
+                "teaching_weeks": null,
+                "weeks_note": "",
+                "goals": [],
+                "node_tags": []
+              }
+            ]
+          },
+          "courses": {
+            "visible": true,
+            "lines": [
+              {
+                "line_id": "ln_5053cb2123334526d7783492",
+                "stage_key": "stk_d4f3b114579eb24875367d83",
+                "course_id": "crs_d99c407e1fd0743889d8d79b",
+                "qty": {
+                  "units": 2
+                },
+                "frequency_text": "",
+                "note": "",
+                "ai_filled": false,
+                "includes": [],
+                "snapshot": {
+                  "name": "钢琴一对一",
+                  "form": "one_to_one",
+                  "minutes": 45,
+                  "duration_text": null,
+                  "optional": false,
+                  "pricing": {
+                    "mode": "per_unit",
+                    "units_per_package": null
+                  }
+                }
+              }
+            ]
+          },
+          "fees": {
+            "visible": true,
+            "installments": "per_stage",
+            "custom": [],
+            "due_dates": {},
+            "note": ""
+          },
+          "teachers": {
+            "visible": true,
+            "teacher_ids": []
+          },
+          "about": {
+            "visible": false
+          }
+        },
+        "computed": {
+          "stages": [
+            {
+              "key": "stk_d4f3b114579eb24875367d83",
+              "months": 1,
+              "calendar_weeks": 4,
+              "teaching_weeks": null,
+              "weeks_display": 4,
+              "units": 2,
+              "amount": 400
+            }
+          ],
+          "total": {
+            "units": 2,
+            "bundles": [],
+            "amount": 400
+          },
+          "budget": {
+            "cap": null,
+            "remaining": null,
+            "over": false
+          },
+          "installments": [
+            {
+              "stage_key": "stk_d4f3b114579eb24875367d83",
+              "label": "第1期 · 体验与适应",
+              "due": null,
+              "amount": 400
+            }
+          ],
+          "optional_fees": [],
+          "cover_numbers": [
+            {
+              "label": "规划周期",
+              "value": "1",
+              "unit": "个月",
+              "sub": "2026.12 – 2026.12"
+            }
+          ]
+        },
+        "id": "pln_0af024bb5bc5944005886852",
+        "revision_id": "rev_b095c7ea45f2d057cb1efe31",
+        "student": {
+          "nickname": "学员0",
+          "display_name": "学员0"
+        },
+        "brand": {
+          "name": "验收 platformdemo",
+          "logo": null,
+          "primary_color": "#2B4C7E"
+        },
+        "consultant": {
+          "name": "主管"
+        },
+        "teachers": []
+      },
+      "manifest": {
+        "id": "demo_platform_style",
+        "name": "平台示例风格",
+        "version": "1.0.0",
+        "doc_types": [
+          "plan",
+          "report",
+          "feedback_card",
+          "article"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "tokens": {
+          "color": {
+            "primary": "#A3271F",
+            "ink": "#2B1A16",
+            "paper": "#FFF8F0",
+            "accent": "#F4C08A",
+            "muted": "#7A5A50",
+            "use_tenant_primary": true
+          },
+          "font": {
+            "display": "noto-serif-sc",
+            "body": "noto-sans-sc",
+            "latin": "cormorant-italic"
+          }
+        },
+        "components": {
+          "plan.cover": "folio",
+          "plan.section_header": "numeral",
+          "plan.stage_block": "band",
+          "plan.total_card": "solid",
+          "report.header": "band",
+          "feedback_card.header": "plain"
+        },
+        "decor": {
+          "cover_frame": "none",
+          "corner_image": "assets/pic.png"
+        },
+        "cover_text_modes": [
+          "auto",
+          "dark",
+          "light",
+          "panel"
+        ],
+        "thumbnail": "assets/pic.png"
+      },
+      "asset_base": "/api/share/J17yHaAIEN3D1rHEcmHdYrDRM_-TIubx4sC7NozbZpk/style-assets/"
+    },
+    "queries": 5
+  }
+}

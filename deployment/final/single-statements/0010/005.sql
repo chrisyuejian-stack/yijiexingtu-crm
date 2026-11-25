@@ -1,0 +1,1 @@
+CREATE TABLE poster_templates(id TEXT PRIMARY KEY,campaign_id TEXT NOT NULL REFERENCES campaigns(id),image_key TEXT NOT NULL REFERENCES promo_images(id),width INTEGER NOT NULL,height INTEGER NOT NULL,slots TEXT NOT NULL,version INTEGER NOT NULL DEFAULT 1);

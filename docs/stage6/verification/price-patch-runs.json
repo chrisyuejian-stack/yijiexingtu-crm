@@ -1,0 +1,23 @@
+[
+  {
+    "label": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 8.86,
+    "log": "work/stage6/price-patch-build.log"
+  },
+  {
+    "label": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 231.22,
+    "log": "work/stage6/price-patch-source.log"
+  },
+  {
+    "label": "bundle",
+    "command": "env TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 236.616,
+    "log": "work/stage6/price-patch-bundle.log"
+  }
+]

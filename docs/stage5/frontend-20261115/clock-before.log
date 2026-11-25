@@ -1,0 +1,28 @@
+✖ 第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效 (1613.882633ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1825.465546
+
+✖ failing tests:
+
+test at tests/stage4-review.test.mjs:113:1
+✖ 第四阶段复核 P1：本月出勤/标准/成本/课程/调整/学费变化均使指纹失效 (1613.882633ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /本月结算数据已变更/. Input:
+  
+  '本月有 1 节已开始但仍有学员待销课：2026-11-15 09:00:00 班课 · 教师 · 待销：学员0'
+  
+      at TestContext.<anonymous> (file:///workspace/yijiexingtu-stage5/tests/stage4-review.test.mjs:164:14)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '本月有 1 节已开始但仍有学员待销课：2026-11-15 09:00:00 班课 · 教师 · 待销：学员0',
+    expected: /本月结算数据已变更/,
+    operator: 'match',
+    diff: 'simple'
+  }

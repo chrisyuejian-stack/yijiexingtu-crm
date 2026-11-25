@@ -1,0 +1,4870 @@
+{
+  "status": "local_verified_not_deployed",
+  "date": "2026-11-16",
+  "migrations": [
+    {
+      "file": "0001_foundation.sql",
+      "number": 1,
+      "steps": 34,
+      "sha256": "b8783e5a110c21a5796e2b578102d3e0ddc6407a4eff678e46a7bdcfd3338311"
+    },
+    {
+      "file": "0002_security_review.sql",
+      "number": 2,
+      "steps": 4,
+      "sha256": "aa308ea417e37b696a409e39e95372d9f3e5d9be2f265bc86f9bae79b805f6fe"
+    },
+    {
+      "file": "0003_scheduling.sql",
+      "number": 3,
+      "steps": 28,
+      "sha256": "4a09f3024fee6eb715848d9591f1767f5a543dc9a8950afe35d3eeea467eb010"
+    },
+    {
+      "file": "0004_credits.sql",
+      "number": 4,
+      "steps": 25,
+      "sha256": "dd478ad58f252e528a9e6cf0b2ae380ee29461197d2901f99f7e795ae2a6a5f0"
+    },
+    {
+      "file": "0005_integer_money.sql",
+      "number": 5,
+      "steps": 16,
+      "sha256": "992c6815c8d351ead694344fbb477d0f47ad8de9c370fb740f26ba85d7c309f6"
+    },
+    {
+      "file": "0006_finance.sql",
+      "number": 6,
+      "steps": 47,
+      "sha256": "ffe5838d0e23d9666cfa31b3d4bfe6d082552a79700cf9ec6243b25aa21bc91b"
+    },
+    {
+      "file": "0007_settlement_fingerprint.sql",
+      "number": 7,
+      "steps": 4,
+      "sha256": "d8f5d52766f06d435b13bf241b523af452233e2cc5394ca1d3b7a75275aef667"
+    },
+    {
+      "file": "0008_mobile_reviews.sql",
+      "number": 8,
+      "steps": 10,
+      "sha256": "fb75c82f35a49936df4baa6f7ccb37422d049db2ebb127def9ff9e7fd51678f5"
+    },
+    {
+      "file": "0009_tools.sql",
+      "number": 9,
+      "steps": 46,
+      "sha256": "0deebe356b35ad72ac6633a71c672e0362aa003dcbc58cb71e5debcaff678419"
+    },
+    {
+      "file": "0010_promo.sql",
+      "number": 10,
+      "steps": 25,
+      "sha256": "512c8f53b88ebfd86db605fa365aa6fa96d454e4c3ac5455444d665c6047fc1d"
+    },
+    {
+      "file": "0011_promo_image_limits.sql",
+      "number": 11,
+      "steps": 4,
+      "sha256": "0fece3d7a975937cff6c0b9e9e5a264bc9f19874422fea7d0f838f1e7f189c38"
+    },
+    {
+      "file": "0012_ui_rebuild.sql",
+      "number": 12,
+      "steps": 3,
+      "sha256": "91f04b474149991aa82361ea377a8b5f64ef2628d2bc48fd9ff6141fb6cbf484"
+    },
+    {
+      "file": "0013_promo_rebuild.sql",
+      "number": 13,
+      "steps": 10,
+      "sha256": "ab65b33c93d6d0f6aebebef40f40468b75d99a2801be24868e9c9c798a737401"
+    },
+    {
+      "file": "0014_debt_and_balance.sql",
+      "number": 14,
+      "steps": 15,
+      "sha256": "1db5f7fc3d9f23675565d5d7772f5476dd2aea98cd160d68378c288e0d57d702"
+    },
+    {
+      "file": "0015_delete_capabilities.sql",
+      "number": 15,
+      "steps": 21,
+      "sha256": "88c214932dfc2ebc01f8a607f293b5bfc1bf48f325fc987a02552a826d3f0779"
+    },
+    {
+      "file": "0016_page_query_indexes.sql",
+      "number": 16,
+      "steps": 5,
+      "sha256": "dd921fd86586856f73c59df137c89859f20b78712d48526076be2ad73042ddb2"
+    },
+    {
+      "file": "0017_student_schedule_indexes.sql",
+      "number": 17,
+      "steps": 4,
+      "sha256": "de36b444d01b5ce3a23ed20ba04acd627621e4cc3538591a52771c3e0ad474e9"
+    },
+    {
+      "file": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "steps": 11,
+      "sha256": "79c8a6dd9f1d7488040b8aaba410715ced42c23263836011d082fff0ea790504"
+    },
+    {
+      "file": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "steps": 30,
+      "sha256": "29b5b411f5f4f44499240e4eeaa454b19c0b23b1f5e203cd192c50f40497752b"
+    },
+    {
+      "file": "0020_settings_and_templates.sql",
+      "number": 20,
+      "steps": 151,
+      "sha256": "7ed2e20ec729290e6165a517fa724bde07df3fb595e55e8d477552a818ee5abc"
+    },
+    {
+      "file": "0021_course_plans.sql",
+      "number": 21,
+      "steps": 32,
+      "sha256": "537a09d5c6b28465b6d629b4b3a8b33c8c485be9cd7d14b05a51da32303fe1e7"
+    },
+    {
+      "file": "0022_content_and_ai.sql",
+      "number": 22,
+      "steps": 18,
+      "sha256": "3a34f4022e574e40e80007ef3f9f89c72e6e6da0a5a49b51528d5af912a7bf04"
+    },
+    {
+      "file": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "steps": 17,
+      "sha256": "9a2a231671c369dcc12b77244a86c2be9953fa169b10fe36f1594d58928eee76"
+    },
+    {
+      "file": "0024_platform_management.sql",
+      "number": 24,
+      "steps": 114,
+      "sha256": "d6c04f3a4b62e3ad46689e01a77f5730ce0132eb441433de9683cf1511aef725"
+    }
+  ],
+  "steps": [
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 1,
+      "path": "single-statements/0001/001.sql",
+      "sha256": "5b9f59ddfc50dc6b47cb5f89b66f1f0f54c486910a3f0c78d8c60885ada78174"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 2,
+      "path": "single-statements/0001/002.sql",
+      "sha256": "e56c0d8f2d381074d27382a30cc877876a180a8a2f340d9527c002448fc0a0e6"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 3,
+      "path": "single-statements/0001/003.sql",
+      "sha256": "3ff2d11635dabaec9025e044a732917956f4c78bae8e13eb9ce79d4fe6f77e24"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 4,
+      "path": "single-statements/0001/004.sql",
+      "sha256": "90683dbe35ba193f94f6af966cf032d93e62122f3e4492801099bcb9aecd9ca6"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 5,
+      "path": "single-statements/0001/005.sql",
+      "sha256": "f26b7b560ba12ccda9d3de9b29e90e318328001b5d9141ea78af32d8d6d2927b"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 6,
+      "path": "single-statements/0001/006.sql",
+      "sha256": "030d8146298be24d7e26011f401c243be4f4903c04c627d6f6b5545d4f53dbbc"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 7,
+      "path": "single-statements/0001/007.sql",
+      "sha256": "e5e979094fa5b0af6ed0fac8d22cea2e8e9a97b06ea77b0cfc414f456401b61d"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 8,
+      "path": "single-statements/0001/008.sql",
+      "sha256": "b9e9481003a9c98b10c59324e334649103130716060ff0aedada2367d7ebb575"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 9,
+      "path": "single-statements/0001/009.sql",
+      "sha256": "5efb53be1146b6eab9b4f3a70cca9a081ab1107a0c286e3b38c206496386c969"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 10,
+      "path": "single-statements/0001/010.sql",
+      "sha256": "d017d4d5ab1448a3607c43c4b51bc1b97b6ce3632711bd5a95307bb8b02d0c64"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 11,
+      "path": "single-statements/0001/011.sql",
+      "sha256": "6b5931d34d7e07ce3aa83ed78b6ba0ef83894024e82930ea3e878e47754ac152"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 12,
+      "path": "single-statements/0001/012.sql",
+      "sha256": "ec3b9c1b7912185ee30cd3273bd1867cfac9e2b31cc9ea7d6e72467848bdbb0a"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 13,
+      "path": "single-statements/0001/013.sql",
+      "sha256": "ff43e550a24757924f904a2107735a0789a28afd8f2b4e52edabfbf7e19e0acf"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 14,
+      "path": "single-statements/0001/014.sql",
+      "sha256": "96f1ff6b172297923e2d6774ce38ef27d7e6780b410357f47c24ca049fff7f49"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 15,
+      "path": "single-statements/0001/015.sql",
+      "sha256": "ac94faa6702227f1b4aee2026098a741752b7b4d94beb677b34c698a66ad35b6"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 16,
+      "path": "single-statements/0001/016.sql",
+      "sha256": "e3da854a4821aff71893b474fc9efc2bd461b71eaf3b04b571f96c6a39b6b788"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 17,
+      "path": "single-statements/0001/017.sql",
+      "sha256": "637e467e2fe094a905c9d97bce1db11d430d2162ccad81edcf7784b0c72aa4e5"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 18,
+      "path": "single-statements/0001/018.sql",
+      "sha256": "1bef0091c47ab18a92e693a50191f66b96fa6802c415761d623c1ed452111472"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 19,
+      "path": "single-statements/0001/019.sql",
+      "sha256": "58d8b93557c0ffd83be6da7da4caad2c48e11f522b7ea5c5f1d9f684f71861dc"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 20,
+      "path": "single-statements/0001/020.sql",
+      "sha256": "9c4e3d2af7d9a95db9944b58e748661fc8ae9c1f32139a0c6bb9a279b0c73bb6"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 21,
+      "path": "single-statements/0001/021.sql",
+      "sha256": "39c72d9247d46d4830fc5765a35b82b0309361326aaa17be37ee6cb21cfa9647"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 22,
+      "path": "single-statements/0001/022.sql",
+      "sha256": "dd687c817f2755e6a5b2a8e2fa1b82cf91d68e97c445b425585d2811f8d403c1"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 23,
+      "path": "single-statements/0001/023.sql",
+      "sha256": "979056a333bcb3030dc75bd2a84c66bf48cba641ccbbd4cf73b335a04bbf3e6d"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 24,
+      "path": "single-statements/0001/024.sql",
+      "sha256": "f896fb752118858b608c9a3ea256a18bd37e9700ca948e3febac888db995a2ee"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 25,
+      "path": "single-statements/0001/025.sql",
+      "sha256": "f902c997506aaa9598aa3ffee38c80fd10a9bcb2359d7ee0a8b92ad6e7f7b8d5"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 26,
+      "path": "single-statements/0001/026.sql",
+      "sha256": "9167e37717c1ea24fe0c961867b09a04e73a3326b6ad6bc790b9072ed9415f44"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 27,
+      "path": "single-statements/0001/027.sql",
+      "sha256": "1e783c71c4bb2463523b473366ccf30f94f78160786943a725924edcbfa5fcfa"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 28,
+      "path": "single-statements/0001/028.sql",
+      "sha256": "c16279f9acc5cdcf96d0360e2dfcbd4494af9a8b559e68e61d950a0645431125"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 29,
+      "path": "single-statements/0001/029.sql",
+      "sha256": "7bfea07acab94cb6624b4ee3ba97d9fb7bac9b28abca4166317dd8f43fb91037"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 30,
+      "path": "single-statements/0001/030.sql",
+      "sha256": "c95eb8b07ee20ec50b06ff15895c8f20c7a3b47025edf7f8684c2d16fe959768"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 31,
+      "path": "single-statements/0001/031.sql",
+      "sha256": "f26f5e393595503a679391fdac787bbf31ec6ded828be3d837c933d9bebba2b7"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 32,
+      "path": "single-statements/0001/032.sql",
+      "sha256": "3997edac24d46dc47338b54f4e40d54acd8635d25bca6b58ed4aa1037466ae6f"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 33,
+      "path": "single-statements/0001/033.sql",
+      "sha256": "27af4e4562487ad185090a52c356e7ccd23fcdd8e016a16709f1b0e722f8fac9"
+    },
+    {
+      "migration": "0001_foundation.sql",
+      "number": 1,
+      "step": 34,
+      "path": "single-statements/0001/034.sql",
+      "sha256": "1e05e718baf298ed7182fadaaa97edd26c67e80ef9c99331b3d0125bc99f2145"
+    },
+    {
+      "migration": "0002_security_review.sql",
+      "number": 2,
+      "step": 1,
+      "path": "single-statements/0002/001.sql",
+      "sha256": "cb60845043c6b1202f0c3a69f53f6dc4b2f991987224d4c6d8578fd53941a7a9"
+    },
+    {
+      "migration": "0002_security_review.sql",
+      "number": 2,
+      "step": 2,
+      "path": "single-statements/0002/002.sql",
+      "sha256": "0873da86a8b1931e5db1f7bff97cba8fef528beb9d89667adb9041f85d24e146"
+    },
+    {
+      "migration": "0002_security_review.sql",
+      "number": 2,
+      "step": 3,
+      "path": "single-statements/0002/003.sql",
+      "sha256": "a24ddcaa049789f562357afd4e3ac1255edcfb4efd136412e4ee798615eebcac"
+    },
+    {
+      "migration": "0002_security_review.sql",
+      "number": 2,
+      "step": 4,
+      "path": "single-statements/0002/004.sql",
+      "sha256": "ba820977b25eb40a5db806ebfdd8bdb6db8a8db12f319f7d4ea41e86cf15be90"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 1,
+      "path": "single-statements/0003/001.sql",
+      "sha256": "2c87edde1194d655a4c4c079f8f22ccc2a96876b7d35023937fb09a1f7df2df4"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 2,
+      "path": "single-statements/0003/002.sql",
+      "sha256": "b0b8a910c78ddd90befb2444c76c9f6771ed9fdffee1b13fa18ee3aa99e5ae7d"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 3,
+      "path": "single-statements/0003/003.sql",
+      "sha256": "5540ee69150ac87fa0da1a70a3870eed20fdb861f034fdc16249bd8961620dc8"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 4,
+      "path": "single-statements/0003/004.sql",
+      "sha256": "e4551e4f9f17dc6911daa5c0d6a0c3ea6471dc475a0c0c3f8be0d557cf1484c8"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 5,
+      "path": "single-statements/0003/005.sql",
+      "sha256": "835c906d5652806454ffe3f82cdba53da3831c5319f7f2e3bfd53e3f0696cf72"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 6,
+      "path": "single-statements/0003/006.sql",
+      "sha256": "3c54a5c2e388cff2f215339a74cf34175ab9790297f7f7ca80094354cd335a98"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 7,
+      "path": "single-statements/0003/007.sql",
+      "sha256": "51057e6a10fd76933c4eedd3ac7bd1abb452481900e281403d46a4c4a44cd10e"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 8,
+      "path": "single-statements/0003/008.sql",
+      "sha256": "15d91366294cb1cab51643da715cc0ba0a4632dfc6ac32dbba134ca50dfd47e5"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 9,
+      "path": "single-statements/0003/009.sql",
+      "sha256": "8baa01747f29c18c8d248f41edbd0515c21d633f7b4880fee90730eef6c0c9b7"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 10,
+      "path": "single-statements/0003/010.sql",
+      "sha256": "83ffd995ae720b033741438a19befae47d1e73b34f4525a938c6b04f9f6d422a"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 11,
+      "path": "single-statements/0003/011.sql",
+      "sha256": "d13b5299fdb31387ead5bbf0aa69cbaf3e0de6376d9d6970b4f91fb963e03959"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 12,
+      "path": "single-statements/0003/012.sql",
+      "sha256": "8b0024e193c5533f6e5c37fb7f1a99548c5204c6f27c988010cc5cb38a289901"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 13,
+      "path": "single-statements/0003/013.sql",
+      "sha256": "f68257cc024b2d6501daa04d7c4dace2d7fbe789a8991a31ded35b40ef5bbd50"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 14,
+      "path": "single-statements/0003/014.sql",
+      "sha256": "d0a0d25b432137911899a38c95334347b6d42a26479514353af5cfa1e8912ff1"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 15,
+      "path": "single-statements/0003/015.sql",
+      "sha256": "92d5ea7e54f0fe854fe32cd1778bf1342d12ef4bc2d3b6a5ef7838ef0938ed4a"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 16,
+      "path": "single-statements/0003/016.sql",
+      "sha256": "8ba585a867e144ccd5af690f389afc64f0f28460792f03dd2634603c96762ebe"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 17,
+      "path": "single-statements/0003/017.sql",
+      "sha256": "57a349708ff1161b75cc28efd72160919e871a43659c1525d213c642cf570cf5"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 18,
+      "path": "single-statements/0003/018.sql",
+      "sha256": "a2990b933437ca1c7e135b373f11324b02b0e2ae02db99d735312ee76f65b5ac"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 19,
+      "path": "single-statements/0003/019.sql",
+      "sha256": "31687c1bbbf9d7ab00e4be5ad8220f9e7099d73872084be3777e931e466bb182"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 20,
+      "path": "single-statements/0003/020.sql",
+      "sha256": "53f321e8beb555a435ae177cd33e8f35f827a7af62fd0060ed3088ba837f85a6"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 21,
+      "path": "single-statements/0003/021.sql",
+      "sha256": "d1044cd8ce0206132948d6c2c63a181ec6df132073dc862620be536c083a81ae"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 22,
+      "path": "single-statements/0003/022.sql",
+      "sha256": "44ff36b869e70dea9b7820c2659a50652a7db946461e2da1575295ff52acb539"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 23,
+      "path": "single-statements/0003/023.sql",
+      "sha256": "d70b64ed774b860510e90d1f1466975ad847a09334366a64a23f79ff6f3d075a"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 24,
+      "path": "single-statements/0003/024.sql",
+      "sha256": "75b6455f130075e08a38dab1b5d7840b7cbf598089553c29154b78033a26dbb7"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 25,
+      "path": "single-statements/0003/025.sql",
+      "sha256": "187e85ae14e66d57634355b09ab04940aad59db72f0777cbbac36b43330c1d61"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 26,
+      "path": "single-statements/0003/026.sql",
+      "sha256": "5bf5b311a8956e11e8e38655c89715202a9e8b3b8fbfc34b53a793a71e737283"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 27,
+      "path": "single-statements/0003/027.sql",
+      "sha256": "02ea153120c35cd0d85741b45a473ee5ab7ee71a33ef44c7c15e6da388ced221"
+    },
+    {
+      "migration": "0003_scheduling.sql",
+      "number": 3,
+      "step": 28,
+      "path": "single-statements/0003/028.sql",
+      "sha256": "fd5ec10811317fd7c97e2e2a4e251b3334854aaf76052a2186602285d74e411c"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 1,
+      "path": "single-statements/0004/001.sql",
+      "sha256": "99fbab7953659ca4a04d01c4027b1f02fe21c033171c089ce19a72d98751d641"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 2,
+      "path": "single-statements/0004/002.sql",
+      "sha256": "9cdfa81e527dbec0f08b36b8bdd18144f07c59fe4252a281c273c9955c28fd07"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 3,
+      "path": "single-statements/0004/003.sql",
+      "sha256": "e3a4c04b6d04c0958030396ba027918f82da104c3bc94a6cd91a88f55326296d"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 4,
+      "path": "single-statements/0004/004.sql",
+      "sha256": "b5889cf2c3ecf15f621e7d1a14a82aef364c105752377475f1f01831a0fe345c"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 5,
+      "path": "single-statements/0004/005.sql",
+      "sha256": "f304a53762e62ab4c440ae90f54113087bef56542bc51a7715f423e150d34e13"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 6,
+      "path": "single-statements/0004/006.sql",
+      "sha256": "cf45e5a2e08e33710316a028436ad467ae9c87ecf0ac8142dc3b569963446ff0"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 7,
+      "path": "single-statements/0004/007.sql",
+      "sha256": "5fc7f7d0d0ff7f7649352aab3673511aebe99e7521914253ca6171008dbe9828"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 8,
+      "path": "single-statements/0004/008.sql",
+      "sha256": "00f1be1133b82b1d08b347e3b94086d1154c925eb3ee589f405ed336e25f9e9d"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 9,
+      "path": "single-statements/0004/009.sql",
+      "sha256": "db1492d3af135c1295e0fac4051beb9cf8fd32db6f722a89a3454919869e6f44"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 10,
+      "path": "single-statements/0004/010.sql",
+      "sha256": "34fe3782179c2c51dc073e0f4cdfe0ca6f83e9db2c174e65c0596f29c0f67cb8"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 11,
+      "path": "single-statements/0004/011.sql",
+      "sha256": "b22f8b6adc717d0905f69ed216d38b71d29eb3270ed481d4e02c1880aa9b11e5"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 12,
+      "path": "single-statements/0004/012.sql",
+      "sha256": "ce09fc26d24eb4a709e783d2b2f9c3c15124e12c1e8d2899a9c5393c1be048d5"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 13,
+      "path": "single-statements/0004/013.sql",
+      "sha256": "d67bafa3f6936c766cee7e51c362368ec47a67bc21cbe6e502fc408fa9684d1a"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 14,
+      "path": "single-statements/0004/014.sql",
+      "sha256": "a4e7891c8dad93653386a5e41cb16b402853b88f128ee74aef29a2fe2ca3faf6"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 15,
+      "path": "single-statements/0004/015.sql",
+      "sha256": "0210bcfb78cea146f429f459dca157bd3e2f23a369a12ed83743404fef73bbf2"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 16,
+      "path": "single-statements/0004/016.sql",
+      "sha256": "730ab0902d63e999c86a75df323b9993b8f212bae449014dc734b18c4566bb02"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 17,
+      "path": "single-statements/0004/017.sql",
+      "sha256": "d2c6d3e3e30687cce5ceba09183dded4a73853cb01deeb0b0521e27b40f282ec"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 18,
+      "path": "single-statements/0004/018.sql",
+      "sha256": "55dd4f3a22b8af94aca1941315dee1765b080ffc61653b4a5249afae66d791b9"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 19,
+      "path": "single-statements/0004/019.sql",
+      "sha256": "a8ea0f10e84afe6dd9519eb7cff8722b27784b368f15b6a9208b1d0af42fccf0"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 20,
+      "path": "single-statements/0004/020.sql",
+      "sha256": "79636a39a3fc8923d57aec5ef450780d2ccb0da15c93c2c7249e6bedb9e3d9db"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 21,
+      "path": "single-statements/0004/021.sql",
+      "sha256": "79e36dbd9035a11386657b3096cb4d0b9913b4e2addde9c3796d9177e509100e"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 22,
+      "path": "single-statements/0004/022.sql",
+      "sha256": "9267733bfc20bfc8b06241b9df835acf986067598be47db9c03e6db0b1db4364"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 23,
+      "path": "single-statements/0004/023.sql",
+      "sha256": "4b75ed62c5a6c5c7058e5320ebec876f16b2f359ae46ee206fd92a8b5026011c"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 24,
+      "path": "single-statements/0004/024.sql",
+      "sha256": "de03c3fc0281843dcec654e3513afd95d8ebf50ce905cf15f6bd473dafdff63e"
+    },
+    {
+      "migration": "0004_credits.sql",
+      "number": 4,
+      "step": 25,
+      "path": "single-statements/0004/025.sql",
+      "sha256": "b40388399265d9397c636a37164f73f1b81da9ea11b68154e210381cfe4e5a13"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 1,
+      "path": "single-statements/0005/001.sql",
+      "sha256": "8742d25246753396f4fc41c2ab208a49b3cefb447186bb326aa847d722d5e632"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 2,
+      "path": "single-statements/0005/002.sql",
+      "sha256": "4ee3eca0e3bbf34df66aeedda7638c4c5f849ecdfc329204a8ab1c1b902a695e"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 3,
+      "path": "single-statements/0005/003.sql",
+      "sha256": "dd14c3ae5a1ae39704b131858177c4e22cfa502f36b9eb655fc95a28902a7296"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 4,
+      "path": "single-statements/0005/004.sql",
+      "sha256": "01b21e8fa6be5ce383fe9b28cb5b4f10b55536a7424c8b4dbe45496053544f06"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 5,
+      "path": "single-statements/0005/005.sql",
+      "sha256": "9909a0380a4ebe48c0cc9d652458d61e1bb21f2dd5fd8b25c80f87148458b0ee"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 6,
+      "path": "single-statements/0005/006.sql",
+      "sha256": "bb0107b584cb6fcc1610d08b4272c361bf2bf95de8dfb37c1fb164576143cca7"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 7,
+      "path": "single-statements/0005/007.sql",
+      "sha256": "35b09869f35c326d6d1141e07931bf337712153475bd0a6de99543bfb2f61f65"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 8,
+      "path": "single-statements/0005/008.sql",
+      "sha256": "549ffc59ab71ab4e4c77d6e3cd75bc741afd5d45024ca38df95f75ca5f1f8df0"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 9,
+      "path": "single-statements/0005/009.sql",
+      "sha256": "f711120fc19330bf55c5b3606d7b9cf0936104afb1794dc9aab58eb20e308154"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 10,
+      "path": "single-statements/0005/010.sql",
+      "sha256": "ec315aa5a813345d8fda00ef9a89e66dae4953fe24b74008d54b30dff3e6846d"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 11,
+      "path": "single-statements/0005/011.sql",
+      "sha256": "7ef8055dc2fca3ccfeedab3f5a40f252ee697be092b96310e429749dd1d01d0b"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 12,
+      "path": "single-statements/0005/012.sql",
+      "sha256": "ff8fdce1c34833506861a92d2807a11062c27f59d4307be5ac137a4ec420663a"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 13,
+      "path": "single-statements/0005/013.sql",
+      "sha256": "c3acacc6c705a119e589ac776e1171c091b90936beee6d46349361b82804bdd8"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 14,
+      "path": "single-statements/0005/014.sql",
+      "sha256": "6ed346ff2480fde14912e7a16389e23ba74b5ce381a37e39c46b7f3ddcb3a3c3"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 15,
+      "path": "single-statements/0005/015.sql",
+      "sha256": "e6d60e24ccaabc9999f4cf2fd9b3d81236a26e1dc143455c014d83c378b87926"
+    },
+    {
+      "migration": "0005_integer_money.sql",
+      "number": 5,
+      "step": 16,
+      "path": "single-statements/0005/016.sql",
+      "sha256": "eb1e5b21d7db1b2a2b0344f29ab769420b9d8cfbba8dbf2a95c1f9a65a430c9e"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 1,
+      "path": "single-statements/0006/001.sql",
+      "sha256": "50d122fe357730fe7d9149a93edddc5fe02f4f7f8bc246b8a20d5b8e0c3fa65d"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 2,
+      "path": "single-statements/0006/002.sql",
+      "sha256": "b1502c9d48c36744ac0ff7138b3bf97ea3b66e0d735f22709cee43803beaffe0"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 3,
+      "path": "single-statements/0006/003.sql",
+      "sha256": "a18363e99e8c798fabe90bbe6b3b16b319b360106674516e402a8d526cef4b2d"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 4,
+      "path": "single-statements/0006/004.sql",
+      "sha256": "1bdf4b6ca25bb5129eaa66ccba78863798ae32aac55612626e5636796eee534c"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 5,
+      "path": "single-statements/0006/005.sql",
+      "sha256": "4d914a2797035e142f03f429d8de98e141783ffbf003f249ff7c827f9fef77a8"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 6,
+      "path": "single-statements/0006/006.sql",
+      "sha256": "42e7383ff75069263ea5a540e51c424993f2ecd7f3346981f912d2af5f1a71b6"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 7,
+      "path": "single-statements/0006/007.sql",
+      "sha256": "d539326db2d3f49afa41f22c4a3fd8684f20e3fcda16ceba25a3e37339ff81ef"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 8,
+      "path": "single-statements/0006/008.sql",
+      "sha256": "278a8f49972af869db1db3581d8f67d1a1ccb91dea5369577c3bbf54a19f6bed"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 9,
+      "path": "single-statements/0006/009.sql",
+      "sha256": "6924cb08c1668bb3dbc0f5e64cc5919139ac2e6677db1cc7e06f9e992f03b30e"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 10,
+      "path": "single-statements/0006/010.sql",
+      "sha256": "82099b63b53dabeb3217b806e706b5b46853826798578bd595c57a98bcc46fdd"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 11,
+      "path": "single-statements/0006/011.sql",
+      "sha256": "7776fb1b6229f022b44f0253834c4293e37848e9b13d71ca88d9e0ba56aac7aa"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 12,
+      "path": "single-statements/0006/012.sql",
+      "sha256": "efcbae4bf441f8e4b295b5f2b54aa94b757c23979f683b6ab45cb0293ed72c5b"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 13,
+      "path": "single-statements/0006/013.sql",
+      "sha256": "e05cc745a42e54be6deb0833e4391b216e64a858eb7c6e98d65d53462fd1daef"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 14,
+      "path": "single-statements/0006/014.sql",
+      "sha256": "9394617322ecf05e2096b0f9d9f65e20f574e6f0e4a5944191e6265944456d79"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 15,
+      "path": "single-statements/0006/015.sql",
+      "sha256": "4e5062e852c790e946f9796884e5525c8b38bf3394c43dc36ccd767941e6653c"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 16,
+      "path": "single-statements/0006/016.sql",
+      "sha256": "df620906cb0babf047f3badbb251b5b8104c8d52af74bef0995ddcc0beedce27"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 17,
+      "path": "single-statements/0006/017.sql",
+      "sha256": "86831c1d8bb76e60746cee30464e1f8b64df2c1acc9b6adf5027f3ddf3e071b4"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 18,
+      "path": "single-statements/0006/018.sql",
+      "sha256": "538fa93284db8229e2362585cf78e714912e977693bdcf152b960e169f3f78cb"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 19,
+      "path": "single-statements/0006/019.sql",
+      "sha256": "136a9c613d2a17e9c39dd3189d1768a7ca252ca1d273c78b97d20b15ed32479e"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 20,
+      "path": "single-statements/0006/020.sql",
+      "sha256": "b9ebac415bbecaf596ae4ceabbd96fb6a046773d8ee0deab562be016beffb26d"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 21,
+      "path": "single-statements/0006/021.sql",
+      "sha256": "edac10d70f91d356371301f911ecf408525f7be35bc81fcbb1b74ab7bf5b532e"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 22,
+      "path": "single-statements/0006/022.sql",
+      "sha256": "5e5bd99b4474573b1aa1bec995596b2b9a89879a154421f7890ddacdfe1b8418"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 23,
+      "path": "single-statements/0006/023.sql",
+      "sha256": "643be36f461a36cf58bec31741fe310bb00bdef5fa3757eca9aa95908275ba1c"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 24,
+      "path": "single-statements/0006/024.sql",
+      "sha256": "10a57439e4593f1cf92d1341645521de8afb41c6d85409a789363fded42b07f0"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 25,
+      "path": "single-statements/0006/025.sql",
+      "sha256": "740516da156d2cfd9994b337ee8d1afb02d230c4252879e6806b99b7371415f4"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 26,
+      "path": "single-statements/0006/026.sql",
+      "sha256": "6db25908bb4e05e70ff5932154d26a6238f277e38dd2efd3f550067905fe34a1"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 27,
+      "path": "single-statements/0006/027.sql",
+      "sha256": "5b2a8806d5a843efa16f47037d75f9dc2e6f2af908d958ebc1dadb625923de92"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 28,
+      "path": "single-statements/0006/028.sql",
+      "sha256": "3a69c2988ab1ae7ae28fef2f9d848c00830a516d959228221117c4e1e23f2c4e"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 29,
+      "path": "single-statements/0006/029.sql",
+      "sha256": "ea6f45a86c5a391c2488421639a77f092a01cc41fbe3089787ec07d7edc555a7"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 30,
+      "path": "single-statements/0006/030.sql",
+      "sha256": "db192b00a827259e8f100cab31209a1171643782b85a6c29d039172e7e831828"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 31,
+      "path": "single-statements/0006/031.sql",
+      "sha256": "aac6c080c7bec0461b7f756b49503e9acd62f82f760cbb4e185f429994f28078"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 32,
+      "path": "single-statements/0006/032.sql",
+      "sha256": "75a39f4c8e5b1c980a1eaf1fd6f928436502e2f9e5367d8ec5339e830480208e"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 33,
+      "path": "single-statements/0006/033.sql",
+      "sha256": "32f3b576bb688633fbbb8e4317e86174dfd391405f2295a9bd90b5b869ac7746"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 34,
+      "path": "single-statements/0006/034.sql",
+      "sha256": "2a1936d5d9c440089999b1398b80638a4e0ecc0786ae0740ffdc6d0456f23127"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 35,
+      "path": "single-statements/0006/035.sql",
+      "sha256": "512e3724837a02cd1bf383a070f073fcf6feb1d15a5ff54cb928948bcd1410d6"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 36,
+      "path": "single-statements/0006/036.sql",
+      "sha256": "7470dfb900995c3726f39908029578f075957d358fd46bd2f0099e993340fd72"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 37,
+      "path": "single-statements/0006/037.sql",
+      "sha256": "a045e4f00d70256f19aeecee27365e3d07310bf1b35c2674723c8e12c39a0fb9"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 38,
+      "path": "single-statements/0006/038.sql",
+      "sha256": "866665fe0bd3494986dbb0a3a9b154022a8500c7b614b36002d0bc445e7b4e90"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 39,
+      "path": "single-statements/0006/039.sql",
+      "sha256": "e26fe6725a49ec00fdb7413c1f6ae4d53e76bd7410137a2d78919ad1445f7ff5"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 40,
+      "path": "single-statements/0006/040.sql",
+      "sha256": "5aa7754f75170041dbeca138f591f1a6985bbae93e1c57e7fc80e7d7a62c1d09"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 41,
+      "path": "single-statements/0006/041.sql",
+      "sha256": "9175a91038faf791c8eafa989a53da0e699957b0d667ea80eb57feede108a968"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 42,
+      "path": "single-statements/0006/042.sql",
+      "sha256": "3f1fba89e99c161fc2c13646e9414bc51e1dae99ff7332f54c9ea98ebc9cb219"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 43,
+      "path": "single-statements/0006/043.sql",
+      "sha256": "7587dd7a1cc77b8b71f67f2ba1a943b9812b4bda5c8732e72ec0bc2b9b50e814"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 44,
+      "path": "single-statements/0006/044.sql",
+      "sha256": "b37bc16957dc60f6d35cb65754eef465182c7949d5e2244eb2982cfab3787dff"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 45,
+      "path": "single-statements/0006/045.sql",
+      "sha256": "adb938c004191fd1afb141b64bf1f631f5ff7ba314fda8ca41e2b44ba6f0fcfd"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 46,
+      "path": "single-statements/0006/046.sql",
+      "sha256": "4345a19f4a8e6391979593dc2766863464105129a7be3b2dba4bd572b08a2c62"
+    },
+    {
+      "migration": "0006_finance.sql",
+      "number": 6,
+      "step": 47,
+      "path": "single-statements/0006/047.sql",
+      "sha256": "66b36431087dabf200beb028e19da93a191d4bd496075c2f27eaa5be980e0b42"
+    },
+    {
+      "migration": "0007_settlement_fingerprint.sql",
+      "number": 7,
+      "step": 1,
+      "path": "single-statements/0007/001.sql",
+      "sha256": "793000f8e8768bd88e324ddbc5428d0b761ed2d76adfb67df0553af29df5402f"
+    },
+    {
+      "migration": "0007_settlement_fingerprint.sql",
+      "number": 7,
+      "step": 2,
+      "path": "single-statements/0007/002.sql",
+      "sha256": "d29cbd7419e1ff06274ccb1fdd4b387a1cc0defc2c0fcfb8120f548e7f484856"
+    },
+    {
+      "migration": "0007_settlement_fingerprint.sql",
+      "number": 7,
+      "step": 3,
+      "path": "single-statements/0007/003.sql",
+      "sha256": "ee2befffa58b9cf3541f8733df6fe4e063393a0180c395c7fd60ddde111152a7"
+    },
+    {
+      "migration": "0007_settlement_fingerprint.sql",
+      "number": 7,
+      "step": 4,
+      "path": "single-statements/0007/004.sql",
+      "sha256": "112cac8f7a791eb820acb8486a904e3c5c2c95e80936862abf63699b4ee1aa69"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 1,
+      "path": "single-statements/0008/001.sql",
+      "sha256": "e10396645cb84e76a73145745f5de837dbe76e88ae4496933dad9e693e71bbd3"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 2,
+      "path": "single-statements/0008/002.sql",
+      "sha256": "21902e055c229a60ff196a642a05c929901e1b03743cae5f6a39512245966a05"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 3,
+      "path": "single-statements/0008/003.sql",
+      "sha256": "b6a9d035feffd487fd52b97214c4df54261e0097a603eea6bd371c745b2bba48"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 4,
+      "path": "single-statements/0008/004.sql",
+      "sha256": "0753a54e09c6d79cf575f39049924d95352dd2a1397b1f0bbe190c7841456643"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 5,
+      "path": "single-statements/0008/005.sql",
+      "sha256": "fecaa2758ef2e7d727ab689db8e4ee5e19ee5582d94cf7853010a3827e53419a"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 6,
+      "path": "single-statements/0008/006.sql",
+      "sha256": "7ae15b488082d061b63de19a9c7b619dcef9d45fef9a96e0535459b9fdd779bc"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 7,
+      "path": "single-statements/0008/007.sql",
+      "sha256": "8e78d9557ef293fcaf4946668752383da8d942857d3a69f4aa14e1602b8c728c"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 8,
+      "path": "single-statements/0008/008.sql",
+      "sha256": "89f75a724349287aa37ea98d91ca61f718ff5267261fef684fcab34b7e1da8c3"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 9,
+      "path": "single-statements/0008/009.sql",
+      "sha256": "be6f10587ace90f94516ee06caad4506350c1f6a98187c1fddfac1177da8cfd3"
+    },
+    {
+      "migration": "0008_mobile_reviews.sql",
+      "number": 8,
+      "step": 10,
+      "path": "single-statements/0008/010.sql",
+      "sha256": "7ec2bb5814477d2150ad90d067aee66428e7b5279487c13c601d39d4871cb020"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 1,
+      "path": "single-statements/0009/001.sql",
+      "sha256": "ae071d64ef67cc8c4061375fe707a02d05c24e674d7b621947d5bbf072fc2d20"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 2,
+      "path": "single-statements/0009/002.sql",
+      "sha256": "0d4030176f13d28fe4af05b3c162530dc0c141c3c63d2b334740dccf0f18e928"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 3,
+      "path": "single-statements/0009/003.sql",
+      "sha256": "e43aaa8e9cd12121b3ac001b55f3910c7b0d43df0900ead4de6b86293e517e45"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 4,
+      "path": "single-statements/0009/004.sql",
+      "sha256": "b7448d49cf6a83332a6be5f4ec027c61b01ac957f1d64e7c0b63f9f273f36e27"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 5,
+      "path": "single-statements/0009/005.sql",
+      "sha256": "b052be4fc64cf9af5afbd90cf684a700d3510c156f1ab5a3e5407f8fdf131e54"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 6,
+      "path": "single-statements/0009/006.sql",
+      "sha256": "91badcbcbe74aaddc7ab985377e8544e0e8cfa6208603af0a2c3e5ec2e422ddd"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 7,
+      "path": "single-statements/0009/007.sql",
+      "sha256": "c49ecb1d2b60a0bb2da7a4044fd7abf7b5cdb7545fc30ee3ab0bda30afac6159"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 8,
+      "path": "single-statements/0009/008.sql",
+      "sha256": "3e796efa7f737acb8aaa86462b592c77bfc9e78c2556dae3ea817415741eb72d"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 9,
+      "path": "single-statements/0009/009.sql",
+      "sha256": "1cc2d1db820017b2a9537310aea46dfec8f3980e581e7b8215b1a4da071ba1cf"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 10,
+      "path": "single-statements/0009/010.sql",
+      "sha256": "3e5ea7638c041b979c79d639853a88a3359524a0087eec666cc95a5ef8e3098b"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 11,
+      "path": "single-statements/0009/011.sql",
+      "sha256": "2bbafe76f4333b919bfae5dc662779bdc9dc8b83b74d107eea76ffe0749dd7b0"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 12,
+      "path": "single-statements/0009/012.sql",
+      "sha256": "73dc4b486a391be4c749a4b0affeb4ac5f636acde3e1cb6655e176ed904458f1"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 13,
+      "path": "single-statements/0009/013.sql",
+      "sha256": "8519f81efb8d68215c1f77b18d3f4cb4eca4cdfa34fc14422a1ae549b09cf9ec"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 14,
+      "path": "single-statements/0009/014.sql",
+      "sha256": "56c1830905f01d7e66873815df6f3d1c9b6b08ebc86077b6e3dfc848b23c08ff"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 15,
+      "path": "single-statements/0009/015.sql",
+      "sha256": "850edb0ecdeb11704cce6efa6d0676c72596ef86936810f9bed063a9b7f314b2"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 16,
+      "path": "single-statements/0009/016.sql",
+      "sha256": "2c8861414c45006c9328323394e47fc870533b9fecd1835c1affa91385975bb5"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 17,
+      "path": "single-statements/0009/017.sql",
+      "sha256": "fc6afdd2361cd53f6b9684b463eb5a636dc102f635fd24cd0005aa774bd7311c"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 18,
+      "path": "single-statements/0009/018.sql",
+      "sha256": "34cf62f00db89011a258273c46044e7061c6eb70b60d86d5a94291e3b9ba55a8"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 19,
+      "path": "single-statements/0009/019.sql",
+      "sha256": "f250d8cd6f6f0a727fb746b3f96439a577aad456643d431bf8ae8590377ea4f6"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 20,
+      "path": "single-statements/0009/020.sql",
+      "sha256": "b3bf3fa4e48635b718ae6f17e8ac6e14433f7ef090e89060221a5ad014f3535f"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 21,
+      "path": "single-statements/0009/021.sql",
+      "sha256": "1f50cd8c62bf1f9f7658533c59efa888fdbb7153b79e031be3c9adcb2805fe13"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 22,
+      "path": "single-statements/0009/022.sql",
+      "sha256": "c01c7b6302082c6043410f85c8b6b473aa1f095dadd7a692931e27eaf0c68335"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 23,
+      "path": "single-statements/0009/023.sql",
+      "sha256": "0e21248f166e1710b5a1585c93bb26399cc5cde43e02e382d1157752fc088053"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 24,
+      "path": "single-statements/0009/024.sql",
+      "sha256": "5385d7e16d538cbafe4f04e5a1acc69e6b787efb06b6e1b50bd8874409df6c75"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 25,
+      "path": "single-statements/0009/025.sql",
+      "sha256": "5a59dc4e6d5e727c3c2d9689eb44ea46a464eeffbd48bf5f57d8dd5d67d675b0"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 26,
+      "path": "single-statements/0009/026.sql",
+      "sha256": "269f61fb6d6aafb72f2e5947289c552fd56ecd56200329b4742f1bd483b6d353"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 27,
+      "path": "single-statements/0009/027.sql",
+      "sha256": "4b50453d421684b17c68753737d69880732d12c3b0789e818b594018d9a11274"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 28,
+      "path": "single-statements/0009/028.sql",
+      "sha256": "c208d0fd498e5dc7361fa371d5dadd66fd91fb37d3d7a8cfce495c6962f7077e"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 29,
+      "path": "single-statements/0009/029.sql",
+      "sha256": "855d4530014e213cabd1204968d7a7082a8904a54b5af3af1cecba32539ecc79"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 30,
+      "path": "single-statements/0009/030.sql",
+      "sha256": "b8948671ddf747b9f0e3ebed9adc5e77c89a601cd509b58e011996585919c83b"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 31,
+      "path": "single-statements/0009/031.sql",
+      "sha256": "434f4098792c42b20c45e374d8cf3aeff412aa3bb9ca6b0e72a475c2cfaba8f5"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 32,
+      "path": "single-statements/0009/032.sql",
+      "sha256": "4812558e722f1417ed33d6cfe7cb32c50545e101fd89cd5510c86173e06a79a9"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 33,
+      "path": "single-statements/0009/033.sql",
+      "sha256": "f4b8ad880bc393a6c3d66a2e30bcffdbbe954dcddba20dad32406b2b787b130e"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 34,
+      "path": "single-statements/0009/034.sql",
+      "sha256": "312bd3140ce020cc4af7b8931f6b645bd91936bb2cf8af86f6aa5e2f833bc4c1"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 35,
+      "path": "single-statements/0009/035.sql",
+      "sha256": "2be7e263355d6d5cea580f385759a77973a8f701a5c94456e92568bb0411465c"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 36,
+      "path": "single-statements/0009/036.sql",
+      "sha256": "048e66cef4a57dc4edc94b935e543a70f35019793fbb31823efc89c637a34390"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 37,
+      "path": "single-statements/0009/037.sql",
+      "sha256": "e2025b0bc0a116c335395c11d8e795f6980bd6b0250e5444ce0c092b3a4e6490"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 38,
+      "path": "single-statements/0009/038.sql",
+      "sha256": "8873d2356a534fb4c38646cebc005880a5ecd759ffad252c1555c4bd54762602"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 39,
+      "path": "single-statements/0009/039.sql",
+      "sha256": "de2c99966428f386553a24f4e589b4f13ee1a85b6cbb390456ca9962d2656275"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 40,
+      "path": "single-statements/0009/040.sql",
+      "sha256": "51a99a6071d314ecde6a4e8755f68ea5e2275a66e91dc6fe88ac5b30271c0e46"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 41,
+      "path": "single-statements/0009/041.sql",
+      "sha256": "15b18333e5c128d3daa5870f97678482e4d0c534d1cdc7f1a21f0d2880da879d"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 42,
+      "path": "single-statements/0009/042.sql",
+      "sha256": "e605ec7dd59dee3a278631e8bbddb400bf5aee25e735a0ffda19d679a255c1e9"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 43,
+      "path": "single-statements/0009/043.sql",
+      "sha256": "468cab080735554404196b3518014e95fb7abc0ab21aecf6f0f23168076f7053"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 44,
+      "path": "single-statements/0009/044.sql",
+      "sha256": "6e71e48b66f10b582411c3e82bca6581de27d8d7aff82f1f618c0cfc5047b37b"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 45,
+      "path": "single-statements/0009/045.sql",
+      "sha256": "66789a3862c62fe8f90a3891fb19c605beb942f79ca9918e10804560b8facc87"
+    },
+    {
+      "migration": "0009_tools.sql",
+      "number": 9,
+      "step": 46,
+      "path": "single-statements/0009/046.sql",
+      "sha256": "5a140d224a639e8287c8a1ed665388ba583e6c90cebecc5c5fbec3fcaf0558e0"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 1,
+      "path": "single-statements/0010/001.sql",
+      "sha256": "986f42f078c75a8a2ee55e7f59b2ae44d4d361a9fc85371ace09cbe8c814ed2a"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 2,
+      "path": "single-statements/0010/002.sql",
+      "sha256": "da6bc8d0e342518c81b7a0bdcfc6be3acfa5afc6af66e2af46713263d640286a"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 3,
+      "path": "single-statements/0010/003.sql",
+      "sha256": "2d7617cfd3c17fa3d583b230aea2ea131c8e832b5b31e444db6cb960038cfbab"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 4,
+      "path": "single-statements/0010/004.sql",
+      "sha256": "2fbfdf65a7fe3ba5f30fb082b4158affb47d5d12238030e1f727fb967397b3f3"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 5,
+      "path": "single-statements/0010/005.sql",
+      "sha256": "4837427ca54e6243e9c37f7236147f97a7e7d9b7718139d9b2ab14301bdee051"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 6,
+      "path": "single-statements/0010/006.sql",
+      "sha256": "b7e53124985dc8ab00d628eb8a694833a89180a1761ce5471dbc0a7683e29cb6"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 7,
+      "path": "single-statements/0010/007.sql",
+      "sha256": "f91c9c0e43b3749e57bacb4f2ea0a7bd7ad9ac9fe2235a78aa6b44ff7e04f2a8"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 8,
+      "path": "single-statements/0010/008.sql",
+      "sha256": "5fdd1291270622fc877406ef27a6cb7cbad0ac71df9f3e925b010a390cefe998"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 9,
+      "path": "single-statements/0010/009.sql",
+      "sha256": "f7c3ab7f9d9a73fbf47cf97c9bea03f6ef6aa0b849efcae3c08a0296b983512a"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 10,
+      "path": "single-statements/0010/010.sql",
+      "sha256": "7b0d1d98b3e35e04d4929bcee8650765a4753e7a2cb3d5250a7ff8116d7e6c5e"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 11,
+      "path": "single-statements/0010/011.sql",
+      "sha256": "3b4e29134a04e6e89cde515032f5bcaeeb85ea9effb648e01d4780a2c8815745"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 12,
+      "path": "single-statements/0010/012.sql",
+      "sha256": "079a1e4c540c9aeadfa681686dcd668da4047d561d38fdd98c4ebaf0b0c8d42c"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 13,
+      "path": "single-statements/0010/013.sql",
+      "sha256": "abe02fd60f85cfbe91bdefe0755097fd4e9ef200b82c6c0c0601ec0104907b1d"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 14,
+      "path": "single-statements/0010/014.sql",
+      "sha256": "508185a558c24ebeeda0f6ae379aff78e194869dbdc3509d3a6a01af4b4fe2fa"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 15,
+      "path": "single-statements/0010/015.sql",
+      "sha256": "caa4fef845c076eba7ea0e5aa7eff5f41f9c3c68fbf9e1498cc8c8d84c5a255c"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 16,
+      "path": "single-statements/0010/016.sql",
+      "sha256": "54c44b68a740babfcf1c2bd90f96bdf04d16f0bcf234a119488165723436a607"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 17,
+      "path": "single-statements/0010/017.sql",
+      "sha256": "318f7768bfe416cb4516b940c0534711f7446b85c4de7f1b68ef5d82edccc74e"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 18,
+      "path": "single-statements/0010/018.sql",
+      "sha256": "ba9e8d1b8cf0b97865a0fc1dbd291daad7495bdd4170331b71df1bc08be337a4"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 19,
+      "path": "single-statements/0010/019.sql",
+      "sha256": "a81d32f79772661a905815b7cf4eb1c4a47de2b4f905631e3ffee556d5413496"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 20,
+      "path": "single-statements/0010/020.sql",
+      "sha256": "b95f27208b0a2003dd0de8e210ab13e349b6977796168d7ff1fdb2ee5de429f6"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 21,
+      "path": "single-statements/0010/021.sql",
+      "sha256": "5019fc024acfcdce3946046b10a4a289614e332d203d8b8dec3d2ea13c38ae7f"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 22,
+      "path": "single-statements/0010/022.sql",
+      "sha256": "b750877f9c1657f1f95e4c6e2a4c5a5fa9362b0b681245089edee5d7345adb04"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 23,
+      "path": "single-statements/0010/023.sql",
+      "sha256": "c0934893a4830857b7ae8968e3fbbacae24aaa851cbea88111f9d0570cc1642a"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 24,
+      "path": "single-statements/0010/024.sql",
+      "sha256": "d28cf614877552546cb817f1ab6e9ecffed87949baf0b33085649f9818c740ee"
+    },
+    {
+      "migration": "0010_promo.sql",
+      "number": 10,
+      "step": 25,
+      "path": "single-statements/0010/025.sql",
+      "sha256": "52e48034372e321ba2bf2da37f9cf5bab9440cc7cd39524eb9a507f55496ef82"
+    },
+    {
+      "migration": "0011_promo_image_limits.sql",
+      "number": 11,
+      "step": 1,
+      "path": "single-statements/0011/001.sql",
+      "sha256": "ad3391ace092bd24c0dbf5a34714a5e6f8741b111296f3acc53b4297cc94c92e"
+    },
+    {
+      "migration": "0011_promo_image_limits.sql",
+      "number": 11,
+      "step": 2,
+      "path": "single-statements/0011/002.sql",
+      "sha256": "8f65b3fd140c64ee4e4950da726d3ae1e25ebde82372852c6c563a72a5a4e2b9"
+    },
+    {
+      "migration": "0011_promo_image_limits.sql",
+      "number": 11,
+      "step": 3,
+      "path": "single-statements/0011/003.sql",
+      "sha256": "833a4c96b465201758b04e74d378b74c34492abf2d1c8cf2c982de16f75b9bd5"
+    },
+    {
+      "migration": "0011_promo_image_limits.sql",
+      "number": 11,
+      "step": 4,
+      "path": "single-statements/0011/004.sql",
+      "sha256": "272a2fcb9e8fb3844996b95c3a088a48de59d44b0ff6c548b918dfa27e03ef64"
+    },
+    {
+      "migration": "0012_ui_rebuild.sql",
+      "number": 12,
+      "step": 1,
+      "path": "single-statements/0012/001.sql",
+      "sha256": "cb09ad7551f50f36df207edbffa8f87550eeda6279518429eabb8d8020142413"
+    },
+    {
+      "migration": "0012_ui_rebuild.sql",
+      "number": 12,
+      "step": 2,
+      "path": "single-statements/0012/002.sql",
+      "sha256": "2ccf41bd01c6059241e7215490f85d8578f6959a470fb76bf79a1282dfbd3465"
+    },
+    {
+      "migration": "0012_ui_rebuild.sql",
+      "number": 12,
+      "step": 3,
+      "path": "single-statements/0012/003.sql",
+      "sha256": "c2310476cb4aa8412fb83fd4b5496c15f26cf972e390ea0ca1d51aadab56b6a6"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 1,
+      "path": "single-statements/0013/001.sql",
+      "sha256": "99bbb08fbdaaf116fbc2a8e2cd5a209c82888127c71bc820a1fdc74547d47f5c"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 2,
+      "path": "single-statements/0013/002.sql",
+      "sha256": "3f6aba86243018d11bac65cefa69b47bad397aa3816c60b2d22329a688be11be"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 3,
+      "path": "single-statements/0013/003.sql",
+      "sha256": "29c6d48778e213f75a5802aa6757e59bcd992b40157a39e6a094bc2d27534d7e"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 4,
+      "path": "single-statements/0013/004.sql",
+      "sha256": "898f751c9e79995066f0ecb0ea46b42747deaf9ac04a94effb2fbb17201b997e"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 5,
+      "path": "single-statements/0013/005.sql",
+      "sha256": "427eeb35153557a028fed5ad3874ebf1cf71ca38857e512ac58eded6d97acc50"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 6,
+      "path": "single-statements/0013/006.sql",
+      "sha256": "ff9249d7cdb495b0a927bad401c10ebecdef3c276d794479ad2266e055c330bc"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 7,
+      "path": "single-statements/0013/007.sql",
+      "sha256": "e0d27e50a2e2bc3dd7dfbe70e335ac205b64e1848b4019c69575da52b453874e"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 8,
+      "path": "single-statements/0013/008.sql",
+      "sha256": "cd24acdbde00b7dfab05666a564068b29a09590ded1e295dc6fa5a4f5eab2021"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 9,
+      "path": "single-statements/0013/009.sql",
+      "sha256": "3b1dd9082614209f0fa4a469b69b565ea9f6cb37781a3713ebe0a2bf787a5f49"
+    },
+    {
+      "migration": "0013_promo_rebuild.sql",
+      "number": 13,
+      "step": 10,
+      "path": "single-statements/0013/010.sql",
+      "sha256": "87c7386125fc96f9d24c19755c1b32af593b4ba24bfd36afab612d64944db192"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 1,
+      "path": "single-statements/0014/001.sql",
+      "sha256": "f393b47056047c2ab3bd15749719762ccb1262d2ec29e675e3e30f441effc831"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 2,
+      "path": "single-statements/0014/002.sql",
+      "sha256": "5918dabe49de8fb87a5e678081e518d098da30e7909b6416dfb0e0605b1a5b20"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 3,
+      "path": "single-statements/0014/003.sql",
+      "sha256": "12d7d0075a233b3c3800dd16d714652764d374c711f6e931bb146b7efe65143b"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 4,
+      "path": "single-statements/0014/004.sql",
+      "sha256": "e0e01db66e668cb41587d3b9a2c15d743767292cfc63418c15051a098a214818"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 5,
+      "path": "single-statements/0014/005.sql",
+      "sha256": "c0030acaa61b493d3a98545e0ec9757b11fbe3f0b21b90b91cde1f0c74cb8e15"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 6,
+      "path": "single-statements/0014/006.sql",
+      "sha256": "b858f569dde480934e8906a2411946057e840f485ba65ee00e4c1e2f8395a89d"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 7,
+      "path": "single-statements/0014/007.sql",
+      "sha256": "e1790869014e6353472ea8d9b1622b7f3844ec73e6c3c53802ec404cd31c5cc7"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 8,
+      "path": "single-statements/0014/008.sql",
+      "sha256": "57cfc777959b1165ee43bb714f2f783fd459e091bf69a0c8ad988b2f58576454"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 9,
+      "path": "single-statements/0014/009.sql",
+      "sha256": "5212a29744e1a550f9e6f0b94c70d29f91b7ed9a0be9ee38d82d918732980678"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 10,
+      "path": "single-statements/0014/010.sql",
+      "sha256": "bac9484523c77cd96e478e08065453e71b83e51978f052ccfc85bfa5934c2492"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 11,
+      "path": "single-statements/0014/011.sql",
+      "sha256": "3aa103710f8f1dab841f4d758dc9647af1ed950c8e7c8c32db707d4f51ae2356"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 12,
+      "path": "single-statements/0014/012.sql",
+      "sha256": "eb0dd7482492c065c93fb794499eec87d7a023018fccc17b42c5227be0c16204"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 13,
+      "path": "single-statements/0014/013.sql",
+      "sha256": "43b6e9361c1cd325933d7b8679865139a970e61b210e2e75e5c8314a55631996"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 14,
+      "path": "single-statements/0014/014.sql",
+      "sha256": "ff174f62170a3472b6d059b5bee065827b7c1544af74b953d32ffb63a86a68c2"
+    },
+    {
+      "migration": "0014_debt_and_balance.sql",
+      "number": 14,
+      "step": 15,
+      "path": "single-statements/0014/015.sql",
+      "sha256": "8fcf2bc518afc7e39ccac6f20095998ce5e7b84b090092ccc4cb273633b8a80b"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 1,
+      "path": "single-statements/0015/001.sql",
+      "sha256": "ac175e91d62c29942dd55252d0360d50514d6641a82c6d2225d5e7d7938a992d"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 2,
+      "path": "single-statements/0015/002.sql",
+      "sha256": "05c79c108b75616c46cefe78046fe081ff4b7c1cbd20e6b4dd645e214bd5e092"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 3,
+      "path": "single-statements/0015/003.sql",
+      "sha256": "39c556ba5ed99559f0bd822cc132991bee6c361abd6897d35988b17e3c4f3bd0"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 4,
+      "path": "single-statements/0015/004.sql",
+      "sha256": "cfe0718dadf26ff773c780bd96b953533f320f08562c6fcb3be0e77fb3498622"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 5,
+      "path": "single-statements/0015/005.sql",
+      "sha256": "a8f2a0a07c1482d048dfc10a35245c2e51447d95630b888fbdc5a68e66c04020"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 6,
+      "path": "single-statements/0015/006.sql",
+      "sha256": "e11f4a480f0a073384d079fc9b1c04ddba3d9cf5f66e121d4ca3c2c09be1dc17"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 7,
+      "path": "single-statements/0015/007.sql",
+      "sha256": "5feef9c169cb9a862d72ebb2fb6da374f5d5a89fd4beb7b0566e8ce6ac3dbc76"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 8,
+      "path": "single-statements/0015/008.sql",
+      "sha256": "de508a0f5c27228e6db6e4c30e8ebc6e10d687276a7a149ce2d6932b09dc0859"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 9,
+      "path": "single-statements/0015/009.sql",
+      "sha256": "1e55420a7307d0701c52cb198f9272451725561401ad56e50feda7709b835e22"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 10,
+      "path": "single-statements/0015/010.sql",
+      "sha256": "3b810d7ebe03ed59474ef8f51f001fc5ca3aff29edd87e29fca8c74c78958550"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 11,
+      "path": "single-statements/0015/011.sql",
+      "sha256": "527c6042fe382b91ed2af9dee26d56fbf1b82e935988113d1695663726e6547a"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 12,
+      "path": "single-statements/0015/012.sql",
+      "sha256": "2f9bbe427bbc3555ccdca33421725b8dca5009a350acdac484ce0a76082f6c5e"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 13,
+      "path": "single-statements/0015/013.sql",
+      "sha256": "934c1f99d0329d99e27d3c24f325914711a1546f18a8b689e5b25aff68dff31d"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 14,
+      "path": "single-statements/0015/014.sql",
+      "sha256": "2086eac15dca2de39d4735580578b26cc127f53140dc72f97fc1517df1ace371"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 15,
+      "path": "single-statements/0015/015.sql",
+      "sha256": "6c3ee69e488c00458c6953a8bedd71ab5d28f82346e95641d03f5fbe60558419"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 16,
+      "path": "single-statements/0015/016.sql",
+      "sha256": "42a113e344f2d89d047db451e71386755fa601d7b2fddfabdccf98143961efa7"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 17,
+      "path": "single-statements/0015/017.sql",
+      "sha256": "38f6a90b187ecda03372377e36eb20edd04e33782078300eb5f7a3cfeb8d5a4c"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 18,
+      "path": "single-statements/0015/018.sql",
+      "sha256": "e3be8861417e2359cdbf1129a5ce7433d3dbb2da2927ce962ec1a84080947e36"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 19,
+      "path": "single-statements/0015/019.sql",
+      "sha256": "e64c65bfb8d9656ca536f6fb45644b319a51c4e5af4218ccba17cda51091d615"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 20,
+      "path": "single-statements/0015/020.sql",
+      "sha256": "b66e6d1921fa04942bc70553f59ef6f52de95103415f095f85d94ca124621ff9"
+    },
+    {
+      "migration": "0015_delete_capabilities.sql",
+      "number": 15,
+      "step": 21,
+      "path": "single-statements/0015/021.sql",
+      "sha256": "5c0479a0b610cab8fdd1f8150564b9ec784a0be841fc8be379a415f45f9260d1"
+    },
+    {
+      "migration": "0016_page_query_indexes.sql",
+      "number": 16,
+      "step": 1,
+      "path": "single-statements/0016/001.sql",
+      "sha256": "99e856788b22e510619f39ad7464a3d159bc96eea7d48995cf527c872e3ce76b"
+    },
+    {
+      "migration": "0016_page_query_indexes.sql",
+      "number": 16,
+      "step": 2,
+      "path": "single-statements/0016/002.sql",
+      "sha256": "4576669fee93fd3c64522d1740f79b84299f65d7c9db96eb35e588efeda471e3"
+    },
+    {
+      "migration": "0016_page_query_indexes.sql",
+      "number": 16,
+      "step": 3,
+      "path": "single-statements/0016/003.sql",
+      "sha256": "18d67f33a4c3e090bfc8edc465cdb7bf05b342ae1e4237bf5f34b9fd9990d250"
+    },
+    {
+      "migration": "0016_page_query_indexes.sql",
+      "number": 16,
+      "step": 4,
+      "path": "single-statements/0016/004.sql",
+      "sha256": "21ab9792c9d57ae2bcf758f86e6f6ec2bd346c590b25fe6b0e618d59c22f19b1"
+    },
+    {
+      "migration": "0016_page_query_indexes.sql",
+      "number": 16,
+      "step": 5,
+      "path": "single-statements/0016/005.sql",
+      "sha256": "b2f5dccb9af0ed1b0524a84c4e7fc397d9966f12c7f1971bf6b55f035a636ca2"
+    },
+    {
+      "migration": "0017_student_schedule_indexes.sql",
+      "number": 17,
+      "step": 1,
+      "path": "single-statements/0017/001.sql",
+      "sha256": "9b295cfa57862e1d01aa3e460f62595cc746c8af47c65e3f298d96fb27cc6d53"
+    },
+    {
+      "migration": "0017_student_schedule_indexes.sql",
+      "number": 17,
+      "step": 2,
+      "path": "single-statements/0017/002.sql",
+      "sha256": "261ae4cc76488a126bf7936bdc9c6969880de241bbed9a517ca593b2205f9f46"
+    },
+    {
+      "migration": "0017_student_schedule_indexes.sql",
+      "number": 17,
+      "step": 3,
+      "path": "single-statements/0017/003.sql",
+      "sha256": "ede44eeb7cd75ede103802525e20bfda31be738433f243883122018fc5b9df02"
+    },
+    {
+      "migration": "0017_student_schedule_indexes.sql",
+      "number": 17,
+      "step": 4,
+      "path": "single-statements/0017/004.sql",
+      "sha256": "8ab704452b482f80191b6e25f3c6f22a28f012df2a0e50c4198795fb99343947"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 1,
+      "path": "single-statements/0018/001.sql",
+      "sha256": "986042f115953a8aaf34ae11dec584a3f3ac09cf77988bb4a05cfa74547fb602"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 2,
+      "path": "single-statements/0018/002.sql",
+      "sha256": "392c03d21c29c2aedcff91bd0b2dd3a2173c89daec673747b85584334629fbe2"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 3,
+      "path": "single-statements/0018/003.sql",
+      "sha256": "49caf8983455860697c4e313491f8c9cfbf2e4bafd5b6d89685873af261c1087"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 4,
+      "path": "single-statements/0018/004.sql",
+      "sha256": "1313b0a47d3ca4869814e005f577fda93adf7403b0fc8515a1f8d7e036e004dc"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 5,
+      "path": "single-statements/0018/005.sql",
+      "sha256": "f46d92e2ad688ec5eea185aad4123945e42bf3a12d82fac16038ccfe82f95372"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 6,
+      "path": "single-statements/0018/006.sql",
+      "sha256": "d927466c8747903fb9eac7f04545a6451031bbcb0bba2abcceab28ebb61c6985"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 7,
+      "path": "single-statements/0018/007.sql",
+      "sha256": "4e1dcd0ed8ced6685d066bcba56b3584abc64d7c0e4a2fec817c7196cf1547cb"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 8,
+      "path": "single-statements/0018/008.sql",
+      "sha256": "c31f7419b9dc50f29c40532d33707a60f403e742fbf97ce63ba7a1ebeb5c26e3"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 9,
+      "path": "single-statements/0018/009.sql",
+      "sha256": "de816ecc339c599d1b00d279fcb26b3f57c6cef1c45b8dffe97aa7579f57080c"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 10,
+      "path": "single-statements/0018/010.sql",
+      "sha256": "8cdb590be69454716129eca06bbb2f30ee4ee79bbb8387d7015107b4a010f76a"
+    },
+    {
+      "migration": "0018_credit_income_and_schedule_guards.sql",
+      "number": 18,
+      "step": 11,
+      "path": "single-statements/0018/011.sql",
+      "sha256": "97278d5a0dc50b9f4eb5284d7bb83e5808db8b46f20ea0105ee58ba0cae272df"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 1,
+      "path": "single-statements/0019/001.sql",
+      "sha256": "a62fde6857d5ec611411d004e58047d4980849f00e0fb35d45738337caf2b18e"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 2,
+      "path": "single-statements/0019/002.sql",
+      "sha256": "4b113186a2602e75627f9237771ae84d7f94c19a45f8e8eb04fce1195f13cdc6"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 3,
+      "path": "single-statements/0019/003.sql",
+      "sha256": "03585af649a77aa55c0d5290cdd3aa6a7b8b279d908e30e0d89d9b0936c6e68f"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 4,
+      "path": "single-statements/0019/004.sql",
+      "sha256": "c790ede3f178e1837ab5d57f5d83c981c6aa91046541cae680a324d6ebc34b35"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 5,
+      "path": "single-statements/0019/005.sql",
+      "sha256": "23c37c2bf271d85f174218a20f64fd0d772a9d58b2de446904921b2b2a226c5d"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 6,
+      "path": "single-statements/0019/006.sql",
+      "sha256": "2fa9768769636599d78e56c7ad32bcc1c53e2a29497d647476d0146afd1e8c73"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 7,
+      "path": "single-statements/0019/007.sql",
+      "sha256": "1e390b12e472e4e6aceb667760a9bdf8bb87b1bbf73883d86feef5b885536546"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 8,
+      "path": "single-statements/0019/008.sql",
+      "sha256": "f528c64804fac16045b4dd2a4d94bbaa1bb9fecdfb7555c5e22b1c5a48ac9212"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 9,
+      "path": "single-statements/0019/009.sql",
+      "sha256": "32b687ad17a30e73b0faf42fb8790bbbfa50c6ad0df2df62f8ab8a6fe2f28a22"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 10,
+      "path": "single-statements/0019/010.sql",
+      "sha256": "7d55cfecb6f65636bbd1318d35ec59cb909e56d6752d6d9f931bca28a5a36055"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 11,
+      "path": "single-statements/0019/011.sql",
+      "sha256": "88c2bdff692015f0f55b230e8cf79fa2bbb44cbf3d0b7029330dc47fb2cdaafe"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 12,
+      "path": "single-statements/0019/012.sql",
+      "sha256": "674ddd59f0c9e327c0b063a0f504e8a5e1282571fe8b8a1e98cabb2615380a14"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 13,
+      "path": "single-statements/0019/013.sql",
+      "sha256": "e6580bb3b6bc2d6a1bcd99920a8acd267d41439410352ac6fa7da412de0c59ad"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 14,
+      "path": "single-statements/0019/014.sql",
+      "sha256": "f01d91f68d8a89c18a660e638071843bdb282f8e2236d1156cb181cf567502cb"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 15,
+      "path": "single-statements/0019/015.sql",
+      "sha256": "5f6af09ef288fd601a614ec44f451339b22a925aa0c0d52e4ea64dbfa6817d28"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 16,
+      "path": "single-statements/0019/016.sql",
+      "sha256": "7d0d2d49170e2e86cc0c109367518c9f88cbb7ab5355faa0495734ca1ea532fd"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 17,
+      "path": "single-statements/0019/017.sql",
+      "sha256": "32f97876626f75b2019f59ed679e9180f648e84c18a781bfac713d06aab35571"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 18,
+      "path": "single-statements/0019/018.sql",
+      "sha256": "a4c4a822a0971f9bf88321a016d24dc46d501bd5087581ddba643f7579a6c8a2"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 19,
+      "path": "single-statements/0019/019.sql",
+      "sha256": "40ce2dd7e8ddc87046cd194653fd2304fa1d802612b3d3369a631044e4592391"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 20,
+      "path": "single-statements/0019/020.sql",
+      "sha256": "4c6dd8602349198877ecadcfa09e20b4306eb564f025cef8463018ef1a1385f6"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 21,
+      "path": "single-statements/0019/021.sql",
+      "sha256": "579ba39ae3f990db427c359fe2025387dedc183a16be0702e9c77d333958083d"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 22,
+      "path": "single-statements/0019/022.sql",
+      "sha256": "7bbf45014820bcb1f8a6bfe0bfde9c58aeaf07a79193ab4997388c89be84c2d4"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 23,
+      "path": "single-statements/0019/023.sql",
+      "sha256": "ceae2a4c65243783f520c63a1207079daad547bbb8a482aa1c5c61da02c9003e"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 24,
+      "path": "single-statements/0019/024.sql",
+      "sha256": "77f4e03f17feb10e383900800acec41099801f3a5dd1c4956e504367d58b6f51"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 25,
+      "path": "single-statements/0019/025.sql",
+      "sha256": "aec3563f36321787a563aa9c82717d19fef1c002975fde4809019d990547203b"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 26,
+      "path": "single-statements/0019/026.sql",
+      "sha256": "5fc09b1fd43f8c9ef7f9a7a34cc3e3f24eb8c84c159d3f15482d23513edd9ae5"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 27,
+      "path": "single-statements/0019/027.sql",
+      "sha256": "ced08d44e6d7f39711cf2c528851bdf37ee62692b31e358531162da2fa782a2e"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 28,
+      "path": "single-statements/0019/028.sql",
+      "sha256": "ee0b3505696269ef99c79d34c62b2e7e55a51c7f5e1247bcacf6b67b9545069d"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 29,
+      "path": "single-statements/0019/029.sql",
+      "sha256": "536af0a4b778888afcd567d3b4674a2e55996e10f431e0a1ef5492dc961821c7"
+    },
+    {
+      "migration": "0019_identity_and_institutions.sql",
+      "number": 19,
+      "step": 30,
+      "path": "single-statements/0019/030.sql",
+      "sha256": "b79ab1383165bcd4be754f064d9de9c44ffb747edf6a43584c81af0e0246cbc5"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 1,
+      "path": "single-statements/0020/001.sql",
+      "sha256": "fb3eea99aa602cd5eb29d7f6e0483d55f0fe0d2437064ed2d50f010b1fc280ad"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 2,
+      "path": "single-statements/0020/002.sql",
+      "sha256": "0af4dcf928545fb0245c4076c57e0d208aff3a29bc9a975eaeb4ae2c19a0d412"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 3,
+      "path": "single-statements/0020/003.sql",
+      "sha256": "0289d52331c0a947c8af98cafe279245462aaca42dea7c238b93260866a955ba"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 4,
+      "path": "single-statements/0020/004.sql",
+      "sha256": "675d9000c99f73224d00fb7a646fa4c1059feb9b075892c4532bf4f8bf8e729e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 5,
+      "path": "single-statements/0020/005.sql",
+      "sha256": "291113cc5ec4fd4144882bea62883b08c284736d8a57fe1e4e5a558389c92e79"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 6,
+      "path": "single-statements/0020/006.sql",
+      "sha256": "dea793a789b33418e8a38ac5037dda066e994609d7e4cef3ba7c035f2d895f16"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 7,
+      "path": "single-statements/0020/007.sql",
+      "sha256": "614c22c6a7f602eb324686adb8b09d430ed00e6903acddcf0f9214672b42d487"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 8,
+      "path": "single-statements/0020/008.sql",
+      "sha256": "86480b4dacd0c646edf53b300b94254627a1a55979aab6dcfa510c08247a76b1"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 9,
+      "path": "single-statements/0020/009.sql",
+      "sha256": "a55c8a61d867ccb75a45be663168c5c79a62efa56d59a6ada811a92d54ebc5e7"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 10,
+      "path": "single-statements/0020/010.sql",
+      "sha256": "cfa3923a10eef1caea2971d4c29925f705b07d7d8b017ef765c5845564ae071b"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 11,
+      "path": "single-statements/0020/011.sql",
+      "sha256": "b8fbc09571cbd158c9baa26e997041a7b9e3ef72e5f391a6c905f11cb7e72efa"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 12,
+      "path": "single-statements/0020/012.sql",
+      "sha256": "96f1ed1a6274aa868c0a05ea56f63e4be7f5d56698a06ae856113e19b90d5cf6"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 13,
+      "path": "single-statements/0020/013.sql",
+      "sha256": "e3f7537ad1958f1242508a0f3e451085c6d7445f05a35c9a524f7b1ccca006eb"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 14,
+      "path": "single-statements/0020/014.sql",
+      "sha256": "63128c6df6dc1153c50a5385e2d7a58a6dc994aebef54f2133eebec30eaee743"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 15,
+      "path": "single-statements/0020/015.sql",
+      "sha256": "8d8028055aa67897785507f00c8bc1af87a47c5899bb9ace335eb5b373de909c"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 16,
+      "path": "single-statements/0020/016.sql",
+      "sha256": "7b57ff3871b76693ba0915e6a2074f09e4ec094cf78066e05d581a8a466f8375"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 17,
+      "path": "single-statements/0020/017.sql",
+      "sha256": "02a269000bc5bf053260f1ab32e368ac97b92bd41d8f1da3d9a1bf89c27f418f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 18,
+      "path": "single-statements/0020/018.sql",
+      "sha256": "ae60dbc2ca9319a89b2e380cf1203ff3420e4886269f1ceca1522af98ad7c315"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 19,
+      "path": "single-statements/0020/019.sql",
+      "sha256": "3c3f93b764166a3fbf9310917d059c0d563c601434cd83bac6b631b365993f77"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 20,
+      "path": "single-statements/0020/020.sql",
+      "sha256": "bf3aea568b2ac6cc0b54340090cce9245b03b98b7d5d890803c2e3deffe7347f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 21,
+      "path": "single-statements/0020/021.sql",
+      "sha256": "71df2c7ec91fb1ca5baebddccef15d2cb4bc1f0adeafbc9683bad7ad31603f01"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 22,
+      "path": "single-statements/0020/022.sql",
+      "sha256": "58a6ac1b9a9307e587502524b2b1155365d03a192ab6a5268038ef43135f12aa"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 23,
+      "path": "single-statements/0020/023.sql",
+      "sha256": "7869d025f679af1809c95e0ed9a6d5931fa233c5732dae0e406168d87cf00b56"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 24,
+      "path": "single-statements/0020/024.sql",
+      "sha256": "1a4e8b4a1e9ddf2fbe4cf6636446288d0f899ea8b9b95568b029e2fda1765cf0"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 25,
+      "path": "single-statements/0020/025.sql",
+      "sha256": "d8f817b0d91efaddbe2e1dbecb5953ae1ac92dd4814da2312f4e09145dfcbd39"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 26,
+      "path": "single-statements/0020/026.sql",
+      "sha256": "5dd94bf0b26e7e8b0e9d2c60024c4614b50c51144da63e41c575192bc7234d25"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 27,
+      "path": "single-statements/0020/027.sql",
+      "sha256": "75c42001312159f2646c0b38cb6dace3dbb64dafd29909df80e89bf1e2c2fea5"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 28,
+      "path": "single-statements/0020/028.sql",
+      "sha256": "69147f819e6a7d90618ee4eea0ca0f12922b71efe69c18e69d2ae84636977df4"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 29,
+      "path": "single-statements/0020/029.sql",
+      "sha256": "ea8a19fda7278e311c6d581d8c887030502d92db149b9dec2bb92bc028ba8044"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 30,
+      "path": "single-statements/0020/030.sql",
+      "sha256": "7fd3054dd68cc9e5cb723d133f702383e3a4d45c05f797e6a9555f29cee0d3fa"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 31,
+      "path": "single-statements/0020/031.sql",
+      "sha256": "e9ec9f0bcb9816b36fb0509a5fccbc9faa97b3a9975be15a8fefb825547f0012"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 32,
+      "path": "single-statements/0020/032.sql",
+      "sha256": "0746f2b49e508b8222fc23ce9560d127579e95fd9122111fc6dc04b3c6dc5ed5"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 33,
+      "path": "single-statements/0020/033.sql",
+      "sha256": "a3c1046ccf8dc14236f95c9ec0eea9624e6d6e72e8f2f6a479879006d3839107"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 34,
+      "path": "single-statements/0020/034.sql",
+      "sha256": "a86f9ad39437b7b601ad2efd4281680db28ff569c2e7068bc163eedb552e725c"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 35,
+      "path": "single-statements/0020/035.sql",
+      "sha256": "a6c7de525c9ff9eae71f1c8c16990cc4897443712b99771fefc0bb29c49ff27a"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 36,
+      "path": "single-statements/0020/036.sql",
+      "sha256": "ea7127a9a36875ad436d518374e53429976de840e1d729c120371f9102a24974"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 37,
+      "path": "single-statements/0020/037.sql",
+      "sha256": "e4f114c09ca02dbd9e2d7481b921c2e7107575c908dcb3f5cce74c4af41a566e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 38,
+      "path": "single-statements/0020/038.sql",
+      "sha256": "8ad18cda99c6a7e0a49976e0ce5bcc5de1bfe35e5e93a5abb00d55addb093678"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 39,
+      "path": "single-statements/0020/039.sql",
+      "sha256": "0447834f67adb7a0b1ca7a2ef52c33258854003d58090ba51280b5213c001fdd"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 40,
+      "path": "single-statements/0020/040.sql",
+      "sha256": "67736ecadc40999d0dace56a19a98a3cdfc039cb57a6c88be8ec836ba6a47dab"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 41,
+      "path": "single-statements/0020/041.sql",
+      "sha256": "0ccca054464a15d50d088cd7d8bb8c5a128163dd3fd8577e07a29078cd09067c"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 42,
+      "path": "single-statements/0020/042.sql",
+      "sha256": "4b39b498a35313099f69b64d58859e745bf6d61b3493054303c97973c43cf2c2"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 43,
+      "path": "single-statements/0020/043.sql",
+      "sha256": "5eaa3b03df7d92c1796685548f5f72a43e800700fe665010d75f0d939a9b90f2"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 44,
+      "path": "single-statements/0020/044.sql",
+      "sha256": "d8346f78689324aa24a634f68d827ec0fc61afa74c11edcf4fcd4ba07b8de936"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 45,
+      "path": "single-statements/0020/045.sql",
+      "sha256": "19d79e04d8227af6972a0ddfe39ee60cf2e7a3febb5be14df0c84db2273c1511"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 46,
+      "path": "single-statements/0020/046.sql",
+      "sha256": "5452f22f3d128da205d96c757a138bc65c0c2761d64599393fde6782eca62608"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 47,
+      "path": "single-statements/0020/047.sql",
+      "sha256": "09e30aabf6ff0e3c115c022a7362e82485a28093642f8247a1b2f2a7b5208b74"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 48,
+      "path": "single-statements/0020/048.sql",
+      "sha256": "be913a85b4071562ccc25ebb4198da2637ed6312aa2d94d45f74b3c9ef47784f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 49,
+      "path": "single-statements/0020/049.sql",
+      "sha256": "eed5226904b7e01ab3bf2565a5a75a58f63c971b7d6ab96a26e133870d7aad5e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 50,
+      "path": "single-statements/0020/050.sql",
+      "sha256": "4e4130e5de3859eec9d55813f2d0c027b218e4f61bd952118be50410f3f65f34"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 51,
+      "path": "single-statements/0020/051.sql",
+      "sha256": "84aebd89fa4ce489fb18f019744d82d863de0408bceb1ad5c12914c9b52fb4a1"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 52,
+      "path": "single-statements/0020/052.sql",
+      "sha256": "009cc48f079ec557c6678f5de0e1ef5709be5b771742fb58c68d1484b892985c"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 53,
+      "path": "single-statements/0020/053.sql",
+      "sha256": "fa172830b255e327b1ab0243f3aae0c8a53fe9d989eb7b239a72555bdfe1ecc7"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 54,
+      "path": "single-statements/0020/054.sql",
+      "sha256": "76b8283fece9e69b1c7d1954ff8f35c6ca4f1cfc39073811e31e235506a4441b"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 55,
+      "path": "single-statements/0020/055.sql",
+      "sha256": "8eea601fcbe0ae5eb826771b12fca0abd8dc3d2fd126ffb73956fa7a43a56081"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 56,
+      "path": "single-statements/0020/056.sql",
+      "sha256": "f54546c90522b49d9751dec2914d25114c336a23cb41f387fcca963c5dc4c639"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 57,
+      "path": "single-statements/0020/057.sql",
+      "sha256": "d97041f6e77beb0c533ab45ff50afd7fca3b233f886b549301f3dabd08229340"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 58,
+      "path": "single-statements/0020/058.sql",
+      "sha256": "0c98769a540a46438ee87790139bae4488a629a83cdd6d8188d9858e311aa994"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 59,
+      "path": "single-statements/0020/059.sql",
+      "sha256": "e779cebd7da14fa75c4cf3fdd82cc7294630785cc7f82119b0ae5b000a88337e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 60,
+      "path": "single-statements/0020/060.sql",
+      "sha256": "b0e91aa573cce282136ab60c2877d6e96214464b1be0f773fdef2cfa20f1a33d"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 61,
+      "path": "single-statements/0020/061.sql",
+      "sha256": "8ba16d66596d798d71b606ce5545c78a0b692dbb0c4cc8af1fb44d113ff85619"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 62,
+      "path": "single-statements/0020/062.sql",
+      "sha256": "76eb9eb0c1d635275ca9899934d39616fe65345f7a387011506c5810b071911f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 63,
+      "path": "single-statements/0020/063.sql",
+      "sha256": "2d13cafd4ece97d578b2e8a797f9e340a3ab0965a9a4c690d17bbc86db677842"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 64,
+      "path": "single-statements/0020/064.sql",
+      "sha256": "b6c611d74a6f9a32e94ebfb7b5532aa132f223155efc1ce5771055e920b6b1ed"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 65,
+      "path": "single-statements/0020/065.sql",
+      "sha256": "191af1dbeaade13835e2c9b788d6bc48fd2e8ee46d5de67219ee2eedc8bd8b43"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 66,
+      "path": "single-statements/0020/066.sql",
+      "sha256": "da6f98b39ddc3b6aadeadd89f9906e6dffddb607b04eff8af8f2577019a9174d"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 67,
+      "path": "single-statements/0020/067.sql",
+      "sha256": "2728b4e0044f2375a4c99f60cd817ad278bdd8c9db7089b4e0e970a5a52a294f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 68,
+      "path": "single-statements/0020/068.sql",
+      "sha256": "40688051412e695aeb10626e9cf8b73c02dee02ef4bacecf5a88a1e34f9fb680"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 69,
+      "path": "single-statements/0020/069.sql",
+      "sha256": "9d4ca57982f5ddf5c2ef0b714e5465eac475f1a6582532570ec674c582cff50f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 70,
+      "path": "single-statements/0020/070.sql",
+      "sha256": "1d87bc43c85dce642838235537f9c8d3d6436bfca7a73fe40ee9e867ecedfd7d"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 71,
+      "path": "single-statements/0020/071.sql",
+      "sha256": "7e62c786bce95f2d7fe7e14307289c52998bdb8f0c1be7bae4d1824ebc04bd0e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 72,
+      "path": "single-statements/0020/072.sql",
+      "sha256": "63c7b9e3108781a1ea45ddfd54a322747508410cd967e68ef610ea21692bbb54"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 73,
+      "path": "single-statements/0020/073.sql",
+      "sha256": "f455c65b0f80698fbe1aed1a4413f67b4524dce07341cfa5ac28e2927ad48c83"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 74,
+      "path": "single-statements/0020/074.sql",
+      "sha256": "d87bb68aaeb25c3b6d4522e4ccbc62fc38ed8c2c51de9b8677f543e9f715ffea"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 75,
+      "path": "single-statements/0020/075.sql",
+      "sha256": "34235f808c716b5cb94a8688f42bc3e6a354b168de8e3864e93c955f3b523f03"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 76,
+      "path": "single-statements/0020/076.sql",
+      "sha256": "64b1a682942a47735605dfe69a79167eb433e72dc8eceb2cb0a675874630db76"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 77,
+      "path": "single-statements/0020/077.sql",
+      "sha256": "bb4e8f871262f400c43bcd1e05ae585b71f6214e01458315d14721c815ca5f04"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 78,
+      "path": "single-statements/0020/078.sql",
+      "sha256": "eb8923c7cd0507b6cf61fe0f21b2386a2d59aef957b5179a5b74d27e3e1e4b21"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 79,
+      "path": "single-statements/0020/079.sql",
+      "sha256": "0babd18098c257c20704806942ed2421337c96f28dcf602e011ccc8f730708b2"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 80,
+      "path": "single-statements/0020/080.sql",
+      "sha256": "f57aba3dd5fcd52667677578a89cbe7f21acd763204cc7da9c42ab88c83d4761"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 81,
+      "path": "single-statements/0020/081.sql",
+      "sha256": "08e905e33ecf70dcdd8e7ce17741ff628efe29f98187b9539d7834fbfe477dcc"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 82,
+      "path": "single-statements/0020/082.sql",
+      "sha256": "d3efffac2a4e4f9f37cb0966f5bae67de5bf1dfe920cf86f4c8afa9b92f3c648"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 83,
+      "path": "single-statements/0020/083.sql",
+      "sha256": "360b23207906196852c6d01005f39f6fbbe0cddcef2ecd19cae9f49e74da630e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 84,
+      "path": "single-statements/0020/084.sql",
+      "sha256": "1eefe712aa451f41d44ff784cd6cd82b59e5533f6d2e444aeeea90abe4937147"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 85,
+      "path": "single-statements/0020/085.sql",
+      "sha256": "af25c0ac16d769fdb9d20c08a478a70d854ba37b2d9d99039b2e18790122778d"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 86,
+      "path": "single-statements/0020/086.sql",
+      "sha256": "c7ce9c838a5d810b1391ec13837a07fe4cbd973cd83ef4314ff0088c26c48bf0"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 87,
+      "path": "single-statements/0020/087.sql",
+      "sha256": "6d9d9377f07efcdede0e3bdfcfd5038e18449686ad9efe351d4cc904708db0e7"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 88,
+      "path": "single-statements/0020/088.sql",
+      "sha256": "69a079729d8309febef661f2b9b1703caa991aeb79d7d3b40aab92a482c3e11f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 89,
+      "path": "single-statements/0020/089.sql",
+      "sha256": "9cfadddc414e79167d0b7866acfd75bcaaef5d34debe2412b5cc125852fb6a94"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 90,
+      "path": "single-statements/0020/090.sql",
+      "sha256": "acd565465cc8db5422b96d1b686a764d45cab64705b5c9c057d765a90257719e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 91,
+      "path": "single-statements/0020/091.sql",
+      "sha256": "706beeb08a01c755dd9bb2b8beb08452b8db118e79c25b5c1be31b45f4dd1033"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 92,
+      "path": "single-statements/0020/092.sql",
+      "sha256": "6df9dc13a294db4b4b372e78f9aed93fd9452d6e1b8e2829c62a80f15a2f7618"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 93,
+      "path": "single-statements/0020/093.sql",
+      "sha256": "f29f42de6da7848a7551525d43fd9ebdf17ee380ce1c7683775688b08bdc9b76"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 94,
+      "path": "single-statements/0020/094.sql",
+      "sha256": "44483a1a0a0042bfb5463a3de2b32d02db589d489d57f0347b9aab272ce47d59"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 95,
+      "path": "single-statements/0020/095.sql",
+      "sha256": "2bbe8d4bff79b9a0ebe2d03fb2abd27d31701013a9b214c422a64950ce7e6542"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 96,
+      "path": "single-statements/0020/096.sql",
+      "sha256": "e0c6205421833c9a45ea7c8a6f4b041c3c2d14d16ea116d45d9592e587333aa1"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 97,
+      "path": "single-statements/0020/097.sql",
+      "sha256": "4fb8ce46759b05f92ab3825c75624a448b356874e9249524179b7197cd511eae"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 98,
+      "path": "single-statements/0020/098.sql",
+      "sha256": "2937b5190760da9e5b59ceb3e0484dbb7ee26d3f4cac7cee8ca9bf4d2802446f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 99,
+      "path": "single-statements/0020/099.sql",
+      "sha256": "bee24544106fa931ec437263c430a50804d44d0d273ae51a52d7a08e229eaf1f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 100,
+      "path": "single-statements/0020/100.sql",
+      "sha256": "d9f732d3649ffac71f8a7d5a93da5507580b1782dee52ad8cd39dc80a7ff0c04"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 101,
+      "path": "single-statements/0020/101.sql",
+      "sha256": "15c11a67aba5aa5215a6c8e50e9dc6865d12dcf9f76fb839c991a3eb7adec91d"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 102,
+      "path": "single-statements/0020/102.sql",
+      "sha256": "5da58f05d4ff7b792ef8b51d3dd3140de72eed7f2b2d8ec3786facb9d6ed9fb6"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 103,
+      "path": "single-statements/0020/103.sql",
+      "sha256": "914fa2ef94b1cd556da1da2034c3b4e336e386837b99c5aa03e211cd483bb978"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 104,
+      "path": "single-statements/0020/104.sql",
+      "sha256": "c0df71361d75c09beba797888d070730aae4c41b98b7db8d0538eb2a2e9f9975"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 105,
+      "path": "single-statements/0020/105.sql",
+      "sha256": "6dfaac0482c55d31800efd13d908e3a2706bfc7a137c1bcb8c79c48219a5eda2"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 106,
+      "path": "single-statements/0020/106.sql",
+      "sha256": "b84eaaf19ac65a4899be62dd3c0888cbbf4e622c47a818e8e0fde7135f71b366"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 107,
+      "path": "single-statements/0020/107.sql",
+      "sha256": "7d3641a18575da0b32424d38ab7d8c067e2d980d1f54e38db683f59f54d6f805"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 108,
+      "path": "single-statements/0020/108.sql",
+      "sha256": "3574104064bc7d12aad3b9787c40d73b99a05286e301593206cddb98cdbcb4cb"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 109,
+      "path": "single-statements/0020/109.sql",
+      "sha256": "2f71d92c32e99533144af2f311a90c5c87ddd7fe9761ef902b265fbb47afeba4"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 110,
+      "path": "single-statements/0020/110.sql",
+      "sha256": "6c7f0e21e8ee2453c54570de7ed1da9364b0c42f4dafed6f3d363f67ce43e15f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 111,
+      "path": "single-statements/0020/111.sql",
+      "sha256": "7dd866178c1325aa004526d96f613a33df49aae770afad88e8a27febe525f48c"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 112,
+      "path": "single-statements/0020/112.sql",
+      "sha256": "c96dccfd850161b2e283422aaaea48e210c07192f745af45853dcfae5ed0b8a8"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 113,
+      "path": "single-statements/0020/113.sql",
+      "sha256": "080a4fa90ab25521afbd329c1a19cd700acd0346b313c0adb287d621023b62e9"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 114,
+      "path": "single-statements/0020/114.sql",
+      "sha256": "b233c955d95b50475e578ccc8420be403062cec3becf1dc2e44ebad7d7e4a6ce"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 115,
+      "path": "single-statements/0020/115.sql",
+      "sha256": "5c18b3387370bcbbe1cb9569201a43e907d909f7b061f56b45dd534ae0589401"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 116,
+      "path": "single-statements/0020/116.sql",
+      "sha256": "24929fc03399850e94f927f0c4c23c9966a6b24dfd306bf1f84ccf12264e420b"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 117,
+      "path": "single-statements/0020/117.sql",
+      "sha256": "872751315d3a941fad1cc6fc2e3855b79de0098cfac67788248f15a641739e24"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 118,
+      "path": "single-statements/0020/118.sql",
+      "sha256": "6f69bc90eb42d0c8c46623106462a7d2f3ad02e370a8fbddf26bf9f742757393"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 119,
+      "path": "single-statements/0020/119.sql",
+      "sha256": "a28256633285d014433aa6b307463423bf5cfa2ba5592b15c69afa2f16ebe919"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 120,
+      "path": "single-statements/0020/120.sql",
+      "sha256": "2e83963d310b8bd8aaedcd3791b9bd186c7b1d30160e71504e153e971a20e21e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 121,
+      "path": "single-statements/0020/121.sql",
+      "sha256": "deec2f5ae9aa1462af0d745c03f6fbe7f8a4697069b0d6095900b8f027a50165"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 122,
+      "path": "single-statements/0020/122.sql",
+      "sha256": "e8dde268ac998bf41b0ab07da6f2ce3a198ed7dac1e4d8475ecc51e54c2257d6"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 123,
+      "path": "single-statements/0020/123.sql",
+      "sha256": "cd4d3e3cff17274324e5d296f2db29980f9b6e8d455d81068e75ef10ccc15033"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 124,
+      "path": "single-statements/0020/124.sql",
+      "sha256": "02d288c3c4fee90e6a2ab7bb24995cf311825709f3076e01ab174f2e85ac595b"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 125,
+      "path": "single-statements/0020/125.sql",
+      "sha256": "38909032620f31364698c142a1df9c3ea11e2e2ef8d156a29d326e14a06fb27e"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 126,
+      "path": "single-statements/0020/126.sql",
+      "sha256": "091365f6309264992446a160d1dd5634c60e8478d5a06d4b056757c6a763d09f"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 127,
+      "path": "single-statements/0020/127.sql",
+      "sha256": "e5b4677b9703778afc5dd74296472a347cd25c02af20eccb248e8156c44669b8"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 128,
+      "path": "single-statements/0020/128.sql",
+      "sha256": "88450a513e3dd6173ec06a70d2d24ca5b271953298beb54b842d387676cd1554"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 129,
+      "path": "single-statements/0020/129.sql",
+      "sha256": "d977f9fc0d580c4ddfe6b1795e2e4c82ec742950f453c6b50407b4ccc60a2b15"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 130,
+      "path": "single-statements/0020/130.sql",
+      "sha256": "e46941bd5d50695ae2631ab3b592380c91da6ec2250c30ba936f5f416ad1dedc"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 131,
+      "path": "single-statements/0020/131.sql",
+      "sha256": "343d8ed3b0e79b1f8a01956a9883db0d18847ffd0f6acfc9f62291c1f893e5f8"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 132,
+      "path": "single-statements/0020/132.sql",
+      "sha256": "ac4835d02a74920ba838c790106e42d0f4884302cf2c88701bd0c1a51bb65883"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 133,
+      "path": "single-statements/0020/133.sql",
+      "sha256": "6070c061e221f0f8aeb88702b9c5b0701640936d540aa5b1deb3f6a691096467"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 134,
+      "path": "single-statements/0020/134.sql",
+      "sha256": "ea6ebf9ae51772b6dc1021866f6232e45c2140d50d5fb08a7ce23fea261673be"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 135,
+      "path": "single-statements/0020/135.sql",
+      "sha256": "c084b778ca34a7318d96cfed8d7ab895bf2b3f467b73674bc95ac9d99b1ba97a"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 136,
+      "path": "single-statements/0020/136.sql",
+      "sha256": "e75f8715aa933ea0e5028fc0ac2c8c60ba63e89dd77837088bcbd92e671db1ff"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 137,
+      "path": "single-statements/0020/137.sql",
+      "sha256": "8938864b90967dabedf7f9e74a7a310fc604142448fddd58ffc8140e28fdc6b3"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 138,
+      "path": "single-statements/0020/138.sql",
+      "sha256": "1bf009cb76eb98f2713ce7239daaa5f171be1eff8f9df0ce2da52515ac0e8b98"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 139,
+      "path": "single-statements/0020/139.sql",
+      "sha256": "5d2af8189ff7a4505764a7ba2b0beab1ac9ca897a4649e3ad54e3c53bf2ee000"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 140,
+      "path": "single-statements/0020/140.sql",
+      "sha256": "e998b262c238fe0d985f4fe9b78e4dfe3f7765359ca243400ad378bcaaae049b"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 141,
+      "path": "single-statements/0020/141.sql",
+      "sha256": "3b9ea1d17876a71d31fdc2141383678ab0e445f666ecd3c38a76a50ddb2c0afd"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 142,
+      "path": "single-statements/0020/142.sql",
+      "sha256": "8bf7b6ca6f448279d2d0c0140c8992b6c01c099ba893c1033f3475b5decb9a99"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 143,
+      "path": "single-statements/0020/143.sql",
+      "sha256": "58ff197dfd1ebcb27e08a7d316b9dca4f5f64894d085443f3e61fb1c17dd387d"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 144,
+      "path": "single-statements/0020/144.sql",
+      "sha256": "36268dc3be0e4b51fde9df76bb2b7528300aa246a9d057a0d29fe5055ce8b519"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 145,
+      "path": "single-statements/0020/145.sql",
+      "sha256": "ad55f3cb92ecf5cf0968a8af5197978c91112409c881e886e3c6d674e35ca049"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 146,
+      "path": "single-statements/0020/146.sql",
+      "sha256": "a161f52cec5d738eff989354ea57dd4410b91227ea6fd887d6b05b5b6c6ff90c"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 147,
+      "path": "single-statements/0020/147.sql",
+      "sha256": "19d14b49127923ddd04229a65ba5a50cf02d0160e8522832c2ea18dcf0a887a4"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 148,
+      "path": "single-statements/0020/148.sql",
+      "sha256": "7ddebbca4dc4573a60fa10211f96981cfff41ca47e318b220b4e9151f43a4bce"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 149,
+      "path": "single-statements/0020/149.sql",
+      "sha256": "c4f481f499571e83cf7da3848dc271afae02b16efd499249785e0b70f5b49a17"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 150,
+      "path": "single-statements/0020/150.sql",
+      "sha256": "13a9ab2503d7a94a3a571a7d852c06e8900dc3d21e709547da20c87c4cb4edd4"
+    },
+    {
+      "migration": "0020_settings_and_templates.sql",
+      "number": 20,
+      "step": 151,
+      "path": "single-statements/0020/151.sql",
+      "sha256": "a0ffab9c3b630022ca49180a3901c124a72f0fcead0fdc055716a51855ec89db"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 1,
+      "path": "single-statements/0021/001.sql",
+      "sha256": "92af4951def1bce7ffcc80f2db0a604d795566d3b9f10271e16ea7deea345c43"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 2,
+      "path": "single-statements/0021/002.sql",
+      "sha256": "8aece680d1d4b5def4eaaa3edd1998671c4cbd8881f39e17578182307160c49d"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 3,
+      "path": "single-statements/0021/003.sql",
+      "sha256": "fb1c77ccab687b1da5c53a4661751ad7f579b97bcee6ea3ccad21f54dc25567d"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 4,
+      "path": "single-statements/0021/004.sql",
+      "sha256": "5ebeb3cc68f34d2d91b48d44bf3be85235c273b2ff9d50d601474254504e70e9"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 5,
+      "path": "single-statements/0021/005.sql",
+      "sha256": "a412853ea83c73f8085a5ce96ce2a9e4ca085a44a376409b94cf2cb99cc6282d"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 6,
+      "path": "single-statements/0021/006.sql",
+      "sha256": "4ea8b5c84a69c819d70ec3f3a2aea0e70ac71fa5d200d555d87fdc0c055962ba"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 7,
+      "path": "single-statements/0021/007.sql",
+      "sha256": "9afdfc17a2811189f48c2ee1fea05f26266eacc2c275c37f98096a675592ae5d"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 8,
+      "path": "single-statements/0021/008.sql",
+      "sha256": "d926f0bcfa9fb133aa0b730846153c72be0f3e60e5ee8f3a00dbf1db72e8eee6"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 9,
+      "path": "single-statements/0021/009.sql",
+      "sha256": "29f8cae0742aa6f95c04bdb436f9d78f83dcec99e46b4421ab4d6b4490a95e3b"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 10,
+      "path": "single-statements/0021/010.sql",
+      "sha256": "100c4727b3992093dd4f57f4f042e970fe945edb24a805e9e57163f258f66f48"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 11,
+      "path": "single-statements/0021/011.sql",
+      "sha256": "fc4455001a0ab107ea5293ae6fe713e7f1e4c1d934de74cbc44ddc43e61e5ffa"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 12,
+      "path": "single-statements/0021/012.sql",
+      "sha256": "23efee3650653279bed7be51f7f5e0f5eb1364cdf594309df747ef9b6f725b52"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 13,
+      "path": "single-statements/0021/013.sql",
+      "sha256": "32463b0182bcf4d8dd886946d5990b342dfdae9b0b91c48e146311adbbb39d7a"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 14,
+      "path": "single-statements/0021/014.sql",
+      "sha256": "7a2377a8cd83cc4b2e13b3aac12519f2b4f45804d57140cb89a31074fbc38ce0"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 15,
+      "path": "single-statements/0021/015.sql",
+      "sha256": "a8c37a19b6fa288eb49076ae818b052652c0903ba85a8f3802a4fa61e1630c13"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 16,
+      "path": "single-statements/0021/016.sql",
+      "sha256": "0e97a3e35ff1083a44d77c5a86d14ec584974e2174b3ac0699bfff8db0bd2da7"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 17,
+      "path": "single-statements/0021/017.sql",
+      "sha256": "6699df74456eaebeaa3a3f3351c9f0761d97fb4821860d2b21568d3a3f0e7bab"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 18,
+      "path": "single-statements/0021/018.sql",
+      "sha256": "734504fdea85713c025f609c6512ca5b455a656883da054be4d0d071e24ccf40"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 19,
+      "path": "single-statements/0021/019.sql",
+      "sha256": "64086aa112de519762883d481f31bab198f7ea853395c38966051d5e9a0f63eb"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 20,
+      "path": "single-statements/0021/020.sql",
+      "sha256": "e6d91b4c10dedcfd74fe91d64ab2a7c114c3b3cc68b39cf33ab2a526b3cad8f7"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 21,
+      "path": "single-statements/0021/021.sql",
+      "sha256": "d971c178aaee7004a25c68a26c57469c6eca2264f03a5ae0a2a025dd5aaa3220"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 22,
+      "path": "single-statements/0021/022.sql",
+      "sha256": "38280df53de6d1b563af002ce62d9f2679d2e6c33fc63ad064f2b3093e7ed250"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 23,
+      "path": "single-statements/0021/023.sql",
+      "sha256": "9aab310e8c1a84d9487391a5da4a117186a19bafad1cc9154052878552f45880"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 24,
+      "path": "single-statements/0021/024.sql",
+      "sha256": "24636437087aeef7c5a082bfc5fddf97b46b820694180d0c207a1d51f8e3287a"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 25,
+      "path": "single-statements/0021/025.sql",
+      "sha256": "7e43f282bbdbeb16e5f91f60c93adc779158420de5bde58661646bba27ff1087"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 26,
+      "path": "single-statements/0021/026.sql",
+      "sha256": "9825163609b003291bdb84ae7379c14b19445bd8c55795761f8b2a913b809753"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 27,
+      "path": "single-statements/0021/027.sql",
+      "sha256": "d15fc512434ddd8754656d64fe6203332330fd9e2f0210af066d6d9e2ff997f2"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 28,
+      "path": "single-statements/0021/028.sql",
+      "sha256": "c0eda5c682870db1c43dfe33d55ccad1291a22c6a71a61828032cb8a5b56e792"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 29,
+      "path": "single-statements/0021/029.sql",
+      "sha256": "da2b8eef51febcee6b927aa82cd49c233e066e0e840ed2135fb58470eb38f168"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 30,
+      "path": "single-statements/0021/030.sql",
+      "sha256": "c6fff6b31906bb02743e9a37f3c8c8f16ff805dea4987564ba7b27c9311e634a"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 31,
+      "path": "single-statements/0021/031.sql",
+      "sha256": "035d6f26e0a3f4014a191a44df2edcc76849d70efc7b06f4310fb80d3aec7a56"
+    },
+    {
+      "migration": "0021_course_plans.sql",
+      "number": 21,
+      "step": 32,
+      "path": "single-statements/0021/032.sql",
+      "sha256": "ba8e59a2a485b613ebb12ab038d646b28fe4df35ef696c22b8375a8f90883804"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 1,
+      "path": "single-statements/0022/001.sql",
+      "sha256": "c21a8b903cc5bdc4ffa62bcdb7e98eef6f43da3687d85326bc41b1d11562384d"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 2,
+      "path": "single-statements/0022/002.sql",
+      "sha256": "948f77bb5d75a8a031ecb67683e65c9ee3c8dad77321746089fa987ad3a8f2d5"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 3,
+      "path": "single-statements/0022/003.sql",
+      "sha256": "26009e57fff1b6110aa3708809e792b29e1170b762da69583c734559b5e95cad"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 4,
+      "path": "single-statements/0022/004.sql",
+      "sha256": "c33d2b8178ff41598be9f4a4b5d03f1d5e697fc60905199661d6f5aed8df168d"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 5,
+      "path": "single-statements/0022/005.sql",
+      "sha256": "b493a22bee0bf5fce7264afababe05cb899761d583d2440efe197df3c11c3ed5"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 6,
+      "path": "single-statements/0022/006.sql",
+      "sha256": "c89fce0020e33d5b124b2347fc4c69305afb09aadef5d924ed3678fb52d4f18f"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 7,
+      "path": "single-statements/0022/007.sql",
+      "sha256": "1888e1a61bc2ab8cdb5bb93a9f42a034ba6ea398c3aecfeb7ae91882ac138bf9"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 8,
+      "path": "single-statements/0022/008.sql",
+      "sha256": "5b95eea3380d2fef59e35c9eac201188e20df36c4c8d8e86f4de56831c514c5c"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 9,
+      "path": "single-statements/0022/009.sql",
+      "sha256": "2c8f1989bb4122b83abef33129fa0e51f7f6b725f518d8cb5f3f594a6631ce15"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 10,
+      "path": "single-statements/0022/010.sql",
+      "sha256": "4b1373e439d7bb2f69c9efee4481f97871fac9c34e8bdb2817f46601c1bcf0ef"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 11,
+      "path": "single-statements/0022/011.sql",
+      "sha256": "cf4e390c955901ed49ee1088e77f32443430c4d9dd4b0a57051fb34394fd2a8c"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 12,
+      "path": "single-statements/0022/012.sql",
+      "sha256": "f69c6758bf47e67a1348aee82f5a63cae05823dd689320757b6ff8fa2ec4e597"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 13,
+      "path": "single-statements/0022/013.sql",
+      "sha256": "0d8b67e41262c16f2cd21cafb31e4ffadc2f63881908c324fc56098fd1b47a43"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 14,
+      "path": "single-statements/0022/014.sql",
+      "sha256": "af9f33f918e3a3a169856048da8f3c7129fad37f29a0a83b8fd5cd412c94d326"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 15,
+      "path": "single-statements/0022/015.sql",
+      "sha256": "1081b29920eec4ace9134c32d776702b2e0a2747431fa1cbded81a54e8f131e8"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 16,
+      "path": "single-statements/0022/016.sql",
+      "sha256": "f52cab9c8cf50f8efc3b16fc5514d30e68d960ca6795d707e781355f4399b29b"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 17,
+      "path": "single-statements/0022/017.sql",
+      "sha256": "a4dd2218ecd8f26bb4832cb99915c129c8ae93938bd9d38a468d4809da243509"
+    },
+    {
+      "migration": "0022_content_and_ai.sql",
+      "number": 22,
+      "step": 18,
+      "path": "single-statements/0022/018.sql",
+      "sha256": "7e2d3388b05adf42a540a9895946ec567162c846e56f25c2e7b351a3ac39d3d4"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 1,
+      "path": "single-statements/0023/001.sql",
+      "sha256": "172611f8d36845d8b87c93b836a1d3e483c8769046f7672352160ed1fdf68e87"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 2,
+      "path": "single-statements/0023/002.sql",
+      "sha256": "49efd6a78e4fd948c9b29be2e866dda411fc34cf0465f850f6bf54e83fa04dd7"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 3,
+      "path": "single-statements/0023/003.sql",
+      "sha256": "fe303357d21c96958f7d1784c2e5f5f7d7e4dad4c90cc4aa73959a2b72d567ed"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 4,
+      "path": "single-statements/0023/004.sql",
+      "sha256": "e8355d17229fda126c835e9851cc3425ecd1a100bf9c3b250163cea67323f0a8"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 5,
+      "path": "single-statements/0023/005.sql",
+      "sha256": "cab43fcc8a343082186d4eb6a3c4bbad4241f176ebf4b4fe618dffef3cb44787"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 6,
+      "path": "single-statements/0023/006.sql",
+      "sha256": "9b6b45eeebe15fe994b3f8948de84c601ff4048825f5fe40b895b5e8c3e428b9"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 7,
+      "path": "single-statements/0023/007.sql",
+      "sha256": "3e0243b341e02525519abbe872a5986ccb7948cd358239bb4b54ab4bd84e467a"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 8,
+      "path": "single-statements/0023/008.sql",
+      "sha256": "158d52d7bf3960bf01f0af3d07ea23038916cd67210915d49f6cf2ed51503795"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 9,
+      "path": "single-statements/0023/009.sql",
+      "sha256": "9faa57187f82bc56f4e5174b6b02fe946ef920036ff4e2953643153820a4183b"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 10,
+      "path": "single-statements/0023/010.sql",
+      "sha256": "efd6d14c306aecd5f44480eace95957679cc852a0bdbc023200168ce14d13e90"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 11,
+      "path": "single-statements/0023/011.sql",
+      "sha256": "402fd76369face7697f97b86d3da353772bed2fb32c5095ea4609660ff25a6f5"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 12,
+      "path": "single-statements/0023/012.sql",
+      "sha256": "63876ca32c2259a3794d8853427631c410915bd1a710c04eb636a1af0fcf42a1"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 13,
+      "path": "single-statements/0023/013.sql",
+      "sha256": "cf35f8815204177b5c731cbc2802e5da9707d66e273c3e03ff10b293d5e621fe"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 14,
+      "path": "single-statements/0023/014.sql",
+      "sha256": "9f932bf9bc93d37a0d25ec6562382b92b32be8c4dfa1529b40d37d2278ba56c0"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 15,
+      "path": "single-statements/0023/015.sql",
+      "sha256": "c05f909ad0bc5da1b1ec7621a598828a31e26dd253f968c8ba856f09260b6782"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 16,
+      "path": "single-statements/0023/016.sql",
+      "sha256": "589ebf69e2f462555d37066a7af4d3ecc907ddd8ab862e38a0bb52cf5bebc577"
+    },
+    {
+      "migration": "0023_feedback_and_growth_reports.sql",
+      "number": 23,
+      "step": 17,
+      "path": "single-statements/0023/017.sql",
+      "sha256": "27ff2786d16460764708d99e2aa3b11b20b0d1243eae12015514da03f19479f0"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 1,
+      "path": "single-statements/0024/001.sql",
+      "sha256": "1241e9acaa2197686498940ed207d0a9bae22eac8d45ca6d633f41a38b87e96a"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 2,
+      "path": "single-statements/0024/002.sql",
+      "sha256": "988899e35aa6ae8c7b643eb0977b1d09d7b1d4062ce043993dc62effc8d640f5"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 3,
+      "path": "single-statements/0024/003.sql",
+      "sha256": "228b52c2b9e6a4f4862bc919a7944f63273a1f10a5eb33875d0e327da6f4ec32"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 4,
+      "path": "single-statements/0024/004.sql",
+      "sha256": "fbcf88e75f995cb5f52804c084b986d107b6b954f790d05820791940fa46e101"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 5,
+      "path": "single-statements/0024/005.sql",
+      "sha256": "3391e2801d93885239ca6e28c4a289284adaf31c0141a3ec09aa794a898af107"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 6,
+      "path": "single-statements/0024/006.sql",
+      "sha256": "c80cd3cf89ef655cc5f5d718be3529d85a611b15c3b4ca260ede04a5ab513435"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 7,
+      "path": "single-statements/0024/007.sql",
+      "sha256": "ac43f4adfbdfd82901cbf91df9e36c7bc1b98d7a4c13b1a25d2ee663397b4471"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 8,
+      "path": "single-statements/0024/008.sql",
+      "sha256": "b9a2c594fc70cabab999997f6bb297ccb5218137d68fece64b00201a6d23d32f"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 9,
+      "path": "single-statements/0024/009.sql",
+      "sha256": "d5c9eefd6836b4cf46d9ddcde00bd7c52d512dbfa39548adfcc9acda5da743ee"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 10,
+      "path": "single-statements/0024/010.sql",
+      "sha256": "9b05c648e4e0df29bd71858570fb4e12920de64a5e7d4ae3c6c14e8803c6a1c2"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 11,
+      "path": "single-statements/0024/011.sql",
+      "sha256": "450bdcf20dc5bcac40b19ada979dd8384155dcca5d8ba50049aa6694ee20e88c"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 12,
+      "path": "single-statements/0024/012.sql",
+      "sha256": "50e7207e7df038bc40351bf580cee00269907dab3e6e8f3784cb74789293dd4d"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 13,
+      "path": "single-statements/0024/013.sql",
+      "sha256": "58b35a6c44aea0809765d613a8129e266a5bb8ec926d27958c409c5a72cd2cf1"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 14,
+      "path": "single-statements/0024/014.sql",
+      "sha256": "235a5cb9f0a7821eeff34f66bc8a6c5e25c0977ec7607e698def04d48aee5cdb"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 15,
+      "path": "single-statements/0024/015.sql",
+      "sha256": "d0c4a80979290389ce0cfee63ac3be4bdd2be02d2ea176fa584d5bbbf97dcff0"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 16,
+      "path": "single-statements/0024/016.sql",
+      "sha256": "877be83b5b2bda8a8b30d0dbd79b394cbb6af9efabcea6bc8cebb2d5cca2d9d7"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 17,
+      "path": "single-statements/0024/017.sql",
+      "sha256": "5af5516c95eb4bc6f7812b2de9c04f41a73f941e493ba41866d3abddeb12c718"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 18,
+      "path": "single-statements/0024/018.sql",
+      "sha256": "3d089bef77186fc1fc97f6a015bf381cfb26d0788d07fdbd4704c9ba6c0ca426"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 19,
+      "path": "single-statements/0024/019.sql",
+      "sha256": "4f287bade90382a94500ada93e01b20cc0df159b346ee4018bf52dd7926b3a35"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 20,
+      "path": "single-statements/0024/020.sql",
+      "sha256": "788149441710709128436a3f6e789b589afda37536162d4075c6559a4063a9a0"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 21,
+      "path": "single-statements/0024/021.sql",
+      "sha256": "483592a077e2815d81e74a01a50fd7b3b0f936c6968e7dba1b1241e65bb98485"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 22,
+      "path": "single-statements/0024/022.sql",
+      "sha256": "25831cc5ea8973bcaf279812253d638288b2766e891988f878d90fcbc28a3b2f"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 23,
+      "path": "single-statements/0024/023.sql",
+      "sha256": "dc5480948051b3fb3f4810a10f8f43045e28d689fba5ef017709e722b2b13e4c"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 24,
+      "path": "single-statements/0024/024.sql",
+      "sha256": "e6bc7bf85d71bcc7469b366a32d4bab581666c7e577a8862e5bbcb30f109fbc4"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 25,
+      "path": "single-statements/0024/025.sql",
+      "sha256": "6d50bd672b8b8be3e40e57874ae81d2250232bb2497ea840f5830ac271f37aec"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 26,
+      "path": "single-statements/0024/026.sql",
+      "sha256": "3287746af8294922b561d62d6a9fc0f38df23ad485483eadcec611848f9a60f7"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 27,
+      "path": "single-statements/0024/027.sql",
+      "sha256": "16ea0bbc7b95cb3d6c4b77b40958455ae6c4004532f38b47a2ec6bc62e662f12"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 28,
+      "path": "single-statements/0024/028.sql",
+      "sha256": "9a3eb4cb0b5d891c0bdf755af1320915bb96660fa491b70ad565113d8310b1d5"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 29,
+      "path": "single-statements/0024/029.sql",
+      "sha256": "421d4030576b9a6d240a9af6235b0590585e7adec47b3eb0fdba84529b02824e"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 30,
+      "path": "single-statements/0024/030.sql",
+      "sha256": "2ac7f151ddb821ab5cb87c561601413eee59fdf359b5d3f9ccd8c112f20be148"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 31,
+      "path": "single-statements/0024/031.sql",
+      "sha256": "a705e733184ca2c554472af32231f53be987f9ca89b06c54c43a6f923d72fc24"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 32,
+      "path": "single-statements/0024/032.sql",
+      "sha256": "c50266852693ab89afbdd5321eac8fd2c04dd3a673b4f252ec504221a53a1b52"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 33,
+      "path": "single-statements/0024/033.sql",
+      "sha256": "58ae9251bf5edce00322f0dd385e605e6da718a042bb4648a8a52dfc4a634070"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 34,
+      "path": "single-statements/0024/034.sql",
+      "sha256": "adf5d9a20b8900e8874ace62d15c11e7c100f53cb51a9e6eb2c2713c3bd8d29f"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 35,
+      "path": "single-statements/0024/035.sql",
+      "sha256": "b5666c07f79b32ae21fd8679e726151473e137e2628baf3049862f5590054877"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 36,
+      "path": "single-statements/0024/036.sql",
+      "sha256": "6219d5d34edcc72efe81d908ca7595769dbb6f3ba88251d2a4749a0e012d8559"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 37,
+      "path": "single-statements/0024/037.sql",
+      "sha256": "b2cad4274a14cdeea65a639b150aa4731bd778253e1b215b54e40b065d2e2145"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 38,
+      "path": "single-statements/0024/038.sql",
+      "sha256": "9f1ff73ec3275be7bb7c896920a078db79dbaadcbac3c7b6b43fd54b83fc2c79"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 39,
+      "path": "single-statements/0024/039.sql",
+      "sha256": "05b8c4fb22c662336a875ff30400c38e5cd972e6bed96a51e2f7babfe01f980a"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 40,
+      "path": "single-statements/0024/040.sql",
+      "sha256": "b0dbe715a850f9a4bb9d2180396b0f6a776ec8dcf53f26550b53d09483ecc337"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 41,
+      "path": "single-statements/0024/041.sql",
+      "sha256": "05da801007022e13fb1a864e75fc72c45a19b8ddf495259c47e282ac1557c5bc"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 42,
+      "path": "single-statements/0024/042.sql",
+      "sha256": "782f4e866d9a4cf385a46333fc37df135f6809016c2d44316feb7b91fa09d878"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 43,
+      "path": "single-statements/0024/043.sql",
+      "sha256": "fd56c8a7f3f55e469d73b46e3b5c426d9c78394c206078559998ac86f2088d15"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 44,
+      "path": "single-statements/0024/044.sql",
+      "sha256": "676424b7f1ce978b4e3aac2762088eea9465db57b38606dc8b8a347c09efb127"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 45,
+      "path": "single-statements/0024/045.sql",
+      "sha256": "a0551a1208b18d4fef3779bb088825821f794184d0d06609d144435024dcc6d7"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 46,
+      "path": "single-statements/0024/046.sql",
+      "sha256": "3bb8835baa79510c2252145deed3ef51edef039905fba2e5fc2cce7cbc50114b"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 47,
+      "path": "single-statements/0024/047.sql",
+      "sha256": "b5bebc072e7465e0a15dfb7eb8a1077dd0e6d8065217209972a1bcc6cfbb1612"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 48,
+      "path": "single-statements/0024/048.sql",
+      "sha256": "829c6e84c001649a08e666263dfe06a4ca87ea95027da41fcb8b2105f84373fe"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 49,
+      "path": "single-statements/0024/049.sql",
+      "sha256": "8d75984168eb6eee9ca5244501b10c1d5f31484419a28bb2d0321bd8a42ed97c"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 50,
+      "path": "single-statements/0024/050.sql",
+      "sha256": "8f8265bf4abe5e64f0935116b2a6e4a13752717b3ea86ee1bc7a854a4990d685"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 51,
+      "path": "single-statements/0024/051.sql",
+      "sha256": "54f0155fb7b56d216b7c21a6bb3f2f712b48439cc336c294c98cdd9fbea5c8d9"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 52,
+      "path": "single-statements/0024/052.sql",
+      "sha256": "93d380c0ad8c51aeded4f937956ad0a94c7c607d3073900709f7c98e213123f0"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 53,
+      "path": "single-statements/0024/053.sql",
+      "sha256": "a861cac342dcdecf52b186f4661d5adf76fcac69673fc8af63feaa30d9e891eb"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 54,
+      "path": "single-statements/0024/054.sql",
+      "sha256": "ff1b126307d76a19ded0941b7c4caf4a8b68f9fc693fc5f15d886990a3439020"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 55,
+      "path": "single-statements/0024/055.sql",
+      "sha256": "377068b716cb5bed0eadf19cca63585d1305eb4c818cca5b35d944d1d24b1bc9"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 56,
+      "path": "single-statements/0024/056.sql",
+      "sha256": "cbf236ce902c8449834eac324eb7206591d79ee925dd8546f14087d40c0635ac"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 57,
+      "path": "single-statements/0024/057.sql",
+      "sha256": "bd278d8817c5c1f9fa60af81b13552ce265cee26a7c0fcca1fa281339dee56ff"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 58,
+      "path": "single-statements/0024/058.sql",
+      "sha256": "7cd1a8b097bfac8cc7646fe7adab74048a8debdaf1d920aa4a6358dd22edbb18"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 59,
+      "path": "single-statements/0024/059.sql",
+      "sha256": "35d47c5132275b38de7f2eb7dbcc8ea5f098905f16913e45b1fd5b32ad446cc3"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 60,
+      "path": "single-statements/0024/060.sql",
+      "sha256": "df54ce3f82520e9b944f420a71d2a62f2e94c2ccb2df55706c9ce9436ebc6f80"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 61,
+      "path": "single-statements/0024/061.sql",
+      "sha256": "95e2ebb02f2c989478cde1d791617c6461e62e608d7ca7771cb7e37f6732a9c3"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 62,
+      "path": "single-statements/0024/062.sql",
+      "sha256": "f7adb514f87ccb9681b2f3fa3807535a3cd9505e4f6d1b213029e50438e898e9"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 63,
+      "path": "single-statements/0024/063.sql",
+      "sha256": "bd33c95578989197cb4d71e2855a15fc8a513919fcd17a6237b3c847ac188efb"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 64,
+      "path": "single-statements/0024/064.sql",
+      "sha256": "a98ae2bef0f5bedd398ed3928682f18c8dc9fa2cceb7de86d75eff7bbe164573"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 65,
+      "path": "single-statements/0024/065.sql",
+      "sha256": "4cff9630078f7859088769a6021f0b754b394a6f399bc1c2e1d78d69b53ded48"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 66,
+      "path": "single-statements/0024/066.sql",
+      "sha256": "1dcc0dcbd4b4066ddf7e7e97a40b1e5daae71dd71e06e30804ad21602d08233b"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 67,
+      "path": "single-statements/0024/067.sql",
+      "sha256": "3c8894aff75feaa47d133103f303580a3d805fe3f243f8e88c4807655333aae8"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 68,
+      "path": "single-statements/0024/068.sql",
+      "sha256": "3d0e52254d2859adedeafa2a49cc08c83d7ae4ab7737b567d1cb06db063c9d63"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 69,
+      "path": "single-statements/0024/069.sql",
+      "sha256": "1e02dcea448ae8330310f2609f3fd46ed98b9337f4c5c78d09cb19b421438bc5"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 70,
+      "path": "single-statements/0024/070.sql",
+      "sha256": "2292ccecdcdb28d693a1bc308fa369fb851a0042a4e7680756f5bde705be3548"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 71,
+      "path": "single-statements/0024/071.sql",
+      "sha256": "367e59df870427aaa43d4ac01efa3631a3eb0749123061e6a774b715897a6c86"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 72,
+      "path": "single-statements/0024/072.sql",
+      "sha256": "67404bbd1a6111e27e818b8f3634f26e0138298625e5fe61d02df12ba4c5f88c"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 73,
+      "path": "single-statements/0024/073.sql",
+      "sha256": "2c9baee3522d6d5c87891cd6b632d8fd6da1238ce40a62ab7d83935618e4c202"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 74,
+      "path": "single-statements/0024/074.sql",
+      "sha256": "5b50c01808c568f2abe2ae975df9e8e7d4fc4af86ff75a71373a3762a1dcbb1d"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 75,
+      "path": "single-statements/0024/075.sql",
+      "sha256": "d1ea7019c55ad7a137edd6f106461d0b456a7d5451fc430754e0bebfe1690cc1"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 76,
+      "path": "single-statements/0024/076.sql",
+      "sha256": "b7f8a6dd8cdd4314bd9b6d356213f2c43685e8fababdcddfc0a1e68cec360265"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 77,
+      "path": "single-statements/0024/077.sql",
+      "sha256": "6b12060c4ed0c716f27a1313fa342df7f6feb4078d69749e71434189adc6506a"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 78,
+      "path": "single-statements/0024/078.sql",
+      "sha256": "eb518b4ea43292f003db896d78ac293bc1e417d2abfb7ce53f0d958bedbc7da2"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 79,
+      "path": "single-statements/0024/079.sql",
+      "sha256": "a42d3750a56b70e008344b8dcd672f1f05ffe302210fd249dc6acedc5874f090"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 80,
+      "path": "single-statements/0024/080.sql",
+      "sha256": "da9ac8352fa82c0b414d919495a315f15b05b52bef94b0536fc77916558a5b10"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 81,
+      "path": "single-statements/0024/081.sql",
+      "sha256": "eedb9978826991fd00fa99f8e1135882b040117df794cf1c28517f519daeb61d"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 82,
+      "path": "single-statements/0024/082.sql",
+      "sha256": "1429f18f890a833e1657ada57f6b311585dfa73b55a121c3c1b8cb7edc68120f"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 83,
+      "path": "single-statements/0024/083.sql",
+      "sha256": "02428f246a342a40b93b9907a2c88416ba54640fb16c738de8ca302bd20dc3ba"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 84,
+      "path": "single-statements/0024/084.sql",
+      "sha256": "4b4a1f23dcd66de611a859a4ace526a49ac6f409166c4f1d97d32ec50837b5d6"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 85,
+      "path": "single-statements/0024/085.sql",
+      "sha256": "2873492db0a994f2506e302d02ea0508e3a7af5e7422183d7899335a2915527a"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 86,
+      "path": "single-statements/0024/086.sql",
+      "sha256": "f431599e0743dc2e3fb3347c89defd170e63cfdf095f48165812102a5d9d9510"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 87,
+      "path": "single-statements/0024/087.sql",
+      "sha256": "abcc4cc9da7018c8223379b0ea53e165024709b05ce2de5941401b2fd5585fb4"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 88,
+      "path": "single-statements/0024/088.sql",
+      "sha256": "4d4aefc4f3395f2274a664deb153226dc6f5277fce071943e301a0d95f704974"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 89,
+      "path": "single-statements/0024/089.sql",
+      "sha256": "bec569dc5163bf982ae5f8a9655e0bce3bee9d9c0036cdf55768742d8ceaf428"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 90,
+      "path": "single-statements/0024/090.sql",
+      "sha256": "04c75c3f469d8f73688264366876d661f89627d705ed20230e3f2f08a5e4628a"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 91,
+      "path": "single-statements/0024/091.sql",
+      "sha256": "760b6ab32e47321915e2f74ad55450b63571087a4daeedc2275e0d3b5d04daa5"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 92,
+      "path": "single-statements/0024/092.sql",
+      "sha256": "be07cb669efda1f941708a6a2d3cca17d93cdea1942ecd708759cb94d0dbad8d"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 93,
+      "path": "single-statements/0024/093.sql",
+      "sha256": "b1d2caf668c2166399f2c7da24dc070351d6febcf2835605ad224e20056f8f97"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 94,
+      "path": "single-statements/0024/094.sql",
+      "sha256": "0c9782dabfd0e916a80c986f6f6004cf5f3d1cc9335a0c85231b46e669ad2c48"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 95,
+      "path": "single-statements/0024/095.sql",
+      "sha256": "84a74ca36e51cb3e07beca1808b38d6dc4d9aa278be4702011d8f9d717d4d584"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 96,
+      "path": "single-statements/0024/096.sql",
+      "sha256": "cf4c54fc19a8d724389368a6a766f871d96e1dca41fbc1182913eaa2f2eb4345"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 97,
+      "path": "single-statements/0024/097.sql",
+      "sha256": "176798dcc113738dc27fcf5f728c12e314b6642c08d2225c8009e507e70b2125"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 98,
+      "path": "single-statements/0024/098.sql",
+      "sha256": "26680c0199baee2e70e57503101ba9efe4e27fcb32c10e472a252e88075c7c12"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 99,
+      "path": "single-statements/0024/099.sql",
+      "sha256": "ab0ce76c837b0f1f5424952248173a463c722fdea1b009a8f0f49b6bfb94dbcb"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 100,
+      "path": "single-statements/0024/100.sql",
+      "sha256": "939664ba0f4b8b4b0fad763d33794d31e9272618e521a031831e70d4aeb44ebf"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 101,
+      "path": "single-statements/0024/101.sql",
+      "sha256": "a8fed9ba89ffb394a4c04a1c7980ee469cd586d43660fa4f9d3c7220132e327a"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 102,
+      "path": "single-statements/0024/102.sql",
+      "sha256": "7231ed13b10a4d4719a790e9ccb2e590215d02627dee45297a1dd45d45dc7e38"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 103,
+      "path": "single-statements/0024/103.sql",
+      "sha256": "da17072e1e13f25a6446b88a9b239e5e33883d59afba6987132085c79a840b73"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 104,
+      "path": "single-statements/0024/104.sql",
+      "sha256": "e68704292f07cc9a3f3d14ecfdfa8f2647c8d29afff1b8cffc191028f38463d8"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 105,
+      "path": "single-statements/0024/105.sql",
+      "sha256": "c3b9ed4f22f733d57323d23bddd0e43de01486b4ef3ea82992fdfc4fc8d71733"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 106,
+      "path": "single-statements/0024/106.sql",
+      "sha256": "8b04054cf4eda0449d3cb6c552a405363d5764bb2c1ebff42ed10d5925176d56"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 107,
+      "path": "single-statements/0024/107.sql",
+      "sha256": "44128883c0ea7ce11c8d2e8e17ddf29caddc1c5d9e85592e12f2f8a8ce891bbf"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 108,
+      "path": "single-statements/0024/108.sql",
+      "sha256": "2464c677fc822cbfebda7efbd66ac802c6f840e68c17326c4fc050f92f20141e"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 109,
+      "path": "single-statements/0024/109.sql",
+      "sha256": "2f0a369999be4ca7d37993f1a6931fb12c44a230a74fa9205bd929feaedea990"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 110,
+      "path": "single-statements/0024/110.sql",
+      "sha256": "56d08725695f9240c2e5980a9941ad5cb52ed811a59115a3525c12339a4857a5"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 111,
+      "path": "single-statements/0024/111.sql",
+      "sha256": "f020dcba0cedac898606e42812898f3e5958df08353331a81e8fcfe90ab18cee"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 112,
+      "path": "single-statements/0024/112.sql",
+      "sha256": "a9162e531505fad6298bfa28af3bb58004ac80c251f2e1b6db7c9469623949ec"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 113,
+      "path": "single-statements/0024/113.sql",
+      "sha256": "415c527e3ce44ac7b99ed34d36a0d1f06893d678fcd1fbdc9e136bf011eab5d7"
+    },
+    {
+      "migration": "0024_platform_management.sql",
+      "number": 24,
+      "step": 114,
+      "path": "single-statements/0024/114.sql",
+      "sha256": "37325100f7635b97404117d7f53a620d31d64bab69b21a559bb135c451acf6af"
+    }
+  ]
+}

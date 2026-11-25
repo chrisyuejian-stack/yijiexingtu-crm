@@ -1,0 +1,23 @@
+枫琴渠道系统 · 源码包（2026-11-12，对应线上“第八版修正2”）
+
+包含：第八版全部内容 + GPT“今天页查询嵌套”修复 + 推广长图加载修复。
+测试：npm test 与 TEST_BUNDLE=1 npm test 各 247 项全部通过。
+数据库迁移：migrations/ 下 0001–0018（第 1–23 个）。
+
+目录：
+  src/server     后端（GPT 负责）
+  src/tenant     机构端前端（Claude 负责）
+  src/console    平台控制台前端（Claude 负责）
+  src/ui         公共界面组件（Claude 负责）
+  migrations     数据库升级文件
+  tests          自动测试
+  scripts        打包、预览、导入等脚本
+  docs           各阶段说明文档
+  dev            本地预览用的模拟数据
+  tools          密钥生成器
+  work、验收结果  审查与验收记录
+
+不含：打包好的上传文件（dist、backup-dist，用 node scripts/build.mjs 重新生成）、验收截图。
+不含任何线上密钥。
+
+打包方法（需要 Node 24）：在本目录执行 node scripts/build.mjs，生成 dist（上传 Pages）和 backup-dist（备份 Worker）。

@@ -1,0 +1,17 @@
+{
+  "result": "pass",
+  "migrations": 24,
+  "single_statements": 674,
+  "steps_for_0022_0023_0024": {
+    "22": 18,
+    "23": 17,
+    "24": 114
+  },
+  "trigger_bodies_kept_whole": true,
+  "whole_and_split_schema_equal": true,
+  "foreign_key_check": [],
+  "quick_check": "ok",
+  "readonly_queries_executed": 5,
+  "helper_javascript_syntax": "pass",
+  "remote_execution": false
+}

@@ -1,0 +1,1 @@
+CREATE INDEX platform_phone_lookup ON platform_phone_index(phone_hmac_platform,tenant_id,user_id);

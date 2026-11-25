@@ -1,0 +1,21 @@
+{
+  "from": "0024",
+  "to": "0025",
+  "steps": [
+    {
+      "order": 1,
+      "file": "single-statements/01.sql",
+      "sha256": "88c1b513f4ca9ea454778991507fdd5ce4fa9a983f0a2301f2fc8f24f74408e0"
+    }
+  ],
+  "raw_migration_sha256": "88c1b513f4ca9ea454778991507fdd5ce4fa9a983f0a2301f2fc8f24f74408e0",
+  "new_tables": 0,
+  "new_columns": [
+    "content_items.article_json"
+  ],
+  "new_bindings": [],
+  "new_variables": [],
+  "new_secrets": [],
+  "new_deepseek_settings": [],
+  "remote_executed": false
+}

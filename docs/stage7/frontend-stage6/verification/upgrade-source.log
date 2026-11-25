@@ -1,0 +1,26 @@
+{
+  "result": "pass",
+  "mode": "source",
+  "from_migration": "0021",
+  "to_migration": "0023",
+  "steps": [
+    {
+      "file": "0022_content_and_ai.sql",
+      "old_tables_checked": 112,
+      "old_rows_preserved": 98,
+      "foreign_keys": 0,
+      "integrity": "ok"
+    },
+    {
+      "file": "0023_feedback_and_growth_reports.sql",
+      "old_tables_checked": 112,
+      "old_rows_preserved": 98,
+      "foreign_keys": 0,
+      "integrity": "ok"
+    }
+  ],
+  "synthetic_plan_and_revision_unchanged": true,
+  "old_confirmed_feedback_in_feed": true,
+  "new_feedback_rows": 0,
+  "remote_calls": 0
+}

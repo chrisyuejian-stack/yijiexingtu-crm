@@ -1,0 +1,120 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/schedule-platformdemo/api/plans",
+    "body": {
+      "student_id": "rec_5c2f6607f493a61496ab32b7",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "钢琴学习方案",
+      "style": {
+        "pack_id": "stp_folio"
+      }
+    },
+    "authenticated": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "student_id": "rec_5c2f6607f493a61496ab32b7",
+      "source_lead_id": null,
+      "subject": "music_interest",
+      "title": "钢琴学习方案",
+      "style": {
+        "pack_id": "stp_folio",
+        "pack_version": "1.0.0",
+        "cover_image_id": null,
+        "text_mode": "auto",
+        "focal_point": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "show_unit_price": false,
+        "show_latin_eyebrow": true,
+        "show_consultant": true
+      },
+      "meta": {
+        "start_month": "2026-11",
+        "target": {
+          "node_key": null,
+          "month": null,
+          "text": ""
+        },
+        "consultant_id": "usr_5226e8aabd8476aa6e831285",
+        "budget_cap": null
+      },
+      "modules": {
+        "cover": {
+          "visible": true,
+          "eyebrow": "",
+          "subtitle": ""
+        },
+        "assessment": {
+          "visible": true,
+          "text": "",
+          "source_note": "",
+          "strengths": [],
+          "gaps": [],
+          "goals": []
+        },
+        "path": {
+          "visible": true,
+          "stages": []
+        },
+        "courses": {
+          "visible": true,
+          "lines": []
+        },
+        "fees": {
+          "visible": true,
+          "installments": "per_stage",
+          "custom": [],
+          "due_dates": {},
+          "note": ""
+        },
+        "teachers": {
+          "visible": true,
+          "teacher_ids": []
+        },
+        "about": {
+          "visible": false,
+          "image_ids": []
+        }
+      },
+      "applied_suggestion_ids": [],
+      "computed": {
+        "stages": [],
+        "total": {
+          "units": 0,
+          "bundles": [],
+          "amount": 0
+        },
+        "budget": {
+          "cap": null,
+          "remaining": null,
+          "over": false
+        },
+        "installments": [],
+        "optional_fees": [],
+        "cover_numbers": [
+          {
+            "label": "规划周期",
+            "value": "0",
+            "unit": "个月",
+            "sub": ""
+          }
+        ]
+      },
+      "id": "pln_0af024bb5bc5944005886852",
+      "version": 1,
+      "status": "draft",
+      "current_revision_id": "rev_e3babfb5c5cd51fbd22361e0",
+      "sent_revision_id": null,
+      "signed_revision_id": null,
+      "updated_at": "2026-11-16T12:56:54.512+08:00",
+      "updated_by": "usr_5226e8aabd8476aa6e831285",
+      "id_map": {}
+    },
+    "queries": 6
+  }
+}

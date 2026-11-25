@@ -1,0 +1,1 @@
+CREATE TRIGGER package_owner_immutable BEFORE UPDATE OF tenant_id,student_id ON packages WHEN NEW.tenant_id IS NOT OLD.tenant_id OR NEW.student_id IS NOT OLD.student_id BEGIN SELECT RAISE(ABORT,'immutable_package_owner'); END;

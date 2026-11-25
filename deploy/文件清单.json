@@ -1,0 +1,604 @@
+{
+  "baseline_archive_sha256": "5700d6285b6f6253bbfb9eb3c11866474fc7d631583fa86e131addd7bce3df38",
+  "baseline_files": 1705,
+  "modified": [
+    {
+      "path": "package.json",
+      "allowed_additions": [
+        "dependencies.cos-nodejs-sdk-v5=3.0.0",
+        "scripts.start",
+        "scripts.test:platform",
+        "scripts.package:tencent"
+      ]
+    }
+  ],
+  "deleted": [],
+  "added": [
+    {
+      "path": "deploy/README.md",
+      "bytes": 16652,
+      "sha256": "a4f9647f72ff5c2d0a238c11dce9df4b125aed1805c09694869e7c410ee3bbc4"
+    },
+    {
+      "path": "deploy/app.env.example",
+      "bytes": 1170,
+      "sha256": "7de1cbc8b3d501e1564815784ab8c5fca35b1be8ef72797b43f7311a654cd195"
+    },
+    {
+      "path": "deploy/baseline-sha256.json",
+      "bytes": 197266,
+      "sha256": "010b2f966fdd7e4256750a5b186ba02f7477e4cded813246f179166593c352f0"
+    },
+    {
+      "path": "deploy/cam-role-policy.template.json",
+      "bytes": 649,
+      "sha256": "cea09ee8e54467ece28f13e32f11b5369a969b0a23570a7b659be796f3ce3aca"
+    },
+    {
+      "path": "deploy/cam-role-trust.json",
+      "bytes": 158,
+      "sha256": "f84df7d51b1f266bd5ea9503a9b8c9e3450e29baaaaaceff7c62a2e1c6098d57"
+    },
+    {
+      "path": "deploy/changes.patch",
+      "bytes": 520270,
+      "sha256": null
+    },
+    {
+      "path": "deploy/check-backup.mjs",
+      "bytes": 853,
+      "sha256": "d13c03af7d7a1c1f2f054c1a3576cbeb5353a295dd049acae2c5e6570637a15f"
+    },
+    {
+      "path": "deploy/check-scope.mjs",
+      "bytes": 2602,
+      "sha256": "2dec1070c647dfca67f0a3217005fea4946ae6d3523d621378ef72d7eefb25bc"
+    },
+    {
+      "path": "deploy/check-system.sh",
+      "bytes": 302,
+      "sha256": "d7ac2e11d013233c5d0d34500cdb0c2127e1a0216caa9768d181efde62087edc"
+    },
+    {
+      "path": "deploy/compare-object-counts.mjs",
+      "bytes": 721,
+      "sha256": "af7a868dfaeb486e934d8bc466dddc14437534b45579f2688cc0db118b630730"
+    },
+    {
+      "path": "deploy/d1-row-counts-rows.sql",
+      "bytes": 13179,
+      "sha256": "43a14220f505e5996a4fa569e1fc07ed2172e16dd76b0b6298feffe447402043"
+    },
+    {
+      "path": "deploy/d1-row-counts-single-line.sql",
+      "bytes": 13243,
+      "sha256": "20dacf3db8f62dcee831aace2983498119f49acfb6690c61e17cc5a886cd0a9e"
+    },
+    {
+      "path": "deploy/enable-nginx.sh",
+      "bytes": 1155,
+      "sha256": "9b2e18efc546f4a6590e5434e799ecb31a7ca4e6c5ca527036b586649282a868"
+    },
+    {
+      "path": "deploy/export-d1.command",
+      "bytes": 859,
+      "sha256": "dcf3da317455b348abd16a113f2c11878a5ad090fa10cbe99ce4d395b124361d"
+    },
+    {
+      "path": "deploy/export-to-d1.mjs",
+      "bytes": 2939,
+      "sha256": "7541c3153bf484f73f1d188b41b2f8f4b28c058dd053455fa5c6947fe7a90f90"
+    },
+    {
+      "path": "deploy/harden-ssh.sh",
+      "bytes": 614,
+      "sha256": "b550c17e93f2a9d7ff7830be9eb90b6c61c1d5d0df78e909001b039fd6827647"
+    },
+    {
+      "path": "deploy/health-check.mjs",
+      "bytes": 1087,
+      "sha256": "700df4da1e9212f4af085357b18b9087afde79120d0243c2cbed74febc052491"
+    },
+    {
+      "path": "deploy/import-d1.mjs",
+      "bytes": 2253,
+      "sha256": "ea5f98331044a72b0b30bf76c0ff557615c176e86be0ca1ee9343b2c81f73958"
+    },
+    {
+      "path": "deploy/install-rclone.sh",
+      "bytes": 554,
+      "sha256": "ca94c25d9b6500919e47a85644d7bcb23bdb0a8338182480bf40fb78d03b8fb1"
+    },
+    {
+      "path": "deploy/install.sh",
+      "bytes": 5153,
+      "sha256": "961635e75337128c163c34d7ad0657331f80b40d4e76c43a3b35fe96e1a0f923"
+    },
+    {
+      "path": "deploy/issue-certs.sh",
+      "bytes": 1227,
+      "sha256": "6dd5c1e88b5e32480f89862544484e3c0f35203a96fa1e7c476834329059243d"
+    },
+    {
+      "path": "deploy/maintenance-off.sh",
+      "bytes": 400,
+      "sha256": "a7520df5da11439296588bc44846e5d7c2c523fb77f39d43755c8f6ba4fc7ab8"
+    },
+    {
+      "path": "deploy/maintenance-on.sh",
+      "bytes": 250,
+      "sha256": "014bbb8f6eb95d98fedacad695176124877064e77fdcd5b96dfa63cbfc4557f5"
+    },
+    {
+      "path": "deploy/maintenance-pages/_routes.json",
+      "bytes": 44,
+      "sha256": "6a5235a7db8c26c17606b7f16516509989e8b2c8307280cc53c30e03e63d4a6a"
+    },
+    {
+      "path": "deploy/maintenance-pages/_worker.js",
+      "bytes": 521,
+      "sha256": "c99d3a39997323230142121178e0da1d04219708825fb116eab6c35da8f43cf0"
+    },
+    {
+      "path": "deploy/maintenance-pages/index.html",
+      "bytes": 294,
+      "sha256": "1c9076269991703a09b5080743d29ef90e0a1816df58296054ae8a74f470f8ae"
+    },
+    {
+      "path": "deploy/migrate.mjs",
+      "bytes": 6945,
+      "sha256": "14e886da2ca95a80215e6f1e61d0372ea95df098de6f177481549ed661b95a1a"
+    },
+    {
+      "path": "deploy/nginx-main.conf",
+      "bytes": 358,
+      "sha256": "7e45948572c96ac1af1a6122cf55a03000d1d378aa402a652ff3ab97bfda0807"
+    },
+    {
+      "path": "deploy/nginx-proxy.conf",
+      "bytes": 886,
+      "sha256": "26e38197a6b64efe6ece41899515ef5e7aabfeae1c0f12c4454f2cef60dbaf30"
+    },
+    {
+      "path": "deploy/nginx.conf",
+      "bytes": 1284,
+      "sha256": "bcda7a3ffbf09b2b78badb8c05ba4c2a217ba980984cc68c474347e91b9e6fa3"
+    },
+    {
+      "path": "deploy/npm/package-lock.json",
+      "bytes": 28376,
+      "sha256": "4d4747942b84804fc00fc5d5c38c7df81408f40240bc86053f04a46025be4e7f"
+    },
+    {
+      "path": "deploy/npm/package.json",
+      "bytes": 144,
+      "sha256": "0bd50a3ea2a007c061b30af3b00223848cc607536bc0f0c98d02fcb4562e14c0"
+    },
+    {
+      "path": "deploy/package-tencent.mjs",
+      "bytes": 641,
+      "sha256": "04a5a1a813814c039752dfdc9757e9519266e7d6392b373282a8296282a14e95"
+    },
+    {
+      "path": "deploy/rclone-role.mjs",
+      "bytes": 1839,
+      "sha256": "3a8465a4412b268d63fa70c0de92a8d0ccc8340347b16ad779c6e263ae37fabe"
+    },
+    {
+      "path": "deploy/rclone.conf.example",
+      "bytes": 512,
+      "sha256": "6d60fc98034c5149f410b3b898ca9e653e4725858fd3dc5ccb43f5b14fa26f45"
+    },
+    {
+      "path": "deploy/reference/base-package.json",
+      "bytes": 765,
+      "sha256": "4fbbbad78485c2b9cb28c89ed14a06e036f46a5a64a84469f7699dffc6d8b3ae"
+    },
+    {
+      "path": "deploy/reference/腾讯云迁移设计方案_20261118.md",
+      "bytes": 28077,
+      "sha256": "225e44b650e337e5011ea072aef65c1ddf09685147c38867a9276f5e2d755c6f"
+    },
+    {
+      "path": "deploy/rehearsal-storage.mjs",
+      "bytes": 2503,
+      "sha256": "a62fe0d65eb4e7f1f143e33e44c2373ecf3b97c6141ba2b5d1f861223a28da51"
+    },
+    {
+      "path": "deploy/release-manager.mjs",
+      "bytes": 14829,
+      "sha256": "5c40f3d4efda00a165f50cfe2ed687cbcf8abc0d39ebdd1cb73149a4e079c484"
+    },
+    {
+      "path": "deploy/release-ops.mjs",
+      "bytes": 3424,
+      "sha256": "27fa84d0072c2a5ba9d75ae8aa0aa561a60c3631f488785fed674659dc0fef3c"
+    },
+    {
+      "path": "deploy/release-package.mjs",
+      "bytes": 7720,
+      "sha256": "d5dfaafca4db06457b12cb67e406b1a669ff15dd037af8db626b413de3a013ed"
+    },
+    {
+      "path": "deploy/render-cam-policy.mjs",
+      "bytes": 802,
+      "sha256": "af0794cfe64013a535e29b90d72990c3a7efaeb62082d12ff901af290776adc3"
+    },
+    {
+      "path": "deploy/restore-file-snapshot.mjs",
+      "bytes": 1932,
+      "sha256": "6d2eaa808a24e03d533ca86a7c4041ebe3eb67278cbd6a58a418ea17bf6dd02f"
+    },
+    {
+      "path": "deploy/restore-update-db.mjs",
+      "bytes": 4033,
+      "sha256": "11073b8bdbac0ea7fca8f1cc125229b378e243f05896544488fcec3dce1cbe02"
+    },
+    {
+      "path": "deploy/rollback.sh",
+      "bytes": 357,
+      "sha256": "aed32f78da37ea75b81e8624b017cb23d25229579267671629db2a9645f4ae89"
+    },
+    {
+      "path": "deploy/run-env.sh",
+      "bytes": 253,
+      "sha256": "1eb921b18b29fbd14c21e86a8be53d9de716f09f27204239549f229ad8e1f75b"
+    },
+    {
+      "path": "deploy/setup-env.mjs",
+      "bytes": 2001,
+      "sha256": "3cad3c89209d2348b7b67b8990b32778ff07abc043da9523b0a9640f721b0f6b"
+    },
+    {
+      "path": "deploy/snapshot.mjs",
+      "bytes": 2543,
+      "sha256": "ae66374cfbf5b66d5e1264afb11985c8c2c5161fda36df87aa52f6aa15a75bba"
+    },
+    {
+      "path": "deploy/update.mjs",
+      "bytes": 1485,
+      "sha256": "c0280ccd01417e1a58123c0ca0a5e2eda979d8aeef05611ec4273ca3f07706d4"
+    },
+    {
+      "path": "deploy/update.sh",
+      "bytes": 386,
+      "sha256": "c1763fb93afefeabe83921b50a3c776f66d2c7f526330ae511b88d5b4b9a22bb"
+    },
+    {
+      "path": "deploy/verification/artifacts.json",
+      "bytes": 1784,
+      "sha256": "ad00ee0b9048a42f7361b3aa4f10944fb8017c9b0e6ea8d8a9de0c272f983020"
+    },
+    {
+      "path": "deploy/verification/build-release.log",
+      "bytes": 261,
+      "sha256": "088d923a75627f306b4baed881a31a5a42aea6eb336aabd4f9ae27c1c5482d53"
+    },
+    {
+      "path": "deploy/verification/build.log",
+      "bytes": 261,
+      "sha256": "088d923a75627f306b4baed881a31a5a42aea6eb336aabd4f9ae27c1c5482d53"
+    },
+    {
+      "path": "deploy/verification/legacy-bundle-release.log",
+      "bytes": 91554,
+      "sha256": "b2af287ac9e640364db8e26fbea56314d4a4a386674d4744fe67c028298dc767"
+    },
+    {
+      "path": "deploy/verification/legacy-bundle.log",
+      "bytes": 91537,
+      "sha256": "b28fbd2b57d251c6f15fdd52284c7f552b42e558cc3f27edd70c3ffb74539c32"
+    },
+    {
+      "path": "deploy/verification/legacy-source-release.log",
+      "bytes": 91554,
+      "sha256": "f855dab38b89b3643c3e7ec0f42c92d2cc39f6576cae663406d92bc1d0609d81"
+    },
+    {
+      "path": "deploy/verification/legacy-source.log",
+      "bytes": 91555,
+      "sha256": "413fa0aa62d0e5c1713d7fe68b8e0f4d2fb1ae9666e5699bd181d87f41e8c75d"
+    },
+    {
+      "path": "deploy/verification/npm-ci-offline.log",
+      "bytes": 28,
+      "sha256": "5dac4beec01b85c4a57aea288d1197ec016deb68b8f9295fd3d787b1f0643980"
+    },
+    {
+      "path": "deploy/verification/npm-install.log",
+      "bytes": 25,
+      "sha256": "2d7b19522f5927a430127e7058615d0bca0c39ea6a57198199c8dcc68d0b2b98"
+    },
+    {
+      "path": "deploy/verification/package-command-check.log",
+      "bytes": 5834,
+      "sha256": "e2691b8b9e6db608e414ae651713aa7f10c70a90ea9f1e3f574bf5ccc51ee459"
+    },
+    {
+      "path": "deploy/verification/package-command-final.log",
+      "bytes": 5922,
+      "sha256": "6c17fdc3fde968a84b72acc271b89e695eef5d4eeb4570bd6212e186529c4166"
+    },
+    {
+      "path": "deploy/verification/package-json.diff",
+      "bytes": 925,
+      "sha256": "7828d251fa09644eb0c446e3abbd4a48f8da28f550a396d572b0215da627ea22"
+    },
+    {
+      "path": "deploy/verification/patch-check.log",
+      "bytes": 90,
+      "sha256": "5c11256947c3479412904a9ff7db9b4465c347a757da970b5dc677472fe4e33e"
+    },
+    {
+      "path": "deploy/verification/platform-e2e.json",
+      "bytes": 1040,
+      "sha256": "48623f6541fbe954f32f8a8d58b710c30f9db6dfd1f73afec6fa106a040f3788"
+    },
+    {
+      "path": "deploy/verification/platform-final.log",
+      "bytes": 3863,
+      "sha256": "535902aad3c1fb5acf78e130800389a2d80169d1a57b2c7bfca8383d21a7e3c0"
+    },
+    {
+      "path": "deploy/verification/platform-first.log",
+      "bytes": 4272,
+      "sha256": "86fe1ce5811ab4dbf2111973e1001e7bfeef84f403e159fea6c5aca5ff32db54"
+    },
+    {
+      "path": "deploy/verification/platform-release-final.log",
+      "bytes": 5626,
+      "sha256": "c98ab5b0f9e841c39ca7eadcae95b2178d1fe6d603c8b683d4cff9968268d307"
+    },
+    {
+      "path": "deploy/verification/platform-second.log",
+      "bytes": 3020,
+      "sha256": "425b298bc84f7c410ec6601946978963501313de25051e06290d0906fe4aadc1"
+    },
+    {
+      "path": "deploy/verification/platform-third.log",
+      "bytes": 3615,
+      "sha256": "e2e8a3c8131d404ec75a9a00ff40833951a0d169c83360c917b17809c9f4011a"
+    },
+    {
+      "path": "deploy/verification/releases-final.log",
+      "bytes": 1874,
+      "sha256": "6992bf92aa4d21a0c50ff81cd3c499ae4c494636957153141c2c13dc29bdb6fe"
+    },
+    {
+      "path": "deploy/verification/releases-first.log",
+      "bytes": 1762,
+      "sha256": "afe00e31a086b117af8f102cfc4fcd6ffad8a82393f0ed2f90e201f4e2147971"
+    },
+    {
+      "path": "deploy/verification/runtime-package.json",
+      "bytes": 367,
+      "sha256": "0f1d63a312fb68600c0afd81110330cbd32013519bf16468a3e2fd49e47a9f5d"
+    },
+    {
+      "path": "deploy/verification/scope.json",
+      "bytes": 4526,
+      "sha256": "dccb84873668cf9ddcc582f5cff91a21ba060dc7a4590747fbd0783db5bf2d05"
+    },
+    {
+      "path": "deploy/verification/syntax-check.log",
+      "bytes": 1792,
+      "sha256": "3d74e22a354e70d99270d8e57637961b439432ee5bc24a845acc54c5a4e04db1"
+    },
+    {
+      "path": "deploy/verification/systemd-check.log",
+      "bytes": 62,
+      "sha256": "37f33dd56958d052c6755cc7e933606b79ede62d3ae5e19a4ade4bd5b0f80111"
+    },
+    {
+      "path": "deploy/verification/systemd-offline-check.log",
+      "bytes": 153,
+      "sha256": "a83c0ffdb74d3369d35d0c3619254111708c16ca4bc225f0704dfcba16210f53"
+    },
+    {
+      "path": "deploy/verification/systemd-parser-final.log",
+      "bytes": 181,
+      "sha256": "9e9e3a187f61e24dd32de0c54c39ebc760ab92d1a38f1920029f71df16076145"
+    },
+    {
+      "path": "deploy/verification/systemd-user-parser.log",
+      "bytes": 362,
+      "sha256": "2bf3a16b2696ad6fe40d8899e55805cc9ae5709a3f0b93c6bd74cae228e5d30e"
+    },
+    {
+      "path": "deploy/verification/tests-summary.json",
+      "bytes": 1232,
+      "sha256": "a48dbfd337e9283fd9b6b7dbeef0c106cf911f987b65537e41d995802269542b"
+    },
+    {
+      "path": "deploy/verify.mjs",
+      "bytes": 1748,
+      "sha256": "7d230d8ecee4d551cabd516f73ae292831ebc8ae4bc37dc4fd07576c4a10ebe9"
+    },
+    {
+      "path": "deploy/with-env.mjs",
+      "bytes": 1010,
+      "sha256": "f2274d5aec8ccd68f080fa7d3d557a69b73f681b40b58ee320e22838f990bbee"
+    },
+    {
+      "path": "deploy/yijiexingtu-backup-check.service",
+      "bytes": 315,
+      "sha256": "3393a092f86dd7096a710e8167d0dbae6babf39892dc17498339bd44fe2a12d6"
+    },
+    {
+      "path": "deploy/yijiexingtu-backup-check.timer",
+      "bytes": 174,
+      "sha256": "0f83fbcb1d0a651184fbc30882e178db8087dc64af586891aaf0df399a1e61d7"
+    },
+    {
+      "path": "deploy/yijiexingtu-health.service",
+      "bytes": 315,
+      "sha256": "28f212a949bd8d8399653393ce467e48e25c3439a60ade34b0c200377712f413"
+    },
+    {
+      "path": "deploy/yijiexingtu-health.timer",
+      "bytes": 169,
+      "sha256": "c287436a7dda68a81dcabb49eec97929651260a804ad77399e66291ffbb4f548"
+    },
+    {
+      "path": "deploy/yijiexingtu-snapshot.service",
+      "bytes": 434,
+      "sha256": "157328da43575708343d1d8f892f3de0db263db54f4a7c97aede1b2fa1d8b64f"
+    },
+    {
+      "path": "deploy/yijiexingtu-snapshot.timer",
+      "bytes": 193,
+      "sha256": "40f7969346ce7492e2665689f8ead2bc46b9104472a175100a59ca03d0cb697d"
+    },
+    {
+      "path": "deploy/yijiexingtu.service",
+      "bytes": 645,
+      "sha256": "4fce98b45e8e7f465ddfcd40933176c66f9c7cde130fd2976ccbcdb89e026655"
+    },
+    {
+      "path": "deploy/zip.mjs",
+      "bytes": 4435,
+      "sha256": "d9f08bae0e08ec3bd061122283c596748aedb6a170d97d2c7b3191b93b84e2e1"
+    },
+    {
+      "path": "deploy/交付说明.md",
+      "bytes": 5438,
+      "sha256": "26ba8af546f21e9a82c24a66c25804f1dddd1dfd9328088ffcf516e86cc8ddc7"
+    },
+    {
+      "path": "deploy/回滚操作单.md",
+      "bytes": 5261,
+      "sha256": "846e107fb907291730e691c4d68a2f2276a8a7a66833fdb3ed9da78f5a133a5d"
+    },
+    {
+      "path": "deploy/文件清单.json",
+      "bytes": 19238,
+      "sha256": null
+    },
+    {
+      "path": "deploy/测试结果.md",
+      "bytes": 6007,
+      "sha256": "862878ebf7e30fc0713573c9ada6d29294a22160b854a4bb137f9cb831af6236"
+    },
+    {
+      "path": "deploy/版本化发布与回滚.md",
+      "bytes": 10033,
+      "sha256": "34e9af0c6f78dfc61b7e2edc8a438ad4203bb06fff06fadf2f2b4f4fef637731"
+    },
+    {
+      "path": "deploy/给Claude的控制台与部署对接.md",
+      "bytes": 3199,
+      "sha256": "97ff90fdd16a7f06c05e53f6073ce28617c7d16a8f807e34599bf090efa3d97e"
+    },
+    {
+      "path": "deploy/预演与正式切换操作单.md",
+      "bytes": 5742,
+      "sha256": "e7a0f5befd83e91215b37d0148bbcd54e831934cc565af58fb0294440ce9d9d1"
+    },
+    {
+      "path": "platform/assets.mjs",
+      "bytes": 1829,
+      "sha256": "ea7764439692d4f050911def42443f9aa420e8923348f4ceedbba540bb6cf1f1"
+    },
+    {
+      "path": "platform/bridge.mjs",
+      "bytes": 3755,
+      "sha256": "2498c774111ead522ed0d7a2ea8bea4a1e6fc2d0e1d1c40f32e381975aea4866"
+    },
+    {
+      "path": "platform/config.mjs",
+      "bytes": 5134,
+      "sha256": "fd33f453079bb1c8b9491b502c6dd864f4826fe5209e9e0560457d0be88ca902"
+    },
+    {
+      "path": "platform/cos-auth.mjs",
+      "bytes": 1427,
+      "sha256": "3fd0cfb9f442a853dcf78ad962fba22b1c97a47d02c78c9e51dca234100f6199"
+    },
+    {
+      "path": "platform/d1-sqlite.mjs",
+      "bytes": 4081,
+      "sha256": "ac4a383a6ffa925b219d7fc914f6f2ab79414972b77d8d297516902307f62c03"
+    },
+    {
+      "path": "platform/env-file.mjs",
+      "bytes": 1236,
+      "sha256": "5633c1d311c13a3838a60fc4f17ddca3706023d83c65b314ea400e6e534c4b1e"
+    },
+    {
+      "path": "platform/log.mjs",
+      "bytes": 319,
+      "sha256": "f1e6e20e2ee5e0ac6786ae57dfa20de42162c696e28333fe75d6a6c0ad6c3d07"
+    },
+    {
+      "path": "platform/r2-cos.mjs",
+      "bytes": 5227,
+      "sha256": "4643546535eb43de15672981f860ac4dffc052e94298d43602fc2c05ed2b955f"
+    },
+    {
+      "path": "platform/scheduler.mjs",
+      "bytes": 2023,
+      "sha256": "dfd1146cab5febc8f235bfc322f7482b3ada2c981db5cff87306779af1e2dd2e"
+    },
+    {
+      "path": "platform/sql.mjs",
+      "bytes": 3226,
+      "sha256": "e2060c8b4b62365cf3fe1d3c4c524264c48780554b72d0ff8ab136b7200b2131"
+    },
+    {
+      "path": "platform/verify.mjs",
+      "bytes": 4339,
+      "sha256": "e3a7afcea8ae027dd40651abc7fe29265f4f930f136c8b0744a8d9f71802e1a1"
+    },
+    {
+      "path": "server.mjs",
+      "bytes": 3996,
+      "sha256": "5c28c667bc58a8090d2b326bfa76923c53fc148da508f277ac20dbeea0818efb"
+    },
+    {
+      "path": "tests/platform/bridge-assets.test.mjs",
+      "bytes": 3641,
+      "sha256": "1dd0d321e0649f62f2fde747949123f2f5c3a7c23399c37e5f49145b4585873f"
+    },
+    {
+      "path": "tests/platform/cos.test.mjs",
+      "bytes": 4249,
+      "sha256": "ce9604aa3c13c490938ac9a8e36981a779c26204bf9e37019bb92f5e46dcaf4d"
+    },
+    {
+      "path": "tests/platform/d1.test.mjs",
+      "bytes": 4141,
+      "sha256": "cfa760bf9bc7e3300ebecc440b91f1ccc28023546b955554afdec9a166471812"
+    },
+    {
+      "path": "tests/platform/e2e.test.mjs",
+      "bytes": 5680,
+      "sha256": "16e56d3f077a7c5d117eec18d467a20539e8a8e3274a0a55249744fa394a74da"
+    },
+    {
+      "path": "tests/platform/helpers.mjs",
+      "bytes": 3707,
+      "sha256": "d45eb49f95f3eab724a39050f57f9a3bf9698427b5e5c3adecf9f743572c9d62"
+    },
+    {
+      "path": "tests/platform/migration.test.mjs",
+      "bytes": 6349,
+      "sha256": "423892fc8a54932e0ec6d926f0b88df5f97553cd764cb0e553100382d081c997"
+    },
+    {
+      "path": "tests/platform/operations.test.mjs",
+      "bytes": 5212,
+      "sha256": "ccad9343f545200001fb9038dfb37b6ef6c071339e81d358b4047b01f0b42f38"
+    },
+    {
+      "path": "tests/platform/releases.test.mjs",
+      "bytes": 14171,
+      "sha256": "f448eb6e93a708eb1071f06370c26394a488d874c6abf5556122932a21fec8dc"
+    },
+    {
+      "path": "tests/platform/scheduler-config.test.mjs",
+      "bytes": 3129,
+      "sha256": "447bce463db3dc6eb97be94bc4ad34042a4164d051515941bb2257245aa7d684"
+    }
+  ],
+  "note": "changes.patch contains implementation/config/docs/lockfile; generated verification files are delivered in full. Self-containing index/patch have no self hash."
+}

@@ -1,0 +1,1 @@
+CREATE TABLE campaign_targets(tenant_id TEXT NOT NULL REFERENCES tenants(id),id TEXT NOT NULL,campaign_id TEXT NOT NULL REFERENCES campaigns(id),PRIMARY KEY(tenant_id,id),UNIQUE(tenant_id,campaign_id));

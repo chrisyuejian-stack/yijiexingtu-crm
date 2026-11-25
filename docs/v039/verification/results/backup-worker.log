@@ -1,0 +1,10 @@
+{
+  "result": "pass",
+  "actual_artifact": "backup-dist/backup-worker.js",
+  "encrypted_manifest": true,
+  "new_article_column_in_encrypted_shard": true,
+  "article_revision_json_in_encrypted_shard": true,
+  "old_media_bucket_preserved": true,
+  "fetch_status": 404,
+  "remote_calls": 0
+}

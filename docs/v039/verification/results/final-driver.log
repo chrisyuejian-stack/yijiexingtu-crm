@@ -1,0 +1,13 @@
+START build
+END build 0
+START new-source
+END new-source 0
+START new-bundle
+END new-bundle 0
+START source
+END source 0
+START bundle
+END bundle 0
+START preflight
+END preflight 0
+FINAL_FROZEN_ALL_GATES_PASSED

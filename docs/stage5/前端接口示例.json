@@ -1,0 +1,1926 @@
+{
+  "scope": "本地实际HTTP请求与响应；模型用本地桩，非线上服务。认证仅标识，不包含会话或Access凭据。",
+  "contract": "v0.3.6",
+  "notes": [
+    "所有路径保留实际测试slug；生产用登录返回的api_base替换。",
+    "AI各请求保留真实Idempotency-Key；重复重试复用，重新生成换UUID。",
+    "ops PUT示例特意带must-ignore伪密钥字段以验证忽略；密钥只能由服务器环境变量配置。",
+    "本文单个示例不是同一业务文档的顺序教程；完整调用序列见verification原始HTTP记录。"
+  ],
+  "interfaces": [
+    {
+      "endpoint": "GET /api/content",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content?type=article&author=usr_2799cbcbbdcfc27c6c44f193&limit=1",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "type": "article",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "新标题",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+              "version": 2,
+              "status": "draft",
+              "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+              "created_at": "2026-11-15T22:14:10.330+08:00",
+              "updated_at": "2026-11-15T22:14:10.340+08:00"
+            }
+          ],
+          "total": 1,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/content",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "tenant_id": "foreign",
+          "author_id": "foreign"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.330+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "GET /api/content/{id}",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.340+08:00"
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "PUT /api/content/{id}",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": {
+          "version": 1,
+          "title": "新标题"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 2,
+          "status": "draft",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.340+08:00"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "DELETE /api/content/{id}",
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": {
+          "version": 6
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "POST /api/content/{id}/status",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3/status",
+        "body": {
+          "version": 2,
+          "status": "ready"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "新标题",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+          "version": 3,
+          "status": "ready",
+          "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+          "created_at": "2026-11-15T22:14:10.330+08:00",
+          "updated_at": "2026-11-15T22:14:10.380+08:00"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "endpoint": "GET /api/content/scenes",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/scenes",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "music_interest:type:0",
+              "subject": "music_interest",
+              "name": "课程介绍 / 招生简章",
+              "required": [
+                "适合谁",
+                "学什么",
+                "上课形式与时间",
+                "报名方式"
+              ],
+              "optional": [
+                "师资",
+                "学员作品",
+                "常见问题"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:1",
+              "subject": "music_interest",
+              "name": "体验课邀约",
+              "required": [
+                "体验内容",
+                "时间地点",
+                "预约方式"
+              ],
+              "optional": [
+                "老师介绍",
+                "家长常问"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:2",
+              "subject": "music_interest",
+              "name": "考级报名提醒",
+              "required": [
+                "考级时间",
+                "报名截止",
+                "需要准备什么"
+              ],
+              "optional": [
+                "各级别要求",
+                "冲刺课安排"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:3",
+              "subject": "music_interest",
+              "name": "演出预告 / 回顾",
+              "required": [
+                "活动概况",
+                "时间地点或现场亮点"
+              ],
+              "optional": [
+                "节目单",
+                "学员和家长感言",
+                "下一场预告"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:4",
+              "subject": "music_interest",
+              "name": "考级 / 比赛喜报",
+              "required": [
+                "成绩概况",
+                "祝贺"
+              ],
+              "optional": [
+                "学员故事",
+                "老师寄语"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "music_interest:type:5",
+              "subject": "music_interest",
+              "name": "寒暑假班招生",
+              "required": [
+                "班型",
+                "时间",
+                "报名方式"
+              ],
+              "optional": [
+                "往期回顾",
+                "优惠说明"
+              ],
+              "course_ids": [
+                "crs_a4e5daf374d8c87376be6177",
+                "crs_69f5d6ae8855e09b1936fa85",
+                "crs_ba8edfaaa39cf6a91a613b24",
+                "crs_35f173cfe03ddec2ffaf8250",
+                "crs_738990c9c007078666b1c0e5",
+                "crs_45110ce57e847c612af6d317",
+                "crs_4f55b01bc66391e9ae6fecae",
+                "crs_294a721e501b272879fdddf1",
+                "crs_0c533ab5cef823dd57abce03",
+                "crs_b98f084e0512a056b510b649",
+                "crs_6f9fc1de1ea033e2e4e39777",
+                "crs_05ad838b4cf0bcab53986e92",
+                "crs_fe885ea54e4805d5f8bbbbad",
+                "crs_cdf386d4d6503263a304b420",
+                "crs_9b9933ad117f96f38f07892b",
+                "crs_f38db0304a4e7d2473897ed4",
+                "crs_2048b89c27e29fe501ff9206",
+                "crs_90952ff3368c763de771adc9",
+                "crs_997d855561c712d94eaafc1c",
+                "crs_8a4fbae2973c7f0b1cf03152",
+                "crs_4d80abf99ba005eb2caecbdc",
+                "crs_828b6e04626089e41bd20a0a",
+                "crs_982faa6ecc6b9b800e42c395",
+                "crs_69d15664293eaf73fb42bbc9",
+                "crs_3d605c366600e9d5a2f83ef7",
+                "crs_2e9669621730e9e6b2737225",
+                "crs_f9554ac7ad5f3e315566c3fb"
+              ]
+            },
+            {
+              "id": "grade_exam",
+              "name": "考级季",
+              "months": [
+                1,
+                7,
+                8
+              ],
+              "subject": null,
+              "course_ids": []
+            },
+            {
+              "id": "showcase",
+              "name": "汇报演出",
+              "months": [
+                6,
+                12
+              ],
+              "subject": null,
+              "course_ids": []
+            },
+            {
+              "id": "winter_camp",
+              "name": "寒假集训",
+              "months": [
+                1,
+                2
+              ],
+              "subject": null,
+              "course_ids": []
+            },
+            {
+              "id": "summer_camp",
+              "name": "暑假集训",
+              "months": [
+                7,
+                8
+              ],
+              "subject": null,
+              "course_ids": []
+            }
+          ]
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/styles",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/styles?doc_type=article",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "id": "stp_article",
+              "name": "简洁文章",
+              "version": "1.0.0",
+              "thumbnail": null,
+              "manifest": {
+                "id": "stp_article",
+                "name": "简洁文章",
+                "version": "1.0.0",
+                "doc_types": [
+                  "article"
+                ],
+                "subjects": [
+                  "*"
+                ],
+                "tokens": {
+                  "color": {
+                    "primary": "#A3271F",
+                    "ink": "#2B1A16",
+                    "paper": "#FFF8F0",
+                    "accent": "#F4C08A",
+                    "muted": "#7A5A50",
+                    "use_tenant_primary": true
+                  },
+                  "font": {
+                    "display": "noto-serif-sc",
+                    "body": "noto-sans-sc",
+                    "latin": "cormorant-italic"
+                  }
+                },
+                "components": {
+                  "plan.cover": "folio",
+                  "plan.section_header": "numeral",
+                  "plan.stage_block": "band",
+                  "plan.total_card": "solid",
+                  "report.header": "band",
+                  "feedback_card.header": "plain"
+                },
+                "decor": {
+                  "cover_frame": "none"
+                },
+                "cover_text_modes": [
+                  "auto",
+                  "dark",
+                  "light",
+                  "panel"
+                ],
+                "thumbnail": null
+              }
+            }
+          ]
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /api/styles/{pack_id}/versions/{v}",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/styles/stp_article/versions/1.0.0",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "stp_article",
+          "name": "简洁文章",
+          "version": "1.0.0",
+          "manifest": {
+            "id": "stp_article",
+            "name": "简洁文章",
+            "version": "1.0.0",
+            "doc_types": [
+              "article"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": null
+          }
+        },
+        "queries": 3
+      }
+    },
+    {
+      "endpoint": "GET /s/{token}",
+      "request": {
+        "method": "GET",
+        "path": "/s/invalid-token",
+        "body": null,
+        "authenticated": false
+      },
+      "response": {
+        "status": 200,
+        "body": "<!doctype html>\n<html lang=\"zh-CN\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <meta name=\"robots\" content=\"noindex\" />\n    <meta name=\"tenant-base\" content=\"/\" />\n    <meta name=\"turnstile-mode\" content=\"off\" />\n    <title>学习方案</title>\n    <link rel=\"stylesheet\" href=\"/assets/tenant.css\" />\n    <script src=\"/assets/tenant.js\" defer></script>\n  </head>\n  <body class=\"ui-root yx-share-body\">\n    <main id=\"root\"><p class=\"loading\">正在打开学习方案…</p></main>\n    <div id=\"toast\" role=\"status\" hidden></div>\n  </body>\n</html>\n",
+        "queries": 0,
+        "headers": {
+          "content-type": "text/html",
+          "x-robots-tag": "noindex",
+          "referrer-policy": "no-referrer",
+          "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; object-src 'none'"
+        }
+      }
+    },
+    {
+      "endpoint": "GET /api/ai/usage",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/ai/usage",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "date": "2026-11-15",
+          "fast": {
+            "used": 2,
+            "limit": 80
+          },
+          "deep": {
+            "used": 0,
+            "limit": 50
+          },
+          "by_tool": [
+            {
+              "tool": "content",
+              "fast": 2,
+              "deep": 0
+            }
+          ],
+          "by_user": [
+            {
+              "user_id": "usr_992141f3ea7f88c4aca166e6",
+              "name": "主管",
+              "fast": 2,
+              "deep": 0
+            }
+          ],
+          "warnings": []
+        },
+        "queries": 5
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/plan/fill-from-consult",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/fill-from-consult",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b717895d-af04-4bbe-9bc6-d44f4575f77a"
+        },
+        "body": {
+          "plan_id": "pln_df1672ac4bc414bd2f20f86f",
+          "context": {
+            "student": {
+              "phone": "13999998888",
+              "name": "客户伪造"
+            }
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_72fa53928bc3309c871dac59",
+              "kind": "plan.fields",
+              "target": {
+                "plan_id": "pln_df1672ac4bc414bd2f20f86f"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "modules.assessment.text",
+                    "value": "加强读谱",
+                    "quote": "希望加强读谱"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "已丢弃无法核对咨询原话的字段：modules.assessment.source_note"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/plan/stage-courses",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/stage-courses",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "2c3af70f-306c-4049-bcb5-3498838f04db"
+        },
+        "body": {
+          "plan_id": "pln_ee1b00608f1e69c62d829fa2",
+          "context": {
+            "tenant_id": "other",
+            "courses": [
+              {
+                "amount": 1
+              }
+            ]
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_ffd5cd2c2bd27754688416c6",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_ee1b00608f1e69c62d829fa2"
+              },
+              "payload": {
+                "variant": "recommended",
+                "price_list_rev": 5,
+                "lines": [
+                  {
+                    "line_id": "ln_67d97f7c3c2625d982355bb8",
+                    "stage_key": "stk_8fadf8b487b100ba170971f1",
+                    "course_id": "crs_32ac490753fb4b27c3eef2cb",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  },
+                  {
+                    "line_id": "tmp_ai_b1faf0e6d5d19859dc04acc0_1",
+                    "stage_key": "stk_8fadf8b487b100ba170971f1",
+                    "course_id": "crs_6d3a4cd6d5a87603edbfd54a",
+                    "qty": {
+                      "units": 1
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_8fadf8b487b100ba170971f1",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 3,
+                      "amount": 500
+                    }
+                  ],
+                  "total": {
+                    "units": 3,
+                    "bundles": [],
+                    "amount": 500
+                  },
+                  "budget": {
+                    "cap": 550,
+                    "remaining": 50,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_8fadf8b487b100ba170971f1",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 500
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/plan/polish",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/polish",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "afb26c4c-c6b6-4d75-81fb-e904572b8d27"
+        },
+        "body": {
+          "plan_id": "pln_5a5b111662e154b976016767"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_0d8905e90f574accbdef4c06",
+              "kind": "plan.text",
+              "target": {
+                "plan_id": "pln_5a5b111662e154b976016767"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "title",
+                    "value": "文字建议"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/plan/adjust",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/adjust",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "70cf4922-f653-4e05-8faa-f59866356a2a"
+        },
+        "body": {
+          "plan_id": "pln_5e8c096074cc274a94fec0e9",
+          "page": "courses",
+          "instruction": "保留课程"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_ad0269927ac3844e99ae70d6",
+              "kind": "plan.stage_courses",
+              "target": {
+                "plan_id": "pln_5e8c096074cc274a94fec0e9"
+              },
+              "payload": {
+                "variant": "recommended",
+                "price_list_rev": 3,
+                "lines": [
+                  {
+                    "line_id": "ln_5c45756c6791f072c9ff8927",
+                    "stage_key": "stk_45d3d5d2f8099314f0fc848b",
+                    "course_id": "crs_7eecb63ce29d0c9f4852fe2a",
+                    "qty": {
+                      "units": 2
+                    },
+                    "frequency_text": "",
+                    "note": "",
+                    "ai_filled": false,
+                    "includes": []
+                  }
+                ],
+                "computed": {
+                  "stages": [
+                    {
+                      "key": "stk_45d3d5d2f8099314f0fc848b",
+                      "months": 1,
+                      "calendar_weeks": 4,
+                      "teaching_weeks": null,
+                      "weeks_display": 4,
+                      "units": 2,
+                      "amount": 400
+                    }
+                  ],
+                  "total": {
+                    "units": 2,
+                    "bundles": [],
+                    "amount": 400
+                  },
+                  "budget": {
+                    "cap": null,
+                    "remaining": null,
+                    "over": false
+                  },
+                  "installments": [
+                    {
+                      "stage_key": "stk_45d3d5d2f8099314f0fc848b",
+                      "label": "第1期 · 体验与适应",
+                      "due": null,
+                      "amount": 400
+                    }
+                  ],
+                  "optional_fees": [],
+                  "cover_numbers": [
+                    {
+                      "label": "规划周期",
+                      "value": "1",
+                      "unit": "个月",
+                      "sub": "2026.12 – 2026.12"
+                    }
+                  ]
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/outline",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/outline",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b3dddf80-0810-4141-8b4f-690354ec99b6"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_c0efeb37473a8bfacaa55c11",
+              "kind": "content.outline",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "sections": [
+                  {
+                    "key": "intro",
+                    "title": "课程介绍",
+                    "required": true,
+                    "points": [
+                      "了解课程"
+                    ]
+                  },
+                  {
+                    "key": "required_1",
+                    "title": "适合谁",
+                    "required": true,
+                    "points": []
+                  },
+                  {
+                    "key": "required_2",
+                    "title": "学什么",
+                    "required": true,
+                    "points": []
+                  },
+                  {
+                    "key": "required_3",
+                    "title": "上课形式与时间",
+                    "required": true,
+                    "points": []
+                  },
+                  {
+                    "key": "required_4",
+                    "title": "报名方式",
+                    "required": true,
+                    "points": []
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "了解课程"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/section",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/section",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "8bef7954-72f4-45a9-96cb-90b67053fa71"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc",
+          "section_key": "intro"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_319b59e2d03aa8d7cab4a4c1",
+              "kind": "content.section",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc",
+                "section_key": "intro"
+              },
+              "payload": {
+                "section_key": "intro",
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "text": "段落",
+                    "basis": [
+                      0
+                    ]
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "段落"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "6fc9ab24-0208-4450-982a-969989a22999"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_f953e92413849a2c61422c6f",
+              "kind": "content.versions",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "versions": {
+                  "short": "短",
+                  "medium": "中",
+                  "long": "长"
+                }
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "短"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "中"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "长"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 3,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/rewrite",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/rewrite",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "292e5bee-4af2-4d08-94ea-ac5a7bb95d0a"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc",
+          "block_index": 0,
+          "mode": "shorten",
+          "text": "原文"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_8e8b695579e98c5c76bb7774",
+              "kind": "content.rewrite",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc",
+                "block_index": 0
+              },
+              "payload": {
+                "mode": "shorten",
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "text": "改写结果",
+                    "basis": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                },
+                {
+                  "type": "unsupported",
+                  "text": "改写结果"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 4,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/fact-check",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/fact-check",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "90a290c8-3f87-433c-8794-f93e85c09c43"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_37f415872843615d03e6fb40",
+              "kind": "content.fact_check",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "items": [
+                  {
+                    "result": "missing",
+                    "block_index": 0,
+                    "quote": "段落",
+                    "expected": "",
+                    "source": ""
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 5,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/images",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/images",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "95a9d73e-fccf-42ac-8095-803da7fef7e7"
+        },
+        "body": {
+          "content_id": "cnt_90a3a04839a792f5f9f065dc"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_aa94b973a73fa454e79c5cac",
+              "kind": "content.images",
+              "target": {
+                "content_id": "cnt_90a3a04839a792f5f9f065dc"
+              },
+              "payload": {
+                "items": [
+                  {
+                    "section_key": "intro",
+                    "image_ids": [
+                      "img_own"
+                    ],
+                    "reason": "作品"
+                  }
+                ]
+              },
+              "basis": [
+                {
+                  "type": "ai_judgement",
+                  "text": "建议"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "warnings": [
+            "已丢弃本次图库范围以外的图片"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 6,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/settings/propose",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/settings/propose",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f467a36e-9797-4a60-badc-70e13bc3c479"
+        },
+        "body": {
+          "instruction": "考级改到11月"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_ba7fa321a240f80d7d3cbad2",
+              "kind": "settings.change",
+              "target": {},
+              "payload": {
+                "ops": [
+                  {
+                    "op": "update",
+                    "entity": "calendar",
+                    "key": "grade_exam",
+                    "field": "months",
+                    "from": [
+                      1,
+                      7,
+                      8
+                    ],
+                    "to": [
+                      1,
+                      11
+                    ]
+                  }
+                ],
+                "side_effects": [],
+                "affected": {
+                  "plans_in_progress": 0
+                }
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "GET /api/ops/ai/settings",
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/ai/settings",
+        "host": "console.school.test",
+        "authenticated": true,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cf-Access-Jwt-Assertion": "<Access JWT>",
+          "Cookie": "<ops session>"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "main",
+          "fast_daily_limit": 80,
+          "deep_daily_limit": 50,
+          "fast_model": null,
+          "deep_model": null,
+          "version": 1,
+          "updated_at": 0,
+          "updated_by": "migration0022"
+        }
+      }
+    },
+    {
+      "endpoint": "PUT /api/ops/ai/settings",
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/ai/settings",
+        "host": "console.school.test",
+        "authenticated": true,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cf-Access-Jwt-Assertion": "<Access JWT>",
+          "Cookie": "<ops session>"
+        },
+        "body": {
+          "version": 1,
+          "fast_daily_limit": 5,
+          "deep_daily_limit": 2,
+          "fast_model": "model-A",
+          "deep_model": "model-B",
+          "DEEPSEEK_API_KEY": "must-ignore"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "main",
+          "fast_daily_limit": 5,
+          "deep_daily_limit": 2,
+          "fast_model": "model-A",
+          "deep_model": "model-B",
+          "version": 2,
+          "updated_at": 1794752042651,
+          "updated_by": "adm_fixture"
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/plan/adjust",
+      "case": "非课程页返回plan.text",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/plan/adjust",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "552aeabf-2595-4372-8171-3bca958b8a65"
+        },
+        "body": {
+          "plan_id": "pln_5e8c096074cc274a94fec0e9",
+          "page": "assessment",
+          "instruction": "润色"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_e2f342e2ce8a1c2d02d025b4",
+              "kind": "plan.text",
+              "target": {
+                "plan_id": "pln_5e8c096074cc274a94fec0e9"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "modules.assessment.text",
+                    "value": "评估文字"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/images",
+      "case": "无合规建议仍成功、warnings提示且计一次",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/images",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "51f29b5b-7099-42b2-ae7d-a6d53cabc051"
+        },
+        "body": {
+          "content_id": "cnt_271cff553632b389bc8fd0a5",
+          "context": {
+            "profile": {
+              "address": "伪造地址"
+            },
+            "course": {
+              "amount": 1
+            }
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [],
+          "warnings": [
+            "已丢弃本次图库范围以外的图片",
+            "没有符合本次资料范围的内容建议"
+          ],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    }
+  ],
+  "errors": [
+    {
+      "endpoint": "PUT /api/content/{id}",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": {
+          "version": 1,
+          "title": "旧写入"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "version_conflict",
+          "message": "内容已被修改，请刷新后重试",
+          "details": {
+            "latest": {
+              "type": "article",
+              "subject": "music_interest",
+              "scene": null,
+              "title": "新标题",
+              "style": {
+                "pack_id": "stp_article",
+                "pack_version": "1.0.0"
+              },
+              "brief": "",
+              "sources": {
+                "profile": false,
+                "prices": false,
+                "course_ids": [],
+                "gallery_tags": []
+              },
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "机构地址是上海测试路8号"
+                }
+              ],
+              "applied_suggestion_ids": [],
+              "id": "cnt_6cc4597b9dd8e89ab56df7d3",
+              "version": 2,
+              "status": "draft",
+              "author_id": "usr_2799cbcbbdcfc27c6c44f193",
+              "created_at": "2026-11-15T22:14:10.330+08:00",
+              "updated_at": "2026-11-15T22:14:10.340+08:00"
+            }
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "GET /api/content/{id}",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content/cnt_6cc4597b9dd8e89ab56df7d3",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "error": "not_found",
+          "message": "不存在"
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "PUT /api/content/{id}",
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-yx4/api/content/cnt_aed43aa49c60e3f0b80030dd",
+        "body": {
+          "version": 1,
+          "blocks": [
+            {
+              "type": "p",
+              "text": "旧HTML块"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "validation_failed",
+          "message": "不支持的内容块类型",
+          "details": {
+            "fields": [
+              {
+                "field": "blocks[0].type",
+                "message": "不支持的内容块类型"
+              }
+            ]
+          }
+        },
+        "queries": 2
+      }
+    },
+    {
+      "endpoint": "GET /api/content",
+      "request": {
+        "method": "GET",
+        "path": "/schedule-yx4/api/content",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "forbidden",
+          "message": "没有此操作权限"
+        },
+        "queries": 1
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "cac996a6-7a86-4cd3-9358-0a3e64345f79"
+        },
+        "body": {
+          "content_id": "cnt_679163aac148e9dbfab9c448"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "in_progress",
+          "message": "这个AI请求仍在处理中"
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "cac996a6-7a86-4cd3-9358-0a3e64345f79"
+        },
+        "body": {
+          "content_id": "cnt_679163aac148e9dbfab9c448",
+          "instruction": "不同"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "error": "idempotency_mismatch",
+          "message": "同一个幂等键不能用于不同请求"
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3090acd5-357a-4e27-ad7c-0b77a1a6109f"
+        },
+        "body": {
+          "content_id": "cnt_679163aac148e9dbfab9c448"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "rate_limited",
+          "message": "同时最多进行两个AI请求，请稍后再试"
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9033aba3-43ab-447a-a39e-812d446076b8"
+        },
+        "body": {
+          "content_id": "cnt_955fcf09a58e3c959b118e26"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 502,
+        "body": {
+          "error": "ai_unavailable",
+          "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9572fd07-1aae-4b73-8754-699ea20a608c"
+        },
+        "body": {
+          "content_id": "cnt_0bc6750907450724815ccbcd"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 429,
+        "body": {
+          "error": "ai_quota_exceeded",
+          "message": "今天的快速 AI次数已用完，明天0点恢复",
+          "details": {
+            "tier": "fast",
+            "limit": 80,
+            "reset_at": "2026-11-16T00:00:00.000+08:00"
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "POST /api/ai/content/versions",
+      "request": {
+        "method": "POST",
+        "path": "/schedule-yx4/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "b2bafe6b-7738-4224-a240-1eef0207cdca"
+        },
+        "body": {
+          "content_id": "cnt_a18ab66c2d6d1a607ade0029"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "tenant_expired",
+          "message": "机构已到期或停用，请联系机构负责人"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "label": "build",
+    "command": "npm run build",
+    "exit_code": 0,
+    "seconds": 10.08,
+    "log": "work/stage5/frontend-stage4/build.log"
+  },
+  {
+    "label": "target-source",
+    "command": "node --test tests/yx-frontend-stage2.test.mjs tests/skeleton-hints-stage5.test.mjs tests/share-shell-stage5.test.mjs",
+    "exit_code": 0,
+    "seconds": 5.638,
+    "log": "work/stage5/frontend-stage4/target-source.log"
+  },
+  {
+    "label": "target-bundle",
+    "command": "env TEST_BUNDLE=1 node --test tests/yx-frontend-stage2.test.mjs tests/skeleton-hints-stage5.test.mjs tests/share-shell-stage5.test.mjs",
+    "exit_code": 0,
+    "seconds": 5.273,
+    "log": "work/stage5/frontend-stage4/target-bundle.log"
+  },
+  {
+    "label": "source",
+    "command": "npm test",
+    "exit_code": 0,
+    "seconds": 231.764,
+    "log": "work/stage5/frontend-stage4/source.log"
+  },
+  {
+    "label": "bundle",
+    "command": "env TEST_BUNDLE=1 npm test",
+    "exit_code": 0,
+    "seconds": 229.718,
+    "log": "work/stage5/frontend-stage4/bundle.log"
+  }
+]

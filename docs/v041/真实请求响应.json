@@ -1,0 +1,1212 @@
+{
+  "date": "2026-11-17",
+  "runtime": "source_worker",
+  "local_only": true,
+  "credentials_omitted": true,
+  "notes": "Actual Worker HTTP captures; IDs and model output are local mocks. Multipart JSON only describes the file, not the wire request body.",
+  "examples": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/ai/content/rewrite",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "9cb4d160-a5a6-4afb-bc87-8ce11a26b179"
+        },
+        "body": {
+          "content_id": "cnt_1b1b4746766a3771e52eb753",
+          "block_index": 0,
+          "mode": "custom",
+          "instruction": "改成温暖语气，仅改本卡片"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_c5aadf30fc7ce126c70ee241",
+              "kind": "content.rewrite",
+              "target": {
+                "content_id": "cnt_1b1b4746766a3771e52eb753",
+                "block_index": 0
+              },
+              "payload": {
+                "mode": "custom",
+                "blocks": [
+                  {
+                    "type": "paragraph",
+                    "text": "面向初学者的温暖文字"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": [],
+              "flags": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 1,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/ai/plan/fill-from-consult",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4e9e895f-5fde-4ce7-ac6d-27410dd1074a"
+        },
+        "body": {
+          "plan_id": "pln_232bea58c701ccac5cd506dd",
+          "consult": "加强节奏"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "suggestions": [
+            {
+              "id": "sg_dc8fdf92351ec52e10b194b1",
+              "kind": "plan.fields",
+              "target": {
+                "plan_id": "pln_232bea58c701ccac5cd506dd"
+              },
+              "payload": {
+                "fields": [
+                  {
+                    "path": "modules.assessment.text",
+                    "value": "节奏需要加强",
+                    "quote": "加强节奏"
+                  }
+                ]
+              },
+              "basis": [],
+              "warnings": []
+            }
+          ],
+          "warnings": [],
+          "usage": {
+            "tier": "fast",
+            "used_today": 2,
+            "limit": 80
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/ai/content/versions",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "5cccf713-c665-4cc2-b9a2-fc88c2659a76"
+        },
+        "body": {
+          "content_id": "cnt_1b1b4746766a3771e52eb753"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 502,
+        "body": {
+          "error": "ai_timeout",
+          "message": "AI暂时无法完成请求，请稍后重试，本次不计次数"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/ai/usage?from=2026-11-17&to=2026-11-17&group=tool&tenant_id=ten_5e2424bab060bf835e8c4aa7",
+        "body": null,
+        "actor": "platform_owner"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "from": "2026-11-17",
+          "to": "2026-11-17",
+          "group": "tool",
+          "items": [
+            {
+              "key": "content",
+              "tier": "fast",
+              "calls": 3,
+              "successful": 1,
+              "failed": 2,
+              "prompt_tokens": 40,
+              "completion_tokens": 20,
+              "duration_ms": 120012,
+              "failure_reasons": {
+                "timeout": 1,
+                "protocol_invalid": 0,
+                "response_too_large": 0,
+                "other": 0,
+                "provider_http_402": 1
+              }
+            },
+            {
+              "key": "plans",
+              "tier": "fast",
+              "calls": 1,
+              "successful": 1,
+              "failed": 0,
+              "prompt_tokens": 20,
+              "completion_tokens": 10,
+              "duration_ms": 1,
+              "failure_reasons": {
+                "timeout": 0,
+                "protocol_invalid": 0,
+                "response_too_large": 0,
+                "other": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-v041demo/api/gallery",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [],
+          "total": 0,
+          "next_offset": null,
+          "storage": {
+            "limit": 524288000,
+            "used": 0,
+            "pending": 0,
+            "missing": 0,
+            "version": 1,
+            "complete": true
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/ops/tenants/ten_5e2424bab060bf835e8c4aa7/gallery-storage",
+        "body": null,
+        "actor": "platform_owner"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "ten_5e2424bab060bf835e8c4aa7",
+          "limit": 524288000,
+          "used": 0,
+          "pending": 0,
+          "missing": 0,
+          "version": 1,
+          "complete": true
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/api/ops/tenants/ten_5e2424bab060bf835e8c4aa7/gallery-storage",
+        "body": {
+          "version": 1,
+          "limit": 92
+        },
+        "actor": "platform_owner"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "ten_5e2424bab060bf835e8c4aa7",
+          "limit": 92,
+          "used": 0,
+          "pending": 0,
+          "missing": 0,
+          "version": 2,
+          "complete": true
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/gallery",
+        "body": {
+          "multipart": true,
+          "file": "sample.png",
+          "file_bytes": 68,
+          "tags": []
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "img_301fa3ab464c5b76aef68c8c",
+          "version": 1,
+          "url": "/schedule-v041demo/api/gallery/img_301fa3ab464c5b76aef68c8c/file",
+          "width": 1,
+          "height": 1,
+          "tags": [],
+          "parent_consent_media": false,
+          "hidden": false
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/ops/tenants/ten_5e2424bab060bf835e8c4aa7/gallery-storage/recount",
+        "body": {},
+        "actor": "platform_owner"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "ten_5e2424bab060bf835e8c4aa7",
+          "limit": 92,
+          "used": 92,
+          "pending": 0,
+          "missing": 0,
+          "version": 2,
+          "complete": true
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/content",
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "title": "本地测试内容",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ]
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "type": "article",
+          "subject": "music_interest",
+          "scene": null,
+          "title": "本地测试内容",
+          "style": {
+            "pack_id": "stp_article",
+            "pack_version": "1.0.0"
+          },
+          "brief": "",
+          "sources": {
+            "profile": false,
+            "prices": false,
+            "course_ids": [],
+            "gallery_tags": []
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "机构地址是上海测试路8号"
+            }
+          ],
+          "applied_suggestion_ids": [],
+          "article": null,
+          "id": "cnt_1b1b4746766a3771e52eb753",
+          "version": 1,
+          "status": "draft",
+          "author_id": "usr_2f84ee2f9124004dcbc14af7",
+          "created_at": "2026-11-17T16:23:34.964+08:00",
+          "updated_at": "2026-11-17T16:23:34.964+08:00"
+        },
+        "queries": 7
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/settings/subjects",
+        "body": {
+          "key": "music_interest"
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "key": "music_interest",
+            "name": "音乐兴趣",
+            "pack_version": "0.1"
+          }
+        ],
+        "queries": 7
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-v041demo/api/settings/stage-types",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "name": "体验与适应",
+              "default_months": {
+                "min": 1,
+                "max": 2
+              },
+              "anchor": "start",
+              "anchor_node": null,
+              "offset_months": 0,
+              "active": true,
+              "subject": "music_interest",
+              "order": 10,
+              "version": 1,
+              "id": "stg_5102c0bd0d807bcc57a160e9",
+              "source": "template"
+            },
+            {
+              "name": "假期集训",
+              "default_months": {
+                "min": 1,
+                "max": 2
+              },
+              "anchor": "on_node",
+              "anchor_node": "summer_camp",
+              "offset_months": 0,
+              "active": true,
+              "subject": "music_interest",
+              "order": 40,
+              "version": 1,
+              "id": "stg_daef70d80951f7877c970ca3",
+              "source": "template"
+            },
+            {
+              "name": "常规学习",
+              "default_months": {
+                "min": 3,
+                "max": 5
+              },
+              "anchor": "normal",
+              "anchor_node": null,
+              "offset_months": 0,
+              "active": true,
+              "subject": "music_interest",
+              "order": 20,
+              "version": 1,
+              "id": "stg_c71d69b7ebe52512d3decb4b",
+              "source": "template"
+            },
+            {
+              "name": "考级冲刺",
+              "default_months": {
+                "min": 2,
+                "max": 2
+              },
+              "anchor": "before_node",
+              "anchor_node": "grade_exam",
+              "offset_months": -2,
+              "active": true,
+              "subject": "music_interest",
+              "order": 30,
+              "version": 1,
+              "id": "stg_8f1388b2bb9f299b9790fd77",
+              "source": "template"
+            }
+          ],
+          "total": 4,
+          "next_offset": null
+        },
+        "queries": 3
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-v041demo/api/settings/courses?include_inactive=1&q=%E9%92%A2%E7%90%B4%E4%B8%80%E5%AF%B9%E4%B8%80",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "items": [
+            {
+              "group": "主修",
+              "name": "钢琴一对一30分钟",
+              "form": "one_to_one",
+              "minutes": 30,
+              "duration_text": null,
+              "pricing": null,
+              "active": true,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "crs_3f782315a46217066fc06135",
+              "source": "template"
+            },
+            {
+              "group": "主修",
+              "name": "钢琴一对一45分钟",
+              "form": "one_to_one",
+              "minutes": 45,
+              "duration_text": null,
+              "pricing": null,
+              "active": true,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "crs_319548a137413a73c2703fa0",
+              "source": "template"
+            },
+            {
+              "group": "主修",
+              "name": "钢琴一对一60分钟",
+              "form": "one_to_one",
+              "minutes": 60,
+              "duration_text": null,
+              "pricing": null,
+              "active": true,
+              "subject": "music_interest",
+              "version": 1,
+              "id": "crs_a2583d74dc7c19ea822a3446",
+              "source": "template"
+            }
+          ],
+          "total": 3,
+          "next_offset": null,
+          "price_list_rev": 2
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/settings/courses",
+        "body": {
+          "subject": "music_interest",
+          "name": "钢琴一对一",
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "pricing": {
+            "mode": "per_unit",
+            "amount": 200,
+            "unit_label": "课时"
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "subject": "music_interest",
+          "name": "钢琴一对一",
+          "active": true,
+          "pricing": {
+            "mode": "per_unit",
+            "unit_label": "课时",
+            "amount": 200
+          },
+          "group": "主修",
+          "form": "one_to_one",
+          "minutes": 45,
+          "duration_text": null,
+          "optional": false,
+          "course_type_id": null,
+          "version": 1,
+          "id": "crs_e56f6b83b28afa1647ef0e04",
+          "source": "manual"
+        },
+        "queries": 5
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/schedule-v041demo/api/plans",
+        "body": {
+          "student_id": "rec_a373b9468ad75b3a94ad41c1",
+          "source_lead_id": null,
+          "subject": "music_interest",
+          "title": "钢琴学习方案",
+          "style": {
+            "pack_id": "stp_folio"
+          }
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "student_id": "rec_a373b9468ad75b3a94ad41c1",
+          "source_lead_id": null,
+          "subject": "music_interest",
+          "title": "钢琴学习方案",
+          "style": {
+            "pack_id": "stp_folio",
+            "pack_version": "1.0.0",
+            "cover_image_id": null,
+            "text_mode": "auto",
+            "focal_point": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "show_unit_price": false,
+            "show_latin_eyebrow": true,
+            "show_consultant": true
+          },
+          "meta": {
+            "start_month": "2026-11",
+            "target": {
+              "node_key": null,
+              "month": null,
+              "text": ""
+            },
+            "consultant_id": "usr_2f84ee2f9124004dcbc14af7",
+            "budget_cap": null
+          },
+          "modules": {
+            "cover": {
+              "visible": true,
+              "eyebrow": "",
+              "subtitle": ""
+            },
+            "assessment": {
+              "visible": true,
+              "text": "",
+              "source_note": "",
+              "strengths": [],
+              "gaps": [],
+              "goals": []
+            },
+            "path": {
+              "visible": true,
+              "stages": []
+            },
+            "courses": {
+              "visible": true,
+              "lines": []
+            },
+            "fees": {
+              "visible": true,
+              "installments": "per_stage",
+              "custom": [],
+              "due_dates": {},
+              "note": ""
+            },
+            "teachers": {
+              "visible": true,
+              "teacher_ids": []
+            },
+            "about": {
+              "visible": false,
+              "image_ids": []
+            }
+          },
+          "applied_suggestion_ids": [],
+          "computed": {
+            "stages": [],
+            "total": {
+              "units": 0,
+              "bundles": [],
+              "amount": 0
+            },
+            "budget": {
+              "cap": null,
+              "remaining": null,
+              "over": false
+            },
+            "installments": [],
+            "optional_fees": [],
+            "cover_numbers": [
+              {
+                "label": "规划周期",
+                "value": "0",
+                "unit": "个月",
+                "sub": ""
+              }
+            ]
+          },
+          "id": "pln_232bea58c701ccac5cd506dd",
+          "version": 1,
+          "status": "draft",
+          "current_revision_id": "rev_df1a7a539e9d9b2717ec3c51",
+          "sent_revision_id": null,
+          "signed_revision_id": null,
+          "updated_at": "2026-11-17T16:23:35.002+08:00",
+          "updated_by": "usr_2f84ee2f9124004dcbc14af7",
+          "id_map": {}
+        },
+        "queries": 6
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "path": "/schedule-v041demo/api/plans/pln_232bea58c701ccac5cd506dd",
+        "body": {
+          "student_id": "rec_a373b9468ad75b3a94ad41c1",
+          "source_lead_id": null,
+          "subject": "music_interest",
+          "title": "钢琴学习方案",
+          "style": {
+            "pack_id": "stp_folio",
+            "pack_version": "1.0.0",
+            "cover_image_id": null,
+            "text_mode": "auto",
+            "focal_point": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "show_unit_price": false,
+            "show_latin_eyebrow": true,
+            "show_consultant": true
+          },
+          "meta": {
+            "start_month": "2026-11",
+            "target": {
+              "node_key": null,
+              "month": null,
+              "text": ""
+            },
+            "consultant_id": "usr_2f84ee2f9124004dcbc14af7",
+            "budget_cap": null
+          },
+          "modules": {
+            "cover": {
+              "visible": true,
+              "eyebrow": "",
+              "subtitle": ""
+            },
+            "assessment": {
+              "visible": true,
+              "text": "",
+              "source_note": "",
+              "strengths": [],
+              "gaps": [],
+              "goals": []
+            },
+            "path": {
+              "visible": true,
+              "stages": [
+                {
+                  "key": "tmp_stage_1",
+                  "stage_type_id": "stg_5102c0bd0d807bcc57a160e9",
+                  "name": "体验与适应",
+                  "start": "2026-12-01",
+                  "end": "2026-12-31"
+                }
+              ]
+            },
+            "courses": {
+              "visible": true,
+              "lines": [
+                {
+                  "line_id": "tmp_line_1",
+                  "stage_key": "tmp_stage_1",
+                  "course_id": "crs_e56f6b83b28afa1647ef0e04",
+                  "qty": {
+                    "units": 2
+                  },
+                  "includes": []
+                }
+              ]
+            },
+            "fees": {
+              "visible": true,
+              "installments": "per_stage",
+              "custom": [],
+              "due_dates": {},
+              "note": ""
+            },
+            "teachers": {
+              "visible": true,
+              "teacher_ids": []
+            },
+            "about": {
+              "visible": false,
+              "image_ids": []
+            }
+          },
+          "applied_suggestion_ids": [],
+          "computed": {
+            "stages": [],
+            "total": {
+              "units": 0,
+              "bundles": [],
+              "amount": 0
+            },
+            "budget": {
+              "cap": null,
+              "remaining": null,
+              "over": false
+            },
+            "installments": [],
+            "optional_fees": [],
+            "cover_numbers": [
+              {
+                "label": "规划周期",
+                "value": "0",
+                "unit": "个月",
+                "sub": ""
+              }
+            ]
+          },
+          "id": "pln_232bea58c701ccac5cd506dd",
+          "version": 1,
+          "status": "draft",
+          "current_revision_id": "rev_df1a7a539e9d9b2717ec3c51",
+          "sent_revision_id": null,
+          "signed_revision_id": null,
+          "updated_at": "2026-11-17T16:23:35.002+08:00",
+          "updated_by": "usr_2f84ee2f9124004dcbc14af7",
+          "id_map": {}
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_a373b9468ad75b3a94ad41c1",
+          "source_lead_id": null,
+          "subject": "music_interest",
+          "title": "钢琴学习方案",
+          "style": {
+            "pack_id": "stp_folio",
+            "pack_version": "1.0.0",
+            "cover_image_id": null,
+            "text_mode": "auto",
+            "focal_point": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "show_unit_price": false,
+            "show_latin_eyebrow": true,
+            "show_consultant": true
+          },
+          "meta": {
+            "start_month": "2026-11",
+            "target": {
+              "node_key": null,
+              "month": null,
+              "text": ""
+            },
+            "consultant_id": "usr_2f84ee2f9124004dcbc14af7",
+            "budget_cap": null
+          },
+          "modules": {
+            "cover": {
+              "visible": true,
+              "eyebrow": "",
+              "subtitle": ""
+            },
+            "assessment": {
+              "visible": true,
+              "text": "",
+              "source_note": "",
+              "strengths": [],
+              "gaps": [],
+              "goals": []
+            },
+            "path": {
+              "visible": true,
+              "stages": [
+                {
+                  "key": "stk_699b0247f990a2b40e82b928",
+                  "stage_type_id": "stg_5102c0bd0d807bcc57a160e9",
+                  "name": "体验与适应",
+                  "start": "2026-12-01",
+                  "end": "2026-12-31",
+                  "teaching_weeks": null,
+                  "weeks_note": "",
+                  "goals": [],
+                  "node_tags": [],
+                  "stage_snapshot": {
+                    "name": "体验与适应",
+                    "anchor": "start",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "rule_keys": [
+                      "exam_sprint_before_grade",
+                      "insert_holiday_camp"
+                    ],
+                    "type_version": 1,
+                    "rules_version": 1,
+                    "taken_at": "2026-11-17T16:23:35.009+08:00"
+                  }
+                }
+              ]
+            },
+            "courses": {
+              "visible": true,
+              "lines": [
+                {
+                  "line_id": "ln_3f55b2c6169230f44e15d88e",
+                  "stage_key": "stk_699b0247f990a2b40e82b928",
+                  "course_id": "crs_e56f6b83b28afa1647ef0e04",
+                  "qty": {
+                    "units": 2
+                  },
+                  "frequency_text": "",
+                  "note": "",
+                  "ai_filled": false,
+                  "includes": [],
+                  "snapshot": {
+                    "name": "钢琴一对一",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "optional": false,
+                    "pricing": {
+                      "mode": "per_unit",
+                      "amount_cents": 20000,
+                      "units_per_package": null
+                    },
+                    "course_version": 1,
+                    "price_list_rev": 3,
+                    "taken_at": "2026-11-17T16:23:35.009+08:00"
+                  }
+                }
+              ]
+            },
+            "fees": {
+              "visible": true,
+              "installments": "per_stage",
+              "custom": [],
+              "due_dates": {},
+              "note": ""
+            },
+            "teachers": {
+              "visible": true,
+              "teacher_ids": []
+            },
+            "about": {
+              "visible": false,
+              "image_ids": []
+            }
+          },
+          "applied_suggestion_ids": [],
+          "computed": {
+            "stages": [
+              {
+                "key": "stk_699b0247f990a2b40e82b928",
+                "months": 1,
+                "calendar_weeks": 4,
+                "teaching_weeks": null,
+                "weeks_display": 4,
+                "units": 2,
+                "amount": 400
+              }
+            ],
+            "total": {
+              "units": 2,
+              "bundles": [],
+              "amount": 400
+            },
+            "budget": {
+              "cap": null,
+              "remaining": null,
+              "over": false
+            },
+            "installments": [
+              {
+                "stage_key": "stk_699b0247f990a2b40e82b928",
+                "label": "第1期 · 体验与适应",
+                "due": null,
+                "amount": 400
+              }
+            ],
+            "optional_fees": [],
+            "cover_numbers": [
+              {
+                "label": "规划周期",
+                "value": "1",
+                "unit": "个月",
+                "sub": "2026.12 – 2026.12"
+              }
+            ]
+          },
+          "id": "pln_232bea58c701ccac5cd506dd",
+          "version": 2,
+          "status": "draft",
+          "current_revision_id": "rev_ec87f5ada0c11b59d9ccb56a",
+          "sent_revision_id": null,
+          "signed_revision_id": null,
+          "updated_at": "2026-11-17T16:23:35.010+08:00",
+          "updated_by": "usr_2f84ee2f9124004dcbc14af7",
+          "id_map": {
+            "tmp_stage_1": "stk_699b0247f990a2b40e82b928",
+            "tmp_line_1": "ln_3f55b2c6169230f44e15d88e"
+          }
+        },
+        "queries": 8
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/schedule-v041demo/api/plans/pln_232bea58c701ccac5cd506dd",
+        "body": null,
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "student_id": "rec_a373b9468ad75b3a94ad41c1",
+          "source_lead_id": null,
+          "subject": "music_interest",
+          "title": "钢琴学习方案",
+          "style": {
+            "pack_id": "stp_folio",
+            "pack_version": "1.0.0",
+            "cover_image_id": null,
+            "text_mode": "auto",
+            "focal_point": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "show_unit_price": false,
+            "show_latin_eyebrow": true,
+            "show_consultant": true
+          },
+          "meta": {
+            "start_month": "2026-11",
+            "target": {
+              "node_key": null,
+              "month": null,
+              "text": ""
+            },
+            "consultant_id": "usr_2f84ee2f9124004dcbc14af7",
+            "budget_cap": null
+          },
+          "modules": {
+            "cover": {
+              "visible": true,
+              "eyebrow": "",
+              "subtitle": ""
+            },
+            "assessment": {
+              "visible": true,
+              "text": "",
+              "source_note": "",
+              "strengths": [],
+              "gaps": [],
+              "goals": []
+            },
+            "path": {
+              "visible": true,
+              "stages": [
+                {
+                  "key": "stk_699b0247f990a2b40e82b928",
+                  "stage_type_id": "stg_5102c0bd0d807bcc57a160e9",
+                  "name": "体验与适应",
+                  "start": "2026-12-01",
+                  "end": "2026-12-31",
+                  "teaching_weeks": null,
+                  "weeks_note": "",
+                  "goals": [],
+                  "node_tags": [],
+                  "stage_snapshot": {
+                    "name": "体验与适应",
+                    "anchor": "start",
+                    "anchor_node": null,
+                    "offset_months": 0,
+                    "rule_keys": [
+                      "exam_sprint_before_grade",
+                      "insert_holiday_camp"
+                    ],
+                    "type_version": 1,
+                    "rules_version": 1,
+                    "taken_at": "2026-11-17T16:23:35.009+08:00"
+                  }
+                }
+              ]
+            },
+            "courses": {
+              "visible": true,
+              "lines": [
+                {
+                  "line_id": "ln_3f55b2c6169230f44e15d88e",
+                  "stage_key": "stk_699b0247f990a2b40e82b928",
+                  "course_id": "crs_e56f6b83b28afa1647ef0e04",
+                  "qty": {
+                    "units": 2
+                  },
+                  "frequency_text": "",
+                  "note": "",
+                  "ai_filled": false,
+                  "includes": [],
+                  "snapshot": {
+                    "name": "钢琴一对一",
+                    "form": "one_to_one",
+                    "minutes": 45,
+                    "duration_text": null,
+                    "optional": false,
+                    "pricing": {
+                      "mode": "per_unit",
+                      "amount_cents": 20000,
+                      "units_per_package": null
+                    },
+                    "course_version": 1,
+                    "price_list_rev": 3,
+                    "taken_at": "2026-11-17T16:23:35.009+08:00"
+                  }
+                }
+              ]
+            },
+            "fees": {
+              "visible": true,
+              "installments": "per_stage",
+              "custom": [],
+              "due_dates": {},
+              "note": ""
+            },
+            "teachers": {
+              "visible": true,
+              "teacher_ids": []
+            },
+            "about": {
+              "visible": false,
+              "image_ids": []
+            }
+          },
+          "applied_suggestion_ids": [],
+          "computed": {
+            "stages": [
+              {
+                "key": "stk_699b0247f990a2b40e82b928",
+                "months": 1,
+                "calendar_weeks": 4,
+                "teaching_weeks": null,
+                "weeks_display": 4,
+                "units": 2,
+                "amount": 400
+              }
+            ],
+            "total": {
+              "units": 2,
+              "bundles": [],
+              "amount": 400
+            },
+            "budget": {
+              "cap": null,
+              "remaining": null,
+              "over": false
+            },
+            "installments": [
+              {
+                "stage_key": "stk_699b0247f990a2b40e82b928",
+                "label": "第1期 · 体验与适应",
+                "due": null,
+                "amount": 400
+              }
+            ],
+            "optional_fees": [],
+            "cover_numbers": [
+              {
+                "label": "规划周期",
+                "value": "1",
+                "unit": "个月",
+                "sub": "2026.12 – 2026.12"
+              }
+            ]
+          },
+          "id": "pln_232bea58c701ccac5cd506dd",
+          "version": 2,
+          "status": "draft",
+          "current_revision_id": "rev_ec87f5ada0c11b59d9ccb56a",
+          "sent_revision_id": null,
+          "signed_revision_id": null,
+          "updated_at": "2026-11-17T16:23:35.010+08:00",
+          "updated_by": "usr_2f84ee2f9124004dcbc14af7",
+          "manifest": {
+            "id": "stp_folio",
+            "name": "书册",
+            "version": "1.0.0",
+            "doc_types": [
+              "plan"
+            ],
+            "subjects": [
+              "*"
+            ],
+            "tokens": {
+              "color": {
+                "primary": "#A3271F",
+                "ink": "#2B1A16",
+                "paper": "#FFF8F0",
+                "accent": "#F4C08A",
+                "muted": "#7A5A50",
+                "use_tenant_primary": true
+              },
+              "font": {
+                "display": "noto-serif-sc",
+                "body": "noto-sans-sc",
+                "latin": "cormorant-italic"
+              }
+            },
+            "components": {
+              "plan.cover": "folio",
+              "plan.section_header": "numeral",
+              "plan.stage_block": "band",
+              "plan.total_card": "solid",
+              "report.header": "band",
+              "feedback_card.header": "plain"
+            },
+            "decor": {
+              "cover_frame": "none"
+            },
+            "cover_text_modes": [
+              "auto",
+              "dark",
+              "light",
+              "panel"
+            ],
+            "thumbnail": null
+          },
+          "party": "student",
+          "party_name": "学员0"
+        },
+        "queries": 4
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "path": "/schedule-v041demo/api/gallery/img_301fa3ab464c5b76aef68c8c",
+        "body": {
+          "version": 1
+        },
+        "authenticated": true
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "hidden": false
+        },
+        "queries": 5
+      }
+    }
+  ]
+}

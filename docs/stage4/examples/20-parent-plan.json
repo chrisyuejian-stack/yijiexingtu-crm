@@ -1,0 +1,232 @@
+{
+  "name": "20-parent-plan",
+  "request": {
+    "method": "GET",
+    "path": "/schedule-yx4/api/parent/plans/pln_2821a4ba24b06d4cff51ca21",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "render_data": {
+        "subject": "music_interest",
+        "title": "钢琴学习方案",
+        "style": {
+          "pack_id": "stp_folio",
+          "pack_version": "1.0.0",
+          "cover_image_id": null,
+          "text_mode": "auto",
+          "focal_point": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "show_unit_price": false,
+          "show_latin_eyebrow": true,
+          "show_consultant": true
+        },
+        "meta": {
+          "start_month": "2026-11",
+          "target": {
+            "node_key": null,
+            "month": null,
+            "text": ""
+          },
+          "budget_cap": null
+        },
+        "modules": {
+          "cover": {
+            "visible": true,
+            "eyebrow": "",
+            "subtitle": ""
+          },
+          "assessment": {
+            "visible": true,
+            "text": "",
+            "source_note": "",
+            "strengths": [],
+            "gaps": [],
+            "goals": []
+          },
+          "path": {
+            "visible": true,
+            "stages": [
+              {
+                "key": "stk_1999fb71956f993dd602ff81",
+                "stage_type_id": "stg_db11271d8340429f99abfa56",
+                "name": "体验与适应",
+                "start": "2026-12-01",
+                "end": "2026-12-31",
+                "teaching_weeks": null,
+                "weeks_note": "",
+                "goals": [],
+                "node_tags": []
+              }
+            ]
+          },
+          "courses": {
+            "visible": true,
+            "lines": [
+              {
+                "line_id": "ln_c982cb0b40c80c11cb41e75a",
+                "stage_key": "stk_1999fb71956f993dd602ff81",
+                "course_id": "crs_84c13cb8204fd6aaba8f66f7",
+                "qty": {
+                  "units": 1
+                },
+                "frequency_text": "",
+                "note": "",
+                "ai_filled": false,
+                "includes": [],
+                "snapshot": {
+                  "name": "钢琴一对一",
+                  "form": "one_to_one",
+                  "minutes": 45,
+                  "duration_text": null,
+                  "optional": false,
+                  "pricing": {
+                    "mode": "per_unit",
+                    "units_per_package": null
+                  }
+                }
+              }
+            ]
+          },
+          "fees": {
+            "visible": true,
+            "installments": "custom",
+            "custom": [
+              {
+                "stage_key": null,
+                "label": "首付",
+                "due": null,
+                "ratio_bps": 5000
+              },
+              {
+                "stage_key": null,
+                "label": "尾款",
+                "due": null,
+                "ratio_bps": 5000
+              }
+            ],
+            "due_dates": {},
+            "note": ""
+          },
+          "teachers": {
+            "visible": true,
+            "teacher_ids": []
+          },
+          "about": {
+            "visible": false
+          }
+        },
+        "computed": {
+          "stages": [
+            {
+              "key": "stk_1999fb71956f993dd602ff81",
+              "months": 1,
+              "calendar_weeks": 4,
+              "teaching_weeks": null,
+              "weeks_display": 4,
+              "units": 1,
+              "amount": 300.01
+            }
+          ],
+          "total": {
+            "units": 1,
+            "bundles": [],
+            "amount": 300.01
+          },
+          "budget": {
+            "cap": null,
+            "remaining": null,
+            "over": false
+          },
+          "installments": [
+            {
+              "stage_key": null,
+              "label": "首付",
+              "due": null,
+              "amount": 150.01
+            },
+            {
+              "stage_key": null,
+              "label": "尾款",
+              "due": null,
+              "amount": 150
+            }
+          ],
+          "optional_fees": [],
+          "cover_numbers": [
+            {
+              "label": "规划周期",
+              "value": "1",
+              "unit": "个月",
+              "sub": "2026.12 – 2026.12"
+            }
+          ]
+        },
+        "id": "pln_2821a4ba24b06d4cff51ca21",
+        "revision_id": "rev_95e828333447f6afdba90d9a",
+        "student": {
+          "nickname": "学员0",
+          "display_name": "学员0"
+        },
+        "brand": {
+          "name": "验收 yx4",
+          "logo": null,
+          "primary_color": "#2B4C7E"
+        },
+        "consultant": {
+          "name": "主管"
+        },
+        "teachers": []
+      },
+      "manifest": {
+        "id": "stp_folio",
+        "name": "书册",
+        "version": "1.0.0",
+        "doc_types": [
+          "plan"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "tokens": {
+          "color": {
+            "primary": "#A3271F",
+            "ink": "#2B1A16",
+            "paper": "#FFF8F0",
+            "accent": "#F4C08A",
+            "muted": "#7A5A50",
+            "use_tenant_primary": true
+          },
+          "font": {
+            "display": "noto-serif-sc",
+            "body": "noto-sans-sc",
+            "latin": "cormorant-italic"
+          }
+        },
+        "components": {
+          "plan.cover": "folio",
+          "plan.section_header": "numeral",
+          "plan.stage_block": "band",
+          "plan.total_card": "solid",
+          "report.header": "band",
+          "feedback_card.header": "plain"
+        },
+        "decor": {
+          "cover_frame": "none"
+        },
+        "cover_text_modes": [
+          "auto",
+          "dark",
+          "light",
+          "panel"
+        ],
+        "thumbnail": null
+      }
+    },
+    "queries": 7
+  }
+}

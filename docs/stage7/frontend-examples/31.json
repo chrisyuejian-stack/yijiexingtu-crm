@@ -1,0 +1,66 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/schedule-platformdemo/api/styles/demo_platform_style/versions/1.0.0",
+    "body": null,
+    "authenticated": true
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "demo_platform_style",
+      "name": "平台示例风格",
+      "version": "1.0.0",
+      "manifest": {
+        "id": "demo_platform_style",
+        "name": "平台示例风格",
+        "version": "1.0.0",
+        "doc_types": [
+          "plan",
+          "report",
+          "feedback_card",
+          "article"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "tokens": {
+          "color": {
+            "primary": "#A3271F",
+            "ink": "#2B1A16",
+            "paper": "#FFF8F0",
+            "accent": "#F4C08A",
+            "muted": "#7A5A50",
+            "use_tenant_primary": true
+          },
+          "font": {
+            "display": "noto-serif-sc",
+            "body": "noto-sans-sc",
+            "latin": "cormorant-italic"
+          }
+        },
+        "components": {
+          "plan.cover": "folio",
+          "plan.section_header": "numeral",
+          "plan.stage_block": "band",
+          "plan.total_card": "solid",
+          "report.header": "band",
+          "feedback_card.header": "plain"
+        },
+        "decor": {
+          "cover_frame": "none",
+          "corner_image": "assets/pic.png"
+        },
+        "cover_text_modes": [
+          "auto",
+          "dark",
+          "light",
+          "panel"
+        ],
+        "thumbnail": "assets/pic.png"
+      },
+      "asset_base": "/schedule-platformdemo/api/styles/demo_platform_style/versions/1.0.0/assets/"
+    },
+    "queries": 4
+  }
+}

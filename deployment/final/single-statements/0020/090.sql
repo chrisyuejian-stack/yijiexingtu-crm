@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO course_rules(tenant_id,id,doc_json,created_at,created_by,updated_at,updated_by) SELECT tenant_id,'main','{"items":[]}',created_at,'migration0020',created_at,'migration0020' FROM tenant_subjects WHERE id='music_exam';

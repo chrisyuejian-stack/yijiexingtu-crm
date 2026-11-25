@@ -1,0 +1,2 @@
+-- Seed the already-selected stage2 subject packs without overwriting named items.
+INSERT INTO offer_courses(tenant_id,id,subject,name,active,source,doc_json,created_at,created_by,updated_at,updated_by) SELECT tenant_id,'crs_'||lower(hex(randomblob(12))),'music_interest','少儿音乐启蒙',1,'template','{"group":"启蒙","name":"少儿音乐启蒙","form":"group","minutes":45,"duration_text":null,"pricing":null,"active":true,"subject":"music_interest"}',created_at,'migration0020',created_at,'migration0020' FROM tenant_subjects WHERE id='music_interest';

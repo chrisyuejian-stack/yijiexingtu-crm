@@ -1,0 +1,422 @@
+[
+  {
+    "mode": "per_unit",
+    "qty": {
+      "units": 1.5
+    },
+    "snapshot": {
+      "name": "钢琴一对一",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": false,
+      "pricing": {
+        "mode": "per_unit",
+        "amount_cents": 30001,
+        "units_per_package": null
+      },
+      "course_version": 2,
+      "price_list_rev": 8,
+      "taken_at": "2026-11-17T21:00:00+08:00"
+    },
+    "expected": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 1.5,
+          "amount": 450.02
+        }
+      ],
+      "total": {
+        "units": 1.5,
+        "bundles": [],
+        "amount": 450.02
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 225.01
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 225.01
+        }
+      ],
+      "optional_fees": [],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ]
+    },
+    "conversion_requirement": "v2 保留同一 mode/qty/snapshot，金额/分期和教学课时不得变化"
+  },
+  {
+    "mode": "per_term",
+    "qty": {
+      "terms": 2
+    },
+    "snapshot": {
+      "name": "钢琴一对一",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": false,
+      "pricing": {
+        "mode": "per_term",
+        "amount_cents": 500000,
+        "units_per_package": null
+      },
+      "course_version": 2,
+      "price_list_rev": 8,
+      "taken_at": "2026-11-17T21:00:00+08:00"
+    },
+    "expected": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 0,
+          "amount": 10000
+        }
+      ],
+      "total": {
+        "units": 0,
+        "bundles": [
+          "钢琴一对一 2 期"
+        ],
+        "amount": 10000
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 5000
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 5000
+        }
+      ],
+      "optional_fees": [],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ]
+    },
+    "conversion_requirement": "v2 保留同一 mode/qty/snapshot，金额/分期和教学课时不得变化"
+  },
+  {
+    "mode": "per_semester",
+    "qty": {
+      "semesters": 1.5
+    },
+    "snapshot": {
+      "name": "钢琴一对一",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": false,
+      "pricing": {
+        "mode": "per_semester",
+        "amount_cents": 123456,
+        "units_per_package": null
+      },
+      "course_version": 2,
+      "price_list_rev": 8,
+      "taken_at": "2026-11-17T21:00:00+08:00"
+    },
+    "expected": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 0,
+          "amount": 1851.84
+        }
+      ],
+      "total": {
+        "units": 0,
+        "bundles": [
+          "钢琴一对一 1.5 学期"
+        ],
+        "amount": 1851.84
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 925.92
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 925.92
+        }
+      ],
+      "optional_fees": [],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ]
+    },
+    "conversion_requirement": "v2 保留同一 mode/qty/snapshot，金额/分期和教学课时不得变化"
+  },
+  {
+    "mode": "per_month",
+    "qty": {
+      "months": 3
+    },
+    "snapshot": {
+      "name": "钢琴一对一",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": false,
+      "pricing": {
+        "mode": "per_month",
+        "amount_cents": 10000,
+        "units_per_package": null
+      },
+      "course_version": 2,
+      "price_list_rev": 8,
+      "taken_at": "2026-11-17T21:00:00+08:00"
+    },
+    "expected": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 0,
+          "amount": 300
+        }
+      ],
+      "total": {
+        "units": 0,
+        "bundles": [
+          "钢琴一对一 3 月"
+        ],
+        "amount": 300
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 150
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 150
+        }
+      ],
+      "optional_fees": [],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ]
+    },
+    "conversion_requirement": "v2 保留同一 mode/qty/snapshot，金额/分期和教学课时不得变化"
+  },
+  {
+    "mode": "package",
+    "qty": {
+      "packages": 1.5
+    },
+    "snapshot": {
+      "name": "钢琴一对一",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": false,
+      "pricing": {
+        "mode": "package",
+        "amount_cents": 100001,
+        "units_per_package": 8
+      },
+      "course_version": 2,
+      "price_list_rev": 8,
+      "taken_at": "2026-11-17T21:00:00+08:00"
+    },
+    "expected": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 12,
+          "amount": 1500.02
+        }
+      ],
+      "total": {
+        "units": 12,
+        "bundles": [],
+        "amount": 1500.02
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 750.01
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 750.01
+        }
+      ],
+      "optional_fees": [],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ]
+    },
+    "conversion_requirement": "v2 保留同一 mode/qty/snapshot，金额/分期和教学课时不得变化"
+  },
+  {
+    "mode": "per_unit",
+    "qty": {
+      "units": 1
+    },
+    "snapshot": {
+      "name": "钢琴一对一",
+      "form": "one_to_one",
+      "minutes": 45,
+      "duration_text": null,
+      "optional": true,
+      "pricing": {
+        "mode": "per_unit",
+        "amount_cents": 30001,
+        "units_per_package": null
+      },
+      "course_version": 2,
+      "price_list_rev": 8,
+      "taken_at": "2026-11-17T21:00:00+08:00"
+    },
+    "expected": {
+      "stages": [
+        {
+          "key": "stk_demo1",
+          "months": 3,
+          "calendar_weeks": 8,
+          "teaching_weeks": null,
+          "weeks_display": 8,
+          "units": 0,
+          "amount": 0
+        }
+      ],
+      "total": {
+        "units": 0,
+        "bundles": [],
+        "amount": 0
+      },
+      "budget": {
+        "cap": null,
+        "remaining": null,
+        "over": false
+      },
+      "installments": [
+        {
+          "stage_key": null,
+          "label": "第一期",
+          "due": "2027-01-17",
+          "amount": 0
+        },
+        {
+          "stage_key": null,
+          "label": "第二期",
+          "due": "2027-02-17",
+          "amount": 0
+        }
+      ],
+      "optional_fees": [
+        {
+          "course_id": "course_demo_piano",
+          "label": "钢琴一对一",
+          "price_text": "¥300.01 / 课时"
+        }
+      ],
+      "cover_numbers": [
+        {
+          "label": "规划周期",
+          "value": "3",
+          "unit": "个月",
+          "sub": "2027.01 – 2027.03"
+        }
+      ]
+    },
+    "conversion_requirement": "v2 保留同一 mode/qty/snapshot，金额/分期和教学课时不得变化"
+  }
+]

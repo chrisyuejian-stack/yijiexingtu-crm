@@ -1,0 +1,1 @@
+CREATE TRIGGER partner_source_insert BEFORE INSERT ON lessons WHEN (NEW.source_course_id IS NOT NULL OR NEW.source_session_id IS NOT NULL) AND NOT EXISTS(SELECT 1 FROM partner_write_guards WHERE tenant_id=NEW.tenant_id) AND NOT EXISTS(SELECT 1 FROM trusted_imports WHERE tenant_id=NEW.tenant_id) BEGIN SELECT RAISE(ABORT,'partner_readonly'); END;

@@ -1,0 +1,1 @@
+CREATE TRIGGER precision_lesson_participants_insert BEFORE INSERT ON lesson_participants WHEN ABS(NEW.deducted*100-ROUND(NEW.deducted*100))>0.0000001 BEGIN SELECT RAISE(ABORT,'quantity_precision'); END;

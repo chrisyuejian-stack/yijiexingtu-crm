@@ -1,0 +1,67 @@
+[
+  {
+    "path": "backup-dist/backup-worker.js",
+    "bytes": 421309,
+    "sha256": "26290b07284d7c1df0f33b0dc8f38c3edb9672407d9e81dfe53a389e7fe0c89c"
+  },
+  {
+    "path": "backup-dist/build-report.json",
+    "bytes": 364,
+    "sha256": "5142d461739ccb921a65cfa470437e8c8d4c3fbfa710d6dcb316c533c6b3a127"
+  },
+  {
+    "path": "dist/_routes.json",
+    "bytes": 43,
+    "sha256": "1301eaf7b0e8272b5bb4575abcfbd2cffde53af2c6ea4d77a5ec78919a5a2daa"
+  },
+  {
+    "path": "dist/_worker.js",
+    "bytes": 705196,
+    "sha256": "b4f5a132d281f8581e6149c193bfa4fe7d06f647e795831051f5c03f14dbc875"
+  },
+  {
+    "path": "dist/assets/tenant.css",
+    "bytes": 314505,
+    "sha256": "c1d5f08efc3a187a3d9d56f3f014e01cdca45e15671b842f315003b53557739b"
+  },
+  {
+    "path": "dist/assets/tenant.js",
+    "bytes": 515719,
+    "sha256": "3a62d01cb1c1a21b97ff068f16738ac7666956e34a577137adcf1914a3fe1858"
+  },
+  {
+    "path": "dist/console-assets/console.css",
+    "bytes": 24573,
+    "sha256": "d79bd066afb01e7972564dcf584edf40f56da3f1733a48a1b4ae93999d608ef5"
+  },
+  {
+    "path": "dist/console-assets/console.js",
+    "bytes": 78791,
+    "sha256": "63e084ec69de39d17feee5981668f846396ab26461f1393b9ac4fe93c55c0c02"
+  },
+  {
+    "path": "dist/console-assets/pinyin-pro.LICENSE",
+    "bytes": 1070,
+    "sha256": "824f6069c5a59b0c1650d0fb9f8d091866c6019eb761c8e658dfc03f001eabd2"
+  },
+  {
+    "path": "dist/console-assets/pinyin-pro.js",
+    "bytes": 539229,
+    "sha256": "373ffe7d919483f881d3072a370f764c76ec6d6480e50cb87d6fd524e9386bac"
+  },
+  {
+    "path": "dist/console.html",
+    "bytes": 585,
+    "sha256": "03b858046d414dc983c26cdf3bf035af6b4bf197f716a13375f20bc038066702"
+  },
+  {
+    "path": "dist/index.html",
+    "bytes": 139,
+    "sha256": "142a46786df3e317318d7bc6860e120c53db34184097258a4b63ccaba1fb2be4"
+  },
+  {
+    "path": "dist/tenant.html",
+    "bytes": 663,
+    "sha256": "2e6a3ffbb35c8acb4eaf20950b6d9e25921f94af7329ae9f6da664e609cc74c4"
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "source": {
+    "tests": 247,
+    "pass": 247,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "bundle": {
+    "tests": 247,
+    "pass": 247,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "migrations": {
+    "engine": "Node SQLite in-memory; not remote D1",
+    "migrations": [
+      "0001_foundation.sql",
+      "0002_security_review.sql",
+      "0003_scheduling.sql",
+      "0004_credits.sql",
+      "0005_integer_money.sql",
+      "0006_finance.sql",
+      "0007_settlement_fingerprint.sql",
+      "0008_mobile_reviews.sql",
+      "0009_tools.sql",
+      "0010_promo.sql",
+      "0011_promo_image_limits.sql",
+      "0012_ui_rebuild.sql",
+      "0013_promo_rebuild.sql",
+      "0014_debt_and_balance.sql",
+      "0015_delete_capabilities.sql",
+      "0016_page_query_indexes.sql",
+      "0017_student_schedule_indexes.sql",
+      "0018_credit_income_and_schedule_guards.sql"
+    ],
+    "counts": [
+      {
+        "type": "index",
+        "count": 57
+      },
+      {
+        "type": "table",
+        "count": 82
+      },
+      {
+        "type": "trigger",
+        "count": 84
+      },
+      {
+        "type": "view",
+        "count": 3
+      }
+    ],
+    "foreign_key_issues": []
+  },
+  "provenance": {
+    "baseline_file_count": 235,
+    "changed_baseline_files": [
+      "tests/stage4-review.test.mjs"
+    ],
+    "runtime_source_unchanged": true,
+    "migrations_unchanged": true,
+    "input_contract": "v0.2",
+    "design_board_count": 17,
+    "remote_resources_provisioned": false
+  }
+}

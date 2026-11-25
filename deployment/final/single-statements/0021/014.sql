@@ -1,0 +1,1 @@
+CREATE TABLE style_pack_versions(id TEXT NOT NULL UNIQUE,pack_id TEXT NOT NULL REFERENCES style_packs(id),version TEXT NOT NULL,manifest_json TEXT NOT NULL CHECK(json_valid(manifest_json)),created_at INTEGER NOT NULL,PRIMARY KEY(pack_id,version));

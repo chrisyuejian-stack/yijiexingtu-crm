@@ -1,0 +1,1 @@
+CREATE TABLE platform_announcements(id TEXT PRIMARY KEY,title TEXT NOT NULL,content TEXT NOT NULL,roles TEXT NOT NULL,starts_at INTEGER NOT NULL,ends_at INTEGER,created_at INTEGER NOT NULL,created_by TEXT NOT NULL);

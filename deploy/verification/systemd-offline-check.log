@@ -1,0 +1,3 @@
+Isolated offline systemd verification; fake dependency targets, actual unit files.
+Exit: 1
+Failed to create directory '/run/systemd/': Permission denied

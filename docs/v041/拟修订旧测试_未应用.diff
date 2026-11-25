@@ -1,0 +1,34 @@
+--- a/tests/ai-stage5.test.mjs
++++ b/tests/ai-stage5.test.mjs
+@@ -687,11 +687,11 @@
+     assert.equal(s.f.db.raw.prepare("SELECT COUNT(*) n FROM ai_quota_holds WHERE tenant_id=?").get(s.t.id).n, 0);
+ }));
+ 
+-test("YX5AI 平台模型和机构覆盖生效，快速深度硬截止分别45/90秒", () => school(async s => {
++test("YX5AI 平台模型和机构覆盖生效，长文动作快速深度硬截止分别120/150秒", () => school(async s => {
+     const c = await content(s);
+     model(s, request => {
+         assert.ok(request.signal instanceof AbortSignal);
+-        assert.ok(Math.abs(request.deadline_at - Date.now() - (request.tier === "fast" ? 45e3 : 9e4)) < 2e3);
++        assert.ok(Math.abs(request.deadline_at - Date.now() - (request.tier === "fast" ? 120e3 : 150e3)) < 2e3);
+         return {
+             suggestions: []
+         };
+@@ -729,14 +729,14 @@
+         assert.equal(s.modelCalls.length, 2);
+         assert.equal(s.modelCalls[0].deadline_at, s.modelCalls[1].deadline_at);
+         model(s, () => {
+-            clock += 46e3;
++            clock += 121e3;
+             return {
+                 suggestions: []
+             };
+         });
+-        ok(await ai(s, "content/versions", {
++        assert.equal(ok(await ai(s, "content/versions", {
+             content_id: c.id
+-        }), 502);
++        }), 502).error, "ai_timeout");
+         assert.equal(ok(await call(s, "ai/usage")).fast.used, 1);
+     } finally {
+         Date.now = original;
