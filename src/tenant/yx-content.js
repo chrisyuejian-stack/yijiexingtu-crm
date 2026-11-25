@@ -137,17 +137,23 @@ function yxvUsageMeter() {
 
 // ---------- 编辑器 ----------
 async function yxContentEditor(id, onClose, preset) {
-  document.querySelector(".yxp-editor")?.remove();
+  yxDisposeEditors();
   const shell = el("div", null, { class: "yxp-editor yxc-editor yxv-editor ui-root", role: "dialog", "aria-modal": "true", "aria-label": "招生内容" });
   document.body.append(shell);
   shell.append(UI.tableSkeleton());
   const st = { doc: null, dirty: false, scenes: [], courses: [], tags: [], gallery: [], styles: [], results: [], undo: [], subjects: [], sel: null, tab: "article", aiTab: "draft", unsupported: [], flags: [], tone: "balanced", refs: "", len: 1200, savedAt: null };
+  shell.yxDispose = () => {
+    st.closed = true;
+    clearTimeout(st.qTimer);
+    st.qSeq = (st.qSeq || 0) + 1;
+  };
   const close = async () => {
     if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。" }))) return;
+    shell.yxDispose?.();
     shell.remove();
     await onClose?.();
   };
-  shell.addEventListener("keydown", (e) => e.key === "Escape" && !e.target.closest?.("[contenteditable]") && close());
+  shell.addEventListener("keydown", (e) => yxEditorEscape(e, shell) && close());
   try {
     const subjects = await api("settings/subjects").catch(() => []);
     st.subjects = subjects;
@@ -163,7 +169,7 @@ async function yxContentEditor(id, onClose, preset) {
     shell.replaceChildren(UI.empty({ text: e.message, action: { label: "关闭", onSelect: close } }));
     return;
   }
-  const render = () => yxcRender(shell, st, close, render);
+  const render = () => shell.isConnected && yxcRender(shell, st, close, render);
   render();
 }
 async function yxcRun(st, action, extra, label, rerender, fresh) {
@@ -599,7 +605,12 @@ function yxcCanvas(mid, st, ro, mark, rerender) {
       for (const it of b.items) ul.append(yxInlineFill(el("li"), it));
       wrap.append(ul);
       if (st.sel === i && !ro) {
-        const t = yxcArea(b.items.join("\n"), "分条列表，每行一条", (v) => ((b.items = v.split("\n")), mark()), false, 3);
+        const t = yxcArea(b.items.join("\n"), "分条列表，每行一条", (v) => {
+          b.items = v.split("\n");
+          ul.replaceChildren();
+          for (const item of b.items) ul.append(yxInlineFill(el("li"), item));
+          mark();
+        }, false, 3);
         t.classList.add("yxv-inline-edit");
         t.addEventListener("click", (e) => e.stopPropagation());
         wrap.append(t);
@@ -617,6 +628,12 @@ function yxcCanvas(mid, st, ro, mark, rerender) {
           const rows = v.split("\n").map((r) => r.split("|").map((x) => x.trim()));
           const w = Math.max(...rows.map((r) => r.length));
           b.rows = rows.map((r) => [...r, ...Array(w - r.length).fill("")]);
+          t.replaceChildren();
+          b.rows.forEach((row, k) => {
+            const tr = el("tr");
+            for (const cell of row) tr.append(yxInlineFill(el(k ? "td" : "th"), cell));
+            t.append(tr);
+          });
           mark();
         }, false, 3);
         ta.classList.add("yxv-inline-edit");
@@ -1446,7 +1463,7 @@ function yxInlineParse(s) {
         inner += line[j];
         j++;
       }
-      if (!closed || !inner) {
+      if (!closed || !inner.trim()) {
         ok = false;
         break;
       }

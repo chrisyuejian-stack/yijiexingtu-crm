@@ -18,6 +18,7 @@ function yxp2Body(doc) {
 
 async function yxp2Open(st) {
   st.v2 = true;
+  st.priceRev = st.doc.price_list_rev ?? null;
   st.brief = await api("plans/" + encodeURIComponent(st.doc.id) + "/brief")
     .then((r) => r.brief)
     .catch(() => ({ version: 0, text: "", updated_at: null }));
@@ -29,17 +30,45 @@ async function yxp2Open(st) {
 }
 
 // 编辑后 0.8 秒：服务器试算（不写库、不扣次数），金额和分期实时更新
-function yxp2QuoteSoon(st, redraw) {
+function yxp2CancelQuote(st) {
   clearTimeout(st.qTimer);
+  st.qSeq = (st.qSeq || 0) + 1;
+}
+function yxp2QuoteSoon(st, redraw) {
+  yxp2CancelQuote(st);
+  const seq = st.qSeq;
   st.qTimer = setTimeout(async () => {
+    const version = st.doc.version;
     try {
-      const r = await api("plans/" + encodeURIComponent(st.doc.id) + "/quote-preview", "POST", { version: st.doc.version, doc: yxp2Body(st.doc), ...(st.priceRev ? { expected_price_list_rev: st.priceRev } : {}) });
+      const r = await api("plans/" + encodeURIComponent(st.doc.id) + "/quote-preview", "POST", { version, doc: yxp2Body(st.doc), ...(st.priceRev != null ? { expected_price_list_rev: st.priceRev } : {}) });
+      if (seq !== st.qSeq || version !== st.doc.version || st.closed) return;
       st.doc.computed = r.computed;
       st.priceRev = r.price_list_rev;
       st.quoteWarn = r.warnings || [];
       redraw();
     } catch {}
   }, 800);
+}
+
+function yxp2Accept(st, r) {
+  st.doc = { ...st.doc, ...r };
+  st.priceRev = r.price_list_rev ?? st.priceRev;
+}
+function yxp2InstallmentError(doc) {
+  const f = doc.modules.fees;
+  if (f.installments !== "custom") return null;
+  if (!f.custom.length || f.custom.some(x => !Number.isInteger(x.ratio_bps) || x.ratio_bps <= 0 || x.ratio_bps > 10000)) return "每期比例须大于 0% 且不超过 100%。";
+  if (f.custom.reduce((n, x) => n + x.ratio_bps, 0) !== 10000) return "各期比例合计须为 100%。";
+  return null;
+}
+function yxp2DeleteStage(doc, key) {
+  const c = doc.modules.courses, f = doc.modules.fees;
+  if (c.lines.some(x => x.stage_key === key)) return false;
+  c.groups = c.groups.filter(x => x.stage_key !== key);
+  c.stage_settings = c.stage_settings.filter(x => x.stage_key !== key);
+  if (f.due_dates) delete f.due_dates[key];
+  for (const x of [...f.stage_extras, ...f.custom, ...f.fixed]) if (x.stage_key === key) x.stage_key = null;
+  return true;
 }
 
 function yxp2Render(shell, st, close, rerender) {
@@ -184,7 +213,7 @@ function yxp2Kit(locked, mark) {
     return g;
   };
   // 一行小操作：上移 / 下移 / 删除
-  const ops = (arr, i, rerender, extra = []) => {
+  const ops = (arr, i, rerender, extra = [], beforeDelete = () => true) => {
     const r = el("div", null, { class: "yxp2-ops" });
     if (locked) return r;
     const go = (fn) => () => (fn(), mark(), rerender());
@@ -192,7 +221,7 @@ function yxp2Kit(locked, mark) {
       ...extra,
       button("↑", go(() => i > 0 && ([arr[i - 1], arr[i]] = [arr[i], arr[i - 1]]))),
       button("↓", go(() => i < arr.length - 1 && ([arr[i + 1], arr[i]] = [arr[i], arr[i + 1]]))),
-      button("删除", go(() => arr.splice(i, 1))),
+      button("删除", go(() => beforeDelete() !== false && arr.splice(i, 1))),
     );
     return r;
   };
@@ -336,7 +365,11 @@ const yxp2Mod = {
                 })(),
               ]
             : []),
-        ]),
+        ], () => {
+          if (yxp2DeleteStage(st.doc, sg.key)) return true;
+          notice("请先移走或删除该阶段的课程，再删除阶段。");
+          return false;
+        }),
       );
       card.append(head);
       const g = K.grid(card);
@@ -344,6 +377,7 @@ const yxp2Mod = {
       K.inp(g, "开始月份", sg.start_month || "", (v) => (sg.start_month = v || null), "month");
       K.inp(g, "结束月份", sg.end_month || "", (v) => (sg.end_month = v || null), "month");
       K.num(g, "教学周数（可空）", sg.teaching_weeks, (v) => (sg.teaching_weeks = v), { min: "1", step: "1" });
+      K.inp(g, "教学周数说明（手填周数时必填）", sg.weeks_note, (v) => (sg.weeks_note = v), "text", { maxlength: "500" });
       K.lines(card, "阶段目标", sg.goals, (v) => (sg.goals = v.slice(0, 30)));
       const nd = el("div", null, { class: "yxp2-list" });
       nd.append(el("small", "阶段内的节点（如暑期音乐节、学期汇报）", { class: "yxv-label" }));
@@ -685,16 +719,16 @@ function yxp2Fees(b, st, K, locked, mark, rerender) {
     box.append(el("small", title, { class: "yxv-label" }));
     arr.forEach((x, i) => {
       const r = el("div", null, { class: "yxp2-row" });
-      if (withStage) K.sel(r, "阶段", x.stage_key || "", stages.map((s) => [s.key, s.name || "未命名阶段"]), (v) => (x.stage_key = v));
+      if (withStage) K.sel(r, "阶段", x.stage_key || "", [["", "未分阶段"], ...stages.map((s) => [s.key, s.name || "未命名阶段"])], (v) => (x.stage_key = v || null));
       K.inp(r, "名称", x.label, (v) => (x.label = v), "text", { maxlength: "100" });
       K.num(r, "金额（元）", x.amount, (v) => (x.amount = v));
       r.append(K.ops(arr, i, rerender));
       box.append(r);
     });
-    if (!locked && arr.length < 100 && (!withStage || stages.length)) box.append(button("＋ 添加", () => (arr.push(mk()), mark(), rerender())));
+    if (!locked && arr.length < 100) box.append(button("＋ 添加", () => (arr.push(mk()), mark(), rerender())));
     b.append(box);
   };
-  list("阶段附加费（教材、演出、考级报名等）", F.stage_extras, true, () => ({ id: yxp2Tmp("fee"), stage_key: stages[0]?.key, label: "", amount: null, note: "" }));
+  list("阶段附加费（教材、演出、考级报名等）", F.stage_extras, true, () => ({ id: yxp2Tmp("fee"), stage_key: null, label: "", amount: null, note: "" }));
   list("其他费用（申请服务费等）", F.other_fees, false, () => ({ id: yxp2Tmp("fee"), label: "", amount: null, note: "" }));
   // 优惠
   const d = (F.discount ||= { type: "none", amount: null, rate_bps: null, note: "" });
@@ -706,6 +740,7 @@ function yxp2Fees(b, st, K, locked, mark, rerender) {
   // 分期
   K.sel(b, "缴费方式", F.installments, [["per_stage", "按阶段缴费"], ["custom", "按比例分期"], ["fixed", "直接填每期金额"]], (v) => {
     F.installments = v;
+    if (v === "custom" && !F.custom.length) F.custom = [{ stage_key: null, label: "第1期", due: null, ratio_bps: 10000 }];
     if (v !== "custom") F.custom = [];
     if (v !== "fixed") F.fixed = [];
     rerender();
@@ -723,7 +758,7 @@ function yxp2Fees(b, st, K, locked, mark, rerender) {
       const r = el("div", null, { class: "yxp2-row" });
       K.inp(r, "名称", x.label, (v) => (x.label = v), "text", { maxlength: "30" });
       K.inp(r, "日期", x.due || "", (v) => (x.due = v || null), "date");
-      K.num(r, "比例（%）", x.ratio_bps / 100, (v) => (x.ratio_bps = Math.round((v || 0) * 100)));
+      K.num(r, "比例（%）", x.ratio_bps / 100, (v) => (x.ratio_bps = Math.round((v || 0) * 100)), { min: "0.01", max: "100", step: "0.01" });
       r.append(K.ops(F.custom, i, rerender));
       inst.append(r);
     });
@@ -739,6 +774,14 @@ function yxp2Fees(b, st, K, locked, mark, rerender) {
     });
     if (!locked) inst.append(button("＋ 加一期", () => (F.fixed.push({ id: yxp2Tmp("ins"), stage_key: null, label: "第" + (F.fixed.length + 1) + "期", due: null, amount: null }), mark(), rerender())));
   }
+  const validation = el("p", null, { class: "yxs-warn", role: "status" });
+  const updateValidation = () => {
+    validation.textContent = yxp2InstallmentError(doc) || "";
+    validation.hidden = !validation.textContent;
+  };
+  inst.append(validation);
+  inst.addEventListener("input", updateValidation);
+  updateValidation();
   const ist = C.installment_status;
   if (ist === "unbalanced") inst.append(el("p", "各期合计和应付总额对不上，可以先存草稿，发送前要调平。", { class: "yxs-warn" }));
   if (ist === "pending_quote") inst.append(el("p", "还有课程待报价，报完价才能算出分期。", { class: "v-muted" }));
@@ -749,6 +792,9 @@ function yxp2Fees(b, st, K, locked, mark, rerender) {
 
 // ---------- 保存 / 平移日期 / 模版 / 优秀方案 ----------
 async function yxp2Save(st, rerender) {
+  const error = yxp2InstallmentError(st.doc);
+  if (error) { notice(error); return false; }
+  yxp2CancelQuote(st);
   const body = { version: st.doc.version, doc: yxp2Body(st.doc) };
   if (st.priceRev != null) body.expected_price_list_rev = st.priceRev;
   if (st.applied?.length) body.applied_suggestion_ids = [...new Set(st.applied)];
@@ -756,12 +802,12 @@ async function yxp2Save(st, rerender) {
   if (st.dateShift) body.date_shift = st.dateShift;
   try {
     const r = await api("plans/" + encodeURIComponent(st.doc.id), "PUT", body);
-    st.doc = r;
+    yxp2Accept(st, r);
     st.dirty = false;
     st.applied = [];
     st.appliedCards = [];
     st.dateShift = null;
-    st.priceRev = null;
+    st.priceRev = r.price_list_rev ?? st.priceRev;
     notice("已保存", "success");
   } catch (e) {
     if (e.code === "version_conflict") {
@@ -771,7 +817,7 @@ async function yxp2Save(st, rerender) {
       st.applied = [];
       st.appliedCards = [];
       st.dateShift = null;
-      st.priceRev = null;
+      st.priceRev = st.doc.price_list_rev ?? null;
     } else if (e.code === "price_changed") {
       const d = e.details || {};
       if (d.price_list_rev == null) return notice("价目表刚更新过，请检查后再保存。");
@@ -787,7 +833,7 @@ async function yxp2Save(st, rerender) {
 // 有自由课程时，发送 / 导出前请顾问确认一次价格（v0.5 §4.8）
 async function yxp2Ack(st) {
   if (!st.v2) return {};
-  const manual = (st.doc.modules?.courses?.lines || []).filter((l) => l.pricing_source === "manual" && !l.optional);
+  const manual = (st.doc.modules?.courses?.lines || []).filter((l) => l.pricing_source === "manual");
   if (!manual.length) return {};
   const ok = await UI.confirm({ title: "确认非价目表课程的价格", consequence: "这份方案里有 " + manual.length + " 门自由课程（" + manual.slice(0, 3).map((l) => l.name || "未命名").join("、") + (manual.length > 3 ? " 等" : "") + "），价格是手填或“另议”。确认无误后继续。" });
   return ok ? { acknowledgements: { manual_pricing: true } } : null;
@@ -1416,9 +1462,10 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
   tx.append(el("strong", rd.brand?.name || ""));
   for (const x of [rd.profile?.address, rd.profile?.class_hours ? "上课时间：" + rd.profile.class_hours : "", rd.profile?.contact_phone || ""]) if (x) tx.append(el("p", x));
   contact.append(tx);
-  if (rd.brand?.qr_image_id && mediaUrl) {
+  const qrUrl = rd.brand?.qr_url || (rd.brand?.qr_image_id && mediaUrl ? mediaUrl(rd.brand.qr_image_id) : null);
+  if (qrUrl) {
     const qr = el("figure", null, { class: "yxd-qr" });
-    qr.append(el("img", null, { src: mediaUrl(rd.brand.qr_image_id), alt: "咨询二维码" }), el("figcaption", "咨询二维码"));
+    qr.append(el("img", null, { src: qrUrl, alt: "咨询二维码" }), el("figcaption", "咨询二维码"));
     contact.append(qr);
   }
   if (blocks.length) add(contact);

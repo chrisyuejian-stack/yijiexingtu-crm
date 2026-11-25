@@ -1,0 +1,44 @@
+{
+  "node": "24.22.3",
+  "npm": "11.19.1",
+  "base_commit": "8c2c8b8",
+  "results": {
+    "source": {
+      "tests": 611,
+      "pass": 611,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "bundle": {
+      "tests": 611,
+      "pass": 611,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "platform-final": {
+      "tests": 50,
+      "pass": 50,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "browser_components": {
+      "passed": 11,
+      "viewport_width": 390
+    },
+    "browser_built_workflow": {
+      "passed": 1,
+      "viewport_width": 390,
+      "uses": "built assets and Worker, real loopback HTTP, disposable SQLite/R2/auth fixtures"
+    }
+  },
+  "artifacts": {
+    "dist/_worker.js": "1eeb7e15ea57abafc4d8623c6dc51473f12508c2459fce65ab0f338263aecd16",
+    "backup-dist/backup-worker.js": "28561583aef8450921fdca957664934cdbfe587342c7fe21fd9e68445d83aa9b"
+  }
+}

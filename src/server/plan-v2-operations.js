@@ -15,7 +15,7 @@ export async function readBrief(r,env,tenant,id){const b=await r.planBrief(id);r
 export async function readReference(r,id){const x=await r.planReference(id);return x?{enabled:!!x.enabled,version:x.version,revision_id:x.revision_id,updated_at:planIso(x.updated_at)}:{enabled:false,version:0,revision_id:null,updated_at:null};}
 export async function v2EditorResponse(r,row,env,tenant,user,policy){
  const stored=JSON.parse(row.doc_json),ctx=JSON.parse((await r.planContext(row.context_id)).doc_json),doc=stored.doc_version===2?stored:convertV1(stored,ctx,row),out=editorV2({...row,doc_json:JSON.stringify(doc)},can(user,policy,'prices','read'));
- out.stored_doc_version=stored.doc_version===2?2:1;out.converted_from=stored.doc_version===2?null:1;out.manifest=JSON.parse(row.manifest_json);Object.assign(out,await r.planParty(row.id));
+ out.price_list_rev=(await r.planWorkspace()).price_list_rev;out.stored_doc_version=stored.doc_version===2?2:1;out.converted_from=stored.doc_version===2?null:1;out.manifest=JSON.parse(row.manifest_json);Object.assign(out,await r.planParty(row.id));
  if(can(user,policy,'plans','write')){out.brief=await readBrief(r,env,tenant,row.id);out.reference=await readReference(r,row.id);}return out;
 }
 export async function v2Extras(req,env,resolved,user,policy,r,ops){

@@ -2593,6 +2593,65 @@ function yxoSubjectDetail(box, pack, again) {
     cls.append(r);
   }
   box.append(cls);
+  // 可移植的示例方案随学科包发布，机构导入后保留为只读示例。
+  const samples = h("section", "cx-panel yxo-card");
+  samples.append(el("h2", "示例方案"), h("p", "muted", "示例不含个人信息或机构价格，引用本学科包的课程与阶段。导入示例文件后保存草稿，再随版本发布。"));
+  const sampleList = h("div", "yxo-edit-table");
+  const published = pack.versions.filter(x => x.status !== "draft").flatMap(x => x.content.sample_plans || []);
+  const changedSample = sample => {
+    const previous = Math.max(0, ...published.filter(x => x.key === sample.key).map(x => x.version));
+    sample.version = Math.max(sample.version, previous + 1);
+    mark();
+  };
+  const drawSamples = () => {
+    sampleList.replaceChildren();
+    if (!content.sample_plans?.length) sampleList.append(h("p", "muted", "还没有示例方案"));
+    for (const sample of content.sample_plans || []) {
+      const row = h("div", "yxo-card");
+      row.append(el("strong", sample.key + " · v" + sample.version), inp(sample.name, value => changedSample(Object.assign(sample, { name: value })), { "aria-label": "示例名称", maxlength: "100" }), inp(sample.description, value => changedSample(Object.assign(sample, { description: value })), { "aria-label": "示例说明", maxlength: "1000" }));
+      row.append(h("p", "muted", [sample.applicability?.subject, ...(sample.applicability?.directions || []), ...(sample.applicability?.grades || [])].filter(Boolean).join(" · ")));
+      if (draft) row.append(cxBtn("移除示例", async () => {
+        if (!(await cxAsk("移除示例“" + sample.name + "”？", "只从当前草稿移除，机构已导入的示例不受影响。", "移除"))) return;
+        content.sample_plans = content.sample_plans.filter(x => x !== sample);
+        mark();
+        drawSamples();
+      }));
+      sampleList.append(row);
+    }
+  };
+  if (draft) {
+    const upload = el("input", null, { type: "file", accept: ".json,application/json", "aria-label": "导入示例方案文件" });
+    upload.addEventListener("change", async () => {
+      try {
+        const file = upload.files?.[0];
+        if (!file) return;
+        if (file.size > 1024 * 1024) throw Error("示例文件不能超过 1MB");
+        const value = JSON.parse(await file.text()), incoming = Array.isArray(value) ? value : [value];
+        const next = structuredClone(content.sample_plans || []);
+        const seen = new Set();
+        for (const sample of incoming) {
+          if (!sample || typeof sample.key !== "string" || !sample.name || !Number.isInteger(sample.version) || sample.version < 1 || sample.doc_version !== 2 || sample.doc?.subject !== pack.key || sample.applicability?.subject !== pack.key) throw Error("请选择本学科的可移植 v2 示例方案文件，包含名称、固定编号和整数版本号。");
+          if (seen.has(sample.key)) throw Error("文件中示例编号重复");
+          seen.add(sample.key);
+          const index = next.findIndex(x => x.key === sample.key);
+          if (index >= 0) {
+            if (!(await cxAsk("替换示例“" + next[index].name + "”？", "替换当前草稿中的同编号示例，已发布版本不变。", "替换"))) return;
+            sample.version = Math.max(sample.version, next[index].version + 1);
+            next[index] = sample;
+          } else next.push(sample);
+        }
+        content.sample_plans = next;
+        mark();
+        drawSamples();
+        notice("已导入，请保存草稿；保存时会校验隐私和课程引用。");
+      } catch (e) { notice(e.message); }
+      finally { upload.value = ""; }
+    });
+    samples.append(upload);
+  }
+  samples.append(sampleList);
+  drawSamples();
+  box.append(samples);
   // 写作规则（只读摘要）
   const tone = h("section", "cx-panel yxo-card");
   tone.append(el("h2", "AI 写作规则"));

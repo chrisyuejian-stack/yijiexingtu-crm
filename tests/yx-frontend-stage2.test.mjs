@@ -53,7 +53,7 @@ test('YXF 根会话的 me 带机构代号，供前端取品牌；机构路径的
 });
 
 test('YXF 新增前端文件无 HTML 注入汇、内联事件或动态执行，并已进入机构端打包', async () => {
-  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js', 'src/tenant/yx-plans.js', 'src/tenant/yx-home.js', 'src/tenant/yx-ai.js', 'src/tenant/yx-content.js', 'src/tenant/yx-growth.js', 'src/tenant/yx-reports.js']) {
+  for (const file of ['src/tenant/yx.js', 'src/tenant/yx-settings.js', 'src/tenant/yx-plans.js', 'src/tenant/yx-plan2.js', 'src/tenant/yx-home.js', 'src/tenant/yx-ai.js', 'src/tenant/yx-content.js', 'src/tenant/yx-growth.js', 'src/tenant/yx-reports.js']) {
     const source = await readFile(file, 'utf8');
     assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write|\beval\s*\(|new\s+Function\s*\(/.test(source), file);
     assert.ok(!/style\s*=\s*["']/.test(source), file + ' 不写内联 style 属性（CSP 不允许）');

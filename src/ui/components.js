@@ -1776,6 +1776,7 @@ export function actionMenu({ label = "更多", items = [] } = {}) {
       i = choices.indexOf(document.activeElement);
     if (e.key === "Escape") {
       e.preventDefault();
+      e.stopPropagation();
       menu.hidePopover();
       trigger.focus();
     }

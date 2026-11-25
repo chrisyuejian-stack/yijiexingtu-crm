@@ -31,7 +31,7 @@ async function harness(fn,{legacy=false}={}){
 }
 test('PLAT release format has only runtime payload, all hashes verified, no source/tests/dependency installation',()=>harness(async h=>{
  const archive=await h.bundle('0.5.1-package'),entries=decodeZip(await readFile(archive));assert.ok(entries.some(x=>x.name==='SHA256SUMS'));assert.ok(entries.some(x=>x.name==='deploy/npm/package-lock.json'));assert.ok(!entries.some(x=>/^(?:src|scripts|tests)\//.test(x.name)));assert.ok(!entries.some(x=>x.name.includes('/node_modules/')));
- const output=join(h.f.directory,'extract');const meta=await extractRelease(archive,output);assert.equal(meta.version,'0.5.1-package');assert.equal(meta.maxMigration,28);assert.equal(meta.artifacts['dist/_worker.js'],'e2f059820bfe7e353212b34bc4b9919403a7094276d99402977c0f2ad50a8076');
+ const output=join(h.f.directory,'extract');const meta=await extractRelease(archive,output);assert.equal(meta.version,'0.5.1-package');assert.equal(meta.maxMigration,28);assert.equal(meta.artifacts['dist/_worker.js'],(await readFile('SHA256SUMS.txt','utf8')).match(/^([a-f0-9]{64})  dist\/_worker\.js$/m)?.[1]);
 }));
 test('PLAT release SHA/sidecar/path traversal tampering rejected before stopping or changing current',()=>harness(async h=>{
  const archive=await h.bundle('0.5.1-tamper'),entries=decodeZip(await readFile(archive));entries.find(x=>x.name==='server.mjs').data=Buffer.from('modified');await writeFile(archive,encodeZip(entries));await unlink(archive+'.sha256');await assert.rejects(updateRelease(archive,h.settings),/SHA256/);assert.equal(await h.current(),h.base);assert.equal(h.calls.length,0);

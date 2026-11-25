@@ -574,3 +574,16 @@ function yxNickname(name) {
   const surname = YX_COMPOUND.find((s) => n.startsWith(s) && n.length > s.length) || n[0];
   return surname + "同学";
 }
+
+// 顶层编辑器仅在没有子弹层且不处于输入态时响应 Escape。
+function yxEditorEscape(e, shell) {
+  return e.key === "Escape" && !e.defaultPrevented &&
+    !e.target.closest?.("input, textarea, select, [contenteditable]:not([contenteditable=false])") &&
+    !document.querySelector(":popover-open, dialog[open]") && shell.isConnected;
+}
+function yxDisposeEditors() {
+  for (const shell of document.querySelectorAll(".yxp-editor")) {
+    shell.yxDispose?.();
+    shell.remove();
+  }
+}
