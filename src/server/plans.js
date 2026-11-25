@@ -661,6 +661,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
         const extra=await v2Extras(req,env,resolved,actor,policy,r,{chooseStyle,sourcesFor,contextFor,validateImages});
         if(extra!==undefined)return extra;
     }
+    const editorResponse = row => JSON.parse(row.doc_json).doc_version === 2 ? v2EditorResponse(r,row,env,resolved.tenant.id,actor,policy) : editorPlan(row,can(actor,policy,'prices','read'));
     const m = /^\/api\/plans(?:\/([^/]+)(?:\/(convert-student|duplicate|revisions|skeleton|send|sign|archive|check|reprice|export|share-links)(?:\/([^/]+)(?:\/(restore))?)?)?)?$/.exec(path);
     if (!m) fail(404, "不存在", "not_found");
     if (!m[1]) {
@@ -709,7 +710,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
             permit(actor, policy, "write");
             const saved = await savePlan(r, null, await body(req), actor, policy, env, resolved.tenant.id);
             return json({
-                ...editorPlan(saved.row, can(actor, policy, "prices", "read")),
+                ...await editorResponse(saved.row),
                 id_map: saved.id_map
             }, 201);
         }
@@ -736,7 +737,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
         const changes=[];if(!link)changes.push({resource:'students',data:student});
         if(lead)changes.push({resource:'leads',previous:lead,data:{...lead,stage:'enrolled',student_id:student.id}});
         const saved=await commitRevision(r,row,row.id,doc,ctx,JSON.parse(row.manifest_json),[],link?[{kind:'students',id:student.id,version:student.version}]:[],actor,'convert_student',false,{}, {revision,changes,action:'convert_student'});
-        return json({...editorPlan(saved.row,can(actor,policy,'prices','read')),student_id:student.id});
+        return json({...await editorResponse(saved.row),student_id:student.id});
     }
     if (m[3] && !(action === "share-links" && req.method === "DELETE") && !(action === "revisions" && m[4] === "restore" && req.method === "POST")) fail(404,"不存在","not_found");
     if (!action) {
@@ -745,7 +746,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
             permit(actor, policy, "write");
             const saved = await savePlan(r, row, await body(req), actor, policy, env, resolved.tenant.id);
             return json({
-                ...editorPlan(saved.row, can(actor, policy, "prices", "read")),
+                ...await editorResponse(saved.row),
                 id_map: saved.id_map
             });
         }
@@ -837,7 +838,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
     if (action === "duplicate") {
         const result = await duplicate(r, row, d, actor, env, resolved.tenant.id);
         return json({
-            ...editorPlan(result.row, can(actor, policy, "prices", "read")),
+            ...await editorResponse(result.row),
             id_map: result.id_map
         }, 201);
     }
@@ -853,7 +854,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
     if (action === "reprice") {
         const saved = await reprice(r, row, d.line_ids, actor, true, d);
         return json({
-            ...editorPlan(saved.row, can(actor, policy, "prices", "read")),
+            ...await editorResponse(saved.row),
             id_map: saved.id_map
         });
     }
@@ -867,7 +868,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
         doc.computed = doc.doc_version===2?computeV2(doc):computePlan(doc);
         const saved = await commitRevision(r, row, row.id, doc, b.context, JSON.parse(b.revision.manifest_json), registerElements(doc), [], actor, "restore");
         return json({
-            ...editorPlan(saved.row, can(actor, policy, "prices", "read")),
+            ...await editorResponse(saved.row),
             id_map: {}
         });
     }
@@ -878,7 +879,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
         requirePassed(b.check, actor, []);
         if(b.doc.doc_version===2&&b.doc.modules.courses.lines.some(x=>x.pricing_source==='manual')&&d.acknowledgements?.manual_pricing!==true)planValidation('请确认非价目表课程及另议项','acknowledgements','check_failed');
         const saved = await commitRevision(r, row, row.id, b.doc, b.context, JSON.parse(row.manifest_json), [], [], actor, "send", true);
-        return json(editorPlan(saved.row, can(actor, policy, "prices", "read")));
+        return json(await editorResponse(saved.row));
     }
     if (action === "sign") {
         if (d.revision_id !== undefined && d.revision_id !== null) planText(d.revision_id,"revision_id",120);
@@ -896,7 +897,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
         }, {
             action: "sign"
         }, actor);
-        return json(editorPlan(await r.planGet(row.id), can(actor, policy, "prices", "read")));
+        return json(await editorResponse(await r.planGet(row.id)));
     }
     if (action === "archive") {
         versionOptional(d, row);
@@ -910,7 +911,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
             action: "archive",
             revoke: true
         }, actor);
-        return json(editorPlan(await r.planGet(row.id), can(actor, policy, "prices", "read")));
+        return json(await editorResponse(await r.planGet(row.id)));
     }
     fail(404, "不存在", "not_found");
 }

@@ -1,0 +1,45 @@
+{
+  "environment": "local file SQLite + memory COS SDK + real loopback HTTP + current built Workers",
+  "workerSha256": "1eeb7e15ea57abafc4d8623c6dc51473f12508c2459fce65ab0f338263aecd16",
+  "exchanges": [
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/me",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/schedule-native/api/auth/login",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/schedule-native/api/data/students",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/schedule-native/api/plans",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/schedule-native/api/gallery",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/schedule-native/api/gallery/img_8d1e38d4d9b9989c9bd21036/file",
+      "status": 200
+    }
+  ],
+  "platformLogin": 200,
+  "backupCompleted": true,
+  "mediaObjects": 1,
+  "noExternalServices": true
+}

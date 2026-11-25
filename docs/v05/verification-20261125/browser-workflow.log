@@ -1,0 +1,2 @@
+PASS Built v2 workflow: platform sample → explicit manual conversion → create 201 → save 200 → reference menu retained → Escape keeps editor → hash cleanup (390px).
+No live cloud services or production data. SQLite/R2/auth are disposable local fixtures.

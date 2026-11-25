@@ -149,17 +149,23 @@ async function yxReportBatch(c, batchId) {
 
 // ---------- 报告编辑器 ----------
 async function yxReportEditor(id, ctx, onClose) {
-  document.querySelector(".yxp-editor")?.remove();
+  yxDisposeEditors();
   const shell = el("div", null, { class: "yxp-editor yxv-editor yxr-editor ui-root", role: "dialog", "aria-modal": "true", "aria-label": "成长报告" });
   document.body.append(shell);
   shell.append(UI.tableSkeleton());
   const st = { doc: null, dirty: false, stats: {}, undo: [], manifest: null, gallery: null };
+  shell.yxDispose = () => {
+    st.closed = true;
+    clearTimeout(st.qTimer);
+    st.qSeq = (st.qSeq || 0) + 1;
+  };
   const close = async () => {
     if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。" }))) return;
+    shell.yxDispose?.();
     shell.remove();
     await onClose?.();
   };
-  shell.addEventListener("keydown", (e) => e.key === "Escape" && close());
+  shell.addEventListener("keydown", (e) => yxEditorEscape(e, shell) && close());
   try {
     st.doc = await api("reports/" + encodeURIComponent(id));
     const s = st.doc.style || {};
@@ -169,7 +175,7 @@ async function yxReportEditor(id, ctx, onClose) {
     shell.replaceChildren(UI.empty({ text: e.message, action: { label: "关闭", onSelect: close } }));
     return;
   }
-  const render = () => yxrRender(shell, st, ctx, close, render);
+  const render = () => shell.isConnected && yxrRender(shell, st, ctx, close, render);
   render();
 }
 function yxrPreview(st, ctx) {

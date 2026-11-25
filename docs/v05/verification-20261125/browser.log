@@ -1,0 +1,12 @@
+PASS 二维码兼容渲染数据 URL 与编辑器图库 ID
+PASS 更多菜单 Escape 关闭菜单并返回焦点，不关闭编辑器；输入态不退出
+PASS 模版课程转换须显式确认，取消不创建且禁止覆盖模版学科
+PASS 可选自由课程仍弹出价格确认
+PASS 手填教学周数可填写说明；删除阶段清理引用且有课程时拒绝
+PASS 自定义分期默认 100%，即时提示零比例和合计，附加费可不分阶段
+PASS 初始化即有价格修订；800ms 内快速保存带修订且取消待发试算
+PASS 在途旧试算延迟返回不得覆盖已保存文档或价格修订，元信息保留
+PASS inline_v1 空白标记及嵌套降级与服务端一致
+PASS 列表与表格输入即时刷新正文预览且保留输入焦点
+PASS 路由清理移除全屏编辑器并作废试算
+Browser regressions: 11/11 passed (Chromium, 390px). Component checks; external services and full application journeys are not exercised.

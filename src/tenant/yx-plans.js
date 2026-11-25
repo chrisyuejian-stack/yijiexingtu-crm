@@ -54,17 +54,23 @@ async function yxpCreate(studentId, row, again) {
 
 // ---------- 编辑器 ----------
 async function yxPlanEditor(id, onClose, hint) {
-  document.querySelector(".yxp-editor")?.remove();
+  yxDisposeEditors();
   const shell = el("div", null, { class: "yxp-editor yxv-editor ui-root", role: "dialog", "aria-modal": "true", "aria-label": "课程方案" });
   document.body.append(shell);
   shell.append(UI.tableSkeleton());
   const st = { doc: null, dirty: false, courses: [], types: [], calendar: { items: [] }, teachers: [], styles: [] };
+  shell.yxDispose = () => {
+    st.closed = true;
+    clearTimeout(st.qTimer);
+    st.qSeq = (st.qSeq || 0) + 1;
+  };
   const close = async () => {
     if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。" }))) return;
+    shell.yxDispose?.();
     shell.remove();
     await onClose?.();
   };
-  shell.addEventListener("keydown", (e) => e.key === "Escape" && close());
+  shell.addEventListener("keydown", (e) => yxEditorEscape(e, shell) && close());
   try {
     st.doc = await api("plans/" + encodeURIComponent(id));
     const subject = st.doc.subject;
@@ -95,7 +101,7 @@ async function yxPlanEditor(id, onClose, hint) {
     .then((r) => (r.blocking?.length || 0) + (r.warnings?.length || 0))
     .catch(() => 0);
   if (st.doc.doc_version === 2) await yxp2Open(st);
-  const render = () => (st.v2 ? yxp2Render : yxpRender)(shell, st, close, render);
+  const render = () => shell.isConnected && (st.v2 ? yxp2Render : yxpRender)(shell, st, close, render);
   render();
 }
 // 还没建档的方案（线索 / 意向）：取对象名字，用于顶栏和“转为正式学员”。
