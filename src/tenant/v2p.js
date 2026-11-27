@@ -310,7 +310,7 @@
       more.push({
         label: "重置学员账号密码",
         onSelect: async () => {
-          if (await UI.confirm({ title: "重置学员密码？", consequence: "原密码失效，所有设备下线；初始密码仅显示一次。" }))
+          if (await UI.confirm({ title: "重置学员密码？", consequence: "原密码失效，所有设备下线；初始密码仅显示一次。", danger: true }))
             showSecret(await api("accounts/" + row.account_id + "/reset-password", "POST", {}));
         },
       });
@@ -324,7 +324,7 @@
           more.push({
             label,
             onSelect: async () => {
-              if (await UI.confirm({ title: label + "：" + row.name + "？", consequence: "保留历史课程、缴费与审计记录。" })) {
+              if (await UI.confirm({ title: label + "：" + row.name + "？", consequence: "保留历史课程、缴费与审计记录。", danger: value !== "active" })) {
                 await api("data/students/" + id, "PATCH", { status: value, version: row.version });
                 sState.counts = null;
                 await again();

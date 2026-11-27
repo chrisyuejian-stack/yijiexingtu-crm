@@ -600,7 +600,7 @@ async function yxhTemplates() {
       if (t.origin !== "platform" && !t.readonly && enabled("plans", "write"))
         row.append(
           button("删除", async () => {
-            if (!(await UI.confirm({ title: "删除模版“" + t.name + "”？", consequence: "已经用这个模版做好的方案不受影响。" }))) return;
+            if (!(await UI.confirm({ title: "删除模版“" + t.name + "”？", consequence: "已经用这个模版做好的方案不受影响。", danger: true }))) return;
             await api("plan-templates/" + encodeURIComponent(t.id), "DELETE", { version: t.version });
             notice("已删除", "success");
             draw();

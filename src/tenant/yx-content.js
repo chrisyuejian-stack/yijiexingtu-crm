@@ -148,7 +148,7 @@ async function yxContentEditor(id, onClose, preset) {
     st.qSeq = (st.qSeq || 0) + 1;
   };
   const close = async () => {
-    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。" }))) return;
+    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。", danger: true }))) return;
     shell.yxDispose?.();
     shell.remove();
     await onClose?.();
@@ -1119,7 +1119,7 @@ async function yxcSave(st) {
     notice("已保存", "success");
   } catch (e) {
     if (e.code !== "version_conflict") throw e;
-    if (await UI.confirm({ title: "内容已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。" })) {
+    if (await UI.confirm({ title: "内容已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。", danger: true })) {
       st.doc = e.details?.latest || (await api("content/" + encodeURIComponent(d.id)));
       st.dirty = false;
     }
@@ -1134,7 +1134,7 @@ async function yxcStatus(st, status, rerender) {
 }
 
 async function yxcDelete(st, shell, close) {
-  if (!(await UI.confirm({ title: "删除这篇内容？", consequence: "删除后在列表里看不到，修改记录仍保留。" }))) return;
+  if (!(await UI.confirm({ title: "删除这篇内容？", consequence: "删除后在列表里看不到，修改记录仍保留。", danger: true }))) return;
   await api("content/" + encodeURIComponent(st.doc.id), "DELETE", { version: st.doc.version });
   st.dirty = false;
   await close();

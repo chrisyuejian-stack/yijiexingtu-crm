@@ -728,7 +728,7 @@ textarea.ui-control {
 }
 .ui-toast-region {
   position: fixed;
-  top: 20px;
+  top: 72px;
   right: 24px;
   z-index: 2000;
   display: flex;
@@ -985,6 +985,10 @@ textarea.ui-control {
     left: 16px;
     right: 16px;
     width: auto;
+  }
+  body:has(.yxp-editor, .yxv-editor) > .ui-toast-region {
+    top: auto;
+    bottom: calc(16px + env(safe-area-inset-bottom));
   }
   .ui-batch-bar {
     bottom: calc(16px + env(safe-area-inset-bottom));

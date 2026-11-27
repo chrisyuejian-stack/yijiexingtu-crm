@@ -893,7 +893,7 @@ function choice(form, label, name, options, value = "") {
   select.append(el("option", "请选择", { value: "" }));
   for (const row of options)
     select.append(el("option", row.name, { value: row.id }));
-  select.value = value;
+  select.value = value ?? "";
   select.required = true;
   wrap.append(select);
   form.append(wrap);

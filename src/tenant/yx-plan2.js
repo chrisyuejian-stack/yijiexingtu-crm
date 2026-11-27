@@ -813,7 +813,7 @@ async function yxp2Save(st, rerender) {
     notice("已保存", "success");
   } catch (e) {
     if (e.code === "version_conflict") {
-      if (!(await UI.confirm({ title: "方案已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。" }))) return;
+      if (!(await UI.confirm({ title: "方案已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。", danger: true }))) return;
       st.doc = e.details?.latest || (await api("plans/" + encodeURIComponent(st.doc.id)));
       st.dirty = false;
       st.applied = [];

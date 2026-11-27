@@ -160,7 +160,7 @@ async function yxReportEditor(id, ctx, onClose) {
     st.qSeq = (st.qSeq || 0) + 1;
   };
   const close = async () => {
-    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。" }))) return;
+    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。", danger: true }))) return;
     shell.yxDispose?.();
     shell.remove();
     await onClose?.();
@@ -249,7 +249,7 @@ function yxrRender(shell, st, ctx, close, rerender) {
   const go = async (i) => {
     const r = list[i];
     if (!r) return;
-    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定切换？", consequence: "切换后这些修改会丢失。" }))) return;
+    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定切换？", consequence: "切换后这些修改会丢失。", danger: true }))) return;
     st.dirty = false;
     shell.remove();
     await yxReportEditor(r.id, { ...ctx, name: ctx.names?.get(r.student_id) || "学员", sug: ctx.sugs?.[r.id] }, ctx.onClose);
@@ -651,7 +651,7 @@ async function yxrSave(st) {
     notice("已保存", "success");
   } catch (e) {
     if (e.code !== "version_conflict") throw e;
-    if (await UI.confirm({ title: "报告已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。" })) {
+    if (await UI.confirm({ title: "报告已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。", danger: true })) {
       st.doc = e.details?.latest || (await api("reports/" + encodeURIComponent(d.id)));
       st.dirty = false;
       st.stats = {};
