@@ -13,7 +13,7 @@
 4. Grok 审查 PR：有必须修复项就评论并打 `blocked`；无问题则由 Grok 打 `ready`。Grok 不可用时由 Gemini 审查并合并（不得审自己的 PR）。
 5. 只有 `MERGERS` 变量里的账号打的 `ready` 有效；无 `blocked`、无 `needs-claude`、CI 全绿则自动 squash 合并。作者不得给自己的 PR 打 `ready`。
 6. 拿不准的架构、迁移、安全、跨前后端接口变更：打 `needs-claude`，等待 Claude 裁决。
-7. 合并到 main 自动部署（Cloudflare Pages；EdgeOne 静态前端）。
+7. 合并到 main 自动部署（目前仅 Cloudflare Pages；腾讯云 CVM 待备案与预演后再接入）。
 
 ## 红线
 - 不改已发布迁移 0001–0028，新迁移递增编号。
