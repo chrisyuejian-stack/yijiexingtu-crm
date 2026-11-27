@@ -965,7 +965,7 @@
             (preview?.undo
               ? "；教师课酬 " + F.money(preview.undo.teacher_pay_amount)
               : "；按现有规则重算相关课酬");
-          if (!(await UI.confirm({ title: "撤销销课？", consequence: text + "。保留回补流水与审计。" })))
+          if (!(await UI.confirm({ title: "撤销销课？", consequence: text + "。保留回补流水与审计。", danger: true })))
             return;
           await creditWrite("lessons/" + data.id + "/undo", { lesson_version: data.version });
         }
@@ -992,6 +992,7 @@
               await UI.confirm({
                 title: label + "？",
                 consequence: "按机构缺勤规则回补课时并重算课酬，保留审计。",
+                danger: true,
               })
             ) {
               await creditWrite("lessons/" + data.id + "/status", {
@@ -1023,6 +1024,7 @@
             await UI.confirm({
               title: "删除课程？",
               consequence: "回补已扣课时；有关联补课或锁月时服务器拒绝。",
+              danger: true,
             })
           ) {
             await api("data/lessons/" + data.id, "DELETE", { version: data.version });

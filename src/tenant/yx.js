@@ -447,7 +447,7 @@ async function yxGuardians(body, studentId, row, again) {
       {
         label: "重置密码",
         onSelect: async () => {
-          if (!(await UI.confirm({ title: "重置 " + g.name + " 的密码？", consequence: "原密码失效，这位家长的所有设备立即下线；新的初始密码只显示一次。" }))) return;
+          if (!(await UI.confirm({ title: "重置 " + g.name + " 的密码？", consequence: "原密码失效，这位家长的所有设备立即下线；新的初始密码只显示一次。", danger: true }))) return;
           yxShowParentSecret(await api("parents/" + encodeURIComponent(g.parent_user_id) + "/reset-password", "POST", {}), g.name);
         },
       },

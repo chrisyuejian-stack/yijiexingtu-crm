@@ -65,7 +65,7 @@ async function yxPlanEditor(id, onClose, hint) {
     st.qSeq = (st.qSeq || 0) + 1;
   };
   const close = async () => {
-    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。" }))) return;
+    if (st.dirty && !(await UI.confirm({ title: "有未保存的修改，确定离开？", consequence: "离开后这些修改会丢失。", danger: true }))) return;
     shell.yxDispose?.();
     shell.remove();
     await onClose?.();
@@ -311,7 +311,7 @@ function yxpRender(shell, st, close, rerender) {
         if (!locked)
           head.append(
             button("删除", async () => {
-              if (doc.modules.courses.lines.some((l) => l.stage_key === sg.key) && !(await UI.confirm({ title: "删除阶段“" + sg.name + "”？", consequence: "这个阶段里的课程也会一起删除。" }))) return;
+              if (doc.modules.courses.lines.some((l) => l.stage_key === sg.key) && !(await UI.confirm({ title: "删除阶段“" + sg.name + "”？", consequence: "这个阶段里的课程也会一起删除。", danger: true }))) return;
               doc.modules.courses.lines = doc.modules.courses.lines.filter((l) => l.stage_key !== sg.key);
               stages.splice(i, 1);
               mark();
@@ -574,7 +574,7 @@ async function yxpSave(st, rerender) {
     notice("已保存", "success");
   } catch (e) {
     if (e.code === "version_conflict") {
-      if (await UI.confirm({ title: "方案已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。" })) {
+      if (await UI.confirm({ title: "方案已被别人修改", consequence: "要载入最新内容吗？你这次的修改会丢失。", danger: true })) {
         st.doc = await api("plans/" + encodeURIComponent(st.doc.id));
         st.dirty = false;
         st.applied = [];
@@ -601,7 +601,7 @@ async function yxpSkeleton(st, mark, rerender) {
   const doc = st.doc;
   if (!doc.meta.start_month) return notice("先填开始月份");
   if (!doc.meta.target?.month) return notice("先填目标月份（如考级或比赛的月份）");
-  if (doc.modules.path.stages.length && !(await UI.confirm({ title: "用自动排出的阶段替换现有阶段？", consequence: "现有阶段和其中的课程会被替换。" }))) return;
+  if (doc.modules.path.stages.length && !(await UI.confirm({ title: "用自动排出的阶段替换现有阶段？", consequence: "现有阶段和其中的课程会被替换。", danger: true }))) return;
   const r = await api("plans/" + encodeURIComponent(doc.id) + "/skeleton", "POST", {
     start_month: doc.meta.start_month,
     target: { node_key: doc.meta.target?.node_key || null, month: doc.meta.target?.month || null },
@@ -640,7 +640,8 @@ async function yxpSend(st, rerender) {
   try {
     const ack = await yxp2Ack(st);
     if (ack === null) return;
-    st.doc = await api("plans/" + encodeURIComponent(st.doc.id) + "/send", "POST", { version: st.doc.version, ...ack });
+    await api("plans/" + encodeURIComponent(st.doc.id) + "/send", "POST", { version: st.doc.version, ...ack });
+    st.doc = await api("plans/" + encodeURIComponent(st.doc.id));
     notice("已发送", "success");
     rerender();
   } catch (e) {
@@ -652,7 +653,8 @@ async function yxpSend(st, rerender) {
 }
 async function yxpSign(st, rerender) {
   if (!(await UI.confirm({ title: "标记为已签约？", consequence: "签约的是最近发送给家长的版本。签约后方案锁定，不能再修改；不会自动生成收费或排课。" }))) return;
-  st.doc = await api("plans/" + encodeURIComponent(st.doc.id) + "/sign", "POST", {});
+  await api("plans/" + encodeURIComponent(st.doc.id) + "/sign", "POST", {});
+  st.doc = await api("plans/" + encodeURIComponent(st.doc.id));
   notice("已签约", "success");
   rerender();
 }
@@ -699,8 +701,9 @@ async function yxpConvert(st, rerender) {
   panel.append(form);
 }
 async function yxpArchive(st, rerender) {
-  if (!(await UI.confirm({ title: "归档这个方案？", consequence: "家长端不再显示，分享链接立即失效。" }))) return;
-  st.doc = await api("plans/" + encodeURIComponent(st.doc.id) + "/archive", "POST", { version: st.doc.version });
+  if (!(await UI.confirm({ title: "归档这个方案？", consequence: "家长端不再显示，分享链接立即失效。", danger: true }))) return;
+  await api("plans/" + encodeURIComponent(st.doc.id) + "/archive", "POST", { version: st.doc.version });
+  st.doc = await api("plans/" + encodeURIComponent(st.doc.id));
   rerender();
 }
 async function yxpDelete(st, shell, close) {
@@ -728,7 +731,8 @@ async function yxpRevisions(st, rerender) {
       row.append(
         button("恢复", async () => {
           if (st.dirty) return notice("先保存或放弃当前修改");
-          st.doc = await api("plans/" + encodeURIComponent(st.doc.id) + "/revisions/" + encodeURIComponent(x.id) + "/restore", "POST", { version: st.doc.version });
+          await api("plans/" + encodeURIComponent(st.doc.id) + "/revisions/" + encodeURIComponent(x.id) + "/restore", "POST", { version: st.doc.version });
+          st.doc = await api("plans/" + encodeURIComponent(st.doc.id));
           await view.close();
           notice("已恢复为新版本", "success");
           rerender();
@@ -750,7 +754,8 @@ async function yxpReprice(st, rerender) {
   for (const x of r.lines) view.body.append(el("p", x.name + "：" + yxpMoney(x.old_amount) + " → " + (x.status === "changed" ? yxpMoney(x.new_amount) : x.status === "unchanged" ? "不变" : "无法刷新（课程已停用或未定价）")));
   view.body.append(
     button("确认刷新", async () => {
-      st.doc = await api("plans/" + encodeURIComponent(st.doc.id) + "/reprice", "POST", { version: st.doc.version, line_ids: changed.map((x) => x.line_id) });
+      await api("plans/" + encodeURIComponent(st.doc.id) + "/reprice", "POST", { version: st.doc.version, line_ids: changed.map((x) => x.line_id) });
+      st.doc = await api("plans/" + encodeURIComponent(st.doc.id));
       await view.close();
       notice("价格已刷新", "success");
       rerender();

@@ -1910,7 +1910,7 @@ export function empty({ text, action } = {}) {
       : action,
   });
 }
-export function confirm({ title, consequence, danger = true } = {}) {
+export function confirm({ title, consequence, danger = false } = {}) {
   return confirmDialog({ title, message: consequence, danger });
 }
 export function datePicker(options = {}) {

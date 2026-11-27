@@ -270,7 +270,7 @@ async function yxsCourses(body, again) {
     if (c.active)
       ops.append(
         V.link("停用", async () => {
-          if (!(await UI.confirm({ title: "停用“" + c.name + "”？", consequence: "新方案不能再选它；已有方案和历史价格保留。" }))) return;
+          if (!(await UI.confirm({ title: "停用“" + c.name + "”？", consequence: "新方案不能再选它；已有方案和历史价格保留。", danger: true }))) return;
           await yxsSave(() => api("settings/courses/" + encodeURIComponent(c.id), "DELETE", { version: c.version }), again);
         }),
       );
@@ -659,7 +659,7 @@ async function yxsReports(body, again) {
     b.append(el("strong", r.name), el("small", r.dimensions.length + " 个维度" + (r.options?.mock_exam ? " + 模拟考" : "") + " · " + (YXS_SUBJECT[r.subject] || r.subject) + (r.active ? "" : " · 已停用"), { class: "v-muted" }));
     b.addEventListener("click", async () => {
       if (r.id === st.sel) return;
-      if (yxsDimDirty(st, items) && !(await UI.confirm({ title: "有未保存的修改，确定切换？", consequence: "切换后这些修改会丢失。" }))) return;
+      if (yxsDimDirty(st, items) && !(await UI.confirm({ title: "有未保存的修改，确定切换？", consequence: "切换后这些修改会丢失。", danger: true }))) return;
       st.sel = r.id;
       st.draft = null;
       again();
@@ -738,7 +738,7 @@ async function yxsReports(body, again) {
       tags.append(add);
       const del = el("button", "删除", { type: "button", class: "yxs-dim-del" });
       del.addEventListener("click", async () => {
-        if (!(await UI.confirm({ title: "删除维度“" + x.name + "”？", consequence: "已发出的报告不受影响；删掉的维度编号不能再用。" }))) return;
+        if (!(await UI.confirm({ title: "删除维度“" + x.name + "”？", consequence: "已发出的报告不受影响；删掉的维度编号不能再用。", danger: true }))) return;
         d.dimensions.splice(i, 1);
         dirtyRedraw();
       });
@@ -957,7 +957,7 @@ async function yxsGallery(body, again) {
     ops.append(
       V.link("改标签", () => yxsTagForm(g, again)),
       V.link("删除", async () => {
-        if (!(await UI.confirm({ title: "删除这张图片？", consequence: "如果品牌、方案或报告已经用到它，只会从图库隐藏，已用到的地方不受影响。" }))) return;
+        if (!(await UI.confirm({ title: "删除这张图片？", consequence: "如果品牌、方案或报告已经用到它，只会从图库隐藏，已用到的地方不受影响。", danger: true }))) return;
         const r = await api("gallery/" + encodeURIComponent(g.id), "DELETE", { version: g.version });
         notice(r.hidden ? "已从图库隐藏（仍被引用）" : "已删除", "success");
         await again();
@@ -1102,7 +1102,7 @@ async function yxsChanges(body, again) {
         await again();
       }, kind);
     if (ch.status === "pending") ops.append(act("批准", "approve", "primary"), act("拒绝", "reject"));
-    if (ch.status === "approved") ops.append(act("撤回", "revert", "", { title: "撤回这次修改？", consequence: "相关设置回到修改前的内容。之后如果有人又改过，就不能撤回。" }));
+    if (ch.status === "approved") ops.append(act("撤回", "revert", "", { title: "撤回这次修改？", consequence: "相关设置回到修改前的内容。之后如果有人又改过，就不能撤回。", danger: true }));
     if (ops.children.length) card.append(ops);
     body.append(card);
   }
