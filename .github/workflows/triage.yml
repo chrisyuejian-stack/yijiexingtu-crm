@@ -1,26 +1,31 @@
-# 按改动路径给 PR 分流：高风险打 needs-claude（等 Claude 裁决），其余放行。只调用 API，不检出 PR 代码。
+# 按改动路径给 PR 分流：高风险打 risk:high + needs-claude（等 Claude 裁决）。检出的是默认分支的可信脚本，不执行 PR 代码。
 name: Triage
 on:
   pull_request_target:
     types: [opened, synchronize, reopened, ready_for_review]
 permissions:
+  contents: read
   pull-requests: write
   issues: write
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - name: Label risky changes
-        env:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number }}
         run: |
-          RISKY='^(migrations/|\.github/|deploy/|platform/|server\.mjs$|package(-lock)?\.json$|scripts/build\.mjs$|src/server/.*(auth|access|session|permission|security|crypto|identity|platform|backup))'
-          hits=$(gh api --paginate "repos/$GH_REPO/pulls/$PR/files" --jq '.[].filename' | grep -Ei "$RISKY" || true)
+          for l in "task:0e8a16" "in-progress:fbca04" "blocked:b60205" "hold:cccccc" "needs-claude:d93f0b" "risk:high:d93f0b" "role:claude:5319e7" "role:gemini:1d76db" "role:grok:000000" "role:gpt:0e8a16"; do
+            name="${l%:*}"; color="${l##*:}"; gh label create "$name" --color "$color" 2>/dev/null || true
+          done
+          files=$(gh api --paginate "repos/$GH_REPO/pulls/$PR/files" --jq '.[].filename')
+          hits=$(printf '%s' "$files" | jq -R -s '{files: (split("\n") | map(select(length>0)))}' | node scripts/automerge-policy.mjs risky | jq -r '.risky[]')
           if [ -n "$hits" ]; then
-            gh label create needs-claude --color d93f0b --description "高风险改动，等待 Claude 裁决" 2>/dev/null || true
-            gh pr edit "$PR" --add-label needs-claude
-            gh pr comment "$PR" --body "高风险路径改动，已打 \`needs-claude\`，不会自动合并：
+            gh pr edit "$PR" --add-label needs-claude --add-label risk:high
+            gh pr comment "$PR" --body "高风险路径改动，已打 \`risk:high\` 和 \`needs-claude\`，不会自动合并：
           $(echo "$hits" | head -20 | sed 's/^/- /')"
           fi
