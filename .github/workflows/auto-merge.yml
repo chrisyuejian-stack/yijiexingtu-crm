@@ -1,5 +1,5 @@
-# CI 全绿且无 blocked / needs-claude / hold 标签、非草稿的 PR，自动 squash 合并并触发部署。
-# 无需分支保护。需要 Claude 裁决的 PR 请由 Claude 移除 needs-claude 后重跑 CI（或人工合并）。
+# CI 通过后按 scripts/automerge-policy.mjs 决定是否 squash 合并（默认不合并）。
+# 检出默认分支的可信脚本；合并后显式触发部署。
 name: Auto merge
 on:
   workflow_run:
@@ -14,17 +14,22 @@ jobs:
     if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
       - env:
           GH_TOKEN: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           for PR in $(gh pr list --state open --json number,headRefOid --jq ".[] | select(.headRefOid==\"$SHA\") | .number"); do
-            info=$(gh pr view "$PR" --json isDraft,labels --jq '[.isDraft, ([.labels[].name] | join(","))] | @tsv')
-            draft=$(echo "$info" | cut -f1); labels=$(echo "$info" | cut -f2)
-            if [ "$draft" = "true" ] || echo ",$labels," | grep -qE ',(blocked|needs-claude|hold),'; then
-              echo "PR #$PR 跳过：draft=$draft labels=$labels"; continue
-            fi
+            meta=$(gh pr view "$PR" --json isDraft,labels)
+            files=$(gh api --paginate "repos/$GH_REPO/pulls/$PR/files" --jq '.[].filename') || files=""
+            input=$(jq -n --argjson m "$meta" --arg files "$files" \
+              '{draft: $m.isDraft, ci: "success", labels: ($m.labels | map(.name)), files: ($files | split("\n") | map(select(length>0)))}')
+            result=$(echo "$input" | node scripts/automerge-policy.mjs decide)
+            echo "PR #$PR: $result"
+            [ "$(echo "$result" | jq -r .merge)" = "true" ] || continue
             gh pr merge "$PR" --squash --delete-branch --match-head-commit "$SHA" && merged=1 || merged=0
             # 默认令牌的合并不会触发 push 事件，这里显式触发部署
             if [ "$merged" = 1 ] && [ -z "${{ secrets.AUTOMERGE_TOKEN }}" ]; then gh workflow run deploy.yml --ref main; fi
