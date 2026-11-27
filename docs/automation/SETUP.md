@@ -6,8 +6,6 @@
 | CLOUDFLARE_API_TOKEN | secret | Pages 部署（权限：Cloudflare Pages Edit） |
 | CLOUDFLARE_ACCOUNT_ID | secret | Cloudflare 账号 |
 | CF_PAGES_PROJECT | variable | Pages 项目名 |
-| EDGEONE_API_TOKEN | secret | EdgeOne Pages 部署令牌 |
-| EDGEONE_PROJECT | variable | EdgeOne Pages 项目名 |
 | MERGERS | variable | 有权打 ready 合并的账号，逗号分隔，如 `grok-acct,gemini-acct`（无空格） |
 | AUTOMERGE_TOKEN | secret（可选） | 细粒度 PAT；用它合并才能触发后续 workflow |
 
@@ -17,5 +15,8 @@
 3. 创建标签：task、ready、blocked、needs-claude。
 4. 给 GPT / Gemini / Grok 的 GitHub 账号授予 Write 权限。
 
-## 待定设计
-EdgeOne 只托管静态前端；前端用同源 `/api`，需在 EdgeOne 配规则把 `/api/*` 反代到 Cloudflare Worker 域名。
+## 部署路线
+- 现在：只部署 Cloudflare Pages（`_worker.js` 含前后端、D1、R2），在 Cloudflare 上继续迭代。
+- 域名备案完成后：按 `deploy/reference/腾讯云迁移设计方案_20261118.md` 迁移到腾讯云 CVM（Nginx + Node + SQLite + COS），
+  先做预演再切换；届时再新增 CVM 部署任务（CI 打 `npm run package:tencent`，SSH 到服务器运行 `update.sh`）。
+- 切换前不要对 CVM 做自动部署，Cloudflare 与 CVM 不得同时对机构写入。

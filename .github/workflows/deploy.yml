@@ -1,4 +1,5 @@
-# 合并到 main 后自动部署。缺少对应 secrets 的任务会自动跳过。
+# 合并到 main 后自动部署到 Cloudflare Pages。缺少 secrets 时自动跳过。
+# 腾讯云 CVM 迁移待域名备案完成后再接入，见 docs/automation/SETUP.md。
 name: Deploy
 on:
   push:
@@ -37,23 +38,3 @@ jobs:
       - name: Skipped
         if: env.CLOUDFLARE_API_TOKEN == '' || env.CF_PAGES_PROJECT == ''
         run: echo "未配置 CLOUDFLARE_API_TOKEN 或 CF_PAGES_PROJECT，跳过"
-  edgeone:
-    needs: build
-    runs-on: ubuntu-latest
-    env:
-      EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
-      EDGEONE_PROJECT: ${{ vars.EDGEONE_PROJECT }}
-    steps:
-      - uses: actions/setup-node@v4
-        with: { node-version: 24 }
-      - uses: actions/download-artifact@v4
-        with: { name: dist, path: dist }
-      - name: Deploy static frontend to EdgeOne Pages
-        if: env.EDGEONE_API_TOKEN != '' && env.EDGEONE_PROJECT != ''
-        # 只发布静态资源，不含 _worker.js；/api 由 EdgeOne 规则反代到 Cloudflare Worker
-        run: |
-          rm -f dist/_worker.js dist/_routes.json
-          npx --yes edgeone pages deploy dist -n "$EDGEONE_PROJECT" -t "$EDGEONE_API_TOKEN"
-      - name: Skipped
-        if: env.EDGEONE_API_TOKEN == '' || env.EDGEONE_PROJECT == ''
-        run: echo "未配置 EDGEONE_API_TOKEN 或 EDGEONE_PROJECT，跳过"
