@@ -107,11 +107,12 @@ export async function createHarness(browser, request, info, kind, roles, { boots
   const acceptRejection = async (role, response, { statuses, message, why }) => {
     expect(statuses).toContain(response.status());
     const body = await response.json();
-    expect(body.error).toMatch(message);
+    const detail = body.message ?? body.error;
+    expect(detail).toMatch(message);
     const path = new URL(response.url()).pathname;
     const index = failedRequests.findIndex(r => r.role === role && r.path === path && r.status === response.status());
     expect(index, '必须先记录这次实际失败响应，再核对为预期业务拒绝').toBeGreaterThanOrEqual(0);
-    expectedRejections.push({ ...failedRequests[index], error: body.error, why });
+    expectedRejections.push({ ...failedRequests[index], error: detail, why });
     failedRequests.splice(index, 1);
     return body;
   };
