@@ -13,7 +13,7 @@ test('SCN-009 五类账号真实登录、首次改密、错误恢复和退出会
     await p.getByLabel('手机号',{exact:true}).fill(m.loginAccounts[role === 'teacherPeer' ? 'teacher' : role].phone);
     await p.getByLabel('密码',{exact:true}).fill(password);
     const [r] = await Promise.all([
-      p.waitForResponse(r=>new URL(r.url()).pathname.endsWith('/api/login')),
+      p.waitForResponse(r=>/\/api\/(?:auth\/)?login$/.test(new URL(r.url()).pathname)&&r.request().method()==='POST'),
       p.getByRole('button',{name:'登录',exact:true}).click(),
     ]);
     return r;
@@ -45,9 +45,9 @@ test('SCN-009 五类账号真实登录、首次改密、错误恢复和退出会
       expect(await h.actors.teacher.context.cookies()).toEqual([]);
       const r = await submitLogin('teacher','WrongLogin8Z');
       await h.acceptRejection('teacher',r,{statuses:[401],message:/手机号或密码不正确/,why:'专用虚构账号主动输入一次错误密码'});
-      await exposed(teacher.locator('.form-error'),info,'错误登录原因可见');
+      await exposed(teacher.locator('.yx-login-error,.form-error').filter({hasText:'手机号或密码不正确'}),info,'错误登录原因可见');
       await expect(teacher.getByLabel('手机号',{exact:true})).toHaveValue(m.loginAccounts.teacher.phone);
-      await expect(teacher.locator('script[src*="challenges.cloudflare.com"],.challenge')).toHaveCount(0);
+      await expect(teacher.locator('script[src*="challenges.cloudflare.com"],.challenge,.yx-challenge')).toHaveCount(0);
       await h.shot('teacher','错误登录保留手机号');
     });
     await test.step('02 教师首次登录必须改密；不一致和弱密码被拒绝，输入仍可修正', async()=>{
