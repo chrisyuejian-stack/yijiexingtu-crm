@@ -1,5 +1,7 @@
 # 多 AI 协作规范（所有 AI 必读）
 
+被叫醒后：读本文件和 `docs/agents/<你的名字>.md`，按 `docs/agents/README.md` 的流程领任务。
+
 ## 分工
 - **Claude**：发布任务、定验收标准，裁决 `needs-claude`。不写大块业务代码，不做常规审查。
 - **GPT**：后端（src/server、migrations、platform、deploy）。额度有限，仅做后端难题。
