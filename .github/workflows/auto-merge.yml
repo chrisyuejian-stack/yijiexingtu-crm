@@ -1,3 +1,4 @@
+# 只有 vars.MERGERS（逗号分隔的 GitHub 用户名，如 grok账号,gemini账号）中的账号打的 ready 标签才生效；
 # 带 ready 标签且没有 blocked/needs-claude 标签的 PR，开启 auto-merge；CI 全绿后由 GitHub 自动合并。
 name: Auto merge
 on:
@@ -10,6 +11,7 @@ jobs:
   enable:
     runs-on: ubuntu-latest
     if: >-
+      (github.event.action != 'labeled' || (github.event.label.name == 'ready' && contains(format(',{0},', vars.MERGERS), format(',{0},', github.event.sender.login)))) &&
       contains(github.event.pull_request.labels.*.name, 'ready') &&
       !contains(github.event.pull_request.labels.*.name, 'blocked') &&
       !contains(github.event.pull_request.labels.*.name, 'needs-claude') &&

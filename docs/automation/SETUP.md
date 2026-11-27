@@ -8,6 +8,7 @@
 | CF_PAGES_PROJECT | variable | Pages 项目名 |
 | EDGEONE_API_TOKEN | secret | EdgeOne Pages 部署令牌 |
 | EDGEONE_PROJECT | variable | EdgeOne Pages 项目名 |
+| MERGERS | variable | 有权打 ready 合并的账号，逗号分隔，如 `grok-acct,gemini-acct`（无空格） |
 | AUTOMERGE_TOKEN | secret（可选） | 细粒度 PAT；用它合并才能触发后续 workflow |
 
 ## 仓库设置
