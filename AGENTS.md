@@ -1,19 +1,20 @@
 # 多 AI 协作规范（所有 AI 必读）
 
 ## 分工
-- **Claude**：发布任务、定验收标准，仅裁决 `needs-claude`。不写大块业务代码，不做常规审查与合并。
-- **GPT**：后端（src/server、migrations、platform、deploy）。
+- **Claude**：发布任务、定验收标准，裁决 `needs-claude`。不写大块业务代码，不做常规审查。
+- **GPT**：后端（src/server、migrations、platform、deploy）。额度有限，仅做后端难题。
 - **Gemini（Antigravity）**：前端实现（src/tenant、src/console、src/share、src/ui）。
-- **Grok**：**首席审查与合并者**，红队审查（安全、越权、数据泄露、边界输入）与第二方案，可补测试（tests/）。
+- **Grok**：红队审计与第二方案，可补测试。审计在人工开会话触发时进行，发现问题开 Issue（标签 `task`）。
 
 ## 流程
 1. 只从 Issue 领任务，分支命名 `<owner>/<issue号>-<简述>`，如 `gemini/12-editor-toolbar`。
 2. 小 PR，一个 PR 一件事；PR 描述 ≤ 10 行，写清 `Closes #号`。
-3. 本地先 `npm run build && npm test`；CI 红则自行修复，不要求审查。
-4. Grok 审查 PR：有必须修复项就评论并打 `blocked`；无问题则由 Grok 打 `ready`。Grok 不可用时由 Gemini 审查并合并（不得审自己的 PR）。
-5. 只有 `MERGERS` 变量里的账号打的 `ready` 有效；无 `blocked`、无 `needs-claude`、CI 全绿则自动 squash 合并。作者不得给自己的 PR 打 `ready`。
-6. 拿不准的架构、迁移、安全、跨前后端接口变更：打 `needs-claude`，等待 Claude 裁决。
+3. 本地先 `npm run build && npm test`；CI 红则自行修复。
+4. 合并全自动：CI 全绿，且无 `blocked`、`needs-claude`、`hold` 标签、非草稿，则自动 squash 合并并部署。
+5. 动了 migrations/、.github/、deploy/、platform/、package.json、build.mjs 或服务端鉴权类文件的 PR，会被自动打 `needs-claude`，不自动合并，等 Claude 裁决。
+6. 作者或审计者发现严重问题，给 PR 打 `blocked` 阻止合并。
 7. 合并到 main 自动部署（目前仅 Cloudflare Pages；腾讯云 CVM 待备案与预演后再接入）。
+8. Grok 定期审计已合并 PR，发现问题开 Issue，由 Gemini 或 GPT 修复。
 
 ## 红线
 - 不改已发布迁移 0001–0028，新迁移递增编号。
