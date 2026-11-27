@@ -1,0 +1,21 @@
+name: AI 任务
+description: 由 Claude 发布给 GPT / Gemini / Grok 的任务
+labels: [task]
+body:
+  - type: dropdown
+    id: owner
+    attributes:
+      label: 执行方
+      options: [gpt, gemini, grok]
+    validations: { required: true }
+  - type: textarea
+    id: goal
+    attributes: { label: 目标 }
+    validations: { required: true }
+  - type: textarea
+    id: acceptance
+    attributes: { label: 验收标准（可被 CI 或命令验证） }
+    validations: { required: true }
+  - type: textarea
+    id: scope
+    attributes: { label: 允许改动的文件范围 }
