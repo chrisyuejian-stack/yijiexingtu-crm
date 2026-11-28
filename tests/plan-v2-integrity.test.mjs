@@ -21,7 +21,12 @@ test('V05INT v2家长/分享媒体按已发送版本授权，隐藏页与未引�
   const raw=JSON.stringify(response);assert.equal(response.render_data.doc_version,2);assert.ok(!raw.includes('员工内部原文禁止对外'));assert.ok(!raw.includes('学员0'));assert.equal(response.render_data.student_id,undefined);assert.equal(response.render_data.modules.courses.lines[0].manual_unit_price,undefined);assert.equal(response.render_data.computed.total.has_tbd,true);assert.equal(response.render_data.computed.total.amount,null);assert.ok(response.render_data.modules.photos.pages[0].images[0].url);
  }
  for(const id of ['img_v2page','img_v2teacher']){assert.equal((await call(s,'parent/media/'+id,'GET',undefined,pa.token)).status,200);assert.equal((await call(s,publicPath+'/media/'+id,'GET',undefined,null)).status,200);}ok(await call(s,publicPath+'/media/img_v2unused','GET',undefined,null),404);
- const changed=writeDoc(p);changed.modules.photos.visible=false;p=ok(await call(s,'plans/'+p.id,'PUT',{version:p.version,doc:changed}));assert.equal((await call(s,publicPath+'/media/img_v2page','GET',undefined,null)).status,200);p=ok(await call(s,'plans/'+p.id+'/send','POST',{version:p.version,acknowledgements:{manual_pricing:true}}));ok(await call(s,'parent/media/img_v2page','GET',undefined,pa.token),404);assert.equal((await call(s,publicPath+'/media/img_v2page','GET',undefined,null)).status,200);
+ const changed=writeDoc(p);changed.modules.photos.visible=false;p=ok(await call(s,'plans/'+p.id,'PUT',{version:p.version,doc:changed}));assert.equal((await call(s,publicPath+'/media/img_v2page','GET',undefined,null)).status,200);p=ok(await call(s,'plans/'+p.id+'/send','POST',{version:p.version,acknowledgements:{manual_pricing:true}}));ok(await call(s,'parent/media/img_v2page','GET',undefined,pa.token),404);
+ // #21: the old quote token is revoked, including its media authorization.
+ ok(await call(s,publicPath+'/media/img_v2page','GET',undefined,null),404);
+ const fresh=ok(await call(s,'plans/'+p.id+'/share-links','POST',{}),201),freshPath='/api/share/'+fresh.url.split('/').at(-1);
+ ok(await call(s,freshPath+'/media/img_v2page','GET',undefined,null),404);
+ assert.equal((await call(s,freshPath+'/media/img_v2teacher','GET',undefined,null)).status,200);
 }));
 test('V05INT v2重复/恢复保持旧历史，所有结构元素重新分配，原文不随复制',()=>school(async s=>{
  let p=await createV2(s);ok(await call(s,'plans/'+p.id+'/brief','PUT',{version:0,text:'原方案员工原文'}));const original=p.current_revision_id,copy=ok(await call(s,'plans/'+p.id+'/duplicate','POST',{title:'复制方案'}),201);assert.notEqual(copy.modules.path.stages[0].key,p.modules.path.stages[0].key);assert.notEqual(copy.modules.courses.lines[0].line_id,p.modules.courses.lines[0].line_id);assert.equal(ok(await call(s,'plans/'+copy.id+'/brief')).brief.text,'');
