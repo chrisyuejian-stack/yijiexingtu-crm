@@ -797,7 +797,8 @@ test("YX4 show_unit_price关闭时导出、家长和公开分享均剔除单价�
         assert.equal(r.render_data.computed.optional_fees[0].price_text, undefined);
         assert.equal(r.render_data.brand.name, s.t.name);
         assert.equal(r.render_data.tenant_id, undefined);
-        assert.equal(r.render_data.student.display_name, "学员0");
+        // golden(B) 的学员0 未同意展示且无独立安全昵称，按 G4 脱敏回退为“同学”
+        assert.equal(r.render_data.student.display_name, "同学");
         assert.equal(r.render_data.computed.total.amount, 68e3);
     }
     assert.equal(ok(await call(s, "plans/" + p.id)).modules.courses.lines[0].snapshot.pricing.amount_cents, 14e5);
