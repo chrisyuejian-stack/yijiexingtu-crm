@@ -909,12 +909,17 @@ function yxPlanDocument(rd, manifest, mediaUrl) {
   // ---- 封面 ----
   const cv = page("yxd-cover");
   const logo = () => {
-    const b = el("div", null, { class: "yxd-logo" });
+    const b = el("div", null, { class: "yxd-logo" + (rd.brand?.logo ? "" : " is-monogram") });
     if (rd.brand?.logo) b.append(el("img", null, { src: rd.brand.logo, alt: rd.brand?.name || "" }));
-    else b.append(el("span", rd.brand?.name || ""));
+    else {
+      const initial = Array.from(String(rd.brand?.name || "").trim())[0] || "艺";
+      b.append(el("i", initial, { class: "yxd-logo-mark", "aria-hidden": "true" }));
+      if (rd.brand?.name) b.append(el("span", rd.brand.name));
+    }
     return b;
   };
   const photo = sty.cover_image_id && mediaUrl ? el("img", null, { src: mediaUrl(sty.cover_image_id), alt: "", class: "yxd-photo" }) : null;
+  if (!photo) cv.classList.add("is-nophoto");
   if (photo && sty.focal_point) photo.style.setProperty("object-position", Math.round((sty.focal_point.x ?? 0.5) * 100) + "% " + Math.round((sty.focal_point.y ?? 0.5) * 100) + "%");
   const textBox = el("div", null, { class: "yxd-cover-text" });
   if (latin) textBox.append(el("p", latin, { class: "yxd-latin" }));
@@ -922,12 +927,16 @@ function yxPlanDocument(rd, manifest, mediaUrl) {
   const sub = [M.cover?.subtitle, yxpMonthLabel(M.path?.stages?.[0]?.start, M.path?.stages?.at(-1)?.end)].filter(Boolean).join(" · ");
   if (sub) textBox.append(el("p", sub, { class: "yxd-sub" }));
   textBox.append(el("i", null, { class: "yxd-rule" }));
+  const hasStages = Boolean(M.path?.stages?.length);
   const nums = el("div", null, { class: "yxd-nums" });
   for (const n of C.cover_numbers || []) {
+    if (n.value == null || n.value === "") continue;
+    if (!hasStages && Number(n.value) === 0 && n.unit === "个月") continue;
     const b = el("div");
     b.append(el("small", n.label), el("b", n.value, { class: "yxd-num" }), el("span", n.unit), ...(n.sub ? [el("small", n.sub, { class: "yxd-nsub" })] : []));
     nums.append(b);
   }
+  const hasNums = nums.childElementCount > 0;
   const meta = el("p", ["学员 " + who + (rd.student?.grade ? " · " + rd.student.grade : ""), sty.show_consultant && rd.consultant?.name ? "顾问 " + rd.consultant.name : "", String(rd.sent_at || rd.updated_at || "").slice(0, 10).replaceAll("-", ".")].filter(Boolean).join("　　"), { class: "yxd-meta" });
   if (cover === "stage") {
     // 舞台：主图铺满，文字压在底部
@@ -935,7 +944,8 @@ function yxPlanDocument(rd, manifest, mediaUrl) {
     if (photo) bg.append(photo);
     const top = el("div", null, { class: "yxd-cover-top" });
     top.append(logo(), el("span", "Study Plan", { class: "yxd-kicker" }));
-    textBox.append(nums, meta);
+    if (hasNums) textBox.append(nums);
+    textBox.append(meta);
     cv.append(bg, top, textBox);
     const mode = sty.text_mode && sty.text_mode !== "auto" ? sty.text_mode : photo ? null : "light";
     const set = (m) => cv.setAttribute("data-text", m);
@@ -953,7 +963,7 @@ function yxPlanDocument(rd, manifest, mediaUrl) {
     if (photo) frame.append(photo);
     else frame.append(el("div", null, { class: "yxd-photo-empty" }));
     frame.append(el("figcaption", (String(M.path?.stages?.[0]?.start || "").slice(0, 4) || "") + " · " + (rd.brand?.name || "")));
-    textBox.append(nums);
+    if (hasNums) textBox.append(nums);
     cv.append(top, frame, textBox, meta);
   } else {
     // 画册（默认）：主图放在拱形画框里，文字在主色块上
@@ -963,7 +973,9 @@ function yxPlanDocument(rd, manifest, mediaUrl) {
     const band = el("div", null, { class: "yxd-band" });
     const head = el("div", null, { class: "yxd-band-head" });
     head.append(textBox, logo());
-    band.append(head, nums, meta);
+    band.append(head);
+    if (hasNums) band.append(nums);
+    band.append(meta);
     cv.append(arch, band);
   }
   const corner = asset(manifest?.decor?.corner_image);

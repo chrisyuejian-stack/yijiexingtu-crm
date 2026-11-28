@@ -183,3 +183,26 @@ test("机构端细节优化（G-07/G-08/G-16/G-17/G-18）：引导跳转、品�
   assert.match(appJs, /待办合计 " \+ n \+ " 项/);
 });
 
+test("G-15：线索看板相邻阶段切换按钮、无 Logo 首字徽章、空阶段隐藏 0 个月及无图封面紧凑化", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const v2t = await readFile("src/tenant/v2t.js", "utf8");
+  const v2Css = await readFile("src/tenant/v2.css", "utf8");
+  const plansJs = await readFile("src/tenant/yx-plans.js", "utf8");
+  const plan2Js = await readFile("src/tenant/yx-plan2.js", "utf8");
+  const themeCss = await readFile("src/tenant/yx-theme.css", "utf8");
+
+  assert.match(v2t, /UI\.leadMoveAllowed[\s\S]*v-lead-move/);
+  assert.match(v2t, /"移至" \+ stageLabel\(target\)/);
+  assert.match(v2Css, /\.v-lead-move\s*\{/);
+
+  for (const src of [plansJs, plan2Js]) {
+    assert.match(src, /is-monogram/);
+    assert.match(src, /yxd-logo-mark/);
+    assert.match(src, /is-nophoto/);
+    assert.match(src, /[nx]\.unit [!=]== "个月"/);
+  }
+  assert.doesNotMatch(themeCss, /\.yxd-logo\s*\{[^}]*dashed/);
+  assert.match(themeCss, /\.yxd-cover\.is-nophoto > \.yxd-arch/);
+});
+
+

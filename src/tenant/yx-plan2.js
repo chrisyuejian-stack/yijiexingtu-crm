@@ -1171,11 +1171,16 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
   // ---- 封面 ----
   if (B.visible !== false && B.cover_visible !== false) {
     const cv = page("yxd-cover");
-    const logo = el("div", null, { class: "yxd-logo" });
+    const logo = el("div", null, { class: "yxd-logo" + (rd.brand?.logo ? "" : " is-monogram") });
     if (rd.brand?.logo) logo.append(el("img", null, { src: rd.brand.logo, alt: rd.brand?.name || "" }));
-    else logo.append(el("span", rd.brand?.name || ""));
+    else {
+      const initial = Array.from(String(rd.brand?.name || "").trim())[0] || "艺";
+      logo.append(el("i", initial, { class: "yxd-logo-mark", "aria-hidden": "true" }));
+      if (rd.brand?.name) logo.append(el("span", rd.brand.name));
+    }
     const pu = img(sty.cover_image_id, sty.cover_image_url);
     const photo = pu ? el("img", null, { src: pu, alt: "", class: "yxd-photo" }) : null;
+    if (!photo) cv.classList.add("is-nophoto");
     if (photo && sty.focal_point) photo.style.setProperty("object-position", Math.round((sty.focal_point.x ?? 0.5) * 100) + "% " + Math.round((sty.focal_point.y ?? 0.5) * 100) + "%");
     const textBox = el("div", null, { class: "yxd-cover-text" });
     const eyebrow = B.cover_eyebrow || (sty.show_latin_eyebrow ? YXD_LATIN[rd.subject] || "Learning Plan" : "");
@@ -1185,19 +1190,22 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
     const sub = [B.cover_subtitle, yxd2Month(st0[0]?.start_month, st0.at(-1)?.end_month)].filter(Boolean).join(" · ");
     if (sub) textBox.append(el("p", sub, { class: "yxd-sub" }));
     textBox.append(el("i", null, { class: "yxd-rule" }));
+    const hasStages = st0.length > 0;
     const nums = el("div", null, { class: "yxd-nums" });
-    for (const n of (C.cover_numbers || []).filter((x) => x.value != null && x.value !== "")) {
+    for (const n of (C.cover_numbers || []).filter((x) => x.value != null && x.value !== "" && (hasStages || Number(x.value) !== 0 || x.unit !== "个月"))) {
       const b = el("div");
       b.append(el("small", n.label), el("b", n.value, { class: "yxd-num" }), el("span", n.unit), ...(n.sub ? [el("small", n.sub, { class: "yxd-nsub" })] : []));
       nums.append(b);
     }
+    const hasNums = nums.childElementCount > 0;
     const meta = el("p", [who ? "学员 " + who + (B.grade ? " · " + B.grade : "") : "", B.direction ? B.direction + (en && B.direction_en ? " / " + B.direction_en : "") : "", String(B.plan_date || "").replaceAll("-", ".")].filter(Boolean).join("　　"), { class: "yxd-meta" });
     if (cover === "stage") {
       const bg = el("div", null, { class: "yxd-stage-bg" });
       if (photo) bg.append(photo);
       const top = el("div", null, { class: "yxd-cover-top" });
       top.append(logo, el("span", "Study Plan", { class: "yxd-kicker" }));
-      textBox.append(nums, meta);
+      if (hasNums) textBox.append(nums);
+      textBox.append(meta);
       cv.append(bg, top, textBox);
       const mode = sty.text_mode && sty.text_mode !== "auto" ? sty.text_mode : photo ? null : "light";
       const set = (m) => cv.setAttribute("data-text", m);
@@ -1212,7 +1220,7 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
       top.append(logo);
       const frame = el("figure", null, { class: "yxd-polaroid" });
       frame.append(photo || el("div", null, { class: "yxd-photo-empty" }), el("figcaption", (String(st0[0]?.start_month || "").slice(0, 4) || "") + " · " + (rd.brand?.name || "")));
-      textBox.append(nums);
+      if (hasNums) textBox.append(nums);
       cv.append(top, frame, textBox, meta);
     } else {
       const arch = el("div", null, { class: "yxd-arch" });
@@ -1220,7 +1228,9 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
       const band = el("div", null, { class: "yxd-band" });
       const head = el("div", null, { class: "yxd-band-head" });
       head.append(textBox, logo);
-      band.append(head, nums, meta);
+      band.append(head);
+      if (hasNums) band.append(nums);
+      band.append(meta);
       cv.append(arch, band);
     }
   }
