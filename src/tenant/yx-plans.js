@@ -38,7 +38,7 @@ async function yxPlansTab(body, studentId, row, again) {
 }
 async function yxpCreate(studentId, row, again) {
   const subjects = await api("settings/subjects").catch(() => []);
-  if (!subjects.length) return notice("先在“机构设置 → 学科模板”导入学科，才能建方案");
+  if (!subjects.length) return notice("请先在“课程与教室 › 报价课程与价目表”导入学科，再新建方案");
   const { panel, close } = drawer("新建课程方案"),
     form = el("form");
   yxsSelect(form, "学科", "subject", subjects.map((s) => [s.key, s.name]));
@@ -273,7 +273,7 @@ function yxpRender(shell, st, close, rerender) {
     const pack = st.styles.find((p) => p.id === doc.style.pack_id);
     item("cover", "封面", [pack?.name, doc.modules.cover.subtitle ? "有副标题" : ""].filter(Boolean).join(" · ") || "默认", (b) => {
       inp(b, "封面副标题", doc.modules.cover.subtitle, (v) => (doc.modules.cover.subtitle = v));
-      b.append(el("p", "主图、模版和封面文字在“样式”里改。", { class: "v-muted" }));
+      b.append(el("p", "主图、模板和封面文字在“样式”里改。", { class: "v-muted" }));
     });
     const a = doc.modules.assessment;
     item("assessment", "现状评估", a.text ? a.source_note || "已填写" : "还没填", (b) => {
@@ -456,7 +456,7 @@ function yxpRender(shell, st, close, rerender) {
 function yxpStyleTab(left, st, locked, mark, rerender) {
   const doc = st.doc,
     sty = doc.style;
-  const s1 = yxcSection(left, "模版", el("small", "全部 " + st.styles.length + " 套", { class: "v-muted" }));
+  const s1 = yxcSection(left, "模板", el("small", "全部 " + st.styles.length + " 套", { class: "v-muted" }));
   const grid = el("div", null, { class: "yxv-styles is-3" });
   for (const p of st.styles) {
     const on = sty.pack_id === p.id;
@@ -479,7 +479,7 @@ function yxpStyleTab(left, st, locked, mark, rerender) {
     });
     grid.append(b);
   }
-  s1.append(grid, el("p", "平台新上架的模版会自动出现在这里。已发送的方案锁定当时的模版版本。", { class: "v-muted" }));
+  s1.append(grid, el("p", "平台新上架的模板会自动出现在这里。已发送的方案锁定当时的模板版本。", { class: "v-muted" }));
   const s2 = yxcSection(left, "封面主图");
   const img = st.gallery.find((g) => g.id === sty.cover_image_id);
   const row = el("div", null, { class: "yxv-kv" });

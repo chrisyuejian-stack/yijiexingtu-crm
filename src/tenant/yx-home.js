@@ -275,7 +275,7 @@ function yxhPlanRow(p, again, names) {
 // 新建方案（v0.4.0）：三种来源——已有学员 / 已有线索 / 新的意向学员（可同时生成线索）。
 // 一般是先咨询出方案、签约后才建档，所以默认“新意向”。
 async function yxhTemplateDoc(pv, subject) {
-  if (subject !== pv.doc.subject) throw Error("模版学科与所选学科不一致，请选择模版对应的学科。");
+  if (subject !== pv.doc.subject) throw Error("模板学科与所选学科不一致，请选择模板对应的学科。");
   const doc = yxClone(pv.doc);
   const blocking = pv.checks?.blocking || [];
   if (blocking.some(x => x.code !== "course_unavailable")) throw Error(blocking.map(x => x.text).join("；"));
@@ -303,7 +303,16 @@ async function yxhNewPlan(again) {
     enabled("leads") ? api("tools/leads?offset=0").catch(() => ({ items: [] })) : { items: [] },
     api("settings/subjects").catch(() => []),
   ]);
-  if (!subjects.length) return panel.append(el("p", "还没有可用的学科。请先在“机构设置 › 课程与教室 › 报价课程与价目表”里导入学科包，再来建方案。", { class: "v-muted" }));
+  if (!subjects.length) {
+    panel.append(
+      el("p", "还没有可用的学科。请先在“课程与教室 › 报价课程与价目表”里导入学科包，再来建方案。", { class: "v-muted" }),
+      button("去导入学科包", async () => {
+        await close();
+        location.hash = "courses-quote";
+      }, "primary"),
+    );
+    return;
+  }
   const list = students.items || students.records || [],
     leadList = (leads.items || []).filter((x) => x.stage !== "enrolled" && x.stage !== "lost" && !x.student_id);
   const modes = [["prospect", "新的意向学员"], ...(leadList.length ? [["lead", "从线索选"]] : []), ...(list.length ? [["student", "已有学员"]] : [])];
@@ -347,10 +356,10 @@ async function yxhNewPlan(again) {
   sync();
   yxsSelect(form, "学科", "subject", subjects.map((x) => [x.key, YXS_SUBJECT?.[x.key] || x.name || x.key]), subjects[0]?.key || "");
   field(form, "方案标题", "title", "text", "学习方案");
-  // v0.5：可以从本机构模版或平台示例开始
+  // v0.5：可以从本机构模板或平台示例开始
   const tpls = await api("plan-templates?origin=all&limit=100").catch(() => ({ items: [] }));
   const tlist = tpls.items || [];
-  if (tlist.length) yxsSelect(form, "从模版开始（可选）", "template_id", [["", "空白方案"], ...tlist.map((t) => [t.id, (t.origin === "platform" ? "示例 · " : "") + t.name + (t.applicability?.grades?.length ? " · " + t.applicability.grades.join("、") : "")])], "");
+  if (tlist.length) yxsSelect(form, "从模板开始（可选）", "template_id", [["", "空白方案"], ...tlist.map((t) => [t.id, (t.origin === "platform" ? "示例 · " : "") + t.name + (t.applicability?.grades?.length ? " · " + t.applicability.grades.join("、") : "")])], "");
   form.elements.template_id?.addEventListener("change", () => {
     const subject = tlist.find(t => t.id === form.elements.template_id.value)?.applicability?.subject;
     if (subject) form.elements.subject.value = subject;
@@ -369,7 +378,7 @@ async function yxhNewPlan(again) {
     let p;
     const tp = tlist.find((t) => t.id === d.template_id);
     if (tp) {
-      // 模版实例化：先预览（价格按本机构当前价目表），再带着顾问确认的文档创建；身份信息放在 doc 里
+      // 模板实例化：先预览（价格按本机构当前价目表），再带着顾问确认的文档创建；身份信息放在 doc 里
       const pv = await api("plan-templates/" + encodeURIComponent(tp.id) + "/instantiate-preview", "POST", { version: tp.version, shift_months: 0, pricing: "current" });
       const doc = await yxhTemplateDoc(pv, d.subject);
       if (!doc) return;
@@ -377,7 +386,7 @@ async function yxhNewPlan(again) {
       if (name && doc.modules?.basic) doc.modules.basic.student_name = name;
       for (const k of ["student_id", "lead_id", "prospect", "create_lead"]) if (k in body) doc[k] = body[k];
       p = await api("plans", "POST", { template: { id: tp.id, version: tp.version, shift_months: 0, pricing: "current" }, doc, expected_price_list_rev: pv.price_list_rev });
-      if (pv.checks?.blocking?.length || pv.warnings?.length) notice("模版里有课程需要确认（停用或未定价），请在“课程计划”里看一下");
+      if (pv.checks?.blocking?.length || pv.warnings?.length) notice("模板里有课程需要确认（停用或未定价），请在“课程计划”里看一下");
     } else p = await api("plans", "POST", body);
     await close();
     await yxPlanEditor(p.id, again, { party: mode, party_name: name });
@@ -412,7 +421,7 @@ async function yxPlansPage(c) {
   who.value = st.party;
   who.addEventListener("change", () => ((st.party = who.value), yxPlansPage(c)));
   bar.append(el("span", null, { class: "v-spacer" }), who, q);
-  if (enabled("plans", "write")) bar.append(button("模版库", () => yxhTemplates()), button("＋ 新建方案", () => yxhNewPlan(() => yxPlansPage(c)), "primary"));
+  if (enabled("plans", "write")) bar.append(button("模板库", () => yxhTemplates()), button("＋ 新建方案", () => yxhNewPlan(() => yxPlansPage(c)), "primary"));
   c.append(bar);
   const box = V.panel("课程方案 · " + (data.total ?? (data.items || []).length) + " 份");
   if (!data.items?.length) box.append(el("p", "没有符合条件的方案。", { class: "v-muted v-pad" }));
@@ -565,14 +574,14 @@ if (typeof document !== "undefined" && typeof MutationObserver !== "undefined") 
   else document.addEventListener("DOMContentLoaded", go);
 }
 
-// v0.5 机构方案模版库：查看、改名、删除（平台示例只读）
+// v0.5 机构方案模板库：查看、改名、删除（平台示例只读）
 async function yxhTemplates() {
-  const { panel } = drawer("方案模版库");
+  const { panel } = drawer("方案模板库");
   const draw = async () => {
-    panel.replaceChildren(el("p", "在方案编辑器“更多 › 存为本机构模版”里添加。新建方案时可以从模版开始，AI 也会参考这些模版。", { class: "v-muted" }));
+    panel.replaceChildren(el("p", "在方案编辑器“更多 › 存为本机构模板”里添加。新建方案时可以从模板开始，AI 也会参考这些模板。", { class: "v-muted" }));
     const r = await api("plan-templates?origin=all&limit=100").catch((e) => ({ items: [], err: e.message }));
     if (r.err) return panel.append(el("p", r.err, { class: "v-muted" }));
-    if (!r.items.length) return panel.append(UI.empty({ text: "还没有模版" }));
+    if (!r.items.length) return panel.append(UI.empty({ text: "还没有模板" }));
     for (const t of r.items) {
       const row = el("div", null, { class: "yxh-tpl" });
       const tx = el("div");
@@ -582,25 +591,25 @@ async function yxhTemplates() {
       if (me?.capabilities?.plan_templates?.write !== false && enabled("plans", "write")) {
         const edit = (copy) => async () => {
           const current = (await api("plan-templates/" + encodeURIComponent(t.id))).template;
-          const { panel: editor, close } = drawer(copy ? "另存为本机构模版" : "模版改名");
+          const { panel: editor, close } = drawer(copy ? "另存为本机构模板" : "模板改名");
           const form = el("form");
-          field(form, "模版名称", "name", "text", current.name + (copy ? "（副本）" : ""));
-          submit(form, copy ? "另存模版" : "保存名称", async d => {
+          field(form, "模板名称", "name", "text", current.name + (copy ? "（副本）" : ""));
+          submit(form, copy ? "另存模板" : "保存名称", async d => {
             const payload = { name: d.name.trim(), description: current.description, applicability: current.applicability, doc: current.doc };
             await api(copy ? "plan-templates" : "plan-templates/" + encodeURIComponent(t.id), copy ? "POST" : "PUT", { ...payload, ...(copy ? { source: { template_id: current.id, version: current.version } } : { version: current.version }) });
             await close();
-            notice(copy ? "已另存为本机构模版" : "已改名", "success");
+            notice(copy ? "已另存为本机构模板" : "已改名", "success");
             await draw();
           });
           editor.append(form);
         };
         if (!t.readonly && t.origin !== "platform") row.append(button("改名", edit(false)));
-        row.append(button("另存为本机构模版", edit(true)));
+        row.append(button("另存为本机构模板", edit(true)));
       }
       if (t.origin !== "platform" && !t.readonly && enabled("plans", "write"))
         row.append(
           button("删除", async () => {
-            if (!(await UI.confirm({ title: "删除模版“" + t.name + "”？", consequence: "已经用这个模版做好的方案不受影响。", danger: true }))) return;
+            if (!(await UI.confirm({ title: "删除模板“" + t.name + "”？", consequence: "已经用这个模板做好的方案不受影响。", danger: true }))) return;
             await api("plan-templates/" + encodeURIComponent(t.id), "DELETE", { version: t.version });
             notice("已删除", "success");
             draw();

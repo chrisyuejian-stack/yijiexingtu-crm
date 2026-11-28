@@ -214,8 +214,8 @@ function shell() {
     ...(owner
       ? [
           ["tenants", "机构管理", (c) => tenants(c), true],
-          ["subject-packs", "学科模版包", (c) => yxSubjectPacksPage(c), false],
-          ["style-packs", "模版与风格包", (c) => yxStylePacksPage(c), false],
+          ["subject-packs", "学科模板包", (c) => yxSubjectPacksPage(c), false],
+          ["style-packs", "模板与风格包", (c) => yxStylePacksPage(c), false],
           ["ai", "AI 用量与每日上限", (c) => yxAiUsagePage(c), false],
           ["announcements", "平台公告", (c) => announcementsPage(c), true],
           ["accounts", "控制台账号", (c) => cxAccounts(c), false],
@@ -2120,7 +2120,7 @@ async function yxStylePacksPage(c) {
     notice("已上传为草稿“" + d.name + " v" + d.pack_version + "”，先预览检查，再选发布范围。");
     await yxStylePacksPage(c);
   });
-  cxTop("模版与风格包", [], [cxBtn("下载格式说明", () => yxoFormatDoc()), cxBtn("＋ 上传风格包", () => up.click(), "primary")], h("span", "cx-head-sub", "方案 · 成长报告 · 课后反馈卡片 · 公众号文章"));
+  cxTop("模板与风格包", [], [cxBtn("下载格式说明", () => yxoFormatDoc()), cxBtn("＋ 上传风格包", () => up.click(), "primary")], h("span", "cx-head-sub", "方案 · 成长报告 · 课后反馈卡片 · 公众号文章"));
   c.replaceChildren(up);
   const grid = h("div", "yxo-split");
   const left = h("section", "cx-panel yxo-list");
@@ -2401,7 +2401,7 @@ async function yxSubjectPacksPage(c) {
   const st = yxoState;
   const data = await api("ops/subject-packs");
   const packs = data.items || [];
-  cxTop("学科模版包", [], [], h("span", "cx-head-sub", "四个学科的课程库、阶段、节点日历和报告维度；机构导入时复制一份，之后各改各的"));
+  cxTop("学科模板包", [], [], h("span", "cx-head-sub", "四个学科的课程库、阶段、节点日历和报告维度；机构导入时复制一份，之后各改各的"));
   if (!packs.some((p) => p.key === st.subject)) st.subject = packs[0]?.key || null;
   c.replaceChildren();
   const grid = h("div", "yxo-split is-subject");
@@ -2433,11 +2433,16 @@ function yxoSubjectDetail(box, pack, again) {
   const tt = h("div", "yxo-title");
   tt.append(el("h2", pack.name), h("span", "muted", "v" + v.pack_version));
   hh.append(tt, draft ? yxoDot("草稿 · 可以修改", "warn") : yxoDot("已发布 · 内容固定", "ok"));
-  const sel = el("select", null, { "aria-label": "版本" });
-  for (const x of pack.versions) sel.append(el("option", "v" + x.pack_version + (x.status === "draft" ? "（草稿）" : ""), { value: x.pack_version }));
-  sel.value = v.pack_version;
-  sel.addEventListener("change", () => ((st.subjectVer = sel.value), again()));
-  hh.append(h("span", "cx-spacer"), sel);
+  hh.append(h("span", "cx-spacer"));
+  if (pack.versions.length > 1) {
+    const sel = el("select", null, { "aria-label": "版本" });
+    for (const x of pack.versions) sel.append(el("option", "v" + x.pack_version + (x.status === "draft" ? "（草稿）" : ""), { value: x.pack_version }));
+    sel.value = v.pack_version;
+    sel.addEventListener("change", () => ((st.subjectVer = sel.value), again()));
+    hh.append(sel);
+  } else {
+    hh.append(h("span", "muted", "v" + v.pack_version + (v.status === "draft" ? "（草稿）" : "")));
+  }
   const save = cxBtn("保存草稿", async () => {
     yxoCheckContent(content);
     try {
@@ -2547,8 +2552,8 @@ function yxoSubjectDetail(box, pack, again) {
         inp(x.group, (v2) => (x.group = v2), { "aria-label": "课程组", maxlength: "20" }),
         inp(x.name, (v2) => (x.name = v2), { "aria-label": "课程名称", maxlength: "40" }),
         form,
-        inp(x.minutes ?? "", (v2) => (x.minutes = v2 === "" ? null : Number(v2)), { type: "number", min: "1", "aria-label": "时长（分钟）" }),
-        inp(x.duration_text ?? "", (v2) => (x.duration_text = v2 || null), { "aria-label": "时长说明", maxlength: "20", placeholder: "如 半天" }),
+        inp(x.minutes ?? "", (v2) => (x.minutes = v2 === "" ? null : Number(v2)), { type: "number", min: "1", "aria-label": "时长（分钟）", ...(draft ? {} : { placeholder: "—" }) }),
+        inp(x.duration_text ?? "", (v2) => (x.duration_text = v2 || null), { "aria-label": "时长说明", maxlength: "20", placeholder: draft ? "如 半天" : "—" }),
         opt,
         off,
       );

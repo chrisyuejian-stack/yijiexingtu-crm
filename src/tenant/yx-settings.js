@@ -218,6 +218,12 @@ async function yxsSubjects(body, again) {
     );
     grid.append(card);
   }
+  body.append(
+    el("div", null, { class: "yxs-bar" }),
+  );
+  body.lastChild.append(
+    globalThis.ChannelV2.link("← 返回报价课程与价目表", () => (location.hash = "courses-quote")),
+  );
   body.append(grid, el("p", "只能导入平台为本机构开通的学科；需要开通其他学科请联系平台。", { class: "v-muted" }));
 }
 
@@ -1014,7 +1020,15 @@ async function yxsBrandEditor(body, again) {
   let b;
   try {
     b = await api("settings/brand");
-  } catch {
+  } catch (e) {
+    const errBox = el("div", null, { class: "v-panel yxs-pad" });
+    errBox.append(
+      UI.empty({
+        text: e?.message || "品牌设置载入失败，请稍后重试。",
+        action: { label: "重新加载", onSelect: () => again() },
+      }),
+    );
+    body.append(errBox);
     return;
   }
   const form = el("form", null, { class: "v-panel yxs-pad" });
@@ -1022,10 +1036,14 @@ async function yxsBrandEditor(body, again) {
   const color = field(form, "主色", "primary_color", "color", /^#[0-9a-f]{6}$/i.test(b.primary_color || "") ? b.primary_color : "#6A35B8", false);
   color.classList.add("yxs-color");
   const pickRow = el("div", null, { class: "yxs-qr" });
-  let qr = b.qr_image_id || null;
+  const initialQr = b.qr_image_id || null;
+  let qr = initialQr;
   const preview = el("div", null, { class: "yxs-qr-preview" });
-  const showQr = (url) => preview.replaceChildren(url ? el("img", null, { src: url, alt: "咨询二维码" }) : el("span", "未设置", { class: "v-muted" }));
-  showQr(b.qr_url);
+  let clearBtn;
+  const showQr = (url) => {
+    preview.replaceChildren(url ? el("img", null, { src: url, alt: "咨询二维码" }) : el("span", "未设置", { class: "v-muted" }));
+    if (clearBtn) clearBtn.hidden = !qr;
+  };
   pickRow.append(
     preview,
     button("从图库选择", async () => {
@@ -1042,15 +1060,23 @@ async function yxsBrandEditor(body, again) {
         });
         grid.append(x);
       }
-      if (!list.items?.length) grid.append(el("p", "图库里还没有图片，先到“图库”上传二维码图片。", { class: "v-muted" }));
+      if (!list.items?.length) grid.append(el("p", "图库里还没有图片，请先到“机构设置 › 品牌与图库”上传二维码图片。", { class: "v-muted" }));
       panel.append(grid);
     }),
   );
-  form.append(pickRow);
+  clearBtn = button("清除二维码", () => {
+    qr = null;
+    showQr(null);
+  });
+  pickRow.append(clearBtn);
+  showQr(b.qr_url);
+  const qrField = el("div", null, { class: "ui-field field" });
+  qrField.append(el("span", "咨询二维码", { class: "ui-field-label" }), pickRow);
+  form.append(qrField);
   submit(form, "保存", () =>
     yxsSave(() => {
       const patch = { version: b.version, primary_color: color.value.toUpperCase() };
-      if (qr && qr !== b.qr_image_id) patch.qr_image_id = qr;
+      if (qr !== initialQr) patch.qr_image_id = qr;
       return api("settings/brand", "PATCH", patch);
     }, again),
   );

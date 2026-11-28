@@ -70,3 +70,14 @@ test("控制台手机端适配（G-04）：导航换行且圆点不压字，表�
   assert.match(js, /"data-label": cols\[idx\]/);
   assert.match(js, /td\.dataset\.label = cols\[i\]\[0\]/);
 });
+
+test("控制台体验优化（G-13/G-16/G-17）：单版本不显示下拉箭头、只读空时长占位、统一模板用词及 favicon", async () => {
+  const [js] = await source();
+  const html = await readFile("src/console/index.html", "utf8");
+  assert.match(html, /<link[^>]+rel="icon"[^>]+data:image\/svg\+xml/);
+  assert.match(js, /pack\.versions\.length > 1/);
+  assert.match(js, /placeholder:\s*draft \? "如 半天" : "—"/);
+  assert.match(js, /\["subject-packs", "学科模板包"/);
+  assert.match(js, /\["style-packs", "模板与风格包"/);
+});
+
