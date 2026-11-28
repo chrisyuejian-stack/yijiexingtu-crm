@@ -2916,7 +2916,8 @@ export function repo(env, tenantId) {
         if(v.adoptions?.length)ops.push(sql('INSERT INTO audit_log(tenant_id,id,at,actor_id,actor_label,module,action,entity_id,summary,after_json) VALUES(?,?,?,?,?,?,?,?,?,?)',tenantId,randomId('aud'),at,actor.id,actor.name,'plans','adopt_cards',next.id,'采用方案建议',JSON.stringify(v.adoptions)));
       }
       if(mutation?.prospect)ops.push(sql('INSERT INTO plan_prospects(tenant_id,id,data_enc,phone_last4,created_at,created_by) VALUES(?,?,?,?,?,?)',tenantId,next.id,mutation.prospect.data_enc,mutation.prospect.phone_last4,at,actor.id));
-      if(revoke)ops.push(sql('UPDATE share_links SET revoked_at=COALESCE(revoked_at,?),version=version+1 WHERE tenant_id=? AND plan_id=?',at,tenantId,next.id));
+      // Publishing a new sent revision invalidates prior quotes atomically; draft edits retain the published revision.
+      if(revoke || (next.sent_revision_id && next.sent_revision_id !== before?.sent_revision_id))ops.push(sql('UPDATE share_links SET revoked_at=COALESCE(revoked_at,?),version=version+1 WHERE tenant_id=? AND plan_id=?',at,tenantId,next.id));
       ops.push(planAudit(actor,action,next.id,before,next));await db.batch(ops);
     },
     async planExportAudit(plan,revisionId,force,actor) {scoped();await db.batch([planGuard(plan.id,plan.version),sql('INSERT INTO audit_log(tenant_id,id,at,actor_id,actor_label,module,action,entity_id,summary,after_json) VALUES(?,?,?,?,?,?,?,?,?,?)',tenantId,randomId('aud'),now(),actor.id,actor.name,'plans','export',plan.id,'导出课程方案',JSON.stringify({revision_id:revisionId,force}))]);},

@@ -519,7 +519,7 @@ test("YX4 稳定ID不能重复、借用或修改已有课程行的course_id", ()
     assert.equal(returned.computed.total.amount, 400);
 }));
 
-test("YX4 发送后工作稿改价和改分期不影响家长与旧分享链接，再发送才更新", () => school(async s => {
+test("YX4 工作稿改价不影响已发报价，重发更新家长并作废旧分享（#21）", () => school(async s => {
     const p = await filled(s, {
         amount: 300.01,
         qty: 1,
@@ -580,7 +580,9 @@ test("YX4 发送后工作稿改价和改分期不影响家长与旧分享链接�
     }));
     assert.notEqual(sent2.sent_revision_id, sent.sent_revision_id);
     assert.equal(ok(await call(s, "parent/plans/" + p.id, "GET", undefined, pa.token)).render_data.computed.total.amount, 400);
-    assert.equal(ok(await call(s, publicPath, "GET", undefined, null)).render_data.computed.total.amount, 300.01);
+    ok(await call(s, publicPath, "GET", undefined, null), 404);
+    const newLink = ok(await call(s, "plans/" + p.id + "/share-links", "POST", {}), 201);
+    assert.equal(ok(await call(s, "/api/share/" + newLink.url.split("/").at(-1), "GET", undefined, null)).render_data.computed.total.amount, 400);
     const signed = ok(await call(s, "plans/" + p.id + "/sign", "POST", {
         revision_id: sent.sent_revision_id
     }));
