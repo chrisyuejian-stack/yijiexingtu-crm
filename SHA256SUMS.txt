@@ -1,2 +1,2 @@
-d0b539466097bd286cd87413c46d22ff141be0e84ded81ad9aa9dea7fa14942d  dist/_worker.js
-28561583aef8450921fdca957664934cdbfe587342c7fe21fd9e68445d83aa9b  backup-dist/backup-worker.js
+a383e7d6046354709481a526ce857ff83d70824d750fdc02a173d8fabe31f5ce  dist/_worker.js
+154a12edd10c575ce4b5ee44ad1464f06fe55d231ca063f0d98dc7a35063b369  backup-dist/backup-worker.js
