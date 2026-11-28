@@ -300,6 +300,76 @@ test("YX6G 报告图片绑定已发布修订、未授权不显示，跨孩子媒
     ok(await call(s, "parent/media/img_report", "GET", undefined, other.token), 404);
 }));
 
+test("YX6G 成长报告头图须遵循家长展示同意，未授权不返回URL且媒体404", () => growthSchool(async s => {
+    const png = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jw1kAAAAASUVORK5CYII=";
+    await s.r.settingsGalleryCreate({
+        id: "img_header",
+        r2_key: "local/header.png",
+        mime: "image/png",
+        width: 1,
+        height: 1,
+        tags: [],
+        consent: true
+    }, s.user);
+    await s.r.settingsGalleryCreate({
+        id: "img_report",
+        r2_key: "local/report.png",
+        mime: "image/png",
+        width: 1,
+        height: 1,
+        tags: [],
+        consent: true
+    }, s.user);
+    await s.f.env.CHANNEL_MEDIA.put("local/header.png", png);
+    await s.f.env.CHANNEL_MEDIA.put("local/report.png", png);
+    const b = await batch(s), pa = await parent(s), other = await accountToken(s, [ "student" ], s.students[1]);
+    let row = await readyDoc(s, b.reports[0]);
+    row = ok(await call(s, "reports/" + row.id, "PUT", {
+        version: row.version,
+        artwork_image_ids: [ "img_report" ],
+        style: {
+            header_image_id: "img_header"
+        }
+    }, s.teacherAccount.token));
+    ok(await call(s, "reports/" + row.id + "/ready", "POST", {}));
+    row = ok(await call(s, "reports/" + row.id + "/publish", "POST", {}));
+    // Simulate historical stored header_image_url / artwork_image_urls in a legacy published revision JSON
+    const revRow = s.f.db.raw.prepare("SELECT r.* FROM growth_report_revisions r JOIN growth_reports g ON g.tenant_id=r.tenant_id AND g.published_revision_id=r.id WHERE g.tenant_id=? AND g.id=?").get(s.t.id, row.id);
+    const legacyDoc = JSON.parse(revRow.doc_json);
+    legacyDoc.style.header_image_url = "/legacy/header.png";
+    legacyDoc.artwork_image_urls = [ "/legacy/report.png" ];
+    const legacyRevId = "grv_legacy_header_test";
+    s.f.db.raw.prepare("INSERT INTO growth_report_revisions(tenant_id,id,report_id,seq,doc_json,manifest_json,context_json,action,published_at,publication_order,created_at,created_by) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)").run(
+        s.t.id, legacyRevId, row.id, revRow.seq + 1, JSON.stringify(legacyDoc), revRow.manifest_json, revRow.context_json, revRow.action, revRow.published_at, (revRow.publication_order || 0) + 1, revRow.created_at, revRow.created_by
+    );
+    s.f.db.raw.prepare("UPDATE growth_reports SET published_revision_id=? WHERE tenant_id=? AND id=?").run(legacyRevId, s.t.id, row.id);
+    // Unauthenticated callers rejected with 401
+    ok(await call(s, "parent/reports/" + row.id, "GET", undefined, ""), 401);
+    ok(await call(s, "parent/media/img_header", "GET", undefined, ""), 401);
+    // Unconsented child (parent_consent_media=0): no header/artwork IDs or URLs, media returns 404
+    const deniedView = ok(await call(s, "parent/reports/" + row.id, "GET", undefined, pa.token));
+    assert.equal(deniedView.render_data.style.header_image_id, null);
+    assert.equal(deniedView.render_data.style.header_image_url, undefined);
+    assert.deepEqual(deniedView.render_data.artwork_image_ids, []);
+    assert.equal(deniedView.render_data.artwork_image_urls, undefined);
+    ok(await call(s, "parent/media/img_header", "GET", undefined, pa.token), 404);
+    ok(await call(s, "parent/media/img_report", "GET", undefined, pa.token), 404);
+    ok(await call(s, "parent/reports/" + row.id, "GET", undefined, other.token), 404);
+    ok(await call(s, "parent/media/img_header", "GET", undefined, other.token), 404);
+    // Consented child (parent_consent_media=1): header and artwork accessible for bound parent only
+    s.f.db.raw.prepare("UPDATE students SET parent_consent_media=1 WHERE tenant_id=? AND id=?").run(s.t.id, s.students[0]);
+    const allowedView = ok(await call(s, "parent/reports/" + row.id, "GET", undefined, pa.token));
+    assert.equal(allowedView.render_data.style.header_image_id, "img_header");
+    assert.equal(allowedView.render_data.style.header_image_url, "/" + s.t.slug + "/api/parent/media/img_header");
+    assert.deepEqual(allowedView.render_data.artwork_image_ids, [ "img_report" ]);
+    assert.deepEqual(allowedView.render_data.artwork_image_urls, [ "/" + s.t.slug + "/api/parent/media/img_report" ]);
+    assert.equal((await call(s, "parent/media/img_header", "GET", undefined, pa.token)).status, 200);
+    assert.equal((await call(s, "parent/media/img_report", "GET", undefined, pa.token)).status, 200);
+    ok(await call(s, "parent/reports/" + row.id, "GET", undefined, other.token), 404);
+    ok(await call(s, "parent/media/img_header", "GET", undefined, other.token), 404);
+    ok(await call(s, "parent/media/img_report", "GET", undefined, other.token), 404);
+}));
+
 test("YX6G 畸形嵌套值统一校验，不能用对象标量触发500或写入", () => growthSchool(async s => {
     const b = await batch(s), row = b.reports[0], before = JSON.stringify(await s.r.growthGet(row.id));
     for (const payload of [ {
