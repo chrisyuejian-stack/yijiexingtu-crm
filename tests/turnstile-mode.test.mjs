@@ -312,7 +312,7 @@ test("第九阶段二：off同IP十次失败锁一小时，换IP正常、到期�
       );
     const row = f.db.raw
       .prepare("SELECT locked_until FROM security_limits WHERE key=?")
-      .get("login-ip:192.0.2.101");
+      .get("login-ip:" + s.t.id + ":192.0.2.101");
     assert.ok(row.locked_until >= realNow() + 3599000);
     assert.deepEqual(ok(await send(s), 401).body, failure);
     ok(await send(s, { ip: "192.0.2.102" }));

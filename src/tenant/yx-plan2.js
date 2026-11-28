@@ -118,7 +118,7 @@ function yxp2Render(shell, st, close, rerender) {
     label: "更多",
     items: [
       ...(!locked ? [{ label: "整体平移日期", onSelect: () => yxp2Shift(st, rerender) }] : []),
-      ...(capT.write !== false && enabled("plans", "write") ? [{ label: "存为本机构模版", onSelect: () => yxp2SaveTemplate(st) }] : []),
+      ...(capT.write !== false && enabled("plans", "write") ? [{ label: "存为本机构模板", onSelect: () => yxp2SaveTemplate(st) }] : []),
       ...(enabled("plans", "write") && doc.reference ? [{ label: doc.reference.enabled ? "取消“优秀方案”" : "标为优秀方案（供 AI 参考）", onSelect: () => yxp2Reference(st, rerender) }] : []),
       { label: "历史版本", onSelect: () => yxpRevisions(st, rerender) },
       ...(locked ? [] : [{ label: "价格刷新", onSelect: () => yxpReprice(st, rerender) }]),
@@ -159,15 +159,17 @@ function yxp2Render(shell, st, close, rerender) {
       strip.append(b);
     });
   };
-  // 左栏：内容 / 样式
-  const tabs = el("div", null, { class: "yxv-seg yxv-seg-full", role: "tablist" });
-  for (const [k, t] of [["content", "内容"], ["style", "样式"]]) {
-    const b = el("button", t, { type: "button", role: "tab", "aria-selected": String((st.tab || "content") === k), "aria-pressed": String((st.tab || "content") === k) });
+  const pane = st.tab || "content";
+  body.dataset.mpane = pane;
+  // 左栏：内容 / 样式（手机端补“预览”与“AI 助手”切页）
+  const tabs = el("div", null, { class: "yxv-seg yxv-seg-full yxv-seg-top", role: "tablist" });
+  for (const [k, t, mobile] of [["content", "内容", false], ["style", "样式", false], ["preview", "预览", true], ["ai", "AI 助手", true]]) {
+    const b = el("button", t, { type: "button", role: "tab", class: mobile ? "yxv-tab-m" : "", "aria-selected": String(pane === k), "aria-pressed": String(pane === k) });
     b.addEventListener("click", () => ((st.tab = k), rerender()));
     tabs.append(b);
   }
   left.append(tabs);
-  if ((st.tab || "content") === "style") yxpStyleTab(left, st, locked, mark, rerender);
+  if (pane === "style") yxpStyleTab(left, st, locked, mark, rerender);
   else yxp2Modules(left, st, locked, mark, rerender);
   yxp2Ai(right, st, locked, mark, rerender);
   drawPreview();
@@ -176,11 +178,23 @@ function yxp2Render(shell, st, close, rerender) {
 // ---------- 左栏：11 个版块（手风琴，一次展开一个；可改标题、显示/隐藏、调整顺序）----------
 function yxp2Kit(locked, mark) {
   const inp = (parent, label, value, on, type = "text", attrs = {}) => {
+    if (type === "date") {
+      const picker = UI.dateControl({
+        label,
+        value: value || "",
+        allowEmpty: true,
+        disabled: locked,
+        onChange: (v) => (on(v), mark()),
+      });
+      picker.element.classList.add("yxp-field", "yx-date-off");
+      parent.append(picker.element);
+      return picker.input || picker.trigger;
+    }
     const w = el("label", label, { class: "yxp-field" }),
       i = type === "textarea" ? el("textarea", null, { rows: attrs.rows || "3", ...attrs }) : el("input", null, { type, ...attrs });
     i.value = value ?? "";
     i.disabled = locked;
-    i.addEventListener(type === "date" || type === "month" ? "change" : "input", () => (on(i.value), mark()));
+    i.addEventListener(type === "month" ? "change" : "input", () => (on(i.value), mark()));
     w.append(i);
     parent.append(w);
     return i;
@@ -316,7 +330,7 @@ const yxp2Mod = {
           rerender();
         }),
       );
-    b.append(el("p", "这里的姓名只用在方案里，不会改学员档案。主图和模版在“样式”里换。", { class: "v-muted" }));
+    b.append(el("p", "这里的姓名只用在方案里，不会改学员档案。主图和模板在“样式”里换。", { class: "v-muted" }));
   },
   assessment(b, st, K, locked, mark, rerender) {
     const m = st.doc.modules.assessment;
@@ -873,27 +887,27 @@ async function yxp2Shift(st, rerender) {
   panel.append(form);
 }
 async function yxp2SaveTemplate(st) {
-  if (st.dirty) return notice("先保存，再存为模版");
+  if (st.dirty) return notice("先保存，再存为模板");
   const pv = await api("plans/" + encodeURIComponent(st.doc.id) + "/template-preview", "POST", { version: st.doc.version });
-  const { panel, close } = drawer("存为本机构模版");
+  const { panel, close } = drawer("存为本机构模板");
   const form = el("form");
-  form.append(el("p", "模版会去掉学员姓名、家长信息、电话、学校、照片和咨询原文，只留下结构、课程搭配和文字写法。下一位学员可以从这个模版开始。", { class: "v-muted" }));
+  form.append(el("p", "模板会去掉学员姓名、家长信息、电话、学校、照片和咨询原文，只留下结构、课程搭配和文字写法。下一位学员可以从这个模板开始。", { class: "v-muted" }));
   if (pv.redactions?.length) form.append(el("p", "已自动去掉 " + pv.redactions.length + " 处个人信息。", { class: "v-muted" }));
   const M = st.doc.modules;
-  field(form, "模版名称", "name", "text", [M.basic.direction, M.basic.grade].filter(Boolean).join(" · ") || st.doc.title || "学习方案模版");
+  field(form, "模板名称", "name", "text", [M.basic.direction, M.basic.grade].filter(Boolean).join(" · ") || st.doc.title || "学习方案模板");
   field(form, "适用说明（可空）", "description", "text", "", false);
   field(form, "适用方向（逗号分开，可空）", "directions", "text", M.basic.direction || "", false);
   field(form, "适用年级（逗号分开，可空）", "grades", "text", M.basic.grade || "", false);
-  submit(form, "保存模版", async (d) => {
+  submit(form, "保存模板", async (d) => {
     const split = (x) => String(x || "").split(/[,，、]/).map((s) => s.trim()).filter(Boolean).slice(0, 20);
     try {
       await api("plan-templates", "POST", { name: d.name.trim(), description: d.description.trim(), applicability: { subject: st.doc.subject, directions: split(d.directions), grades: split(d.grades), budget: { min: null, max: null, period: "unspecified" }, target_types: [] }, source: { plan_id: st.doc.id, version: st.doc.version }, doc: pv.doc });
     } catch (e) {
-      if (e.code === "template_privacy_review_required") throw Error("方案里还有学员个人信息（如姓名、学校、电话），请先在方案里改掉再存模版。");
+      if (e.code === "template_privacy_review_required") throw Error("方案里还有学员个人信息（如姓名、学校、电话），请先在方案里改掉再存模板。");
       throw e;
     }
     await close();
-    notice("已存为本机构模版", "success");
+    notice("已存为本机构模板", "success");
   });
   panel.append(form);
 }
@@ -1157,11 +1171,16 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
   // ---- 封面 ----
   if (B.visible !== false && B.cover_visible !== false) {
     const cv = page("yxd-cover");
-    const logo = el("div", null, { class: "yxd-logo" });
+    const logo = el("div", null, { class: "yxd-logo" + (rd.brand?.logo ? "" : " is-monogram") });
     if (rd.brand?.logo) logo.append(el("img", null, { src: rd.brand.logo, alt: rd.brand?.name || "" }));
-    else logo.append(el("span", rd.brand?.name || ""));
+    else {
+      const initial = Array.from(String(rd.brand?.name || "").trim())[0] || "艺";
+      logo.append(el("i", initial, { class: "yxd-logo-mark", "aria-hidden": "true" }));
+      if (rd.brand?.name) logo.append(el("span", rd.brand.name));
+    }
     const pu = img(sty.cover_image_id, sty.cover_image_url);
     const photo = pu ? el("img", null, { src: pu, alt: "", class: "yxd-photo" }) : null;
+    if (!photo) cv.classList.add("is-nophoto");
     if (photo && sty.focal_point) photo.style.setProperty("object-position", Math.round((sty.focal_point.x ?? 0.5) * 100) + "% " + Math.round((sty.focal_point.y ?? 0.5) * 100) + "%");
     const textBox = el("div", null, { class: "yxd-cover-text" });
     const eyebrow = B.cover_eyebrow || (sty.show_latin_eyebrow ? YXD_LATIN[rd.subject] || "Learning Plan" : "");
@@ -1171,19 +1190,22 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
     const sub = [B.cover_subtitle, yxd2Month(st0[0]?.start_month, st0.at(-1)?.end_month)].filter(Boolean).join(" · ");
     if (sub) textBox.append(el("p", sub, { class: "yxd-sub" }));
     textBox.append(el("i", null, { class: "yxd-rule" }));
+    const hasStages = st0.length > 0;
     const nums = el("div", null, { class: "yxd-nums" });
-    for (const n of (C.cover_numbers || []).filter((x) => x.value != null && x.value !== "")) {
+    for (const n of (C.cover_numbers || []).filter((x) => x.value != null && x.value !== "" && (hasStages || Number(x.value) !== 0 || x.unit !== "个月"))) {
       const b = el("div");
       b.append(el("small", n.label), el("b", n.value, { class: "yxd-num" }), el("span", n.unit), ...(n.sub ? [el("small", n.sub, { class: "yxd-nsub" })] : []));
       nums.append(b);
     }
+    const hasNums = nums.childElementCount > 0;
     const meta = el("p", [who ? "学员 " + who + (B.grade ? " · " + B.grade : "") : "", B.direction ? B.direction + (en && B.direction_en ? " / " + B.direction_en : "") : "", String(B.plan_date || "").replaceAll("-", ".")].filter(Boolean).join("　　"), { class: "yxd-meta" });
     if (cover === "stage") {
       const bg = el("div", null, { class: "yxd-stage-bg" });
       if (photo) bg.append(photo);
       const top = el("div", null, { class: "yxd-cover-top" });
       top.append(logo, el("span", "Study Plan", { class: "yxd-kicker" }));
-      textBox.append(nums, meta);
+      if (hasNums) textBox.append(nums);
+      textBox.append(meta);
       cv.append(bg, top, textBox);
       const mode = sty.text_mode && sty.text_mode !== "auto" ? sty.text_mode : photo ? null : "light";
       const set = (m) => cv.setAttribute("data-text", m);
@@ -1198,7 +1220,7 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
       top.append(logo);
       const frame = el("figure", null, { class: "yxd-polaroid" });
       frame.append(photo || el("div", null, { class: "yxd-photo-empty" }), el("figcaption", (String(st0[0]?.start_month || "").slice(0, 4) || "") + " · " + (rd.brand?.name || "")));
-      textBox.append(nums);
+      if (hasNums) textBox.append(nums);
       cv.append(top, frame, textBox, meta);
     } else {
       const arch = el("div", null, { class: "yxd-arch" });
@@ -1206,7 +1228,9 @@ function yxPlanDocument2(rd, manifest, mediaUrl) {
       const band = el("div", null, { class: "yxd-band" });
       const head = el("div", null, { class: "yxd-band-head" });
       head.append(textBox, logo);
-      band.append(head, nums, meta);
+      band.append(head);
+      if (hasNums) band.append(nums);
+      band.append(meta);
       cv.append(arch, band);
     }
   }

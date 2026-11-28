@@ -160,9 +160,13 @@
         class: "v-lesson-row " + colorClass(row) + (overdue(row) ? " is-late" : ""),
       });
       const who = n("div", null, { class: "v-lesson-who" }),
-        name = n("p");
-      name.append(n("strong", person(row)), n("span", " · " + row.course_name));
-      who.append(name, n("small", row.teacher_name + " · " + (row.location_name || "线上")));
+        name = n("p"),
+        whoText = person(row);
+      name.append(
+        n("strong", whoText),
+        ...(row.course_name && whoText !== row.course_name ? [n("span", " · " + row.course_name)] : []),
+      );
+      who.append(name, n("small", [row.teacher_name, row.location_name || "线上"].filter(Boolean).join(" · ")));
       line.append(n("time", F.range(row.start_at, row.duration || 45)), n("span", null, { class: "v-bar" }), who);
       const tail = n("div", null, { class: "v-lesson-tail" });
       if (overdue(row)) {
@@ -196,7 +200,7 @@
     const side = n("div", null, { class: "v-today-side" });
     const actions = data.actions || [];
     const todo = panel("接下来要做", [
-      n("span", String(actions.length), { class: "v-count" }),
+      n("span", String(actions.length), { class: "v-count", title: "今日待处理项数（左侧导航待办角标包含未销课、补课与回访合计）" }),
       n("span", null, { class: "v-spacer" }),
       link("全部待办", () => go("todo-unchecked")),
     ]);
@@ -368,9 +372,10 @@
           class: "v-daycard " + colorClass(row) + (late ? " is-late" : "") + (row.status !== "planned" ? " is-off" : ""),
         });
         const text = n("span", null, { class: "v-daycard-text" });
+        const whoText = person(row);
         text.append(
-          n("strong", person(row)),
-          n("small", row.course_name + " · " + row.teacher_name + " · " + (row.location_name || "线上")),
+          n("strong", whoText),
+          n("small", [row.course_name && whoText !== row.course_name ? row.course_name : "", row.teacher_name, row.location_name || "线上"].filter(Boolean).join(" · ")),
         );
         card.append(
           text,
@@ -384,9 +389,11 @@
       if (done.length) {
         const card = n("button", null, { type: "button", class: "v-daycard is-done " + colorClass(done[0]) });
         const text = n("span", null, { class: "v-daycard-text" });
+        const d0 = done[0],
+          p0 = person(d0);
         text.append(
           n("strong", done.map(person).join(" · ") + (done.length > 1 ? " " + done.length + " 节" : "")),
-          n("small", done.length > 1 ? "已销课" : done[0].course_name + " · " + done[0].teacher_name + " · " + (done[0].location_name || "线上")),
+          n("small", done.length > 1 ? "已销课" : [d0.course_name && p0 !== d0.course_name ? d0.course_name : "", d0.teacher_name, d0.location_name || "线上"].filter(Boolean).join(" · ")),
         );
         card.append(text, n("em", "已销"));
         card.addEventListener("click", () => (done.length === 1 ? lessonDetail(c, done[0]) : null));
@@ -394,7 +401,8 @@
           card.addEventListener("click", () => {
             const sheet = UI.overlay({ title: phoneDay.slice(5) + " " + time + " · 已销课", kind: "modal" });
             for (const row of done) {
-              const b = button(person(row) + " · " + row.course_name + " · " + row.teacher_name, async () => {
+              const p = person(row);
+              const b = button([p, row.course_name && p !== row.course_name ? row.course_name : "", row.teacher_name].filter(Boolean).join(" · "), async () => {
                 await sheet.close();
                 await lessonDetail(c, row);
               });
@@ -477,11 +485,18 @@
           "v-grid-card " + colorClass(row) + " vg-c" + col + " vg-r" + start + " vg-s" + Math.min(span, 24) +
           (late ? " is-late" : "") + (row.status === "completed" ? " is-done" : row.status !== "planned" ? " is-off" : ""),
       });
+      const whoText = person(row);
       card.append(
-        n("strong", text ? text(row)[0] : person(row)),
+        n("strong", text ? text(row)[0] : whoText),
         n(
           "small",
-          row.start_at.slice(11, 16) + "–" + String(Math.floor(endMin / 60)).padStart(2, "0") + ":" + String(endMin % 60).padStart(2, "0") + " " + (text ? text(row)[1] : row.course_name),
+          row.start_at.slice(11, 16) +
+            "–" +
+            String(Math.floor(endMin / 60)).padStart(2, "0") +
+            ":" +
+            String(endMin % 60).padStart(2, "0") +
+            " " +
+            (text ? text(row)[1] : whoText === row.course_name ? row.teacher_name || "" : row.course_name),
         ),
       );
       const state = late ? "未销课" : row.status === "completed" ? "已销" : row.status !== "planned" ? me.labels.lessons[row.status] || "" : "";
@@ -1092,9 +1107,13 @@
     for (const row of lessons) {
       const line = n("div", null, { class: "v-lesson-row " + colorClass(row) });
       const who = n("div", null, { class: "v-lesson-who" }),
-        name = n("p");
-      name.append(n("strong", person(row)), n("span", " · " + row.course_name));
-      who.append(name, n("small", row.teacher_name + " · " + (row.location_name || "线上")));
+        name = n("p"),
+        whoText = person(row);
+      name.append(
+        n("strong", whoText),
+        ...(row.course_name && whoText !== row.course_name ? [n("span", " · " + row.course_name)] : []),
+      );
+      who.append(name, n("small", [row.teacher_name, row.location_name || "线上"].filter(Boolean).join(" · ")));
       const tail = n("div", null, { class: "v-lesson-tail" });
       tail.append(
         chip(

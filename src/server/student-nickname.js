@@ -10,3 +10,36 @@ export function defaultNickname(name) {
 export function studentNickname(name, value) {
   return typeof value === "string" && value.trim() && value.trim() !== "X 同学" ? value.trim() : defaultNickname(name);
 }
+
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+export function planStudentMask(student = {}, extraNames = []) {
+  const names = [...new Set([student.name, ...extraNames].map((x) => String(x || "").trim()).filter(Boolean))].sort((a, b) => b.length - a.length);
+  const rawNick = String(student.nickname || "").trim();
+  const leaksLegal = names.some((n) => rawNick === n || (n.length > 1 && rawNick.includes(n)));
+  const safeName = rawNick && !leaksLegal ? rawNick : "同学";
+  const rules = names
+    .filter((n) => n !== safeName)
+    .map((n) => {
+      const esc = escapeRe(n);
+      if (n.length > 1) return new RegExp(esc, "g");
+      if (/^[A-Za-z0-9_]$/.test(n)) return new RegExp(`(?<![A-Za-z0-9_])${esc}(?![A-Za-z0-9_])`, "g");
+      return new RegExp(`(?<![\\p{Script=Han}A-Za-z0-9])${esc}(?!同学)`, "gu");
+    });
+  const redactText = (text) => {
+    let out = text;
+    for (const re of rules) out = out.replace(re, safeName);
+    return out;
+  };
+  const redactValue = (value, key = "") => {
+    if (typeof value === "string") {
+      if (["id", "revision_id", "asset_base"].includes(key) || key.endsWith("_id") || key.endsWith("_url")) return value;
+      return redactText(value);
+    }
+    if (Array.isArray(value)) return value.map((x) => redactValue(x));
+    if (value && typeof value === "object")
+      return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, redactValue(v, k)]));
+    return value;
+  };
+  return { safeName, rawNick, leaksLegal, redactValue };
+}

@@ -684,6 +684,14 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
             return json(paged({
                 items: p.items.map(x => {
                     const doc = JSON.parse(x.visible_doc || x.doc_json);
+                    const total = computedResponse(doc.computed.total);
+                    if (personal(actor) && doc.modules?.fees?.visible === false) {
+                        delete total.amount;
+                        delete total.known_amount;
+                    }
+                    if (personal(actor) && doc.modules?.courses?.visible === false) {
+                        total.bundles = [];
+                    }
                     return {
                         id: x.id,
                         doc_version:doc.doc_version??1,
@@ -696,7 +704,7 @@ async function plansApiImpl(req, env, resolved, actor, policy, url) {
                         party:personal(actor)?'student':x.party,
                         party_name:personal(actor)?undefined:x.party_name,
                         version: personal(actor) ? undefined : x.version,
-                        total: computedResponse(doc.computed.total),
+                        total,
                         updated_at: planIso(x.visible_at || x.updated_at),
                         ...x.visible_revision_id ? {
                             revision_id: x.visible_revision_id

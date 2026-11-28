@@ -426,7 +426,10 @@
         box.append(n("div", "现在 " + F.time(new Date(nowMs).toISOString()), { class: "v-td-now" }));
       }
       const line = n("button", null, { type: "button", class: "v-td-lesson " + V().colorClass(row) + (V().overdue(row) ? " is-late" : "") });
-      line.append(n("time", F.time(row.start_at)), n("span", V().person(row) + " · " + row.course_name, { class: "v-td-lesson-who" }));
+      const whoLabel = V().person(row);
+      const coursePart = row.course_name && whoLabel !== row.course_name ? row.course_name : "";
+      const summary = [whoLabel, coursePart, row.teacher_name].filter(Boolean).join(" · ");
+      line.append(n("time", F.time(row.start_at)), n("span", summary, { class: "v-td-lesson-who" }));
       line.append(
         V().overdue(row)
           ? chip("未销课", "bad")

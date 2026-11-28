@@ -2,6 +2,7 @@ import {editorV2,renderV2,checkV2} from './plan-v2-view.js';
 import { computedResponse } from "./plan-math.js";
 
 import { planIso, planImages } from "./plan-document.js";
+import { planStudentMask } from "./student-nickname.js";
 
 function priceFilter(doc) {
     for (const line of doc.modules.courses.lines) if (line.snapshot?.pricing) delete line.snapshot.pricing.amount_cents;
@@ -47,12 +48,24 @@ export function renderPlan(row, revision, context, mediaBase) {
     for (const [key, part] of Object.entries(out.modules)) if (!part.visible) out.modules[key] = {
         visible: false
     };
+    if (!doc.modules.courses.visible) {
+        for (const s of out.computed.stages || []) delete s.amount;
+        out.computed.optional_fees = [];
+        if (out.computed.total) out.computed.total.bundles = [];
+    }
+    if (!doc.modules.fees.visible) {
+        for (const s of out.computed.stages || []) delete s.amount;
+        if (out.computed.total) delete out.computed.total.amount;
+        out.computed.installments = [];
+        out.computed.optional_fees = [];
+        delete out.computed.budget;
+    }
     if (doc.style.cover_image_id && doc.modules.cover.visible) out.style.cover_image_url = media(doc.style.cover_image_id);
     if (doc.modules.about.visible) out.modules.about.images = doc.modules.about.image_ids.map(id => ({
         id: id,
         url: media(id)
     }));
-    const student = context.student || {};
+    const student = context.student || {}, mask = planStudentMask(student);
     const brand = {
         name: context.brand.name,
         logo: context.brand.logo,
@@ -63,29 +76,30 @@ export function renderPlan(row, revision, context, mediaBase) {
     delete out.student_id;
     delete out.source_lead_id;
     delete out.meta.consultant_id;
-    return {
-        render_data: {
-            ...out,
-            id: row.id,
-            revision_id: revision.id,
-            student: {
-                nickname: student.nickname || "",
-                display_name: student.parent_consent_media ? student.name : student.nickname || ""
-            },
-            brand: brand,
-            ...(doc.style.show_consultant && context.consultant ? {consultant: {name:context.consultant.name}} : {}),
-            ...doc.modules.about.visible ? {
-                profile: context.profile
-            } : {},
-            ...doc.modules.teachers.visible ? {
-                teachers: context.teachers.map(({requested_id: requested_id, name: name, introduction: introduction, subjects: subjects}) => ({
-                    id: requested_id,
-                    name: name,
-                    introduction: introduction,
-                    subjects: subjects
-                }))
-            } : {}
+    const renderData = {
+        ...out,
+        id: row.id,
+        revision_id: revision.id,
+        student: {
+            nickname: student.parent_consent_media ? (student.nickname || "") : (mask.rawNick && !mask.leaksLegal ? mask.rawNick : (mask.rawNick ? mask.safeName : "")),
+            display_name: student.parent_consent_media ? student.name : mask.safeName
         },
+        brand: brand,
+        ...(doc.style.show_consultant && context.consultant ? {consultant: {name:context.consultant.name}} : {}),
+        ...doc.modules.about.visible ? {
+            profile: context.profile
+        } : {},
+        ...doc.modules.teachers.visible ? {
+            teachers: context.teachers.map(({requested_id: requested_id, name: name, introduction: introduction, subjects: subjects}) => ({
+                id: requested_id,
+                name: name,
+                introduction: introduction,
+                subjects: subjects
+            }))
+        } : {}
+    };
+    return {
+        render_data: student.parent_consent_media ? renderData : mask.redactValue(renderData),
         manifest: JSON.parse(revision.manifest_json)
     };
 }

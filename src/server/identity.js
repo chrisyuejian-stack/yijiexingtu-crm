@@ -30,7 +30,8 @@ export async function identityRoot(req,env,url,authenticatedRoute) {
   if(path==='/api/login') return {response:json({error:'not_found',message:'不存在'},404)};
   if(path==='/api/public/tenant-brand'&&req.method==='GET') {
     const row=await p.identityPublicBrand(url.searchParams.get('slug')||'');
-    return {response:json(row?{name:row.name,logo_url:row.logo_url,login_bg_url:row.login_bg_url,primary_color:row.primary_color}:{name:'机构登录',logo_url:null,login_bg_url:null,primary_color:'#6A35B8'})};
+    const active=row&&row.status==='active'&&!(row.expires_at&&Date.parse(row.expires_at+'T23:59:59+08:00')<=now());
+    return {response:json(active?{name:row.name,logo_url:row.logo_url,login_bg_url:row.login_bg_url,primary_color:row.primary_color}:{name:'机构登录',logo_url:null,login_bg_url:null,primary_color:'#6A35B8'})};
   }
   if(path==='/api/auth/login'&&req.method==='POST') return {response:await rootLogin(req,env,await body(req))};
   if(path==='/api/auth/login/choose'&&req.method==='POST') {
@@ -59,8 +60,8 @@ function rootCookie(token) {return `${ROOT_COOKIE}=${token}; Path=/; HttpOnly; S
 export function clearRootCookie() {return `${ROOT_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0`;}
 async function rootLogin(req,env,d) {
   string(d.phone,'手机号',64);string(d.password,'密码',256);
-  const valid=/^1[3-9]\d{9}$/.test(d.phone),index=await platformPhoneIndex(env,valid?d.phone:'13800000000');
-  const r=repo(env,null),candidates=await r.identityCandidates(index),info=clientInfo(req),matches=[];
+  const valid=/^1[3-9]\d{9}$/.test(d.phone),index=valid?await platformPhoneIndex(env,d.phone):'invalid';
+  const r=repo(env,null),candidates=valid?await r.identityCandidates(index):[],info=clientInfo(req),matches=[];
   // Exactly five PBKDF2 invocations, including invalid numbers and throttled requests.
   for(let slot=0;slot<5;slot++) {
     const candidate=candidates[slot];

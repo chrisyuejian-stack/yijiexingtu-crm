@@ -1,6 +1,7 @@
 import {planIso} from './plan-document.js';
 import {computeV2} from './plan-v2-math.js';
 import {v2Images} from './plan-v2-fields.js';
+import {planStudentMask} from './student-nickname.js';
 
 export function editorV2(row,prices=true){
     const d=JSON.parse(row.doc_json);if(!prices)for(const l of d.modules.courses.lines){delete l.manual_unit_price;if(l.snapshot?.pricing)delete l.snapshot.pricing.amount_cents;}
@@ -41,17 +42,19 @@ export function renderV2(row,revision,context,mediaBase){
     }
     out.computed.lines=out.computed.lines.filter(x=>m.courses.visible&&!privateLines.has(x.line_id));
     for(const s of out.computed.stages)delete s.draft_amount;
-    if(!m.courses.visible){out.computed.optional_fees=[];out.computed.total.bundles=[];}
-    if(!out.style.show_unit_price)for(const f of out.computed.optional_fees){delete f.price_text;delete f.amount;}
+    if(!m.courses.visible){out.computed.optional_fees=[];out.computed.total.bundles=[];for(const s of out.computed.stages){delete s.amount;delete s.known_amount;}if(out.computed.unassigned){delete out.computed.unassigned.amount;delete out.computed.unassigned.known_amount;}}
+    if(!out.style.show_unit_price){for(const l of out.computed.lines)delete l.amount;for(const f of out.computed.optional_fees){delete f.price_text;delete f.amount;}}
+    if(!m.fees.visible){for(const s of out.computed.stages){delete s.amount;delete s.known_amount;}if(out.computed.unassigned){delete out.computed.unassigned.amount;delete out.computed.unassigned.known_amount;}for(const l of out.computed.lines)delete l.amount;if(out.computed.total){delete out.computed.total.amount;delete out.computed.total.known_amount;}delete out.computed.subtotal;delete out.computed.discount;out.computed.installments=[];delete out.computed.installment_status;out.computed.optional_fees=[];delete out.computed.budget;delete out.computed.budget_comparison;}
     if(m.basic.visible&&m.basic.cover_visible&&out.style.cover_image_id)out.style.cover_image_url=media(out.style.cover_image_id);
     if(m.photos.visible)for(const p of m.photos.pages){p.images=p.image_ids.map(id=>({id,url:media(id)}));delete p.image_ids;}
     if(m.about.visible){m.about.images=m.about.image_ids.map(id=>({id,url:media(id)}));delete m.about.image_ids;out.profile=structuredClone(context.profile);}
     if(m.teachers.visible)for(const g of m.teachers.groups)for(const t of g.members){t.photo_url=t.photo_image_id?media(t.photo_image_id):null;delete t.teacher_id;delete t.photo_image_id;}
     if(m.fees.visible&&!out.computed.total.complete){m.fees.custom=[];m.fees.fixed=[];m.fees.due_dates={};}
-    const student=context.student||{},name=student.parent_consent_media?source.modules.basic.student_name:student.nickname||'同学';
-    out.student={nickname:student.nickname||'',display_name:name};if(m.basic.visible)m.basic.student_name=name;
+    const student=context.student||{},mask=planStudentMask(student,[source.modules.basic.student_name]),name=student.parent_consent_media?source.modules.basic.student_name:mask.safeName;
+    out.student={nickname:student.parent_consent_media?(student.nickname||''):(mask.rawNick&&!mask.leaksLegal?mask.rawNick:(mask.rawNick?mask.safeName:'')),display_name:name};if(m.basic.visible)m.basic.student_name=name;
     out.brand={name:context.brand.name,logo:context.brand.logo,primary_color:context.brand.primary_color};
     if(out.style.show_consultant){if(context.brand.qr_image_id)out.brand.qr_url=media(context.brand.qr_image_id);if(context.consultant)out.consultant={name:context.consultant.name};}
-    if(!student.parent_consent_media){const names=[student.name,source.modules.basic.student_name].filter(Boolean).sort((a,b)=>b.length-a.length);const redact=v=>{if(typeof v==='string'){for(const n of names)if(n!==name)v=n.length>1?v.replaceAll(n,name):v===n?name:v;return v;}if(Array.isArray(v))return v.map(redact);if(v&&typeof v==='object')return Object.fromEntries(Object.entries(v).map(([k,x])=>[k,redact(x)]));return v;};return {render_data:redact(out),manifest:JSON.parse(revision.manifest_json),...(mediaBase.endsWith('/gallery')?{asset_base:mediaBase.slice(0,-8)+'/styles/'+encodeURIComponent(source.style.pack_id)+'/versions/'+encodeURIComponent(source.style.pack_version)+'/assets/'}:{}),warnings:[]};}
-    return {render_data:out,manifest:JSON.parse(revision.manifest_json),...(mediaBase.endsWith('/gallery')?{asset_base:mediaBase.slice(0,-8)+'/styles/'+encodeURIComponent(source.style.pack_id)+'/versions/'+encodeURIComponent(source.style.pack_version)+'/assets/'}:{}),warnings:[]};
+    const assetExtras=mediaBase.endsWith('/gallery')?{asset_base:mediaBase.slice(0,-8)+'/styles/'+encodeURIComponent(source.style.pack_id)+'/versions/'+encodeURIComponent(source.style.pack_version)+'/assets/'}:{};
+    if(!student.parent_consent_media)return {render_data:mask.redactValue(out),manifest:JSON.parse(revision.manifest_json),...assetExtras,warnings:[]};
+    return {render_data:out,manifest:JSON.parse(revision.manifest_json),...assetExtras,warnings:[]};
 }
