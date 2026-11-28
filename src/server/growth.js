@@ -232,13 +232,22 @@ async function renderReport(r, row, children, base) {
         previous: null
     }));
     const image = id => base + "/parent/media/" + encodeURIComponent(id);
-    if (d.style.header_image_id) d.style.header_image_url = image(d.style.header_image_id);
     if (student.parent_consent_media) {
+        if (d.style?.header_image_id) d.style.header_image_url = image(d.style.header_image_id);
+        else if (d.style) delete d.style.header_image_url;
         d.artwork_image_urls = d.artwork_image_ids.map(image);
         for (const m of d.mock_exams) m.image_urls = m.image_ids.map(image);
     } else {
+        if (d.style) {
+            d.style.header_image_id = null;
+            delete d.style.header_image_url;
+        }
         d.artwork_image_ids = [];
-        for (const m of d.mock_exams) m.image_ids = [];
+        delete d.artwork_image_urls;
+        for (const m of d.mock_exams) {
+            m.image_ids = [];
+            delete m.image_urls;
+        }
     }
     return {
         render_data: {
