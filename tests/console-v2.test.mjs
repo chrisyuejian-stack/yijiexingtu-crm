@@ -59,3 +59,14 @@ test("控制台改版：推广页面只调用推广与控制台账号接口；�
   assert.match(cx, /if \(self\) op = h\("span", "muted", "本人"\);/);
   assert.match(cx, /a\.role === "owner" && a\.active && owners <= 1/);
 });
+
+test("控制台手机端适配（G-04）：导航换行且圆点不压字，表格带数据标签并转卡片列表", async () => {
+  const [js, css] = await source();
+  const m = css.slice(css.indexOf("@media (max-width: 760px)"));
+  assert.match(m, /\.cx-nav\s*\{[^}]*flex-wrap:\s*wrap/);
+  assert.match(m, /\.cx-nav-item\[aria-current="page"\]::after\s*\{[^}]*margin-left:\s*0/);
+  assert.match(m, /table\.cx-table\s*\{[^}]*display:\s*block/);
+  assert.match(m, /attr\(data-label\)/);
+  assert.match(js, /"data-label": cols\[idx\]/);
+  assert.match(js, /td\.dataset\.label = cols\[i\]\[0\]/);
+});

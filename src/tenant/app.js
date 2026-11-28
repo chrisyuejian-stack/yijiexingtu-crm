@@ -954,6 +954,7 @@ function shell() {
       else b.append(el("span", String(n), { class: "ui-tab-count" }));
     }
     moveTabInk(!sameGroup);
+    headTabs.querySelector(':scope > .ui-button[aria-current="page"]')?.scrollIntoView?.({ inline: "nearest", block: "nearest" });
     frame.dataset.route = key;
     const saveView = (node) => {
       if (!VIEW_CACHE_KEYS.test(key) || node.__calendarDestroy || node.__soft) return;

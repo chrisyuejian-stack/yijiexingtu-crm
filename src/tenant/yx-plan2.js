@@ -159,15 +159,17 @@ function yxp2Render(shell, st, close, rerender) {
       strip.append(b);
     });
   };
-  // 左栏：内容 / 样式
-  const tabs = el("div", null, { class: "yxv-seg yxv-seg-full", role: "tablist" });
-  for (const [k, t] of [["content", "内容"], ["style", "样式"]]) {
-    const b = el("button", t, { type: "button", role: "tab", "aria-selected": String((st.tab || "content") === k), "aria-pressed": String((st.tab || "content") === k) });
+  const pane = st.tab || "content";
+  body.dataset.mpane = pane;
+  // 左栏：内容 / 样式（手机端补“预览”与“AI 助手”切页）
+  const tabs = el("div", null, { class: "yxv-seg yxv-seg-full yxv-seg-top", role: "tablist" });
+  for (const [k, t, mobile] of [["content", "内容", false], ["style", "样式", false], ["preview", "预览", true], ["ai", "AI 助手", true]]) {
+    const b = el("button", t, { type: "button", role: "tab", class: mobile ? "yxv-tab-m" : "", "aria-selected": String(pane === k), "aria-pressed": String(pane === k) });
     b.addEventListener("click", () => ((st.tab = k), rerender()));
     tabs.append(b);
   }
   left.append(tabs);
-  if ((st.tab || "content") === "style") yxpStyleTab(left, st, locked, mark, rerender);
+  if (pane === "style") yxpStyleTab(left, st, locked, mark, rerender);
   else yxp2Modules(left, st, locked, mark, rerender);
   yxp2Ai(right, st, locked, mark, rerender);
   drawPreview();

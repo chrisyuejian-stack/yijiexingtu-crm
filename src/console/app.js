@@ -367,9 +367,7 @@ async function tenants(c, offset = 0) {
         class: latest.status === "completed" ? "muted" : "error",
       }),
     );
-  const table = el("table"),
-    head = el("tr");
-  for (const h of [
+  const cols = [
     "机构",
     "类型 · 城市",
     "访问路径",
@@ -379,14 +377,19 @@ async function tenants(c, offset = 0) {
     "学员 / 本月课次",
     "最近登录 / 24小时登录失败",
     "操作",
-  ])
-    head.append(el("th", h));
-  table.append(head);
+  ];
+  const table = el("table"),
+    thead = el("thead"),
+    tbody = el("tbody"),
+    head = el("tr");
+  for (const h of cols) head.append(el("th", h));
+  thead.append(head);
+  table.append(thead, tbody);
   for (const t of items) {
     const row = el("tr");
-    for (const value of [
+    [
       t.name,
-      t.type + " · " + t.city,
+      [t.type, t.city].filter(Boolean).join(" · "),
       "/" + t.slug,
       t.status === "active" ? "启用" : "已停用",
       t.expires_at || "未设置",
@@ -395,12 +398,11 @@ async function tenants(c, offset = 0) {
       (t.last_active ? bjt(t.last_active) : "暂无登录") +
         " / " +
         t.login_failures,
-    ])
-      row.append(el("td", value));
-    const action = el("td");
+    ].forEach((value, idx) => row.append(el("td", value, { "data-label": cols[idx] })));
+    const action = el("td", null, { class: "cx-col-op" });
     action.append(button("管理", () => detail(c, t.id)));
     row.append(action);
-    table.append(row);
+    tbody.append(row);
   }
   const panel = el("section", null, { class: "table-wrap" });
   panel.append(table);
@@ -2961,6 +2963,7 @@ function cxTable(cols, fit = false) {
     if (cls) r.className = cls;
     cells.forEach((v, i) => {
       const td = h("td", cols[i]?.[1] || "");
+      if (cols[i]?.[0]) td.dataset.label = cols[i][0];
       if (v instanceof Node) td.append(v);
       else td.textContent = v ?? "";
       r.append(td);
