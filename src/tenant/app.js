@@ -305,6 +305,7 @@ function field(form, label, name, type = "text", value = "", required = true) {
   return f.input;
 }
 function submit(form, label, handler) {
+  form.noValidate = true;
   const b = UI.button(label, { kind: "primary" });
   b.setAttribute("type", "submit");
   b.classList.add("button");
@@ -317,6 +318,23 @@ function submit(form, label, handler) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (b.disabled) return;
+    form.querySelector(".form-error")?.remove();
+    for (const c of form.querySelectorAll?.("input, select, textarea") || []) {
+      if (c.disabled || c.type === "hidden" || c.closest?.("[hidden]")) continue;
+      const raw = String(c.value || "").trim();
+      const fieldLabel = (c.closest?.(".field, .ui-field, label")?.querySelector?.("span, label")?.textContent || c.getAttribute?.("aria-label") || "该项").replace(/\s*\*$/, "").trim();
+      let msg = "";
+      if (c.required && !raw) msg = (c.tagName === "SELECT" ? "请选择" : "请填写") + fieldLabel;
+      else if (c.checkValidity && !c.checkValidity()) msg = /[\u4e00-\u9fff]/.test(c.validationMessage || "") ? c.validationMessage : "请检查“" + fieldLabel + "”的格式";
+      if (msg) {
+        c.focus?.();
+        const feedback = el("p", msg, { class: "ui-field-error form-error", role: "alert" });
+        const foot = form.querySelector(":scope > .v-form-foot");
+        if (foot) foot.before(feedback);
+        else form.append(feedback);
+        return;
+      }
+    }
     b.disabled = true;
     b.setAttribute("aria-busy", "true");
     // 与通用按钮一致：0.3 秒内完成不变样；更久才变浅并显示“保存中…”。
@@ -326,7 +344,6 @@ function submit(form, label, handler) {
       b.classList.add("is-busy");
       if (verb && text) text.textContent = verb + "中…";
     }, 300);
-    form.querySelector(".form-error")?.remove();
     try {
       await handler(Object.fromEntries(new FormData(form)));
     } catch (e) {
