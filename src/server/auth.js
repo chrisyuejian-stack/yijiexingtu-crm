@@ -69,10 +69,10 @@ export async function loginTenant(req, env, tenant, base, data) {
     info = clientInfo(req);
   string(data.phone, "手机号", 64);
   string(data.password, "密码", 256);
-  const mobile = /^1[3-9]\d{9}$/.test(data.phone) ? data.phone : "13800000000";
-  const index = await phoneIndex(env, tenant.id, mobile),
-    key = "login:" + tenant.id + ":" + index,
-    ipKey = "login-ip:" + info.ip;
+  const validMobile = /^1[3-9]\d{9}$/.test(data.phone);
+  const index = validMobile ? await phoneIndex(env, tenant.id, data.phone) : null,
+    key = "login:" + tenant.id + ":" + (index ?? "invalid"),
+    ipKey = "login-ip:" + tenant.id + ":" + info.ip;
   // 默认仍需服务端验证；只有明确的生产配置off关闭挑战，失败日志和限流继续执行。
   const challengeDisabled = turnstileMode(env) === "off";
   const phoneLimit = challengeDisabled ? 3 : 5;
@@ -100,7 +100,7 @@ export async function loginTenant(req, env, tenant, base, data) {
         result.hostname === new URL(req.url).hostname &&
         result.action === "login";
     } catch {}
-  const u = await r.userByPhone(index),
+  const u = index ? await r.userByPhone(index) : null,
     computed = await digestPassword(
       env,
       data.password,
