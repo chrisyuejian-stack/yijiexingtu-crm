@@ -406,6 +406,7 @@ html .yxp-acc-body { padding: 0 12px; display: flex; flex-direction: column; gap
 html .yxp-acc-body p { margin: 0; font-size: 12px; }
 html .yxp-acc-body .yxp-field { font-size: 12px; color: var(--yx-sub); display: flex; flex-direction: column; gap: 4px; }
 html .yxp-acc-body input, html .yxp-acc-body select, html .yxp-acc-body textarea { font: inherit; font-size: 13px; color: var(--yx-text); }
+html .yxp-acc-body .ui-date-row > .ui-control, html .yxp-field .ui-date-row > .ui-control { height: 32px; min-height: 32px; font-size: 13px; }
 html .yxp-acc-body .yxp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 html .yxp-acc-body .yxp-grid.is-inst { grid-template-columns: 1fr 70px 1fr auto; align-items: end; }
 html .yxp-acc-body .yxp-stage { border: 1px solid var(--yx-line); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }

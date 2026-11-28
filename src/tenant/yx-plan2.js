@@ -178,11 +178,23 @@ function yxp2Render(shell, st, close, rerender) {
 // ---------- 左栏：11 个版块（手风琴，一次展开一个；可改标题、显示/隐藏、调整顺序）----------
 function yxp2Kit(locked, mark) {
   const inp = (parent, label, value, on, type = "text", attrs = {}) => {
+    if (type === "date") {
+      const picker = UI.dateControl({
+        label,
+        value: value || "",
+        allowEmpty: true,
+        disabled: locked,
+        onChange: (v) => (on(v), mark()),
+      });
+      picker.element.classList.add("yxp-field", "yx-date-off");
+      parent.append(picker.element);
+      return picker.input || picker.trigger;
+    }
     const w = el("label", label, { class: "yxp-field" }),
       i = type === "textarea" ? el("textarea", null, { rows: attrs.rows || "3", ...attrs }) : el("input", null, { type, ...attrs });
     i.value = value ?? "";
     i.disabled = locked;
-    i.addEventListener(type === "date" || type === "month" ? "change" : "input", () => (on(i.value), mark()));
+    i.addEventListener(type === "month" ? "change" : "input", () => (on(i.value), mark()));
     w.append(i);
     parent.append(w);
     return i;

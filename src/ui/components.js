@@ -466,6 +466,7 @@ export function overlay({
   element.addEventListener("cancel", (event) => {
     event.preventDefault();
     event.stopPropagation();
+    if (element.querySelector(".ui-calendar:not([hidden]), .ui-select .ui-popover:not([hidden])")) return;
     void requestClose();
   });
   mask.addEventListener("click", () => void requestClose());
@@ -473,6 +474,7 @@ export function overlay({
     if (event.key === "Escape") {
       event.preventDefault();
       event.stopPropagation();
+      if (element.querySelector(".ui-calendar:not([hidden]), .ui-select .ui-popover:not([hidden])")) return;
       void requestClose();
     }
     if (event.key === "Tab") {
@@ -732,10 +734,23 @@ export function validDate(value) {
     new Date(value + "T12:00:00Z").toISOString().slice(0, 10) === value
   );
 }
+function normalizeDateInput(raw) {
+  const s = String(raw || "").trim();
+  if (!s) return "";
+  let m = /^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$/.exec(s) || /^(\d{4})\s*\/\s*(\d{1,2})\s*\/\s*(\d{1,2})$/.exec(s);
+  if (!m) {
+    const d8 = /^(\d{4})(\d{2})(\d{2})$/.exec(s);
+    if (d8) m = d8;
+  }
+  if (!m) return null;
+  const iso = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+  return validDate(iso) ? iso : null;
+}
 export function dateControl({
   label,
   value,
   allowEmpty = false,
+  disabled = false,
   onChange = () => {},
 } = {}) {
   const today = new Intl.DateTimeFormat("sv-SE", {
@@ -745,41 +760,145 @@ export function dateControl({
   let selected = value || (allowEmpty ? "" : today),
     active = selected || today,
     year = Number(active.slice(0, 4)),
-    month = Number(active.slice(5, 7));
+    month = Number(active.slice(5, 7)),
+    boundOutside = false;
   const root = node("div", null, { class: "ui-field ui-date" }),
     id = uid("date"),
-    caption = node("label", label, { id: id + "-label" }),
+    caption = label ? node("label", label, { id: id + "-label" }) : null,
+    row = node("div", null, { class: "ui-date-row" }),
+    input = node("input", null, {
+      type: "text",
+      class: "ui-control ui-date-input",
+      inputmode: "numeric",
+      autocomplete: "off",
+      placeholder: "YYYY-MM-DD",
+      "aria-label": (label || "日期") + " 输入",
+    }),
     trigger = node("button", null, {
       type: "button",
-      class: "ui-control ui-picker-trigger",
+      class: "ui-control ui-picker-trigger ui-date-toggle",
       "aria-haspopup": "dialog",
       "aria-expanded": "false",
-      "aria-labelledby": id + "-label",
+      ...(caption ? { "aria-labelledby": id + "-label" } : { "aria-label": "选择日期" }),
     }),
-    text = node("span"),
     popup = node("div", null, {
       class: "ui-popover ui-calendar",
       role: "dialog",
       "aria-label": "选择日期",
       id,
     });
-  trigger.append(text, icon("calendar"));
+  input.disabled = !!disabled;
+  trigger.disabled = !!disabled;
+  input.value = selected;
+  trigger.append(icon("calendar"));
   trigger.setAttribute("aria-controls", id);
-  root.append(caption, trigger, popup);
+  row.append(input, trigger);
+  if (caption) root.append(caption);
+  root.append(row, popup);
   popup.hidden = true;
+  const outside = (e) => {
+    if (!root.contains(e.target)) close();
+  };
   const close = () => {
     popup.hidden = true;
     trigger.setAttribute("aria-expanded", "false");
+    if (boundOutside) {
+      document.removeEventListener("pointerdown", outside);
+      boundOutside = false;
+    }
+  };
+  const open = () => {
+    if (disabled) return;
+    active = selected || today;
+    year = Number(active.slice(0, 4));
+    month = Number(active.slice(5, 7));
+    render();
+    popup.hidden = false;
+    trigger.setAttribute("aria-expanded", "true");
+    if (!boundOutside) {
+      document.addEventListener("pointerdown", outside);
+      boundOutside = true;
+    }
+    const box = root.getBoundingClientRect();
+    popup.classList.toggle("is-above", box.bottom + 370 > innerHeight);
+    // 靠右的日期框：日历改为右对齐，不超出窗口或侧边栏右边。
+    const edge = Math.min(innerWidth, root.closest("dialog, .ui-overlay, aside")?.getBoundingClientRect().right || innerWidth);
+    popup.classList.toggle("is-end", box.left + 312 > edge - 8);
+    popup.querySelector('[tabindex="0"]')?.focus();
   };
   const choose = (date) => {
     selected = date;
     active = date;
-    text.textContent = selected || "选择日期";
+    input.value = selected;
+    input.setCustomValidity?.("");
     close();
     trigger.focus();
     onChange(date);
   };
+  const commit = (report = true) => {
+    const raw = input.value.trim();
+    if (!raw) {
+      if (allowEmpty) {
+        if (selected !== "") {
+          selected = "";
+          onChange("");
+        }
+        input.value = "";
+        input.setCustomValidity?.("");
+      } else {
+        input.value = selected;
+        input.setCustomValidity?.("");
+      }
+      return;
+    }
+    const norm = normalizeDateInput(raw);
+    if (!norm) {
+      input.setCustomValidity?.("日期格式不正确，请填写 YYYY-MM-DD（如 2026-11-17）");
+      if (report) input.reportValidity?.();
+      return;
+    }
+    input.setCustomValidity?.("");
+    input.value = norm;
+    if (norm !== selected) {
+      selected = norm;
+      active = norm;
+      year = Number(norm.slice(0, 4));
+      month = Number(norm.slice(5, 7));
+      if (!popup.hidden) render();
+      onChange(norm);
+    }
+  };
+  input.addEventListener("input", () => {
+    input.setCustomValidity?.("");
+    const raw = input.value.trim();
+    if (!raw && allowEmpty) {
+      if (selected !== "") {
+        selected = "";
+        onChange("");
+      }
+      return;
+    }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(raw) && validDate(raw) && raw !== selected) {
+      selected = raw;
+      active = raw;
+      year = Number(raw.slice(0, 4));
+      month = Number(raw.slice(5, 7));
+      if (!popup.hidden) render();
+      onChange(raw);
+    }
+  });
+  input.addEventListener("blur", () => commit(false));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      commit(true);
+      if (input.validationMessage) e.preventDefault();
+    } else if (e.key === "ArrowDown" && popup.hidden) {
+      e.preventDefault();
+      open();
+    }
+  });
   const moveMonth = (delta) => {
+    const inPopup = popup.contains(document.activeElement);
     const focusedLabel = document.activeElement?.getAttribute("aria-label");
     const next = new Date(Date.UTC(year, month - 1 + delta, 1));
     year = next.getUTCFullYear();
@@ -793,11 +912,15 @@ export function dateControl({
       ),
     );
     render();
-    if (["上个月", "下个月"].includes(focusedLabel))
+    if (focusedLabel && ["上个月", "下个月"].includes(focusedLabel))
       [...popup.querySelectorAll("button")]
         .find((e) => e.getAttribute("aria-label") === focusedLabel)
         ?.focus();
+    else if (inPopup) popup.querySelector('[tabindex="0"]')?.focus();
   };
+  popup.addEventListener("pointerdown", (e) => {
+    if (e.target.closest?.("button")) e.preventDefault();
+  });
   function render() {
     popup.replaceChildren();
     const head = node("div", null, { class: "ui-calendar-header" });
@@ -833,12 +956,12 @@ export function dateControl({
         days.append(week);
       }
       const date = isoDate(year, month, 1 - shift + i),
-        outside = Number(date.slice(5, 7)) !== month;
+        outsideMonth = Number(date.slice(5, 7)) !== month;
       const b = node("button", Number(date.slice(8)), {
         type: "button",
         class:
           "ui-calendar-day" +
-          (outside ? " is-outside" : "") +
+          (outsideMonth ? " is-outside" : "") +
           (date === today ? " is-today" : ""),
         role: "gridcell",
         "aria-label": date,
@@ -882,57 +1005,48 @@ export function dateControl({
       close();
       return;
     }
-    // 空日期打开时从今天所在月份开始（原来会显示“0年0月”）。
-    active = selected || today;
-    year = Number(active.slice(0, 4));
-    month = Number(active.slice(5, 7));
-    render();
-    popup.hidden = false;
-    trigger.setAttribute("aria-expanded", "true");
-    const box = root.getBoundingClientRect();
-    popup.classList.toggle("is-above", box.bottom + 370 > innerHeight);
-    // 靠右的日期框：日历改为右对齐，不超出窗口或侧边栏右边。
-    const edge = Math.min(innerWidth, root.closest("dialog, .ui-overlay, aside")?.getBoundingClientRect().right || innerWidth);
-    popup.classList.toggle("is-end", box.left + 312 > edge - 8);
-    popup.querySelector('[tabindex="0"]')?.focus();
+    open();
   });
-  popup.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      e.preventDefault();
-      e.stopPropagation();
-      close();
-      trigger.focus();
-    }
-    if (
-      e.key === "Tab" &&
-      !e.shiftKey &&
-      document.activeElement === focusable(popup).at(-1)
-    )
-      close();
-  });
+  root.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key === "Escape" && !popup.hidden) {
+        e.preventDefault();
+        e.stopPropagation();
+        close();
+        trigger.focus();
+      }
+      if (
+        e.key === "Tab" &&
+        !popup.hidden &&
+        !e.shiftKey &&
+        document.activeElement === focusable(popup).at(-1)
+      )
+        close();
+    },
+    true,
+  );
   root.addEventListener("focusout", () =>
     setTimeout(() => {
-      if (!root.contains(document.activeElement)) close();
+      if (!popup.hidden && !root.contains(document.activeElement)) close();
     }, 0),
   );
-  const outside = (e) => {
-    if (!root.contains(e.target)) close();
-  };
-  document.addEventListener("pointerdown", outside);
-  text.textContent = selected || "选择日期";
   return {
     element: root,
+    input,
     trigger,
     get value() {
       return selected;
     },
     setValue(v) {
-      if (!validDate(v)) throw Error("日期格式不正确");
-      selected = v;
-      text.textContent = v.replaceAll("-", " / ");
+      if (v && !validDate(v)) throw Error("日期格式不正确");
+      selected = v || "";
+      active = selected || today;
+      input.value = selected;
+      input.setCustomValidity?.("");
     },
     destroy() {
-      document.removeEventListener("pointerdown", outside);
+      close();
       root.remove();
     },
   };

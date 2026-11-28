@@ -214,6 +214,18 @@ function yxpRender(shell, st, close, rerender) {
   }
   left.append(tabs);
   const inp = (parent, label, value, onInput, type = "text", attrs = {}) => {
+    if (type === "date") {
+      const picker = UI.dateControl({
+        label,
+        value: value || "",
+        allowEmpty: true,
+        disabled: locked,
+        onChange: (v) => (onInput(v), mark()),
+      });
+      picker.element.classList.add("yxp-field", "yx-date-off");
+      parent.append(picker.element);
+      return picker.input || picker.trigger;
+    }
     const w = el("label", label, { class: "yxp-field" }),
       i = type === "textarea" ? el("textarea", null, { rows: "3", ...attrs }) : el("input", null, { type, ...attrs });
     i.value = value ?? "";
