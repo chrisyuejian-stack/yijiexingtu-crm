@@ -395,7 +395,7 @@
     display: none;
   }
   .content.v-content {
-    padding: 16px 16px calc(84px + env(safe-area-inset-bottom, 0px));
+    padding: 16px 16px calc(104px + env(safe-area-inset-bottom, 0px));
   }
   .v-tabbar {
     display: grid;
@@ -4500,6 +4500,9 @@ aside.v-rg-side {
   .v-toolbar > .v-head-actions .ui-menu-holder {
     width: 100%;
   }
+  .v-frame[data-route="schedule-week"] .v-head .v-create {
+    display: none;
+  }
   .v-frame[data-route="schedule-week"] .v-head-actions {
     position: fixed;
     right: 16px;
@@ -4910,9 +4913,9 @@ aside.v-rg-side {
     padding: 0 16px 10px;
   }
   .v-td-types {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 6px;
   }
   .v-td-types .v-filter-chip {
     flex: none;

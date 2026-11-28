@@ -34,7 +34,7 @@ async function yxContentPage(c) {
   // 顶部：说明 + 今日 AI + 新建
   const top = el("div", null, { class: "yxv-top" });
   const intro = el("div");
-  intro.append(el("p", "Enrolment Studio", { class: "yx-eyebrow" }), el("p", "公众号、朋友圈、小红书、海报文字、家长群通知。事实只取机构档案和你勾选的资料。", { class: "v-muted" }));
+  intro.append(el("p", "招生内容工坊", { class: "yx-eyebrow" }), el("p", "公众号、朋友圈、小红书、海报文字、家长群通知。事实只取机构档案和你勾选的资料。", { class: "v-muted" }));
   const right = el("div", null, { class: "yxv-top-right" });
   if (enabled("ai", "use")) right.append(yxvUsageMeter());
   if (enabled("content", "write")) right.append(button("＋ 新建内容", () => yxContentEditor(null, () => yxContentPage(c)), "primary"));
