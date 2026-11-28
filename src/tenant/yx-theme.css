@@ -750,8 +750,9 @@ html .yxd .yxd-nums small { font-size: 11px; opacity: 0.75; }
 html .yxd .yxd-nums b { font-size: 30px; line-height: 1.1; }
 html .yxd .yxd-nums span { font-size: 12px; }
 html .yxd .yxd-meta { margin: 16px 0 0; font-size: 11px; opacity: 0.7; }
-html .yxd .yxd-logo { display: inline-flex; align-items: center; min-height: 28px; padding: 4px 12px; border: 1px dashed currentColor; border-radius: 4px; font-size: 11px; letter-spacing: 0.06em; opacity: 0.85; }
-html .yxd .yxd-logo img { max-height: 32px; max-width: 120px; }
+html .yxd .yxd-logo { display: inline-flex; align-items: center; gap: 8px; min-height: 28px; padding: 0; border: 0; font-size: 13px; letter-spacing: 0.04em; opacity: 0.92; }
+html .yxd .yxd-logo-mark { width: 26px; height: 26px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-weight: 600; font-size: 13px; background: color-mix(in srgb, currentColor 14%, transparent); border: 1px solid color-mix(in srgb, currentColor 28%, transparent); flex-shrink: 0; }
+html .yxd .yxd-logo img { max-height: 32px; max-width: 120px; display: block; }
 html .yxd .yxd-cover-top { display: flex; align-items: center; justify-content: space-between; padding: 14mm 15mm 0; position: relative; z-index: 2; }
 html .yxd .yxd-kicker { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; }
 html .yxd .yxd-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -862,6 +863,13 @@ html .yxd .yxd-arch > * { flex: 1; min-height: 100%; }
 html .yxd .yxd-cover > .yxd-arch { position: relative; }
 html .yxd .yxd-arch > .yxd-photo, html .yxd .yxd-arch > .yxd-photo-empty { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; }
 html .yxd .yxd-band .yxd-latin { color: var(--yxd-on-primary); opacity: 0.85; }
+html .yxd .yxd-cover.is-nophoto > .yxd-arch { flex: 0 0 auto; min-height: 28mm; height: 28mm; margin-top: 8mm; }
+html .yxd.is-stage .yxd-cover.is-nophoto .yxd-cover-text { padding-top: 10mm; margin-top: 6mm; }
+html .yxd.is-journal .yxd-cover.is-nophoto .yxd-polaroid { width: 42%; }
+@media screen {
+  html .yxd .yxd-cover.is-nophoto { min-height: 0; }
+  html .yxd.is-journal .yxd-cover.is-nophoto .yxd-meta { margin-top: 12px; }
+}
 
 /* ---------- 成长报告文件（设计稿 v3 第 13、14 页） ---------- */
 html .yxrd { --yxr-primary: #16a394; display: flex; flex-direction: column; gap: 0; padding: 0; background: #fff; color: #211a30; max-width: 420px; margin: 0 auto; font-family: "Noto Sans SC", "PingFang SC", sans-serif; }

@@ -443,6 +443,16 @@
       c.append(host);
       return;
     }
+    const moveLead = async (row, stage) => {
+      if (!row || !UI.leadMoveAllowed(row.stage, stage) || !enabled("leads", "update")) return;
+      try {
+        await api("tools/leads/" + row.id, "PATCH", { stage, version: row.version });
+        await leads(c);
+      } catch (err) {
+        notice(err.message);
+      }
+    };
+    const ADJ = ["new", "contacted", "trial", "lost"];
     const board = n("div", null, { class: "v-lead-board" });
     let dragging = null;
     for (const stage of STAGES) {
@@ -464,24 +474,17 @@
       col.addEventListener("drop", async (e) => {
         e.preventDefault();
         drop(false);
-        const row = dragging;
-        if (!row || !UI.leadMoveAllowed(row.stage, stage) || !enabled("leads", "update")) return;
-        try {
-          await api("tools/leads/" + row.id, "PATCH", { stage, version: row.version });
-          await leads(c);
-        } catch (err) {
-          notice(err.message);
-        }
+        await moveLead(dragging, stage);
       });
       const list = n("div", null, { class: "v-lead-list" });
-      for (const r of items) list.append(leadCard(c, r, stage, (x) => (dragging = x)));
+      for (const r of items) list.append(leadCard(c, r, stage, (x) => (dragging = x), moveLead, ADJ));
       if (!items.length) list.append(n("p", stage === "enrolled" ? "试听后转为学员的会出现在这里。" : "暂无", { class: "v-lead-empty" }));
       col.append(list);
       board.append(col);
     }
-    c.append(board, n("p", "拖动卡片可在相邻阶段间移动；“已转正”需在已试听卡片上点“转为正式学员”。", { class: "v-muted v-lead-hint" }));
+    c.append(board, n("p", "拖动卡片或点击阶段切换按钮可在相邻阶段间移动；“已转正”需在已试听卡片上点“转为正式学员”。", { class: "v-muted v-lead-hint" }));
   }
-  function leadCard(c, r, stage, setDrag) {
+  function leadCard(c, r, stage, setDrag, moveLead, adj = ["new", "contacted", "trial", "lost"]) {
     const today = todayBJ();
     const card = n("article", null, { class: "v-lead-card" + (stage === "lost" ? " is-lost" : ""), tabindex: "0", role: "button" });
     const top = n("div", null, { class: "v-lead-top" });
@@ -511,6 +514,24 @@
       const go = link("查看学员档案 →", () => R().goStudent(r.student_id));
       go.addEventListener("click", (e) => e.stopPropagation());
       card.append(go);
+    }
+    const idx = adj.indexOf(stage);
+    const prevStage = idx > 0 && UI.leadMoveAllowed(stage, adj[idx - 1]) ? adj[idx - 1] : null;
+    const nextStage = idx >= 0 && idx < adj.length - 1 && UI.leadMoveAllowed(stage, adj[idx + 1]) ? adj[idx + 1] : null;
+    if (enabled("leads", "update") && (prevStage || nextStage)) {
+      const moves = n("div", null, { class: "v-lead-move" });
+      for (const [target, text] of [
+        [prevStage, prevStage ? "← " + stageLabel(prevStage) : ""],
+        [nextStage, nextStage ? stageLabel(nextStage) + " →" : ""],
+      ]) {
+        if (!target) continue;
+        const b = button(text, () => moveLead(r, target));
+        b.setAttribute("aria-label", "移至" + stageLabel(target));
+        b.addEventListener("click", (e) => e.stopPropagation());
+        b.addEventListener("keydown", (e) => e.stopPropagation());
+        moves.append(b);
+      }
+      card.append(moves);
     }
     const openIt = () => globalThis.ChannelC3.leadDetail(c, r);
     card.addEventListener("click", openIt);
