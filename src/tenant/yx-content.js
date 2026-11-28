@@ -44,7 +44,7 @@ async function yxContentPage(c) {
   const list = (scenes.items || []).filter((x) => x.months?.length || x.subject).slice(0, 4);
   if (list.length && enabled("content", "write")) {
     const h = el("div", null, { class: "yxv-sec-head" });
-    h.append(el("h2", "从场景开始"), el("span", "按学科模版的节点和课程库推荐", { class: "v-muted" }));
+    h.append(el("h2", "从场景开始"), el("span", "按学科模板的节点和课程库推荐", { class: "v-muted" }));
     const grid = el("div", null, { class: "yxv-scenes" });
     const now = new Date().getMonth() + 1;
     for (const x of list) {
@@ -316,7 +316,7 @@ function yxcSection(parent, title, extra) {
 function yxcLeft(left, st, ro, mark, rerender) {
   const doc = st.doc;
   const tabs = el("div", null, { class: "yxv-seg yxv-seg-full", role: "tablist" });
-  for (const [k, t] of [["article", "文章"], ["brand", "品牌与模版"]]) {
+  for (const [k, t] of [["article", "文章"], ["brand", "品牌与模板"]]) {
     const b = el("button", t, { type: "button", role: "tab", "aria-selected": String(st.tab === k), "aria-pressed": String(st.tab === k) });
     b.addEventListener("click", () => ((st.tab = k), rerender()));
     tabs.append(b);
@@ -330,11 +330,11 @@ function yxcLeft(left, st, ro, mark, rerender) {
     row.append(sw, el("span", (brand?.display_name || "") + " · 主色来自品牌包"));
     s.append(row, el("p", "Logo、主色和咨询二维码在“机构设置 · 品牌与图库”里维护，所有文章统一使用。", { class: "v-muted" }));
     s.append(globalThis.ChannelV2.link("去品牌与图库", () => (location.hash = "inst-brand")));
-    yxcStyles(yxcSection(left, "风格模版", el("small", "颜色取自品牌包", { class: "v-muted" })), st, ro, mark, rerender);
+    yxcStyles(yxcSection(left, "风格模板", el("small", "颜色取自品牌包", { class: "v-muted" })), st, ro, mark, rerender);
     return;
   }
-  // 风格模版
-  yxcStyles(yxcSection(left, "风格模版", el("small", "颜色取自品牌包", { class: "v-muted" })), st, ro, mark, rerender);
+  // 风格模板
+  yxcStyles(yxcSection(left, "风格模板", el("small", "颜色取自品牌包", { class: "v-muted" })), st, ro, mark, rerender);
   // 选中块
   const s1 = el("section", null, { class: "yxv-sec" });
   const h1 = el("div", null, { class: "yxv-sec-h" });
@@ -865,7 +865,7 @@ function yxcDraftTab(body, st, mark, rerender) {
   const seen = new Set();
   const scenes = st.scenes.filter((x) => (!x.subject || x.subject === doc.subject) && (x.id === doc.scene || !seen.has(x.name.split(" / ")[0])) && seen.add(x.name.split(" / ")[0]));
   if (scenes.length) {
-    body.append(el("small", "内容场景 · 必有小节来自学科模版", { class: "yxv-label" }));
+    body.append(el("small", "内容场景 · 必有小节来自学科模板", { class: "yxv-label" }));
     const sc = el("div", null, { class: "yxv-chips" });
     for (const x of scenes) {
       const b = el("button", x.name.split(" / ")[0], { type: "button", "aria-pressed": String(doc.scene === x.id) });

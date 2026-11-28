@@ -118,7 +118,7 @@ function yxp2Render(shell, st, close, rerender) {
     label: "更多",
     items: [
       ...(!locked ? [{ label: "整体平移日期", onSelect: () => yxp2Shift(st, rerender) }] : []),
-      ...(capT.write !== false && enabled("plans", "write") ? [{ label: "存为本机构模版", onSelect: () => yxp2SaveTemplate(st) }] : []),
+      ...(capT.write !== false && enabled("plans", "write") ? [{ label: "存为本机构模板", onSelect: () => yxp2SaveTemplate(st) }] : []),
       ...(enabled("plans", "write") && doc.reference ? [{ label: doc.reference.enabled ? "取消“优秀方案”" : "标为优秀方案（供 AI 参考）", onSelect: () => yxp2Reference(st, rerender) }] : []),
       { label: "历史版本", onSelect: () => yxpRevisions(st, rerender) },
       ...(locked ? [] : [{ label: "价格刷新", onSelect: () => yxpReprice(st, rerender) }]),
@@ -330,7 +330,7 @@ const yxp2Mod = {
           rerender();
         }),
       );
-    b.append(el("p", "这里的姓名只用在方案里，不会改学员档案。主图和模版在“样式”里换。", { class: "v-muted" }));
+    b.append(el("p", "这里的姓名只用在方案里，不会改学员档案。主图和模板在“样式”里换。", { class: "v-muted" }));
   },
   assessment(b, st, K, locked, mark, rerender) {
     const m = st.doc.modules.assessment;
@@ -887,27 +887,27 @@ async function yxp2Shift(st, rerender) {
   panel.append(form);
 }
 async function yxp2SaveTemplate(st) {
-  if (st.dirty) return notice("先保存，再存为模版");
+  if (st.dirty) return notice("先保存，再存为模板");
   const pv = await api("plans/" + encodeURIComponent(st.doc.id) + "/template-preview", "POST", { version: st.doc.version });
-  const { panel, close } = drawer("存为本机构模版");
+  const { panel, close } = drawer("存为本机构模板");
   const form = el("form");
-  form.append(el("p", "模版会去掉学员姓名、家长信息、电话、学校、照片和咨询原文，只留下结构、课程搭配和文字写法。下一位学员可以从这个模版开始。", { class: "v-muted" }));
+  form.append(el("p", "模板会去掉学员姓名、家长信息、电话、学校、照片和咨询原文，只留下结构、课程搭配和文字写法。下一位学员可以从这个模板开始。", { class: "v-muted" }));
   if (pv.redactions?.length) form.append(el("p", "已自动去掉 " + pv.redactions.length + " 处个人信息。", { class: "v-muted" }));
   const M = st.doc.modules;
-  field(form, "模版名称", "name", "text", [M.basic.direction, M.basic.grade].filter(Boolean).join(" · ") || st.doc.title || "学习方案模版");
+  field(form, "模板名称", "name", "text", [M.basic.direction, M.basic.grade].filter(Boolean).join(" · ") || st.doc.title || "学习方案模板");
   field(form, "适用说明（可空）", "description", "text", "", false);
   field(form, "适用方向（逗号分开，可空）", "directions", "text", M.basic.direction || "", false);
   field(form, "适用年级（逗号分开，可空）", "grades", "text", M.basic.grade || "", false);
-  submit(form, "保存模版", async (d) => {
+  submit(form, "保存模板", async (d) => {
     const split = (x) => String(x || "").split(/[,，、]/).map((s) => s.trim()).filter(Boolean).slice(0, 20);
     try {
       await api("plan-templates", "POST", { name: d.name.trim(), description: d.description.trim(), applicability: { subject: st.doc.subject, directions: split(d.directions), grades: split(d.grades), budget: { min: null, max: null, period: "unspecified" }, target_types: [] }, source: { plan_id: st.doc.id, version: st.doc.version }, doc: pv.doc });
     } catch (e) {
-      if (e.code === "template_privacy_review_required") throw Error("方案里还有学员个人信息（如姓名、学校、电话），请先在方案里改掉再存模版。");
+      if (e.code === "template_privacy_review_required") throw Error("方案里还有学员个人信息（如姓名、学校、电话），请先在方案里改掉再存模板。");
       throw e;
     }
     await close();
-    notice("已存为本机构模版", "success");
+    notice("已存为本机构模板", "success");
   });
   panel.append(form);
 }

@@ -167,7 +167,7 @@ test("G-09：UI.confirm 默认 danger=false（非破坏性主色按钮），破�
     ["src/tenant/yx-plans.js", /删除阶段[^}]+danger:\s*true/],
     ["src/tenant/yx-plans.js", /替换现有阶段？[^}]+danger:\s*true/],
     ["src/tenant/yx-content.js", /删除这篇内容？[^}]+danger:\s*true/],
-    ["src/tenant/yx-home.js", /删除模版[^}]+danger:\s*true/],
+    ["src/tenant/yx-home.js", /删除模板[^}]+danger:\s*true/],
     ["src/tenant/yx-settings.js", /停用[^}]+danger:\s*true/],
     ["src/tenant/yx-settings.js", /删除维度[^}]+danger:\s*true/],
     ["src/tenant/yx-settings.js", /删除这张图片？[^}]+danger:\s*true/],

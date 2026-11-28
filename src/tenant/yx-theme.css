@@ -645,6 +645,7 @@ html .yxs-legend h3 { margin: 0; font-size: 15px; }
 html .yxs-legend .yxs-change-row { grid-template-columns: 56px 1fr; }
 html .yxs-course-top { display: flex; gap: 8px; margin: -8px 0 12px; }
 html .yxs-course-panel { padding: 0; overflow: hidden; }
+html .yxs-course-panel > .v-pad { padding: 24px 16px; margin: 0; }
 html .yxs-course-panel .yxv-filter .yxs-search { height: 32px; width: 160px; border: 1px solid var(--yx-line); border-radius: 6px; padding: 0 8px; font: inherit; font-size: 13px; }
 html .yxs-tools .yxs-check { margin: 0; padding: 0; border: 0; background: none; font-size: 13px; min-height: 0; }
 html .yxs-course-panel .yxs-table { border: 0; border-radius: 0; margin: 0; }

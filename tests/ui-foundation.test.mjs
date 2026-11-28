@@ -140,3 +140,46 @@ test("阶段A/G-06：dateControl 支持键盘输入与格式归一、上下月�
     globalThis.innerWidth = prevInnerW;
   }
 });
+
+test("机构端细节优化（G-07/G-08/G-16/G-17/G-18）：引导跳转、品牌出错重试/清除二维码、favicon、模板用词与今日课程去重", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const tenantHtml = await readFile("src/tenant/index.html", "utf8");
+  const shareHtml = await readFile("src/share/index.html", "utf8");
+  assert.match(tenantHtml, /<link[^>]+rel="icon"[^>]+data:image\/svg\+xml/);
+  assert.match(shareHtml, /<link[^>]+rel="icon"[^>]+data:image\/svg\+xml/);
+
+  const appJs = await readFile("src/tenant/app.js", "utf8");
+  const homeJs = await readFile("src/tenant/yx-home.js", "utf8");
+  const plansJs = await readFile("src/tenant/yx-plans.js", "utf8");
+  const plan2Js = await readFile("src/tenant/yx-plan2.js", "utf8");
+  const contentJs = await readFile("src/tenant/yx-content.js", "utf8");
+  const settingsJs = await readFile("src/tenant/yx-settings.js", "utf8");
+  const themeCss = await readFile("src/tenant/yx-theme.css", "utf8");
+  const v2Js = await readFile("src/tenant/v2.js", "utf8");
+  const v2TodayJs = await readFile("src/tenant/v2today.js", "utf8");
+
+  assert.match(appJs, /请先在“课程与教室 › 报价课程与价目表”里导入学科包/);
+  assert.match(homeJs, /去导入学科包[\s\S]*courses-quote/);
+  assert.match(plansJs, /请先在“课程与教室 › 报价课程与价目表”导入学科/);
+  assert.match(settingsJs, /← 返回报价课程与价目表[\s\S]*courses-quote/);
+
+  assert.match(settingsJs, /品牌设置载入失败[\s\S]*重新加载/);
+  assert.match(settingsJs, /清除二维码[\s\S]*qr !== initialQr/);
+  assert.match(settingsJs, /el\("span", "咨询二维码"/);
+
+  for (const [name, code] of [
+    ["src/tenant/yx-home.js", homeJs],
+    ["src/tenant/yx-plans.js", plansJs],
+    ["src/tenant/yx-plan2.js", plan2Js],
+    ["src/tenant/yx-content.js", contentJs],
+  ]) {
+    const nonComment = code.replace(/\/\/.*$/gm, "");
+    assert.doesNotMatch(nonComment, /模版/, `${name} 不应再出现“模版”错别字`);
+  }
+  assert.match(themeCss, /\.yxs-course-panel > \.v-pad\s*\{[^}]*padding:\s*24px 16px/);
+
+  assert.match(v2Js, /whoText !== row\.course_name/);
+  assert.match(v2TodayJs, /whoLabel !== row\.course_name/);
+  assert.match(appJs, /待办合计 " \+ n \+ " 项/);
+});
+

@@ -290,7 +290,7 @@ async function apiRequest(path, method = "GET", data) {
     const raw = result.message || result.error || "操作失败";
     // 学科没开通或没导入学科包时，后端只说“学科未开放”，这里告诉用户去哪里处理。
     const STO = { storage_full: "图库容量已满：请先删除不用的图片，或联系平台扩容。", storage_pending: "正在统计图库容量，请过几秒再上传。", storage_unavailable: "图库暂时连不上，请稍后再试。" };
-    const e = Error(STO[code] ? STO[code] : raw === "学科未开放" ? "这个学科还没开放：请先在“机构设置 › 课程与教室 › 报价课程与价目表”里导入学科包；列表里没有这个学科时，请联系平台开通。" : raw);
+    const e = Error(STO[code] ? STO[code] : raw === "学科未开放" ? "这个学科还没开放：请先在“课程与教室 › 报价课程与价目表”里导入学科包；列表里没有这个学科时，请联系平台开通。" : raw);
     e.status = response.status;
     e.code = code;
     e.details = result.details;
@@ -1294,10 +1294,15 @@ function shell() {
           ...tabbar.querySelectorAll("button"),
         ].filter((x) => x.dataset.group === "todo")) {
           item.querySelector(".c1-todo-badge")?.remove();
-          if (n)
+          if (n) {
+            const scope = "待办合计 " + n + " 项（含未销课/待确认、补课、今日及逾期回访；不含续费提醒）";
+            item.title = scope;
             (item.querySelector(".ui-button-face") || item).append(
-              el("span", String(n), { class: "c1-todo-badge" }),
+              el("span", String(n), { class: "c1-todo-badge", title: scope }),
             );
+          } else {
+            item.removeAttribute("title");
+          }
         }
       }
       if (unreadBadge) {
